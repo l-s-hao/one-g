@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: Arial, Helvetica, sans-serif;
+}
+
+@utility container-shell {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-shell {
+    padding-inline: 3rem;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-overlay { position: absolute; inset: 0; z-index: 1; background: rgba(0, 0, 0, 0.15); }
+.hero-vignette { position: absolute; inset: 0; z-index: 2; background: radial-gradient(circle at center, transparent 18%, rgba(0, 0, 0, 0.2) 55%, rgba(0, 0, 0, 0.72) 100%); pointer-events: none; }
+.hero-actions { position: relative; z-index: 3; }
+.hero-action { display: inline-flex; min-width: 10rem; height: 3.5rem; align-items: center; justify-content: center; border-radius: 999px; padding: 0 1.5rem; font-size: 0.875rem; font-weight: 700; transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, color 180ms ease; }
+.hero-action:hover { transform: scale(1.03); }
+.hero-action--primary { background: #fff; color: #000; }
+.hero-action--primary:hover { background: rgba(255, 255, 255, 0.86); }
+.hero-action--secondary { border: 1px solid rgba(255, 255, 255, 0.35); background: rgba(0, 0, 0, 0.25); color: #fff; backdrop-filter: blur(10px); }
+.hero-action--secondary:hover { border-color: rgba(255, 255, 255, 0.75); background: rgba(255, 255, 255, 0.12); }
+.eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.28em; color: rgba(255,255,255,0.42); text-transform: uppercase; }
+.section-title { font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 700; line-height: 0.98; letter-spacing: -0.06em; }
+.product-visual { position: relative; min-height: 26rem; overflow: hidden; border-radius: 1.5rem; background: radial-gradient(circle at 65% 35%, rgba(255,255,255,0.18), transparent 25%), linear-gradient(135deg, #25252a 0%, #111116 48%, #070708 100%); }
+.product-visual--compact { min-height: 18rem; border-radius: 1.25rem; }
+.product-visual__grid { position: absolute; inset: 0; opacity: 0.22; background-image: linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px); background-size: 42px 42px; transform: perspective(500px) rotateX(58deg) scale(1.6); transform-origin: center bottom; }
+.product-visual__mark { position: absolute; left: 2rem; top: 2rem; font-size: clamp(2rem, 5vw, 4rem); font-weight: 800; letter-spacing: -0.07em; color: rgba(255,255,255,0.88); }
+.product-visual__label { position: absolute; bottom: 1.5rem; left: 1.5rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.25em; color: rgba(255,255,255,0.5); text-transform: uppercase; }
+.configurator-orb { display: flex; height: clamp(9rem, 20vw, 15rem); width: clamp(9rem, 20vw, 15rem); align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.3); border-radius: 42% 58% 55% 45%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.28), rgba(255,255,255,0.04) 38%, rgba(0,0,0,0.5) 72%); box-shadow: 0 25px 80px rgba(255,255,255,0.08); transform: rotate(-8deg); }
+.configurator-orb span { transform: rotate(8deg); font-size: 1.1rem; font-weight: 800; letter-spacing: -0.06em; }
+@media (max-width: 640px) { .hero-actions { flex-direction: column; gap: 0.75rem; } .hero-action { width: min(100%, 22.5rem); } }
+
+::selection {
+  background: #dbeafe;
+  color: #172554;
+}
