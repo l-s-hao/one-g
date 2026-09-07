@@ -4,6 +4,8 @@ const nextConfig: NextConfig = {
   /* config options here */
   devIndicators: false,
   output: "export",
+  basePath: "/one-g",
+  assetPrefix: "/one-g/",
   images: { unoptimized: true },
 };
 

@@ -5,6 +5,7 @@ const IMAGE_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".webp", ".avif"]);
 const ALL_IMAGE_EXTENSIONS = new Set([...IMAGE_EXTENSIONS, ".gif", ".svg"]);
 const EXCLUDED_DIRECTORIES = new Set(["node_modules", ".next", "dist", "build", ".git", "coverage", "out", ".cache"]);
 const EXCLUDED_IMAGE_NAMES = new Set(["logo", "icon", "icons", "favicon", "ui", "social", "arrow", "menu", "cart", "search"]);
+const SITE_BASE_PATH = "/one-g";
 
 function isExcluded(filePath: string) {
   return filePath.split(path.sep).some((part) => EXCLUDED_DIRECTORIES.has(part));
@@ -43,14 +44,14 @@ export function getProjectImages() {
     if (!relativeToPublic.startsWith(`..${path.sep}`) && relativeToPublic !== "..") {
       const bucket = path.dirname(relativeToPublic) || ".";
       byRoot.set(bucket, (byRoot.get(bucket) ?? 0) + 1);
-      return { image: `/${relativeToPublic.split(path.sep).join("/")}`, title: path.basename(filePath, path.extname(filePath)) };
+      return { image: `${SITE_BASE_PATH}/${relativeToPublic.split(path.sep).join("/")}`, title: path.basename(filePath, path.extname(filePath)) };
     }
 
     fs.mkdirSync(publicGeneratedRoot, { recursive: true });
     const generatedName = `${stableHash(filePath).toString(16)}-${path.basename(filePath)}`;
     fs.copyFileSync(filePath, path.join(publicGeneratedRoot, generatedName));
     byRoot.set("generated/drift-wall", (byRoot.get("generated/drift-wall") ?? 0) + 1);
-    return { image: `/generated/drift-wall/${generatedName}`, title: path.basename(filePath, path.extname(filePath)) };
+    return { image: `${SITE_BASE_PATH}/generated/drift-wall/${generatedName}`, title: path.basename(filePath, path.extname(filePath)) };
   });
 
   console.log(`Project image scan: ${[...byRoot.entries()].map(([directory, count]) => `${directory}: ${count}`).join(", ") || "none"}`);
