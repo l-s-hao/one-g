@@ -4,9 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
-import styles from "./G1Section.module.css";
+import type { Product } from "@/types/product";
+import styles from "./CoreProductSection.module.css";
 
-export default function G1Section() {
+export default function CoreProductSection({ product }: { product: Product }) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -26,29 +27,28 @@ export default function G1Section() {
   }, []);
 
   return (
-    <section id="g1" ref={sectionRef} className={styles.section} aria-labelledby="g1-title">
+    <section id="core-product" ref={sectionRef} className={styles.section} aria-labelledby="core-product-title">
       <div className={styles.layout}>
         <div className={styles.heading}>
-          <p className={styles.index}>01 / HUMANOID</p>
-          <h2 id="g1-title" className={styles.title}>
-            <span className={styles.brand}>ONE-G</span>
-            <span className={styles.model}>G1</span>
+          <p className={styles.index}>02 / CORE PRODUCT</p>
+          <h2 id="core-product-title" className={styles.title}>
+            {(product.showcase?.titleLines ?? [product.name]).map((line, index) => <span key={index} className={index === 0 ? styles.brand : styles.model}>{line}</span>)}
           </h2>
         </div>
         <div className={styles.visual}>
-          {/* Replace with the approved G1 render when supplied; existing full robot asset only. */}
-          <Image
-            src="/one-g/hero/one-g-service.png"
-            alt="现有完整服务机器人渲染图，待替换为 ONE-G G1 产品图"
+          {/* Product imagery comes from the repository, including prototype placeholders. */}
+          {product.images[0] && <Image
+            src={product.images[0]}
+            alt={product.showcase?.imageAlt ?? product.name}
             fill
             sizes="(max-width: 767px) 100vw, (max-width: 1400px) 62vw, 868px"
             className={styles.image}
-          />
+          />}
         </div>
         <div className={styles.details}>
-          <p className={styles.description}>通用具身智能<br />机器人平台</p>
+          <p className={styles.description}>{(product.showcase?.descriptionLines ?? [product.subtitle]).map((line, index) => <span key={index} className="block">{line}</span>)}</p>
           <div className={styles.actions}>
-            <Link href="/products/g1" className={styles.secondary}>了解产品</Link>
+            <Link href={`/products/${product.slug}`} className={styles.secondary}>了解产品</Link>
             <ShimmerButton href="/customize" className="min-h-12 min-w-32 px-6">在线定制</ShimmerButton>
           </div>
         </div>

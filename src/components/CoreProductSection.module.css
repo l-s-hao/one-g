@@ -26,7 +26,7 @@
   font-weight: 500;
   letter-spacing: 0.26em;
 }
-.title { font-weight: 800; letter-spacing: -0.04em; }
+.title { font-weight: 800; letter-spacing: -0.04em; overflow-wrap: anywhere; }
 .title span { display: block; }
 .brand { font-size: clamp(3rem, 6vw, 7rem); line-height: 1; }
 .model { margin-top: 0.1em; font-size: clamp(5rem, 11vw, 11rem); line-height: 0.9; }

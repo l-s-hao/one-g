@@ -1,0 +1,30 @@
+.section { background: #000; color: #fff; scroll-margin-top: 4rem; }
+.container { max-width: 1400px; margin-inline: auto; padding: clamp(4rem, 7vw, 7rem) clamp(1.25rem, 4vw, 3.5rem); }
+.heading { margin-bottom: 3rem; }
+.eyebrow { font-size: 0.625rem; color: #888; letter-spacing: 0.24em; }
+.title { margin-top: 1.5rem; font-size: clamp(2.75rem, 6.5vw, 6.5rem); font-weight: 800; line-height: 0.98; letter-spacing: -0.05em; }
+.scenes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.scene { position: relative; isolation: isolate; min-height: clamp(23rem, 35vw, 32rem); overflow: hidden; background: #111; }
+.image { object-fit: cover; filter: grayscale(1); transition: transform 650ms ease; }
+.shade { position: absolute; inset: 0; background: linear-gradient(180deg, #00000008 20%, #00000030 48%, #000000e6 100%); }
+.sceneCopy { position: absolute; bottom: 0; inset-inline: 0; padding: clamp(1.5rem, 3vw, 2.75rem); }
+.sceneName { font-size: clamp(2rem, 3vw, 3rem); font-weight: 600; line-height: 1.15; letter-spacing: -0.04em; }
+.englishName { margin-top: 0.75rem; font-size: 0.625rem; letter-spacing: 0.2em; color: #ccc; }
+.description { margin-top: 1rem; font-size: 0.875rem; line-height: 1.6; color: #aaa; }
+.advantages { margin-top: clamp(4rem, 7vw, 7rem); }
+.whyTitle { font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 600; letter-spacing: -0.04em; }
+.advantageList { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; margin-top: 2.5rem; }
+.advantage { min-width: 0; border-top: 1px solid #ffffff25; padding-top: 1.5rem; }
+.number { display: block; font-size: clamp(3rem, 5vw, 5rem); font-weight: 500; line-height: 1; letter-spacing: -0.06em; color: #555; font-variant-numeric: tabular-nums; }
+.advantageEnglish { margin-top: 1.75rem; font-size: clamp(1rem, 1.7vw, 1.5rem); font-weight: 600; letter-spacing: -0.045em; }
+.advantageName { margin-top: 0.875rem; font-size: 1rem; color: #ddd; }
+.advantageDescription { margin-top: 0.75rem; max-width: 17rem; font-size: 0.8125rem; line-height: 1.8; color: #888; }
+@media (hover: hover) { .scene:hover .image { transform: scale(1.02); } }
+@media (max-width: 1023px) { .advantageList { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 1.5rem; } }
+@media (max-width: 767px) {
+  .scenes { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .scene { min-height: clamp(23rem, 95vw, 32rem); }
+  .heading { margin-bottom: 2rem; }
+}
+@media (max-width: 359px) { .advantageList { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: reduce) { .image { transition: none; } .scene:hover .image { transform: none; } }

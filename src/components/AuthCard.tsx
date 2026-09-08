@@ -4,6 +4,7 @@ import { ShimmerButton } from "@/components/ui/shimmer-button";
 
 
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import ShineBorder from "./ShineBorder";
 
@@ -32,6 +33,11 @@ export default function AuthCard({ mode }: { mode: Mode }) {
       <section aria-labelledby="auth-title" className="relative w-full max-w-[440px] rounded-3xl bg-[#0a0a0a] px-7 py-10 sm:px-10 sm:py-12">
         <ShineBorder shineColor={["#ffffff", "#666666", "#ffffff"]} duration={10} borderWidth={1} />
         <div className="relative">
+          {mode === "login" && (
+            <Link href="/" className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-2 text-xs text-neutral-400 transition-colors hover:border-white/40 hover:text-white">
+              <ArrowLeft size={14} aria-hidden="true" />返回首页
+            </Link>
+          )}
           <div className="mb-10 text-center">
             <Link href="/" aria-label="ONE-G 首页" className="inline-block text-3xl font-extrabold tracking-[-0.06em]">ONE-G</Link>
             <p className="mt-2 text-[9px] tracking-[0.35em] text-neutral-500">INTELLIGENCE IN MOTION</p>
