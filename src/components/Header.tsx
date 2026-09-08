@@ -14,7 +14,7 @@ const navigation = [
 
 const utilityLinks = [
   { href: "/#search", label: "搜索", Icon: Search },
-  { href: "/account", label: "用户中心", Icon: UserRound },
+  { href: "/login", label: "用户登录", Icon: UserRound },
   { href: "/cart", label: "购物车", Icon: ShoppingCart },
 ];
 

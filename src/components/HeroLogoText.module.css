@@ -1,0 +1,7 @@
+/* The registry's Motion animation controls timing; disable its legacy CSS loop. */
+.text:global(.shiny-text) {
+  animation: none;
+  font: inherit;
+  letter-spacing: inherit;
+  white-space: nowrap;
+}

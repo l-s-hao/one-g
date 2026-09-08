@@ -1,5 +1,8 @@
 "use client";
 
+import { ShimmerButton } from "@/components/ui/shimmer-button";
+
+
 import { Check, ShoppingCart } from "lucide-react";
 import { useState } from "react";
 import type { Product } from "@/data/products";
@@ -15,5 +18,5 @@ export default function AddToCartButton({ product }: { product: Product }) {
       setAdded(true);
     } catch { setAdded(false); }
   };
-  return <button type="button" onClick={add} className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-black">{added ? <Check size={16} /> : <ShoppingCart size={16} />}{added ? "已加入购物车" : "立即购买"}</button>;
+  return <ShimmerButton type="button" onClick={add}>{added ? <Check size={16} /> : <ShoppingCart size={16} />}{added ? "已加入购物车" : "加入购物车"}</ShimmerButton>;
 }

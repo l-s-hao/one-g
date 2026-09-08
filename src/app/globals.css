@@ -1,5 +1,39 @@
 @import "tailwindcss";
 
+.shine-border {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(120deg, transparent 20%, var(--shine-colors), transparent 80%);
+  background-size: 300% 300%;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: shine-border var(--shine-duration) linear infinite;
+}
+
+@keyframes shine-border {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+}
+
+.auth-input {
+  width: 100%;
+  height: 3rem;
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+  background: #111;
+  padding: 0 0.875rem;
+  color: #fff;
+  font-size: 0.875rem;
+}
+.auth-input::placeholder { color: #737373; }
+.auth-page :focus-visible { outline: 2px solid #aaa; outline-offset: 3px; }
+.auth-page ::selection { background: #fff; color: #000; }
+@media (prefers-reduced-motion: reduce) {
+  .shine-border { animation: none; }
+}
+
 :root {
   --background: #000000;
   --foreground: #ffffff;
@@ -53,4 +87,22 @@ body {
 ::selection {
   background: #dbeafe;
   color: #172554;
+}
+
+@theme inline {
+  --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite alternate;
+  --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
+}
+@keyframes shimmer-slide {
+  to { transform: translate(calc(100cqw - 100%), 0); }
+}
+@keyframes spin-around {
+  0% { transform: translateZ(0) rotate(0); }
+  15%, 35% { transform: translateZ(0) rotate(90deg); }
+  65%, 85% { transform: translateZ(0) rotate(270deg); }
+  100% { transform: translateZ(0) rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .one-g-shimmer, .one-g-shimmer * { animation: none !important; transition: none !important; }
 }
