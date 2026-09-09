@@ -4,8 +4,8 @@ import { siteContent } from "@/data/site-content";
 export default function HomeFooter() {
   const content = siteContent.footer;
   return (
-    <footer id="site-footer" className="border-t border-white/10 bg-[#080808] px-6 py-10 text-white sm:px-10">
-      <div className="mx-auto max-w-7xl">
+    <footer id="site-footer" className="border-t border-white/10 bg-[#080808] px-6 py-10 text-white md:px-[clamp(24px,4vw,72px)]">
+      <div className="mx-auto w-full max-w-[1800px]">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_2fr]">
           <Link href="/" className="w-fit self-start text-xl font-bold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">{content.brand}</Link>
           <nav aria-label="页脚导航" className="grid grid-cols-2 gap-x-6 gap-y-7 sm:grid-cols-4">

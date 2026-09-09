@@ -41,7 +41,7 @@ export default function CoreProductSection({ product }: { product: Product }) {
             src={product.images[0]}
             alt={product.showcase?.imageAlt ?? product.name}
             fill
-            sizes="(max-width: 767px) 100vw, (max-width: 1400px) 62vw, 868px"
+            sizes="(max-width: 767px) 100vw, 62vw"
             className={styles.image}
           />}
         </div>

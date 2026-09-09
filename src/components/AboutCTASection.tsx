@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { siteContent } from "@/data/site-content";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import styles from "./AboutCTASection.module.css";
+import FinalCTAParticleTitle from "./FinalCTAParticleTitle";
 
 export default function AboutCTASection() {
   const content = siteContent.homeClosing;
@@ -23,7 +24,10 @@ export default function AboutCTASection() {
         </div>
 
         <div className={styles.closing} aria-labelledby="closing-title">
-          <h3 id="closing-title" className={styles.closingTitle}>{content.finalTitle.map(line => <span key={line}>{line}</span>)}</h3>
+          <h3 id="closing-title" className="sr-only">BUILD YOUR ONE-G</h3>
+          <div className={styles.particleTitle} aria-hidden="true">
+            <FinalCTAParticleTitle />
+          </div>
           <p className={styles.closingDescription}>{content.finalDescription}</p>
           <div className={styles.actions}>
             <ShimmerButton href={content.primaryAction.href} className="min-h-14 min-w-44 px-8">{content.primaryAction.label}</ShimmerButton>

@@ -37,7 +37,7 @@ export default function HardwareEcosystemSection() {
     const Icon = icons[node.category];
     return (
       <button key={node.id} type="button" data-node-id={node.id} aria-pressed={active} aria-label={`${active ? "取消" : "添加"} ${node.name}`} className={`${styles.node} ${active ? styles.selected : ""} ${node.category === "capability" ? styles.capability : ""}`} onClick={() => toggle(node)} draggable onDragStart={event => { event.dataTransfer.setData(dragType, node.id); event.dataTransfer.effectAllowed = "copy"; setDragging(node.id); }} onDragEnd={() => { setDragging(null); setOverCanvas(false); }}>
-        <span className={styles.thumbnail}>{node.image ? <Image src={node.image} alt="" fill sizes="44px" className={styles.thumbnailImage} /> : <Icon size={21} strokeWidth={1.2} aria-hidden="true" />}</span>
+        <span className={styles.thumbnail}>{node.image ? <Image src={node.image} alt="" fill sizes="(max-width: 1279px) 40px, 64px" className={styles.thumbnailImage} /> : <Icon size={21} strokeWidth={1.2} aria-hidden="true" />}</span>
         <span className={styles.nodeCopy}><span className={styles.nodeType}>{node.label}</span><span className={styles.nodeName}>{node.name}</span></span>
         <span className={styles.addState}>{active ? <Check size={16} /> : <Plus size={16} />}<span>{active ? "已添加" : "添加"}</span></span>
       </button>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type DragEvent } from "react";
+import { useEffect, useRef, useState, type DragEvent } from "react";
 import { useRouter } from "next/navigation";
 import { Box, Check, ChevronDown, Cpu, Eye, Hand, Plus, X } from "lucide-react";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
@@ -16,7 +16,7 @@ const options = groups.flatMap(group => group.options);
 const icons = { base: Box, arm: Box, hand: Hand, vision: Eye, capability: Cpu };
 const groupNames = { base: "BASE PLATFORM", arm: "ARM", hand: "END EFFECTOR", vision: "PERCEPTION", capability: "CAPABILITY" };
 const categoryNames = { base: "基础平台", arm: "机械臂", hand: "末端执行器", vision: "视觉系统", capability: "功能能力" };
-const progressNames = { base: "BASE", arm: "ARM", hand: "END EFFECTOR", vision: "VISION", capability: "CAPABILITY" };
+const progressNames = { base: "BASE", arm: "ARM", hand: "END EFFECTOR", vision: "PERCEPTION", capability: "CAPABILITY" };
 const isOmitted = (option: ConfigurationOption) => option.id === "no-arm" || option.id === "no-hand";
 const slotNames = { base: "基础平台", arm: "机械臂插槽", hand: "末端执行器插槽", vision: "视觉系统", capability: "功能能力" };
 const dragType = "application/x-one-g-configuration-option";
@@ -31,6 +31,42 @@ export default function CustomizePage() {
   const [dropHover, setDropHover] = useState<ConfigurationCategory | null>(null);
   const [allowDrag, setAllowDrag] = useState(false);
   const [openCategory, setOpenCategory] = useState<ConfigurationCategory | null>("base");
+  const libraryScrollRef = useRef<HTMLDivElement>(null);
+  const categoryRefs = useRef<Partial<Record<ConfigurationCategory, HTMLButtonElement>>>({});
+  const [navigation, setNavigation] = useState<{ category: ConfigurationCategory } | null>(null);
+  const [slotFeedback, setSlotFeedback] = useState<{ category: ConfigurationCategory } | null>(null);
+
+  useEffect(() => {
+    if (!navigation) return;
+    // Wait for the controlled accordion to finish rendering before measuring it.
+    const frame = requestAnimationFrame(() => {
+      const target = categoryRefs.current[navigation.category];
+      const container = libraryScrollRef.current;
+      if (!target || !container) return;
+      const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth";
+      if (window.matchMedia("(min-width: 768px)").matches) {
+        // scrollIntoView would also move page ancestors; scroll only the library.
+        const top = target.getBoundingClientRect().top - container.getBoundingClientRect().top + container.scrollTop;
+        container.scrollTo({ top, behavior });
+      } else {
+        target.scrollIntoView({ behavior, block: "start" });
+      }
+    });
+    const timer = window.setTimeout(() => setNavigation(null), 1800);
+    return () => { cancelAnimationFrame(frame); window.clearTimeout(timer); };
+  }, [navigation]);
+
+  useEffect(() => {
+    if (!slotFeedback) return;
+    const timer = window.setTimeout(() => setSlotFeedback(null), 1500);
+    return () => window.clearTimeout(timer);
+  }, [slotFeedback]);
+
+  const navigateToCategory = (category: ConfigurationCategory) => {
+    setOpenCategory(category);
+    setNavigation({ category });
+  };
+
   const selected = options.filter(option => isInstalled(configuration, option));
   const invalid = selected.filter(option => !getAvailability(option, configuration).available);
   const total = getConfigurationTotal(configuration);
@@ -61,6 +97,9 @@ export default function CustomizePage() {
   const update = (option: ConfigurationOption, mode: "toggle" | "add" | "remove") => {
     if (!ready) return;
     setNotice("");
+    if (mode === "remove" || isInstalled(configuration, option) || getAvailability(option, configuration).available) {
+      setSlotFeedback({ category: option.category });
+    }
     setConfiguration(current => {
       const remove = mode === "remove" || (mode === "toggle" && isInstalled(current, option));
       if (!remove && !getAvailability(option, current).available) return current;
@@ -94,7 +133,8 @@ export default function CustomizePage() {
             type="button"
             id={`category-${group.category}`}
             data-category={group.category}
-            className={styles.categoryToggle}
+            ref={element => { categoryRefs.current[group.category] = element ?? undefined; }}
+            className={`${styles.categoryToggle} ${navigation?.category === group.category ? styles.categoryLocated : ""}`}
             aria-expanded={expanded}
             aria-controls={`options-${group.category}`}
             onClick={() => setOpenCategory(expanded ? null : group.category)}
@@ -155,20 +195,26 @@ export default function CustomizePage() {
     const filled = installed.length > 0 && !optedOut;
     const unavailable = installed.some(option => !getAvailability(option, configuration).available);
     const canDrop = accepts(draggedOption, category);
-    return <section key={category} data-slot-type={category} data-filled={filled} className={`${styles.slot} ${category === "base" ? styles.baseSlot : ""} ${filled ? styles.slotActive : ""} ${canDrop ? styles.dropReady : ""} ${dropHover === category ? styles.dropHover : ""}`} aria-label={slotNames[category]} onDragOver={event => {
+    return <section key={category} data-slot-type={category} data-filled={filled} className={`${styles.slot} ${category === "base" ? styles.baseSlot : ""} ${filled ? styles.slotActive : ""} ${slotFeedback?.category === category ? styles.slotUpdated : ""} ${canDrop ? styles.dropReady : ""} ${dropHover === category ? styles.dropHover : ""}`} aria-label={slotNames[category]} onDragOver={event => {
       if (canDrop && event.dataTransfer.types.includes(dragType)) {
         event.preventDefault(); event.dataTransfer.dropEffect = "copy"; setDropHover(category);
       } else { event.dataTransfer.dropEffect = "none"; }
     }} onDragLeave={event => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setDropHover(current => current === category ? null : current); }} onDrop={event => drop(event, category)}>
       <div className={styles.slotHeading}><h3>{groupNames[category]}</h3>{filled && <Check size={15} aria-hidden="true" />}</div>
       <p className={styles.slotLabel}>{slotNames[category]}</p>
-      {multiple && installed.length > 0 ? <><div className={styles.chips}>{installed.map(option => <span key={option.id} className={styles.chip}>{option.name}<button type="button" disabled={!ready} aria-label={`从插槽移除 ${option.name}`} onClick={() => update(option, "remove")}><X size={14} aria-hidden="true" /></button></span>)}</div><p className={styles.addMore}>＋ 可继续添加</p></> : installed.length > 0 ? <div className={styles.installedModule}><h4>{installed[0].name}</h4>{installed[0].description && <p>{installed[0].description}</p>}<div className={styles.installedActions}><span>{optedOut ? "已设为不安装" : unavailable ? "当前模块不可用" : category === "base" ? "✓ 已选择基础平台" : "✓ 已安装"}</span><button type="button" disabled={!ready} aria-label={`从插槽移除 ${installed[0].name}`} onClick={() => update(installed[0], "remove")}><X size={13} aria-hidden="true" />移除</button></div></div> : <div className={styles.emptySlot}><Plus size={20} strokeWidth={1} aria-hidden="true" /><p>{allowDrag ? "将模块拖到这里" : "点击部件库中的 ＋ 添加"}</p><span>{allowDrag ? "或点击左侧模块库中的 ＋" : "展开下方分类，选择对应模块"}</span></div>}
+      {multiple && installed.length > 0 ? <><div className={styles.chips}>{installed.map(option => <span key={option.id} className={styles.chip}>{option.name}<button type="button" disabled={!ready} aria-label={`从插槽移除 ${option.name}`} onClick={event => { event.stopPropagation(); update(option, "remove"); }}><X size={14} aria-hidden="true" /></button></span>)}</div><p className={styles.addMore}>＋ 可继续添加</p></> : installed.length > 0 ? <div className={styles.installedModule}><h4>{installed[0].name}</h4>{installed[0].description && <p>{installed[0].description}</p>}<div className={styles.installedActions}><span>{optedOut ? "已设为不安装" : unavailable ? "当前模块不可用" : category === "base" ? "✓ 已选择基础平台" : "✓ 已安装"}</span><button type="button" disabled={!ready} aria-label={`从插槽移除 ${installed[0].name}`} onClick={event => { event.stopPropagation(); update(installed[0], "remove"); }}><X size={13} aria-hidden="true" />移除</button></div></div> : <div className={styles.emptySlot}><Plus size={20} strokeWidth={1} aria-hidden="true" /><p>{allowDrag ? "将模块拖到这里" : "点击部件库中的 ＋ 添加"}</p><span>{allowDrag ? "或点击左侧模块库中的 ＋" : "展开下方分类，选择对应模块"}</span></div>}
+      <button type="button" className={styles.slotNavigate} aria-label={`${filled ? "修改" : "选择"}${categoryNames[category]}模块`} aria-controls={`options-${category}`} onClick={() => navigateToCategory(category)}>
+        {filled ? "修改模块 →" : "点击选择模块 →"}
+      </button>
       {dropHover === category && <div className={styles.dropMessage}>释放以添加{slotNames[category].replace("插槽", "")}</div>}
     </section>;
   };
 
   return (
     <div className={styles.page}>
+      <p className={styles.navigationHint} role="status" aria-live="polite" data-visible={!!navigation}>
+        {navigation ? `已定位到${navigation.category === "vision" ? "感知系统" : categoryNames[navigation.category]}，请选择模块` : ""}
+      </p>
       <header className={styles.heading}>
         <p>ONE-G / CONFIGURATOR</p>
         <h1>CONFIGURE YOUR <span>ONE-G</span></h1>
@@ -176,7 +222,7 @@ export default function CustomizePage() {
       <div className={styles.workspace}>
         <section className={styles.moduleLibrary} aria-label="模块库">
           <header className={styles.panelHeading}><h2>MODULE LIBRARY</h2><p>选择模块，构建你的 ONE-G</p></header>
-          <div className={styles.accordion}>{groups.map(library)}</div>
+          <div ref={libraryScrollRef} className={styles.libraryScroll} tabIndex={0} aria-label="模块分类列表"><div className={styles.accordion}>{groups.map(library)}</div></div>
         </section>
 
         <section className={styles.currentBuild} aria-label="当前配置结构" aria-busy={!ready}>
