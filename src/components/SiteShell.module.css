@@ -1,0 +1,13 @@
+/* Only the configurator desktop route occupies the viewport. Header keeps its real height. */
+@media (min-width: 1280px) {
+  .workbenchShell {
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .workbenchShell > header { flex-shrink: 0; }
+  .workbenchShell > main {
+    min-height: 0;
+    overflow: hidden;
+  }
+}

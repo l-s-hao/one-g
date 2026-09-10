@@ -26,11 +26,11 @@ export const ShimmerButton = React.forwardRef<
   (
     {
       href,
-      shimmerColor = "#ffffff",
+      shimmerColor = "var(--effect-color)",
       shimmerSize = "0.05em",
       shimmerDuration = "3s",
       borderRadius = "9999px",
-      background = "rgba(0,0,0,0.9)",
+      background = "var(--shimmer-bg)",
       className,
       children,
       ...props
@@ -80,16 +80,16 @@ export const ShimmerButton = React.forwardRef<
           className={cn(
             "absolute inset-0 size-full",
 
-            "rounded-2xl px-4 py-1.5 text-sm font-medium shadow-[inset_0_-8px_10px_#ffffff1f]",
+            "rounded-2xl px-4 py-1.5 text-sm font-medium shadow-[inset_0_-8px_10px_rgba(var(--effect-rgb),0.1216)]",
 
             // transition
             "transform-gpu transition-all duration-300 ease-in-out",
 
             // on hover
-            "group-hover:shadow-[inset_0_-6px_10px_#ffffff3f]",
+            "group-hover:shadow-[inset_0_-6px_10px_rgba(var(--effect-rgb),0.2471)]",
 
             // on click
-            "group-active:shadow-[inset_0_-10px_10px_#ffffff3f]"
+            "group-active:shadow-[inset_0_-10px_10px_rgba(var(--effect-rgb),0.2471)]"
           )}
         />
 

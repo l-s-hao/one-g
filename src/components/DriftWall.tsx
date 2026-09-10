@@ -42,9 +42,6 @@ interface ColumnMeta {
 
 const DEFAULT_ITEMS: DriftWallItem[] = [];
 
-const prefersReducedMotion = (): boolean =>
-  typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
 const columnFactor = (index: number, variance: number): number => {
   const pseudo = ((index * 0.6180339887 + 0.35) % 1) * 2 - 1;
   return 1 + variance * pseudo;
@@ -91,13 +88,15 @@ const DriftWall = ({
   const [containerHeight, setContainerHeight] = useState(600);
   const [activeId, setActiveId] = useState<string | null>(null);
   const activeIdRef = useRef<string | null>(null);
-  const [reduced, setReduced] = useState(prefersReducedMotion);
+  const [reduced, setReduced] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let active = true;
+    Promise.resolve().then(() => { if (active) setReduced(mq.matches); });
     const onChange = (e: MediaQueryListEvent) => setReduced(e.matches);
     mq.addEventListener('change', onChange);
-    return () => mq.removeEventListener('change', onChange);
+    return () => { active = false; mq.removeEventListener('change', onChange); };
   }, []);
 
   const columnItems = useMemo<DriftWallItem[][]>(() => {

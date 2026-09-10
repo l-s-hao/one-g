@@ -40,7 +40,7 @@ export default function ResponsiveDriftWall({ items }: { items: DriftWallItem[] 
       lift={48}
       fade={0.72}
       dim={0.20}
-      overlayColor="#030305"
+      overlayColor="#000000"
       radius={12}
       roll={0}
       pauseOnHover={false}

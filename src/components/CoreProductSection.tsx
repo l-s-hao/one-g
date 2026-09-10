@@ -28,7 +28,7 @@ export default function CoreProductSection({ product }: { product: Product }) {
 
   return (
     <section id="core-product" ref={sectionRef} className={styles.section} aria-labelledby="core-product-title">
-      <div className={styles.layout}>
+      <div className={`home-content-shell ${styles.layout}`}>
         <div className={styles.heading}>
           <p className={styles.index}>02 / CORE PRODUCT</p>
           <h2 id="core-product-title" className={styles.title}>
@@ -49,7 +49,7 @@ export default function CoreProductSection({ product }: { product: Product }) {
           <p className={styles.description}>{(product.showcase?.descriptionLines ?? [product.subtitle]).map((line, index) => <span key={index} className="block">{line}</span>)}</p>
           <div className={styles.actions}>
             <Link href={`/products/${product.slug}`} className={styles.secondary}>了解产品</Link>
-            <ShimmerButton href="/customize" className="min-h-12 min-w-32 px-6">在线定制</ShimmerButton>
+            <ShimmerButton href="/customize/start" className="min-h-12 min-w-32 px-6">在线定制</ShimmerButton>
           </div>
         </div>
       </div>

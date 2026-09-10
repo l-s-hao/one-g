@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 
 export default function ShineBorder({
-  shineColor = ["#ffffff", "#666666", "#ffffff"],
+  shineColor = ["var(--effect-color)", "var(--effect-dim)", "var(--effect-color)"],
   duration = 10,
   borderWidth = 1,
 }: {

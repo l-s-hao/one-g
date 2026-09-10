@@ -12,7 +12,7 @@ import { getCoreProduct } from "@/lib/products";
 import { getProjectImages } from "@/lib/get-project-images";
 
 const heroLinks = [
-  { href: "/customize", label: "在线定制", primary: true },
+  { href: "/customize/start", label: "在线定制", primary: true },
   { href: "/products", label: "商品中心", primary: false },
   { href: "/about", label: "了解公司", primary: false },
 ];

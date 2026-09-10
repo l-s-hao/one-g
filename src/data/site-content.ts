@@ -1,5 +1,6 @@
 // Phase 1 provisional brand copy. Replace here when the official wording is confirmed.
 export const siteContent = {
+  contactPlaceholder: "联系方式即将公布。",
   footer: {
     brand: "ONE-G / 万机智能",
     copyright: "© ONE-G / 万机智能",
@@ -12,7 +13,7 @@ export const siteContent = {
         { label: "灵巧手", href: "/products?category=hand" },
         { label: "视觉系统", href: "/products?category=vision" },
       ] },
-      { title: "定制", links: [{ label: "在线定制", href: "/customize" }] },
+      { title: "定制", links: [{ label: "在线定制", href: "/customize/start" }] },
       { title: "公司", links: [{ label: "了解公司", href: "/about" }] },
       { title: "用户", links: [{ label: "用户中心", href: "/account" }, { label: "购物车", href: "/cart" }] },
     ],
@@ -27,7 +28,7 @@ export const siteContent = {
     imageAlt: "ONE-G 官网原型使用的完整服务机器人产品渲染图",
     finalTitle: ["BUILD YOUR", "ONE-G"],
     finalDescription: "从一个基础平台开始，组合适合你的机器人。",
-    primaryAction: { label: "开始在线定制", href: "/customize" },
+    primaryAction: { label: "开始在线定制", href: "/customize/start" },
     secondaryAction: { label: "查看全部商品", href: "/products" },
   },
 };

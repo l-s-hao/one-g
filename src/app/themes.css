@@ -1,0 +1,178 @@
+/* Public theme tokens. Dark remains the default before client hydration. */
+:root, [data-theme="dark"] {
+  --color-primary: #000;
+  --color-secondary: #fff;
+  --bg: #000;
+  --surface: #fff;
+  --surface-2: rgba(255,255,255,.94);
+  --text: #fff;
+  --text-on-surface: #000;
+  --text-muted: rgba(255,255,255,.68);
+  --border: rgba(255,255,255,.25);
+  --border-strong: rgba(255,255,255,.55);
+  --accent: #fff;
+  --button-primary-bg: #fff;
+  --button-primary-text: #000;
+  --button-secondary-bg: transparent;
+  --button-secondary-text: #fff;
+  --effect-color: #fff;
+  --effect-rgb: 255, 255, 255;
+  --effect-dim: #666;
+  --logo-shine: #a3a3a6;
+  --shimmer-bg: rgba(0,0,0,.9);
+}
+[data-theme="deep-sea"] {
+  --color-primary: #122E8A; --color-secondary: #F5EFEA;
+  --bg: #122E8A; --surface: #F5EFEA; --surface-2: rgba(245,239,234,.94);
+  --text: #F5EFEA; --text-on-surface: #122E8A; --text-muted: rgba(245,239,234,.68);
+  --border: rgba(245,239,234,.25); --border-strong: rgba(245,239,234,.55);
+  --accent: #F5EFEA;
+  --button-primary-bg: #F5EFEA; --button-primary-text: #122E8A;
+  --button-secondary-bg: transparent; --button-secondary-text: #F5EFEA;
+  --effect-rgb: 245, 239, 234; --primary-rgb: 18, 46, 138; --surface-ink-rgb: 18, 46, 138;
+}
+[data-theme="tea-blossom"] {
+  --color-primary: #E72D48; --color-secondary: #F1DDDF;
+  --bg: #E72D48; --surface: #F1DDDF; --surface-2: rgba(241,221,223,.94);
+  --text: #F1DDDF; --text-on-surface: #E72D48; --text-muted: rgba(241,221,223,.72);
+  --border: rgba(241,221,223,.28); --border-strong: rgba(241,221,223,.58);
+  --accent: #F1DDDF;
+  --button-primary-bg: #F1DDDF; --button-primary-text: #E72D48;
+  --button-secondary-bg: transparent; --button-secondary-text: #F1DDDF;
+  --effect-rgb: 241, 221, 223; --primary-rgb: 231, 45, 72; --surface-ink-rgb: 231, 45, 72;
+}
+[data-theme="apple"] {
+  --color-primary: #73AE52; --color-secondary: #FBF1D7;
+  --bg: #73AE52; --surface: #FBF1D7; --surface-2: rgba(251,241,215,.94);
+  --text: #FBF1D7; --text-on-surface: #4f7e36; --text-muted: rgba(251,241,215,.75);
+  --border: rgba(251,241,215,.30); --border-strong: rgba(251,241,215,.60);
+  --accent: #FBF1D7;
+  --button-primary-bg: #FBF1D7; --button-primary-text: #4f7e36;
+  --button-secondary-bg: transparent; --button-secondary-text: #FBF1D7;
+  --effect-rgb: 251, 241, 215; --primary-rgb: 115, 174, 82; --surface-ink-rgb: 79, 126, 54;
+}
+html[data-theme]:not([data-theme="dark"]) {
+  --background: var(--bg); --foreground: var(--text);
+  --ink: var(--text); --ink-rgb: var(--effect-rgb);
+  --ink-muted: var(--text-muted); --ink-soft: var(--text);
+  --panel-bg: var(--surface); --surface-ink: var(--text-on-surface);
+  --effect-color: var(--accent); --effect-dim: var(--accent); --logo-shine: var(--color-primary);
+  --shimmer-bg: var(--color-primary);
+}
+/* Context for pale surfaces: all descendants inherit a matching foreground palette. */
+html[data-theme]:not([data-theme="dark"]) .theme-surface {
+  --ink: var(--text-on-surface); --ink-rgb: var(--surface-ink-rgb);
+  --ink-muted: color-mix(in srgb, var(--text-on-surface) 80%, #000);
+  --ink-soft: var(--text-on-surface);
+  color: var(--ink);
+}
+html[data-theme]:not([data-theme="dark"]) .auth-input {
+  background: var(--surface-2); color: var(--text-on-surface);
+  border-color: rgba(var(--surface-ink-rgb), .3);
+}
+html[data-theme]:not([data-theme="dark"]) .auth-input::placeholder { color: rgba(var(--surface-ink-rgb), .72); }
+html[data-theme]:not([data-theme="dark"]) ::selection { background: var(--surface); color: var(--text-on-surface); }
+.hero-overlay { background: var(--hero-overlay); }
+.hero-vignette { background: radial-gradient(circle at center, transparent 18%, var(--hero-mid) 55%, var(--hero-edge) 100%); }
+html[data-theme]:not([data-theme="dark"]) .hero-action--primary { background: var(--button-primary-bg); color: var(--button-primary-text); }
+html[data-theme]:not([data-theme="dark"]) .hero-action--secondary { color: var(--text); border-color: var(--border-strong); background: rgba(var(--primary-rgb),.12); }
+html[data-theme]:not([data-theme="dark"]) .one-g-shimmer { color: var(--text); --ink-rgb: var(--effect-rgb); }
+
+/* Adapters for existing Tailwind color utilities, scoped to colored themes. */
+html[data-theme]:not([data-theme="dark"]) .bg-\[\#080808\] { background-color: var(--surface); --ink: var(--text-on-surface); --ink-rgb: var(--surface-ink-rgb); --ink-muted: color-mix(in srgb, var(--text-on-surface) 80%, #000); --ink-soft: var(--text-on-surface); color: var(--ink); }
+html[data-theme]:not([data-theme="dark"]) .bg-\[\#0a0a0a\] { background-color: var(--surface); --ink: var(--text-on-surface); --ink-rgb: var(--surface-ink-rgb); --ink-muted: color-mix(in srgb, var(--text-on-surface) 80%, #000); --ink-soft: var(--text-on-surface); color: var(--ink); }
+html[data-theme]:not([data-theme="dark"]) .bg-\[\#0d0d0d\] { background-color: var(--surface); --ink: var(--text-on-surface); --ink-rgb: var(--surface-ink-rgb); --ink-muted: color-mix(in srgb, var(--text-on-surface) 80%, #000); --ink-soft: var(--text-on-surface); color: var(--ink); }
+html[data-theme]:not([data-theme="dark"]) .bg-\[\#111\] { background-color: var(--surface); --ink: var(--text-on-surface); --ink-rgb: var(--surface-ink-rgb); --ink-muted: color-mix(in srgb, var(--text-on-surface) 80%, #000); --ink-soft: var(--text-on-surface); color: var(--ink); }
+html[data-theme]:not([data-theme="dark"]) .bg-\[\#111\]\/95 { background-color: var(--surface-2); --ink: var(--text-on-surface); --ink-rgb: var(--surface-ink-rgb); --ink-muted: color-mix(in srgb, var(--text-on-surface) 80%, #000); --ink-soft: var(--text-on-surface); color: var(--ink); }
+html[data-theme]:not([data-theme="dark"]) .bg-black { background-color: rgba(var(--primary-rgb), 1); }
+html[data-theme]:not([data-theme="dark"]) .bg-black\/80 { background-color: rgba(var(--primary-rgb), 0.8); }
+html[data-theme]:not([data-theme="dark"]) .bg-black\/95 { background-color: rgba(var(--primary-rgb), 0.95); }
+html[data-theme]:not([data-theme="dark"]) .bg-white { background-color: rgba(var(--effect-rgb), 1); --ink: var(--text-on-surface); --ink-rgb: var(--surface-ink-rgb); color: var(--ink); }
+html[data-theme]:not([data-theme="dark"]) .bg-white\/85 { background-color: rgba(var(--effect-rgb), 0.85); }
+html[data-theme]:not([data-theme="dark"]) .border-white { border-color: rgba(var(--ink-rgb), 1); }
+html[data-theme]:not([data-theme="dark"]) .border-white\/10 { border-color: rgba(var(--ink-rgb), 0.1); }
+html[data-theme]:not([data-theme="dark"]) .border-white\/15 { border-color: rgba(var(--ink-rgb), 0.15); }
+html[data-theme]:not([data-theme="dark"]) .border-white\/20 { border-color: rgba(var(--ink-rgb), 0.2); }
+html[data-theme]:not([data-theme="dark"]) .border-white\/25 { border-color: rgba(var(--ink-rgb), 0.25); }
+html[data-theme]:not([data-theme="dark"]) .border-white\/35 { border-color: rgba(var(--ink-rgb), 0.35); }
+html[data-theme]:not([data-theme="dark"]) .border-white\/50 { border-color: rgba(var(--ink-rgb), 0.5); }
+html[data-theme]:not([data-theme="dark"]) .border-zinc-100 { border-color: var(--border); }
+html[data-theme]:not([data-theme="dark"]) .border-zinc-200\/80 { border-color: var(--border); }
+html[data-theme]:not([data-theme="dark"]) .focus-visible\:outline-white:focus-visible { outline-color: rgba(var(--ink-rgb), 1); }
+html[data-theme]:not([data-theme="dark"]) .group:hover .group-hover\:text-white { color: rgba(var(--ink-rgb), 1.0); }
+html[data-theme]:not([data-theme="dark"]) .hover\:bg-neutral-200:hover { background-color: var(--surface); }
+html[data-theme]:not([data-theme="dark"]) .hover\:bg-white\/10:hover { background-color: rgba(var(--effect-rgb), 0.1); }
+html[data-theme]:not([data-theme="dark"]) .hover\:bg-white\/90:hover { background-color: rgba(var(--effect-rgb), 0.9); }
+html[data-theme]:not([data-theme="dark"]) .hover\:bg-white\/\[0\.06\]:hover { background-color: rgba(var(--effect-rgb), 0.06); }
+html[data-theme]:not([data-theme="dark"]) .hover\:bg-zinc-100:hover { background-color: var(--surface); }
+html[data-theme]:not([data-theme="dark"]) .hover\:bg-zinc-50:hover { background-color: var(--surface); }
+html[data-theme]:not([data-theme="dark"]) .hover\:border-white\/25:hover { border-color: rgba(var(--ink-rgb), 0.25); }
+html[data-theme]:not([data-theme="dark"]) .hover\:border-white\/40:hover { border-color: rgba(var(--ink-rgb), 0.4); }
+html[data-theme]:not([data-theme="dark"]) .hover\:border-white\/50:hover { border-color: rgba(var(--ink-rgb), 0.5); }
+html[data-theme]:not([data-theme="dark"]) .hover\:border-white\/55:hover { border-color: rgba(var(--ink-rgb), 0.55); }
+html[data-theme]:not([data-theme="dark"]) .hover\:text-blue-600:hover { color: var(--ink-muted); }
+html[data-theme]:not([data-theme="dark"]) .hover\:text-white:hover { color: rgba(var(--ink-rgb), 1.0); }
+html[data-theme]:not([data-theme="dark"]) .hover\:text-zinc-950:hover { color: var(--ink); }
+html[data-theme]:not([data-theme="dark"]) .text-black { color: var(--text-on-surface); }
+html[data-theme]:not([data-theme="dark"]) .text-neutral-200 { color: var(--ink); }
+html[data-theme]:not([data-theme="dark"]) .text-neutral-300 { color: var(--ink); }
+html[data-theme]:not([data-theme="dark"]) .text-neutral-400 { color: var(--ink-muted); }
+html[data-theme]:not([data-theme="dark"]) .text-neutral-500 { color: var(--ink-muted); }
+html[data-theme]:not([data-theme="dark"]) .text-white { color: rgba(var(--ink-rgb), 1.0); }
+html[data-theme]:not([data-theme="dark"]) .text-white\/30 { color: rgba(var(--ink-rgb), 0.68); }
+html[data-theme]:not([data-theme="dark"]) .text-white\/35 { color: rgba(var(--ink-rgb), 0.68); }
+html[data-theme]:not([data-theme="dark"]) .text-white\/40 { color: rgba(var(--ink-rgb), 0.68); }
+html[data-theme]:not([data-theme="dark"]) .text-white\/45 { color: rgba(var(--ink-rgb), 0.68); }
+html[data-theme]:not([data-theme="dark"]) .text-white\/50 { color: rgba(var(--ink-rgb), 0.68); }
+html[data-theme]:not([data-theme="dark"]) .text-white\/55 { color: rgba(var(--ink-rgb), 0.68); }
+html[data-theme]:not([data-theme="dark"]) .text-white\/60 { color: rgba(var(--ink-rgb), 0.68); }
+html[data-theme]:not([data-theme="dark"]) .text-white\/70 { color: rgba(var(--ink-rgb), 0.7); }
+html[data-theme]:not([data-theme="dark"]) .text-white\/75 { color: rgba(var(--ink-rgb), 0.75); }
+html[data-theme]:not([data-theme="dark"]) .text-white\/80 { color: rgba(var(--ink-rgb), 0.8); }
+html[data-theme]:not([data-theme="dark"]) .text-white\/85 { color: rgba(var(--ink-rgb), 0.85); }
+html[data-theme]:not([data-theme="dark"]) .text-white\/90 { color: rgba(var(--ink-rgb), 0.9); }
+html[data-theme]:not([data-theme="dark"]) .text-zinc-600 { color: var(--ink-muted); }
+html[data-theme]:not([data-theme="dark"]) .text-zinc-700 { color: var(--ink-muted); }
+html[data-theme]:not([data-theme="dark"]) .text-zinc-950 { color: var(--ink); }
+html[data-theme]:not([data-theme="dark"]) { --page-bg: var(--bg); }
+/* Header is a pale surface except while floating over the hero. */
+html[data-theme]:not([data-theme="dark"]) .site-header.sticky,
+html[data-theme]:not([data-theme="dark"]) .site-header.sticky > div {
+  --ink: var(--text-on-surface); --ink-rgb: var(--surface-ink-rgb);
+  --ink-muted: var(--text-on-surface); --ink-soft: var(--text-on-surface);
+  color: var(--ink);
+}
+html[data-theme]:not([data-theme="dark"]) .eyebrow { color: var(--ink-muted); }
+html[data-theme]:not([data-theme="dark"]) .product-visual { background: var(--color-primary); --ink: var(--text); --ink-rgb: var(--effect-rgb); }
+html[data-theme]:not([data-theme="dark"]) .product-visual__mark { color: var(--text); }
+html[data-theme]:not([data-theme="dark"]) .product-visual__label { color: var(--text-muted); }
+/* A brand-colored inset (for example a checkout input) resets a pale parent's ink. */
+html[data-theme]:not([data-theme="dark"]) .bg-black,
+html[data-theme]:not([data-theme="dark"]) .bg-black\/80,
+html[data-theme]:not([data-theme="dark"]) .bg-black\/95 {
+  --ink: var(--text); --ink-rgb: var(--effect-rgb);
+  --ink-muted: var(--text-muted); --ink-soft: var(--text);
+  color: var(--ink);
+}
+html[data-theme]:not([data-theme="dark"]) input.bg-black::placeholder,
+html[data-theme]:not([data-theme="dark"]) textarea.bg-black::placeholder { color: var(--text-muted); }
+html[data-theme]:not([data-theme="dark"]) input:focus-visible,
+html[data-theme]:not([data-theme="dark"]) textarea:focus-visible { outline-color: var(--accent); border-color: var(--accent); }
+@media (max-width: 767px) {
+  html[data-theme]:not([data-theme="dark"]) .mobile-checkout-bar {
+    background: var(--surface-2); color: var(--text-on-surface); border-color: var(--border-strong);
+    --ink: var(--text-on-surface); --ink-rgb: var(--surface-ink-rgb);
+    --ink-muted: color-mix(in srgb, var(--text-on-surface) 80%, #000);
+  }
+  html[data-theme]:not([data-theme="dark"]) .cart-thumbnail { background: rgba(var(--surface-ink-rgb), .05); color: var(--text-on-surface); }
+}
+
+/* Hero image backing and atmospheric layers are deliberately theme-independent.
+   Keep the original Dark alpha values; opaque backing prevents the page's brand
+   color from showing through DriftWall's dimmed tiles and edge mask. */
+:root {
+  --hero-overlay: rgba(0,0,0,.15);
+  --hero-edge: rgba(0,0,0,.72);
+  --hero-mid: rgba(0,0,0,.2);
+}
+.home-page .hero-section { background-color: #000; }

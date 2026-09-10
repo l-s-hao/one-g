@@ -1,28 +1,27 @@
-.section { width: 100%; max-width: none; background: #000; color: #fff; scroll-margin-top: 4rem; }
-.container { width: 100%; max-width: none; padding: clamp(4rem, 7vw, 7rem) clamp(24px, 4vw, 72px); }
+.section { width: 100%; background: var(--page-bg, #000); color: var(--ink, #fff); scroll-margin-top: 4rem; }
+.container { padding: clamp(4rem, 7vw, 7rem) 0; }
 .heading { margin-bottom: 3rem; }
-.eyebrow { font-size: 0.625rem; color: #888; letter-spacing: 0.24em; }
+.eyebrow { font-size: 0.625rem; color: var(--ink-muted, #888); letter-spacing: 0.24em; }
 .title { margin-top: 1.5rem; font-size: clamp(2.75rem, 6.5vw, 6.5rem); font-weight: 800; line-height: 0.98; letter-spacing: -0.05em; }
 .scenes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.25rem, 2vw, 3rem); }
-.scene { position: relative; isolation: isolate; min-height: clamp(23rem, 32vw, 54rem); overflow: hidden; background: #111; }
+.scene { position: relative; isolation: isolate; min-height: clamp(23rem, 32vw, 54rem); overflow: hidden; background: var(--panel-bg, #111); }
 .image { object-fit: cover; filter: grayscale(1); transition: transform 650ms ease; }
 .shade { position: absolute; inset: 0; background: linear-gradient(180deg, #00000008 20%, #00000030 48%, #000000e6 100%); }
 .sceneCopy { position: absolute; bottom: 0; inset-inline: 0; padding: clamp(1.5rem, 3vw, 2.75rem); }
 .sceneName { font-size: clamp(2rem, 3vw, 3rem); font-weight: 600; line-height: 1.15; letter-spacing: -0.04em; }
-.englishName { margin-top: 0.75rem; font-size: 0.625rem; letter-spacing: 0.2em; color: #ccc; }
-.description { max-width: 40rem; margin-top: 1rem; font-size: 0.875rem; line-height: 1.6; color: #aaa; }
+.englishName { margin-top: 0.75rem; font-size: 0.625rem; letter-spacing: 0.2em; color: var(--ink-soft, #ccc); }
+.description { max-width: 40rem; margin-top: 1rem; font-size: 0.875rem; line-height: 1.6; color: var(--ink-muted, #aaa); }
 .advantages { margin-top: clamp(4rem, 7vw, 7rem); }
 .whyTitle { font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 600; letter-spacing: -0.04em; }
 .advantageList { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; margin-top: 2.5rem; }
-.advantage { min-width: 0; border-top: 1px solid #ffffff25; padding-top: 1.5rem; }
-.number { display: block; font-size: clamp(3rem, 5vw, 5rem); font-weight: 500; line-height: 1; letter-spacing: -0.06em; color: #555; font-variant-numeric: tabular-nums; }
+.advantage { min-width: 0; border-top: 1px solid rgba(var(--ink-rgb, 255, 255, 255), 0.1451); padding-top: 1.5rem; }
+.number { display: block; font-size: clamp(3rem, 5vw, 5rem); font-weight: 500; line-height: 1; letter-spacing: -0.06em; color: var(--ink-muted, #555); font-variant-numeric: tabular-nums; }
 .advantageEnglish { margin-top: 1.75rem; font-size: clamp(1rem, 1.7vw, 1.5rem); font-weight: 600; letter-spacing: -0.045em; }
-.advantageName { margin-top: 0.875rem; font-size: 1rem; color: #ddd; }
-.advantageDescription { margin-top: 0.75rem; max-width: 32rem; font-size: 0.8125rem; line-height: 1.8; color: #888; }
+.advantageName { margin-top: 0.875rem; font-size: 1rem; color: var(--ink-soft, #ddd); }
+.advantageDescription { margin-top: 0.75rem; max-width: 32rem; font-size: 0.8125rem; line-height: 1.8; color: var(--ink-muted, #888); }
 @media (hover: hover) { .scene:hover .image { transform: scale(1.02); } }
 @media (max-width: 1279px) { .advantageList { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 1.5rem; } }
 @media (max-width: 767px) {
-  .container { padding-inline: clamp(1rem, 5vw, 1.5rem); }
   .scenes { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
   .scene { min-height: clamp(23rem, 95vw, 32rem); }
   .heading { margin-bottom: 2rem; }
@@ -30,3 +29,22 @@
 }
 @media (max-width: 359px) { .advantageList { grid-template-columns: minmax(0, 1fr); } }
 @media (prefers-reduced-motion: reduce) { .image { transition: none; } .scene:hover .image { transform: none; } }
+
+@media (max-width: 767px) {
+  .container { padding-block: 56px; }
+  .heading { margin-bottom: 20px; }
+  .title { font-size: 28px; margin-top: 12px; }
+  .scenes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .scene { min-height: 0; aspect-ratio: 1; }
+  .sceneCopy { padding: 12px; }
+  .sceneName { font-size: 18px; }
+  .englishName, .description { display: none; }
+  .advantages { margin-top: 32px; }
+  .whyTitle { font-size: 24px; }
+  .advantageList { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px; margin-top: 20px; }
+  .advantage { padding-top: 12px; }
+  .number { display: none; }
+  .advantageEnglish { margin: 0; font-size: 12px; }
+  .advantageName { font-size: 16px; margin-top: 8px; }
+  .advantageDescription { font-size: 12px; line-height: 1.6; margin-top: 8px; }
+}

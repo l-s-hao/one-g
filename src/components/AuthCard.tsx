@@ -31,7 +31,7 @@ export default function AuthCard({ mode }: { mode: Mode }) {
   return (
     <div className="auth-page flex min-h-dvh items-center justify-center px-5 py-12">
       <section aria-labelledby="auth-title" className="relative w-full max-w-[440px] rounded-3xl bg-[#0a0a0a] px-7 py-10 sm:px-10 sm:py-12">
-        <ShineBorder shineColor={["#ffffff", "#666666", "#ffffff"]} duration={10} borderWidth={1} />
+        <ShineBorder shineColor={["var(--effect-color)", "var(--effect-dim)", "var(--effect-color)"]} duration={10} borderWidth={1} />
         <div className="relative">
           {mode === "login" && (
             <Link href="/" className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-2 text-xs text-neutral-400 transition-colors hover:border-white/40 hover:text-white">

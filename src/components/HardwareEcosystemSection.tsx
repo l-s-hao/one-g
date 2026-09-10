@@ -46,13 +46,18 @@ export default function HardwareEcosystemSection() {
 
   return (
     <section id="hardware-ecosystem" className={styles.section} aria-labelledby="ecosystem-title">
-      <div className={styles.container}>
+      <div className={`home-content-shell ${styles.container}`}>
         <header className={styles.heading}>
           <p className={styles.eyebrow}>03 / HARDWARE ECOSYSTEM</p>
           <h2 id="ecosystem-title" className={styles.title}>BUILD YOUR <span>ONE-G</span></h2>
           <p className={styles.intro}>像搭积木一样组合你的机器人</p>
         </header>
 
+        <div className={styles.mobileHardware}>
+          <div className={styles.productRail} aria-label="硬件产品，左右滑动选择">{[...hardware.filter(node => node.category !== "base"), ...perception].map(renderNode)}</div>
+          <p className={styles.mobileFlow}>基础平台 → 部件 → 能力 → 生成方案</p>
+          <div className={styles.mobileCapabilities} aria-label="功能能力">{capabilities.map(renderNode)}</div>
+        </div>
         <div className={styles.workbench}>
           <aside className={`${styles.library} ${styles.hardware}`} aria-label="执行硬件模块">
             <h3 className={styles.libraryTitle}>HARDWARE</h3>
@@ -80,7 +85,7 @@ export default function HardwareEcosystemSection() {
           <p className={styles.eyebrow}>CURRENT BUILD</p>
           <p className={styles.summaryText}>{selected.length ? selected.map(node => node.name).join(" / ") : "选择模块，开始组合"}</p>
         </div>
-        <div className={styles.cta}><ShimmerButton href="/customize" className="min-h-14 px-8">开始完整在线定制 <ArrowRight size={17} aria-hidden="true" /></ShimmerButton></div>
+        <div className={styles.cta}><ShimmerButton href="/customize/start" className="min-h-14 px-8">开始完整在线定制 <ArrowRight size={17} aria-hidden="true" /></ShimmerButton></div>
       </div>
     </section>
   );

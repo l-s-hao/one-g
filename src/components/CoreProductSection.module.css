@@ -1,28 +1,27 @@
 .section {
   width: 100%;
-  max-width: none;
   min-height: 100svh;
   display: flex;
   align-items: center;
-  background: #000;
-  color: #fff;
+  background: var(--page-bg, #000);
+  color: var(--ink, #fff);
   scroll-margin-top: 4rem;
 }
 
 .layout {
-  width: 100%;
-  max-width: none;
   min-height: 100svh;
-    padding: clamp(5rem, 10svh, 8rem) clamp(24px, 4vw, 72px);
+  padding-block: clamp(5rem, 10svh, 8rem);
   display: grid;
-  grid-template-columns: minmax(0, 38fr) minmax(0, 62fr);
+  grid-template-columns: minmax(340px, 0.85fr) minmax(0, 1.55fr);
+  column-gap: clamp(40px, 5vw, 88px);
+  align-items: center;
   grid-template-rows: 1fr auto auto 1fr;
 }
 
-.heading { width: 100%; max-width: 600px; grid-column: 1; grid-row: 2; z-index: 1; }
+.heading { width: 100%; max-width: 560px; grid-column: 1; grid-row: 2; z-index: 1; }
 .index {
   margin-bottom: 2rem;
-  color: #999;
+  color: var(--ink-muted, #999);
   font-size: 0.625rem;
   font-weight: 500;
   letter-spacing: 0.26em;
@@ -31,8 +30,8 @@
 .title span { display: block; }
 .brand { font-size: clamp(3rem, 6vw, 7rem); line-height: 1; }
 .model { margin-top: 0.1em; font-size: clamp(5rem, 11vw, 11rem); line-height: 0.9; }
-.details { width: 100%; max-width: 600px; grid-column: 1; grid-row: 3; z-index: 1; padding-top: 2.5rem; }
-.description { font-size: clamp(1.125rem, 1.8vw, 1.625rem); line-height: 1.55; color: #b8b8b8; letter-spacing: 0.04em; }
+.details { width: 100%; max-width: 560px; grid-column: 1; grid-row: 3; z-index: 1; padding-top: 2.5rem; }
+.description { font-size: clamp(1.125rem, 1.8vw, 1.625rem); line-height: 1.55; color: var(--ink-muted, #b8b8b8); letter-spacing: 0.04em; }
 .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
 .secondary {
   display: inline-flex;
@@ -41,19 +40,22 @@
   min-width: 8rem;
   min-height: 3rem;
   padding: 0.75rem 1.5rem;
-  border: 1px solid #ffffff40;
+  border: 1px solid rgba(var(--ink-rgb, 255, 255, 255), 0.251);
   border-radius: 9999px;
   font-size: 0.875rem;
   font-weight: 600;
   transition: border-color 180ms ease, background 180ms ease;
 }
-.secondary:hover { border-color: #fff; background: #ffffff0d; }
-.secondary:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+.secondary:hover { border-color: var(--ink, #fff); background: rgba(var(--ink-rgb, 255, 255, 255), 0.051); }
+.secondary:focus-visible { outline: 2px solid var(--ink, #fff); outline-offset: 4px; }
 .visual {
   position: relative;
   grid-column: 2;
   grid-row: 1 / -1;
   min-width: 0;
+  width: 100%;
+  max-width: 1050px;
+  margin: 0;
   min-height: clamp(36rem, 46vw, 80rem);
   background: radial-gradient(ellipse at center, #101010 0%, #000 70%);
 }
@@ -71,13 +73,14 @@
   .layout {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto auto auto;
-    padding: 5rem 1.5rem 3.5rem;
+    padding: 5rem 0 3.5rem;
+    column-gap: 0;
   }
   .heading { grid-row: 1; text-align: center; justify-self: center; }
   .index { margin-bottom: 1.25rem; }
   .brand { font-size: clamp(3rem, 12vw, 5rem); }
   .model { font-size: clamp(5rem, 21vw, 8rem); }
-  .visual { grid-column: 1; grid-row: 2; min-height: clamp(19rem, 52svh, 34rem); margin: 1rem -1rem; }
+  .visual { grid-column: 1; grid-row: 2; min-height: clamp(19rem, 52svh, 34rem); margin: 1rem 0; }
   .details { justify-self: center; grid-row: 3; padding-top: 0.5rem; text-align: center; }
   .description { font-size: 1.125rem; }
   .actions { justify-content: center; margin-top: 1.5rem; }
@@ -88,4 +91,20 @@
   .heading, .visual, .secondary { transition: none; }
   .section[data-reveal="pending"] .heading { opacity: 1; transform: none; }
   .section[data-reveal="pending"] .visual { opacity: 1; }
+}
+
+@media (max-width: 767px) {
+  .section, .layout { min-height: 0; }
+  .layout { padding-block: 56px; }
+  .heading { text-align: left; }
+  .index { margin-bottom: 12px; }
+  .title { display: flex; align-items: baseline; gap: 10px; }
+  .brand { font-size: 28px; }
+  .model { margin: 0; font-size: 42px; }
+  .visual { min-height: 0; height: clamp(240px, 74vw, 320px); margin: 16px 0; }
+  .details { padding: 0; }
+  .description { font-size: 14px; line-height: 1.6; }
+  .description span { display: inline; }
+  .actions { margin-top: 16px; gap: 8px; flex-wrap: nowrap; }
+  .actions > * { min-width: 0; min-height: 44px; height: 44px; max-width: none; padding: 10px 12px; font-size: 13px; }
 }

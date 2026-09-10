@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import ThemeProvider from "@/components/ThemeProvider";
 import SiteShell from "@/components/SiteShell";
 import "./globals.css";
+import "./themes.css";
 
 export const metadata: Metadata = {
   title: "ONE - G / 万机智能机器人",
@@ -12,7 +14,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="zh-CN">
       <body className="min-h-screen bg-black text-white antialiased">
-        <SiteShell>{children}</SiteShell>
+        <ThemeProvider><SiteShell>{children}</SiteShell></ThemeProvider>
       </body>
     </html>
   );

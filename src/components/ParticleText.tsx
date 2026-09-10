@@ -125,6 +125,17 @@ const ParticleText = ({
     if (!ctx) return undefined;
 
     let particles: Particle[] = [];
+    // Canvas cannot resolve CSS variables itself. Repaint colors on theme changes
+    // without rebuilding particles or replaying the one-time gather animation.
+    let themeColor: string | null = null;
+    const updateThemeColor = () => {
+      const theme = document.documentElement.dataset.theme;
+      themeColor = theme && theme !== 'dark'
+        ? getComputedStyle(container).getPropertyValue('--effect-color').trim() : null;
+    };
+    updateThemeColor();
+    const themeObserver = new MutationObserver(updateThemeColor);
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
     let animationFrame: number | null = null;
     let resizeFrame: number | null = null;
     let buildId = 0;
@@ -168,7 +179,7 @@ const ParticleText = ({
 
     const drawParticle = (particle: Particle): void => {
       const size = particle.size;
-      ctx.fillStyle = particle.color;
+      ctx.fillStyle = themeColor ?? particle.color;
 
       if (size <= 2.1) {
         ctx.fillRect(particle.x - size / 2, particle.y - size / 2, size, size);
@@ -185,7 +196,7 @@ const ParticleText = ({
 
       if (glow && !reducedMotion) {
         ctx.shadowBlur = particleSize * 3;
-        ctx.shadowColor = highlightColor;
+        ctx.shadowColor = themeColor ?? highlightColor;
       } else {
         ctx.shadowBlur = 0;
       }
@@ -419,6 +430,7 @@ const ParticleText = ({
     return () => {
       buildId += 1;
       resizeObserver.disconnect();
+      themeObserver.disconnect();
       reduceMotionQuery?.removeEventListener('change', handleReduceMotionChange);
       canvas.removeEventListener('pointerenter', handlePointerEnter);
       canvas.removeEventListener('pointermove', handlePointerMove);

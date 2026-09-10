@@ -1,0 +1,59 @@
+/* Effect-only adaptation of React Bits MagicBento. No card sizing or physical borders. */
+.region {
+  position: relative;
+  isolation: isolate;
+  --magic-glow-rgb: 255, 255, 255;
+  /* Clip only decorative light at the options boundary, leaving room for subtle tilt. */
+  overflow: clip;
+  overflow-clip-margin: 6px;
+}
+.surface { position: relative; }
+.borderGlow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: var(--magic-border-width, 1px);
+  background: radial-gradient(var(--glow-radius, 420px) circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(var(--magic-glow-rgb), .7), rgba(var(--magic-glow-rgb), .2) 35%, transparent 65%);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: calc(var(--glow-intensity, 0) * .65);
+  pointer-events: none;
+}
+/* Selection keeps its solid white edge; hover remains a secondary decoration. */
+.region input:checked + .borderGlow::after { opacity: calc(var(--glow-intensity, 0) * .25); }
+.particles { position: absolute; inset: 0; overflow: hidden; border-radius: inherit; pointer-events: none; }
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgb(var(--magic-glow-rgb));
+  box-shadow: 0 0 6px rgba(var(--magic-glow-rgb), .6);
+  pointer-events: none;
+}
+.particle::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: rgba(var(--magic-glow-rgb), .2);
+}
+.spotlight {
+  position: absolute;
+  width: var(--spotlight-size);
+  height: var(--spotlight-size);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle, rgba(var(--magic-glow-rgb), .10) 0%,
+    rgba(var(--magic-glow-rgb), .05) 15%, rgba(var(--magic-glow-rgb), .025) 25%,
+    rgba(var(--magic-glow-rgb), .01) 40%, transparent 70%);
+  mix-blend-mode: screen;
+}
+@media (max-width: 768px), (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .region { overflow: visible; }
+  .spotlight, .particles, .borderGlow::after { display: none; }
+}

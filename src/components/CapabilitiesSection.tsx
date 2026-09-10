@@ -5,7 +5,7 @@ import styles from "./CapabilitiesSection.module.css";
 export default function CapabilitiesSection() {
   return (
     <section id="capabilities" className={styles.section} aria-labelledby="capabilities-title">
-      <div className={styles.container}>
+      <div className={`home-content-shell ${styles.container}`}>
         <div className={styles.heading}>
           <p className={styles.eyebrow}>04 / CAPABILITIES</p>
           <h2 id="capabilities-title" className={styles.title}>WHAT ONE-G<br />CAN DO</h2>

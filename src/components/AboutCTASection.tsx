@@ -10,7 +10,7 @@ export default function AboutCTASection() {
   const content = siteContent.homeClosing;
   return (
     <section id="about-one-g" className={styles.section} aria-labelledby="about-one-g-title">
-      <div className={styles.container}>
+      <div className={`home-content-shell ${styles.container}`}>
         <div className={styles.company}>
           <div className={styles.companyCopy}>
             <p className={styles.eyebrow}>{content.eyebrow}</p>
