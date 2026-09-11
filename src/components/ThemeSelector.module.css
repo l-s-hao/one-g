@@ -7,4 +7,4 @@
 .swatches > span { flex: 1; }
 .name { display: block; margin-top: 12px; font-size: 13px; line-height: 1.5; }
 .selected { display: flex; align-items: center; gap: 4px; min-height: 20px; margin-top: 4px; font-size: 12px; }
-@media (min-width: 1024px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

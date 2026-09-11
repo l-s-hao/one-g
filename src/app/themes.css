@@ -21,35 +21,49 @@
   --logo-shine: #a3a3a6;
   --shimmer-bg: rgba(0,0,0,.9);
 }
-[data-theme="deep-sea"] {
-  --color-primary: #122E8A; --color-secondary: #F5EFEA;
-  --bg: #122E8A; --surface: #F5EFEA; --surface-2: rgba(245,239,234,.94);
-  --text: #F5EFEA; --text-on-surface: #122E8A; --text-muted: rgba(245,239,234,.68);
-  --border: rgba(245,239,234,.25); --border-strong: rgba(245,239,234,.55);
-  --accent: #F5EFEA;
-  --button-primary-bg: #F5EFEA; --button-primary-text: #122E8A;
-  --button-secondary-bg: transparent; --button-secondary-text: #F5EFEA;
-  --effect-rgb: 245, 239, 234; --primary-rgb: 18, 46, 138; --surface-ink-rgb: 18, 46, 138;
+[data-theme="zandan-green"] {
+  --color-primary: #4C614E; --color-secondary: #E5DFD2; --color-dark: #312E2A;
+  --bg: #4C614E; --surface: #E5DFD2; --surface-2: #312E2A;
+  --text: #E5DFD2; --text-on-surface: #312E2A; --text-muted: rgba(229, 223, 210,.72);
+  --text-on-surface-2: #E5DFD2;
+  --border: rgba(229, 223, 210,.22); --border-strong: rgba(229, 223, 210,.50);
+  --accent: #E5DFD2;
+  --button-primary-bg: #E5DFD2; --button-primary-text: #312E2A;
+  --button-secondary-bg: transparent; --button-secondary-text: #E5DFD2;
+  --effect-rgb: 229, 223, 210; --primary-rgb: 76, 97, 78; --surface-ink-rgb: 49, 46, 42;
 }
-[data-theme="tea-blossom"] {
-  --color-primary: #E72D48; --color-secondary: #F1DDDF;
-  --bg: #E72D48; --surface: #F1DDDF; --surface-2: rgba(241,221,223,.94);
-  --text: #F1DDDF; --text-on-surface: #E72D48; --text-muted: rgba(241,221,223,.72);
-  --border: rgba(241,221,223,.28); --border-strong: rgba(241,221,223,.58);
-  --accent: #F1DDDF;
-  --button-primary-bg: #F1DDDF; --button-primary-text: #E72D48;
-  --button-secondary-bg: transparent; --button-secondary-text: #F1DDDF;
-  --effect-rgb: 241, 221, 223; --primary-rgb: 231, 45, 72; --surface-ink-rgb: 231, 45, 72;
+[data-theme="aegean-blue"] {
+  --color-primary: #306897; --color-secondary: #F1EFE6; --color-neutral: #9B9991;
+  --bg: #306897; --surface: #F1EFE6; --surface-2: #9B9991;
+  --text: #F1EFE6; --text-on-surface: #306897; --text-muted: rgba(241, 239, 230,.72);
+  --text-on-surface-2: #171B20;
+  --border: rgba(241, 239, 230,.24); --border-strong: rgba(241, 239, 230,.52);
+  --accent: #F1EFE6;
+  --button-primary-bg: #F1EFE6; --button-primary-text: #306897;
+  --button-secondary-bg: transparent; --button-secondary-text: #F1EFE6;
+  --effect-rgb: 241, 239, 230; --primary-rgb: 48, 104, 151; --surface-ink-rgb: 48, 104, 151;
 }
-[data-theme="apple"] {
-  --color-primary: #73AE52; --color-secondary: #FBF1D7;
-  --bg: #73AE52; --surface: #FBF1D7; --surface-2: rgba(251,241,215,.94);
-  --text: #FBF1D7; --text-on-surface: #4f7e36; --text-muted: rgba(251,241,215,.75);
-  --border: rgba(251,241,215,.30); --border-strong: rgba(251,241,215,.60);
-  --accent: #FBF1D7;
-  --button-primary-bg: #FBF1D7; --button-primary-text: #4f7e36;
-  --button-secondary-bg: transparent; --button-secondary-text: #FBF1D7;
-  --effect-rgb: 251, 241, 215; --primary-rgb: 115, 174, 82; --surface-ink-rgb: 79, 126, 54;
+[data-theme="falu-red"] {
+  --color-primary: #7D3127; --color-secondary: #EBE8DD; --color-dark: #393631;
+  --bg: #7D3127; --surface: #EBE8DD; --surface-2: #393631;
+  --text: #EBE8DD; --text-on-surface: #393631; --text-muted: rgba(235, 232, 221,.72);
+  --text-on-surface-2: #EBE8DD;
+  --border: rgba(235, 232, 221,.24); --border-strong: rgba(235, 232, 221,.52);
+  --accent: #EBE8DD;
+  --button-primary-bg: #EBE8DD; --button-primary-text: #7D3127;
+  --button-secondary-bg: transparent; --button-secondary-text: #EBE8DD;
+  --effect-rgb: 235, 232, 221; --primary-rgb: 125, 49, 39; --surface-ink-rgb: 57, 54, 49;
+}
+[data-theme="burnt-brick"] {
+  --color-primary: #8B583C; --color-secondary: #EEE7D5; --color-dark: #4C3327;
+  --bg: #8B583C; --surface: #EEE7D5; --surface-2: #4C3327;
+  --text: #EEE7D5; --text-on-surface: #4C3327; --text-muted: rgba(238, 231, 213,.72);
+  --text-on-surface-2: #EEE7D5;
+  --border: rgba(238, 231, 213,.24); --border-strong: rgba(238, 231, 213,.52);
+  --accent: #EEE7D5;
+  --button-primary-bg: #EEE7D5; --button-primary-text: #4C3327;
+  --button-secondary-bg: transparent; --button-secondary-text: #EEE7D5;
+  --effect-rgb: 238, 231, 213; --primary-rgb: 139, 88, 60; --surface-ink-rgb: 76, 51, 39;
 }
 html[data-theme]:not([data-theme="dark"]) {
   --background: var(--bg); --foreground: var(--text);
@@ -67,7 +81,7 @@ html[data-theme]:not([data-theme="dark"]) .theme-surface {
   color: var(--ink);
 }
 html[data-theme]:not([data-theme="dark"]) .auth-input {
-  background: var(--surface-2); color: var(--text-on-surface);
+  background: var(--surface-2); color: var(--text-on-surface-2, var(--text-on-surface));
   border-color: rgba(var(--surface-ink-rgb), .3);
 }
 html[data-theme]:not([data-theme="dark"]) .auth-input::placeholder { color: rgba(var(--surface-ink-rgb), .72); }
@@ -160,7 +174,7 @@ html[data-theme]:not([data-theme="dark"]) input:focus-visible,
 html[data-theme]:not([data-theme="dark"]) textarea:focus-visible { outline-color: var(--accent); border-color: var(--accent); }
 @media (max-width: 767px) {
   html[data-theme]:not([data-theme="dark"]) .mobile-checkout-bar {
-    background: var(--surface-2); color: var(--text-on-surface); border-color: var(--border-strong);
+    background: var(--surface-2); color: var(--text-on-surface-2, var(--text-on-surface)); border-color: var(--border-strong);
     --ink: var(--text-on-surface); --ink-rgb: var(--surface-ink-rgb);
     --ink-muted: color-mix(in srgb, var(--text-on-surface) 80%, #000);
   }
@@ -176,3 +190,40 @@ html[data-theme]:not([data-theme="dark"]) textarea:focus-visible { outline-color
   --hero-mid: rgba(0,0,0,.2);
 }
 .home-page .hero-section { background-color: #000; }
+
+/* Color Vision Safe retains its independent palette and status cues. */
+html[data-theme="color-vision-safe"]:not([data-theme="dark"]) {
+  --color-primary: #0B1020; --color-secondary: #F7F7F2;
+  --bg: #0B1020; --surface: #131A2A; --surface-2: #1A2336;
+  --text: #F7F7F2; --text-on-surface: #F7F7F2; --text-muted: #AAB4C3;
+  --border: rgba(247,247,242,.18); --border-strong: rgba(247,247,242,.48);
+  --accent: #4EA1FF; --accent-secondary: #F2B134;
+  --button-primary-bg: #4EA1FF; --button-primary-text: #07111F;
+  --button-secondary-bg: transparent; --button-secondary-text: #F7F7F2;
+  --color-success: #56B4E9; --color-error: #D55E00; --color-warning: #F0E442;
+  --color-recommended: #4EA1FF; --color-selected: #4EA1FF;
+  --effect-color: #4EA1FF; --effect-dim: #F2B134; --logo-shine: #F7F7F2;
+  --effect-rgb: 247, 247, 242; --primary-rgb: 11, 16, 32; --surface-ink-rgb: 247, 247, 242;
+  --shimmer-bg: #131A2A;
+}
+.color-vision-only { display: none; }
+html[data-theme="color-vision-safe"]:not([data-theme="dark"]) .color-vision-only { display: inline; }
+html[data-theme="color-vision-safe"]:not([data-theme="dark"]) .bg-white,
+html[data-theme="color-vision-safe"]:not([data-theme="dark"]) .bg-white\/85 {
+  background-color: var(--surface); color: var(--text); --ink: var(--text);
+}
+html[data-theme="color-vision-safe"]:not([data-theme="dark"]) ::selection { background: var(--accent); color: #07111F; }
+html[data-theme="color-vision-safe"]:not([data-theme="dark"]) .auth-error { color: var(--color-error); }
+html[data-theme="color-vision-safe"]:not([data-theme="dark"]) :focus-visible { outline-color: var(--accent-secondary); }
+html[data-theme="color-vision-safe"]:not([data-theme="dark"]) [role="tab"][aria-selected="true"]::before { content: "✓ "; }
+html[data-theme="color-vision-safe"]:not([data-theme="dark"]) [role="tab"][aria-selected="true"] { border-color: var(--accent); }
+
+/* Only the new three-color palettes opt into contrasting secondary-surface ink. */
+html:is([data-theme="zandan-green"], [data-theme="aegean-blue"], [data-theme="falu-red"], [data-theme="burnt-brick"]):not([data-theme="dark"]) :is(.bg-\[\#111\]\/95, .mobile-checkout-bar) {
+  --ink: var(--text-on-surface-2); --ink-soft: var(--text-on-surface-2);
+  --ink-muted: var(--text-on-surface-2); color: var(--text-on-surface-2);
+}
+
+html:is([data-theme="zandan-green"], [data-theme="aegean-blue"], [data-theme="falu-red"], [data-theme="burnt-brick"]):not([data-theme="dark"]) .auth-input::placeholder {
+  color: color-mix(in srgb, var(--text-on-surface-2) 80%, transparent);
+}

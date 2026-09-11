@@ -2,7 +2,7 @@
 
 // Magic UI: https://magicui.design/r/shimmer-button.json
 // ONE-G defaults and Slot-based links keep primary actions visually consistent.
-import Link from "next/link"
+import { NavigationLink as Link } from "@/components/ProtectedLink"
 import { Slot, Slottable } from "@radix-ui/react-slot"
 import React, { type ComponentPropsWithoutRef, type CSSProperties } from "react"
 

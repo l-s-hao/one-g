@@ -10,6 +10,7 @@ export interface AuthState {
   role: UserRole | null;
   isAuthenticated: boolean;
   ready: boolean;
+  authReady: boolean;
   login: (email: string, password: string, role: UserRole) => Promise<LoginResult>;
   logout: () => void;
 }
@@ -41,10 +42,10 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
   const login = async (email: string, password: string, role: UserRole): Promise<LoginResult> => {
     const request = ++revision.current.value;
     const result = await authenticate(email, password, role);
-    if (request !== revision.current.value) return { ok: false, message: "登录状态已更新，请重试。" };
+    if (request !== revision.current.value) return { ok: false, error: "SESSION_CHANGED" };
     if (result.ok) { saveDemoSession(result.user); setCurrentUser(result.user); }
     return result;
   };
   const logout = () => { revision.current.value++; saveDemoSession(null); setCurrentUser(null); };
-  return <AuthContext.Provider value={{ currentUser, role: currentUser?.role ?? null, isAuthenticated: !!currentUser, ready, login, logout }}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{ currentUser, role: currentUser?.role ?? null, isAuthenticated: !!currentUser, ready, authReady: ready, login, logout }}>{children}</AuthContext.Provider>;
 }

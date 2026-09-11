@@ -325,3 +325,76 @@
   --ink-muted: color-mix(in srgb, var(--text-on-surface) 80%, #000); --ink-soft: var(--text-on-surface);
   color: var(--ink);
 }
+
+/* Homepage shares the workbench UI, but never owns a scroll viewport. */
+.page.preview {
+  --page-bg: #000; --panel-bg: #0b0b0b; --ink: #fff; --ink-rgb: 255, 255, 255;
+  --ink-muted: #aaa; --ink-soft: #ddd;
+  display: block; height: auto; min-height: 0; overflow: visible; padding: 20px;
+  border: 1px solid #ffffff24; border-radius: 16px;
+}
+.preview .workspace { height: auto; overflow: visible; grid-template-rows: auto; gap: 20px; align-items: start; }
+.page.preview .workspace :is(.moduleLibrary, .currentBuild, .summaryPanel, .accordion) {
+  --ink: #fff; --ink-rgb: 255, 255, 255; --ink-muted: #aaa; --ink-soft: #ddd;
+  position: static; height: auto; max-height: none; overflow: visible;
+  overscroll-behavior: auto; scrollbar-gutter: auto; background: #0b0b0b; color: #fff;
+}
+.preview .libraryScroll { max-height: none; overflow: visible; }
+.preview .categoryToggle { min-height: 64px; padding: 14px; }
+.preview .categoryCopy strong { font-size: 12px; }
+.preview .node { min-height: 64px; padding: 12px; }
+.preview .nodeCopy strong { font-size: 14px; }
+.preview .currentBuild, .preview .summaryPanel { padding: 20px; }
+.preview .slot { min-height: 170px; padding: 16px; }
+.preview .baseSlot { min-height: 160px; }
+.preview .installedModule { margin-top: 14px; }
+.preview .installedModule h4 { font-size: 18px; }
+.preview .installedActions { margin-top: 8px; }
+.preview .slotHeading h3 { font-size: 11px; }
+.preview .slots { gap: 12px; }
+.preview .progress { margin-top: 20px; padding-top: 16px; }
+.preview .progressLabels > span { font-size: 9px; }
+.preview .panelHeading h2, .preview .buildHeading h2 { font-size: 12px; }
+.preview .mobileTabs { position: static; background: #000; color: #fff; --ink: #fff; --ink-muted: #aaa; }
+@media (min-width: 768px) {
+  .preview .workspace { grid-template-columns: minmax(0, 1fr) minmax(0, 1.8fr) minmax(0, 1fr); }
+  .preview .moduleLibrary, .preview .currentBuild, .preview .summaryPanel { grid-row: 1; }
+  .preview .moduleLibrary { grid-column: 1; }
+  .preview .currentBuild { grid-column: 2; }
+  .preview .summaryPanel { grid-column: 3; }
+}
+@media (max-width: 1100px) and (min-width: 768px) {
+  .page.preview { padding: 12px; }
+  .preview .workspace { gap: 10px; }
+  .preview .currentBuild, .preview .summaryPanel { padding: 12px; }
+  .preview .slots { grid-template-columns: 1fr; }
+  .preview .slot { min-height: 0; }
+}
+@media (max-width: 767px) {
+  .page.preview { padding: 12px; }
+  .preview .slot, .preview .baseSlot { min-height: 0; padding: 12px; }
+  .preview .installedModule h4 { font-size: 14px; }
+  .preview .currentBuild, .preview .summaryPanel { padding: 12px; }
+}
+@media (min-width: 768px) {
+  .preview .slotNavigate { margin-top: 6px; min-height: 32px; }
+  .preview .chips { margin-top: 10px; }
+  .preview .addMore { display: none; }
+  .preview .installedActions { font-size: 12px; }
+  .preview .installedActions button { min-height: 28px; }
+}
+
+/* Symbols carry the same information as color, including on small screens. */
+:global(html[data-theme="color-vision-safe"]) .selected,
+:global(html[data-theme="color-vision-safe"]) .slotActive,
+:global(html[data-theme="color-vision-safe"]) .recommendedNode {
+  border-color: var(--accent); background-color: rgba(78,161,255,.08);
+}
+:global(html[data-theme="color-vision-safe"]) .nodeCopy > .recommended {
+  color: var(--accent); border-color: var(--accent);
+}
+:global(html[data-theme="color-vision-safe"]) .progressTrack > .progressComplete { background: var(--accent); }
+:global(html[data-theme="color-vision-safe"]) .progressLabels { display: grid; }
+:global(html[data-theme="color-vision-safe"]) .node:disabled { opacity: 1; border-style: dashed; }
+:global(html[data-theme="color-vision-safe"]) .emptySlot p::before { content: "○ 未选择 · "; }
+:global(html[data-theme="color-vision-safe"]) .chip::before { content: "✓ "; }

@@ -54,7 +54,7 @@ export default function RecommendedBuild({ scene, groups, configuration, ready, 
             return <li key={option.id} data-recommendation-id={option.id}>
               <div><span className={styles.category}>{categoryLabels[group.category]}</span><strong>{option.name}</strong></div>
               <button type="button" disabled={buttonDisabled} aria-label={installed ? `${option.name}已添加` : `添加推荐 ${option.name}`} title={availability.available ? undefined : availability.label} onClick={() => onAdd(option)}>
-                {installed ? <Check size={14} aria-hidden="true" /> : <Plus size={14} aria-hidden="true" />}{installed ? "已添加" : "添加"}
+                {installed ? <Check size={14} aria-hidden="true" /> : <Plus size={14} aria-hidden="true" />}{installed ? "已添加" : "添加"}{!availability.available && <span className="color-vision-only"> × 不可用</span>}
               </button>
             </li>;
           }))}

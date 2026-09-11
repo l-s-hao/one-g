@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { NavigationLink } from "./ProtectedLink";
 import BrandLogo from "./BrandLogo";
 import { siteContent } from "@/data/site-content";
 
@@ -14,7 +15,7 @@ export default function HomeFooter() {
               <div key={group.title}>
                 <h2 className="mb-3 text-sm font-semibold text-white/85">{group.title}</h2>
                 <ul className="space-y-1">
-                  {group.links.map(link => <li key={link.href}><Link href={link.href} className="inline-block py-1.5 text-sm text-white/50 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">{link.label}</Link></li>)}
+                  {group.links.map(link => <li key={link.href}><NavigationLink href={link.href} className="inline-block py-1.5 text-sm text-white/50 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">{link.label}</NavigationLink></li>)}
                 </ul>
               </div>
             ))}

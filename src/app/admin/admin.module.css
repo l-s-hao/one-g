@@ -25,3 +25,9 @@
 .cards button { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; padding: 20px; text-align: left; }
 .cards span { color: #a8adb7; font-size: 13px; }
 @media (max-width: 767px) { .login { margin-top: 32px; padding: 24px; } .cards { grid-template-columns: 1fr; } .toolbar { align-items: flex-start; } .toolbar button { flex-shrink: 0; } .dashboard { padding: 24px 20px; } }
+
+:global(html[data-theme="color-vision-safe"]) .shell { --text: #F7F7F2; background: var(--bg); color: var(--text); }
+:global(html[data-theme="color-vision-safe"]) .panel,
+:global(html[data-theme="color-vision-safe"]) .login { background: var(--surface); border-color: var(--border-strong); }
+:global(html[data-theme="color-vision-safe"]) .shell button[aria-pressed="true"] { border-color: var(--accent); }
+:global(html[data-theme="color-vision-safe"]) .shell button[aria-pressed="true"]::before { content: "✓ "; }

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { NavigationLink } from "./ProtectedLink";
 import { Menu, Search, ShoppingCart, UserRound, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -47,17 +48,17 @@ export default function Header() {
 
         <nav className={`hidden items-center justify-center md:flex ${styles.navigation} ${isHome ? "text-white/75" : "text-zinc-600"}`} aria-label="主导航">
           {navigation.map((item) => (
-            <Link key={item.href} href={item.href} className={`transition-colors ${isHome ? "hover:text-white" : "hover:text-zinc-950"}`}>
+            <NavigationLink key={item.href} href={item.href} className={`transition-colors ${isHome ? "hover:text-white" : "hover:text-zinc-950"}`}>
               {item.label}
-            </Link>
+            </NavigationLink>
           ))}
         </nav>
 
         <div className={`hidden items-center justify-self-end gap-5 md:flex ${styles.actions} ${isHome ? "text-white/75" : "text-zinc-600"}`} aria-label="快捷入口">
           {utilityLinks.map(({ href, label, Icon }) => (
-            <Link key={href} href={href === "/login" ? userHref : href} aria-label={href === "/login" ? userLabel : label} className={`transition-colors ${isHome ? "hover:text-white" : "hover:text-blue-600"}`}>
+            <NavigationLink key={href} href={href === "/login" ? userHref : href} aria-label={href === "/login" ? userLabel : label} className={`transition-colors ${isHome ? "hover:text-white" : "hover:text-blue-600"}`}>
               <Icon size={19} strokeWidth={1.7} />
-            </Link>
+            </NavigationLink>
           ))}
         </div>
 
@@ -78,16 +79,16 @@ export default function Header() {
         <div className={`border-t px-6 py-5 md:hidden ${isHome ? "border-white/10 bg-black/95" : "border-zinc-200/80 bg-white"}`}>
           <nav className="container-shell flex flex-col gap-1" aria-label="移动端导航">
             {navigation.map((item) => (
-              <Link key={item.href} href={item.href} className={`rounded-xl px-3 py-3 text-sm ${isHome ? "text-white/80 hover:bg-white/10" : "text-zinc-700 hover:bg-zinc-50"}`} onClick={() => setMenuOpen(false)}>
+              <NavigationLink key={item.href} href={item.href} className={`rounded-xl px-3 py-3 text-sm ${isHome ? "text-white/80 hover:bg-white/10" : "text-zinc-700 hover:bg-zinc-50"}`} onClick={() => setMenuOpen(false)}>
                 {item.label}
-              </Link>
+              </NavigationLink>
             ))}
             <div className={`mt-2 flex gap-2 border-t pt-3 ${isHome ? "border-white/10" : "border-zinc-100"}`}>
               {utilityLinks.map(({ href, label, Icon }) => (
-                <Link key={href} href={href === "/login" ? userHref : href} className={`flex items-center gap-2 rounded-xl px-3 py-3 text-sm ${isHome ? "text-white/70 hover:bg-white/10" : "text-zinc-600 hover:bg-zinc-50"}`} onClick={() => setMenuOpen(false)}>
+                <NavigationLink key={href} href={href === "/login" ? userHref : href} className={`flex items-center gap-2 rounded-xl px-3 py-3 text-sm ${isHome ? "text-white/70 hover:bg-white/10" : "text-zinc-600 hover:bg-zinc-50"}`} onClick={() => setMenuOpen(false)}>
                   <Icon size={17} strokeWidth={1.7} />
                   {href === "/login" ? userLabel : label}
-                </Link>
+                </NavigationLink>
               ))}
             </div>
           </nav>

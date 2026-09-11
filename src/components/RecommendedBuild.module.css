@@ -31,3 +31,7 @@
   --ink-muted: color-mix(in srgb, var(--text-on-surface) 80%, #000); --ink-soft: var(--text-on-surface);
   color: var(--ink);
 }
+
+:global(html[data-theme="color-vision-safe"]) .panel { border-color: var(--accent); }
+:global(html[data-theme="color-vision-safe"]) .eyebrow { color: var(--accent); }
+:global(html[data-theme="color-vision-safe"]) .list button:disabled { opacity: 1; }

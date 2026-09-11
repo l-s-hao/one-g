@@ -6,8 +6,8 @@ import { ShimmerButton } from "@/components/ui/shimmer-button";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { useState, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
-import { useAuth } from "./AuthProvider";
+import { useLoginForm } from "./useLoginForm";
+import InlineAuthError from "./InlineAuthError";
 import ShineBorder from "./ShineBorder";
 import BrandLogo from "./BrandLogo";
 
@@ -19,9 +19,8 @@ const copy = {
 };
 
 export default function AuthCard({ mode }: { mode: Mode }) {
-  const { login } = useAuth();
-  const router = useRouter();
-  const [pending, setPending] = useState(false);
+  const loginForm = useLoginForm("USER");
+  const pending = loginForm.pending;
   const [message, setMessage] = useState("");
   const content = copy[mode];
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -29,16 +28,6 @@ export default function AuthCard({ mode }: { mode: Mode }) {
     if (pending) return;
     const form = event.currentTarget;
     const data = new FormData(form);
-    if (mode === "login") {
-      setPending(true);
-      try {
-        const result = await login(String(data.get("email") ?? ""), String(data.get("password") ?? ""), "USER");
-        if (result.ok) { form.reset(); router.replace("/account"); }
-        else setMessage(result.message);
-      } catch { setMessage("登录暂时不可用，请重试。"); }
-      finally { setPending(false); }
-      return;
-    }
     if (mode === "register" && data.get("password") !== data.get("confirmPassword")) {
       setMessage("两次输入的密码不一致，请重新输入。");
       return;
@@ -67,15 +56,17 @@ export default function AuthCard({ mode }: { mode: Mode }) {
             <p>user@one-g.com / 123456</p>
             <Link href="/admin/login" className="underline underline-offset-4">管理员入口</Link>
           </div>}
-          <form className="mt-8 space-y-5" onSubmit={submit} onChange={() => setMessage("")}>
+          <form className="mt-8 space-y-5" noValidate={mode === "login"} onSubmit={mode === "login" ? loginForm.submit : submit} onChange={() => { setMessage(""); loginForm.clearErrors(); }}>
             <div>
               <label htmlFor="email" className="mb-2 block text-sm text-neutral-200">邮箱</label>
-              <input id="email" name="email" type="email" autoComplete="email" placeholder="name@example.com" required className="auth-input" />
+              <input id="email" name="email" type="email" autoComplete="email" placeholder="name@example.com" required className="auth-input" aria-invalid={!!loginForm.fields.account || loginForm.invalidCredentials} aria-describedby="account-error login-error" disabled={pending} />
+              {loginForm.fields.account && <InlineAuthError id="account-error" message={loginForm.fields.account} />}
             </div>
             {mode !== "forgot-password" && (
               <div>
                 <label htmlFor="password" className="mb-2 block text-sm text-neutral-200">密码</label>
-                <input id="password" name="password" type="password" autoComplete={mode === "login" ? "current-password" : "new-password"} minLength={mode === "register" ? 8 : undefined} placeholder={mode === "register" ? "设置密码（至少 8 位）" : "输入密码"} required className="auth-input" />
+                <input id="password" name="password" type="password" autoComplete={mode === "login" ? "current-password" : "new-password"} minLength={mode === "register" ? 8 : undefined} placeholder={mode === "register" ? "设置密码（至少 8 位）" : "输入密码"} required className="auth-input" aria-invalid={!!loginForm.fields.password || loginForm.invalidCredentials} aria-describedby="password-error login-error" disabled={pending} />
+                {loginForm.fields.password && <InlineAuthError id="password-error" message={loginForm.fields.password} />}
               </div>
             )}
             {mode === "register" && (
@@ -85,8 +76,8 @@ export default function AuthCard({ mode }: { mode: Mode }) {
               </div>
             )}
             {mode === "login" && <div className="text-right"><Link href="/forgot-password" className="text-xs text-neutral-400 hover:text-white">忘记密码？</Link></div>}
+            <InlineAuthError id="login-error" message={mode === "login" ? loginForm.message : message} />
             <>{mode === "forgot-password" ? <button type="submit" className="h-12 w-full rounded-full bg-white text-sm font-semibold text-black transition-colors hover:bg-neutral-200">{content.button}</button> : <ShimmerButton type="submit" disabled={pending} className="h-12 w-full">{pending ? "正在登录…" : content.button}</ShimmerButton>}</>
-            <p role="status" className="text-center text-sm text-neutral-400">{message}</p>
           </form>
           <div className="mt-6 border-t border-white/10 pt-6 text-center text-sm text-neutral-500">
             {mode === "login" ? <>还没有账户？ <Link href="/register" className="text-white hover:underline">立即注册</Link></> : <Link href="/login" className="text-neutral-300 hover:text-white">{mode === "register" ? "已有账户？ 返回登录" : "返回登录"}</Link>}

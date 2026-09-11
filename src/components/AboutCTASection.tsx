@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ProtectedLink } from "./ProtectedLink";
 import { ArrowRight } from "lucide-react";
 import { siteContent } from "@/data/site-content";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
@@ -31,7 +32,7 @@ export default function AboutCTASection() {
           <p className={styles.closingDescription}>{content.finalDescription}</p>
           <div className={styles.actions}>
             <ShimmerButton href={content.primaryAction.href} className="min-h-14 min-w-44 px-8">{content.primaryAction.label}</ShimmerButton>
-            <Link href={content.secondaryAction.href} className={styles.secondary}>{content.secondaryAction.label}</Link>
+            <ProtectedLink href={content.secondaryAction.href} className={styles.secondary}>{content.secondaryAction.label}</ProtectedLink>
           </div>
         </div>
       </div>

@@ -256,3 +256,9 @@ body {
   .site-header > .container-shell { padding-inline: 16px; }
   .site-header button[aria-expanded] { min-width: 44px; min-height: 44px; }
 }
+
+/* Authentication errors stay distinct from every brand accent. */
+:root { --color-error: #ff6b6b; }
+.auth-error { color: var(--color-error); font-size: 0.875rem; line-height: 1.5; margin-top: 0.5rem; }
+.auth-error:empty { display: none; }
+input[aria-invalid="true"] { border-color: var(--color-error) !important; }

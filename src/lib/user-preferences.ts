@@ -7,6 +7,11 @@ export const userThemeKey = (userId: string) => `one-g-theme:${userId}`;
 export function loadUserTheme(userId: string): ThemeId {
   try {
     const value = localStorage.getItem(userThemeKey(userId));
+    // Retired IDs are recognized only for migration, never exposed as ThemeId.
+    if (value === "deep-sea" || value === "tea-blossom" || value === "apple") {
+      saveUserTheme(userId, "dark");
+      return "dark";
+    }
     return isThemeId(value) ? value : "dark";
   } catch {
     return "dark";

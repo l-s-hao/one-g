@@ -11,15 +11,15 @@ real data or be deployed as a login security system.
   public role selector or administrator registration.
 - RequireRole checks content access, not just navigation visibility. Anonymous
   users are redirected to the appropriate login; USER cannot view admin content;
-  ADMIN visiting /account is redirected to /admin.
+  ADMIN may visit /account for personal theme preferences; other USER-only business routes still redirect to /admin.
 - `one-g-auth-demo` stores only `{version: 1, userId}`. Refresh resolves identity
   from the mock fixture; stored roles are never authoritative. Any browser-only
   identity remains forgeable. No entered password is written to storage.
 - Logout removes demo auth, clears in-memory user and restores Dark. USER exits
   to /; ADMIN exits to /admin/login. Cross-tab auth changes are synchronized.
 - ThemeProvider remains the sole theme context. Anonymous users use Dark. Legacy
-  `one-g-theme` and older demo session keys are ignored. USER preferences live at
-  `one-g-theme:<user-id>` and survive logout. Account theme cards require USER login.
+  `one-g-theme` and older demo session keys are ignored. USER and ADMIN preferences live at
+  `one-g-theme:<user-id>` and survive logout. Account theme cards require login.
 - SSR and initial client state are anonymous/Dark, with session restoration after
   mount, avoiding hydration mismatch.
 - Registration and password reset remain unavailable; Dashboard management modules
@@ -33,7 +33,36 @@ roles at every server endpoint; client guards are only UX. Delete mock-users.ts,
 all plaintext fixtures, demo storage and credential notices before production.
 
 Replace src/lib/user-preferences.ts with authenticated GET/PATCH
-/api/me/preferences, accepting/returning {"theme":"apple"}. User identity must
+/api/me/preferences, accepting/returning {"theme":"zandan-green"}. User identity must
 come from the server session. Use user_preferences: id, unique user_id foreign key,
 theme, created_at, updated_at. Migrate a user's local preference only if no server
 preference exists; the database becomes authoritative. No such APIs exist yet.
+
+## Public and protected navigation
+
+The single policy in src/lib/auth-routing.ts allows anonymous access only to /,
+/about, /login and /admin/login. Every other non-admin route defaults to USER;
+/admin and its descendants default to ADMIN, excluding its public login. Under
+this explicit four-route allowlist, legacy register/forgot-password placeholders
+are also no longer anonymously accessible.
+
+SiteShell applies RequireRole to route content, including future routes, without
+copying guards into individual pages. Until AuthProvider.authReady, protected
+content renders only a loading message. USER access to admin displays no permission;
+ADMIN visiting a user business route goes to /admin, except /account for personal preferences. These are prototype client
+UX checks, not secure server authorization or protection of static export data.
+
+ProtectedLink handles business links; NavigationLink chooses it for dynamic menus
+and leaves public/About/search anchors as ordinary Next Links. Homepage CTAs,
+product detail links, Header/mobile menus and Footer share this behavior. The
+ShimmerButton's link wrapper changed, but its styling and animation did not.
+
+Login redirects carry a URL-encoded returnTo, including search/hash. Successful
+login returns there, otherwise defaults to /account (USER) or /admin (ADMIN).
+safeReturnTo rejects external/protocol-relative URLs, encoded URL tricks, login
+loops and cross-role paths. Explicit Header login has no returnTo. Logout restores
+Dark and redirects away from protected content; per-user preferences are preserved.
+
+Color Vision Safe (`color-vision-safe`) is retained as the final theme. It uses blue/amber accents, dark surfaces, and explicit selection/progress/error symbols. Preferences still use the same per-user storage adapter; logout restores Dark without deleting the preference.
+
+The current ThemeId union is dark | zandan-green | aegean-blue | falu-red | burnt-brick | color-vision-safe. Theme cards use three columns on desktop and two on mobile. The retired IDs deep-sea, tea-blossom and apple are accepted only by the migration in loadUserTheme: on authenticated preference load they are rewritten to dark at that user's existing key. Other users' preferences are untouched; storage failures still fall back to Dark in memory.

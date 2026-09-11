@@ -17,6 +17,7 @@ export default function ThemeSelector() {
         {option.colors.map(color => <span key={color} style={{ backgroundColor: color }} />)}
       </span>
       <span className={styles.name}>{option.name}</span>
+      {option.id === "color-vision-safe" && <span className={styles.name}>高对比 · 非红绿依赖</span>}
       <span className={styles.selected}>{theme === option.id && <><Check size={14} aria-hidden="true" />当前主题</>}</span>
     </button>)}
   </div>;

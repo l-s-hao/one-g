@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
-import RequireRole from "@/components/RequireRole";
 import ThemeSelector from "@/components/ThemeSelector";
 import styles from "./account.module.css";
 
@@ -33,5 +32,5 @@ function AccountContent() {
 }
 
 export default function AccountPage() {
-  return <RequireRole role="USER"><AccountContent /></RequireRole>;
+  return <AccountContent />;
 }

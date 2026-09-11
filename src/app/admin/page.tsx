@@ -1,9 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
-import RequireRole from "@/components/RequireRole";
 import styles from "./admin.module.css";
 
 const sections = ["用户管理", "商品管理", "订单管理", "定制方案", "推荐规则"] as const;
@@ -12,7 +12,7 @@ function Dashboard() {
   const router = useRouter();
   const [section, setSection] = useState<string>("Dashboard");
   return <div className={styles.dashboard}>
-    <div className={styles.toolbar}><div><h1>Dashboard</h1><p className={styles.muted}>{currentUser?.email} · ADMIN</p></div>
+    <div className={styles.toolbar}><div><h1>Dashboard</h1><p className={styles.muted}>{currentUser?.email} · ADMIN · <Link href="/account" className="underline">个人设置</Link></p></div>
       <button type="button" onClick={() => { logout(); router.replace("/admin/login"); }}>退出登录</button>
     </div>
     <nav className={styles.navigation} aria-label="后台管理导航">
@@ -25,4 +25,4 @@ function Dashboard() {
     </section>
   </div>;
 }
-export default function AdminPage() { return <RequireRole role="ADMIN"><Dashboard /></RequireRole>; }
+export default function AdminPage() { return <Dashboard />; }

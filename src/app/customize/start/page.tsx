@@ -20,7 +20,7 @@ function ChoiceCard({ choice, group, selected, onSelect }: {
       <span className={styles.cardBody} data-magic-surface>
         <span className={styles.cardTop}><span className={styles.english}>{choice.english}</span><span className={styles.check} aria-hidden="true">{selected && <Check size={18} />}</span></span>
         <span id={`${group}-${choice.id}-name`} className={styles.name}>{choice.name}</span>
-        <span id={`${group}-${choice.id}-description`} className={styles.description}>{choice.description}</span>
+        <span id={`${group}-${choice.id}-description`} className={styles.description}>{choice.description}<span className="color-vision-only"> · {selected ? "✓ 已选择" : "○ 未选择"}</span></span>
       </span>
     </label>
   );

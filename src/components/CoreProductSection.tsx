@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { ProtectedLink } from "./ProtectedLink";
 import { useEffect, useRef } from "react";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import type { Product } from "@/types/product";
@@ -48,7 +48,7 @@ export default function CoreProductSection({ product }: { product: Product }) {
         <div className={styles.details}>
           <p className={styles.description}>{(product.showcase?.descriptionLines ?? [product.subtitle]).map((line, index) => <span key={index} className="block">{line}</span>)}</p>
           <div className={styles.actions}>
-            <Link href={`/products/${product.slug}`} className={styles.secondary}>了解产品</Link>
+            <ProtectedLink href={`/products/${product.slug}`} className={styles.secondary}>了解产品</ProtectedLink>
             <ShimmerButton href="/customize/start" className="min-h-12 min-w-32 px-6">在线定制</ShimmerButton>
           </div>
         </div>

@@ -6,4 +6,4 @@ export interface CurrentUser {
   role: UserRole;
 }
 
-export type LoginResult = { ok: true; user: CurrentUser } | { ok: false; message: string };
+export type LoginResult = { ok: true; user: CurrentUser } | { ok: false; error: "INVALID_CREDENTIALS" | "WRONG_ROLE" | "SESSION_CHANGED" };

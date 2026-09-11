@@ -5,7 +5,7 @@ import CapabilitiesSection from "@/components/CapabilitiesSection";
 import HardwareEcosystemSection from "@/components/HardwareEcosystemSection";
 import CoreProductSection from "@/components/CoreProductSection";
 import HeroLogoText from "@/components/HeroLogoText";
-import Link from "next/link";
+import { NavigationLink } from "@/components/ProtectedLink";
 import ResponsiveDriftWall from "@/components/ResponsiveDriftWall";
 import SupportButton from "@/components/SupportButton";
 import { getCoreProduct } from "@/lib/products";
@@ -28,7 +28,7 @@ export default function HomePage() {
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-5 sm:px-10">
           <h1 id="hero-title" className="hero-logo select-none text-center text-[clamp(5rem,13vw,13rem)] font-extrabold leading-none tracking-[-0.06em] text-white"><HeroLogoText /></h1>
           <div className="hero-actions mt-10 flex w-full items-center justify-center gap-4 sm:mt-12" aria-label="核心入口">
-            {heroLinks.map((link) => link.primary ? <ShimmerButton key={link.href} href={link.href} className="hero-action">{link.label}</ShimmerButton> : <Link key={link.href} href={link.href} className="hero-action hero-action--secondary">{link.label}</Link>)}
+            {heroLinks.map((link) => link.primary ? <ShimmerButton key={link.href} href={link.href} className="hero-action">{link.label}</ShimmerButton> : <NavigationLink key={link.href} href={link.href} className="hero-action hero-action--secondary">{link.label}</NavigationLink>)}
           </div>
         </div>
       </section>

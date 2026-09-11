@@ -8,8 +8,8 @@ const publicUser = (user: CurrentUser): CurrentUser => ({ id: user.id, email: us
 // Replace this adapter with backend auth + HttpOnly session cookies later.
 export async function authenticate(email: string, password: string, role: UserRole): Promise<LoginResult> {
   const user = mockUsers.find(item => item.email === email.trim().toLowerCase() && item.password === password);
-  if (!user) return { ok: false, message: "账号或密码错误。" };
-  if (user.role !== role) return { ok: false, message: role === "USER" ? "请使用管理员入口登录。" : "无管理员权限。" };
+  if (!user) return { ok: false, error: "INVALID_CREDENTIALS" };
+  if (user.role !== role) return { ok: false, error: "WRONG_ROLE" };
   return { ok: true, user: publicUser(user) };
 }
 
