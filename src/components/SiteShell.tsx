@@ -8,9 +8,10 @@ import styles from "./SiteShell.module.css";
 
 export default function SiteShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+  if (pathname === "/admin" || pathname.startsWith("/admin/")) return <>{children}</>;
   const isWorkbench = pathname === "/customize";
   if (["/login", "/register", "/forgot-password"].includes(pathname)) {
-    return <main className="min-h-dvh bg-black text-white">{children}</main>;
+    return <div className="min-h-dvh bg-black text-white"><Header /><main>{children}</main></div>;
   }
   return (
     <div className={`flex min-h-screen flex-col ${isWorkbench ? styles.workbenchShell : ""}`}>

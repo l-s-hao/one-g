@@ -6,21 +6,39 @@ import { ShimmerButton } from "@/components/ui/shimmer-button";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { useState, type FormEvent } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "./AuthProvider";
 import ShineBorder from "./ShineBorder";
+import BrandLogo from "./BrandLogo";
 
 type Mode = "login" | "register" | "forgot-password";
 const copy = {
-  login: { title: "欢迎回来", description: "登录 ONE-G，探索智能的更多可能。", button: "登录 ONE-G" },
+  login: { title: "欢迎登录 ONE-G", description: "登录 ONE-G，探索智能的更多可能。", button: "登录 ONE-G" },
   register: { title: "创建账户", description: "加入 ONE-G，开启你的智能旅程。", button: "创建账户" },
   "forgot-password": { title: "忘记密码", description: "输入注册邮箱，找回你的账户。", button: "发送重置链接" },
 };
 
 export default function AuthCard({ mode }: { mode: Mode }) {
+  const { login } = useAuth();
+  const router = useRouter();
+  const [pending, setPending] = useState(false);
   const [message, setMessage] = useState("");
   const content = copy[mode];
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
+    if (pending) return;
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    if (mode === "login") {
+      setPending(true);
+      try {
+        const result = await login(String(data.get("email") ?? ""), String(data.get("password") ?? ""), "USER");
+        if (result.ok) { form.reset(); router.replace("/account"); }
+        else setMessage(result.message);
+      } catch { setMessage("登录暂时不可用，请重试。"); }
+      finally { setPending(false); }
+      return;
+    }
     if (mode === "register" && data.get("password") !== data.get("confirmPassword")) {
       setMessage("两次输入的密码不一致，请重新输入。");
       return;
@@ -39,11 +57,16 @@ export default function AuthCard({ mode }: { mode: Mode }) {
             </Link>
           )}
           <div className="mb-10 text-center">
-            <Link href="/" aria-label="ONE-G 首页" className="inline-block text-3xl font-extrabold tracking-[-0.06em]">ONE-G</Link>
+            <Link href="/" aria-label="ONE-G 万机智能 首页" className="inline-block"><BrandLogo variant={mode === "forgot-password" ? "horizontal" : "stacked"} size={mode === "forgot-password" ? "sm" : "md"} /></Link>
             <p className="mt-2 text-[9px] tracking-[0.35em] text-neutral-500">INTELLIGENCE IN MOTION</p>
           </div>
           <h1 id="auth-title" className="text-center text-2xl font-semibold tracking-tight">{content.title}</h1>
           <p className="mt-3 text-center text-sm leading-6 text-neutral-400">{content.description}</p>
+          {mode === "login" && <div className="mt-4 text-center text-xs leading-5 text-neutral-400">
+            <p>Frontend Authentication Prototype · 仅限演示账号，请勿输入真实密码。</p>
+            <p>user@one-g.com / 123456</p>
+            <Link href="/admin/login" className="underline underline-offset-4">管理员入口</Link>
+          </div>}
           <form className="mt-8 space-y-5" onSubmit={submit} onChange={() => setMessage("")}>
             <div>
               <label htmlFor="email" className="mb-2 block text-sm text-neutral-200">邮箱</label>
@@ -62,7 +85,7 @@ export default function AuthCard({ mode }: { mode: Mode }) {
               </div>
             )}
             {mode === "login" && <div className="text-right"><Link href="/forgot-password" className="text-xs text-neutral-400 hover:text-white">忘记密码？</Link></div>}
-            <>{mode === "forgot-password" ? <button type="submit" className="h-12 w-full rounded-full bg-white text-sm font-semibold text-black transition-colors hover:bg-neutral-200">{content.button}</button> : <ShimmerButton type="submit" className="h-12 w-full">{content.button}</ShimmerButton>}</>
+            <>{mode === "forgot-password" ? <button type="submit" className="h-12 w-full rounded-full bg-white text-sm font-semibold text-black transition-colors hover:bg-neutral-200">{content.button}</button> : <ShimmerButton type="submit" disabled={pending} className="h-12 w-full">{pending ? "正在登录…" : content.button}</ShimmerButton>}</>
             <p role="status" className="text-center text-sm text-neutral-400">{message}</p>
           </form>
           <div className="mt-6 border-t border-white/10 pt-6 text-center text-sm text-neutral-500">

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useAuth } from "./AuthProvider";
 import styles from "./HeaderBrand.module.css";
+import BrandLogo from "./BrandLogo";
 
 
 
@@ -23,6 +24,8 @@ const utilityLinks = [
 
 export default function Header() {
   const { currentUser } = useAuth();
+  const userHref = !currentUser ? "/login" : currentUser.role === "ADMIN" ? "/admin" : "/account";
+  const userLabel = !currentUser ? "用户登录" : currentUser.role === "ADMIN" ? "管理后台" : "用户中心";
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -35,13 +38,14 @@ export default function Header() {
   }, [isHome]);
 
   return (
-    <header data-no-smooth-cursor className={`site-header ${isHome ? "fixed" : "sticky"} inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${isHome ? (scrolled ? "border-white/10 bg-black/80 backdrop-blur-xl" : "border-white/10 bg-transparent") : "border-zinc-200/80 bg-white/85 backdrop-blur-xl"}`}>
-      <div className="container-shell flex min-h-16 items-center justify-between gap-6 md:grid md:grid-cols-[1fr_auto_1fr]">
-        <Link href="/" className={`shrink-0 justify-self-start ${styles.brand}`} aria-label="ONE-G / 万机智能 首页" onClick={() => setMenuOpen(false)}>
-          <span className={styles.logo} aria-hidden="true" />
+    <header data-header-variant={isHome ? "hero" : "interior"} data-no-smooth-cursor className={`site-header ${isHome ? "fixed" : "sticky"} inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${isHome ? (scrolled ? "border-white/10 bg-black/80 backdrop-blur-xl" : "border-white/10 bg-transparent") : "border-zinc-200/80 bg-white/85 backdrop-blur-xl"}`}>
+      <div className={`container-shell flex items-center justify-between gap-6 md:grid md:grid-cols-[1fr_auto_1fr] ${styles.row}`}>
+        <Link href="/" className={`shrink-0 justify-self-start ${styles.brand} ${isHome ? "" : styles.interior}`} aria-label="ONE-G / 万机智能 首页" onClick={() => setMenuOpen(false)}>
+          <BrandLogo variant="horizontal" size="sm" context={isHome ? "brand" : "header"} className={styles.desktopLogo} />
+          <BrandLogo variant="mark" size="sm" context={isHome ? "brand" : "header"} className={styles.mobileLogo} />
         </Link>
 
-        <nav className={`hidden items-center justify-center gap-8 text-sm md:flex lg:gap-10 ${isHome ? "text-white/75" : "text-zinc-600"}`} aria-label="主导航">
+        <nav className={`hidden items-center justify-center md:flex ${styles.navigation} ${isHome ? "text-white/75" : "text-zinc-600"}`} aria-label="主导航">
           {navigation.map((item) => (
             <Link key={item.href} href={item.href} className={`transition-colors ${isHome ? "hover:text-white" : "hover:text-zinc-950"}`}>
               {item.label}
@@ -49,10 +53,10 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className={`hidden items-center justify-self-end gap-5 md:flex ${isHome ? "text-white/75" : "text-zinc-600"}`} aria-label="快捷入口">
+        <div className={`hidden items-center justify-self-end gap-5 md:flex ${styles.actions} ${isHome ? "text-white/75" : "text-zinc-600"}`} aria-label="快捷入口">
           {utilityLinks.map(({ href, label, Icon }) => (
-            <Link key={href} href={href === "/login" && currentUser ? "/account" : href} aria-label={href === "/login" && currentUser ? "用户中心" : label} className={`transition-colors ${isHome ? "hover:text-white" : "hover:text-blue-600"}`}>
-              <Icon size={18} strokeWidth={1.7} />
+            <Link key={href} href={href === "/login" ? userHref : href} aria-label={href === "/login" ? userLabel : label} className={`transition-colors ${isHome ? "hover:text-white" : "hover:text-blue-600"}`}>
+              <Icon size={19} strokeWidth={1.7} />
             </Link>
           ))}
         </div>
@@ -80,9 +84,9 @@ export default function Header() {
             ))}
             <div className={`mt-2 flex gap-2 border-t pt-3 ${isHome ? "border-white/10" : "border-zinc-100"}`}>
               {utilityLinks.map(({ href, label, Icon }) => (
-                <Link key={href} href={href === "/login" && currentUser ? "/account" : href} className={`flex items-center gap-2 rounded-xl px-3 py-3 text-sm ${isHome ? "text-white/70 hover:bg-white/10" : "text-zinc-600 hover:bg-zinc-50"}`} onClick={() => setMenuOpen(false)}>
+                <Link key={href} href={href === "/login" ? userHref : href} className={`flex items-center gap-2 rounded-xl px-3 py-3 text-sm ${isHome ? "text-white/70 hover:bg-white/10" : "text-zinc-600 hover:bg-zinc-50"}`} onClick={() => setMenuOpen(false)}>
                   <Icon size={17} strokeWidth={1.7} />
-                  {label}
+                  {href === "/login" ? userLabel : label}
                 </Link>
               ))}
             </div>

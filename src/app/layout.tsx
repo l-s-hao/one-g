@@ -12,10 +12,10 @@ export const metadata: Metadata = {
   description: "机器人产品展示、购买与在线定制平台",
   icons: {
     icon: [
-      { url: "/one-g/brand/one-g-mark.png", type: "image/png", sizes: "192x192" },
+      { url: "/one-g/brand/fallback/one-g-mark-icon.png", type: "image/png", sizes: "192x192" },
       { url: "/one-g/brand/one-g-mark.svg", type: "image/svg+xml", sizes: "any" },
     ],
-    apple: "/one-g/brand/one-g-mark.png",
+    apple: "/one-g/brand/fallback/one-g-mark-icon.png",
   },
 };
 

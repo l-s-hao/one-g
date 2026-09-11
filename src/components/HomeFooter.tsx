@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BrandLogo from "./BrandLogo";
 import { siteContent } from "@/data/site-content";
 
 export default function HomeFooter() {
@@ -7,7 +8,7 @@ export default function HomeFooter() {
     <footer id="site-footer" className="home-footer border-t border-white/10 bg-[#080808] py-10 text-white">
       <div className="home-content-shell">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_2fr]">
-          <Link href="/" className="w-fit self-start text-xl font-bold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">{content.brand}</Link>
+          <Link href="/" aria-label="ONE-G 万机智能 首页" className="w-fit self-start focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"><BrandLogo variant="horizontal" /></Link>
           <nav aria-label="页脚导航" className="grid grid-cols-2 gap-x-6 gap-y-7 sm:grid-cols-4">
             {content.groups.map(group => (
               <div key={group.title}>

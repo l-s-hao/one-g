@@ -16,3 +16,19 @@ The compact backing uses --bg for contrast on pale navigation surfaces. Its fixe
 96px width and proportional height fit the existing 64px Header content row.
 The standalone Symbol favicon adapts to the browser's light/dark color scheme;
 it does not inherit the page theme. PNG is only an icon fallback.
+
+## Shared component
+
+`src/components/BrandLogo.tsx` supports mark/horizontal/stacked and sm/md/lg.
+It exposes `role="img"` with the accessible name `ONE-G 万机智能`, equivalent to
+alt text, and uses the canonical SVG as a currentColor mask. Mobile Header uses
+Mark, desktop Header and both Footers use horizontal, login/register use stacked,
+forgot-password uses a compact horizontal, and About uses stacked.
+
+PNG copies are in `fallback/`: the original transparent 01/03 variants and original
+09 PNG, plus `one-g-mark-icon.png` for compact favicon/Apple fallback. The earlier
+root PNG is retained for compatibility; no original asset was deleted.
+
+This integration does not change SVG path data, viewBoxes or artwork proportions.
+Hero ShinyText, ParticleText, product names, section headings and body copy remain
+text. No 05/07 Robotics logo is used.

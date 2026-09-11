@@ -1,0 +1,24 @@
+.logo {
+  display: inline-block;
+  flex-shrink: 0;
+  max-width: 100%;
+  vertical-align: middle;
+  color: var(--text, #fff);
+  background-color: currentColor;
+  mask: var(--brand-image) center / contain no-repeat;
+}
+.horizontal { --brand-image: url("/one-g/brand/one-g-logo-horizontal.svg"); aspect-ratio: 793 / 353; }
+.stacked { --brand-image: url("/one-g/brand/one-g-logo-stacked.svg"); aspect-ratio: 393 / 529; }
+.mark { --brand-image: url("/one-g/brand/one-g-mark.svg"); aspect-ratio: 1; }
+.horizontal.sm { width: 96px; }
+.horizontal.md { width: 144px; }
+.horizontal.lg { width: 192px; }
+.stacked.sm { width: 64px; }
+.stacked.md { width: 88px; }
+.stacked.lg { width: 112px; }
+.mark.sm { width: 42px; }
+.mark.md { width: 56px; }
+.mark.lg { width: 72px; }
+
+/* Header owns its foreground/background pairing; do not force brand white. */
+.logo.header { color: inherit; }

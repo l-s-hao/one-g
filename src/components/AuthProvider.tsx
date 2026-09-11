@@ -1,29 +1,50 @@
 "use client";
 
-import { createContext, useContext, type ReactNode } from "react";
-
-export interface CurrentUser {
-  id: string;
-  email: string;
-  role: "USER" | "ADMIN";
-}
+import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
+import { authenticate, demoAuthKey, readDemoSession, saveDemoSession } from "@/lib/auth-client";
+import type { CurrentUser, LoginResult, UserRole } from "@/types/auth";
+export type { CurrentUser } from "@/types/auth";
 
 export interface AuthState {
   currentUser: CurrentUser | null;
+  role: UserRole | null;
+  isAuthenticated: boolean;
   ready: boolean;
+  login: (email: string, password: string, role: UserRole) => Promise<LoginResult>;
   logout: () => void;
 }
+const AuthContext = createContext<AuthState | null>(null);
+export function useAuth() {
+  const context = useContext(AuthContext);
+  if (!context) throw new Error("useAuth requires AuthProvider");
+  return context;
+}
 
-// Reserved integration boundary. Until a verified account service is connected,
-// every visitor is anonymous. Browser storage never establishes an identity.
-const anonymousState: AuthState = {
-  currentUser: null,
-  ready: true,
-  logout: () => {},
-};
-const AuthContext = createContext<AuthState>(anonymousState);
-export const useAuth = () => useContext(AuthContext);
-
+// DEMO ONLY — Frontend Authentication Prototype, not backend authorization.
 export default function AuthProvider({ children }: { children: ReactNode }) {
-  return <AuthContext.Provider value={anonymousState}>{children}</AuthContext.Provider>;
+  const [currentUser, setCurrentUser] = useState<CurrentUser | null>(null);
+  const [ready, setReady] = useState(false);
+  const revision = useRef({ value: 0 });
+  useEffect(() => {
+    const requests = revision.current;
+    let active = true;
+    Promise.resolve().then(() => { if (active) { setCurrentUser(readDemoSession()); setReady(true); } });
+    const sync = (event: StorageEvent) => {
+      if (event.key === demoAuthKey || event.key === null) {
+        revision.current.value++;
+        setCurrentUser(readDemoSession());
+      }
+    };
+    window.addEventListener("storage", sync);
+    return () => { active = false; requests.value++; window.removeEventListener("storage", sync); };
+  }, []);
+  const login = async (email: string, password: string, role: UserRole): Promise<LoginResult> => {
+    const request = ++revision.current.value;
+    const result = await authenticate(email, password, role);
+    if (request !== revision.current.value) return { ok: false, message: "登录状态已更新，请重试。" };
+    if (result.ok) { saveDemoSession(result.user); setCurrentUser(result.user); }
+    return result;
+  };
+  const logout = () => { revision.current.value++; saveDemoSession(null); setCurrentUser(null); };
+  return <AuthContext.Provider value={{ currentUser, role: currentUser?.role ?? null, isAuthenticated: !!currentUser, ready, login, logout }}>{children}</AuthContext.Provider>;
 }

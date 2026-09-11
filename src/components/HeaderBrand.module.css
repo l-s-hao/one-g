@@ -1,16 +1,23 @@
+/* One border pixel plus the content row gives 64px desktop / 56px mobile. */
+.row { height: 63px; }
+.navigation { font-size: 15px; font-weight: 500; line-height: 1; gap: 36px; }
+.actions { gap: 20px; }
+.actions a { display: inline-flex; align-items: center; justify-content: center; }
 .brand {
   display: inline-flex;
   align-items: center;
-  padding: 4px 8px;
+  min-height: 44px;
+  padding: 0 8px;
   border-radius: 6px;
   color: var(--text, #fff);
   background: var(--bg, #000);
 }
-.logo {
-  display: block;
-  width: 96px;
-  aspect-ratio: 793 / 353;
-  background-color: currentColor;
-  mask: url("/one-g/brand/one-g-logo-horizontal.svg") center / contain no-repeat;
-}
+.brand .desktopLogo[data-brand-logo] { width: 130px; height: auto; max-width: 150px; }
+.brand .mobileLogo[data-brand-logo] { display: none; }
+.brand.interior { background: transparent; color: var(--ink, #111); }
 .brand:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+@media (max-width: 767px) {
+  .row { height: 55px; }
+  .brand .desktopLogo[data-brand-logo] { display: none; }
+  .brand .mobileLogo[data-brand-logo] { display: inline-block; width: 28px; height: 28px; }
+}
