@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import AuthProvider from "@/components/AuthProvider";
 import ThemeProvider from "@/components/ThemeProvider";
 import SiteShell from "@/components/SiteShell";
+import { GlobalSmoothCursor } from "@/components/GlobalSmoothCursor";
 import "./globals.css";
 import "./themes.css";
 
@@ -12,9 +14,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="zh-CN">
+    <html lang="zh-CN" data-theme="dark">
       <body className="min-h-screen bg-black text-white antialiased">
-        <ThemeProvider><SiteShell>{children}</SiteShell></ThemeProvider>
+        <GlobalSmoothCursor />
+        <AuthProvider><ThemeProvider><SiteShell>{children}</SiteShell></ThemeProvider></AuthProvider>
       </body>
     </html>
   );

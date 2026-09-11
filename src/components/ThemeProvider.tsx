@@ -1,33 +1,39 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
-import { isThemeId, themeStorageKey, type ThemeId } from "@/data/themes";
+import { createContext, useContext, useEffect, useLayoutEffect, useState, type ReactNode } from "react";
+import { isThemeId, type ThemeId } from "@/data/themes";
+import { loadUserTheme, saveUserTheme, userThemeKey } from "@/lib/user-preferences";
+import { useAuth } from "./AuthProvider";
 
 const ThemeContext = createContext<{ theme: ThemeId; setTheme: (theme: ThemeId) => void }>({ theme: "dark", setTheme: () => {} });
 export const useTheme = () => useContext(ThemeContext);
 
 export default function ThemeProvider({ children }: { children: ReactNode }) {
-  // SSR and the browser's first render are both Dark. Storage is client-only.
-  const [theme, updateTheme] = useState<ThemeId>("dark");
-  const apply = (value: ThemeId) => {
-    document.documentElement.dataset.theme = value;
-    updateTheme(value);
-  };
+  const { currentUser } = useAuth();
+  const userId = currentUser?.id;
+  const [preference, updatePreference] = useState<{ userId: string; theme: ThemeId } | null>(null);
+  // SSR and first client render are Dark; never carry another user's theme.
+  const theme = userId && preference?.userId === userId ? preference.theme : "dark";
+  useLayoutEffect(() => {
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
   useEffect(() => {
-    let saved: string | null = null;
-    try { saved = localStorage.getItem(themeStorageKey); } catch { /* Storage may be unavailable. */ }
+    if (!userId) return;
     let active = true;
-    Promise.resolve().then(() => { if (active) apply(isThemeId(saved) ? saved : "dark"); });
+    const load = () => {
+      if (active) updatePreference({ userId, theme: loadUserTheme(userId) });
+    };
+    Promise.resolve().then(load);
     const sync = (event: StorageEvent) => {
-      if (event.key === themeStorageKey || event.key === null) apply(isThemeId(event.newValue) ? event.newValue : "dark");
+      if (event.key === userThemeKey(userId) || event.key === null) load();
     };
     window.addEventListener("storage", sync);
     return () => { active = false; window.removeEventListener("storage", sync); };
-  }, []);
+  }, [userId]);
   const setTheme = (value: ThemeId) => {
-    if (!isThemeId(value)) return;
-    apply(value);
-    try { localStorage.setItem(themeStorageKey, value); } catch { /* Switching still works without persistence. */ }
+    if (!userId || !isThemeId(value)) return;
+    saveUserTheme(userId, value);
+    updatePreference({ userId, theme: value });
   };
   return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
 }

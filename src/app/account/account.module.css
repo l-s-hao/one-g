@@ -1,0 +1,13 @@
+.page { width: 100%; max-width: 1000px; padding: 48px 24px; color: var(--text); }
+.section { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
+.section h2 { font-size: 18px; font-weight: 600; margin-bottom: 12px; }
+.section p { overflow-wrap: anywhere; }
+.muted { color: var(--text-muted); font-size: 14px; margin-top: 6px; }
+.eyebrow { color: var(--text-muted); font-size: 11px; letter-spacing: .16em; margin-bottom: 8px; }
+.subtitle { font-size: 14px; margin: 16px 0 12px; }
+.logout { margin-top: 32px; min-height: 44px; padding: 10px 24px; border: 1px solid var(--border); border-radius: 999px; cursor: pointer; }
+.logout:hover { background: var(--surface); color: var(--text-on-surface); }
+.page a { text-decoration: underline; text-underline-offset: 4px; }
+.page :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.loading { padding: 48px 24px; }
+@media (max-width: 767px) { .page { padding: 32px 20px; } }

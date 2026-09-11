@@ -4,8 +4,9 @@ import Link from "next/link";
 import { Menu, Search, ShoppingCart, UserRound, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useAuth } from "./AuthProvider";
 
-import ThemeSelector from "./ThemeSelector";
+
 
 const navigation = [
   { href: "/customize/start", label: "在线定制" },
@@ -20,6 +21,7 @@ const utilityLinks = [
 ];
 
 export default function Header() {
+  const { currentUser } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -32,7 +34,7 @@ export default function Header() {
   }, [isHome]);
 
   return (
-    <header className={`site-header ${isHome ? "fixed" : "sticky"} inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${isHome ? (scrolled ? "border-white/10 bg-black/80 backdrop-blur-xl" : "border-white/10 bg-transparent") : "border-zinc-200/80 bg-white/85 backdrop-blur-xl"}`}>
+    <header data-no-smooth-cursor className={`site-header ${isHome ? "fixed" : "sticky"} inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${isHome ? (scrolled ? "border-white/10 bg-black/80 backdrop-blur-xl" : "border-white/10 bg-transparent") : "border-zinc-200/80 bg-white/85 backdrop-blur-xl"}`}>
       <div className="container-shell flex min-h-16 items-center justify-between gap-6 md:grid md:grid-cols-[1fr_auto_1fr]">
         <Link href="/" className={`shrink-0 justify-self-start text-xl font-extrabold tracking-[-0.04em] ${isHome ? "text-white" : "text-zinc-950"}`} onClick={() => setMenuOpen(false)}>
           ONE - G
@@ -47,15 +49,14 @@ export default function Header() {
         </nav>
 
         <div className={`hidden items-center justify-self-end gap-5 md:flex ${isHome ? "text-white/75" : "text-zinc-600"}`} aria-label="快捷入口">
-          <ThemeSelector />
           {utilityLinks.map(({ href, label, Icon }) => (
-            <Link key={href} href={href} aria-label={label} className={`transition-colors ${isHome ? "hover:text-white" : "hover:text-blue-600"}`}>
+            <Link key={href} href={href === "/login" && currentUser ? "/account" : href} aria-label={href === "/login" && currentUser ? "用户中心" : label} className={`transition-colors ${isHome ? "hover:text-white" : "hover:text-blue-600"}`}>
               <Icon size={18} strokeWidth={1.7} />
             </Link>
           ))}
         </div>
 
-        <div className="flex items-center gap-2 md:hidden"><ThemeSelector />
+        <div className="flex items-center gap-2 md:hidden">
         <button
           type="button"
           className={`rounded-full p-2 transition-colors md:hidden ${isHome ? "text-white hover:bg-white/10" : "text-zinc-700 hover:bg-zinc-100"}`}
@@ -78,7 +79,7 @@ export default function Header() {
             ))}
             <div className={`mt-2 flex gap-2 border-t pt-3 ${isHome ? "border-white/10" : "border-zinc-100"}`}>
               {utilityLinks.map(({ href, label, Icon }) => (
-                <Link key={href} href={href} className={`flex items-center gap-2 rounded-xl px-3 py-3 text-sm ${isHome ? "text-white/70 hover:bg-white/10" : "text-zinc-600 hover:bg-zinc-50"}`} onClick={() => setMenuOpen(false)}>
+                <Link key={href} href={href === "/login" && currentUser ? "/account" : href} className={`flex items-center gap-2 rounded-xl px-3 py-3 text-sm ${isHome ? "text-white/70 hover:bg-white/10" : "text-zinc-600 hover:bg-zinc-50"}`} onClick={() => setMenuOpen(false)}>
                   <Icon size={17} strokeWidth={1.7} />
                   {label}
                 </Link>
