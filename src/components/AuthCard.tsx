@@ -6,6 +6,7 @@ import { ShimmerButton } from "@/components/ui/shimmer-button";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { useState, type FormEvent } from "react";
+import { useAuth } from "./AuthProvider";
 import { useLoginForm } from "./useLoginForm";
 import InlineAuthError from "./InlineAuthError";
 import ShineBorder from "./ShineBorder";
@@ -18,8 +19,9 @@ const copy = {
   "forgot-password": { title: "忘记密码", description: "输入注册邮箱，找回你的账户。", button: "发送重置链接" },
 };
 
-export default function AuthCard({ mode }: { mode: Mode }) {
+export default function AuthCard({ mode, switching = false }: { mode: Mode; switching?: boolean }) {
   const loginForm = useLoginForm("USER");
+  const { currentUser } = useAuth();
   const pending = loginForm.pending;
   const [message, setMessage] = useState("");
   const content = copy[mode];
@@ -49,12 +51,12 @@ export default function AuthCard({ mode }: { mode: Mode }) {
             <Link href="/" aria-label="ONE-G 万机智能 首页" className="inline-block"><BrandLogo variant={mode === "forgot-password" ? "horizontal" : "stacked"} size={mode === "forgot-password" ? "sm" : "md"} /></Link>
             <p className="mt-2 text-[9px] tracking-[0.35em] text-neutral-500">INTELLIGENCE IN MOTION</p>
           </div>
-          <h1 id="auth-title" className="text-center text-2xl font-semibold tracking-tight">{content.title}</h1>
+          <h1 id="auth-title" className="text-center text-2xl font-semibold tracking-tight">{switching ? "切换账号" : content.title}</h1>
           <p className="mt-3 text-center text-sm leading-6 text-neutral-400">{content.description}</p>
           {mode === "login" && <div className="mt-4 text-center text-xs leading-5 text-neutral-400">
             <p>Frontend Authentication Prototype · 仅限演示账号，请勿输入真实密码。</p>
             <p>user@one-g.com / 123456</p>
-            <Link href="/admin/login" className="underline underline-offset-4">管理员入口</Link>
+            {currentUser?.role !== "USER" && <Link href="/admin/login" className="underline underline-offset-4">管理员入口</Link>}
           </div>}
           <form className="mt-8 space-y-5" noValidate={mode === "login"} onSubmit={mode === "login" ? loginForm.submit : submit} onChange={() => { setMessage(""); loginForm.clearErrors(); }}>
             <div>

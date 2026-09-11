@@ -10,9 +10,8 @@ export function requiredRole(href: string): UserRole | null {
   return pathname === "/admin" || pathname.startsWith("/admin/") ? "ADMIN" : "USER";
 }
 
-export function canAccessRole(role: UserRole, required: UserRole, href: string) {
-  const pathname = href.split(/[?#]/, 1)[0].replace(/\/+$/, "") || "/";
-  return role === required || (role === "ADMIN" && required === "USER" && pathname === "/account");
+export function canAccessRole(role: UserRole, required: UserRole) {
+  return role === required;
 }
 
 export function loginDestination(target: string, role: UserRole = "USER") {
@@ -31,7 +30,7 @@ export function safeReturnTo(value: string | null, role: UserRole): string {
     const normalized = new URL(decoded, "https://one-g.invalid").pathname.replace(/\/+$/, "") || "/";
     if (LOGIN_ROUTES.has(normalized)) return fallback;
     const needed = requiredRole(normalized);
-    if (needed && !canAccessRole(role, needed, normalized)) return fallback;
+    if (needed && !canAccessRole(role, needed)) return fallback;
     return `${url.pathname}${url.search}${url.hash}`;
   } catch { return fallback; }
 }

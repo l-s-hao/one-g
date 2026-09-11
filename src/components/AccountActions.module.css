@@ -1,0 +1,4 @@
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.actions button { min-height: 44px; padding: 10px 24px; border: 1px solid var(--border); border-radius: 8px; cursor: pointer; color: var(--text); }
+.actions button:hover { background: var(--surface); color: var(--text-on-surface); }
+.actions button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }

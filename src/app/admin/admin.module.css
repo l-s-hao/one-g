@@ -1,4 +1,4 @@
-.shell { --text: #ededed; min-height: 100dvh; background: #090a0c; color: #ededed; }
+.shell { --admin-panel: #111318; --admin-ink: #ededed; min-height: 100dvh; background: var(--bg); color: var(--text); }
 .header { display: flex; align-items: center; gap: 24px; min-height: 72px; padding: 12px clamp(20px, 4vw, 64px); border-bottom: 1px solid #303238; }
 .header > span { color: #a8adb7; font-size: 11px; letter-spacing: .18em; }
 .prototype { padding: 12px 20px; border-bottom: 1px solid #25282d; color: #a8adb7; text-align: center; font-size: 12px; line-height: 1.6; }
@@ -8,22 +8,23 @@
 .login form { margin-top: 28px; }
 .login label { display: block; margin: 18px 0 8px; color: #ccd0d6; font-size: 14px; }
 .login input { width: 100%; min-height: 44px; padding: 10px 12px; background: #080a0d; color: #ededed; border: 1px solid #444a54; border-radius: 4px; }
-.shell button { min-height: 44px; padding: 10px 16px; border: 1px solid #444a54; border-radius: 4px; cursor: pointer; }
-.shell button:hover, .shell button[aria-pressed="true"] { background: #2b303a; border-color: #b8bec8; }
+.navigation button, .cards button, .login button { min-height: 44px; padding: 10px 16px; border: 1px solid #444a54; border-radius: 4px; cursor: pointer; }
+.navigation button:hover, .navigation button[aria-pressed="true"] { background: var(--admin-panel); color: var(--admin-ink); border-color: var(--accent); }
+.cards button:hover { border-color: currentColor; background: rgba(var(--ink-rgb, 255,255,255),.06); }
 .shell button:disabled { opacity: .6; cursor: wait; }
 .login button { width: 100%; margin-top: 24px; background: #e2e5e9; color: #111318; font-weight: 600; }
 .login button:hover { background: #fff; }
 .shell :focus-visible { outline: 2px solid #c6d8f4; outline-offset: 3px; }
 .message { min-height: 24px; margin-top: 12px; color: #f5b0b0; font-size: 13px; }
-.muted { color: #a8adb7; font-size: 14px; line-height: 1.7; overflow-wrap: anywhere; }
+.muted { color: var(--ink-muted, var(--text-muted)); font-size: 14px; line-height: 1.7; overflow-wrap: anywhere; }
 .demo { margin-top: 24px; padding-top: 16px; border-top: 1px solid #303238; color: #929aa7; font-size: 12px; line-height: 1.8; }
 .dashboard { max-width: 1280px; margin: auto; padding: 32px 24px; }
 .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
 .navigation { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 32px; }
-.panel { padding: 24px; border: 1px solid #343941; background: #111318; border-radius: 6px; }
+.panel { padding: 24px; border: 1px solid var(--border); background: var(--admin-panel); color: var(--admin-ink); border-radius: 6px; }
 .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
 .cards button { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; padding: 20px; text-align: left; }
-.cards span { color: #a8adb7; font-size: 13px; }
+.cards span { color: var(--ink-muted, var(--text-muted)); font-size: 13px; }
 @media (max-width: 767px) { .login { margin-top: 32px; padding: 24px; } .cards { grid-template-columns: 1fr; } .toolbar { align-items: flex-start; } .toolbar button { flex-shrink: 0; } .dashboard { padding: 24px 20px; } }
 
 :global(html[data-theme="color-vision-safe"]) .shell { --text: #F7F7F2; background: var(--bg); color: var(--text); }
@@ -31,3 +32,17 @@
 :global(html[data-theme="color-vision-safe"]) .login { background: var(--surface); border-color: var(--border-strong); }
 :global(html[data-theme="color-vision-safe"]) .shell button[aria-pressed="true"] { border-color: var(--accent); }
 :global(html[data-theme="color-vision-safe"]) .shell button[aria-pressed="true"]::before { content: "✓ "; }
+
+.profile, .themeSection, .accountSection { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
+.themeSection > p { margin-bottom: 16px; }
+.subheading { margin: 20px 0 12px; font-size: 15px; font-weight: 600; }
+:global(html[data-theme]:not([data-theme="dark"])) .shell { --admin-panel: var(--surface); --admin-ink: var(--text-on-surface); }
+:global(html[data-theme]:not([data-theme="dark"])) .panel {
+  --ink-rgb: var(--surface-ink-rgb); --ink-muted: var(--text-on-surface);
+}
+.shell .themeSection button { color: var(--text); }
+.shell .navigation button { overflow-wrap: anywhere; }
+:global(html[data-theme]:not([data-theme="dark"])) .header,
+:global(html[data-theme]:not([data-theme="dark"])) .prototype { border-color: var(--border); }
+:global(html[data-theme]:not([data-theme="dark"])) .header > span,
+:global(html[data-theme]:not([data-theme="dark"])) .prototype { color: var(--text-muted); }

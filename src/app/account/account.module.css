@@ -5,8 +5,6 @@
 .muted { color: var(--text-muted); font-size: 14px; margin-top: 6px; }
 .eyebrow { color: var(--text-muted); font-size: 11px; letter-spacing: .16em; margin-bottom: 8px; }
 .subtitle { font-size: 14px; margin: 16px 0 12px; }
-.logout { margin-top: 32px; min-height: 44px; padding: 10px 24px; border: 1px solid var(--border); border-radius: 999px; cursor: pointer; }
-.logout:hover { background: var(--surface); color: var(--text-on-surface); }
 .page a { text-decoration: underline; text-underline-offset: 4px; }
 .page :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .loading { padding: 48px 24px; }

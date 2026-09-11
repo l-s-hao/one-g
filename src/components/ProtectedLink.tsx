@@ -12,7 +12,7 @@ export const ProtectedLink = forwardRef<HTMLAnchorElement, Props>(function Prote
   const role = requiredRole(href);
   const target = role && (!authReady || !currentUser)
     ? loginDestination(href, role)
-    : role === "USER" && currentUser?.role === "ADMIN" && !canAccessRole(currentUser.role, role, href) ? "/admin" : href;
+    : role === "USER" && currentUser?.role === "ADMIN" && !canAccessRole(currentUser.role, role) ? "/admin" : href;
   return <Link {...props} ref={ref} href={target} />;
 });
 

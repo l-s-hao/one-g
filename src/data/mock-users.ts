@@ -5,5 +5,6 @@ import type { CurrentUser } from "@/types/auth";
 // 正式上线必须删除明文密码并接后端认证。
 export const mockUsers: readonly (CurrentUser & { password: string })[] = [
   { id: "user-demo", email: "user@one-g.com", password: "123456", role: "USER" },
+  { id: "user-demo-b", email: "user-b@one-g.com", password: "123456", role: "USER" },
   { id: "admin-demo", email: "admin@one-g.com", password: "admin123", role: "ADMIN" },
 ];
