@@ -10,6 +10,13 @@ import "./themes.css";
 export const metadata: Metadata = {
   title: "ONE - G / 万机智能机器人",
   description: "机器人产品展示、购买与在线定制平台",
+  icons: {
+    icon: [
+      { url: "/one-g/brand/one-g-mark.png", type: "image/png", sizes: "192x192" },
+      { url: "/one-g/brand/one-g-mark.svg", type: "image/svg+xml", sizes: "any" },
+    ],
+    apple: "/one-g/brand/one-g-mark.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

@@ -5,6 +5,7 @@ import { Menu, Search, ShoppingCart, UserRound, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useAuth } from "./AuthProvider";
+import styles from "./HeaderBrand.module.css";
 
 
 
@@ -36,8 +37,8 @@ export default function Header() {
   return (
     <header data-no-smooth-cursor className={`site-header ${isHome ? "fixed" : "sticky"} inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${isHome ? (scrolled ? "border-white/10 bg-black/80 backdrop-blur-xl" : "border-white/10 bg-transparent") : "border-zinc-200/80 bg-white/85 backdrop-blur-xl"}`}>
       <div className="container-shell flex min-h-16 items-center justify-between gap-6 md:grid md:grid-cols-[1fr_auto_1fr]">
-        <Link href="/" className={`shrink-0 justify-self-start text-xl font-extrabold tracking-[-0.04em] ${isHome ? "text-white" : "text-zinc-950"}`} onClick={() => setMenuOpen(false)}>
-          ONE - G
+        <Link href="/" className={`shrink-0 justify-self-start ${styles.brand}`} aria-label="ONE-G / 万机智能 首页" onClick={() => setMenuOpen(false)}>
+          <span className={styles.logo} aria-hidden="true" />
         </Link>
 
         <nav className={`hidden items-center justify-center gap-8 text-sm md:flex lg:gap-10 ${isHome ? "text-white/75" : "text-zinc-600"}`} aria-label="主导航">

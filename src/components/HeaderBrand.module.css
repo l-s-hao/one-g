@@ -1,0 +1,16 @@
+.brand {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: var(--text, #fff);
+  background: var(--bg, #000);
+}
+.logo {
+  display: block;
+  width: 96px;
+  aspect-ratio: 793 / 353;
+  background-color: currentColor;
+  mask: url("/one-g/brand/one-g-logo-horizontal.svg") center / contain no-repeat;
+}
+.brand:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
