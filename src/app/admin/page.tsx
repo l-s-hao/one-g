@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useAuth } from "@/components/AuthProvider";
+import AccessibilityThemeSelector from "@/components/AccessibilityThemeSelector";
 import ThemeSelector from "@/components/ThemeSelector";
 import AccountActions from "@/components/AccountActions";
 import ContactDetails from "@/components/ContactDetails";
@@ -37,7 +38,7 @@ export default function AdminPage() {
         <h3 className={styles.subheading}>基础站点配置</h3><p className={styles.muted}>ONE-G / 万机智能 · 当前只读，编辑功能待后台服务接入。</p>
       </> : <><p>{selected?.detail}</p><p className={styles.muted}>功能占位，当前不读取真实数据、不执行增删改操作。</p></>}
     </section>
-    <section className={styles.themeSection} aria-labelledby="admin-theme"><h2 id="admin-theme">个性化设置 / 界面主题</h2><p className={styles.muted}>仅影响当前管理员自己的界面，不改变全站默认或其他用户的主题。</p><ThemeSelector /></section>
+    <section className={styles.themeSection} aria-labelledby="admin-theme"><h2 id="admin-theme">个性化设置 / 界面主题</h2><p className={styles.muted}>仅影响当前管理员自己的界面，不改变全站默认或其他用户的主题。</p><ThemeSelector /><div className="mt-6"><p className="mb-3 text-xs tracking-widest">ACCESSIBILITY</p><AccessibilityThemeSelector /></div></section>
     <section className={styles.accountSection} aria-labelledby="admin-account-actions"><h2 id="admin-account-actions">账户</h2><AccountActions /></section>
   </div>;
 }

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useAuth } from "@/components/AuthProvider";
+import AccessibilityThemeSelector from "@/components/AccessibilityThemeSelector";
 import ThemeSelector from "@/components/ThemeSelector";
 import AccountActions from "@/components/AccountActions";
 import ContactDetails from "@/components/ContactDetails";
@@ -26,7 +27,7 @@ export default function AccountPage() {
       <p className={styles.eyebrow}>PERSONALIZATION</p>
       <h2 id="personalization-title">个性化设置</h2>
       <h3 className={styles.subtitle}>网站主题</h3>
-      <ThemeSelector />
+      <ThemeSelector /><div className="mt-6"><p className="mb-3 text-xs tracking-widest">ACCESSIBILITY</p><AccessibilityThemeSelector /></div>
     </section>
     <section className={styles.section} aria-labelledby="account-actions"><h2 id="account-actions">账户</h2><AccountActions /></section>
   </div>;

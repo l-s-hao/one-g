@@ -1,0 +1,10 @@
+.control { position: relative; }
+.control summary { display: flex; align-items: center; justify-content: center; min-height: 32px; list-style: none; cursor: pointer; }
+.control summary::-webkit-details-marker { display: none; }
+.popover { position: absolute; right: 0; top: calc(100% + 14px); width: 200px; padding: 16px; background: var(--surface); color: var(--text-on-surface); border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 8px 24px #0003; }
+.options { min-width: 0; }
+.options legend { margin-bottom: 8px; font-size: 14px; font-weight: 600; }
+.options label { display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px; cursor: pointer; }
+.options input { accent-color: var(--accent); cursor: pointer; }
+.control :focus-visible, .mobile :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.mobile { padding: 16px 12px; margin-top: 12px; border-top: 1px solid var(--border); color: var(--text-on-surface); }

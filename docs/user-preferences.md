@@ -15,9 +15,9 @@ real data or be deployed as a login security system.
 - `one-g-auth-demo` stores only `{version: 1, userId}`. Refresh resolves identity
   from the mock fixture; stored roles are never authoritative. Any browser-only
   identity remains forgeable. No entered password is written to storage.
-- Logout removes demo auth, clears in-memory user and restores Dark. USER exits
+- Logout removes demo auth, clears in-memory user and resets the ordinary preference to Dark; an active accessibility theme remains. USER exits
   to /; ADMIN exits to /admin/login. Cross-tab auth changes are synchronized.
-- ThemeProvider remains the sole theme context. Anonymous users use Dark. Legacy
+- ThemeProvider remains the sole theme context. Anonymous users prefer Dark and may enable a public accessibility theme. Legacy
   `one-g-theme` and older demo session keys are ignored. USER and ADMIN preferences live at
   `one-g-theme:<user-id>` and survive logout. Theme cards require login and appear in /account for USER and /admin for ADMIN.
 - SSR and initial client state are anonymous/Dark, with session restoration after
@@ -60,11 +60,18 @@ ShimmerButton's link wrapper changed, but its styling and animation did not.
 Login redirects carry a URL-encoded returnTo, including search/hash. Successful
 login returns there, otherwise defaults to /account (USER) or /admin (ADMIN).
 safeReturnTo rejects external/protocol-relative URLs, encoded URL tricks, login
-loops and cross-role paths. Explicit Header login has no returnTo. Logout restores
-Dark and redirects away from protected content; per-user preferences are preserved.
+loops and cross-role paths. Explicit Header login has no returnTo. Logout resets the ordinary preference to
+Dark, retains accessibility, and redirects away from protected content; per-user preferences are preserved.
 
-Color Vision Safe (`color-vision-safe`) is retained as the final theme. It uses blue/amber accents, dark surfaces, and explicit selection/progress/error symbols. Preferences still use the same per-user storage adapter; logout restores Dark without deleting the preference.
 
-The current ThemeId union is dark | zandan-green | aegean-blue | falu-red | burnt-brick | color-vision-safe. Theme cards use three columns on desktop and two on mobile. The retired IDs deep-sea, tea-blossom and apple are accepted only by the migration in loadUserTheme: on authenticated preference load they are rewritten to dark at that user's existing key. Other users' preferences are untouched; storage failures still fall back to Dark in memory.
+ThemeId is dark | zandan-green | aegean-blue | falu-red | burnt-brick | color-vision-safe | monochrome. PreferredThemeId contains only the first five IDs. Theme cards use three columns on desktop and two on mobile. Deprecated ordinary preferences deep-sea, tea-blossom, apple and a legacy per-user color-vision-safe value are handled only by the migration in loadUserTheme: on authenticated preference load they are rewritten to dark at that user's existing key. Other users' preferences are untouched; storage failures still fall back to Dark in memory.
 
-Account centers are independent: USER gets shopping, orders, addresses, shared support contacts and personal themes; ADMIN gets management placeholders, read-only site contact settings and personal themes. AccountActions shares switch/logout logic. Switching clears the session with an explicit /login?mode=switch exit target consumed by the guard, preserves per-user themes and restores anonymous Dark. USER logout goes home; ADMIN logout goes to /admin/login. The additional frontend fixture user-b@one-g.com / 123456 (user-demo-b) supports checking user-to-user isolation; it is DEMO ONLY, like the other fixtures.
+Account centers are independent: USER gets shopping, orders, addresses, shared support contacts and personal themes; ADMIN gets management placeholders, read-only site contact settings and personal themes. AccountActions shares switch/logout logic. Switching clears the session with an explicit /login?mode=switch exit target consumed by the guard, preserves per-user themes and resets the ordinary preference to Dark while retaining accessibility. USER logout goes home; ADMIN logout goes to /admin/login. The additional frontend fixture user-b@one-g.com / 123456 (user-demo-b) supports checking user-to-user isolation; it is DEMO ONLY, like the other fixtures.
+
+## Unified accessibility themes
+
+ThemeProvider owns preferredTheme, accessibilityTheme and effectiveTheme. The single active palette is accessibilityTheme ?? preferredTheme. Ordinary preferredTheme is per-user at one-g-theme:<user-id>; anonymous preferredTheme is dark. Accessibility is public and browser-wide at one-g-accessibility-theme, containing color-vision-safe, monochrome or the explicit string null. Standard display sets accessibilityTheme to null, restoring the saved ordinary preference without overwriting it. Logout and account switching preserve the accessibility setting. Both stores synchronize across tabs and initialize after mount; SSR starts with dark.
+
+On `/`, ordinary preferences render the fixed Brand Home; accessibility themes apply there and to all other routes. HomeThemeBoundary is purely a CSS scope with no local state, context or storage. html has one data-theme attribute. Homepage --home-* tokens derive from that global attribute for the two special palettes. Images are never inverted; Hero images and black overlays remain intact. Particle colors observe the same html attribute without restarting animation.
+
+ThemeSelector shows only five ordinary cards to signed-in users. AccessibilityThemeSelector is shared by /account, /admin and the compact menu. The menu is always available on home, and on other headers while a special theme is active, including the admin shell. The old one-g-home-accessibility key migrates once to the new key (mono-invert becomes monochrome) and is removed. Existing new-key values take precedence. No second active homepage display state remains. Native browser cursors remain restored.

@@ -71,10 +71,9 @@
 :global(html[data-theme]:not([data-theme="dark"])) .card:hover input:not(:disabled):not(:checked) + .cardBody { background: var(--surface-2); }
 :global(html[data-theme]:not([data-theme="dark"])) .card input:checked + .cardBody .check { color: var(--surface); }
 
-:global(html[data-theme="color-vision-safe"]) .card input:checked + .cardBody { border-color: var(--accent); }
-:global(html[data-theme="color-vision-safe"]:not([data-theme="dark"])) .card input:checked + .cardBody { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
 
 :global(html:is([data-theme="zandan-green"], [data-theme="aegean-blue"], [data-theme="falu-red"], [data-theme="burnt-brick"])) .card:hover input:not(:disabled):not(:checked) + .cardBody {
   --ink: var(--text-on-surface-2); --ink-soft: var(--text-on-surface-2);
   --ink-muted: var(--text-on-surface-2); color: var(--text-on-surface-2);
 }
+:global(html[data-theme="color-vision-safe"]:not([data-theme="dark"])) .card input:checked + .cardBody { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }

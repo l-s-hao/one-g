@@ -130,7 +130,7 @@ const ParticleText = ({
     let themeColor: string | null = null;
     const updateThemeColor = () => {
       const theme = document.documentElement.dataset.theme;
-      themeColor = theme && theme !== 'dark'
+      themeColor = container.closest('[data-home-theme]') || (theme && theme !== 'dark')
         ? getComputedStyle(container).getPropertyValue('--effect-color').trim() : null;
     };
     updateThemeColor();

@@ -1,42 +1,7 @@
 @import "tailwindcss";
 
-/* The host stays mounted when moving into excluded regions. The popover
-   lives in the top layer, so suppression must also target the cursor itself. */
-.smooth-cursor-host { pointer-events: none; }
-.smooth-cursor-host.is-suppressed [data-smooth-cursor] {
-  opacity: 0 !important;
-  visibility: hidden;
-}
-
-[data-smooth-cursor]::backdrop {
-  pointer-events: none;
-  background: transparent;
-}
-
-@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  body.smooth-cursor-enabled:has(:where(.smooth-cursor-host:not(.is-suppressed) [data-visible="true"])),
-  body.smooth-cursor-enabled:has(:where(.smooth-cursor-host:not(.is-suppressed) [data-visible="true"])) * {
-    cursor: none !important;
-  }
-
-  body.smooth-cursor-enabled [data-no-smooth-cursor],
-  body.smooth-cursor-enabled [data-no-smooth-cursor] * {
-    cursor: auto !important;
-  }
-
-  body.smooth-cursor-enabled [data-no-smooth-cursor] :is(a, button, [role="button"], summary),
-  body.smooth-cursor-enabled [data-no-smooth-cursor] :is(a, button, [role="button"], summary) * {
-    cursor: pointer !important;
-  }
-
-  body.smooth-cursor-enabled :is(input, textarea, select, [contenteditable="true"], [contenteditable="true"] *) {
-    cursor: text !important;
-  }
-}
-
-@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
-  [data-smooth-cursor] { display: none !important; }
-}
+a, button, [role="button"], summary { cursor: pointer; }
+input, textarea, [contenteditable="true"] { cursor: text; }
 
 .shine-border {
   position: absolute;

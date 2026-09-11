@@ -3,9 +3,9 @@ import type { ReactNode } from "react";
 import AuthProvider from "@/components/AuthProvider";
 import ThemeProvider from "@/components/ThemeProvider";
 import SiteShell from "@/components/SiteShell";
-import { GlobalSmoothCursor } from "@/components/GlobalSmoothCursor";
 import "./globals.css";
 import "./themes.css";
+import "./home-display.css";
 
 export const metadata: Metadata = {
   title: "ONE - G / 万机智能机器人",
@@ -23,7 +23,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="zh-CN" data-theme="dark">
       <body className="min-h-screen bg-black text-white antialiased">
-        <GlobalSmoothCursor />
         <AuthProvider><ThemeProvider><SiteShell>{children}</SiteShell></ThemeProvider></AuthProvider>
       </body>
     </html>

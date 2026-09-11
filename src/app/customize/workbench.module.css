@@ -328,16 +328,16 @@
 
 /* Homepage shares the workbench UI, but never owns a scroll viewport. */
 .page.preview {
-  --page-bg: #000; --panel-bg: #0b0b0b; --ink: #fff; --ink-rgb: 255, 255, 255;
-  --ink-muted: #aaa; --ink-soft: #ddd;
+  --page-bg: var(--home-bg, #000); --panel-bg: var(--home-surface, #0b0b0b); --ink: var(--home-text, #fff); --ink-rgb: var(--home-ink-rgb, 255, 255, 255);
+  --ink-muted: var(--home-text-muted, #aaa); --ink-soft: var(--home-text, #ddd);
   display: block; height: auto; min-height: 0; overflow: visible; padding: 20px;
-  border: 1px solid #ffffff24; border-radius: 16px;
+  border: 1px solid var(--home-border, #ffffff24); border-radius: 16px;
 }
 .preview .workspace { height: auto; overflow: visible; grid-template-rows: auto; gap: 20px; align-items: start; }
 .page.preview .workspace :is(.moduleLibrary, .currentBuild, .summaryPanel, .accordion) {
-  --ink: #fff; --ink-rgb: 255, 255, 255; --ink-muted: #aaa; --ink-soft: #ddd;
+  --ink: var(--home-text, #fff); --ink-rgb: var(--home-ink-rgb, 255, 255, 255); --ink-muted: var(--home-text-muted, #aaa); --ink-soft: var(--home-text, #ddd);
   position: static; height: auto; max-height: none; overflow: visible;
-  overscroll-behavior: auto; scrollbar-gutter: auto; background: #0b0b0b; color: #fff;
+  overscroll-behavior: auto; scrollbar-gutter: auto; background: var(--home-surface, #0b0b0b); color: var(--home-text, #fff);
 }
 .preview .libraryScroll { max-height: none; overflow: visible; }
 .preview .categoryToggle { min-height: 64px; padding: 14px; }
@@ -355,7 +355,7 @@
 .preview .progress { margin-top: 20px; padding-top: 16px; }
 .preview .progressLabels > span { font-size: 9px; }
 .preview .panelHeading h2, .preview .buildHeading h2 { font-size: 12px; }
-.preview .mobileTabs { position: static; background: #000; color: #fff; --ink: #fff; --ink-muted: #aaa; }
+.preview .mobileTabs { position: static; background: var(--home-bg, #000); color: var(--home-text, #fff); --ink: var(--home-text, #fff); --ink-muted: var(--home-text-muted, #aaa); }
 @media (min-width: 768px) {
   .preview .workspace { grid-template-columns: minmax(0, 1fr) minmax(0, 1.8fr) minmax(0, 1fr); }
   .preview .moduleLibrary, .preview .currentBuild, .preview .summaryPanel { grid-row: 1; }
@@ -398,3 +398,4 @@
 :global(html[data-theme="color-vision-safe"]) .node:disabled { opacity: 1; border-style: dashed; }
 :global(html[data-theme="color-vision-safe"]) .emptySlot p::before { content: "○ 未选择 · "; }
 :global(html[data-theme="color-vision-safe"]) .chip::before { content: "✓ "; }
+:global(html[data-theme="color-vision-safe"]) .nodeCopy > .recommended::before { content: "★ "; }

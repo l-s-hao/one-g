@@ -191,32 +191,7 @@ html[data-theme]:not([data-theme="dark"]) textarea:focus-visible { outline-color
 }
 .home-page .hero-section { background-color: #000; }
 
-/* Color Vision Safe retains its independent palette and status cues. */
-html[data-theme="color-vision-safe"]:not([data-theme="dark"]) {
-  --color-primary: #0B1020; --color-secondary: #F7F7F2;
-  --bg: #0B1020; --surface: #131A2A; --surface-2: #1A2336;
-  --text: #F7F7F2; --text-on-surface: #F7F7F2; --text-muted: #AAB4C3;
-  --border: rgba(247,247,242,.18); --border-strong: rgba(247,247,242,.48);
-  --accent: #4EA1FF; --accent-secondary: #F2B134;
-  --button-primary-bg: #4EA1FF; --button-primary-text: #07111F;
-  --button-secondary-bg: transparent; --button-secondary-text: #F7F7F2;
-  --color-success: #56B4E9; --color-error: #D55E00; --color-warning: #F0E442;
-  --color-recommended: #4EA1FF; --color-selected: #4EA1FF;
-  --effect-color: #4EA1FF; --effect-dim: #F2B134; --logo-shine: #F7F7F2;
-  --effect-rgb: 247, 247, 242; --primary-rgb: 11, 16, 32; --surface-ink-rgb: 247, 247, 242;
-  --shimmer-bg: #131A2A;
-}
 .color-vision-only { display: none; }
-html[data-theme="color-vision-safe"]:not([data-theme="dark"]) .color-vision-only { display: inline; }
-html[data-theme="color-vision-safe"]:not([data-theme="dark"]) .bg-white,
-html[data-theme="color-vision-safe"]:not([data-theme="dark"]) .bg-white\/85 {
-  background-color: var(--surface); color: var(--text); --ink: var(--text);
-}
-html[data-theme="color-vision-safe"]:not([data-theme="dark"]) ::selection { background: var(--accent); color: #07111F; }
-html[data-theme="color-vision-safe"]:not([data-theme="dark"]) .auth-error { color: var(--color-error); }
-html[data-theme="color-vision-safe"]:not([data-theme="dark"]) :focus-visible { outline-color: var(--accent-secondary); }
-html[data-theme="color-vision-safe"]:not([data-theme="dark"]) [role="tab"][aria-selected="true"]::before { content: "✓ "; }
-html[data-theme="color-vision-safe"]:not([data-theme="dark"]) [role="tab"][aria-selected="true"] { border-color: var(--accent); }
 
 /* Only the new three-color palettes opt into contrasting secondary-surface ink. */
 html:is([data-theme="zandan-green"], [data-theme="aegean-blue"], [data-theme="falu-red"], [data-theme="burnt-brick"]):not([data-theme="dark"]) :is(.bg-\[\#111\]\/95, .mobile-checkout-bar) {
@@ -227,3 +202,42 @@ html:is([data-theme="zandan-green"], [data-theme="aegean-blue"], [data-theme="fa
 html:is([data-theme="zandan-green"], [data-theme="aegean-blue"], [data-theme="falu-red"], [data-theme="burnt-brick"]):not([data-theme="dark"]) .auth-input::placeholder {
   color: color-mix(in srgb, var(--text-on-surface-2) 80%, transparent);
 }
+
+/* Accessibility themes are global and override only the active palette. */
+html[data-theme="color-vision-safe"]:not([data-theme="dark"]) {
+  --color-primary: #0B1020; --color-secondary: #F7F7F2;
+  --bg: #0B1020; --surface: #131A2A; --surface-2: #1A2336;
+  --text: #F7F7F2; --text-on-surface: #F7F7F2; --text-muted: #AAB4C3;
+  --border: rgba(247,247,242,.18); --border-strong: rgba(247,247,242,.48);
+  --accent: #4EA1FF; --accent-secondary: #F2B134;
+  --button-primary-bg: #4EA1FF; --button-primary-text: #07111F;
+  --button-secondary-bg: transparent; --button-secondary-text: #F7F7F2;
+  --color-success: #56B4E9; --color-error: #D55E00; --color-warning: #F0E442;
+  --error: #D55E00; --warning: #F0E442;
+  --effect-color: #4EA1FF; --effect-dim: #F2B134; --logo-shine: #F7F7F2;
+  --effect-rgb: 247,247,242; --primary-rgb: 11,16,32; --surface-ink-rgb: 247,247,242;
+  --shimmer-bg: #131A2A;
+}
+html[data-theme="monochrome"]:not([data-theme="dark"]) {
+  --color-primary: #fff; --color-secondary: #000;
+  --bg: #fff; --surface: #F4F4F4; --surface-2: #E8E8E8;
+  --text: #000; --text-on-surface: #000; --text-muted: #555;
+  --border: rgba(0,0,0,.18); --border-strong: rgba(0,0,0,.60);
+  --accent: #000; --accent-secondary: #555;
+  --button-primary-bg: #000; --button-primary-text: #fff;
+  --button-secondary-bg: transparent; --button-secondary-text: #000;
+  --color-error: #000; --error: #000; --warning: #000;
+  --effect-color: #000; --effect-dim: #555; --logo-shine: #555;
+  --effect-rgb: 0,0,0; --primary-rgb: 255,255,255; --surface-ink-rgb: 0,0,0;
+  --shimmer-bg: #000;
+}
+html:is([data-theme="color-vision-safe"], [data-theme="monochrome"]):not([data-theme="dark"]) :is(.bg-white, .bg-white\/85) {
+  background-color: var(--surface); color: var(--text); --ink: var(--text);
+}
+html[data-theme="monochrome"]:not([data-theme="dark"]) .one-g-shimmer.text-white { color: var(--button-primary-text); }
+html[data-theme="color-vision-safe"] .color-vision-only { display: inline; }
+html[data-theme="color-vision-safe"] :focus-visible { outline-color: var(--accent-secondary); }
+html[data-theme="color-vision-safe"] [role="tab"][aria-selected="true"]::before,
+html[data-theme="color-vision-safe"] [aria-pressed="true"]:not(:has(svg))::before { content: "✓ "; }
+html[data-theme="color-vision-safe"] [role="tab"][aria-selected="true"] { border-color: var(--accent); }
+html[data-theme="color-vision-safe"] .order-success h1::before { content: "✓ "; }

@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useAuth } from "./AuthProvider";
 import styles from "./HeaderBrand.module.css";
+import AccessibilityControls from "./AccessibilityControls";
 import BrandLogo from "./BrandLogo";
 
 
@@ -39,7 +40,7 @@ export default function Header() {
   }, [isHome]);
 
   return (
-    <header data-header-variant={isHome ? "hero" : "interior"} data-no-smooth-cursor className={`site-header ${isHome ? "fixed" : "sticky"} inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${isHome ? (scrolled ? "border-white/10 bg-black/80 backdrop-blur-xl" : "border-white/10 bg-transparent") : "border-zinc-200/80 bg-white/85 backdrop-blur-xl"}`}>
+    <header data-header-variant={isHome ? "hero" : "interior"} className={`site-header ${isHome ? "fixed" : "sticky"} inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${isHome ? (scrolled ? "border-white/10 bg-black/80 backdrop-blur-xl" : "border-white/10 bg-transparent") : "border-zinc-200/80 bg-white/85 backdrop-blur-xl"}`}>
       <div className={`container-shell flex items-center justify-between gap-6 md:grid md:grid-cols-[1fr_auto_1fr] ${styles.row}`}>
         <Link href="/" className={`shrink-0 justify-self-start ${styles.brand} ${isHome ? "" : styles.interior}`} aria-label="ONE-G / 万机智能 首页" onClick={() => setMenuOpen(false)}>
           <BrandLogo variant="horizontal" size="sm" context={isHome ? "brand" : "header"} className={styles.desktopLogo} />
@@ -55,6 +56,7 @@ export default function Header() {
         </nav>
 
         <div className={`hidden items-center justify-self-end gap-5 md:flex ${styles.actions} ${isHome ? "text-white/75" : "text-zinc-600"}`} aria-label="快捷入口">
+          <AccessibilityControls />
           {utilityLinks.map(({ href, label, Icon }) => (
             <NavigationLink key={href} href={href === "/login" ? userHref : href} aria-label={href === "/login" ? userLabel : label} className={`transition-colors ${isHome ? "hover:text-white" : "hover:text-blue-600"}`}>
               <Icon size={19} strokeWidth={1.7} />
@@ -83,6 +85,7 @@ export default function Header() {
                 {item.label}
               </NavigationLink>
             ))}
+            <AccessibilityControls mobile />
             <div className={`mt-2 flex gap-2 border-t pt-3 ${isHome ? "border-white/10" : "border-zinc-100"}`}>
               {utilityLinks.map(({ href, label, Icon }) => (
                 <NavigationLink key={href} href={href === "/login" ? userHref : href} className={`flex items-center gap-2 rounded-xl px-3 py-3 text-sm ${isHome ? "text-white/70 hover:bg-white/10" : "text-zinc-600 hover:bg-zinc-50"}`} onClick={() => setMenuOpen(false)}>

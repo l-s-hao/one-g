@@ -27,11 +27,6 @@
 .cards span { color: var(--ink-muted, var(--text-muted)); font-size: 13px; }
 @media (max-width: 767px) { .login { margin-top: 32px; padding: 24px; } .cards { grid-template-columns: 1fr; } .toolbar { align-items: flex-start; } .toolbar button { flex-shrink: 0; } .dashboard { padding: 24px 20px; } }
 
-:global(html[data-theme="color-vision-safe"]) .shell { --text: #F7F7F2; background: var(--bg); color: var(--text); }
-:global(html[data-theme="color-vision-safe"]) .panel,
-:global(html[data-theme="color-vision-safe"]) .login { background: var(--surface); border-color: var(--border-strong); }
-:global(html[data-theme="color-vision-safe"]) .shell button[aria-pressed="true"] { border-color: var(--accent); }
-:global(html[data-theme="color-vision-safe"]) .shell button[aria-pressed="true"]::before { content: "✓ "; }
 
 .profile, .themeSection, .accountSection { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
 .themeSection > p { margin-bottom: 16px; }
@@ -46,3 +41,16 @@
 :global(html[data-theme]:not([data-theme="dark"])) .prototype { border-color: var(--border); }
 :global(html[data-theme]:not([data-theme="dark"])) .header > span,
 :global(html[data-theme]:not([data-theme="dark"])) .prototype { color: var(--text-muted); }
+
+/* Login surfaces also follow the active accessibility palette. */
+:global(html:is([data-theme="color-vision-safe"], [data-theme="monochrome"])) .login {
+  background: var(--surface); color: var(--text-on-surface); border-color: var(--border-strong);
+}
+:global(html:is([data-theme="color-vision-safe"], [data-theme="monochrome"])) .login :is(label, .demo) { color: var(--text-muted); }
+:global(html:is([data-theme="color-vision-safe"], [data-theme="monochrome"])) .login input {
+  background: var(--surface-2); color: var(--text); border-color: var(--border-strong);
+}
+:global(html:is([data-theme="color-vision-safe"], [data-theme="monochrome"])) .login button {
+  background: var(--button-primary-bg); color: var(--button-primary-text);
+}
+.header > details { margin-left: auto; }
