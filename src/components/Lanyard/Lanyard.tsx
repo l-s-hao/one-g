@@ -14,11 +14,20 @@ import {
 } from '@react-three/rapier';
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 import * as THREE from 'three';
+import { lanyardAssets } from './assets';
 
 import type { GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-const cardGLB = "/one-g/lanyard/card.glb";
+const cardGLB = lanyardAssets.model;
 const lanyard = "/one-g/lanyard/lanyard.png";
+
+export function preloadLanyard() {
+  useGLTF.preload(cardGLB);
+  // Match the mounted hooks' loaders so all textures share their caches.
+  useTexture.preload(lanyardAssets.band);
+  useLoader.preload(THREE.TextureLoader, lanyardAssets.front);
+  useLoader.preload(THREE.TextureLoader, lanyardAssets.back);
+}
 type CardGLTF = GLTF & {
   nodes: Record<"card" | "clip" | "clamp", THREE.Mesh>;
   materials: { base: THREE.MeshStandardMaterial & { map: THREE.Texture }; metal: THREE.MeshStandardMaterial };
@@ -49,6 +58,8 @@ const FRONT_UV_RECT = { x: 0, y: 0, w: 0.5, h: 0.755 };
 const BACK_UV_RECT = { x: 0.5, y: 0, w: 0.5, h: 0.757 };
 
 interface LanyardProps {
+  active?: boolean;
+  onReady?: () => void;
   position?: [number, number, number];
   gravity?: [number, number, number];
   fov?: number;
@@ -61,6 +72,8 @@ interface LanyardProps {
 }
 
 export default function Lanyard({
+  active = true,
+  onReady,
   position = [0, 0, 30],
   gravity = [0, -40, 0],
   fov = 20,
@@ -82,6 +95,7 @@ export default function Lanyard({
   return (
     <div className="lanyard-wrapper">
       <Canvas
+        frameloop={active ? 'always' : 'never'}
         camera={{ position, fov }}
         dpr={[1, isMobile ? 1 : 2]}
         gl={{ alpha: transparent }}
@@ -89,8 +103,9 @@ export default function Lanyard({
       >
         <Suspense fallback={null}>
         <ambientLight intensity={Math.PI} />
-        <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
+        <Physics paused={!active} gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
           <Band
+            onReady={onReady}
             isMobile={isMobile}
             frontImage={frontImage}
             backImage={backImage}
@@ -136,6 +151,7 @@ export default function Lanyard({
 }
 
 interface BandProps {
+  onReady?: () => void;
   maxSpeed?: number;
   minSpeed?: number;
   isMobile?: boolean;
@@ -151,6 +167,7 @@ type LanyardRigidBody = RapierRigidBody & {
 };
 
 function Band({
+  onReady,
   maxSpeed = 50,
   minSpeed = 0,
   isMobile = false,
@@ -207,6 +224,7 @@ function Band({
   // isn't supplied for a given face, then skip compositing it below.
   const frontTex = useLoader(THREE.TextureLoader, frontImage || BLANK_PIXEL);
   const backTex = useLoader(THREE.TextureLoader, backImage || BLANK_PIXEL);
+  useEffect(() => { onReady?.(); }, [onReady]);
 
   // Composite the front/back images into the card's texture atlas (front = left
   // half, back = right half). Each image is drawn aspect-preserving (no stretch).

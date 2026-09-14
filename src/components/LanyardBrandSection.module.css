@@ -20,6 +20,16 @@
   color: var(--brand-muted);
 }
 .hint { bottom: 28px; letter-spacing: .06em; }
+.loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--brand-muted);
+  font-size: 12px;
+  letter-spacing: .08em;
+  pointer-events: none;
+}
 @media (max-width: 767px) {
   .section { height: clamp(360px, 52svh, 480px); }
 }

@@ -311,6 +311,65 @@
   .categoryToggle { scroll-margin-top: 0; }
 }
 
+/* Only the full desktop workbench: the center fits the available viewport. */
+@media (min-width: 1280px) {
+  .page:not(.preview) .currentBuild {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+    scrollbar-gutter: auto;
+    padding: clamp(12px, 1.8vh, 20px);
+  }
+  .page:not(.preview) .buildHeading { flex-shrink: 0; }
+  .page:not(.preview) .buildHint { margin: 8px 0; }
+  .page:not(.preview) .slots {
+    flex: 1;
+    min-height: 0;
+    grid-template-rows: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 12px;
+  }
+  .page:not(.preview) .slot { min-height: 0; padding: 12px 14px; }
+  .page:not(.preview) .slotLabel { margin-top: 2px; }
+  .page:not(.preview) .installedModule { margin-top: 6px; }
+  .page:not(.preview) .installedModule > p { margin-top: 4px; }
+  .page:not(.preview) .installedActions { margin-top: 2px; }
+  .page:not(.preview) .installedActions button { min-height: 28px; }
+  .page:not(.preview) .emptySlot { margin-top: 8px; gap: 4px; }
+  .page:not(.preview) .chips { margin-top: 6px; gap: 4px; }
+  .page:not(.preview) .chip { padding: 2px 4px 2px 8px; }
+  .page:not(.preview) .chip button { min-width: 24px; min-height: 24px; }
+  .page:not(.preview) .addMore { margin-top: 4px; }
+  .page:not(.preview) .slotNavigate { display: block; font-size: 0; line-height: 0; margin: 0; }
+  .page:not(.preview) .slotRecommendation { margin-top: 6px; }
+  .page:not(.preview) .slotRecommendationState { margin-top: 2px; }
+  .page:not(.preview) .progress { flex-shrink: 0; margin-top: 12px; padding-top: 8px; }
+  .page:not(.preview) .progressTrack { margin-top: 6px; }
+  .page:not(.preview) .progressLabels { margin-top: 4px; }
+  .page:not(.preview) .progress > p { margin-top: 4px; }
+}
+@media (min-width: 1280px) and (max-height: 900px) {
+  .page:not(.preview) .buildHint,
+  .page:not(.preview) .slotLabel,
+  .page:not(.preview) .slotRecommendationState,
+  .page:not(.preview) .installedModule > p,
+  .page:not(.preview) .emptySlot > span,
+  .page:not(.preview) .addMore,
+  .page:not(.preview) .progress > p { display: none; }
+  .page:not(.preview) .buildHeading { margin-bottom: 8px; }
+  .page:not(.preview) .buildHeading p { margin-top: 2px; }
+  .page:not(.preview) .slot { padding: 8px 12px; }
+  .page:not(.preview) .chip { padding-block: 1px; }
+  .page:not(.preview) .chip button { min-width: 22px; min-height: 22px; }
+  .page:not(.preview) .slotRecommendation { line-height: 1.5; }
+  .page:not(.preview) .slotRecommendation button { min-height: 28px; padding: 3px 10px; margin-top: 4px; }
+  /* Keep the full-slot navigation target, without its repeated helper text. */
+  .page:not(.preview) .slotNavigate { font-size: 0; margin: 0; }
+  .page:not(.preview) .emptySlot > svg { display: none; }
+}
+
 /* Pale card planes carry their own foreground palette in colored themes. */
 :global(html[data-theme]:not([data-theme="dark"])) .currentBuild,
 :global(html[data-theme]:not([data-theme="dark"])) .dropMessage,
