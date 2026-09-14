@@ -1,0 +1,50 @@
+.page { width: 100%; background: var(--brand-bg); color: var(--brand-text); }
+.page a:focus-visible { outline: 2px solid currentColor; outline-offset: 6px; }
+.eyebrow { color: var(--brand-muted); font-size: 10px; font-weight: 500; letter-spacing: .26em; margin-bottom: 32px; }
+.section { border-top: 1px solid var(--brand-border); padding-block: clamp(72px, 8vw, 128px); scroll-margin-top: 80px; }
+.sectionHeading { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 52px; }
+.sectionHeading h2 { font-size: clamp(36px, 4.8vw, 88px); line-height: 1.1; letter-spacing: -.05em; font-weight: 800; }
+.sectionHeading p { color: var(--brand-muted); font-size: 14px; }
+.build { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.55fr); gap: clamp(40px, 5vw, 88px); align-items: center; padding-block: 32px; }
+.build + .build { border-top: 1px solid var(--brand-border); }
+.build:nth-child(2) { grid-template-columns: minmax(0, 1.55fr) minmax(0, .85fr); }
+.build:nth-child(2) .buildCopy { order: 2; }
+.number { display: block; font-size: 13px; color: var(--brand-muted); font-variant-numeric: tabular-nums; margin-bottom: 36px; }
+.buildCopy h3 { font-size: clamp(28px, 3.3vw, 60px); line-height: 1.1; letter-spacing: -.04em; font-weight: 500; max-width: 10em; }
+.chinese { margin-top: 14px; font-size: 17px; }
+.description { color: var(--brand-muted); font-size: 14px; line-height: 1.8; margin-top: 12px; }
+.productImage { position: relative; aspect-ratio: 1.5; overflow: hidden; background: color-mix(in srgb, var(--brand-text) 5%, var(--brand-bg)); }
+.productImage img { object-fit: cover; }
+.principles { display: grid; grid-template-columns: 1fr 1fr; column-gap: 80px; }
+.principle { border-top: 1px solid var(--brand-border); padding-block: 36px; }
+.principle h3 { font-size: clamp(28px, 4.4vw, 76px); font-weight: 700; letter-spacing: -.04em; line-height: 1.1; }
+.contact { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; padding-block: 88px 100px; }
+.contact h2 { font-size: clamp(48px, 6vw, 112px); line-height: .98; letter-spacing: -.055em; font-weight: 800; }
+.contactIntro { max-width: 360px; margin-top: 28px; font-size: 16px; line-height: 1.9; color: var(--brand-muted); }
+.contactButton { display: inline-flex; align-items: center; justify-content: space-between; gap: 50px; min-height: 48px; border-radius: 999px; padding: 12px 24px; margin-top: 28px; background: var(--brand-text); color: var(--brand-bg); font-size: 14px; }
+.contactDetails { scroll-margin-top: 96px; }
+.contactDetails dl > div { padding-block: 24px; border-bottom: 1px solid var(--brand-border); }
+.contactDetails dt { font-size: 12px; color: var(--brand-muted); margin-bottom: 12px; }
+.contactDetails a { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; font-size: clamp(20px, 2.3vw, 32px); letter-spacing: -.03em; overflow-wrap: anywhere; }
+.contactDetails svg { flex-shrink: 0; }
+.contactNote { margin-top: 20px; font-size: 12px; color: var(--brand-muted); }
+@media (max-width: 767px) {
+  .eyebrow { margin-bottom: 18px; font-size: 12px; }
+  .section { padding-block: 44px; }
+  .sectionHeading h2 { font-size: clamp(30px, 8vw, 48px); }
+  .sectionHeading { display: block; margin-bottom: 24px; }
+  .sectionHeading p { margin-top: 12px; font-size: 13px; }
+  .build, .build:nth-child(2) { grid-template-columns: 1fr; gap: 20px; padding-block: 24px; }
+  .build:nth-child(2) .buildCopy { order: initial; }
+  .number { margin-bottom: 16px; }
+  .buildCopy h3 { max-width: none; font-size: 28px; }
+  .chinese { font-size: 15px; margin-top: 10px; }
+  .description { font-size: 13px; margin-top: 8px; }
+  .productImage { aspect-ratio: 1.5; }
+  .principles { column-gap: 24px; }
+  .principle { padding-block: 24px; }
+  .principle h3 { font-size: clamp(23px, 6vw, 36px); }
+  .contact { grid-template-columns: 1fr; gap: 20px; padding-bottom: 52px; }
+  .contactIntro { font-size: 15px; margin-top: 22px; }
+  .contactDetails a { font-size: 23px; }
+}

@@ -1,24 +1,38 @@
-/* The homepage owns these values. None are derived from a saved user theme. */
-[data-home-theme="brand"] {
+/* Shared brand palette, isolated from saved user preferences. */
+[data-brand-theme="brand"] {
   display: contents;
-  --home-bg: #000; --home-surface: #0b0b0b;
-  --home-text: #fff; --home-text-muted: #aaa; --home-ink-rgb: 255,255,255;
-  --home-border: rgba(255,255,255,.18); --home-accent: #fff; --home-effect-dim: #666;
-  --home-button-bg: #000; --home-button-text: #fff;
-  --home-overlay: rgba(0,0,0,.15);
+  --brand-bg: #000; --brand-surface: #0b0b0b;
+  --brand-text: #fff; --brand-text-muted: #aaa; --brand-ink-rgb: 255,255,255;
+  --brand-border: rgba(255,255,255,.18); --brand-accent: #fff; --brand-effect-dim: #666;
+  --brand-button-bg: #000; --brand-button-text: #fff;
+  --brand-overlay: rgba(0,0,0,.15);
 }
-html[data-theme="color-vision-safe"] [data-home-theme="brand"] {
-  --home-bg: #0B1020; --home-surface: #131A2A;
-  --home-text: #F7F7F2; --home-text-muted: #AAB4C3; --home-ink-rgb: 247,247,242;
-  --home-accent: #4EA1FF; --home-effect-dim: #F2B134;
-  --home-border: rgba(247,247,242,.48);
-  --home-button-bg: #131A2A; --home-button-text: #F7F7F2;
+html[data-theme="color-vision-safe"] [data-brand-theme="brand"] {
+  --brand-bg: #0B1020; --brand-surface: #131A2A;
+  --brand-text: #F7F7F2; --brand-text-muted: #AAB4C3; --brand-ink-rgb: 247,247,242;
+  --brand-accent: #4EA1FF; --brand-effect-dim: #F2B134;
+  --brand-border: rgba(247,247,242,.48);
+  --brand-button-bg: #131A2A; --brand-button-text: #F7F7F2;
 }
-html[data-theme="monochrome"] [data-home-theme="brand"] {
-  --home-bg: #fff; --home-surface: #f5f5f5;
-  --home-text: #000; --home-text-muted: #555; --home-ink-rgb: 0,0,0;
-  --home-border: rgba(0,0,0,.18); --home-accent: #000; --home-effect-dim: #555;
-  --home-button-bg: #000; --home-button-text: #fff;
+html[data-theme="monochrome"] [data-brand-theme="brand"] {
+  --brand-bg: #fff; --brand-surface: #f5f5f5;
+  --brand-text: #000; --brand-text-muted: #555; --brand-ink-rgb: 0,0,0;
+  --brand-border: rgba(0,0,0,.18); --brand-accent: #000; --brand-effect-dim: #555;
+  --brand-button-bg: #000; --brand-button-text: #fff;
+}
+[data-brand-theme="brand"] {
+  --home-bg: var(--brand-bg);
+  --home-surface: var(--brand-surface);
+  --home-text: var(--brand-text);
+  --home-text-muted: var(--brand-text-muted);
+  --home-ink-rgb: var(--brand-ink-rgb);
+  --home-border: var(--brand-border);
+  --home-accent: var(--brand-accent);
+  --home-effect-dim: var(--brand-effect-dim);
+  --home-button-bg: var(--brand-button-bg);
+  --home-button-text: var(--brand-button-text);
+  --home-overlay: var(--brand-overlay);
+  --brand-muted: var(--brand-text-muted);
 }
 /* Compatibility bridge for shared components: their tokens resolve locally,
    never from html's user palette. It changes colors, not animation behavior. */
@@ -59,3 +73,15 @@ html[data-theme="color-vision-safe"] [role="tab"][aria-selected="true"]::before 
 [data-home-theme="brand"] :is(.border-white\/10, .border-white\/15, .border-white\/25) { border-color: var(--home-border); }
 [data-home-theme="brand"] .hover\:text-white:hover { color: var(--home-text); }
 [data-home-theme="brand"] .one-g-shimmer.text-white { color: var(--home-button-text); }
+
+/* Interior brand navigation shares the palette, preserving Header's structure. */
+[data-brand-theme="brand"] .site-header[data-header-variant="interior"],
+[data-brand-theme="brand"] .site-header[data-header-variant="interior"] > div {
+  background: var(--brand-bg);
+  color: var(--brand-text);
+  border-color: var(--brand-border);
+  --ink: var(--brand-text);
+  --ink-muted: var(--brand-muted);
+}
+[data-brand-theme="brand"] .site-header :is(.text-zinc-600, .text-zinc-700) { color: var(--brand-muted); }
+[data-brand-theme="brand"] .site-header :is(.hover\:text-zinc-950, .hover\:text-blue-600):hover { color: var(--brand-text); }

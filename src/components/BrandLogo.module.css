@@ -7,10 +7,10 @@
   background-color: currentColor;
   mask: var(--brand-image) center / contain no-repeat;
 }
-.horizontal { --brand-image: url("/one-g/brand/one-g-logo-horizontal.svg"); aspect-ratio: 793 / 353; }
-.stacked { --brand-image: url("/one-g/brand/one-g-logo-stacked.svg"); aspect-ratio: 393 / 529; }
-.mark { --brand-image: url("/one-g/brand/one-g-mark.svg"); aspect-ratio: 1; }
-.horizontal.sm { width: 96px; }
+.horizontal { --brand-image: url("/one-g/brand/one-g-horizontal.svg"); aspect-ratio: 1222 / 328; }
+.stacked { --brand-image: url("/one-g/brand/one-g-stacked.svg"); aspect-ratio: 393 / 529; }
+.mark { --brand-image: url("/one-g/brand/one-g-symbol.svg"); aspect-ratio: 1; }
+.horizontal.sm { width: auto; height: 32px; }
 .horizontal.md { width: 144px; }
 .horizontal.lg { width: 192px; }
 .stacked.sm { width: 64px; }

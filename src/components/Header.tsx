@@ -30,35 +30,35 @@ export default function Header() {
   const userLabel = !currentUser ? "用户登录" : currentUser.role === "ADMIN" ? "管理后台" : "用户中心";
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const isBrandHero = pathname === "/" || pathname === "/about";
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
-    if (!isHome) return;
+    if (!isBrandHero) return;
     const update = () => setScrolled(window.scrollY > 20);
     update(); window.addEventListener("scroll", update, { passive: true });
     return () => window.removeEventListener("scroll", update);
-  }, [isHome]);
+  }, [isBrandHero]);
 
   return (
-    <header data-header-variant={isHome ? "hero" : "interior"} className={`site-header ${isHome ? "fixed" : "sticky"} inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${isHome ? (scrolled ? "border-white/10 bg-black/80 backdrop-blur-xl" : "border-white/10 bg-transparent") : "border-zinc-200/80 bg-white/85 backdrop-blur-xl"}`}>
+    <header data-header-variant={isBrandHero ? "hero" : "interior"} className={`site-header ${isBrandHero ? "fixed" : "sticky"} inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${isBrandHero ? (scrolled ? "border-white/10 bg-black/80 backdrop-blur-xl" : "border-white/10 bg-transparent") : "border-zinc-200/80 bg-white/85 backdrop-blur-xl"}`}>
       <div className={`container-shell flex items-center justify-between gap-6 md:grid md:grid-cols-[1fr_auto_1fr] ${styles.row}`}>
-        <Link href="/" className={`shrink-0 justify-self-start ${styles.brand} ${isHome ? "" : styles.interior}`} aria-label="ONE-G / 万机智能 首页" onClick={() => setMenuOpen(false)}>
-          <BrandLogo variant="horizontal" size="sm" context={isHome ? "brand" : "header"} className={styles.desktopLogo} />
-          <BrandLogo variant="mark" size="sm" context={isHome ? "brand" : "header"} className={styles.mobileLogo} />
+        <Link href="/" className={`shrink-0 justify-self-start ${styles.brand} ${isBrandHero ? "" : styles.interior}`} aria-label="ONE-G / 万机智能 首页" onClick={() => setMenuOpen(false)}>
+          <BrandLogo variant="horizontal" size="sm" context={isBrandHero ? "brand" : "header"} className={styles.desktopLogo} />
+          <BrandLogo variant="mark" size="sm" context={isBrandHero ? "brand" : "header"} className={styles.mobileLogo} />
         </Link>
 
-        <nav className={`hidden items-center justify-center md:flex ${styles.navigation} ${isHome ? "text-white/75" : "text-zinc-600"}`} aria-label="主导航">
+        <nav className={`hidden items-center justify-center md:flex ${styles.navigation} ${isBrandHero ? "text-white/75" : "text-zinc-600"}`} aria-label="主导航">
           {navigation.map((item) => (
-            <NavigationLink key={item.href} href={item.href} className={`transition-colors ${isHome ? "hover:text-white" : "hover:text-zinc-950"}`}>
+            <NavigationLink key={item.href} href={item.href} className={`transition-colors ${isBrandHero ? "hover:text-white" : "hover:text-zinc-950"}`}>
               {item.label}
             </NavigationLink>
           ))}
         </nav>
 
-        <div className={`hidden items-center justify-self-end gap-5 md:flex ${styles.actions} ${isHome ? "text-white/75" : "text-zinc-600"}`} aria-label="快捷入口">
+        <div className={`hidden items-center justify-self-end gap-5 md:flex ${styles.actions} ${isBrandHero ? "text-white/75" : "text-zinc-600"}`} aria-label="快捷入口">
           <AccessibilityControls />
           {utilityLinks.map(({ href, label, Icon }) => (
-            <NavigationLink key={href} href={href === "/login" ? userHref : href} aria-label={href === "/login" ? userLabel : label} className={`transition-colors ${isHome ? "hover:text-white" : "hover:text-blue-600"}`}>
+            <NavigationLink key={href} href={href === "/login" ? userHref : href} aria-label={href === "/login" ? userLabel : label} className={`transition-colors ${isBrandHero ? "hover:text-white" : "hover:text-blue-600"}`}>
               <Icon size={19} strokeWidth={1.7} />
             </NavigationLink>
           ))}
@@ -67,7 +67,7 @@ export default function Header() {
         <div className="flex items-center gap-2 md:hidden">
         <button
           type="button"
-          className={`rounded-full p-2 transition-colors md:hidden ${isHome ? "text-white hover:bg-white/10" : "text-zinc-700 hover:bg-zinc-100"}`}
+          className={`rounded-full p-2 transition-colors md:hidden ${isBrandHero ? "text-white hover:bg-white/10" : "text-zinc-700 hover:bg-zinc-100"}`}
           aria-label={menuOpen ? "关闭菜单" : "打开菜单"}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((open) => !open)}
@@ -78,17 +78,17 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div className={`border-t px-6 py-5 md:hidden ${isHome ? "border-white/10 bg-black/95" : "border-zinc-200/80 bg-white"}`}>
+        <div className={`border-t px-6 py-5 md:hidden ${isBrandHero ? "border-white/10 bg-black/95" : "border-zinc-200/80 bg-white"}`}>
           <nav className="container-shell flex flex-col gap-1" aria-label="移动端导航">
             {navigation.map((item) => (
-              <NavigationLink key={item.href} href={item.href} className={`rounded-xl px-3 py-3 text-sm ${isHome ? "text-white/80 hover:bg-white/10" : "text-zinc-700 hover:bg-zinc-50"}`} onClick={() => setMenuOpen(false)}>
+              <NavigationLink key={item.href} href={item.href} className={`rounded-xl px-3 py-3 text-sm ${isBrandHero ? "text-white/80 hover:bg-white/10" : "text-zinc-700 hover:bg-zinc-50"}`} onClick={() => setMenuOpen(false)}>
                 {item.label}
               </NavigationLink>
             ))}
             <AccessibilityControls mobile />
-            <div className={`mt-2 flex gap-2 border-t pt-3 ${isHome ? "border-white/10" : "border-zinc-100"}`}>
+            <div className={`mt-2 flex gap-2 border-t pt-3 ${isBrandHero ? "border-white/10" : "border-zinc-100"}`}>
               {utilityLinks.map(({ href, label, Icon }) => (
-                <NavigationLink key={href} href={href === "/login" ? userHref : href} className={`flex items-center gap-2 rounded-xl px-3 py-3 text-sm ${isHome ? "text-white/70 hover:bg-white/10" : "text-zinc-600 hover:bg-zinc-50"}`} onClick={() => setMenuOpen(false)}>
+                <NavigationLink key={href} href={href === "/login" ? userHref : href} className={`flex items-center gap-2 rounded-xl px-3 py-3 text-sm ${isBrandHero ? "text-white/70 hover:bg-white/10" : "text-zinc-600 hover:bg-zinc-50"}`} onClick={() => setMenuOpen(false)}>
                   <Icon size={17} strokeWidth={1.7} />
                   {href === "/login" ? userLabel : label}
                 </NavigationLink>

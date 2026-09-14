@@ -4,13 +4,15 @@ import type { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import RequireRole from "./RequireRole";
 import { requiredRole } from "@/lib/auth-routing";
-import HomeThemeBoundary from "./HomeThemeBoundary";
+import BrandThemeBoundary from "./BrandThemeBoundary";
+import { useTheme } from "./ThemeProvider";
 import Header from "./Header";
 import Footer from "./Footer";
 import styles from "./SiteShell.module.css";
 
 export default function SiteShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+  const { isBrandRoute } = useTheme();
   const role = requiredRole(pathname);
   const content = role ? <RequireRole role={role}>{children}</RequireRole> : children;
   if (pathname === "/admin" || pathname.startsWith("/admin/")) return <>{content}</>;
@@ -25,5 +27,5 @@ export default function SiteShell({ children }: { children: ReactNode }) {
       {!isWorkbench && <Footer />}
     </div>
   );
-  return pathname === "/" ? <HomeThemeBoundary>{shell}</HomeThemeBoundary> : shell;
+  return isBrandRoute ? <BrandThemeBoundary>{shell}</BrandThemeBoundary> : shell;
 }

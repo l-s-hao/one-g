@@ -15,10 +15,10 @@ export const accessibilityThemes = [
   { id: "monochrome", name: "黑白模式 / Monochrome" },
 ] as const;
 export type AccessibilityTheme = (typeof accessibilityThemes)[number]["id"];
-export type ThemeId = PreferredThemeId | AccessibilityTheme;
+export type ThemeId = PreferredThemeId | AccessibilityTheme | "brand";
 export function isAccessibilityTheme(value: unknown): value is AccessibilityTheme {
   return accessibilityThemes.some(theme => theme.id === value);
 }
 export function isThemeId(value: unknown): value is ThemeId {
-  return isPreferredThemeId(value) || isAccessibilityTheme(value);
+  return value === "brand" || isPreferredThemeId(value) || isAccessibilityTheme(value);
 }

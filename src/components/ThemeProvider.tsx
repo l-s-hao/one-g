@@ -5,12 +5,14 @@ import { usePathname } from "next/navigation";
 import { isPreferredThemeId, isAccessibilityTheme, type PreferredThemeId, type AccessibilityTheme, type ThemeId } from "@/data/themes";
 import { loadUserTheme, saveUserTheme, userThemeKey } from "@/lib/user-preferences";
 import { accessibilityThemeKey, loadAccessibilityTheme, saveAccessibilityTheme } from "@/lib/accessibility-preferences";
+import { isBrandThemeRoute, resolveTheme } from "@/lib/theme-resolver";
 import { useAuth } from "./AuthProvider";
 
 interface ThemeState {
   preferredTheme: PreferredThemeId;
   accessibilityTheme: AccessibilityTheme | null;
   effectiveTheme: ThemeId;
+  isBrandRoute: boolean;
   setPreferredTheme: (value: PreferredThemeId) => void;
   setAccessibilityTheme: (value: AccessibilityTheme | null) => void;
 }
@@ -27,12 +29,13 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
   const userId = currentUser?.id;
   const [preference, updatePreference] = useState<{ userId: string; theme: PreferredThemeId } | null>(null);
   const [accessibilityTheme, updateAccessibilityTheme] = useState<AccessibilityTheme | null>(null);
-  // Server and first client render are Dark. Accessibility persists across logout.
+  // Storage is loaded after hydration; server and first client use the same route/defaults.
   const preferredTheme = userId && preference?.userId === userId ? preference.theme : "dark";
-  const effectiveTheme = accessibilityTheme ?? preferredTheme;
+  const isBrandRoute = isBrandThemeRoute(pathname);
+  const effectiveTheme = resolveTheme(pathname, preferredTheme, accessibilityTheme);
   useLayoutEffect(() => {
-    document.documentElement.dataset.theme = pathname === "/" && !accessibilityTheme ? "dark" : effectiveTheme;
-  }, [effectiveTheme, accessibilityTheme, pathname]);
+    document.documentElement.dataset.theme = effectiveTheme;
+  }, [effectiveTheme]);
   useEffect(() => {
     let active = true;
     const load = () => { if (active) updateAccessibilityTheme(loadAccessibilityTheme()); };
@@ -60,5 +63,5 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
     saveAccessibilityTheme(value);
     updateAccessibilityTheme(value);
   };
-  return <ThemeContext.Provider value={{ preferredTheme, accessibilityTheme, effectiveTheme, setPreferredTheme, setAccessibilityTheme }}>{children}</ThemeContext.Provider>;
+  return <ThemeContext.Provider value={{ preferredTheme, accessibilityTheme, effectiveTheme, isBrandRoute, setPreferredTheme, setAccessibilityTheme }}>{children}</ThemeContext.Provider>;
 }

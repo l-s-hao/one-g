@@ -12,7 +12,7 @@
   color: var(--text, #fff);
   background: var(--bg, #000);
 }
-.brand .desktopLogo[data-brand-logo] { width: 130px; height: auto; max-width: 150px; }
+.brand .desktopLogo[data-brand-logo] { width: auto; height: 32px; max-width: 150px; }
 .brand .mobileLogo[data-brand-logo] { display: none; }
 .brand.interior { background: transparent; color: var(--ink, #111); }
 .brand:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }

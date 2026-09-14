@@ -1,34 +1,24 @@
 # ONE-G / 万机智能
 
-- `one-g-mark.svg`: Symbol and primary favicon, from ONE-G Logo文件-01.svg.
-- `one-g-logo-horizontal.svg`: horizontal master logo, from ONE-G Logo文件-03.svg.
-- `one-g-logo-stacked.svg`: stacked logo, from ONE-G Logo文件-09.svg.
-- `one-g-mark.png`: raster fallback / Apple touch icon, rendered from the Symbol.
+Website copies of the formal originals in `/home/lsh/图片/logo/`:
 
-The 05 and 07 Robotics variants are not used. All original path data, transforms,
-letterforms and artwork proportions are unchanged. Horizontal and stacked viewBoxes
-only remove excess empty artboard space. SVG fill inherits currentColor.
+| Website file | Original | Role | Cropped viewBox |
+| --- | --- | --- | --- |
+| one-g-horizontal.svg | ONE-G 大号文字-03.svg | Desktop Header, Footer, compact authentication branding | 98 545 1222 328 |
+| one-g-stacked.svg | ONE-G Logo文件-09.svg | Login, Register, About | 512 456 393 529 |
+| one-g-symbol.svg | ONE-G Logo文件-01.svg | Mobile Header, favicon | 189 191 1040 1040 |
+| one-g-symbol-icon.png | Rendered from the website Symbol SVG | 192px favicon / Apple icon fallback | — |
 
-Header uses the horizontal SVG as a CSS mask, with currentColor from the existing
---text theme token: #FFFFFF / #F5EFEA / #F1DDDF / #FBF1D7. This is necessary because
-external SVG images in an img tag cannot inherit the surrounding text color.
-The compact backing uses --bg for contrast on pale navigation surfaces. Its fixed
-96px width and proportional height fit the existing 64px Header content row.
-The standalone Symbol favicon adapts to the browser's light/dark color scheme;
-it does not inherit the page theme. PNG is only an icon fallback.
+Original files remain untouched. SVG path data and transforms are preserved;
+only the website viewBox and color presentation change. BrandLogo uses these
+SVGs as contain-sized currentColor masks for the existing theme colors.
+Desktop navigation uses a proportional 32px-high horizontal logo; mobile uses
+28px Symbol. The standalone SVG icon follows the browser color scheme.
 
-## Shared component
+BrandLogo is the shared source for all brand image variants. The homepage
+ShinyText remains text, as do product names, headings and body copy.
+Brand resource directories are explicitly excluded from the DriftWall scan.
 
-`src/components/BrandLogo.tsx` supports mark/horizontal/stacked and sm/md/lg.
-It exposes `role="img"` with the accessible name `ONE-G 万机智能`, equivalent to
-alt text, and uses the canonical SVG as a currentColor mask. Mobile Header uses
-Mark, desktop Header and both Footers use horizontal, login/register use stacked,
-forgot-password uses a compact horizontal, and About uses stacked.
-
-PNG copies are in `fallback/`: the original transparent 01/03 variants and original
-09 PNG, plus `one-g-mark-icon.png` for compact favicon/Apple fallback. The earlier
-root PNG is retained for compatibility; no original asset was deleted.
-
-This integration does not change SVG path data, viewBoxes or artwork proportions.
-Hero ShinyText, ParticleText, product names, section headings and body copy remain
-text. No 05/07 Robotics logo is used.
+`one-g-mark.png` is the unmodified pure Symbol from `public/logo/1-01.png`,
+retained under a shared brand name for the About lanyard front. The original
+PNG and official source artwork remain unchanged.

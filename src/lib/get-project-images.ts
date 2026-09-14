@@ -3,12 +3,12 @@ import path from "node:path";
 
 const IMAGE_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".webp", ".avif"]);
 const ALL_IMAGE_EXTENSIONS = new Set([...IMAGE_EXTENSIONS, ".gif", ".svg"]);
-const EXCLUDED_DIRECTORIES = new Set(["node_modules", ".next", "dist", "build", ".git", "coverage", "out", ".cache"]);
+const EXCLUDED_DIRECTORIES = new Set(["node_modules", ".next", "dist", "build", ".git", "coverage", "out", ".cache", "logo", "logos", "brand", "mark", "marks", "symbol", "symbols"]);
 const EXCLUDED_IMAGE_NAMES = new Set(["logo", "icon", "icons", "favicon", "ui", "social", "arrow", "menu", "cart", "search"]);
 const SITE_BASE_PATH = "/one-g";
 
 function isExcluded(filePath: string) {
-  return filePath.split(path.sep).some((part) => EXCLUDED_DIRECTORIES.has(part));
+  return filePath.split(path.sep).some((part) => EXCLUDED_DIRECTORIES.has(part.toLowerCase()));
 }
 
 function collectFiles(directory: string, files: string[] = [], extensions = IMAGE_EXTENSIONS) {
