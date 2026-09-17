@@ -1,0 +1,19 @@
+.carousel {overflow:hidden;width:100%;background:var(--surface);color:var(--text);touch-action:pan-y;position:relative;}
+.track {display:flex;transition:transform .45s ease;}
+.slide {flex:0 0 100%;min-width:0;height:82svh;min-height:560px;max-height:960px;display:grid;grid-template-columns:.8fr 1.2fr;align-items:center;gap:2rem;padding:3rem clamp(1.5rem,6vw,7rem) 5rem;}
+.copy h1 {font-size:clamp(3rem,6vw,6.5rem);font-weight:650;letter-spacing:-.055em;line-height:1.05;margin:1rem 0;}
+.copy p {color:var(--text-muted);font-size:clamp(1rem,1.5vw,1.3rem);line-height:1.7;}
+.copy .eyebrow {font-size:.7rem;letter-spacing:.18em;}
+.actions {display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem;}
+.actions a {padding:.8rem 1.3rem;border:1px solid var(--border-strong);border-radius:2rem;font-size:.9rem;min-height:44px;}
+.actions a:first-child {background:var(--button-primary-bg);color:var(--button-primary-text);border-color:transparent;}
+.slide figure {min-width:0;margin:0;}
+.slide img {width:100%;height: min(60svh,650px);object-fit:contain;object-position:center;border-radius:1rem;user-select:none;}
+.slide figcaption {font-size:.7rem;color:var(--text-muted);text-align:center;margin-top:.75rem;line-height:1.5;}
+.controls {position:absolute;bottom:.7rem;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:1.5rem;}
+.controls div {display:flex;gap:.75rem;}
+.controls button {min-width:44px;min-height:44px;background:transparent;color:var(--text);border:0;border-bottom:2px solid transparent;}
+.controls [aria-current="true"] {border-bottom-color:var(--text);font-weight:700;}
+.carousel :focus-visible {outline:2px solid var(--text);outline-offset:3px;}
+@media(max-width:767px){.slide {height:auto;min-height:78svh;max-height:none;display:flex;flex-direction:column;justify-content:center;gap:1rem;padding:1.2rem 1.2rem 4.5rem;}.slide figure {order:-1;width:100%;}.slide img {height:34svh;min-height:220px;}.copy {width:100%;text-align:center;}.copy h1 {font-size:2.8rem;margin:.4rem 0;}.copy p {font-size:.95rem;}.actions {justify-content:center;margin-top:1rem;}}
+@media(prefers-reduced-motion:reduce){.track {transition:none;}}

@@ -31,26 +31,26 @@
 .profile, .themeSection, .accountSection { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
 .themeSection > p { margin-bottom: 16px; }
 .subheading { margin: 20px 0 12px; font-size: 15px; font-weight: 600; }
-:global(html[data-theme]:not([data-theme="dark"])) .shell { --admin-panel: var(--surface); --admin-ink: var(--text-on-surface); }
-:global(html[data-theme]:not([data-theme="dark"])) .panel {
+:global(html[data-theme]) .shell { --admin-panel: var(--surface); --admin-ink: var(--text-on-surface); }
+:global(html[data-theme]) .panel {
   --ink-rgb: var(--surface-ink-rgb); --ink-muted: var(--text-on-surface);
 }
 .shell .themeSection button { color: var(--text); }
 .shell .navigation button { overflow-wrap: anywhere; }
-:global(html[data-theme]:not([data-theme="dark"])) .header,
-:global(html[data-theme]:not([data-theme="dark"])) .prototype { border-color: var(--border); }
-:global(html[data-theme]:not([data-theme="dark"])) .header > span,
-:global(html[data-theme]:not([data-theme="dark"])) .prototype { color: var(--text-muted); }
+:global(html[data-theme]) .header,
+:global(html[data-theme]) .prototype { border-color: var(--border); }
+:global(html[data-theme]) .header > span,
+:global(html[data-theme]) .prototype { color: var(--text-muted); }
 
 /* Login surfaces also follow the active accessibility palette. */
-:global(html:is([data-theme="color-vision-safe"], [data-theme="monochrome"])) .login {
+:global(html[data-theme="color-vision-safe"]) .login {
   background: var(--surface); color: var(--text-on-surface); border-color: var(--border-strong);
 }
-:global(html:is([data-theme="color-vision-safe"], [data-theme="monochrome"])) .login :is(label, .demo) { color: var(--text-muted); }
-:global(html:is([data-theme="color-vision-safe"], [data-theme="monochrome"])) .login input {
+:global(html[data-theme="color-vision-safe"]) .login :is(label, .demo) { color: var(--text-muted); }
+:global(html[data-theme="color-vision-safe"]) .login input {
   background: var(--surface-2); color: var(--text); border-color: var(--border-strong);
 }
-:global(html:is([data-theme="color-vision-safe"], [data-theme="monochrome"])) .login button {
+:global(html[data-theme="color-vision-safe"]) .login button {
   background: var(--button-primary-bg); color: var(--button-primary-text);
 }
 .header > details { margin-left: auto; }

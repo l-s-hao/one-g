@@ -16,8 +16,8 @@ export const ProtectedLink = forwardRef<HTMLAnchorElement, Props>(function Prote
   return <Link {...props} ref={ref} href={target} />;
 });
 
-// Data-driven menus can share this selector. Public/About/search anchors remain
-// ordinary Next links; only business destinations use ProtectedLink.
+// Utility links guard personal/transactional destinations only. Public browsing
+// uses ordinary Next links.
 export const NavigationLink = forwardRef<HTMLAnchorElement, Props>(function NavigationLink(props, ref) {
   return requiredRole(props.href) ? <ProtectedLink {...props} ref={ref} /> : <Link {...props} ref={ref} />;
 });

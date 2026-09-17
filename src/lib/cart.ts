@@ -1,7 +1,10 @@
 import type { CartItem, CartProduct } from "@/types/cart";
-import type { RobotConfiguration } from "@/types/configuration";
+import type { ConfigurationSnapshot } from "@/types/configuration";
 import { getProductById } from "./products";
-import { getConfigurationTotal, parseConfiguration } from "./configurator";
+import { robotSchema } from "@/data/configuration/schemas/robot";
+import { readConfiguration, removeConfiguration } from "./configuration/storage";
+import { getConfigurationProduct } from "./configuration/policy";
+import { getProductPolicy } from "./product-policy";
 import { sumPrices } from "./pricing";
 
 // Browser-only prototype adapter. No user, payment or order data is transmitted.
@@ -15,7 +18,7 @@ export function parseCart(raw: unknown): CartProduct[] {
     if (!item || typeof item !== "object") continue;
     const id = item.productId ?? item.id;
     const product = typeof id === "string" ? getProductById(id) : undefined;
-    if (!product || !Number.isSafeInteger(item.quantity) || item.quantity < 1) continue;
+    if (!product || !getProductPolicy(product).canAddToCart || !Number.isSafeInteger(item.quantity) || item.quantity < 1) continue;
     const quantity = (items.get(product.id)?.quantity ?? 0) + item.quantity;
     if (Number.isSafeInteger(quantity)) items.set(product.id, { ...product, quantity });
   }
@@ -28,19 +31,25 @@ export function writeCart(items: CartProduct[]) {
 }
 export async function addCartProduct(productId: string) {
   const product = getProductById(productId);
-  if (!product || product.status !== "active") return;
+  if (!product || !getProductPolicy(product).canAddToCart) return;
   const items = await readCart();
   const existing = items.find(item => item.id === productId);
   if (existing) existing.quantity += 1;
   else items.push({ ...product, quantity: 1 });
   writeCart(items);
 }
-export async function readSavedConfiguration() { return parseConfiguration(readJSON("one-g-config")); }
-export function saveConfiguration(selection: RobotConfiguration) { window.localStorage.setItem("one-g-config", JSON.stringify(selection)); }
-export function removeSavedConfiguration() { window.localStorage.removeItem("one-g-config"); }
-export function getCartTotal(items: CartProduct[], configuration: RobotConfiguration | null) {
+export async function readSavedConfiguration() {
+  const snapshot = (await readConfiguration(robotSchema))?.snapshot;
+  // Keep captured names/prices; only current sale eligibility may block a stored purchase.
+  if (!snapshot) return null;
+  const product = snapshot.productId ? getProductById(snapshot.productId) : getConfigurationProduct(robotSchema, snapshot.selections);
+  if (!getProductPolicy(product).canAddToCart) return null;
+  return snapshot;
+}
+export function removeSavedConfiguration() { removeConfiguration(robotSchema); }
+export function getCartTotal(items: CartProduct[], configuration: ConfigurationSnapshot | null) {
   return sumPrices([
     ...items.map(item => item.price === undefined ? undefined : item.price * item.quantity),
-    ...(configuration ? [getConfigurationTotal(configuration)] : []),
+    ...(configuration ? [configuration.price] : []),
   ]);
 }

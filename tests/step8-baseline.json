@@ -1,0 +1,14 @@
+{
+  "src/app/configure/page.tsx": "d9c648f626d3259247726f7d4386ff614acd3b937687ca606e872a00f765c49b",
+  "src/app/configure/robot/page.tsx": "5806f6629f5bec9e7ca2930b5e93f8432bbfe6b35be86b3d0817d6264493adc6",
+  "src/app/configure/robotdock/page.tsx": "3cdc188d79fa578bd0dc49664b0fd4aa4454f2a4752b49fb74acc995980f5d94",
+  "src/data/configuration/registry.ts": "7dc3be580119ec97239bc34efbe83cdebd81e660dffdffd1da7106123f4ae23b",
+  "src/data/configuration/schemas/robot.ts": "44f986ad843b4d38c248d8eeaef5df94a680c36f84dd90bfa4935c436beca6f3",
+  "src/data/configuration/schemas/robotdock.ts": "b767376405488b34767f18e56e842a25571fd83d11594ae32893680e784ab8c7",
+  "src/lib/configuration/policy.ts": "8d0b05d5fb94dff87dcf835edc6d3eaa68c0af11121864736c94fffee142345b",
+  "src/lib/configuration/engine.ts": "9772336d6f4f5cd79004f0aaa0007f97b907430250898d287501e066334272d0",
+  "src/lib/configuration/adapters.ts": "1f02d1e781131404d107d1b494b957eb3c4d0cb41bd0249044f2713d523192b3",
+  "src/lib/configuration/storage.ts": "9e6a945fe31407a7939338f77557ab7f1ff3cd5a0f45fe3e3d1b5c6b4bc4a454",
+  "src/components/ConfigurationWorkbench.tsx": "836c5a16a8538f15b38f38643eb0d1576c53f7cb3db74ad4f567d4d6f8a9e22a",
+  "src/types/configuration.ts": "0ca5458844dfd607d73335ff61624958e3bba24a812cd8fefa4d83746b926114"
+}

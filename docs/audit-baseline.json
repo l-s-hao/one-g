@@ -1,0 +1,247 @@
+{
+  "auditDate": "2026-09-17",
+  "scope": "STEP 1-2 only; source read-only; reports written only to main docs",
+  "main": {
+    "path": "/home/lsh/ONE",
+    "origin": "https://github.com/l-s-hao/one-g.git",
+    "head": "5eddc4e8b3c71b9e1b851e28e825cff2483d4cdc",
+    "initialPorcelain": "",
+    "businessChanges": 0
+  },
+  "references": [
+    {
+      "name": "robotdock-demo",
+      "path": "/tmp/one-g-reference/robotdock-demo",
+      "origin": "https://github.com/xuanqisun/robotdock-demo",
+      "initialHead": "218a8b7e4ad82c21a5a19dc19a1a2bce1daf366f",
+      "finalHead": "218a8b7e4ad82c21a5a19dc19a1a2bce1daf366f",
+      "initialPorcelain": "",
+      "finalPorcelain": "",
+      "trackedFilesEqualHead": true,
+      "files": [
+        {
+          "path": ".gitignore",
+          "bytes": 44,
+          "sha256": "14129221df80d484894c3a90079c882ef7acb2027bf4b48df5861af8791b4980"
+        },
+        {
+          "path": "README.md",
+          "bytes": 4311,
+          "sha256": "1c9439e5db5857f7bacafc6b33b0381fcd8a717d62fa69ca9dea0fd274bb92e2"
+        },
+        {
+          "path": "dist/app.js",
+          "bytes": 5032,
+          "sha256": "f7ceb02181985103b74ee750aa4fa5c5b4451c2c44205bfc89870b133333b8c4"
+        },
+        {
+          "path": "dist/assets/design-sketch.png",
+          "bytes": 662255,
+          "sha256": "038f625105e7396aa71002d0cfd8c8cacafaa237ca8d48450ce282fd14df9d1d",
+          "dimensions": [
+            946,
+            1208
+          ]
+        },
+        {
+          "path": "dist/assets/one-g-logo.svg",
+          "bytes": 7266,
+          "sha256": "12b5b8e0dee36f6288409758b71eb2c54acf6470e61c708c691071dc9799e1a5"
+        },
+        {
+          "path": "dist/assets/one-g-symbol.svg",
+          "bytes": 660,
+          "sha256": "6fdd724655d21e0fcec60072f6c53621261634e9858262c014d2bb7cd8104b8b"
+        },
+        {
+          "path": "dist/assets/robotdock-concept.png",
+          "bytes": 2004460,
+          "sha256": "ead4b3e68fbb9b81f64f0c056e28d433569ff5b455e1a35101329a94b77053d2",
+          "dimensions": [
+            1254,
+            1254
+          ]
+        },
+        {
+          "path": "dist/index.html",
+          "bytes": 11820,
+          "sha256": "a91e4cbe86e1fd3a1c334374383ac0dcff9d47dc8155defa7fd90a5b51e9b3d5"
+        },
+        {
+          "path": "dist/styles.css",
+          "bytes": 16712,
+          "sha256": "6b7e683abec97714e03eeabb2653f5450502c703c8a3d6eb642573bfbb39ae75"
+        },
+        {
+          "path": "dist/teleoperation/app.js",
+          "bytes": 5696,
+          "sha256": "2341d19ffe67edb22e3a199b31e9117ef2707748525c2f83b0c2ac45b98d893d"
+        },
+        {
+          "path": "dist/teleoperation/assets/demo-grasp.jpg",
+          "bytes": 1059324,
+          "sha256": "bf6d0ea6047c69fe067f0ca54feb0a2b24060764dcc891e2e9105fcc87ded4a9",
+          "dimensions": [
+            2400,
+            1080
+          ]
+        },
+        {
+          "path": "dist/teleoperation/assets/demo-motion.jpg",
+          "bytes": 1055537,
+          "sha256": "1b2ccecfb1ddd6e4ba5d3bf6be2e084b6d0e58fe87aa36911a2036cb1a12bb3d",
+          "dimensions": [
+            2400,
+            1080
+          ]
+        },
+        {
+          "path": "dist/teleoperation/assets/pico-kit.jpg",
+          "bytes": 2914795,
+          "sha256": "57dcc0abdadacebb3c1801a82188842f12ceb89c4ed2ea3c60cac89044041598",
+          "dimensions": [
+            4000,
+            3000
+          ]
+        },
+        {
+          "path": "dist/teleoperation/assets/sonic-link-console.png",
+          "bytes": 593492,
+          "sha256": "6b2233dac21650ada5dabaa11f8a601f85e47ee992851a13ee03e10e73144b65",
+          "dimensions": [
+            3374,
+            1418
+          ]
+        },
+        {
+          "path": "dist/teleoperation/index.html",
+          "bytes": 12653,
+          "sha256": "52976e10bb44b2a3e5e245219eed44621cf5e2463d2c7e6f891e50b9c40408ab"
+        },
+        {
+          "path": "dist/teleoperation/teleoperation.css",
+          "bytes": 5802,
+          "sha256": "c044a54c263a16d0e2c7980fac8dd85cc73dc72b3e444d87604bbf526ad9f076"
+        },
+        {
+          "path": "github-pages.mjs",
+          "bytes": 2484,
+          "sha256": "cf3326655ca33e9b77d980e62aa82cb9a4b4ab596e321e7f32c07d97acae800f"
+        },
+        {
+          "path": "tests/purchase-panel.test.mjs",
+          "bytes": 2757,
+          "sha256": "9161d2e088107b514f327493635169eac6ee7aee078fb08517351c2a465743a5"
+        },
+        {
+          "path": "tests/teleoperation.test.mjs",
+          "bytes": 7968,
+          "sha256": "22bde5ef7611c0981816cd697d446b61efff9134095237cede4dc143a96523f2"
+        }
+      ]
+    },
+    {
+      "name": "sonic-link-demo",
+      "path": "/tmp/one-g-reference/sonic-link-demo",
+      "origin": "https://github.com/xuanqisun/sonic-link-demo",
+      "initialHead": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+      "finalHead": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+      "initialPorcelain": "",
+      "finalPorcelain": "",
+      "trackedFilesEqualHead": true,
+      "files": [
+        {
+          "path": ".gitignore",
+          "bytes": 44,
+          "sha256": "02fb2626fadc5963d92dc506787cbd9e7549c92c64ee701486c12ab211efad02"
+        },
+        {
+          "path": "README.md",
+          "bytes": 3482,
+          "sha256": "eaca84f4c2827fbf27cbc37c20ea1f45860989601f043bd2c910078aa1c3e9dd"
+        },
+        {
+          "path": "dist/.nojekyll",
+          "bytes": 1,
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "path": "dist/app.js",
+          "bytes": 6886,
+          "sha256": "6340be8fc62255b4f0bae6cd1e355623cbd1bcc86ef3b2f99498b7ec19fa8b82"
+        },
+        {
+          "path": "dist/assets/demo-grasp.jpg",
+          "bytes": 1059324,
+          "sha256": "bf6d0ea6047c69fe067f0ca54feb0a2b24060764dcc891e2e9105fcc87ded4a9",
+          "dimensions": [
+            2400,
+            1080
+          ]
+        },
+        {
+          "path": "dist/assets/demo-motion.jpg",
+          "bytes": 1055537,
+          "sha256": "1b2ccecfb1ddd6e4ba5d3bf6be2e084b6d0e58fe87aa36911a2036cb1a12bb3d",
+          "dimensions": [
+            2400,
+            1080
+          ]
+        },
+        {
+          "path": "dist/assets/one-g-logo.svg",
+          "bytes": 7266,
+          "sha256": "12b5b8e0dee36f6288409758b71eb2c54acf6470e61c708c691071dc9799e1a5"
+        },
+        {
+          "path": "dist/assets/one-g-symbol.svg",
+          "bytes": 660,
+          "sha256": "6fdd724655d21e0fcec60072f6c53621261634e9858262c014d2bb7cd8104b8b"
+        },
+        {
+          "path": "dist/assets/pico-kit.jpg",
+          "bytes": 2914795,
+          "sha256": "57dcc0abdadacebb3c1801a82188842f12ceb89c4ed2ea3c60cac89044041598",
+          "dimensions": [
+            4000,
+            3000
+          ]
+        },
+        {
+          "path": "dist/assets/sonic-link-console.png",
+          "bytes": 593492,
+          "sha256": "6b2233dac21650ada5dabaa11f8a601f85e47ee992851a13ee03e10e73144b65",
+          "dimensions": [
+            3374,
+            1418
+          ]
+        },
+        {
+          "path": "dist/index.html",
+          "bytes": 15482,
+          "sha256": "f399698bc073d7e9e14c915ea5c9e3ec0a2de29e041dfa3a9e1a5df51a462873"
+        },
+        {
+          "path": "dist/styles.css",
+          "bytes": 16712,
+          "sha256": "6b7e683abec97714e03eeabb2653f5450502c703c8a3d6eb642573bfbb39ae75"
+        },
+        {
+          "path": "dist/teleoperation.css",
+          "bytes": 6089,
+          "sha256": "60fcb1097256d132350c4ceaf6982ff721d50596f905c4f8d2398b0c19229a40"
+        },
+        {
+          "path": "github-pages.mjs",
+          "bytes": 3875,
+          "sha256": "632e7eb4235e365804b5dca8ae50c9c0d7d96f454c09ce1e2881454eabdc2719"
+        },
+        {
+          "path": "tests/teleoperation.test.mjs",
+          "bytes": 13056,
+          "sha256": "a60c30814dfeaaac4b8a287151c4257b3ab58e47624da3e31447c04f10d3b222"
+        }
+      ]
+    }
+  ]
+}

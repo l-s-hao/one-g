@@ -1,34 +1,15 @@
-import { configurationOptions, configurationSteps, defaultConfiguration } from "@/data/configurator";
-import type { ConfigurationCategory, ConfigurationOption, RobotConfiguration } from "@/types/configuration";
+import { configurationOptions, configurationSteps } from "@/data/configurator";
+import type { ConfigurationCategory, RobotConfigurationOption, RobotConfiguration } from "@/types/configuration";
 import { getProductsByCategory } from "./products";
-import { sumPrices } from "./pricing";
 
-export function getConfigurationSteps() { return configurationSteps; }
-export function getConfigurationOptions(category?: ConfigurationCategory): ConfigurationOption[] {
-  const base: ConfigurationOption[] = getProductsByCategory("robot").map(product => ({
-    id: product.id, name: product.name, price: product.price, category: "base", status: product.status,
+export function getConfigurationOptions(category?: ConfigurationCategory): RobotConfigurationOption[] {
+  const base: RobotConfigurationOption[] = getProductsByCategory("robot").map(product => ({
+    id: product.id, name: product.name, price: product.price, groupId: "base", category: "base", status: product.status,
     legacyNames: [product.name],
   }));
   return [...base, ...configurationOptions].filter(option => option.status !== "draft" && (!category || option.category === category));
 }
 export function getOption(id: string | null) { return getConfigurationOptions().find(option => option.id === id); }
-export function getInitialConfiguration(): RobotConfiguration { return structuredClone(defaultConfiguration); }
-export function getSelectedIds(selection: RobotConfiguration, field: keyof RobotConfiguration): string[] {
-  const value = selection[field];
-  return Array.isArray(value) ? value : value ? [value] : [];
-}
-export function getConfigurationRows(selection: RobotConfiguration) {
-  return getConfigurationSteps().map(step => {
-    const ids = getSelectedIds(selection, step.field);
-    return {
-      label: step.name,
-      value: ids.map(id => getOption(id)?.name ?? "选项已下架").join("、") || "未选择",
-      price: step.category === "base" && !ids.length ? undefined : sumPrices(ids.map(id => getOption(id)?.price)),
-    };
-  });
-}
-export function getConfigurationTotal(selection: RobotConfiguration) { return sumPrices(getConfigurationRows(selection).map(row => row.price)); }
-
 /** Accept version-one name-based local data without trusting stored prices. */
 export function parseConfiguration(raw: unknown): RobotConfiguration | null {
   if (!raw || typeof raw !== "object" || Array.isArray(raw)) return null;

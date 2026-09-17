@@ -10,7 +10,7 @@ import { useAuth } from "./AuthProvider";
 export default function RequireRole({ role, children }: { role: UserRole; children: ReactNode }) {
   const { currentUser, authReady, exitTarget } = useAuth();
   const router = useRouter();
-  const pathname = usePathname();
+  const pathname = usePathname().replace(/\/+$/, "") || "/";
   const hadSession = useRef(false);
   useEffect(() => {
     if (!authReady) return;

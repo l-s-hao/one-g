@@ -7,14 +7,12 @@ export const userThemeKey = (userId: string) => `one-g-theme:${userId}`;
 export function loadUserTheme(userId: string): PreferredThemeId {
   try {
     const value = localStorage.getItem(userThemeKey(userId));
-    // Retired IDs are recognized only for migration, never exposed as ThemeId.
-    if (value === "deep-sea" || value === "tea-blossom" || value === "apple" || value === "color-vision-safe") {
-      saveUserTheme(userId, "dark");
-      return "dark";
-    }
-    return isPreferredThemeId(value) ? value : "dark";
+    if (isPreferredThemeId(value)) return value;
+    // All retired/unknown IDs converge on the default, without touching other preferences.
+    if (value !== null) saveUserTheme(userId, "caribbean-calcite");
+    return "caribbean-calcite";
   } catch {
-    return "dark";
+    return "caribbean-calcite";
   }
 }
 

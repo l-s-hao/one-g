@@ -1,23 +1,13 @@
 "use client";
-
-import { Check } from "lucide-react";
+import { useId } from "react";
 import { themes } from "@/data/themes";
 import { useAuth } from "./AuthProvider";
 import { useTheme } from "./ThemeProvider";
 import styles from "./ThemeSelector.module.css";
-
 export default function ThemeSelector() {
   const { currentUser } = useAuth();
-  const { preferredTheme: theme, setPreferredTheme: setTheme, accessibilityTheme } = useTheme();
+  const { preferredTheme, setPreferredTheme } = useTheme();
+  const id = useId();
   if (!currentUser) return null;
-  return <div className={styles.grid} role="group" aria-label="网站主题">
-    {themes.map(option => <button key={option.id} type="button" className={styles.card}
-      aria-pressed={theme === option.id} onClick={() => setTheme(option.id)}>
-      <span className={styles.swatches} aria-hidden="true">
-        {option.colors.map(color => <span key={color} style={{ backgroundColor: color }} />)}
-      </span>
-      <span className={styles.name}>{option.name}</span>
-      <span className={styles.selected}>{theme === option.id && <><Check size={14} aria-hidden="true" />{accessibilityTheme ? "已保存偏好" : "当前主题"}</>}</span>
-    </button>)}
-  </div>;
+  return <fieldset className={styles.options} aria-label="外观"><legend className="sr-only">外观</legend>{themes.map(theme => <label key={theme.id}><input type="radio" name={id} checked={preferredTheme === theme.id} onChange={() => setPreferredTheme(theme.id)} /><span>{theme.name}<small>{theme.english}</small></span></label>)}</fieldset>;
 }

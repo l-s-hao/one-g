@@ -1,5 +1,6 @@
 "use client";
 
+import { navigation } from "@/data/site-navigation";
 import Link from "next/link";
 import { NavigationLink } from "./ProtectedLink";
 import { Menu, Search, ShoppingCart, UserRound, X } from "lucide-react";
@@ -12,12 +13,6 @@ import BrandLogo from "./BrandLogo";
 
 
 
-const navigation = [
-  { href: "/customize/start", label: "在线定制" },
-  { href: "/products", label: "商品中心" },
-  { href: "/about", label: "了解公司" },
-];
-
 const utilityLinks = [
   { href: "/#search", label: "搜索", Icon: Search },
   { href: "/login", label: "用户登录", Icon: UserRound },
@@ -29,8 +24,8 @@ export default function Header() {
   const userHref = !currentUser ? "/login" : currentUser.role === "ADMIN" ? "/admin" : "/account";
   const userLabel = !currentUser ? "用户登录" : currentUser.role === "ADMIN" ? "管理后台" : "用户中心";
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
-  const isBrandHero = pathname === "/" || pathname === "/about";
+  const pathname = usePathname().replace(/\/+$/, "") || "/";
+  const isBrandHero = pathname === "/about";
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     if (!isBrandHero) return;
@@ -49,9 +44,9 @@ export default function Header() {
 
         <nav className={`hidden items-center justify-center md:flex ${styles.navigation} ${isBrandHero ? "text-white/75" : "text-zinc-600"}`} aria-label="主导航">
           {navigation.map((item) => (
-            <NavigationLink key={item.href} href={item.href} className={`transition-colors ${isBrandHero ? "hover:text-white" : "hover:text-zinc-950"}`}>
+            <Link key={item.href} href={item.href} className={`transition-colors ${isBrandHero ? "hover:text-white" : "hover:text-zinc-950"}`}>
               {item.label}
-            </NavigationLink>
+            </Link>
           ))}
         </nav>
 
@@ -81,9 +76,9 @@ export default function Header() {
         <div className={`border-t px-6 py-5 md:hidden ${isBrandHero ? "border-white/10 bg-black/95" : "border-zinc-200/80 bg-white"}`}>
           <nav className="container-shell flex flex-col gap-1" aria-label="移动端导航">
             {navigation.map((item) => (
-              <NavigationLink key={item.href} href={item.href} className={`rounded-xl px-3 py-3 text-sm ${isBrandHero ? "text-white/80 hover:bg-white/10" : "text-zinc-700 hover:bg-zinc-50"}`} onClick={() => setMenuOpen(false)}>
+              <Link key={item.href} href={item.href} className={`rounded-xl px-3 py-3 text-sm ${isBrandHero ? "text-white/80 hover:bg-white/10" : "text-zinc-700 hover:bg-zinc-50"}`} onClick={() => setMenuOpen(false)}>
                 {item.label}
-              </NavigationLink>
+              </Link>
             ))}
             <AccessibilityControls mobile />
             <div className={`mt-2 flex gap-2 border-t pt-3 ${isBrandHero ? "border-white/10" : "border-zinc-100"}`}>

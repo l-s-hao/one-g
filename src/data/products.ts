@@ -1,9 +1,13 @@
+import { sonicLinkProduct } from "./products/sonic-link";
+import { robotDockProduct } from "./products/robotdock";
 import type { Product, Category } from "@/types/product";
 
 // MOCK DATA
 // 产品型号、名称和价格尚未最终确定。
 // 后续会替换为后端 API 数据。G1 图片当前也是占位素材。
 export const products: Product[] = [
+  robotDockProduct,
+  sonicLinkProduct,
   // MOCK DATA
   // 当前核心产品仅用于官网原型展示，后续替换为正式产品数据。
   {

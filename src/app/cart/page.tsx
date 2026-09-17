@@ -8,13 +8,12 @@ import Link from "next/link";
 import { Box, Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { formatPrice } from "@/lib/pricing";
-import { getConfigurationTotal, getOption } from "@/lib/configurator";
 import { getCategoryName } from "@/lib/products";
 import { readCart, writeCart, readSavedConfiguration, removeSavedConfiguration, getCartTotal } from "@/lib/cart";
 import type { CartProduct } from "@/types/cart";
-import type { RobotConfiguration } from "@/types/configuration";
+import type { ConfigurationSnapshot } from "@/types/configuration";
 
-type ConfigItem = { name: string; category: string; price?: number; quantity: number; config: RobotConfiguration };
+type ConfigItem = { name: string; category: string; price?: number; quantity: number; config: ConfigurationSnapshot };
 
 export default function CartPage() {
   const [products, setProducts] = useState<CartProduct[]>([]);
@@ -25,7 +24,7 @@ export default function CartPage() {
     Promise.all([readCart(), readSavedConfiguration()]).then(([items, saved]) => {
       if (!active) return;
       setProducts(items);
-      if (saved) setConfig({ name: `${getOption(saved.baseRobotId)?.name ?? ""} 定制方案`, category: "在线定制", price: getConfigurationTotal(saved), quantity: 1, config: saved });
+      if (saved) setConfig({ name: saved.name, category: saved.category, price: saved.price, quantity: 1, config: saved });
       setReady(true);
     });
     return () => { active = false; };
@@ -39,7 +38,7 @@ export default function CartPage() {
   };
   const removeConfig = () => { removeSavedConfiguration(); setConfig(null); };
   return <div className="mobile-page cart-page min-h-screen w-full bg-black px-6 pb-24 pt-32 text-white sm:px-10"><div className="mx-auto max-w-5xl"><p className="eyebrow">ONE - G / CART</p><h1 className="mt-5 text-5xl font-bold tracking-[-0.06em] sm:text-7xl">购物车</h1>{!ready ? <p className="mt-16 text-white/45">正在读取方案...</p> : !products.length && !config ? <div className="mt-16 rounded-3xl border border-white/10 bg-[#0d0d0d] p-10 text-center"><p className="text-white/55">购物车还是空的</p><div className="mt-6 flex flex-wrap justify-center gap-[18px] md:flex-nowrap md:gap-7">
-  <Link href="/customize/start" className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-white px-3 text-sm font-bold whitespace-nowrap text-black transition-colors duration-150 hover:bg-white/90 md:px-6">进行定制</Link>
+  <Link href="/configure" className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-white px-3 text-sm font-bold whitespace-nowrap text-black transition-colors duration-150 hover:bg-white/90 md:px-6">开始配置</Link>
   <Link href="/products" className="inline-flex h-11 shrink-0 items-center justify-center rounded-full border border-white/35 bg-transparent px-3 text-sm font-bold whitespace-nowrap text-white transition-colors duration-150 hover:border-white/55 hover:bg-white/[0.06] md:px-6">浏览商品</Link>
-</div></div> : <div className="cart-items mt-12 space-y-3">{products.map((item) => <div key={item.id} className="cart-row flex flex-col gap-5 rounded-2xl border border-white/10 bg-[#0d0d0d] p-5 sm:flex-row sm:items-center"><span className="mobile-only cart-thumbnail relative">{item.images[0] ? <Image src={item.images[0]} alt="" fill sizes="64px" className="object-contain" /> : <Box size={24} aria-hidden="true" />}</span><div className="cart-copy flex-1"><p className="font-semibold">{item.name}</p><p className="mt-1 text-sm text-white/45">{getCategoryName(item.category)}</p></div><p className="text-sm text-white/70">{formatPrice(item.price)}</p><input aria-label={`${item.name} 数量`} type="number" min="1" value={item.quantity} onChange={(event) => updateQuantity(item.id, Number(event.target.value))} className="w-20 rounded-lg border border-white/15 bg-black px-3 py-2 text-center text-sm" /><button type="button" onClick={() => removeProduct(item.id)} aria-label={`删除 ${item.name}`} className="text-white/40 hover:text-white"><Trash2 size={18} /></button></div>)}{config && <div className="cart-row flex flex-col gap-5 rounded-2xl border border-white/10 bg-[#111] p-5 sm:flex-row sm:items-center"><span className="mobile-only cart-thumbnail relative"><Box size={24} aria-hidden="true" /></span><div className="cart-copy flex-1"><p className="font-semibold">{config.name}</p><p className="mt-1 text-sm text-white/45">{config.category} · 数量 1</p></div><p className="text-sm text-white/70">{formatPrice(config.price)}</p><button type="button" onClick={removeConfig} aria-label="删除定制方案" className="text-white/40 hover:text-white"><Trash2 size={18} /></button></div>}<div className="cart-checkout mobile-checkout-bar flex items-end justify-between border-t border-white/15 pt-8"><div><p className="text-sm text-white/45">商品总价</p><p className="mt-2 text-3xl font-bold">{formatPrice(total)}</p></div><ShimmerButton href="/checkout" className="px-7">去结算</ShimmerButton></div></div>}</div></div>;
+</div></div> : <div className="cart-items mt-12 space-y-3">{products.map((item) => <div key={item.id} className="cart-row flex flex-col gap-5 rounded-2xl border border-white/10 bg-[#0d0d0d] p-5 sm:flex-row sm:items-center"><span className="mobile-only cart-thumbnail relative">{item.images[0] ? <Image src={item.images[0]} alt="" fill sizes="64px" className="object-contain" /> : <Box size={24} aria-hidden="true" />}</span><div className="cart-copy flex-1"><p className="font-semibold">{item.name}</p><p className="mt-1 text-sm text-white/45">{getCategoryName(item.category)}</p></div><p className="text-sm text-white/70">{formatPrice(item.price)}</p><input aria-label={`${item.name} 数量`} type="number" min="1" value={item.quantity} onChange={(event) => updateQuantity(item.id, Number(event.target.value))} className="w-20 rounded-lg border border-white/15 bg-black px-3 py-2 text-center text-sm" /><button type="button" onClick={() => removeProduct(item.id)} aria-label={`删除 ${item.name}`} className="text-white/40 hover:text-white"><Trash2 size={18} /></button></div>)}{config && <div className="cart-row flex flex-col gap-5 rounded-2xl border border-white/10 bg-[#111] p-5 sm:flex-row sm:items-center"><span className="mobile-only cart-thumbnail relative"><Box size={24} aria-hidden="true" /></span><div className="cart-copy flex-1"><p className="font-semibold">{config.name}</p><p className="mt-1 text-sm text-white/45">{config.category} · 数量 1</p></div><p className="text-sm text-white/70">{formatPrice(config.price)}</p><button type="button" onClick={removeConfig} aria-label="删除配置方案" className="text-white/40 hover:text-white"><Trash2 size={18} /></button></div>}<div className="cart-checkout mobile-checkout-bar flex items-end justify-between border-t border-white/15 pt-8"><div><p className="text-sm text-white/45">商品总价</p><p className="mt-2 text-3xl font-bold">{formatPrice(total)}</p></div><ShimmerButton href="/checkout" className="px-7">去结算</ShimmerButton></div></div>}</div></div>;
 }

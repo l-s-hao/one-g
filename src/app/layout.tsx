@@ -5,11 +5,10 @@ import ThemeProvider from "@/components/ThemeProvider";
 import SiteShell from "@/components/SiteShell";
 import "./globals.css";
 import "./themes.css";
-import "./home-display.css";
 
 export const metadata: Metadata = {
-  title: "ONE - G / 万机智能机器人",
-  description: "机器人产品展示、购买与在线定制平台",
+  title: "ONE-G — 机器人系统与遥操作能力",
+  description: "围绕 RobotDock，探索机器人硬件集成、SONIC Link 遥操作与面向任务的系统能力。",
   icons: {
     icon: [
       { url: "/one-g/brand/one-g-symbol-icon.png", type: "image/png", sizes: "192x192" },
@@ -21,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="zh-CN" data-theme="dark">
+    <html lang="zh-CN" data-theme="caribbean-calcite">
       <body className="min-h-screen bg-black text-white antialiased">
         <AuthProvider><ThemeProvider><SiteShell>{children}</SiteShell></ThemeProvider></AuthProvider>
       </body>

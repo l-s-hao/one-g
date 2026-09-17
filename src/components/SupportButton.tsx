@@ -4,13 +4,13 @@ import { MessageCircle, X } from "lucide-react";
 import { useState } from "react";
 import { siteContact } from "@/data/site-contact";
 
-export default function SupportButton() {
+export default function SupportButton({ inline = false, label = "咨询客服", panelTitle = "咨询客服" }: { inline?: boolean; label?: string; panelTitle?: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="support-widget fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <div className={inline ? "relative flex flex-col gap-3" : "support-widget fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3"}>
       {open && (
-        <div className="w-[calc(100vw-32px)] max-w-80 rounded-2xl border border-white/15 bg-[#111]/95 p-5 text-white shadow-2xl backdrop-blur-xl">
-          <p className="mb-4 text-sm font-semibold">咨询客服</p>
+        <div className={`${inline ? "w-full" : "w-[calc(100vw-32px)] max-w-80"} rounded-2xl border border-white/15 bg-[#111]/95 p-5 text-white shadow-2xl backdrop-blur-xl`}>
+          <p className="mb-4 text-sm font-semibold">{panelTitle}</p>
           <dl className="space-y-3">
             <div>
               <dt className="text-xs text-white/45">电话</dt>
@@ -31,9 +31,9 @@ export default function SupportButton() {
           </dl>
         </div>
       )}
-      <button type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label={open ? "关闭客服" : "咨询客服"} className="flex items-center gap-2 rounded-full border border-white/20 bg-white px-4 py-3 text-sm font-semibold text-black shadow-xl transition-transform hover:scale-[1.03]">
+      <button type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label={open ? "关闭客服" : label} className="flex items-center gap-2 rounded-full border border-white/20 bg-white px-4 py-3 text-sm font-semibold text-black shadow-xl transition-transform hover:scale-[1.03]">
         {open ? <X size={17} /> : <MessageCircle size={17} />}
-        <span>咨询客服</span>
+        <span>{label}</span>
       </button>
     </div>
   );

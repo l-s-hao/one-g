@@ -1,0 +1,5 @@
+{
+  "src/data/configuration/schemas/robot.ts": "44f986ad843b4d38c248d8eeaef5df94a680c36f84dd90bfa4935c436beca6f3",
+  "src/data/configuration/schemas/robotdock.ts": "b767376405488b34767f18e56e842a25571fd83d11594ae32893680e784ab8c7",
+  "src/lib/configuration/storage.ts": "9e6a945fe31407a7939338f77557ab7f1ff3cd5a0f45fe3e3d1b5c6b4bc4a454"
+}

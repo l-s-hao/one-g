@@ -1,12 +1,13 @@
-import type { ConfigurationOption, ConfigurationStep, RobotConfiguration } from "@/types/configuration";
+import type { RobotConfigurationOption, ConfigurationStep, RobotConfiguration } from "@/types/configuration";
 
 // MOCK DATA
 // 配置名称、价格、兼容关系与步骤均未最终确定，后续替换为 API 数据。
 // 基础机器人选项从 Product 数据映射，避免同型号存在两套价格。
-export const configurationOptions: ConfigurationOption[] = [
+export const configurationOptions: RobotConfigurationOption[] = [
   {
     "id": "standard-arm",
     "name": "标准机械臂",
+    "groupId": "arm",
     "category": "arm",
     "price": 30000,
     "status": "active",
@@ -17,6 +18,7 @@ export const configurationOptions: ConfigurationOption[] = [
   {
     "id": "heavy-arm",
     "name": "高负载机械臂",
+    "groupId": "arm",
     "category": "arm",
     "price": 48000,
     "status": "active",
@@ -27,6 +29,7 @@ export const configurationOptions: ConfigurationOption[] = [
   {
     "id": "no-arm",
     "name": "不安装",
+    "groupId": "arm",
     "category": "arm",
     "price": 0,
     "status": "active",
@@ -37,6 +40,7 @@ export const configurationOptions: ConfigurationOption[] = [
   {
     "id": "five-finger",
     "name": "五指灵巧手",
+    "groupId": "hand",
     "category": "hand",
     "price": 28000,
     "status": "active",
@@ -47,6 +51,7 @@ export const configurationOptions: ConfigurationOption[] = [
   {
     "id": "gripper",
     "name": "工业夹爪",
+    "groupId": "hand",
     "category": "hand",
     "price": 8000,
     "status": "active",
@@ -57,6 +62,7 @@ export const configurationOptions: ConfigurationOption[] = [
   {
     "id": "no-hand",
     "name": "不安装",
+    "groupId": "hand",
     "category": "hand",
     "price": 0,
     "status": "active",
@@ -67,6 +73,7 @@ export const configurationOptions: ConfigurationOption[] = [
   {
     "id": "rgbd",
     "name": "RGB-D",
+    "groupId": "vision",
     "category": "vision",
     "price": 6000,
     "status": "active",
@@ -77,6 +84,7 @@ export const configurationOptions: ConfigurationOption[] = [
   {
     "id": "stereo",
     "name": "双目视觉",
+    "groupId": "vision",
     "category": "vision",
     "price": 9000,
     "status": "active",
@@ -87,6 +95,7 @@ export const configurationOptions: ConfigurationOption[] = [
   {
     "id": "lidar",
     "name": "LiDAR",
+    "groupId": "vision",
     "category": "vision",
     "price": 12000,
     "status": "active",
@@ -97,6 +106,7 @@ export const configurationOptions: ConfigurationOption[] = [
   {
     "id": "transport",
     "name": "搬运",
+    "groupId": "capability",
     "category": "capability",
     "price": 10000,
     "status": "active",
@@ -108,6 +118,7 @@ export const configurationOptions: ConfigurationOption[] = [
   {
     "id": "inspection",
     "name": "巡检",
+    "groupId": "capability",
     "category": "capability",
     "price": 15000,
     "status": "active",
@@ -119,6 +130,7 @@ export const configurationOptions: ConfigurationOption[] = [
   {
     "id": "teleoperation",
     "name": "遥操作",
+    "groupId": "capability",
     "category": "capability",
     "price": 20000,
     "status": "active",
@@ -130,6 +142,7 @@ export const configurationOptions: ConfigurationOption[] = [
   {
     "id": "ai",
     "name": "AI",
+    "groupId": "capability",
     "category": "capability",
     "price": 30000,
     "status": "active",

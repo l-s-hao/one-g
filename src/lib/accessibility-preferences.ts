@@ -5,10 +5,14 @@ const legacyKey = "one-g-home-accessibility";
 export function loadAccessibilityTheme(): AccessibilityTheme | null {
   try {
     const stored = localStorage.getItem(accessibilityThemeKey);
-    if (stored !== null) return isAccessibilityTheme(stored) ? stored : null;
+    if (stored !== null) {
+      if (isAccessibilityTheme(stored)) return stored;
+      if (stored !== "null") saveAccessibilityTheme(null);
+      return null;
+    }
     // One-time upgrade of the previous homepage setting; never keep two stores active.
     const old = localStorage.getItem(legacyKey);
-    const migrated = old === "mono-invert" ? "monochrome" : old === "color-vision-safe" ? old : null;
+    const migrated = old === "color-vision-safe" ? old : null;
     if (old !== null) {
       saveAccessibilityTheme(migrated);
       localStorage.removeItem(legacyKey);

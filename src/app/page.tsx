@@ -1,50 +1,21 @@
+import Image from "next/image";
+import Link from "next/link";
 import HomeFooter from "@/components/HomeFooter";
-import { ShimmerButton } from "@/components/ui/shimmer-button";
-import AboutCTASection from "@/components/AboutCTASection";
-import CapabilitiesSection from "@/components/CapabilitiesSection";
-import HardwareEcosystemSection from "@/components/HardwareEcosystemSection";
-import CoreProductSection from "@/components/CoreProductSection";
-import HeroLogoText from "@/components/HeroLogoText";
-import { NavigationLink } from "@/components/ProtectedLink";
-import ResponsiveDriftWall from "@/components/ResponsiveDriftWall";
+import ProductAdvertisement from "@/components/ProductAdvertisement";
+import HomeVideoHero from "@/components/HomeVideoHero";
 import SupportButton from "@/components/SupportButton";
-import { getCoreProduct } from "@/lib/products";
-import { getProjectImages } from "@/lib/get-project-images";
 
-const heroLinks = [
-  { href: "/customize/start", label: "在线定制", primary: true },
-  { href: "/products", label: "商品中心", primary: false },
-  { href: "/about", label: "了解公司", primary: false },
-];
+import { getConfigurableOfferings } from "@/lib/configurable-offerings";
+import styles from "@/components/SystemPages.module.css";
 
 export default function HomePage() {
-  const coreProduct = getCoreProduct();
-  const wallImages = getProjectImages();
-  return (
-    <div className="home-page w-full overflow-hidden bg-black text-white">
-      <section className="hero-section relative isolate h-screen min-h-[100svh] w-full overflow-hidden" aria-labelledby="hero-title">
-        <div className="absolute inset-0 h-full w-full"><ResponsiveDriftWall items={wallImages} /></div>
-        <div className="hero-overlay" /><div className="hero-vignette" />
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-5 sm:px-10">
-          <h1 id="hero-title" className="hero-logo select-none text-center text-[clamp(5rem,13vw,13rem)] font-extrabold leading-none tracking-[-0.06em] text-white"><HeroLogoText /></h1>
-          <div className="hero-actions mt-10 flex w-full items-center justify-center gap-4 sm:mt-12" aria-label="核心入口">
-            {heroLinks.map((link) => link.primary ? <ShimmerButton key={link.href} href={link.href} className="hero-action">{link.label}</ShimmerButton> : <NavigationLink key={link.href} href={link.href} className="hero-action hero-action--secondary">{link.label}</NavigationLink>)}
-          </div>
-        </div>
-      </section>
-
-      <main>
-        {coreProduct && <CoreProductSection product={coreProduct} />}
-
-        <HardwareEcosystemSection />
-
-        <CapabilitiesSection />
-
-        <AboutCTASection />
-      </main>
-
-      <HomeFooter />
-      <SupportButton />
-    </div>
-  );
+  const offerings = getConfigurableOfferings();
+  return <div className="w-full"><HomeVideoHero /><ProductAdvertisement slides={offerings}/><div className={`${styles.page} ${styles.introductions}`}><div className={styles.container}>
+    {offerings.map(({product,detail,anchor},index)=><section className={styles.section} id={anchor} key={product.id}>
+      <p className={styles.eyebrow}>{index === 0 ? "01 / ROBOTDOCK" : "02 / SONIC LINK"}</p><h2>{product.name}</h2><p>{product.description}</p><p className={styles.notice}>{detail.statusNote}</p>
+      {index === 0 ? <><div className={styles.hero}><figure><Image src={product.images[1]} alt={detail.imageNotes[1].alt} width={detail.imageNotes[1].width} height={detail.imageNotes[1].height} sizes="(max-width:767px) 100vw, 45vw"/><figcaption>{detail.imageNotes[1].caption}</figcaption></figure><div>{detail.highlights?.map(item=><article key={item.title}><h3>{item.title}</h3><p>{item.description}</p></article>)}<h3>接口与集成</h3><p>{detail.interfaces?.join(" · ")}</p><p>{detail.interfaceNote}</p><p>{detail.compatibilityNote}</p></div></div></> : <>{detail.sections?.filter(s=>["overview","workflow","showcase"].includes(s.id)).map(section=><div key={section.id}><h3>{section.title}</h3>{section.paragraphs?.map(text=><p key={text}>{text}</p>)}<div className={styles.grid}>{section.cards?.map(card=><article className={styles.card} key={card.title}><h3>{card.title}</h3><p>{card.description}</p></article>)}</div>{section.id === "showcase" && <div className={styles.grid}>{section.media?.map(media=><figure key={media.src}><Image src={media.src} alt={media.alt} width={media.width} height={media.height} sizes="(max-width:767px) 100vw, 50vw"/><figcaption>{media.caption}</figcaption></figure>)}</div>}</div>)}</>}
+      <details className={styles.card}><summary>技术规格与支持边界</summary><dl className={styles.specs}>{product.specifications?.map(spec=><div key={spec.label}><dt>{spec.label}</dt><dd>{spec.value}{spec.note&&<small>{spec.note}</small>}</dd></div>)}</dl></details>
+      <div className={styles.actions}><Link href="/configure">查看配置</Link><Link href="/solutions">查看解决方案</Link></div>
+    </section>)}
+  </div></div><HomeFooter/><SupportButton/></div>;
 }

@@ -4,9 +4,9 @@
   width: 100%;
   height: clamp(520px, 65vh, 680px);
   overflow: hidden;
-  background: var(--brand-bg);
-  color: var(--brand-text);
-  border-top: 1px solid var(--brand-border);
+  background: var(--bg);
+  color: var(--text);
+  border-top: 1px solid var(--border);
 }
 .hint {
   position: absolute;
@@ -17,7 +17,7 @@
   z-index: 1;
   font-size: 12px;
   letter-spacing: .12em;
-  color: var(--brand-muted);
+  color: var(--text-muted);
 }
 .hint { bottom: 28px; letter-spacing: .06em; }
 .loading {
@@ -25,7 +25,7 @@
   inset: 0;
   display: grid;
   place-items: center;
-  color: var(--brand-muted);
+  color: var(--text-muted);
   font-size: 12px;
   letter-spacing: .08em;
   pointer-events: none;

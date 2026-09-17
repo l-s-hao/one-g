@@ -20,3 +20,5 @@ export function getMatureHardwareProducts() {
     return product ? [product] : [];
   });
 }
+
+export { getProductStatusLabel } from "./product-policy";

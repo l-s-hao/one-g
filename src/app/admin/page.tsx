@@ -13,7 +13,7 @@ const modules = [
   { name: "用户管理", detail: "用户列表 · 用户状态" },
   { name: "商品管理", detail: "商品 · 类别 · 上下架" },
   { name: "订单管理", detail: "订单列表 · 订单状态" },
-  { name: "定制方案管理", detail: "查看用户提交的定制方案，数据库接入后开放。" },
+  { name: "配置方案管理", detail: "查看用户提交的配置方案，数据库接入后开放。" },
   { name: "推荐规则", detail: "场景推荐 · 模块推荐" },
   { name: "网站设置", detail: "客服信息 · 基础站点配置" },
 ] as const;
@@ -38,7 +38,7 @@ export default function AdminPage() {
         <h3 className={styles.subheading}>基础站点配置</h3><p className={styles.muted}>ONE-G / 万机智能 · 当前只读，编辑功能待后台服务接入。</p>
       </> : <><p>{selected?.detail}</p><p className={styles.muted}>功能占位，当前不读取真实数据、不执行增删改操作。</p></>}
     </section>
-    <section className={styles.themeSection} aria-labelledby="admin-theme"><h2 id="admin-theme">个性化设置 / 界面主题</h2><p className={styles.muted}>仅影响当前管理员自己的界面，不改变全站默认或其他用户的主题。</p><ThemeSelector /><div className="mt-6"><p className="mb-3 text-xs tracking-widest">ACCESSIBILITY</p><AccessibilityThemeSelector /></div></section>
+    <section className={styles.themeSection} aria-labelledby="admin-theme"><h2 id="admin-theme">外观与显示辅助</h2><p className={styles.muted}>仅影响当前管理员自己的界面，不改变全站默认或其他用户的主题。</p><ThemeSelector /><div className="mt-6"><p className="mb-3 text-xs tracking-widest">ACCESSIBILITY</p><AccessibilityThemeSelector /></div></section>
     <section className={styles.accountSection} aria-labelledby="admin-account-actions"><h2 id="admin-account-actions">账户</h2><AccountActions /></section>
   </div>;
 }

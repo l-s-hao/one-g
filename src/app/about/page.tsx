@@ -8,10 +8,10 @@ import styles from "./about.module.css";
 const capabilities = [
   { title: "ROBOT PLATFORM", label: "机器人平台", description: "构建可扩展的机器人平台。", image: "one-g-service.png", alt: "ONE-G 服务机器人本体" },
   { title: "MODULAR HARDWARE", label: "模块化硬件", description: "机械臂、末端执行器、视觉与感知模块。", image: "one-g-arm.png", alt: "ONE-G 机械臂产品" },
-  { title: "CONFIGURATION", label: "在线定制", description: "通过可视化方式组合机器人硬件与能力。", image: "one-g-mobile.png", alt: "ONE-G 移动机器人硬件平台" },
+  { title: "CONFIGURATION", label: "配置中心", description: "通过可视化方式组合机器人硬件与能力。", image: "one-g-mobile.png", alt: "ONE-G 移动机器人硬件平台" },
 ];
 const principles = [
-  { title: "MODULAR", label: "模块化", description: "硬件与能力可以自由组合。" },
+  { title: "MODULAR", label: "模块化", description: "标准硬件与能力按兼容规则组合。" },
   { title: "INTUITIVE", label: "直观", description: "复杂机器人配置变得容易理解。" },
   { title: "OPEN", label: "开放", description: "为软件与智能能力保留扩展空间。" },
   { title: "SCALABLE", label: "可扩展", description: "从单一模块扩展到完整机器人系统。" },
@@ -43,7 +43,7 @@ export default function AboutPage() {
 
     <section className={`${styles.section} ${styles.contact}`} aria-labelledby="contact-title">
       <div><p className={styles.eyebrow}>04 / TALK TO ONE-G</p><h2 id="contact-title">TALK TO <br />ONE-G</h2>
-        <p className={styles.contactIntro}>如果你正在寻找机器人本体、模块化硬件或定制方案，欢迎联系我们。</p>
+        <p className={styles.contactIntro}>如果你正在寻找机器人本体、模块化硬件或配置方案，欢迎联系我们。</p>
         <a className={styles.contactButton} href="#contact-details">咨询客服 <ArrowUpRight size={18} aria-hidden="true" /></a>
       </div>
       <div id="contact-details" className={styles.contactDetails} tabIndex={-1}>
