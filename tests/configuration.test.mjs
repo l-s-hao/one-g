@@ -325,13 +325,13 @@ test('Snapshot includes product relation, keeps captured prices, and current sal
   } finally {product.price=originalPrice;product.status=originalStatus;}
 });
 
-test('System navigation is independent of the retired registry and old URLs ignore selection state', () => {
+test('Product purchase navigation and legacy URLs validate known package IDs', () => {
   const { getProductActions } = load('src/lib/product-actions');
   const products = load('src/lib/products');
   for (const id of ['robotdock', 'sonic-link', 'g1']) {
     const actions = getProductActions(products.getProductById(id));
-    assert.equal(actions.configurePath, '/configure');
-    assert.equal(actions.configurationLabel, '查看系统配置');
+    assert.equal(actions.configurePath, id === 'g1' ? '/' : `/buy/${id}`);
+    assert.equal(actions.configurationLabel, id === 'g1' ? '查看系统配置' : '购买');
   }
   assert.equal(getProductActions(products.getProductById('arm-a1')).configurePath, undefined);
   const routing = load('src/lib/auth-routing');
@@ -339,8 +339,12 @@ test('System navigation is independent of the retired registry and old URLs igno
   assert.equal(routing.requiredRole('/configure'), null);
   assert.equal(routing.requiredRole('/products'), null);
   for (const route of ['/configure/robot', '/configure/robotdock', '/configure/sonic-link', '/customize', '/customize/start']) {
-    assert.equal(routing.safeReturnTo(`${route}/?scene=inspection&scope=perception#old`, 'USER'), '/configure');
+    assert.equal(routing.safeReturnTo(`${route}/?scene=inspection&scope=perception#old`, 'USER'), ['/configure/robotdock','/configure/sonic-link'].includes(route) ? route.replace('/configure/', '/buy/') : '/');
   }
+  assert.equal(routing.safeReturnTo('/configure/?product=robotdock&package=hand&price=1', 'USER'), '/buy/robotdock?package=hand');
+  assert.equal(routing.safeReturnTo('/configure/?product=robotdock&package=dual', 'USER'), '/buy/robotdock');
+  assert.equal(routing.safeReturnTo('/buy/robotdock?package=hand', 'USER'), '/buy/robotdock?package=hand');
+  assert.equal(routing.requiredRole('/buy/robotdock'), null);
   assert.equal(routing.safeReturnTo('//evil.example', 'USER'), '/account');
   assert.equal(routing.safeReturnTo('/admin', 'USER'), '/account');
 });

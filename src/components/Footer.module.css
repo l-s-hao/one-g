@@ -1,0 +1,37 @@
+.footer {width:100%;background:var(--surface);color:var(--text);border-top:1px solid var(--border);font-size:13px;}
+.container {max-width:var(--directory-width);margin-inline:auto;padding:24px var(--directory-gutter) 20px;}
+.breadcrumb {display:flex;flex-wrap:wrap;align-items:center;gap:12px;font-size:12px;padding-bottom:22px;border-bottom:1px solid var(--border);}
+.breadcrumb [data-brand-logo] {width:23px;height:23px;}
+.breadcrumb a {display:inline-flex;align-items:center;min-height:32px;}
+.directory {display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px;padding-block:28px;}
+.group {min-width:0;}
+.group h2 {font-size:13px;font-weight:600;margin:0 0 10px;}
+.group ul {list-style:none;padding:0;margin:0;}
+.group li {margin:0;}
+.group a,.group li > button {display:inline-block;padding-block:6px;line-height:1.5;color:var(--text-muted);text-align:left;font-size:13px;}
+.footer a:hover,.footer button:hover {text-decoration:underline;text-underline-offset:3px;}
+.footer :focus-visible {outline:2px solid var(--text);outline-offset:3px;border-radius:2px;}
+.mobileTitle {display:none;}
+.contact {display:flex;flex-wrap:wrap;gap:6px 20px;border-top:1px solid var(--border);padding-block:18px;color:var(--text-muted);scroll-margin-top:90px;font-size:12px;line-height:1.7;}
+.contact p {margin:0;overflow-wrap:anywhere;}
+.contact p:first-child {color:var(--text);}
+.contactNote {width:100%;}
+.copyright {border-top:1px solid var(--border);padding-top:16px;color:var(--text-muted);font-size:12px;}
+.accessibility {padding:12px 0;}
+.accessibility > button {display:flex;align-items:center;gap:5px;min-height:32px;margin-top:8px;}
+@media(min-width:600px) and (max-width:999px){.directory {grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;}}
+@media(max-width:599px){
+ .container {padding-top:18px;}
+ .breadcrumb {padding-bottom:14px;}
+ .directory {display:block;padding-block:8px 18px;}
+ .group {border-bottom:1px solid var(--border);}
+ .desktopTitle {display:none;}
+ .mobileTitle {display:block;margin:0!important;}
+ .mobileTitle button {display:flex;align-items:center;justify-content:space-between;width:100%;min-height:48px;font-size:14px;text-align:left;}
+ .group ul {display:none;padding:0 10px 12px;}
+ .group[data-open="true"] ul {display:block;}
+ .group[data-open="true"] .mobileTitle svg {transform:rotate(180deg);}
+ .group a,.group li > button {font-size:14px;padding-block:9px;}
+ .contact {display:block;}
+ .contact p {margin-block:4px;}
+}

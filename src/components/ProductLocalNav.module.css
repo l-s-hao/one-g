@@ -1,0 +1,26 @@
+.position {position:sticky;z-index:40;height:56px;margin:0 20px -56px;pointer-events:none;}
+.nav {width:100%;max-width:860px;margin-inline:auto;min-height:54px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:6px 12px 6px 22px;border:1px solid var(--border-strong);border-radius:28px;background:var(--surface);color:var(--text);box-shadow:0 5px 18px #00000012;pointer-events:auto;}
+.nav[data-visible="false"] {opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);}
+.name {font-size:18px;font-weight:600;white-space:nowrap;}
+.right,.links {display:flex;align-items:center;gap:24px;}
+.links {font-size:13px;}
+.links a {display:flex;align-items:center;min-height:36px;}
+.links a[aria-current="page"] {text-decoration:underline;text-underline-offset:6px;font-weight:600;}
+.purchase {display:inline-flex;align-items:center;justify-content:center;min-height:36px;border-radius:24px;background:var(--button-primary-bg);color:var(--button-primary-text);padding:7px 16px;font-size:13px;white-space:nowrap;}
+.toggle {display:none;}
+.nav a:hover {text-decoration:underline;text-underline-offset:4px;}
+.nav :focus-visible {outline:2px solid var(--text);outline-offset:3px;border-radius:6px;}
+@supports(backdrop-filter:blur(12px)){.nav {background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(12px);}}
+@media(prefers-reduced-motion:no-preference){.nav {transition:opacity .2s ease,transform .2s ease,visibility .2s;}}
+@media(prefers-reduced-motion:reduce){.nav {backdrop-filter:none;background:var(--surface);}.nav[data-visible="false"] {transform:none;}}
+@media(max-width:767px){
+ .position {height:48px;margin:0 12px -48px;}
+ .nav {position:relative;min-height:48px;padding:4px 8px 4px 14px;gap:8px;border-radius:24px;}
+ .name {font-size:15px;}
+ .right {gap:8px;}
+ .toggle {display:flex;align-items:center;gap:3px;min-height:38px;font-size:12px;white-space:nowrap;}
+ .purchase {font-size:12px;min-height:36px;padding:7px 10px;}
+ .links {display:none;position:absolute;right:8px;top:calc(100% + 8px);padding:8px 16px;min-width:160px;border:1px solid var(--border-strong);border-radius:14px;background:var(--surface);box-shadow:0 5px 18px #00000012;}
+ .links[data-open="true"] {display:flex;flex-direction:column;align-items:stretch;gap:0;}
+ .links a {min-height:44px;font-size:14px;}
+}

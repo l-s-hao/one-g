@@ -38,6 +38,8 @@ input, textarea, [contenteditable="true"] { cursor: text; }
 }
 
 :root {
+  --directory-width: 1200px;
+  --directory-gutter: clamp(20px, 3vw, 40px);
   --background: #000000;
   --foreground: #ffffff;
 }
@@ -115,13 +117,6 @@ body {
 .mobile-only { display: none; }
 .checkout-dock { display: contents; }
 @media (max-width: 767px) {
-  .home-footer { padding-block: 28px; }
-  .home-footer > div > div { gap: 20px; }
-  .home-footer nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; }
-  .home-footer nav a { min-height: 32px; display: inline-flex; align-items: center; font-size: 12px; }
-  .home-footer h2 { margin-bottom: 8px; font-size: 13px; }
-  .home-footer ul { display: flex; flex-direction: column; gap: 0; }
-  .home-footer > div > p { margin-top: 20px; padding-top: 16px; }
   .support-widget { bottom: 16px; right: 16px; }
   .support-widget > button { width: 44px; height: 44px; padding: 0; justify-content: center; }
   .support-widget > button span { display: none; }

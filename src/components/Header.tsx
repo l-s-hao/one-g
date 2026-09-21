@@ -1,97 +1,129 @@
 "use client";
 
-import { navigation } from "@/data/site-navigation";
 import Link from "next/link";
-import { NavigationLink } from "./ProtectedLink";
-import { Menu, Search, ShoppingCart, UserRound, X } from "lucide-react";
-import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { Accessibility, ChevronDown, Menu, Search, ShoppingCart, UserRound, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { navigation } from "@/data/site-navigation";
+import { getProducts } from "@/lib/products";
 import { useAuth } from "./AuthProvider";
-import styles from "./HeaderBrand.module.css";
-import AccessibilityControls from "./AccessibilityControls";
+import { NavigationLink } from "./ProtectedLink";
+import AccessibilityThemeSelector from "./AccessibilityThemeSelector";
 import BrandLogo from "./BrandLogo";
+import styles from "./HeaderBrand.module.css";
 
-
-
-const utilityLinks = [
-  { href: "/#search", label: "搜索", Icon: Search },
-  { href: "/login", label: "用户登录", Icon: UserRound },
-  { href: "/cart", label: "购物车", Icon: ShoppingCart },
-];
+const searchItems = [...navigation, ...getProducts().map(product => ({
+  label: product.name,
+  href: `/products/${product.slug}`,
+}))];
 
 export default function Header() {
+  const pathname = usePathname();
+  // Remount on navigation, including browser back, so panels and focus state cannot leak to another page.
+  return <HeaderNavigation key={pathname} pathname={pathname.replace(/\/+$/, "") || "/"} />;
+}
+
+function HeaderNavigation({ pathname }: { pathname: string }) {
   const { currentUser } = useAuth();
+  const [panel, setPanel] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const root = useRef<HTMLElement>(null);
+  const opener = useRef<HTMLButtonElement | null>(null);
+  const openTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const clearTimers = () => {
+    if (openTimer.current) clearTimeout(openTimer.current);
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+  };
+  const close = (restore = false) => {
+    clearTimers(); setPanel(null); setMobileOpen(false);
+    if (restore) {
+      if (mobileOpen) root.current?.querySelector<HTMLButtonElement>(`button[aria-controls="mobile-navigation"]`)?.focus();
+      else opener.current?.focus();
+    }
+  };
+  const toggle = (id: string, button: HTMLButtonElement) => {
+    clearTimers(); opener.current = button;
+    setPanel(value => value === id ? null : id);
+  };
+  useEffect(() => {
+    const outside = (event: PointerEvent) => {
+      if (event.target instanceof Node && !root.current?.contains(event.target)) {
+        clearTimers(); setPanel(null); setMobileOpen(false);
+      }
+    };
+    const media = window.matchMedia("(min-width: 1024px)");
+    const resize = () => {
+      clearTimers(); setPanel(null); setMobileOpen(false);
+      const active = document.activeElement;
+      if (active instanceof HTMLElement && root.current?.contains(active)) active.blur();
+    };
+    document.addEventListener("pointerdown", outside);
+    media.addEventListener("change", resize);
+    return () => { clearTimers(); document.removeEventListener("pointerdown", outside); media.removeEventListener("change", resize); };
+  }, []);
+  const active = navigation.find(item => item.href === panel);
   const userHref = !currentUser ? "/login" : currentUser.role === "ADMIN" ? "/admin" : "/account";
   const userLabel = !currentUser ? "用户登录" : currentUser.role === "ADMIN" ? "管理后台" : "用户中心";
-  const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname().replace(/\/+$/, "") || "/";
-  const isBrandHero = pathname === "/about";
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    if (!isBrandHero) return;
-    const update = () => setScrolled(window.scrollY > 20);
-    update(); window.addEventListener("scroll", update, { passive: true });
-    return () => window.removeEventListener("scroll", update);
-  }, [isBrandHero]);
-
-  return (
-    <header data-header-variant={isBrandHero ? "hero" : "interior"} className={`site-header ${isBrandHero ? "fixed" : "sticky"} inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${isBrandHero ? (scrolled ? "border-white/10 bg-black/80 backdrop-blur-xl" : "border-white/10 bg-transparent") : "border-zinc-200/80 bg-white/85 backdrop-blur-xl"}`}>
-      <div className={`container-shell flex items-center justify-between gap-6 md:grid md:grid-cols-[1fr_auto_1fr] ${styles.row}`}>
-        <Link href="/" className={`shrink-0 justify-self-start ${styles.brand} ${isBrandHero ? "" : styles.interior}`} aria-label="ONE-G / 万机智能 首页" onClick={() => setMenuOpen(false)}>
-          <BrandLogo variant="horizontal" size="sm" context={isBrandHero ? "brand" : "header"} className={styles.desktopLogo} />
-          <BrandLogo variant="mark" size="sm" context={isBrandHero ? "brand" : "header"} className={styles.mobileLogo} />
-        </Link>
-
-        <nav className={`hidden items-center justify-center md:flex ${styles.navigation} ${isBrandHero ? "text-white/75" : "text-zinc-600"}`} aria-label="主导航">
-          {navigation.map((item) => (
-            <Link key={item.href} href={item.href} className={`transition-colors ${isBrandHero ? "hover:text-white" : "hover:text-zinc-950"}`}>
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className={`hidden items-center justify-self-end gap-5 md:flex ${styles.actions} ${isBrandHero ? "text-white/75" : "text-zinc-600"}`} aria-label="快捷入口">
-          <AccessibilityControls />
-          {utilityLinks.map(({ href, label, Icon }) => (
-            <NavigationLink key={href} href={href === "/login" ? userHref : href} aria-label={href === "/login" ? userLabel : label} className={`transition-colors ${isBrandHero ? "hover:text-white" : "hover:text-blue-600"}`}>
-              <Icon size={19} strokeWidth={1.7} />
-            </NavigationLink>
-          ))}
-        </div>
-
-        <div className="flex items-center gap-2 md:hidden">
-        <button
-          type="button"
-          className={`rounded-full p-2 transition-colors md:hidden ${isBrandHero ? "text-white hover:bg-white/10" : "text-zinc-700 hover:bg-zinc-100"}`}
-          aria-label={menuOpen ? "关闭菜单" : "打开菜单"}
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          {menuOpen ? <X size={21} strokeWidth={1.8} /> : <Menu size={21} strokeWidth={1.8} />}
-        </button>
-        </div>
+  const current = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  const groups = (item: typeof navigation[number]) => <div className={styles.groups}>
+    {item.groups?.map(group => <div key={group.label}><p className={styles.groupTitle}>{group.label}</p><ul>{group.links.map(link => <li key={link.href}><Link href={link.href} onClick={() => close()}>{link.label}</Link></li>)}</ul></div>)}
+  </div>;
+  return <header ref={root} className={`site-header ${styles.header}`}
+    onPointerEnter={() => { if (closeTimer.current) clearTimeout(closeTimer.current); }}
+    onPointerLeave={event => {
+      if (event.pointerType !== "mouse" || !window.matchMedia("(min-width: 1024px)").matches) return;
+      if (openTimer.current) clearTimeout(openTimer.current);
+      closeTimer.current = setTimeout(() => {
+        // Keep keyboard focus visible even if the pointer leaves the header.
+        if (!root.current?.contains(document.activeElement)) setPanel(null);
+      }, 180);
+    }}
+    onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) { clearTimers(); setPanel(null); setMobileOpen(false); } }}
+    onKeyDown={event => { if (event.key === "Escape") { event.preventDefault(); close(true); } }}>
+    <div className={styles.row}>
+      <Link href="/" className={styles.brand} aria-label="ONE-G / 万机智能 首页" onClick={() => close()}>
+        <BrandLogo variant="horizontal" size="sm" context="header" className={styles.desktopLogo}/>
+        <BrandLogo variant="mark" size="sm" context="header" className={styles.mobileLogo}/>
+      </Link>
+      <nav className={styles.navigation} aria-label="主导航">
+        {navigation.map((item, index) => <div className={styles.navItem} key={item.href}
+          onPointerEnter={event => {
+            if (event.pointerType !== "mouse") return;
+            clearTimers();
+            const button = event.currentTarget.querySelector("button");
+            openTimer.current = setTimeout(() => { opener.current = button; setPanel(item.groups ? item.href : null); }, 120);
+          }}>
+          <Link href={item.href} aria-current={current(item.href) ? "page" : undefined} onClick={() => close()}>{item.label}</Link>
+          {item.groups && <button type="button" aria-label={`展开${item.label}`} aria-expanded={panel === item.href} aria-controls={`desktop-nav-${index}`} onClick={event => toggle(item.href, event.currentTarget)}><ChevronDown size={14}/></button>}
+        </div>)}
+      </nav>
+      <div className={styles.actions} aria-label="快捷入口">
+        <button type="button" aria-label="显示辅助" aria-expanded={panel === "accessibility"} aria-controls="header-accessibility" onClick={event => toggle("accessibility", event.currentTarget)}><Accessibility size={19}/></button>
+        <button type="button" aria-label="搜索" aria-expanded={panel === "search"} aria-controls="header-search" onClick={event => toggle("search", event.currentTarget)}><Search size={19}/></button>
+        <NavigationLink className={styles.user} href={userHref} aria-label={userLabel} onClick={() => close()}><UserRound size={19}/></NavigationLink>
+        <NavigationLink href="/cart" aria-label="购物车" onClick={() => close()}><ShoppingCart size={19}/></NavigationLink>
+        <button className={styles.menuButton} type="button" aria-label={mobileOpen ? "关闭菜单" : "打开菜单"} aria-expanded={mobileOpen} aria-controls="mobile-navigation" onClick={event => {
+          clearTimers(); opener.current = event.currentTarget; setMobileOpen(value => !value); setPanel(null);
+        }}>{mobileOpen ? <X size={20}/> : <Menu size={20}/>}</button>
       </div>
-
-      {menuOpen && (
-        <div className={`border-t px-6 py-5 md:hidden ${isBrandHero ? "border-white/10 bg-black/95" : "border-zinc-200/80 bg-white"}`}>
-          <nav className="container-shell flex flex-col gap-1" aria-label="移动端导航">
-            {navigation.map((item) => (
-              <Link key={item.href} href={item.href} className={`rounded-xl px-3 py-3 text-sm ${isBrandHero ? "text-white/80 hover:bg-white/10" : "text-zinc-700 hover:bg-zinc-50"}`} onClick={() => setMenuOpen(false)}>
-                {item.label}
-              </Link>
-            ))}
-            <AccessibilityControls mobile />
-            <div className={`mt-2 flex gap-2 border-t pt-3 ${isBrandHero ? "border-white/10" : "border-zinc-100"}`}>
-              {utilityLinks.map(({ href, label, Icon }) => (
-                <NavigationLink key={href} href={href === "/login" ? userHref : href} className={`flex items-center gap-2 rounded-xl px-3 py-3 text-sm ${isBrandHero ? "text-white/70 hover:bg-white/10" : "text-zinc-600 hover:bg-zinc-50"}`} onClick={() => setMenuOpen(false)}>
-                  <Icon size={17} strokeWidth={1.7} />
-                  {href === "/login" ? userLabel : label}
-                </NavigationLink>
-              ))}
-            </div>
-          </nav>
-        </div>
-      )}
-    </header>
-  );
+    </div>
+    {navigation.map((item,index) => item.groups && <div key={item.href} id={`desktop-nav-${index}`} className={`${styles.panel} ${styles.desktopPanel}`} hidden={panel !== item.href}>
+      <div className={styles.panelInner}>{active?.href === item.href && groups(item)}</div>
+    </div>)}
+    <div id="mobile-navigation" className={`${styles.panel} ${styles.mobilePanel}`} hidden={!mobileOpen || panel === "search" || panel === "accessibility"}>
+      <nav className={styles.panelInner} aria-label="移动端导航">{navigation.map((item,index) => <div className={styles.mobileGroup} key={item.href}>
+        <div className={styles.mobileHeading}><Link href={item.href} aria-current={current(item.href) ? "page" : undefined} onClick={() => close()}>{item.label}</Link>{item.groups && <button type="button" aria-label={`展开${item.label}`} aria-expanded={panel === item.href} aria-controls={`mobile-nav-${index}`} onClick={event => toggle(item.href,event.currentTarget)}><ChevronDown size={17}/></button>}</div>
+        {item.groups && <div id={`mobile-nav-${index}`} hidden={panel !== item.href}>{groups(item)}</div>}
+      </div>)}<NavigationLink className={styles.mobileAccount} href={userHref} onClick={() => close()}><UserRound size={18}/>{userLabel}</NavigationLink></nav>
+    </div>
+    <div id="header-search" className={styles.panel} hidden={panel !== "search"}><div className={styles.panelInner}>
+      <div className={styles.panelHeading}><label htmlFor="site-search">搜索 ONE-G</label><button type="button" aria-label="关闭搜索" onClick={() => close(true)}><X size={20}/></button></div>
+      <input id="site-search" type="search" placeholder="搜索产品或栏目" value={query} onChange={event => setQuery(event.target.value)}/>
+      <ul className={styles.searchResults}>{searchItems.filter(item => !query.trim() || item.label.toLowerCase().includes(query.trim().toLowerCase())).map(item => <li key={item.href}><Link href={item.href} onClick={() => close()}>{item.label}</Link></li>)}</ul>
+      {query.trim() && !searchItems.some(item => item.label.toLowerCase().includes(query.trim().toLowerCase())) && <p>没有匹配的产品或栏目。</p>}
+    </div></div>
+    <div id="header-accessibility" className={styles.panel} hidden={panel !== "accessibility"}><div className={styles.panelInner}><div className={styles.panelHeading}><span>显示设置</span><button type="button" aria-label="关闭显示辅助" onClick={() => close(true)}><X size={20}/></button></div><AccessibilityThemeSelector /></div></div>
+  </header>;
 }

@@ -1,11 +1,15 @@
 "use client";
 import { useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { canonicalConfigurationHref } from "@/lib/configuration-routing";
 
-/** Public static-export compatibility for retired configuration URLs. */
+/** Public client redirect: compatible with exported HTML on GitHub Pages. */
 export default function LegacyConfigurationRedirect() {
   const router = useRouter();
-  useEffect(() => { router.replace("/configure"); }, [router]);
-  return <div className="p-8"><p role="status">正在打开 ONE-G 系统配置…</p><Link href="/configure" className="underline">查看系统配置</Link></div>;
+  const pathname = usePathname();
+  useEffect(() => {
+    router.replace(canonicalConfigurationHref(pathname + window.location.search + window.location.hash));
+  }, [router, pathname]);
+  return <div className="p-8"><p role="status">正在打开产品选购页面…</p><Link href="/" className="underline">查看产品</Link></div>;
 }

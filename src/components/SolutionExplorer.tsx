@@ -1,13 +1,38 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { solutions, solutionCategories } from "@/data/solutions";
 import { getProductById } from "@/lib/products";
 import styles from "@/app/solutions/solutions.module.css";
 export default function SolutionExplorer() {
   const [category, setCategory] = useState<string>("all");
   const [expanded, setExpanded] = useState<string | null>(null);
+  useEffect(() => {
+    let active = true;
+    let frame = 0;
+    const reveal = (hash: string) => {
+      const id = hash.slice(1);
+      if (!solutions.some(item => item.id === id)) return;
+      void Promise.resolve().then(() => {
+        if (!active) return;
+        setCategory("all"); setExpanded(id);
+        cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ block: "start" }));
+      });
+    };
+    const sync = () => reveal(window.location.hash);
+    const link = (event: MouseEvent) => {
+      const anchor = event.target instanceof Element ? event.target.closest("a") : null;
+      if (!anchor || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
+      const url = new URL(anchor.href);
+      if (url.origin === location.origin && url.pathname.replace(/\/+$/, "") === location.pathname.replace(/\/+$/, "")) reveal(url.hash);
+    };
+    sync();
+    window.addEventListener("hashchange", sync);
+    document.addEventListener("click", link);
+    return () => { active = false; cancelAnimationFrame(frame); window.removeEventListener("hashchange", sync); document.removeEventListener("click", link); };
+  }, []);
   const visible = solutions.filter(item => category === "all" || item.category === category);
   return <>
     <div className={styles.filters} role="group" aria-label="解决方案分类">{solutionCategories.map(item=><button key={item.id} type="button" aria-pressed={category===item.id} onClick={()=>{setCategory(item.id);setExpanded(null);}}>{item.name}</button>)}</div>
@@ -18,7 +43,7 @@ export default function SolutionExplorer() {
       <p className={styles.related}>相关系统：{item.productIds.map(id=>getProductById(id)?.name).join(" · ")}</p>
       <button type="button" className={styles.expand} aria-expanded={expanded===item.id} aria-controls={`solution-${item.id}`} onClick={()=>setExpanded(expanded===item.id?null:item.id)}>{expanded===item.id?"收起方案 −":"查看方案 +"}</button>
       <div id={`solution-${item.id}`} hidden={expanded!==item.id} className={styles.detail}>
-        <dl><div><dt>适用任务</dt><dd>{item.subtitle}</dd></div><div><dt>ONE-G 如何实现</dt><dd>{item.capabilities[0]}</dd></div><div><dt>涉及能力</dt><dd>{item.capabilities.slice(1).join(" ")}</dd></div><div><dt>适用边界</dt><dd>{item.boundary}</dd></div></dl><Link href="/configure">查看标准配置 →</Link>
+        <dl><div><dt>适用任务</dt><dd>{item.subtitle}</dd></div><div><dt>ONE-G 如何实现</dt><dd>{item.capabilities[0]}</dd></div><div><dt>涉及能力</dt><dd>{item.capabilities.slice(1).join(" ")}</dd></div><div><dt>适用边界</dt><dd>{item.boundary}</dd></div></dl><Link href="/">查看标准配置 →</Link>
       </div>
     </article>)}</div>
   </>;
