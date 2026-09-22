@@ -10,6 +10,8 @@
 .hero :global(.scroll-expand__hint) { color: var(--text-muted); font-size: 10px; letter-spacing: .26em; bottom: 32px; }
 .hero :global(.scroll-expand__scrim) { background: var(--bg); }
 .expanded { color: var(--text); display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 680px; padding: 1.5rem; border-radius: 1rem; background: color-mix(in srgb, var(--surface) 92%, transparent); }
+/* Preserve the original card footprint when the positioning copy gets shorter. */
+.expanded { width: min(100%, calc(clamp(15px, 1.6vw, 22px) * 16.8344 + 3rem)); }
 .expanded .logo { color: var(--text); width: clamp(88px, 9vw, 128px); }
 .expanded h2 { font-size: clamp(24px, 3vw, 40px); font-weight: 600; letter-spacing: -.03em; }
 .expanded p { max-width: 32em; font-size: clamp(15px, 1.6vw, 22px); line-height: 1.8; text-wrap: balance; }
@@ -18,4 +20,8 @@
   .hero :global(.scroll-expand__title) { font-size: clamp(30px, 12vw, 72px); padding-inline: 4%; white-space: nowrap; }
   .expanded { gap: 20px; }
   .expanded p { max-width: 19em; }
+}
+@media (max-width: 341px) {
+  /* The original positioning occupied two lines at this width. */
+  .expanded p { min-height: 3.6em; }
 }

@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { solutions, solutionCategories } from "@/data/solutions";
 import { getProductById } from "@/lib/products";
@@ -43,7 +42,7 @@ export default function SolutionExplorer() {
       <p className={styles.related}>相关系统：{item.productIds.map(id=>getProductById(id)?.name).join(" · ")}</p>
       <button type="button" className={styles.expand} aria-expanded={expanded===item.id} aria-controls={`solution-${item.id}`} onClick={()=>setExpanded(expanded===item.id?null:item.id)}>{expanded===item.id?"收起方案 −":"查看方案 +"}</button>
       <div id={`solution-${item.id}`} hidden={expanded!==item.id} className={styles.detail}>
-        <dl><div><dt>适用任务</dt><dd>{item.subtitle}</dd></div><div><dt>ONE-G 如何实现</dt><dd>{item.capabilities[0]}</dd></div><div><dt>涉及能力</dt><dd>{item.capabilities.slice(1).join(" ")}</dd></div><div><dt>适用边界</dt><dd>{item.boundary}</dd></div></dl><Link href="/">查看标准配置 →</Link>
+        <dl><div><dt>适用任务</dt><dd>{item.subtitle}</dd></div><div><dt>ONE-G 如何实现</dt><dd>{item.capabilities[0]}</dd></div><div><dt>涉及能力</dt><dd>{item.capabilities.slice(1).join(" ")}</dd></div><div><dt>适用边界</dt><dd>{item.boundary}</dd></div></dl>
       </div>
     </article>)}</div>
   </>;

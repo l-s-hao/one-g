@@ -4,7 +4,7 @@ export type FooterItem = { label: string; href: string; action?: never } | { lab
 export const footerGroups: { title: string; items: FooterItem[] }[] = [
   { title: "产品与配置", items: [...productLinks, { label: "产品选购", href: "/" }] },
   { title: "商品选购", items: shopLinks },
-  { title: "解决方案", items: [...solutionLinks, { label: "深度定制", href: "/deep-customization" }] },
+  { title: "解决方案", items: solutionLinks },
   { title: "账户与服务", items: [
     { label: "用户中心", href: "/account" }, { label: "购物车", href: "/cart" },
     { label: "客服咨询", href: "#one-g-contact" }, { label: "显示辅助", action: "accessibility" },

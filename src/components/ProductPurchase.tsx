@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { getOfferingPackages } from "@/lib/configurable-offerings";
 import ProductStatusBadge from "./ProductStatusBadge";
@@ -57,6 +58,10 @@ export default function ProductPurchase({ offering }: { offering: Offering }) {
           <p id="purchase-unavailable" className={styles.note}>当前仅供套餐预览，暂未开放销售；套餐价格与支付方式待确认。</p>
         </section>
       </div>
+    </div>
+    <div className={styles.customization}>
+      <p>如有其他要求，可以深度定制。</p>
+      <Link href="/deep-customization">深度定制 <span aria-hidden="true">→</span></Link>
     </div>
     <section className={styles.recommendations} aria-labelledby="recommendations-title"><h2 id="recommendations-title">更多推荐</h2><p>暂无已确认的推荐商品。</p></section>
   </div>;

@@ -17,7 +17,7 @@ export const shopLinks: DirectoryLink[] = [
 ];
 export const solutionLinks = solutions.map(item => ({ href: `/solutions#${item.id}`, label: item.name }));
 export const navigation: NavigationItem[] = [
+  { href: "/products", label: "商品中心", groups: [{ label: "主产品", links: productLinks }, { label: "商品选购", links: shopLinks }] },
   { href: "/solutions", label: "解决方案", groups: [{ label: "面向真实任务", links: solutionLinks }] },
-  { href: "/products", label: "商品中心", groups: [{ label: "商品选购", links: shopLinks }] },
   { href: "/about", label: "了解公司" },
 ];

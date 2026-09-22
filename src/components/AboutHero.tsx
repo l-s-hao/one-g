@@ -34,7 +34,7 @@ export default function AboutHero() {
       <div className={styles.expanded}>
         <BrandLogo variant="stacked" size="lg" className={styles.logo} />
         <h2>ONE-G / 万机智能</h2>
-        <p>ONE-G — 可配置的智能机器人平台。</p>
+        <p>机器人开发与应用平台</p>
       </div>
     </ScrollExpand>
   </section>;
