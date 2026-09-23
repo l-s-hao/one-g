@@ -13,7 +13,7 @@
 .statusNote { margin-top: 10px; margin-bottom: 24px; max-width: 40em; font-size: 13px; line-height: 1.8; color: var(--text-muted); }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: auto; }
 .actions a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid var(--border-strong); border-radius: 999px; padding: 10px 22px; font-size: 14px; line-height: 1.4; }
-.actions a:last-child { background: var(--text); border-color: var(--text); color: var(--bg); }
+.actions a:last-child { background: var(--button-primary-bg); border-color: var(--button-primary-bg); color: var(--button-primary-text); }
 .actions a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .actions a:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; }
 .standardSection { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--border); }

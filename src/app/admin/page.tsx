@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useAuth } from "@/components/AuthProvider";
 import ThemeSelector from "@/components/ThemeSelector";
 import AccountActions from "@/components/AccountActions";
-import ContactDetails from "@/components/ContactDetails";
 import styles from "./admin.module.css";
 
 // Mock workspace entries only; management actions will use backend services later.
@@ -33,7 +32,7 @@ export default function AdminPage() {
         <p className={styles.muted}>管理功能预览。当前未连接正式数据。</p>
         <div className={styles.cards}>{modules.map(item => <button key={item.name} type="button" onClick={() => setSection(item.name)}><strong>{item.name}</strong><span>{item.detail}</span></button>)}</div>
       </> : section === "网站设置" ? <>
-        <h3 className={styles.subheading}>当前客服信息</h3><ContactDetails />
+        <h3 className={styles.subheading}>当前客服信息</h3><p className={styles.muted}>客服需求仅支持前端填写和预览。</p>
         <h3 className={styles.subheading}>基础站点配置</h3><p className={styles.muted}>ONE-G / 万机智能 · 当前只读，编辑功能待后台服务接入。</p>
       </> : <><p>{selected?.detail}</p><p className={styles.muted}>功能占位，当前不读取真实数据、不执行增删改操作。</p></>}
     </section>

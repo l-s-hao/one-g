@@ -1,0 +1,24 @@
+.dialog {width:min(560px,calc(100vw - 24px));max-height:calc(100dvh - 24px);margin:auto;padding:24px;border:1px solid var(--border-strong);border-radius:16px;background:var(--surface);color:var(--text);overflow:auto;box-shadow:0 20px 70px #0005;}
+.dialog::backdrop {background:#0007;}
+.heading {display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:12px;}
+.heading h2 {font-size:22px;font-weight:600;}
+.dialog button {min-height:44px;padding:8px 14px;border:1px solid var(--border-strong);border-radius:8px;cursor:pointer;}
+.note {font-size:13px;line-height:1.7;color:var(--text-muted);margin-bottom:16px;}
+.field {display:grid;gap:6px;margin-block:14px;}
+.field label {font-size:14px;}
+.field input,.field textarea {width:100%;min-height:44px;padding:10px 12px;border:1px solid var(--border-strong);border-radius:8px;background:var(--bg);color:var(--text);font:inherit;}
+.field textarea {resize:vertical;}
+.error {font-size:13px;font-weight:600;}
+.field [aria-invalid=true] {border-style:dashed;border-width:2px;}
+.actions {display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;}
+.actions .primary {background:var(--button-primary-bg);color:var(--button-primary-text);}
+.dialog :focus-visible {outline:2px solid var(--text);outline-offset:3px;}
+.previewNotice {padding:12px;border:1px solid var(--border-strong);border-radius:8px;margin-block:16px;}
+.preview > div {padding-block:10px;border-bottom:1px solid var(--border);}
+.preview dt {color:var(--text-muted);font-size:13px;}
+.preview dd {margin:4px 0 0;white-space:pre-wrap;overflow-wrap:anywhere;}
+.trigger {display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 20px;border:1px solid var(--border-strong);border-radius:999px;background:var(--button-primary-bg);color:var(--button-primary-text);font-size:14px;cursor:pointer;}
+.trigger:disabled {opacity:.6;cursor:wait;}
+.trigger:focus-visible {outline:2px solid var(--text);outline-offset:3px;}
+.floating {position:fixed;bottom:24px;right:24px;z-index:50;}
+@media(max-width:599px){.dialog{padding:18px;}}

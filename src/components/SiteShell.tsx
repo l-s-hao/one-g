@@ -7,8 +7,13 @@ import RequireRole from "./RequireRole";
 import { requiredRole } from "@/lib/auth-routing";
 import Header from "./Header";
 import Footer from "./Footer";
+import ContactProvider from "./ContactProvider";
 
 export default function SiteShell({ children }: { children: ReactNode }) {
+  return <ContactProvider><SiteContent>{children}</SiteContent></ContactProvider>;
+}
+
+function SiteContent({ children }: { children: ReactNode }) {
   const { currentUser } = useAuth();
   const pathname = usePathname().replace(/\/+$/, "") || "/";
   const role = requiredRole(pathname);

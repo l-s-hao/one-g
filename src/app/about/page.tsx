@@ -1,7 +1,6 @@
-import { ArrowUpRight } from "lucide-react";
 import LanyardBrandSection from "@/components/LanyardBrandSection";
 import AboutHero from "@/components/AboutHero";
-import { siteContact } from "@/data/site-contact";
+import SupportButton from "@/components/SupportButton";
 import styles from "./about.module.css";
 
 export default function AboutPage() {
@@ -34,15 +33,10 @@ export default function AboutPage() {
     </section>
 
     <section className={`${styles.section} ${styles.contact}`} aria-labelledby="contact-title">
-      <div><p className={styles.eyebrow}>04 / TALK TO ONE-G</p><h2 id="contact-title">TALK TO <br />ONE-G</h2>
-        <p className={styles.contactIntro}>如果你有机器人开发与应用需求，欢迎联系我们。</p>
-        <a className={styles.contactButton} href="#contact-details">咨询客服 <ArrowUpRight size={18} aria-hidden="true" /></a>
-      </div>
-      <div id="contact-details" className={styles.contactDetails} tabIndex={-1}>
-        <dl><div><dt>客服电话</dt><dd><a href={`tel:${siteContact.phone.replace(/\s/g, "")}`}>{siteContact.phone}<ArrowUpRight size={20} aria-hidden="true" /></a></dd></div>
-          <div><dt>客服邮箱</dt><dd><a href={`mailto:${siteContact.email}`}>{siteContact.email}<ArrowUpRight size={20} aria-hidden="true" /></a></dd></div></dl>
-        <p className={styles.contactNote}>当前为演示联系信息，正式联系方式待确认。</p>
-      </div>
+      <p className={styles.eyebrow}>04 / TALK TO ONE-G</p><h2 id="contact-title">TALK TO ONE-G</h2>
+      <p className={styles.contactIntro}>如果你有机器人开发与应用需求，欢迎与我们沟通。</p>
+      <SupportButton inline entry="about" className={styles.contactButton}/>
+      <p className={styles.contactNote}>登录后填写需求 · 当前仅支持前端预览</p>
     </section>
     </article>
     <LanyardBrandSection />

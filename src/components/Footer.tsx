@@ -7,7 +7,7 @@ import { ChevronDown, ChevronRight, X } from "lucide-react";
 import { footerGroups } from "@/data/footer-navigation";
 import { navigation } from "@/data/site-navigation";
 import { siteContent } from "@/data/site-content";
-import { siteContact } from "@/data/site-contact";
+import SupportButton from "./SupportButton";
 import { isConfigurableOffering } from "@/data/configurable-offerings";
 import { getOfferingNavigation } from "@/lib/offering-navigation";
 import { getProductBySlug } from "@/lib/products";
@@ -45,15 +45,10 @@ export default function Footer() {
           <ul id={`footer-group-${index}`}>{group.items.map(item => <li key={item.label}>
             {item.action === "accessibility" ? <><button type="button" aria-expanded={accessibilityOpen} aria-controls="footer-accessibility" onClick={() => setAccessibilityOpen(value => !value)}>显示辅助</button>
               {accessibilityOpen && <div className={styles.accessibility} id="footer-accessibility" onKeyDown={event => { if (event.key === "Escape") { setAccessibilityOpen(false); event.currentTarget.parentElement?.querySelector("button")?.focus(); } }}><ThemeSelector/><button type="button" aria-label="关闭页脚显示辅助" onClick={event => { event.currentTarget.closest("li")?.querySelector("button")?.focus(); setAccessibilityOpen(false); }}><X size={14}/> 关闭</button></div>}</>
-              : <NavigationLink href={item.href}>{item.label}</NavigationLink>}
+              : item.href === "#one-g-contact" ? <SupportButton inline textOnly label={item.label} entry={item.label === "客服咨询" ? "footer-help" : "footer-contact"}/> : <NavigationLink href={item.href}>{item.label}</NavigationLink>}
           </li>)}</ul>
         </section>)}
       </nav>
-      <div id="one-g-contact" className={styles.contact} tabIndex={-1}>
-        <p>联系 ONE-G</p>
-        <p>电话：{siteContact.phone} · 未确认</p><p>邮箱：{siteContact.email} · 未确认</p>
-        <p className={styles.contactNote}>当前联系方式为演示占位，正式联系渠道待确认。</p>
-      </div>
       <p className={styles.copyright}>{siteContent.footer.copyright}</p>
     </div>
   </footer>;
