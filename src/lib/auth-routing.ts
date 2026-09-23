@@ -17,7 +17,7 @@ export function canAccessRole(role: UserRole, required: UserRole) {
 }
 
 export function loginDestination(target: string, role: UserRole = "USER") {
-  return `${role === "ADMIN" ? "/admin/login" : "/login"}?returnTo=${encodeURIComponent(canonicalConfigurationHref(target))}`;
+  return `/login?returnTo=${encodeURIComponent(safeReturnTo(canonicalConfigurationHref(target), role))}`;
 }
 
 // returnTo is untrusted URL input. Allow only local, role-compatible destinations,

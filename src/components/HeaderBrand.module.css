@@ -52,3 +52,14 @@
  .panel {max-height:calc(100dvh - 56px);}
 }
 @media(prefers-reduced-motion:no-preference) { .panel:not([hidden]) .panelInner {animation:reveal .16s ease-out;} @keyframes reveal {from {opacity:.65;transform:translateY(-3px);} to {opacity:1;transform:none;}} }
+
+/* Display settings are a small popover, independent of the navigation mega menus.
+   Three trailing action slots place its right edge under the Eye button;
+   clamp at 12px from the left edge on narrow screens. */
+.panel.displayPanel {inset-inline-start:auto;inset-inline-end:min(calc(100% - 272px), calc(max(0px, (100% - var(--directory-width)) / 2) + var(--directory-gutter) + 123px));width:260px;max-width:calc(100vw - 24px);height:auto;padding:12px;border:1px solid var(--border);border-radius:12px;}
+.displayPanel .panelInner {width:100%;max-width:none;margin:0;padding:0;}
+.displayPanel .panelHeading {gap:8px;margin-bottom:8px;font-size:14px;}
+.displayPanel button {min-height:28px;}
+@media(max-width:767px) {
+ .panel.displayPanel {inset-inline-end:min(calc(100% - 272px), calc(var(--directory-gutter) + 120px));}
+}

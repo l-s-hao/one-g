@@ -1,5 +1,17 @@
-.options {display:grid;gap:.75rem;border:0;padding:0;color:var(--text);}
-.options label {display:flex;align-items:center;gap:.8rem;border:1px solid var(--border);border-radius:.75rem;padding:.9rem;cursor:pointer;}
-.options input {width:18px;height:18px;accent-color:var(--text);}
-.options small {display:block;color:var(--text-muted);font-size:.8rem;margin-top:.2rem;}
+.options {display:grid;gap:.5rem;border:0;padding:0;min-width:0;color:var(--text);}
+.summary {display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:13px;padding-bottom:.5rem;}
+.summary p {margin:0;}
+.summary button {padding:6px 10px;border:1px solid var(--border-strong);border-radius:8px;font-size:12px;background:var(--surface);color:var(--text);}
+.options label {display:flex;align-items:center;justify-content:space-between;gap:1rem;border:1px solid var(--border);border-radius:.5rem;padding:.65rem .8rem;min-height:44px;cursor:pointer;font-size:14px;}
+.options input {width:32px;height:20px;flex-shrink:0;accent-color:var(--text);cursor:pointer;}
+.options small {display:block;color:var(--text-muted);font-size:12px;margin-top:.15rem;}
 .options label:has(:checked) {border-color:var(--text);}
+.options label:has(:disabled) {cursor:default;}
+.options :focus-visible {outline:2px solid var(--text);outline-offset:3px;}
+
+/* Only the navigation popover opts into this presentation. */
+.compact {gap:6px;margin:0;}
+.compact .summary {flex-wrap:nowrap;gap:6px;padding-bottom:0;font-size:13px;}
+.compact .summary button {flex-shrink:0;padding:4px 6px;font-size:12px;}
+.compact label {min-height:36px;padding:6px 8px;gap:8px;font-size:13px;}
+.compact small {font-size:11px;line-height:1.4;}

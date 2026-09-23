@@ -1,5 +1,6 @@
 "use client";
 
+import { useAuth } from "@/components/AuthProvider";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 
 
@@ -16,27 +17,30 @@ import type { ConfigurationSnapshot } from "@/types/configuration";
 type ConfigItem = { name: string; category: string; price?: number; quantity: number; config: ConfigurationSnapshot };
 
 export default function CartPage() {
+  const { currentUser } = useAuth();
+  const userId = currentUser?.id;
   const [products, setProducts] = useState<CartProduct[]>([]);
   const [config, setConfig] = useState<ConfigItem | null>(null);
   const [ready, setReady] = useState(false);
   useEffect(() => {
+    if (!userId) return;
     let active = true;
-    Promise.all([readCart(), readSavedConfiguration()]).then(([items, saved]) => {
+    Promise.all([readCart(userId), readSavedConfiguration(userId)]).then(([items, saved]) => {
       if (!active) return;
       setProducts(items);
       if (saved) setConfig({ name: saved.name, category: saved.category, price: saved.price, quantity: 1, config: saved });
       setReady(true);
     });
     return () => { active = false; };
-  }, []);
+  }, [userId]);
   const total = getCartTotal(products, config?.config ?? null);
-  const removeProduct = (id: string) => { const next = products.filter(item => item.id !== id); writeCart(next); setProducts(next); };
+  const removeProduct = (id: string) => { const next = products.filter(item => item.id !== id); if (!userId) return; writeCart(next, userId); setProducts(next); };
   const updateQuantity = (id: string, quantity: number) => {
     if (!Number.isSafeInteger(quantity) || quantity < 1) return;
     const next = products.map(item => item.id === id ? { ...item, quantity } : item);
-    writeCart(next); setProducts(next);
+    if (!userId) return; writeCart(next, userId); setProducts(next);
   };
-  const removeConfig = () => { removeSavedConfiguration(); setConfig(null); };
+  const removeConfig = () => { if (!userId) return; removeSavedConfiguration(userId); setConfig(null); };
   return <div className="mobile-page cart-page min-h-screen w-full bg-black px-6 pb-24 pt-32 text-white sm:px-10"><div className="mx-auto max-w-5xl"><p className="eyebrow">ONE - G / CART</p><h1 className="mt-5 text-5xl font-bold tracking-[-0.06em] sm:text-7xl">购物车</h1>{!ready ? <p className="mt-16 text-white/45">正在读取方案...</p> : !products.length && !config ? <div className="mt-16 rounded-3xl border border-white/10 bg-[#0d0d0d] p-10 text-center"><p className="text-white/55">购物车还是空的</p><div className="mt-6 flex flex-wrap justify-center gap-[18px] md:flex-nowrap md:gap-7">
   <Link href="/" className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-white px-3 text-sm font-bold whitespace-nowrap text-black transition-colors duration-150 hover:bg-white/90 md:px-6">开始配置</Link>
   <Link href="/products" className="inline-flex h-11 shrink-0 items-center justify-center rounded-full border border-white/35 bg-transparent px-3 text-sm font-bold whitespace-nowrap text-white transition-colors duration-150 hover:border-white/55 hover:bg-white/[0.06] md:px-6">浏览商品</Link>

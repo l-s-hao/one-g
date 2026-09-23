@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { getOfferingPackages } from "@/lib/configurable-offerings";
+import PaymentSelector from "./PaymentSelector";
+import { usePaymentPreference } from "./usePaymentPreference";
 import ProductStatusBadge from "./ProductStatusBadge";
 import styles from "./ProductPurchase.module.css";
 
@@ -12,27 +14,32 @@ type Offering = ReturnType<typeof getOfferingPackages>[number];
 /** Existing bundles are editorial previews: no confirmed bundle prices or payment configuration. */
 export default function ProductPurchase({ offering }: { offering: Offering }) {
   const { product, detail, packages, heroImageIndex } = offering;
+  const { payment, selectPayment } = usePaymentPreference(true);
+  const [quantity, setQuantity] = useState(1);
   const [selectedId, setSelectedId] = useState("");
   const note = detail.imageNotes[heroImageIndex];
   const selected = packages.find(bundle => bundle.id === selectedId);
   useEffect(() => {
     let active = true;
     const restore = () => {
-      const id = new URLSearchParams(window.location.search).get("package");
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("package");
+      const quantity = Number(params.get("quantity") ?? 1);
+      if (active) setQuantity(Number.isSafeInteger(quantity) && quantity > 0 && quantity <= 999 ? quantity : 1);
       if (active) setSelectedId(packages.some(bundle => bundle.id === id) ? id! : "");
     };
     void Promise.resolve().then(restore);
     window.addEventListener("popstate", restore);
     return () => { active = false; window.removeEventListener("popstate", restore); };
   }, [packages]);
-  const select = (id: string) => {
-    setSelectedId(id);
+  const updateQuery = (key: string, value: string) => {
     // ID-only URL state survives refresh, back/forward and the existing safe login returnTo.
     // Never serialize a price, payment details or an automatic cart action.
     const url = new URL(window.location.href);
-    url.search = new URLSearchParams({ package: id }).toString();
+    url.searchParams.set(key, value);
     window.history.pushState(null, "", url.pathname + url.search);
   };
+  const select = (id: string) => { setSelectedId(id); updateQuery("package", id); };
   return <div className={styles.page}>
     <h1>购买 {product.name}</h1>
     <div className={styles.purchase}>
@@ -50,18 +57,19 @@ export default function ProductPurchase({ offering }: { offering: Offering }) {
           </label>) : <p>套餐待确认</p>}
         </fieldset>
         {detail.bundleNote && <p className={styles.note}>{detail.bundleNote}</p>}
-        <section className={styles.payment} aria-labelledby="payment-title"><h2 id="payment-title">支付方式选择</h2><p>支付方式待配置</p></section>
+        <label className="mt-4 block">数量<input aria-label="数量" type="number" min="1" max="999" value={quantity} onChange={event => { const value = Number(event.target.value); if (Number.isSafeInteger(value) && value > 0 && value <= 999) { setQuantity(value); updateQuery("quantity", String(value)); } }} className="ml-3 w-20 rounded border border-[var(--border)] p-2"/></label>
+        <section className={styles.payment}><PaymentSelector value={payment} onChange={value => { selectPayment(value); updateQuery("payment", value); }}/></section>
         <section className={styles.summary} aria-labelledby="selection-title">
           <h2 id="selection-title">当前选择</h2><p aria-live="polite">{selected?.name ?? "请选择套餐"}</p>
           <p className={styles.amount}>价格待确认</p>
           <button type="button" disabled aria-describedby="purchase-unavailable">加入购物车</button>
-          <p id="purchase-unavailable" className={styles.note}>当前仅供套餐预览，暂未开放销售；套餐价格与支付方式待确认。</p>
+          <p id="purchase-unavailable" className={styles.note}>当前仅供套餐预览，暂未开放销售；套餐价格待确认，支付渠道尚未接入。</p>
         </section>
       </div>
     </div>
     <div className={styles.customization}>
       <p>如有其他要求，可以深度定制。</p>
-      <Link href="/deep-customization">深度定制 <span aria-hidden="true">→</span></Link>
+      <Link href={{ pathname: "/deep-customization", query: { product: product.slug, ...(selectedId ? { package: selectedId } : {}), quantity: String(quantity), ...(payment ? { payment } : {}) } }}>深度定制 <span aria-hidden="true">→</span></Link>
     </div>
     <section className={styles.recommendations} aria-labelledby="recommendations-title"><h2 id="recommendations-title">更多推荐</h2><p>暂无已确认的推荐商品。</p></section>
   </div>;

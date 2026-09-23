@@ -1,3 +1,4 @@
+import { mockAuthEnabled } from "./demo-mode";
 import { mockUsers } from "@/data/mock-users";
 import type { CurrentUser, LoginResult, UserRole } from "@/types/auth";
 
@@ -7,6 +8,7 @@ const publicUser = (user: CurrentUser): CurrentUser => ({ id: user.id, email: us
 
 // Replace this adapter with backend auth + HttpOnly session cookies later.
 export async function authenticate(email: string, password: string, role: UserRole): Promise<LoginResult> {
+  if (!mockAuthEnabled || role !== "ADMIN") return { ok: false, error: "INVALID_CREDENTIALS" };
   const user = mockUsers.find(item => item.email === email.trim().toLowerCase() && item.password === password);
   if (!user) return { ok: false, error: "INVALID_CREDENTIALS" };
   if (user.role !== role) return { ok: false, error: "WRONG_ROLE" };
@@ -14,6 +16,7 @@ export async function authenticate(email: string, password: string, role: UserRo
 }
 
 export function readDemoSession(): CurrentUser | null {
+  if (!mockAuthEnabled) return null;
   try {
     const stored: unknown = JSON.parse(localStorage.getItem(demoAuthKey) ?? "null");
     if (!stored || typeof stored !== "object" || !("userId" in stored) || !("version" in stored) || stored.version !== 1) return null;
@@ -24,7 +27,10 @@ export function readDemoSession(): CurrentUser | null {
 
 export function saveDemoSession(user: CurrentUser | null) {
   try {
-    if (user) localStorage.setItem(demoAuthKey, JSON.stringify({ version: 1, userId: user.id }));
+    if (user && mockAuthEnabled) localStorage.setItem(demoAuthKey, JSON.stringify({ version: 1, userId: user.id }));
     else localStorage.removeItem(demoAuthKey);
   } catch { /* Restricted storage: keep session in memory only. */ }
 }
+
+// Session adapter boundary. A real implementation must use a server session, not browser role data.
+export async function getCurrentUser() { return readDemoSession(); }

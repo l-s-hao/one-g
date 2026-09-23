@@ -2,11 +2,25 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useAuth } from "@/components/AuthProvider";
+import OrderSummary from "@/components/OrderSummary";
+import { queryPaymentStatus, type Order } from "@/lib/commerce/service";
 
 export default function OrderSuccessPage() {
-  const [orderNumber, setOrderNumber] = useState("ONE-G-——");
-  useEffect(() => { // eslint-disable-next-line react-hooks/set-state-in-effect
-    setOrderNumber(`ONE-G-${Date.now().toString().slice(-8)}`);
-  }, []);
-  return <div className="mobile-page order-success flex min-h-screen w-full items-center justify-center bg-black px-6 text-center text-white"><div><p className="eyebrow">ONE - G / ORDER</p><h1 className="mt-5 text-5xl font-bold tracking-[-0.06em] sm:text-7xl">订单提交成功</h1><p className="mt-8 text-white/55">模拟订单号：{orderNumber}</p><div className="mt-10 flex flex-wrap justify-center gap-3"><Link href="/" className="rounded-full bg-white px-6 py-3 text-sm font-bold text-black">返回首页</Link><Link href="/account" className="rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white">查看用户中心</Link></div></div></div>;
+  const { currentUser } = useAuth();
+  const [order, setOrder] = useState<Order | null>(null);
+  const [message, setMessage] = useState("正在查询订单…");
+  useEffect(() => {
+    if (!currentUser) return;
+    let active = true;
+    const id = new URLSearchParams(window.location.search).get("order");
+    void (id ? queryPaymentStatus(currentUser.id, id) : Promise.resolve(null)).then(result => {
+      if (active) { setOrder(result); setMessage(result ? "" : "订单不存在、不可访问或订单服务尚未接入。"); }
+    }).catch(() => { if (active) setMessage("暂时无法查询订单，请稍后重试。"); });
+    return () => { active = false; };
+  }, [currentUser]);
+  return <div className="mobile-page order-success min-h-screen w-full px-6 pb-24 pt-32"><div className="mx-auto max-w-3xl"><p className="eyebrow">ONE - G / ORDER</p><h1 className="mt-5 text-4xl font-bold">订单状态</h1>
+    <p role="status" className="mt-6">{message}</p>{order && <OrderSummary order={order}/>}
+    <div className="mt-10 flex gap-6"><Link href="/">返回首页</Link><Link href="/account">查看用户中心</Link></div>
+  </div></div>;
 }

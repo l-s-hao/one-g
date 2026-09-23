@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="zh-CN" data-theme="caribbean-calcite">
+    <html lang="zh-CN" data-theme="standard">
       <body className="min-h-screen bg-black text-white antialiased">
         <AuthProvider><ThemeProvider><SiteShell>{children}</SiteShell></ThemeProvider></AuthProvider>
       </body>

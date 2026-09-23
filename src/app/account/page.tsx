@@ -1,8 +1,8 @@
 "use client";
 
+import AccountOrders from "@/components/AccountOrders";
 import Link from "next/link";
 import { useAuth } from "@/components/AuthProvider";
-import AccessibilityThemeSelector from "@/components/AccessibilityThemeSelector";
 import ThemeSelector from "@/components/ThemeSelector";
 import AccountActions from "@/components/AccountActions";
 import ContactDetails from "@/components/ContactDetails";
@@ -19,15 +19,14 @@ export default function AccountPage() {
       <p className={styles.muted}>用户名：未设置</p>
       <p className={styles.muted}>普通用户</p>
     </section>
-    <section className={styles.section}><h2>我的订单</h2><p className={styles.muted}>暂无订单记录。</p></section>
+    <section className={styles.section}><h2>我的订单</h2><AccountOrders key={currentUser.id} userId={currentUser.id}/></section>
     <section className={styles.section}><h2>购物车</h2><Link href="/cart">查看购物车</Link></section>
     <section className={styles.section}><h2>收货地址</h2><p className={styles.muted}>地址管理暂未开放。</p></section>
     <section className={styles.section} aria-labelledby="account-support"><h2 id="account-support">客服咨询</h2><ContactDetails actions /></section>
     <section className={styles.section} aria-labelledby="personalization-title">
       <p className={styles.eyebrow}>APPEARANCE</p>
       <h2 id="personalization-title">外观与显示辅助</h2>
-      <h3 className={styles.subtitle}>外观</h3>
-      <ThemeSelector /><div className="mt-6"><p className="mb-3 text-xs tracking-widest">ACCESSIBILITY</p><AccessibilityThemeSelector /></div>
+      <ThemeSelector />
     </section>
     <section className={styles.section} aria-labelledby="account-actions"><h2 id="account-actions">账户</h2><AccountActions /></section>
   </div>;

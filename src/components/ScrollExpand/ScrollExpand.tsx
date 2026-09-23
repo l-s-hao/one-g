@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useCallback, useEffect, useRef } from 'react';
 import type { CSSProperties, ReactNode } from 'react';
 
@@ -241,7 +242,7 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
         playsInline
       />
     ) : (
-      <img ref={mediaRef} className="scroll-expand__media" src={src} alt={alt} draggable={false} />
+      <Image ref={mediaRef} className="scroll-expand__media" src={src} alt={alt} fill sizes="100vw" loading="eager" draggable={false} />
     );
 
   return (

@@ -4,7 +4,7 @@ import { parseConfiguration } from "@/lib/configurator";
 import { robotConfigurationToGeneric } from "./adapters";
 import { getConfigurationTotal, getWorkbenchGroups, normalizeState, configurationValid } from "./engine";
 
-const storageKey = (schema: ConfiguratorSchema) => `one-g-config:${schema.id}`;
+const storageKey = (schema: ConfiguratorSchema, userId?: string) => `one-g-config:${schema.id}${userId ? `:user:${userId}` : ""}`;
 function readJSON(key: string): unknown {
   try {
     const value = window.localStorage.getItem(key);
@@ -30,28 +30,28 @@ export function createSnapshot(schema: ConfiguratorSchema, state: ConfigurationS
   }) }));
   return { schemaId: schema.id, productId: getConfigurationProduct(schema, state)?.id, selections: structuredClone(state), name: `${summary[0]?.options[0]?.name ?? schema.title} 配置方案`, category: schema.cartLabel, price: snapshotPrice(getConfigurationTotal(schema, state)), summary };
 }
-export function saveConfiguration(schema: ConfiguratorSchema, state: ConfigurationState): StoredConfiguration {
+export function saveConfiguration(schema: ConfiguratorSchema, state: ConfigurationState, userId?: string): StoredConfiguration {
   const selections = normalizeState(schema, state);
   const stored: StoredConfiguration = { version: 2, schemaId: schema.id, selections, ...(isConfigurationPreview(schema) || !configurationValid(schema, selections) ? {} : { snapshot: createSnapshot(schema, selections) }) };
-  window.localStorage.setItem(storageKey(schema), JSON.stringify(stored));
+  window.localStorage.setItem(storageKey(schema, userId), JSON.stringify(stored));
   return stored;
 }
 /** The original record remains intact. A failed migration write still returns the recovered selection. */
-export async function readConfiguration(schema: ConfiguratorSchema): Promise<StoredConfiguration | null> {
-  const raw = readJSON(storageKey(schema));
+export async function readConfiguration(schema: ConfiguratorSchema, userId?: string): Promise<StoredConfiguration | null> {
+  const raw = readJSON(storageKey(schema, userId));
   if (raw !== null) {
     if (!record(raw) || raw.version !== 2 || raw.schemaId !== schema.id || !selections(raw.selections) || (!isConfigurationPreview(schema) && !snapshot(raw.snapshot, schema.id))) return null;
     return { version: 2, schemaId: schema.id, selections: normalizeState(schema, raw.selections), ...(isConfigurationPreview(schema) ? {} : { snapshot: raw.snapshot as ConfigurationSnapshot }) };
   }
-  if (schema.id !== "robot") return null;
+  if (userId || schema.id !== "robot") return null;
   const legacy = parseConfiguration(readJSON("one-g-config"));
   if (!legacy) return null;
   const state = robotConfigurationToGeneric(legacy);
   const stored: StoredConfiguration = { version: 2, schemaId: schema.id, selections: state, snapshot: createSnapshot(schema, state) };
-  try { window.localStorage.setItem(storageKey(schema), JSON.stringify(stored)); } catch { /* Read-only storage must not discard recovered data. */ }
+  try { window.localStorage.setItem(storageKey(schema, userId), JSON.stringify(stored)); } catch { /* Read-only storage must not discard recovered data. */ }
   return stored;
 }
-export function removeConfiguration(schema: ConfiguratorSchema) {
-  window.localStorage.removeItem(storageKey(schema));
-  if (schema.id === "robot") window.localStorage.removeItem("one-g-config");
+export function removeConfiguration(schema: ConfiguratorSchema, userId?: string) {
+  window.localStorage.removeItem(storageKey(schema, userId));
+  if (!userId && schema.id === "robot") window.localStorage.removeItem("one-g-config");
 }

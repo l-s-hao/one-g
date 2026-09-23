@@ -1,19 +1,18 @@
 "use client";
 
-import { createContext, useContext, useEffect, useLayoutEffect, useState, type ReactNode } from "react";
-import { isPreferredThemeId, isAccessibilityTheme, type PreferredThemeId, type AccessibilityTheme, type ThemeId } from "@/data/themes";
-import { loadUserTheme, saveUserTheme, userThemeKey } from "@/lib/user-preferences";
-import { accessibilityThemeKey, loadAccessibilityTheme, saveAccessibilityTheme } from "@/lib/accessibility-preferences";
-import { resolveTheme } from "@/lib/theme-resolver";
+import { createContext, useContext, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { isDisplayMode, type DisplayMode, type SpecialDisplayMode } from "@/data/themes";
+import { displayPreferenceKey, loadDisplayPreference, saveDisplayPreference } from "@/lib/user-preferences";
+import { resolveDisplayMode, toggleDisplayMode } from "@/lib/theme-resolver";
 import { useAuth } from "./AuthProvider";
 
 interface ThemeState {
-  preferredTheme: PreferredThemeId;
-  accessibilityTheme: AccessibilityTheme | null;
-  effectiveTheme: ThemeId;
-  setPreferredTheme: (value: PreferredThemeId) => void;
-  setAccessibilityTheme: (value: AccessibilityTheme | null) => void;
+  displayMode: DisplayMode;
+  ready: boolean;
+  setDisplayMode: (mode: DisplayMode) => boolean;
+  setModeEnabled: (mode: SpecialDisplayMode, enabled: boolean) => void;
 }
+type Preference = { userId?: string; mode: DisplayMode };
 const ThemeContext = createContext<ThemeState | null>(null);
 export const useTheme = () => {
   const context = useContext(ThemeContext);
@@ -22,42 +21,45 @@ export const useTheme = () => {
 };
 
 export default function ThemeProvider({ children }: { children: ReactNode }) {
-  const { currentUser } = useAuth();
+  const { currentUser, authReady } = useAuth();
   const userId = currentUser?.id;
-  const [preference, updatePreference] = useState<{ userId: string; theme: PreferredThemeId } | null>(null);
-  const [accessibilityTheme, updateAccessibilityTheme] = useState<AccessibilityTheme | null>(null);
-  // Storage is loaded after hydration; server and first client use the same route/defaults.
-  const preferredTheme = userId && preference?.userId === userId ? preference.theme : "caribbean-calcite";
-  const effectiveTheme = resolveTheme(preferredTheme, accessibilityTheme);
-  useLayoutEffect(() => {
-    document.documentElement.dataset.theme = effectiveTheme;
-  }, [effectiveTheme]);
+  // SSR and the first hydration render both start with no restored preference.
+  // Browser storage is read only below, after authentication has settled.
+  const [preference, updatePreference] = useState<Preference | null>(null);
+  const committed = useRef<Preference | null>(null);
+  const ready = authReady && preference !== null && preference.userId === userId;
+  // All modes remain active on logout; account switches still restore their own preference.
+  const displayMode = resolveDisplayMode(
+    authReady && (preference?.userId === userId || (!userId && preference?.userId)) ? preference?.mode : "standard",
+  );
+  useLayoutEffect(() => { document.documentElement.dataset.theme = displayMode; }, [displayMode]);
   useEffect(() => {
+    if (!authReady) return;
     let active = true;
-    const load = () => { if (active) updateAccessibilityTheme(loadAccessibilityTheme()); };
-    Promise.resolve().then(load);
-    const sync = (event: StorageEvent) => { if (event.key === accessibilityThemeKey || event.key === null) load(); };
+    const load = (logoutTransition = false) => {
+      if (!active) return;
+      const previous = committed.current;
+      const mode = logoutTransition && previous?.userId && !userId
+        ? resolveDisplayMode(previous.mode) : loadDisplayPreference(userId);
+      if (logoutTransition && previous?.userId && !userId) saveDisplayPreference(mode, undefined);
+      const next = { userId, mode };
+      committed.current = next; updatePreference(next);
+    };
+    void Promise.resolve().then(() => load(true));
+    const sync = (event: StorageEvent) => { if (event.key === displayPreferenceKey(userId) || event.key === null) load(); };
     window.addEventListener("storage", sync);
     return () => { active = false; window.removeEventListener("storage", sync); };
-  }, []);
-  useEffect(() => {
-    if (!userId) return;
-    let active = true;
-    const load = () => { if (active) updatePreference({ userId, theme: loadUserTheme(userId) }); };
-    Promise.resolve().then(load);
-    const sync = (event: StorageEvent) => { if (event.key === userThemeKey(userId) || event.key === null) load(); };
-    window.addEventListener("storage", sync);
-    return () => { active = false; window.removeEventListener("storage", sync); };
-  }, [userId]);
-  const setPreferredTheme = (value: PreferredThemeId) => {
-    if (!userId || !isPreferredThemeId(value)) return;
-    saveUserTheme(userId, value);
-    updatePreference({ userId, theme: value });
+  }, [userId, authReady]);
+  const setDisplayMode = (mode: DisplayMode) => {
+    if (!ready || !isDisplayMode(mode)) return false;
+    const next = { userId, mode };
+    saveDisplayPreference(mode, userId);
+    committed.current = next; updatePreference(next);
+    return true;
   };
-  const setAccessibilityTheme = (value: AccessibilityTheme | null) => {
-    if (value !== null && !isAccessibilityTheme(value)) return;
-    saveAccessibilityTheme(value);
-    updateAccessibilityTheme(value);
+  const setModeEnabled = (mode: SpecialDisplayMode, enabled: boolean) => {
+    if (!enabled && displayMode !== mode) return;
+    setDisplayMode(toggleDisplayMode(displayMode, mode, enabled));
   };
-  return <ThemeContext.Provider value={{ preferredTheme, accessibilityTheme, effectiveTheme, setPreferredTheme, setAccessibilityTheme }}>{children}</ThemeContext.Provider>;
+  return <ThemeContext.Provider value={{ displayMode, ready, setDisplayMode, setModeEnabled }}>{children}</ThemeContext.Provider>;
 }

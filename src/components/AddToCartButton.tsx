@@ -32,7 +32,7 @@ export default function AddToCartButton({ product }: { product: Product }) {
       return;
     }
     busy.current = true;
-    try { await addCartProduct(product.id); setAdded(true); setNotice(""); }
+    try { await addCartProduct(product.id, currentUser.id); setAdded(true); setNotice(""); }
     catch { setAdded(false); setNotice("加入失败，请重试。"); }
     finally { busy.current = false; }
   };

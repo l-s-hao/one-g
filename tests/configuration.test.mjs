@@ -5,6 +5,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import ts from 'typescript';
+process.env.NODE_ENV = "test";
+process.env.NEXT_PUBLIC_ONE_G_MOCK_AUTH = "1";
 const nodeRequire = createRequire(import.meta.url);
 // Compile local TS with the project's alias, without adding a runtime/test dependency.
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -32,6 +34,8 @@ const fixture = () => ({ id: 'test-only', productType: 'test', title: 'Test', en
 function localStorageMock() {
   const values = new Map();
   global.window = { localStorage: { getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key) } };
+  global.localStorage = window.localStorage;
+  localStorage.setItem("one-g-auth-demo", JSON.stringify({version:1,userId:"user-demo"}));
   return values;
 }
 test('Robot baseline, adapters and optional omission preserve STEP 4 behavior', () => {
@@ -154,10 +158,10 @@ test('Concept catalog product is discoverable, excluded from Robot options and c
   assert.equal(product.detail.bundles.length, 4);
   assert.ok(product.detail.bundles[3].items.some(item => item.includes('2台')));
   localStorageMock();
-  await cart.addCartProduct(product.id);
-  assert.deepEqual(await cart.readCart(), []);
+  await assert.rejects(cart.addCartProduct(product.id, "user-demo"), /暂不可购买/);
+  assert.deepEqual(await cart.readCart("user-demo"), []);
   assert.deepEqual(cart.parseCart([{ productId: product.id, quantity: 1 }]), []);
-  await cart.addCartProduct('g1'); assert.equal((await cart.readCart())[0].id, 'g1');
+  await cart.addCartProduct('g1', 'user-demo'); assert.equal((await cart.readCart("user-demo"))[0].id, 'g1');
 });
 
 test('RobotDock registry and four mutually exclusive bundles reuse product facts without Robot groups', () => {
@@ -196,11 +200,13 @@ test('Preview storage is isolated and has no cart snapshot; product status fails
   assert.equal(stored.snapshot, undefined); assert.equal(stored.schemaId, 'robotdock');
   assert.equal(values.get('one-g-config:robot'), original);
   assert.equal((await storage.readConfiguration(dock)).selections.bundle[0], 'gripper-camera');
-  assert.equal((await cart.readSavedConfiguration()).schemaId, 'robot');
+  assert.equal(await cart.readSavedConfiguration('user-demo'), null, 'Unowned legacy configuration is not assigned to this user');
+  storage.saveConfiguration(robot, engine.getInitialConfiguration(robot), 'user-demo');
+  assert.equal((await cart.readSavedConfiguration('user-demo')).schemaId, 'robot');
   assert.equal(values.has('one-g-cart'), false);
   assert.equal(policy.isConfigurationPreview({...dock,purchaseMode:'cart'}), true);
   assert.equal(policy.isConfigurationPreview({...robot,productId:'missing'}), true);
-  storage.removeConfiguration(robot); assert.equal(await cart.readSavedConfiguration(), null);
+  storage.removeConfiguration(robot, "user-demo"); assert.equal(await cart.readSavedConfiguration("user-demo"), null);
   assert.ok(await storage.readConfiguration(dock));
 });
 test('Mixed/unknown prices and optional groups have explicit semantics', () => {
@@ -228,8 +234,8 @@ test('SONIC Link is discoverable but cannot be purchased; STEP 9 configuration r
   assert.ok(!robot.groups[0].options.some(option => option.productId === product.id));
   assert.equal(load('src/lib/configuration/policy').isConfigurationPreview(load('src/data/configuration/registry').getConfiguratorSchema(product.id)), true);
   const cart = load('src/lib/cart'); localStorageMock();
-  await cart.addCartProduct(product.id);
-  assert.deepEqual(await cart.readCart(), []);
+  await assert.rejects(cart.addCartProduct(product.id, "user-demo"), /暂不可购买/);
+  assert.deepEqual(await cart.readCart("user-demo"), []);
   assert.deepEqual(cart.parseCart([{productId: product.id, quantity: 1}]), []);
 });
 
@@ -315,13 +321,13 @@ test('Unified actions separate required readiness from installation progress and
 test('Snapshot includes product relation, keeps captured prices, and current sale status blocks old Cart records', async () => {
   const values=localStorageMock(),cart=load('src/lib/cart');
   const state=engine.getInitialConfiguration(robot);
-  const saved=storage.saveConfiguration(robot,state);assert.equal(saved.snapshot.productId,'g1');
+  const saved=storage.saveConfiguration(robot,state,"user-demo");assert.equal(saved.snapshot.productId,'g1');
   const product=load('src/lib/products').getProductById('g1'),originalPrice=product.price,originalStatus=product.status;
   try {
-    product.price=1;assert.equal((await cart.readSavedConfiguration()).price,97800);
-    delete saved.snapshot.productId;values.set('one-g-config:robot',JSON.stringify(saved));
-    assert.equal((await cart.readSavedConfiguration()).price,97800,'Old v2 snapshot remains readable');
-    product.status='coming-soon';assert.equal(await cart.readSavedConfiguration(),null);
+    product.price=1;assert.equal((await cart.readSavedConfiguration("user-demo")).price,97800);
+    delete saved.snapshot.productId;values.set('one-g-config:robot:user:user-demo',JSON.stringify(saved));
+    assert.equal((await cart.readSavedConfiguration("user-demo")).price,97800,'Old v2 snapshot remains readable');
+    product.status='coming-soon';assert.equal(await cart.readSavedConfiguration("user-demo"),null);
   } finally {product.price=originalPrice;product.status=originalStatus;}
 });
 

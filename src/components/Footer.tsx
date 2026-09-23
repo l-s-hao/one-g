@@ -13,7 +13,7 @@ import { getOfferingNavigation } from "@/lib/offering-navigation";
 import { getProductBySlug } from "@/lib/products";
 import { NavigationLink } from "./ProtectedLink";
 import BrandLogo from "./BrandLogo";
-import AccessibilityThemeSelector from "./AccessibilityThemeSelector";
+import ThemeSelector from "./ThemeSelector";
 import styles from "./Footer.module.css";
 
 const routeNames: Record<string, string> = {
@@ -44,7 +44,7 @@ export default function Footer() {
           <h2 className={styles.mobileTitle}><button type="button" aria-expanded={expanded === index} aria-controls={`footer-group-${index}`} onClick={() => setExpanded(value => value === index ? null : index)}>{group.title}<ChevronDown size={15}/></button></h2>
           <ul id={`footer-group-${index}`}>{group.items.map(item => <li key={item.label}>
             {item.action === "accessibility" ? <><button type="button" aria-expanded={accessibilityOpen} aria-controls="footer-accessibility" onClick={() => setAccessibilityOpen(value => !value)}>显示辅助</button>
-              {accessibilityOpen && <div className={styles.accessibility} id="footer-accessibility" onKeyDown={event => { if (event.key === "Escape") { setAccessibilityOpen(false); event.currentTarget.parentElement?.querySelector("button")?.focus(); } }}><AccessibilityThemeSelector compact/><button type="button" aria-label="关闭页脚显示辅助" onClick={event => { event.currentTarget.closest("li")?.querySelector("button")?.focus(); setAccessibilityOpen(false); }}><X size={14}/> 关闭</button></div>}</>
+              {accessibilityOpen && <div className={styles.accessibility} id="footer-accessibility" onKeyDown={event => { if (event.key === "Escape") { setAccessibilityOpen(false); event.currentTarget.parentElement?.querySelector("button")?.focus(); } }}><ThemeSelector/><button type="button" aria-label="关闭页脚显示辅助" onClick={event => { event.currentTarget.closest("li")?.querySelector("button")?.focus(); setAccessibilityOpen(false); }}><X size={14}/> 关闭</button></div>}</>
               : <NavigationLink href={item.href}>{item.label}</NavigationLink>}
           </li>)}</ul>
         </section>)}
