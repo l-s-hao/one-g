@@ -4,8 +4,8 @@ const labels: Record<CatalogStatus, string> = {
   draft: "草稿", active: "可配置", concept: "概念产品 · 配置预览", "coming-soon": "即将开放",
 };
 export const getProductStatusLabel = (status: CatalogStatus) => labels[status];
-export function getProductPolicy(product: Pick<Product, "status"> | undefined) {
-  const canAddToCart = product?.status === "active";
+export function getProductPolicy(product: Pick<Product, "status"> & Partial<Pick<Product, "id">> | undefined) {
+  const canAddToCart = product?.id !== "sonic-link" && product?.status === "active";
   return {
     canAddToCart,
     canRequestQuote: !!product && product.status !== "draft",

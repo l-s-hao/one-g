@@ -32,8 +32,10 @@ export function assertCartOwner(userId: string) {
 export async function readCart(userId: string) { assertCartOwner(userId); return parseCart(readJSON(`one-g-cart:${userId}`)); }
 export function writeCart(items: CartProduct[], userId: string) {
   assertCartOwner(userId);
-  const records: CartItem[] = items.map(item => ({ productId: item.id, quantity: item.quantity }));
-  window.localStorage.setItem(`one-g-cart:${userId}`, JSON.stringify(records));
+  const raw = readJSON(`one-g-cart:${userId}`);
+  const unavailable = Array.isArray(raw) ? raw.filter(item => item && (item.productId ?? item.id) === "sonic-link") : [];
+  const records: CartItem[] = items.filter(item => item.id !== "sonic-link").map(item => ({ productId: item.id, quantity: item.quantity }));
+  window.localStorage.setItem(`one-g-cart:${userId}`, JSON.stringify([...records, ...unavailable]));
 }
 export async function addCartProduct(productId: string, userId: string, quantity = 1) {
   assertCartOwner(userId);
@@ -61,4 +63,19 @@ export function getCartTotal(items: CartProduct[], configuration: ConfigurationS
     ...items.map(item => item.price === undefined ? undefined : item.price * item.quantity),
     ...(configuration ? [configuration.price] : []),
   ]);
+}
+
+export const unavailableSonicLinkMessage = "SONIC Link 已归入遥操作解决方案，不再作为商品销售。请移除此历史项目后再结算。";
+export function parseUnavailableCartItems(raw: unknown) {
+  return Array.isArray(raw) && raw.some(item => item && typeof item === "object" && (item.productId ?? item.id) === "sonic-link")
+    ? [{ id: "sonic-link", name: "SONIC Link", reason: unavailableSonicLinkMessage }] : [];
+}
+export async function readUnavailableCartItems(userId: string) {
+  assertCartOwner(userId);
+  return parseUnavailableCartItems(readJSON(`one-g-cart:${userId}`));
+}
+export function removeUnavailableCartItem(userId: string) {
+  assertCartOwner(userId);
+  const raw = readJSON(`one-g-cart:${userId}`);
+  if (Array.isArray(raw)) window.localStorage.setItem(`one-g-cart:${userId}`, JSON.stringify(raw.filter(item => !item || (item.productId ?? item.id) !== "sonic-link")));
 }

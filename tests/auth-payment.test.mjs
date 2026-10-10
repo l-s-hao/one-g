@@ -58,20 +58,16 @@ test('Cart and demo orders belong to stable user ID, no legacy auto-assignment, 
  for(const payment of ['alipay','wechat-pay','bank-transfer']){const item=await service.createOrder('user-demo',{...input,payment,idempotencyKey:payment});await assert.rejects(service.initiatePayment('user-demo',item.id),/尚未接入|待配置/);}
  assert.equal(await service.getBankDetails(),null);
  await assert.rejects(service.createOrder('user-demo',{...input,items:[{productId:'robotdock',quantity:1}],idempotencyKey:'concept'}),/待确认/);
- await assert.rejects(service.createOrder('user-demo',{...input,items:[{productId:'sonic-link',quantity:1}],idempotencyKey:'unknown-price'}),/待确认/);
+ await assert.rejects(service.createOrder('user-demo',{...input,items:[{productId:'sonic-link',quantity:1}],idempotencyKey:'unknown-price'}),/遥操作解决方案/);
  const raw=JSON.parse(localStorage.getItem('one-g-orders:user-demo'));raw[0].status='paid';localStorage.setItem('one-g-orders:user-demo',JSON.stringify(raw));assert.equal(await service.getOrder('user-demo',order.id),null);
  session('user-demo-b');assert.deepEqual(await cart.readCart('user-demo-b'),[]);assert.deepEqual(await service.listOrders('user-demo-b'),[]);assert.equal(await service.getOrder('user-demo-b',order.id),null);
  await assert.rejects(cart.readCart('user-demo'));await assert.rejects(service.getOrder('user-demo',order.id));
  assert.ok(localStorage.getItem('one-g-cart'));
 });
-test('Existing IDs/themes remain, password USER disabled, admin stays independent, safe return preserves choices',async()=>{
+test('Existing IDs remain, password USER disabled, admin stays independent, safe return preserves choices',async()=>{
  const auth=load('src/lib/auth-client'),routing=load('src/lib/auth-routing');
  assert.equal((await auth.authenticate('user@one-g.com','123456','USER')).ok,false);
  assert.equal((await auth.authenticate('admin@one-g.com','admin123','ADMIN')).ok,true);
- const theme=load('src/lib/user-preferences');
- theme.saveDisplayPreference('night','user-demo');
- assert.equal(theme.loadDisplayPreference('user-demo'),'night');assert.equal(theme.loadDisplayPreference('user-demo-b'),'standard');
- theme.saveDisplayPreference('color-vision-safe','user-demo');assert.equal(theme.loadDisplayPreference('user-demo'),'color-vision-safe');
  const target='/buy/robotdock/?package=hand&quantity=3&payment=alipay';assert.equal(routing.safeReturnTo(target,'USER'),target);
  for(const url of ['https://evil.test','//evil.test','/admin','/%2f%2fevil.test'])assert.equal(routing.safeReturnTo(url,'USER'),'/account');
  for(const url of ['/','/products','/buy/robotdock','/solutions','/about','/deep-customization'])assert.equal(routing.requiredRole(url),null);
@@ -83,4 +79,22 @@ test('Production build mode refuses OTP and normal demo sessions even with opt-i
  await assert.rejects(prod('src/lib/auth/verification').verificationService.send({channel:'phone',recipient:'19900000001'}),/尚未接入/);
  await assert.rejects(prod('src/lib/commerce/service').commerceService.createOrder('user-demo',{}),/尚未接入/);
  process.env.NODE_ENV='test';
+});
+
+test('Historical SONIC Link cart entries remain visible as blocked records, preserve other items and block orders',async()=>{
+ values.clear();session('user-demo');
+ const cart=load('src/lib/cart'),service=load('src/lib/commerce/service').commerceService;
+ const raw=[{productId:'arm-a1',quantity:2},{productId:'sonic-link',quantity:1}];
+ localStorage.setItem('one-g-cart:user-demo',JSON.stringify(raw));
+ assert.equal((await cart.readUnavailableCartItems('user-demo'))[0].id,'sonic-link');
+ assert.deepEqual((await cart.readCart('user-demo')).map(p=>p.id),['arm-a1']);
+ await assert.rejects(cart.addCartProduct('sonic-link','user-demo'),/暂不可购买/);
+ cart.writeCart(await cart.readCart('user-demo'),'user-demo');
+ assert.deepEqual(JSON.parse(localStorage.getItem('one-g-cart:user-demo')),raw);
+ await assert.rejects(service.createOrder('user-demo',{items:[{productId:'arm-a1',quantity:2}],payment:'alipay',idempotencyKey:'blocked'}),/遥操作解决方案/);
+ cart.removeUnavailableCartItem('user-demo');
+ assert.deepEqual(JSON.parse(localStorage.getItem('one-g-cart:user-demo')),[raw[0]]);
+ assert.deepEqual(await cart.readUnavailableCartItems('user-demo'),[]);
+ const product=load('src/data/solutions').solutions.find(s=>s.id==='teleoperation').content;
+ assert.equal(load('src/lib/product-policy').getProductPolicy({...product,status:'active'}).canAddToCart,false);
 });

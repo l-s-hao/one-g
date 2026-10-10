@@ -1,3 +1,4 @@
+import { isConfigurableOffering } from "@/data/configurable-offerings";
 import { configurationOptions, defaultConfiguration } from "@/data/configurator";
 import { robotScenes, robotScopes } from "@/data/configuration/robot-entry";
 import { sceneRecommendations } from "@/data/recommendations";
@@ -16,7 +17,7 @@ export const robotSchema: ConfiguratorSchema = {
   id: "robot", productType: "robot", title: "ONE-G", description: "选择基础平台、执行机构、感知与功能模块。", entryHref: "/configure", cartLabel: "机器人配置",
   defaults: robotConfigurationToGeneric(defaultConfiguration),
   groups: definitions.map((group, order) => ({ ...group, order, progressWeight: 1,
-    options: group.id === "base" ? getProductsByCategory("robot").map(product => ({ id: product.id, groupId: group.id, productId: product.id, name: product.name, status: product.status }))
+    options: group.id === "base" ? getProductsByCategory("robot").filter(product => !isConfigurableOffering(product.id)).map(product => ({ id: product.id, groupId: group.id, productId: product.id, name: product.name, status: product.status }))
       : configurationOptions.filter(option => option.category === group.id).map(option => ({ id: option.id, groupId: group.id, name: option.name, price: option.price, status: option.status, description: option.description, omitted: ["no-arm", "no-hand"].includes(option.id) })),
   })),
   scenes: robotScenes.map(scene => ({ ...scene, preferredGroup: scene.preferredCategory })),

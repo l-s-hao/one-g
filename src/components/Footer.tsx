@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { ChevronDown, ChevronRight, X } from "lucide-react";
+import { ChevronDown, ChevronRight } from "lucide-react";
 import { footerGroups } from "@/data/footer-navigation";
 import { navigation } from "@/data/site-navigation";
 import { siteContent } from "@/data/site-content";
@@ -13,11 +13,11 @@ import { getOfferingNavigation } from "@/lib/offering-navigation";
 import { getProductBySlug } from "@/lib/products";
 import { NavigationLink } from "./ProtectedLink";
 import BrandLogo from "./BrandLogo";
-import ThemeSelector from "./ThemeSelector";
 import styles from "./Footer.module.css";
 
 const routeNames: Record<string, string> = {
   ...Object.fromEntries(navigation.map(item => [item.href, item.label])),
+  "/solutions/teleoperation": "遥操作 · SONIC Link",
   "/deep-customization": "深度定制", "/account": "用户中心", "/cart": "购物车",
   "/checkout": "结算", "/order-success": "订单完成",
 };
@@ -25,7 +25,6 @@ const routeNames: Record<string, string> = {
 export default function Footer() {
   const pathname = usePathname().replace(/\/+$/, "") || "/";
   const [expanded, setExpanded] = useState<number | null>(null);
-  const [accessibilityOpen, setAccessibilityOpen] = useState(false);
   const product = (pathname.startsWith("/products/") || pathname.startsWith("/buy/")) ? getProductBySlug(pathname.split("/")[2]) : undefined;
   const offering = product && isConfigurableOffering(product.id);
   const specs = offering && pathname.endsWith("/specs");
@@ -43,9 +42,7 @@ export default function Footer() {
           <h2 className={styles.desktopTitle}>{group.title}</h2>
           <h2 className={styles.mobileTitle}><button type="button" aria-expanded={expanded === index} aria-controls={`footer-group-${index}`} onClick={() => setExpanded(value => value === index ? null : index)}>{group.title}<ChevronDown size={15}/></button></h2>
           <ul id={`footer-group-${index}`}>{group.items.map(item => <li key={item.label}>
-            {item.action === "accessibility" ? <><button type="button" aria-expanded={accessibilityOpen} aria-controls="footer-accessibility" onClick={() => setAccessibilityOpen(value => !value)}>显示辅助</button>
-              {accessibilityOpen && <div className={styles.accessibility} id="footer-accessibility" onKeyDown={event => { if (event.key === "Escape") { setAccessibilityOpen(false); event.currentTarget.parentElement?.querySelector("button")?.focus(); } }}><ThemeSelector/><button type="button" aria-label="关闭页脚显示辅助" onClick={event => { event.currentTarget.closest("li")?.querySelector("button")?.focus(); setAccessibilityOpen(false); }}><X size={14}/> 关闭</button></div>}</>
-              : item.href === "#one-g-contact" ? <SupportButton inline textOnly label={item.label} entry={item.label === "客服咨询" ? "footer-help" : "footer-contact"}/> : <NavigationLink href={item.href}>{item.label}</NavigationLink>}
+            {item.href === "#one-g-contact" ? <SupportButton inline textOnly label={item.label} entry={item.label === "客服咨询" ? "footer-help" : "footer-contact"}/> : <NavigationLink href={item.href}>{item.label}</NavigationLink>}
           </li>)}</ul>
         </section>)}
       </nav>

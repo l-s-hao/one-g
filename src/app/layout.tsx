@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import AuthProvider from "@/components/AuthProvider";
-import ThemeProvider from "@/components/ThemeProvider";
 import SiteShell from "@/components/SiteShell";
 import "./globals.css";
-import "./themes.css";
+import "./colors.css";
 
 export const metadata: Metadata = {
   title: "ONE-G — 机器人系统与遥操作能力",
@@ -20,9 +19,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="zh-CN" data-theme="standard">
+    <html lang="zh-CN">
       <body className="min-h-screen bg-black text-white antialiased">
-        <AuthProvider><ThemeProvider><SiteShell>{children}</SiteShell></ThemeProvider></AuthProvider>
+        <AuthProvider><SiteShell>{children}</SiteShell></AuthProvider>
       </body>
     </html>
   );

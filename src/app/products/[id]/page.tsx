@@ -1,3 +1,4 @@
+import LegacySonicLinkRedirect from "@/components/LegacySonicLinkRedirect";
 import type { Metadata } from "next";
 import ProductDetailContent from "@/components/ProductDetailContent";
 import Link from "next/link";
@@ -8,9 +9,10 @@ import AddToCartButton from "@/components/AddToCartButton";
 import { getProductBySlug, getProducts, getCategoryName, getProductStatusLabel } from "@/lib/products";
 import { formatPrice } from "@/lib/pricing";
 
-export function generateStaticParams() { return getProducts().map((product) => ({ id: product.slug })); }
+export function generateStaticParams() { return [...getProducts().map(product => ({ id: product.slug })), { id: "sonic-link" }]; }
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  if ((await params).id === "sonic-link") return { alternates: { canonical: "https://l-s-hao.github.io/one-g/solutions/teleoperation/" }, robots: { index: false, follow: true } };
   const product = getProductBySlug((await params).id);
   if (!product?.detail) return {};
   return {
@@ -23,6 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
 export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
+  if (id === "sonic-link") return <LegacySonicLinkRedirect/>;
   const product = getProductBySlug(id);
   if (!product) notFound();
   if (product.detail) return <ProductDetailContent product={product} />;

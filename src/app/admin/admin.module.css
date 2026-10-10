@@ -1,4 +1,4 @@
-.shell { --admin-panel: #111318; --admin-ink: #ededed; min-height: 100dvh; background: var(--bg); color: var(--text); }
+.shell { --admin-panel: var(--surface); --admin-ink: var(--text); min-height: 100dvh; background: var(--bg); color: var(--text); }
 .header { display: flex; align-items: center; gap: 24px; min-height: 72px; padding: 12px clamp(20px, 4vw, 64px); border-bottom: 1px solid #303238; }
 .header > span { color: #a8adb7; font-size: 11px; letter-spacing: .18em; }
 .prototype { padding: 12px 20px; border-bottom: 1px solid #25282d; color: #a8adb7; text-align: center; font-size: 12px; line-height: 1.6; }
@@ -14,8 +14,8 @@
 .shell button:disabled { opacity: .6; cursor: wait; }
 .login button { width: 100%; margin-top: 24px; background: #e2e5e9; color: #111318; font-weight: 600; }
 .login button:hover { background: #fff; }
-.shell :focus-visible { outline: 2px solid #c6d8f4; outline-offset: 3px; }
-.message { min-height: 24px; margin-top: 12px; color: #f5b0b0; font-size: 13px; }
+.shell :focus-visible { outline: 2px solid var(--focus-color); outline-offset: 3px; }
+.message { min-height: 24px; margin-top: 12px; color: var(--color-error); font-size: 13px; }
 .muted { color: var(--ink-muted, var(--text-muted)); font-size: 14px; line-height: 1.7; overflow-wrap: anywhere; }
 .demo { margin-top: 24px; padding-top: 16px; border-top: 1px solid #303238; color: #929aa7; font-size: 12px; line-height: 1.8; }
 .dashboard { max-width: 1280px; margin: auto; padding: 32px 24px; }
@@ -28,29 +28,26 @@
 @media (max-width: 767px) { .login { margin-top: 32px; padding: 24px; } .cards { grid-template-columns: 1fr; } .toolbar { align-items: flex-start; } .toolbar button { flex-shrink: 0; } .dashboard { padding: 24px 20px; } }
 
 
-.profile, .themeSection, .accountSection { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
-.themeSection > p { margin-bottom: 16px; }
+.profile, .accountSection { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
 .subheading { margin: 20px 0 12px; font-size: 15px; font-weight: 600; }
-:global(html[data-theme]) .shell { --admin-panel: var(--surface); --admin-ink: var(--text-on-surface); }
-:global(html[data-theme]) .panel {
+:global(html) .shell { --admin-panel: var(--surface); --admin-ink: var(--text-on-surface); }
+:global(html) .panel {
   --ink-rgb: var(--surface-ink-rgb); --ink-muted: var(--text-on-surface);
 }
-.shell .themeSection button { color: var(--text); }
 .shell .navigation button { overflow-wrap: anywhere; }
-:global(html[data-theme]) .header,
-:global(html[data-theme]) .prototype { border-color: var(--border); }
-:global(html[data-theme]) .header > span,
-:global(html[data-theme]) .prototype { color: var(--text-muted); }
+:global(html) .header,
+:global(html) .prototype { border-color: var(--border); }
+:global(html) .header > span,
+:global(html) .prototype { color: var(--text-muted); }
 
-/* Login surfaces also follow the active accessibility palette. */
-:global(html[data-theme="color-vision-safe"]) .login {
+/* Fixed standard colors for administrator login. */
+:global(html) .login {
   background: var(--surface); color: var(--text-on-surface); border-color: var(--border-strong);
 }
-:global(html[data-theme="color-vision-safe"]) .login :is(label, .demo) { color: var(--text-muted); }
-:global(html[data-theme="color-vision-safe"]) .login input {
+:global(html) .login :is(label, .demo) { color: var(--text-muted); }
+:global(html) .login input {
   background: var(--surface-2); color: var(--text); border-color: var(--border-strong);
 }
-:global(html[data-theme="color-vision-safe"]) .login button {
+:global(html) .login button {
   background: var(--button-primary-bg); color: var(--button-primary-text);
 }
-.header > details { margin-left: auto; }

@@ -1,3 +1,4 @@
+import type { Product } from "./product";
 export interface Solution {
   id: string;
   name: string;
@@ -9,4 +10,6 @@ export interface Solution {
   capabilities: string[];
   productIds: string[];
   boundary: string;
+  detailHref?: string;
+  content?: Pick<Product, "id" | "name" | "subtitle" | "description" | "images" | "detail" | "specifications">;
 }

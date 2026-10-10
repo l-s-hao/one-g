@@ -11,11 +11,10 @@ const bundles = [
 
 const addOns = [{ id: "gripper", name: "智元夹爪", description: "面向主动抓取需求。型号、数量与支持功能待确认；未选配时沿用 G1 自带橡胶手。", items: ["智元夹爪（型号与数量待确认）"] }];
 
-export const sonicLinkProduct: Product = {
-  id: "sonic-link", slug: "sonic-link", name: "SONIC Link", category: "accessory",
+export const sonicLinkContent: Pick<Product, "id" | "name" | "subtitle" | "description" | "images" | "specifications" | "detail"> = {
+  id: "sonic-link", name: "SONIC Link",
   subtitle: "面向宇树 G1 的遥操作软硬件方案",
   description: "通过 PICO 设备采集人的动作，配合 SONIC Link 遥操作软件与通用小背包，提供三点或全身遥操作。方案不含机器人本体。",
-  status: "coming-soon", featured: false,
   images: [asset("device-pico-kit.jpg"), asset("software-console-early.png"), asset("demo-grasp.jpg"), asset("demo-motion.jpg")],
   specifications: [
     { label: "目标平台", value: "宇树 G1", note: "EDU 版本及二次开发权限需确认；G1+ 适配情况待确认。" },
@@ -24,21 +23,20 @@ export const sonicLinkProduct: Product = {
     { label: "末端设备", value: "智元夹爪可选，型号、数量与支持功能待确认", note: "不加购时沿用 G1 自带橡胶手，不额外交付；固定橡胶手不具备主动开合抓取能力。" },
     { label: "运行环境", value: "电脑、网络条件与现场部署要求待确认", note: "尚无确认的操作系统支持列表、延迟、频率或精度参数。" },
     { label: "交付范围", value: "对应模式软件与采集硬件、通用小背包；不含机器人本体", note: "软件授权、安装调试、培训、售后范围与交期需确认。" },
-    { label: "价格 / 销售", value: "价格待定，暂未开放下单" },
   ],
   detail: {
-    statusNote: "遥操作方案预览 · 暂未开放下单。三点与全身遥操均为已有技术；价格、设备型号与交付条件待确认。",
+    statusNote: "机器人遥操作解决方案 · 三点与全身遥操均为已有技术；设备型号与部署条件待确认。",
     imageNotes: [{ alt: "SONIC Link 方案中的 PICO 头显和两个手柄实拍", caption: "团队设备实拍 · 脚环未入镜；机器人本体不包含在方案中。", width: 4000, height: 3000 }],
     bundles,
     addOns,
     sections: [
       { id: "overview", eyebrow: "01 / WHAT IS SONIC LINK", title: "动作采集、遥操软件与机器人端接入。", paragraphs: ["SONIC Link 将 PICO 采集设备、对应模式软件和通用小背包组成遥操作方案，面向宇树 G1。三点与全身是两种独立功能，也可通过双模式套装同时获得。"] },
-      { id: "modes", eyebrow: "02 / TELEOPERATION MODES", title: "两种遥操方式，三档方案。", cards: bundles.map(bundle => ({ title: bundle.name, description: bundle.description, items: bundle.items })), paragraphs: ["以下为产品方案说明，所有套餐均含对应模式软件与通用小背包。双模式共用硬件，不重复配备。"] },
+      { id: "modes", eyebrow: "02 / TELEOPERATION MODES", title: "两种遥操方式，三档方案。", cards: bundles.map(bundle => ({ title: bundle.name, description: bundle.description, items: bundle.items })), paragraphs: ["以下为遥操方式与系统组成说明，各方式使用对应模式软件与通用小背包。双模式共用硬件，不重复配备。"] },
       { id: "system", eyebrow: "03 / HARDWARE & SYSTEM", title: "采集设备与机器人端系统组成。", cards: [
         { title: "PICO 采集设备", description: "三点使用一个头显、两个手柄；全身及双模式增加两个脚环。具体设备型号待确认。" },
         { title: "通用小背包", description: "集中接入机器人端外设，配套所选末端的连接与适配。" },
         { title: `可选${addOns[0].name}`, description: addOns[0].description },
-        { title: "三点版后续升级", description: "保留三点能力，解锁全身软件并另获两个 PICO 脚环，沿用原头显、手柄与小背包。升级价格及办理方式待确认，不属于首次方案默认交付。" },
+        { title: "三点版后续升级", description: "保留三点能力，解锁全身软件并另获两个 PICO 脚环，沿用原头显、手柄与小背包。具体升级条件待确认，不属于默认部署内容。" },
       ], link: { href: "/products/robotdock", label: "了解通用小背包 →" } },
       { id: "workflow", eyebrow: "04 / SOFTWARE WORKFLOW", title: "连接检查、人体校准、人工确认后启动。", cards: [
         { title: "01 检查连接与环境", description: "按引导核查运行环境、PICO 采样与机器人状态。" },

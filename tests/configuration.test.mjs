@@ -151,7 +151,7 @@ test('Concept catalog product is discoverable, excluded from Robot options and c
   const product = catalog.getProductBySlug('robotdock');
   assert.equal(product.status, 'concept'); assert.equal(product.price, undefined);
   assert.ok(catalog.getProducts().includes(product));
-  assert.ok(catalog.getProductsByCategory('accessory').includes(product));
+  assert.ok(catalog.getProductsByCategory('robot').includes(product));
   assert.equal(catalog.getFeaturedProducts().includes(product), false);
   assert.equal(catalog.getCoreProduct().id, 'g1');
   assert.equal(engine.getWorkbenchGroups(robot)[0].options.some(option => option.id === product.id), false);
@@ -220,72 +220,18 @@ test('Mixed/unknown prices and optional groups have explicit semantics', () => {
   assert.equal(engine.getAvailability(schema,concept,{}).available,false);
 });
 
-test('SONIC Link is discoverable but cannot be purchased; STEP 9 configuration remains preview-only', async () => {
-  const catalog = load('src/lib/products');
-  const product = catalog.getProductBySlug('sonic-link');
-  assert.equal(product.status, 'coming-soon');
-  assert.equal(product.price, undefined);
-  assert.equal(load("src/lib/configuration/catalog").getProductActions(product).configurePath, "/configure/sonic-link");
-  assert.ok(catalog.getProducts().includes(product));
-  assert.ok(catalog.getProductsByCategory('accessory').includes(product));
-  assert.ok(catalog.getProducts().filter(p => p.status === 'coming-soon').includes(product));
-  assert.equal(catalog.getProductStatusLabel(product.status), '即将开放');
-  assert.ok(!catalog.getFeaturedProducts().includes(product));
-  assert.ok(!robot.groups[0].options.some(option => option.productId === product.id));
-  assert.equal(load('src/lib/configuration/policy').isConfigurationPreview(load('src/data/configuration/registry').getConfiguratorSchema(product.id)), true);
-  const cart = load('src/lib/cart'); localStorageMock();
-  await assert.rejects(cart.addCartProduct(product.id, "user-demo"), /暂不可购买/);
-  assert.deepEqual(await cart.readCart("user-demo"), []);
-  assert.deepEqual(cart.parseCart([{productId: product.id, quantity: 1}]), []);
-});
-
-test('SONIC packages × optional gripper preserve exact contents, ready, unknown price and isolation', async () => {
-  const schema = load('src/data/configuration/registry').getConfiguratorSchema('sonic-link');
-  const product = load('src/lib/products').getProductById('sonic-link');
-  assert.deepEqual(schema.groups.map(g => [g.id,g.selectionMode,g.required,g.maxSelections]), [['bundle','single',true,1],['add-on','multiple',false,1]]);
-  assert.deepEqual(schema.groups[0].options.map(o => o.metadata.includes), product.detail.bundles.map(b => b.items));
-  assert.deepEqual(schema.groups[1].options.map(o => o.metadata.includes), product.detail.addOns.map(a => a.items));
-  const values = localStorageMock();
-  storage.saveConfiguration(robot, engine.getInitialConfiguration(robot));
-  const dock = load('src/data/configuration/registry').getConfiguratorSchema('robotdock');
-  storage.saveConfiguration(dock, engine.getInitialConfiguration(dock));
-  const robotSaved = values.get('one-g-config:robot'), dockSaved = values.get('one-g-config:robotdock');
-  let state = engine.getInitialConfiguration(schema);
-  const gripper = schema.groups[1].options[0];
-  for (const add of [false,true]) {
-    state = engine.changeModule(schema,state,gripper,!add);
-    for (const option of schema.groups[0].options) {
-      state = engine.changeModule(schema,state,option);
-      assert.deepEqual(state['add-on'],add?['gripper']:[]);
-      assert.equal(engine.configurationValid(schema,state),true);
-      assert.equal(engine.getProgress(schema,state).completion,100);
-      assert.equal(engine.getProgress(schema,state).dimensions.length,1);
-      assert.equal(engine.getConfigurationTotal(schema,state),undefined);
-      assert.equal(engine.getConfigurationPriceLabel(schema,state),'价格待定');
-      const saved=storage.saveConfiguration(schema,state); assert.equal(saved.snapshot,undefined);
-      assert.deepEqual((await storage.readConfiguration(schema)).selections,state);
-    }
-  }
-  assert.equal(values.get('one-g-config:robot'),robotSaved); assert.equal(values.get('one-g-config:robotdock'),dockSaved);
-  assert.equal(values.get('one-g-cart'),undefined);
-  assert.equal(engine.configurationValid(schema,{'bundle':[],'add-on':['gripper']}),false);
-  assert.equal(engine.getProgress(schema,{'bundle':[],'add-on':['gripper']}).completion,0);
-  assert.equal(engine.configurationValid(schema,{'bundle':['three','full'],'add-on':[]}),false);
-  assert.deepEqual(engine.getRecommendedGroups(schema,'handling'),[]);
-  assert.equal(schema.compatibilityRules,undefined);
-  assert.equal(engine.resolveDirection(schema,'inspection','add-on').scope.groupId,'add-on');
-  assert.equal(engine.resolveDirection(schema,'handling','unknown').scope.groupId,'bundle');
+test('SONIC Link is a solution, excluded from product/configurator queries and cart', async () => {
+  const catalog=load('src/lib/products'),registry=load('src/data/configuration/registry');
+  assert.equal(catalog.getProductById('sonic-link'),undefined);
+  assert.equal(registry.getConfiguratorSchema('sonic-link'),undefined);
+  const cart=load('src/lib/cart');localStorageMock();
+  await assert.rejects(cart.addCartProduct('sonic-link','user-demo'),/暂不可购买/);
+  assert.deepEqual(cart.parseCart([{productId:'sonic-link',quantity:1}]),[]);
+  const solution=load('src/data/solutions').solutions.find(item=>item.id==='teleoperation');
+  assert.equal(solution.content.name,'SONIC Link');assert.equal(solution.detailHref,'/solutions/teleoperation');
 });
 
 test('Schema query preselection validates IDs, resets add-ons only for explicit links and has no product branch', () => {
-  const schema=load('src/data/configuration/registry').getConfiguratorSchema('sonic-link');
-  assert.equal(engine.getEntrySelections(schema,new URLSearchParams('')),undefined);
-  for (const [value,expected] of [['three','three'],['full','full'],['dual','dual'],['','three'],['bad','three'],['__proto__','three'],['constructor','three']]) {
-    const state=engine.getEntrySelections(schema,new URLSearchParams({bundle:value,gripper:'true'}));
-    assert.deepEqual(state,{bundle:[expected],'add-on':[]});
-    const alternate=schema.groups[0].options.find(o=>o.id!==expected);
-    assert.deepEqual(engine.changeModule(schema,state,alternate).bundle,[alternate.id]);
-  }
   assert.equal(engine.getEntrySelections(robot,new URLSearchParams('bundle=full')),undefined);
   const generic={...fixture(),defaults:{bundle:['shared'],extras:['shared','b'],service:[]},querySelections:[{parameter:'kit',groupId:'bundle'}]};
   assert.deepEqual(engine.getEntrySelections(generic,new URLSearchParams('kit=other')).bundle,['other']);
@@ -293,10 +239,9 @@ test('Schema query preselection validates IDs, resets add-ons only for explicit 
 
 test('Registry drives center and product CTA without making ordinary accessories configurable', () => {
   const catalog=load('src/lib/configuration/catalog'), products=load('src/lib/products');
-  assert.deepEqual(catalog.getConfigurationEntries().map(e=>e.schema.id),['robot','robotdock','sonic-link']);
-  for(const id of ['g1','g1-pro','robotdock','sonic-link']) assert.equal(catalog.getProductActions(products.getProductById(id)).canConfigure,true);
+  assert.deepEqual(catalog.getConfigurationEntries().map(e=>e.schema.id),['robot','robotdock']);
+  for(const id of ['g1','g1-pro','robotdock']) assert.equal(catalog.getProductActions(products.getProductById(id)).canConfigure,true);
   for(const id of ['arm-a1','hand-d1','rgbd']) assert.equal(catalog.getProductActions(products.getProductById(id)).canConfigure,false);
-  assert.equal(catalog.getProductActions(products.getProductById('sonic-link')).configurationLabel,'配置预览');
   const registry=load('src/data/configuration/registry').configuratorRegistry;
   // Test-only registration proves the entry list is not hardcoded to three JSX cards.
   registry.fixture={...robot,id:'fixture',productId:'arm-a1'};
@@ -309,7 +254,7 @@ test('Unified actions separate required readiness from installation progress and
   const ready=getConfigurationActions(robot,{base:['g1']});
   assert.equal(ready.canSave,true);assert.equal(ready.canAddToCart,true);assert.equal(engine.getProgress(robot,{base:['g1']}).completion,20);
   assert.equal(getConfigurationActions(robot,{}).canAddToCart,false);
-  for(const id of ['robotdock','sonic-link']) {
+  for(const id of ['robotdock']) {
     const schema=load('src/data/configuration/registry').getConfiguratorSchema(id);
     const actions=getConfigurationActions(schema,engine.getInitialConfiguration(schema));
     assert.equal(actions.canSave,true);assert.equal(actions.canAddToCart,false);assert.equal(actions.saveLabel,'保存配置预览');
@@ -334,7 +279,7 @@ test('Snapshot includes product relation, keeps captured prices, and current sal
 test('Product purchase navigation and legacy URLs validate known package IDs', () => {
   const { getProductActions } = load('src/lib/product-actions');
   const products = load('src/lib/products');
-  for (const id of ['robotdock', 'sonic-link', 'g1']) {
+  for (const id of ['robotdock', 'g1']) {
     const actions = getProductActions(products.getProductById(id));
     assert.equal(actions.configurePath, id === 'g1' ? '/' : `/buy/${id}`);
     assert.equal(actions.configurationLabel, id === 'g1' ? '查看系统配置' : '购买');
@@ -345,7 +290,7 @@ test('Product purchase navigation and legacy URLs validate known package IDs', (
   assert.equal(routing.requiredRole('/configure'), null);
   assert.equal(routing.requiredRole('/products'), null);
   for (const route of ['/configure/robot', '/configure/robotdock', '/configure/sonic-link', '/customize', '/customize/start']) {
-    assert.equal(routing.safeReturnTo(`${route}/?scene=inspection&scope=perception#old`, 'USER'), ['/configure/robotdock','/configure/sonic-link'].includes(route) ? route.replace('/configure/', '/buy/') : '/');
+    assert.equal(routing.safeReturnTo(`${route}/?scene=inspection&scope=perception#old`, 'USER'), route === '/configure/sonic-link' ? '/solutions/teleoperation' : route === '/configure/robotdock' ? '/buy/robotdock' : '/');
   }
   assert.equal(routing.safeReturnTo('/configure/?product=robotdock&package=hand&price=1', 'USER'), '/buy/robotdock?package=hand');
   assert.equal(routing.safeReturnTo('/configure/?product=robotdock&package=dual', 'USER'), '/buy/robotdock');

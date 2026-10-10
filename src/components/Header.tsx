@@ -2,17 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Eye, ChevronDown, Menu, Search, ShoppingCart, UserRound, X } from "lucide-react";
+import { ChevronDown, Menu, Search, ShoppingCart, UserRound, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { solutions } from "@/data/solutions";
 import { navigation } from "@/data/site-navigation";
 import { getProducts } from "@/lib/products";
 import { useAuth } from "./AuthProvider";
 import { NavigationLink } from "./ProtectedLink";
-import ThemeSelector from "./ThemeSelector";
 import BrandLogo from "./BrandLogo";
 import styles from "./HeaderBrand.module.css";
 
-const searchItems = [...navigation, ...getProducts().map(product => ({
+const searchItems = [...navigation, ...solutions.filter(item => item.detailHref).map(item => ({ label: `${item.name} · ${item.content?.name ?? ""}`, href: item.detailHref! })), ...getProducts().map(product => ({
   label: product.name,
   href: `/products/${product.slug}`,
 }))];
@@ -100,7 +100,6 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
         </div>)}
       </nav>
       <div className={styles.actions} aria-label="快捷入口">
-        <button type="button" aria-label="显示设置" title="显示设置" aria-expanded={panel === "accessibility"} aria-controls="header-accessibility" onClick={event => toggle("accessibility", event.currentTarget)}><Eye size={19}/></button>
         <button type="button" aria-label="搜索" aria-expanded={panel === "search"} aria-controls="header-search" onClick={event => toggle("search", event.currentTarget)}><Search size={19}/></button>
         <NavigationLink className={styles.user} href={userHref} aria-label={userLabel} onClick={() => close()}><UserRound size={19}/></NavigationLink>
         <NavigationLink href="/cart" aria-label="购物车" onClick={() => close()}><ShoppingCart size={19}/></NavigationLink>
@@ -112,7 +111,7 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
     {navigation.map((item,index) => item.groups && <div key={item.href} id={`desktop-nav-${index}`} className={`${styles.panel} ${styles.desktopPanel}`} hidden={panel !== item.href}>
       <div className={styles.panelInner}>{active?.href === item.href && groups(item)}</div>
     </div>)}
-    <div id="mobile-navigation" className={`${styles.panel} ${styles.mobilePanel}`} hidden={!mobileOpen || panel === "search" || panel === "accessibility"}>
+    <div id="mobile-navigation" className={`${styles.panel} ${styles.mobilePanel}`} hidden={!mobileOpen || panel === "search"}>
       <nav className={styles.panelInner} aria-label="移动端导航">{navigation.map((item,index) => <div className={styles.mobileGroup} key={item.href}>
         <div className={styles.mobileHeading}><Link href={item.href} aria-current={current(item.href) ? "page" : undefined} onClick={() => close()}>{item.label}</Link>{item.groups && <button type="button" aria-label={`展开${item.label}`} aria-expanded={panel === item.href} aria-controls={`mobile-nav-${index}`} onClick={event => toggle(item.href,event.currentTarget)}><ChevronDown size={17}/></button>}</div>
         {item.groups && <div id={`mobile-nav-${index}`} hidden={panel !== item.href}>{groups(item)}</div>}
@@ -124,6 +123,5 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
       <ul className={styles.searchResults}>{searchItems.filter(item => !query.trim() || item.label.toLowerCase().includes(query.trim().toLowerCase())).map(item => <li key={item.href}><Link href={item.href} onClick={() => close()}>{item.label}</Link></li>)}</ul>
       {query.trim() && !searchItems.some(item => item.label.toLowerCase().includes(query.trim().toLowerCase())) && <p>没有匹配的产品或栏目。</p>}
     </div></div>
-    <div id="header-accessibility" className={`${styles.panel} ${styles.displayPanel}`} hidden={panel !== "accessibility"}><div className={styles.panelInner}><div className={styles.panelHeading}><span>显示设置</span><button type="button" aria-label="关闭显示设置" onClick={() => close(true)}><X size={20}/></button></div><ThemeSelector compact /></div></div>
   </header>;
 }

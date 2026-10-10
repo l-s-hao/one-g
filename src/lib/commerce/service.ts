@@ -1,5 +1,5 @@
 import { mockCommerceEnabled } from "../demo-mode";
-import { assertCartOwner, parseCart } from "../cart";
+import { assertCartOwner, parseCart, readUnavailableCartItems, unavailableSonicLinkMessage } from "../cart";
 import { getProductById } from "../products";
 import { isPaymentMethod, type PaymentMethod } from "../payments";
 
@@ -31,6 +31,7 @@ const demoService: CommerceService = {
   async createOrder(userId, input) {
     assertCartOwner(userId);
     if (!input.idempotencyKey || !isPaymentMethod(input.payment) || !input.items.length) throw new Error("请选择有效商品和支付方式。");
+    if ((await readUnavailableCartItems(userId)).length || input.items.some(item => item.productId === "sonic-link")) throw new Error(unavailableSonicLinkMessage);
     const orders = readDemoOrders(userId);
     const prior = orders.find(order => order.idempotencyKey === input.idempotencyKey);
     if (prior) {

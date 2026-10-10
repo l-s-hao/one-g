@@ -1,0 +1,143 @@
+/* Fixed ONE-G standard palette and existing utility adapters. */
+:root {
+ --color-primary:#2B2F36; --color-secondary:#E9E5DE;
+ --bg:#F7F4EE; --surface:#FFFFFF; --surface-2:#E9E5DE;
+ --text:#17191D; --text-on-surface:#17191D; --text-on-surface-2:#17191D; --text-muted:#555B65;
+ --border:#858A92; --border-strong:#5C6470; --accent:#3A73D9; --focus-color:#3A73D9;
+ --button-primary-bg:#3A73D9; --button-primary-text:#FFFFFF; --button-primary-text-rgb:255,255,255;
+ --button-secondary-bg:transparent; --button-secondary-text:#17191D;
+ --button-dark-bg:#2B2F36; --button-dark-text:#FFFFFF;
+ --effect-rgb:23,25,29; --primary-rgb:247,244,238; --surface-ink-rgb:23,25,29;
+ --effect-color:#3A73D9; --effect-dim:#555B65; --logo-shine:#17191D; --shimmer-bg:#3A73D9;
+ --color-error:#B42318;
+}
+
+
+html {
+  --background: var(--bg); --foreground: var(--text);
+  --ink: var(--text); --ink-rgb: var(--effect-rgb);
+  --ink-muted: var(--text-muted); --ink-soft: var(--text);
+  --panel-bg: var(--surface); --surface-ink: var(--text-on-surface);
+  --effect-color: var(--accent); --effect-dim: var(--accent); --logo-shine: var(--text);
+  --shimmer-bg: var(--button-primary-bg);
+}
+/* Context for pale surfaces: all descendants inherit a matching foreground palette. */
+html .theme-surface {
+  --ink: var(--text-on-surface); --ink-rgb: var(--surface-ink-rgb);
+  --ink-muted: color-mix(in srgb, var(--text-on-surface) 80%, #000);
+  --ink-soft: var(--text-on-surface);
+  color: var(--ink);
+}
+html .auth-input {
+  background: var(--surface-2); color: var(--text-on-surface-2, var(--text-on-surface));
+  border-color: var(--border-strong);
+}
+html .auth-input::placeholder { color: rgba(var(--surface-ink-rgb), .72); }
+html ::selection { background: var(--surface); color: var(--text-on-surface); }
+
+/* Adapters for existing Tailwind color utilities, using the standard palette. */
+html .bg-\[\#080808\] { background-color: var(--surface); --ink: var(--text-on-surface); --ink-rgb: var(--surface-ink-rgb); --ink-muted: color-mix(in srgb, var(--text-on-surface) 80%, #000); --ink-soft: var(--text-on-surface); color: var(--ink); }
+html .bg-\[\#0a0a0a\] { background-color: var(--surface); --ink: var(--text-on-surface); --ink-rgb: var(--surface-ink-rgb); --ink-muted: color-mix(in srgb, var(--text-on-surface) 80%, #000); --ink-soft: var(--text-on-surface); color: var(--ink); }
+html .bg-\[\#0d0d0d\] { background-color: var(--surface); --ink: var(--text-on-surface); --ink-rgb: var(--surface-ink-rgb); --ink-muted: color-mix(in srgb, var(--text-on-surface) 80%, #000); --ink-soft: var(--text-on-surface); color: var(--ink); }
+html .bg-\[\#111\] { background-color: var(--surface); --ink: var(--text-on-surface); --ink-rgb: var(--surface-ink-rgb); --ink-muted: color-mix(in srgb, var(--text-on-surface) 80%, #000); --ink-soft: var(--text-on-surface); color: var(--ink); }
+html .bg-\[\#111\]\/95 { background-color: var(--surface-2); --ink: var(--text-on-surface); --ink-rgb: var(--surface-ink-rgb); --ink-muted: color-mix(in srgb, var(--text-on-surface) 80%, #000); --ink-soft: var(--text-on-surface); color: var(--ink); }
+html .bg-black { background-color: rgba(var(--primary-rgb), 1); }
+html .bg-black\/80 { background-color: rgba(var(--primary-rgb), 0.8); }
+html .bg-black\/95 { background-color: rgba(var(--primary-rgb), 0.95); }
+html .bg-white { background-color: var(--surface); --ink: var(--text-on-surface); --ink-rgb: var(--surface-ink-rgb); color: var(--ink); }
+html .bg-white\/85 { background-color: var(--surface); }
+html .border-white { border-color: rgba(var(--ink-rgb), 1); }
+html .border-white\/10 { border-color: rgba(var(--ink-rgb), 0.1); }
+html .border-white\/15 { border-color: rgba(var(--ink-rgb), 0.15); }
+html .border-white\/20 { border-color: rgba(var(--ink-rgb), 0.2); }
+html .border-white\/25 { border-color: rgba(var(--ink-rgb), 0.25); }
+html .border-white\/35 { border-color: rgba(var(--ink-rgb), 0.35); }
+html .border-white\/50 { border-color: rgba(var(--ink-rgb), 0.5); }
+html .border-zinc-100 { border-color: var(--border); }
+html .border-zinc-200\/80 { border-color: var(--border); }
+html .focus-visible\:outline-white:focus-visible { outline-color: rgba(var(--ink-rgb), 1); }
+html .group:hover .group-hover\:text-white { color: rgba(var(--ink-rgb), 1.0); }
+html .hover\:bg-neutral-200:hover { background-color: var(--surface); }
+html .hover\:bg-white\/10:hover { background-color: rgba(var(--effect-rgb), 0.1); }
+html .hover\:bg-white\/90:hover { background-color: rgba(var(--effect-rgb), 0.9); }
+html .hover\:bg-white\/\[0\.06\]:hover { background-color: rgba(var(--effect-rgb), 0.06); }
+html .hover\:bg-zinc-100:hover { background-color: var(--surface); }
+html .hover\:bg-zinc-50:hover { background-color: var(--surface); }
+html .hover\:border-white\/25:hover { border-color: rgba(var(--ink-rgb), 0.25); }
+html .hover\:border-white\/40:hover { border-color: rgba(var(--ink-rgb), 0.4); }
+html .hover\:border-white\/50:hover { border-color: rgba(var(--ink-rgb), 0.5); }
+html .hover\:border-white\/55:hover { border-color: rgba(var(--ink-rgb), 0.55); }
+html .hover\:text-blue-600:hover { color: var(--ink-muted); }
+html .hover\:text-white:hover { color: rgba(var(--ink-rgb), 1.0); }
+html .hover\:text-zinc-950:hover { color: var(--ink); }
+html .text-black { color: var(--text-on-surface); }
+html .text-neutral-200 { color: var(--ink); }
+html .text-neutral-300 { color: var(--ink); }
+html .text-neutral-400 { color: var(--ink-muted); }
+html .text-neutral-500 { color: var(--ink-muted); }
+html .text-white { color: rgba(var(--ink-rgb), 1.0); }
+html .text-white\/30 { color: rgba(var(--ink-rgb), 0.68); }
+html .text-white\/35 { color: rgba(var(--ink-rgb), 0.68); }
+html .text-white\/40 { color: rgba(var(--ink-rgb), 0.68); }
+html .text-white\/45 { color: rgba(var(--ink-rgb), 0.68); }
+html .text-white\/50 { color: rgba(var(--ink-rgb), 0.68); }
+html .text-white\/55 { color: rgba(var(--ink-rgb), 0.68); }
+html .text-white\/60 { color: rgba(var(--ink-rgb), 0.68); }
+html .text-white\/70 { color: rgba(var(--ink-rgb), 0.7); }
+html .text-white\/75 { color: rgba(var(--ink-rgb), 0.75); }
+html .text-white\/80 { color: rgba(var(--ink-rgb), 0.8); }
+html .text-white\/85 { color: rgba(var(--ink-rgb), 0.85); }
+html .text-white\/90 { color: rgba(var(--ink-rgb), 0.9); }
+html .text-zinc-600 { color: var(--ink-muted); }
+html .text-zinc-700 { color: var(--ink-muted); }
+html .text-zinc-950 { color: var(--ink); }
+html { --page-bg: var(--bg); }
+/* Header is a pale surface except while floating over the hero. */
+html .site-header.sticky,
+html .site-header.sticky > div {
+  --ink: var(--text-on-surface); --ink-rgb: var(--surface-ink-rgb);
+  --ink-muted: var(--text-on-surface); --ink-soft: var(--text-on-surface);
+  color: var(--ink);
+}
+html .eyebrow { color: var(--ink-muted); }
+html .product-visual { background: var(--surface-2); --ink: var(--text); --ink-rgb: var(--effect-rgb); }
+html .product-visual__mark { color: var(--text); }
+html .product-visual__label { color: var(--text-muted); }
+/* A brand-colored inset (for example a checkout input) resets a pale parent's ink. */
+html .bg-black,
+html .bg-black\/80,
+html .bg-black\/95 {
+  --ink: var(--text); --ink-rgb: var(--effect-rgb);
+  --ink-muted: var(--text-muted); --ink-soft: var(--text);
+  color: var(--ink);
+}
+html input.bg-black::placeholder,
+html textarea.bg-black::placeholder { color: var(--text-muted); }
+html input:focus-visible,
+html textarea:focus-visible { outline-color: var(--focus-color); border-color: var(--focus-color); }
+@media (max-width: 767px) {
+  html .mobile-checkout-bar {
+    background: var(--surface-2); color: var(--text-on-surface-2, var(--text-on-surface)); border-color: var(--border-strong);
+    --ink: var(--text-on-surface); --ink-rgb: var(--surface-ink-rgb);
+    --ink-muted: color-mix(in srgb, var(--text-on-surface) 80%, #000);
+  }
+  html .cart-thumbnail { background: rgba(var(--surface-ink-rgb), .05); color: var(--text-on-surface); }
+}
+
+
+
+html .site-header {background:var(--surface);}
+
+:root { color-scheme: light; }
+/* Existing primary actions and selected fills use the standard accent palette. */
+html :is(.one-g-shimmer, button.bg-white, a.bg-white, [role="tab"][aria-selected="true"], [data-selected="true"]) {
+ background-color:var(--button-primary-bg); color:var(--button-primary-text);
+ --ink:var(--button-primary-text); --ink-muted:var(--button-primary-text); --ink-rgb:var(--button-primary-text-rgb);
+ border-color:var(--border-strong);
+}
+html .one-g-shimmer {--ink-rgb:var(--button-primary-text-rgb);}
+html [data-selected="true"] {--text:var(--button-primary-text);--text-muted:var(--button-primary-text);}
+html :focus-visible {outline:2px solid var(--focus-color);outline-offset:3px;}
+html :is(input,textarea):focus-visible {border-color:var(--focus-color);}
+html :is(.auth-input, input.bg-black, textarea.bg-black) {border-color:var(--border-strong);}
+html .product-visual {background:var(--surface-2);}

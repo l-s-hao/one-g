@@ -22,3 +22,9 @@ export function getMatureHardwareProducts() {
 }
 
 export { getProductStatusLabel } from "./product-policy";
+
+/** One catalog view of canonical Product records, deduplicated by stable identity. */
+export function getCatalogProducts(category: ProductCategory | "all" = "all") {
+  const unique = [...new Map(getProducts().map(product => [product.id, product])).values()];
+  return category === "all" ? unique : unique.filter(product => product.category === category);
+}

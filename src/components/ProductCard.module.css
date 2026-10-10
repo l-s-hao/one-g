@@ -1,0 +1,21 @@
+.card { display:flex; flex-direction:column; min-width:0; padding:12px; border:1px solid var(--border); border-radius:24px; background:var(--surface); color:var(--text); }
+.card > a { display:block; border-radius:20px; }
+.copy { display:flex; flex:1; flex-direction:column; padding:16px; }
+.copy h2 { font-size:20px; font-weight:700; line-height:1.4; }
+.status { margin-bottom:12px; font-size:14px; font-weight:600; }
+.note { margin-block:0 12px; color:var(--text-muted); font-size:12px; line-height:1.7; }
+.subtitle { margin-block:8px 12px; color:var(--text-muted); font-size:14px; line-height:1.7; }
+.bottom { margin-top:auto; padding-top:24px; font-size:14px; font-weight:600; }
+.actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+.actions a { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:10px 16px; border:1px solid var(--border-strong); border-radius:999px; font-size:14px; }
+.actions a:hover { text-decoration:underline; text-underline-offset:4px; }
+.card :focus-visible { outline:2px solid var(--focus-color); outline-offset:3px; }
+.card :global(.product-visual__grid) { display:none; }
+@media (max-width:767px) {
+ .card { padding:8px; border-radius:12px; }
+ .copy { padding:12px 2px 4px; }
+ .copy h2 { font-size:14px; line-height:1.5; overflow-wrap:anywhere; }
+ .bottom { padding-top:8px; font-size:13px; }
+ .actions { gap:6px; margin-top:10px; }
+ .actions a { padding:8px 10px; font-size:12px; }
+}

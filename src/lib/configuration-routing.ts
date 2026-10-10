@@ -5,6 +5,7 @@ export function canonicalConfigurationHref(href: string) {
   const url = new URL(href, "https://one-g.invalid");
   const path = url.pathname.replace(/\/+$/, "");
   if (!["/configure", "/customize", "/customize/start", "/configure/robot", "/configure/robotdock", "/configure/sonic-link"].includes(path)) return href;
+  if (path === "/configure/sonic-link" || [url.searchParams.get("productId"), url.searchParams.get("product"), url.hash.slice(1)].includes("sonic-link")) return "/solutions/teleoperation";
   const offerings = getOfferingPackages();
   const pathProduct = offerings.find(({ product }) => path === `/configure/${product.id}`);
   const requested = url.searchParams.get("productId") ?? url.searchParams.get("product") ?? url.hash.slice(1);

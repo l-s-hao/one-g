@@ -6,7 +6,6 @@ export type NavigationItem = DirectoryLink & { groups?: NavigationGroup[] };
 
 export const productLinks: DirectoryLink[] = [
   { href: "/products/robotdock", label: "RobotDock" },
-  { href: "/products/sonic-link", label: "SONIC Link" },
 ];
 export const shopLinks: DirectoryLink[] = [
   { href: "/products", label: "全部商品" },
@@ -15,9 +14,9 @@ export const shopLinks: DirectoryLink[] = [
   { href: "/products?category=hand", label: "灵巧手" },
   { href: "/products?category=vision", label: "视觉系统" },
 ];
-export const solutionLinks = solutions.map(item => ({ href: `/solutions#${item.id}`, label: item.name }));
+export const solutionLinks = solutions.map(item => ({ href: item.detailHref ?? `/solutions#${item.id}`, label: item.content ? `${item.name} · ${item.content.name}` : item.name }));
 export const navigation: NavigationItem[] = [
-  { href: "/products", label: "商品中心", groups: [{ label: "主产品", links: productLinks }, { label: "商品选购", links: shopLinks }] },
+  { href: "/products", label: "商品中心", groups: [{ label: "产品", links: productLinks }, { label: "商品选购", links: shopLinks }] },
   { href: "/solutions", label: "解决方案", groups: [{ label: "面向真实任务", links: solutionLinks }] },
   { href: "/about", label: "了解公司" },
 ];

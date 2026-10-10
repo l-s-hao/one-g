@@ -1,7 +1,6 @@
 {
-  "src/data/products.ts": "f526ff3100509c7bb4e1d3c788becd9eb462a992f907f224992fc31380a785d0",
-  "src/data/products/robotdock.ts": "1f67a15894a1475294ca53afb17ef948464061e5b5f002d95730bda9d2f5b330",
-  "src/data/products/sonic-link.ts": "0433fe9acf407e331bff7e6c98b1953f03846907b0756a408e8756627f7a7a51",
-  "src/lib/cart.ts": "dea5eb904aa37de556bac303b47544a16132823fd45385c6e165621ecfe24cc9",
-  "src/app/about/page.tsx": "360c13abc263497164db67380bf57cb593f2e0a782c9f1f23b3f0e45ca88184c"
+  "src/data/products.ts": "0e5c0c2f3c9e7ff34e5ee4b2b1c75a5c3d84608f0fb5d2e3aeefda755a0ff80e",
+  "src/data/products/robotdock.ts": "b39e2bde28a36e09e2679ff2fbe0a8bac1a02b286bd1030e4e53820448764614",
+  "src/app/about/page.tsx": "9164c28b961c96618856e75a60187d493cbd891f632f224a3875e04ca7cb1a0f",
+  "src/data/solutions/sonic-link.ts": "7ea18fc6eb4dbb4987da6562bcfb37f0f7317ace15a9dbc82783884effa1897c"
 }

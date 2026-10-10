@@ -3,7 +3,6 @@
 import AccountOrders from "@/components/AccountOrders";
 import Link from "next/link";
 import { useAuth } from "@/components/AuthProvider";
-import ThemeSelector from "@/components/ThemeSelector";
 import AccountActions from "@/components/AccountActions";
 import SupportButton from "@/components/SupportButton";
 import styles from "./account.module.css";
@@ -23,11 +22,6 @@ export default function AccountPage() {
     <section className={styles.section}><h2>购物车</h2><Link href="/cart">查看购物车</Link></section>
     <section className={styles.section}><h2>收货地址</h2><p className={styles.muted}>地址管理暂未开放。</p></section>
     <section className={styles.section} aria-labelledby="account-support"><h2 id="account-support">客服咨询</h2><SupportButton inline entry="account"/></section>
-    <section className={styles.section} aria-labelledby="personalization-title">
-      <p className={styles.eyebrow}>APPEARANCE</p>
-      <h2 id="personalization-title">外观与显示辅助</h2>
-      <ThemeSelector />
-    </section>
     <section className={styles.section} aria-labelledby="account-actions"><h2 id="account-actions">账户</h2><AccountActions /></section>
   </div>;
 }

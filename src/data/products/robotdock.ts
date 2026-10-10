@@ -3,7 +3,7 @@ import type { Product } from "@/types/product";
 // Product facts: robotdock-demo @ 218a8b7, README + dist/index.html + dist/app.js.
 // Project-owned assets used under STEP 6 instructions; see docs/reference-integration.md.
 export const robotDockProduct: Product = {
-  id: "robotdock", slug: "robotdock", name: "RobotDock", category: "accessory",
+  id: "robotdock", slug: "robotdock", name: "RobotDock", category: "robot",
   subtitle: "通用机器人小背包",
   description: "规划将供电管理、通信接入和设备驱动集成到机器人背部小背包，配合专用线束与手腕连接件接入夹爪和灵巧手。",
   status: "concept", featured: false,

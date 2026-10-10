@@ -1,21 +1,17 @@
 "use client";
 
-import { Suspense } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { Suspense, useCallback, useLayoutEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { Flip } from "gsap/Flip";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { isConfigurableOffering } from "@/data/configurable-offerings";
 import ProductCard from "@/components/ProductCard";
-import ProductStatusBadge from "@/components/ProductStatusBadge";
-import { getConfigurableOfferings } from "@/lib/configurable-offerings";
-import { getOfferingNavigation } from "@/lib/offering-navigation";
-import { getCategories, getProducts, getProductsByCategory } from "@/lib/products";
+import { getCategories, getCatalogProducts } from "@/lib/products";
 import type { ProductCategory } from "@/types/product";
 import styles from "./products.module.css";
 
 const filterCategories = getCategories().filter(category => category.id !== "accessory");
 const productCategories = [{ id: "all", name: "全部" }, ...filterCategories];
-const coreOfferings = getConfigurableOfferings();
+const catalogProducts = getCatalogProducts();
 
 export default function ProductsPage() {
   return <Suspense fallback={<p className="p-10 text-white/50">正在加载商品…</p>}><ProductsByQuery /></Suspense>;
@@ -28,7 +24,8 @@ function ProductsByQuery() {
   const query = searchParams.get("category");
   const category = filterCategories.find(category => category.id === query)?.id ?? "all";
   const selectCategory = (nextCategory: ProductCategory | "all") => {
-    if (nextCategory === category) return;
+    // Push even the current URL category: an earlier navigation may still be
+    // pending, and the user's latest click must supersede that request.
     const params = new URLSearchParams(searchParams.toString());
     if (nextCategory === "all") params.delete("category");
     else params.set("category", nextCategory);
@@ -42,51 +39,96 @@ function ProductCatalog({ activeCategory, onCategoryChange }: {
   activeCategory: ProductCategory | "all";
   onCategoryChange: (category: ProductCategory | "all") => void;
 }) {
-  const visibleProducts = (activeCategory === "all" ? getProducts() : getProductsByCategory(activeCategory)).filter(product => !isConfigurableOffering(product.id));
-  return <div className="mobile-page products-page min-h-screen w-full bg-black px-6 pb-24 pt-32 text-white sm:px-10">
+  const [layoutCategory, setLayoutCategory] = useState(activeCategory);
+  const gridRef = useRef<HTMLElement>(null);
+  const pendingRef = useRef<{ state: ReturnType<typeof Flip.getState>; height: number } | null>(null);
+  const animationRef = useRef<gsap.core.Timeline | null>(null);
+  const visibleProducts = getCatalogProducts(layoutCategory);
+  const visibleIds = new Set(visibleProducts.map(product => product.id));
+
+  const clearAnimation = useCallback(() => {
+    const grid = gridRef.current;
+    if (!grid) return;
+    animationRef.current = null;
+    gsap.set(Array.from(grid.children), { clearProps: "all" });
+    gsap.set(grid, { clearProps: "height" });
+    grid.inert = false;
+    grid.removeAttribute("data-filter-animating");
+  }, []);
+
+  const finishAnimation = useCallback(() => {
+    const grid = gridRef.current;
+    if (!grid) return;
+    // Complete the official Flip timeline, including its enter/leave tweens,
+    // before measuring the next committed layout.
+    Flip.killFlipsOf(Array.from(grid.children), true);
+    animationRef.current?.progress(1).kill();
+    clearAnimation();
+  }, [clearAnimation]);
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(Flip);
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    window.addEventListener("resize", finishAnimation);
+    reducedMotion.addEventListener("change", finishAnimation);
+    return () => {
+      window.removeEventListener("resize", finishAnimation);
+      reducedMotion.removeEventListener("change", finishAnimation);
+      finishAnimation();
+      pendingRef.current = null;
+    };
+  }, [finishAnimation]);
+
+  useLayoutEffect(() => {
+    const grid = gridRef.current;
+    if (!grid) return;
+    const cards = Array.from(grid.children);
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (layoutCategory !== activeCategory) {
+      finishAnimation();
+      pendingRef.current = reducedMotion ? null : {
+        state: Flip.getState(cards),
+        height: grid.getBoundingClientRect().height,
+      };
+      // A synchronous layout commit keeps React in charge of visibility attributes.
+      // Both commits finish before paint; no timers or imperative display toggles.
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- Capture the old layout before React commits the new filter.
+      setLayoutCategory(activeCategory);
+      return;
+    }
+    const pending = pendingRef.current;
+    pendingRef.current = null;
+    if (!pending || reducedMotion) return;
+    const mobile = window.matchMedia("(max-width: 767px)").matches;
+    const duration = mobile ? 0.4 : 0.55;
+    const stagger = mobile ? 0 : 0.04;
+    const height = grid.getBoundingClientRect().height;
+    // Moving links cannot be clicked or reached by keyboard until they settle.
+    if (grid.contains(document.activeElement)) {
+      grid.closest(".products-page")?.querySelector<HTMLButtonElement>('[role="tab"][aria-selected="true"]')?.focus({ preventScroll: true });
+    }
+    grid.inert = true;
+    grid.setAttribute("data-filter-animating", "true");
+    grid.style.height = `${height}px`;
+    animationRef.current = Flip.from(pending.state, {
+      duration, ease: "power1.inOut", scale: true, absolute: true,
+      stagger, onComplete: clearAnimation,
+      onEnter: elements => gsap.fromTo(elements, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration, stagger, ease: "power1.inOut" }),
+      onLeave: elements => gsap.fromTo(elements, { opacity: 1, scale: 1 }, { opacity: 0, scale: 0.96, duration, stagger, ease: "power1.inOut" }),
+    });
+    animationRef.current.fromTo(grid, { height: pending.height }, { height, duration, ease: "power1.inOut" }, 0);
+  }, [activeCategory, layoutCategory, clearAnimation, finishAnimation]);
+  return <div className={`products-page min-h-screen w-full px-6 pb-24 sm:px-10 ${styles.catalogPage}`}>
     <div className="mx-auto max-w-7xl">
-      <p className="eyebrow">ONE - G / PRODUCTS</p>
-      <h1 className="mt-5 text-5xl font-bold tracking-[-0.06em] sm:text-7xl">商品中心</h1>
-      <p className="mt-5 text-lg text-white/55">探索 ONE-G 机器人与模块化硬件</p>
-
-      <section className={styles.coreSection} aria-labelledby="core-products-title">
-        <h2 id="core-products-title" className={styles.sectionTitle}>主产品</h2>
-        <div className={styles.coreGrid}>
-          {coreOfferings.map(({ product, detail, heroImageIndex }) => {
-            const links = getOfferingNavigation(product);
-            const image = detail.imageNotes[heroImageIndex];
-            return <article key={product.id} className={styles.coreCard} aria-labelledby={`core-${product.id}-title`}>
-              <figure className={styles.figure}>
-                <div className={styles.image}>
-                  <Image src={product.images[heroImageIndex]} alt={image.alt} fill sizes="(max-width: 767px) calc(100vw - 56px), (max-width: 1359px) 46vw, 620px" />
-                </div>
-                <figcaption>{image.caption}</figcaption>
-              </figure>
-              <div className={styles.coreCopy}>
-                <h3 id={`core-${product.id}-title`}>{product.name}</h3>
-                <p className={styles.subtitle}>{product.subtitle}</p>
-                <ProductStatusBadge status={product.status} className={styles.statusBadge} />
-                <p className={styles.statusNote}>{detail.statusNote}</p>
-                <div className={styles.actions}>
-                  <Link href={links.overviewHref}>了解产品</Link>
-                  <Link href={links.purchaseHref}>{links.purchaseLabel}</Link>
-                </div>
-              </div>
-            </article>;
-          })}
-        </div>
+      <h1 id="products-title" className="text-4xl font-semibold tracking-tight sm:text-5xl">商品中心</h1>
+      <p className={styles.description}>探索 ONE-G 的机器人、硬件与系统产品。</p>
+      <div className="product-categories mt-12 flex flex-wrap gap-2 border-b border-white/10 pb-5" role="tablist" aria-label="商品分类">
+        {productCategories.map(category => <button key={category.id} type="button" role="tab" aria-selected={activeCategory === category.id} onClick={() => onCategoryChange(category.id as ProductCategory | "all")} className={`rounded-full border px-5 py-2.5 text-sm ${styles.categoryButton} ${activeCategory === category.id ? "border-white bg-white text-black" : "border-white/15 text-white/60 hover:border-white/50 hover:text-white"}`}>{activeCategory === category.id && <span aria-hidden="true">✓ </span>}{category.name}</button>)}
+      </div>
+      <section ref={gridRef} id="product-catalog" aria-label="商品列表" className={`product-grid mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3 ${styles.grid}`}>
+        {catalogProducts.map(product => <ProductCard key={product.id} product={product} flipId={product.id} hidden={!visibleIds.has(product.id)} />)}
       </section>
-
-      <section className={styles.standardSection} aria-labelledby="standard-products-title">
-        <h2 id="standard-products-title" className={styles.sectionTitle}>标准商品</h2>
-        <div className="product-categories mt-12 flex flex-wrap gap-2 border-b border-white/10 pb-5" role="tablist" aria-label="标准商品分类">
-          {productCategories.map((category) => <button key={category.id} type="button" role="tab" aria-selected={activeCategory === category.id} onClick={() => onCategoryChange(category.id as ProductCategory | "all")} className={`rounded-full border px-5 py-2.5 text-sm transition-colors ${activeCategory === category.id ? "border-white bg-white text-black" : "border-white/15 text-white/60 hover:border-white/50 hover:text-white"}`}>{category.name}</button>)}
-        </div>
-        <div className="product-grid mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {visibleProducts.map((product) => <ProductCard key={product.id} product={product} />)}
-        </div>
-        {visibleProducts.length === 0 && <p className="py-20 text-center text-white/50">该分类暂时没有商品。</p>}
-      </section>
+      {visibleProducts.length === 0 && <p className="py-20 text-center text-white/50">该分类暂时没有商品。</p>}
     </div>
   </div>;
 }

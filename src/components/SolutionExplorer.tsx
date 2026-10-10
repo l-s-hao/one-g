@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { solutions, solutionCategories } from "@/data/solutions";
@@ -39,8 +40,9 @@ export default function SolutionExplorer() {
       <figure><Image src={item.media.src} alt={item.media.alt} width={item.media.width} height={item.media.height} sizes="(max-width:767px) 100vw, 50vw"/><figcaption>{item.media.caption}</figcaption></figure>
       <p className={styles.eyebrow}>{solutionCategories.find(c=>c.id===item.category)?.name}</p><h2>{item.name}</h2>
       <p><strong>问题：</strong>{item.problem}</p><p><strong>方案：</strong>{item.description}</p>
-      <p className={styles.related}>相关系统：{item.productIds.map(id=>getProductById(id)?.name).join(" · ")}</p>
-      <button type="button" className={styles.expand} aria-expanded={expanded===item.id} aria-controls={`solution-${item.id}`} onClick={()=>setExpanded(expanded===item.id?null:item.id)}>{expanded===item.id?"收起方案 −":"查看方案 +"}</button>
+      <p className={styles.related}>相关系统：{[...item.productIds.map(id=>getProductById(id)?.name), item.content?.name].filter(Boolean).join(" · ")}</p>
+      {item.detailHref ? <Link className={styles.expand} href={item.detailHref}>查看方案 →</Link> : <button type="button" className={styles.expand} aria-expanded={expanded===item.id} aria-controls={`solution-${item.id}`} onClick={()=>setExpanded(expanded===item.id?null:item.id)}>{expanded===item.id?"收起方案 −":"查看方案 +"}</button>}
+
       <div id={`solution-${item.id}`} hidden={expanded!==item.id} className={styles.detail}>
         <dl><div><dt>适用任务</dt><dd>{item.subtitle}</dd></div><div><dt>ONE-G 如何实现</dt><dd>{item.capabilities[0]}</dd></div><div><dt>涉及能力</dt><dd>{item.capabilities.slice(1).join(" ")}</dd></div><div><dt>适用边界</dt><dd>{item.boundary}</dd></div></dl>
       </div>
