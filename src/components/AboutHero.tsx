@@ -1,5 +1,8 @@
 "use client";
 
+import { LDiv, LH1, LH2, LP, LSection } from "@/i18n/Elements";
+
+
 import { useSyncExternalStore } from "react";
 import BrandLogo from "./BrandLogo";
 import ScrollExpand from "./ScrollExpand/ScrollExpand";
@@ -17,8 +20,8 @@ const getServerSnapshot = () => false;
 export default function AboutHero() {
   const isMobile = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
-  return <section className={styles.hero} aria-labelledby="about-hero-title">
-    <h1 id="about-hero-title" className="sr-only">ABOUT ONE-G</h1>
+  return <LSection className={styles.hero} aria-labelledby="about-hero-title">
+    <LH1 id="about-hero-title" className="sr-only">ABOUT ONE-G</LH1>
     <ScrollExpand
       key={isMobile ? "mobile" : "desktop"}
       src="/one-g/hero/one-g-service.png"
@@ -31,11 +34,11 @@ export default function AboutHero() {
       mediaZoom={1.35}
       overlayScrim={0.55}
     >
-      <div className={styles.expanded}>
+      <LDiv className={styles.expanded}>
         <BrandLogo variant="stacked" size="lg" className={styles.logo} />
-        <h2>ONE-G / 万机智能</h2>
-        <p>机器人开发与应用平台</p>
-      </div>
+        <LH2>ONE-G / 万机智能</LH2>
+        <LP>机器人开发与应用平台</LP>
+      </LDiv>
     </ScrollExpand>
-  </section>;
+  </LSection>;
 }

@@ -1,5 +1,7 @@
 # RobotDock 只读参考审计
 
+> 当前网站对外名称为 **RoboDock**。本文件保留 RobotDock / robotdock-demo 的历史来源名称与路径，供只读参考追溯；稳定商品 ID 和旧 URL 沿用 `robotdock`。当前介绍、规格、购买文案以 `src/data/products/robotdock.ts` 为准。
+
 日期：2026-09-17；来源：[xuanqisun/robotdock-demo](https://github.com/xuanqisun/robotdock-demo)。
 
 独立目录：`/tmp/one-g-reference/robotdock-demo`。

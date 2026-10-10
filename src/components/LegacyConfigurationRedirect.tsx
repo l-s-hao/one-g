@@ -1,6 +1,9 @@
 "use client";
+
+import { LDiv, LP } from "@/i18n/Elements";
+
 import { useEffect } from "react";
-import Link from "next/link";
+import { LocalizedLink as Link } from "@/i18n/Elements";
 import { usePathname, useRouter } from "next/navigation";
 import { canonicalConfigurationHref } from "@/lib/configuration-routing";
 
@@ -11,5 +14,5 @@ export default function LegacyConfigurationRedirect() {
   useEffect(() => {
     router.replace(canonicalConfigurationHref(pathname + window.location.search + window.location.hash));
   }, [router, pathname]);
-  return <div className="p-8"><p role="status">正在打开产品选购页面…</p><Link href="/" className="underline">查看产品</Link></div>;
+  return <LDiv className="p-8"><LP role="status">正在打开产品选购页面…</LP><Link href="/" className="underline">查看产品</Link></LDiv>;
 }

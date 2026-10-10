@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { LocalizedLink as Link } from "@/i18n/Elements";
 import { forwardRef, type ComponentPropsWithoutRef } from "react";
 import { canAccessRole, loginDestination, requiredRole } from "@/lib/auth-routing";
 import { useAuth } from "./AuthProvider";

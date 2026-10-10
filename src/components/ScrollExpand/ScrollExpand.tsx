@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import { LDiv, LVideo } from "@/i18n/Elements";
+import { LocalizedImage as Image } from "@/i18n/Elements";
 import { useCallback, useEffect, useRef } from 'react';
 import type { CSSProperties, ReactNode } from 'react';
 
@@ -231,7 +232,7 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
 
   const media =
     mediaType === 'video' ? (
-      <video
+      <LVideo
         ref={mediaRef}
         className="scroll-expand__media"
         src={src}
@@ -246,36 +247,36 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
     );
 
   return (
-    <div
+    <LDiv
       ref={rootRef}
       className={`scroll-expand ${useWindowScroll ? '' : 'scroll-expand--scroller'} ${className}`.trim()}
       style={style}
       {...rest}
     >
-      <div ref={trackRef} className="scroll-expand__track">
-        <div ref={stageRef} className="scroll-expand__stage">
-          <div ref={frameRef} className="scroll-expand__frame">
+      <LDiv ref={trackRef} className="scroll-expand__track">
+        <LDiv ref={stageRef} className="scroll-expand__stage">
+          <LDiv ref={frameRef} className="scroll-expand__frame">
             {media}
-            <div ref={scrimRef} className="scroll-expand__scrim" />
+            <LDiv ref={scrimRef} className="scroll-expand__scrim" />
             {children ? (
-              <div ref={overlayRef} className="scroll-expand__overlay">
+              <LDiv ref={overlayRef} className="scroll-expand__overlay">
                 {children}
-              </div>
+              </LDiv>
             ) : null}
-          </div>
+          </LDiv>
           {title ? (
-            <div ref={titleRef} className="scroll-expand__title">
+            <LDiv ref={titleRef} className="scroll-expand__title">
               {title}
-            </div>
+            </LDiv>
           ) : null}
           {scrollHint ? (
-            <div ref={hintRef} className="scroll-expand__hint">
+            <LDiv ref={hintRef} className="scroll-expand__hint">
               {scrollHint}
-            </div>
+            </LDiv>
           ) : null}
-        </div>
-      </div>
-    </div>
+        </LDiv>
+      </LDiv>
+    </LDiv>
   );
 };
 

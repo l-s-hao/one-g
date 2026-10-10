@@ -1,6 +1,7 @@
+import { LA, LArticle, LDd, LDiv, LDl, LDt, LFigcaption, LFigure, LH1, LH2, LH3, LLi, LP, LSection, LSmall, LUl } from "@/i18n/Elements";
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
+import { LocalizedImage as Image } from "@/i18n/Elements";
+import { LocalizedLink as Link } from "@/i18n/Elements";
 import { solutions } from "@/data/solutions";
 import SupportButton from "@/components/SupportButton";
 import styles from "@/components/ProductDetailContent.module.css";
@@ -14,25 +15,25 @@ export const metadata: Metadata = {
 };
 export default function TeleoperationPage() {
   const detail = content.detail!;
-  return <article className={styles.page}>
-    <div className={styles.container}>
-      <section className={styles.hero} aria-labelledby="solution-title">
+  return <LArticle className={styles.page}>
+    <LDiv className={styles.container}>
+      <LSection className={styles.hero} aria-labelledby="solution-title">
         <Link href="/solutions">返回解决方案</Link>
-        <p className={styles.eyebrow}>遥操作解决方案</p>
-        <h1 id="solution-title">{content.name}</h1><p className={styles.subtitle}>{content.subtitle}</p>
-        <p>{content.description}</p>
-        <div className={styles.actions}><a href="#technical">技术说明</a><SupportButton inline textOnly label="联系我们" entry="solutions"/></div>
-        <figure className={styles.mainImage}><Image src={content.images[0]} alt={detail.imageNotes[0].alt} width={detail.imageNotes[0].width} height={detail.imageNotes[0].height} sizes="(max-width:767px) 90vw, 800px" loading="eager"/><figcaption>{detail.imageNotes[0].caption}</figcaption></figure>
-        <p className={styles.heroNotice}>{solution.boundary}</p>
-      </section>
-      {detail.sections?.map(section => <section id={section.id} key={section.id} className={styles.section} aria-labelledby={`${section.id}-title`}>
-        <p className={styles.eyebrow}>{section.eyebrow}</p><h2 id={`${section.id}-title`}>{section.title}</h2>
-        {section.paragraphs?.map(text => <p key={text}>{text}</p>)}
-        {section.cards && <div className={styles.grid}>{section.cards.map(card => <div className={styles.card} key={card.title}><h3>{card.title}</h3><p>{card.description}</p>{card.items && <ul>{card.items.map(item => <li key={item}>{item}</li>)}</ul>}</div>)}</div>}
-        {section.media && <div className={styles.media}>{section.media.map(media => <figure key={media.src}><Image src={media.src} alt={media.alt} width={media.width} height={media.height} sizes="(max-width:767px) 100vw, 80vw"/><figcaption>{media.caption}</figcaption></figure>)}</div>}
-        {section.link && <div className={styles.actions}><Link href={section.link.href}>{section.link.label}</Link></div>}
-      </section>)}
-      <section id="technical" className={styles.section}><h2>技术说明与部署边界</h2><dl className={styles.specs}>{content.specifications?.filter(spec => spec.label !== "价格 / 销售").map(spec => <div key={spec.label}><dt>{spec.label}</dt><dd>{spec.value}{spec.note && <small>{spec.note}</small>}</dd></div>)}</dl><div className={styles.actions}><SupportButton inline textOnly label="联系我们" entry="solutions"/></div></section>
-    </div>
-  </article>;
+        <LP className={styles.eyebrow}>遥操作解决方案</LP>
+        <LH1 id="solution-title">{content.name}</LH1><LP className={styles.subtitle}>{content.subtitle}</LP>
+        <LP>{content.description}</LP>
+        <LDiv className={styles.actions}><LA href="#technical">技术说明</LA><SupportButton inline textOnly label="联系我们" entry="solutions"/></LDiv>
+        <LFigure className={styles.mainImage}><Image src={content.images[0]} alt={detail.imageNotes[0].alt} width={detail.imageNotes[0].width} height={detail.imageNotes[0].height} sizes="(max-width:767px) 90vw, 800px" loading="eager"/><LFigcaption>{detail.imageNotes[0].caption}</LFigcaption></LFigure>
+        <LP className={styles.heroNotice}>{solution.boundary}</LP>
+      </LSection>
+      {detail.sections?.map(section => <LSection id={section.id} key={section.id} className={styles.section} aria-labelledby={`${section.id}-title`}>
+        <LP className={styles.eyebrow}>{section.eyebrow}</LP><LH2 id={`${section.id}-title`}>{section.title}</LH2>
+        {section.paragraphs?.map(text => <LP key={text}>{text}</LP>)}
+        {section.cards && <LDiv className={styles.grid}>{section.cards.map(card => <LDiv className={styles.card} key={card.title}><LH3>{card.title}</LH3><LP>{card.description}</LP>{card.items && <LUl>{card.items.map(item => <LLi key={item}>{item}</LLi>)}</LUl>}</LDiv>)}</LDiv>}
+        {section.media && <LDiv className={styles.media}>{section.media.map(media => <LFigure key={media.src}><Image src={media.src} alt={media.alt} width={media.width} height={media.height} sizes="(max-width:767px) 100vw, 80vw"/><LFigcaption>{media.caption}</LFigcaption></LFigure>)}</LDiv>}
+        {section.link && <LDiv className={styles.actions}><Link href={section.link.href}>{section.link.label}</Link></LDiv>}
+      </LSection>)}
+      <LSection id="technical" className={styles.section}><LH2>技术说明与部署边界</LH2><LDl className={styles.specs}>{content.specifications?.filter(spec => spec.label !== "价格 / 销售").map(spec => <LDiv key={spec.label}><LDt>{spec.label}</LDt><LDd>{spec.value}{spec.note && <LSmall>{spec.note}</LSmall>}</LDd></LDiv>)}</LDl><LDiv className={styles.actions}><SupportButton inline textOnly label="联系我们" entry="solutions"/></LDiv></LSection>
+    </LDiv>
+  </LArticle>;
 }

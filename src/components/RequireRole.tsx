@@ -1,7 +1,10 @@
 "use client";
 
+import { LDiv, LH1, LP } from "@/i18n/Elements";
+
+
 import { useEffect, useRef, type ReactNode } from "react";
-import Link from "next/link";
+import { LocalizedLink as Link } from "@/i18n/Elements";
 import { usePathname, useRouter } from "next/navigation";
 import { canAccessRole, loginDestination } from "@/lib/auth-routing";
 import type { UserRole } from "@/types/auth";
@@ -23,7 +26,7 @@ export default function RequireRole({ role, children }: { role: UserRole; childr
       if (role === "USER" && currentUser.role === "ADMIN" && !canAccessRole(currentUser.role, role)) router.replace("/admin");
     }
   }, [currentUser, authReady, exitTarget, role, router, pathname]);
-  if (!authReady || !currentUser) return <p role="status" className="p-8">正在确认登录状态…</p>;
-  if (!canAccessRole(currentUser.role, role)) return <div className="p-8"><h1 className="text-xl">无权限</h1><p className="my-4">无管理员权限或当前入口不适用于此账户。</p><Link href="/" className="underline">返回首页</Link></div>;
+  if (!authReady || !currentUser) return <LP role="status" className="p-8">正在确认登录状态…</LP>;
+  if (!canAccessRole(currentUser.role, role)) return <LDiv className="p-8"><LH1 className="text-xl">无权限</LH1><LP className="my-4">无管理员权限或当前入口不适用于此账户。</LP><Link href="/" className="underline">返回首页</Link></LDiv>;
   return children;
 }

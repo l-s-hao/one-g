@@ -1,6 +1,9 @@
 "use client";
 
-import Link from "next/link";
+import { LButton, LDiv, LNav } from "@/i18n/Elements";
+
+
+import { LocalizedLink as Link } from "@/i18n/Elements";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
 import type { getOfferingNavigation } from "@/lib/offering-navigation";
@@ -12,7 +15,7 @@ export default function ProductLocalNav({ name, links, view }: Props) {
   const [nearFooter, setNearFooter] = useState(false);
   const [focused, setFocused] = useState(false);
   const [open, setOpen] = useState(false);
-  const [headerHeight, setHeaderHeight] = useState(64);
+  const [headerHeight, setHeaderHeight] = useState(44);
   const root = useRef<HTMLDivElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
   const id = useId();
@@ -20,7 +23,7 @@ export default function ProductLocalNav({ name, links, view }: Props) {
   useEffect(() => {
     const header = document.querySelector<HTMLElement>("header.site-header");
     const measure = () => {
-      const height = header?.getBoundingClientRect().height ?? 64;
+      const height = header?.getBoundingClientRect().height ?? parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--site-header-height"));
       setHeaderHeight(height);
       root.current?.closest<HTMLElement>("[data-product-page]")?.style.setProperty("--product-header-height", `${height}px`);
     };
@@ -55,20 +58,20 @@ export default function ProductLocalNav({ name, links, view }: Props) {
     document.addEventListener("pointerdown", outside);
     return () => { query.removeEventListener("change", reset); document.removeEventListener("pointerdown", outside); };
   }, []);
-  return <div ref={root} className={styles.position} style={{ top: headerHeight + 8 }}
+  return <LDiv ref={root} className={styles.position} style={{ top: "calc(var(--site-header-height) + 8px)" }}
     onFocus={() => setFocused(true)}
     onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) { setFocused(false); setOpen(false); } }}>
-    <nav className={styles.nav} aria-label={`${name} 产品导航`} aria-hidden={!visible} inert={!visible} data-visible={visible}
+    <LNav className={styles.nav} aria-label={`${name} 产品导航`} aria-hidden={!visible} inert={!visible} data-visible={visible}
       onKeyDown={event => { if (event.key === "Escape" && open) { event.preventDefault(); setOpen(false); toggle.current?.focus(); } }}>
       <Link className={styles.name} href={`${links.overviewHref}#product-top`} onClick={() => setOpen(false)}>{name}</Link>
-      <div className={styles.right}>
-        <button ref={toggle} type="button" className={styles.toggle} aria-expanded={open} aria-controls={id} aria-label="产品页面菜单" onClick={() => setOpen(value => !value)}>{view === "overview" ? "介绍" : "技术规格"}<ChevronDown size={14}/></button>
-        <div id={id} className={styles.links} data-open={open}>
+      <LDiv className={styles.right}>
+        <LButton ref={toggle} type="button" className={styles.toggle} aria-expanded={open} aria-controls={id} aria-label="产品页面菜单" onClick={() => setOpen(value => !value)}>{view === "overview" ? "介绍" : "技术规格"}<ChevronDown size={14}/></LButton>
+        <LDiv id={id} className={styles.links} data-open={open}>
           <Link href={links.overviewHref} aria-current={view === "overview" ? "page" : undefined} onClick={() => setOpen(false)}>介绍</Link>
           <Link href={links.specsHref} aria-current={view === "specs" ? "page" : undefined} onClick={() => setOpen(false)}>技术规格</Link>
-        </div>
+        </LDiv>
         <Link className={styles.purchase} href={links.purchaseHref}>{links.purchaseLabel}</Link>
-      </div>
-    </nav>
-  </div>;
+      </LDiv>
+    </LNav>
+  </LDiv>;
 }

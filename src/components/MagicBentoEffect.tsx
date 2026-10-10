@@ -1,5 +1,8 @@
 "use client";
 
+import { LDiv } from "@/i18n/Elements";
+
+
 import { useEffect, useRef, type ReactNode } from "react";
 import { gsap } from "gsap";
 import styles from "./MagicBentoEffect.module.css";
@@ -175,5 +178,5 @@ export function MagicBentoEffect({ children, className, enableStars = true,
     return () => media.revert();
   }, [enableStars, enableSpotlight, enableBorderGlow, enableTilt, enableMagnetism, spotlightRadius, particleCount, glowColor]);
 
-  return <div ref={root} className={`${className ?? ""} ${styles.region}`}>{children}</div>;
+  return <LDiv ref={root} className={`${className ?? ""} ${styles.region}`}>{children}</LDiv>;
 }

@@ -1,6 +1,6 @@
+// Public asset URLs retain the existing static-export basePath.
 export const lanyardAssets = {
-  model: "/one-g/lanyard/card.glb",
   front: "/one-g/brand/one-g-mark.png",
-  back: "/one-g/brand/one-g-stacked.svg",
+  back: "/one-g/brand/one-g-mark.png",
   band: "/one-g/lanyard/one-g-band.png",
 };

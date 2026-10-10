@@ -1,44 +1,46 @@
+import { LArticle, LDiv, LH2, LH3, LHeader, LLi, LP, LSection, LUl } from "@/i18n/Elements";
+import AboutVision from "@/components/AboutVision";
 import LanyardBrandSection from "@/components/LanyardBrandSection";
 import AboutHero from "@/components/AboutHero";
 import SupportButton from "@/components/SupportButton";
 import styles from "./about.module.css";
 
 export default function AboutPage() {
-  return <div className={styles.page}>
+  return <LDiv className={styles.page}>
     <AboutHero />
-    <article className="home-content-shell">
-    <section className={`${styles.section} ${styles.statementSection}`} id="our-vision" aria-labelledby="vision-title">
-      <header className={styles.sectionLabel}>
-        <p className={styles.eyebrow}>02 / OUR VISION</p>
-        <h2 id="vision-title">我们的愿景</h2>
-      </header>
-      <p className={styles.vision}>让更多人<span className={styles.visionLine}><strong>用得起</strong>、<strong>用得好</strong>机器人，</span><span className={styles.visionLine}>让机器人<strong>真正帮人干活。</strong></span></p>
-    </section>
+    <LArticle className="home-content-shell">
+    <LSection className={`${styles.section} ${styles.statementSection}`} id="our-vision" aria-labelledby="vision-title">
+      <LHeader className={styles.sectionLabel}>
+        <LP className={styles.eyebrow}>02 / OUR VISION</LP>
+        <LH2 id="vision-title">我们的愿景</LH2>
+      </LHeader>
+      <AboutVision />
+    </LSection>
 
-    <section className={`${styles.section} ${styles.statementSection}`} id="our-positioning" aria-labelledby="positioning-title">
-      <header className={styles.sectionLabel}>
-        <p className={styles.eyebrow}>03 / OUR POSITIONING</p>
-        <h2 id="positioning-title">我们的定位</h2>
-      </header>
-      <div className={styles.positioning}>
-        <h3>机器人开发与应用平台</h3>
-        <p className={styles.positioningBody}>做机器人开发与应用平台，把模型、软件和硬件接起来，让客户不必每次从头开发。</p>
-        <div className={styles.connection} role="group" aria-label="模型、软件和硬件的连接关系">
-          <ul className={styles.connectionNodes}>
-            <li>模型</li><li>软件</li><li>硬件</li>
-          </ul>
-          <p className={styles.connectionNote}>让客户不必每次从头开发。</p>
-        </div>
-      </div>
-    </section>
+    <LSection className={`${styles.section} ${styles.statementSection}`} id="our-positioning" aria-labelledby="positioning-title">
+      <LHeader className={styles.sectionLabel}>
+        <LP className={styles.eyebrow}>03 / OUR POSITIONING</LP>
+        <LH2 id="positioning-title">我们的定位</LH2>
+      </LHeader>
+      <LDiv className={styles.positioning}>
+        <LH3>机器人开发与应用平台</LH3>
+        <LP className={styles.positioningBody}>做机器人开发与应用平台，把模型、软件和硬件接起来，让客户不必每次从头开发。</LP>
+        <LDiv className={styles.connection} role="group" aria-label="模型、软件和硬件的连接关系">
+          <LUl className={styles.connectionNodes}>
+            <LLi>模型</LLi><LLi>软件</LLi><LLi>硬件</LLi>
+          </LUl>
+          <LP className={styles.connectionNote}>让客户不必每次从头开发。</LP>
+        </LDiv>
+      </LDiv>
+    </LSection>
 
-    <section className={`${styles.section} ${styles.contact}`} aria-labelledby="contact-title">
-      <p className={styles.eyebrow}>04 / TALK TO ONE-G</p><h2 id="contact-title">TALK TO ONE-G</h2>
-      <p className={styles.contactIntro}>如果你有机器人开发与应用需求，欢迎与我们沟通。</p>
+    <LSection className={`${styles.section} ${styles.contact}`} aria-labelledby="contact-title">
+      <LP className={styles.eyebrow}>04 / TALK TO ONE-G</LP><LH2 id="contact-title">TALK TO ONE-G</LH2>
+      <LP className={styles.contactIntro}>如果你有机器人开发与应用需求，欢迎与我们沟通。</LP>
       <SupportButton inline entry="about" className={styles.contactButton}/>
-      <p className={styles.contactNote}>登录后填写需求 · 当前仅支持前端预览</p>
-    </section>
-    </article>
+      <LP className={styles.contactNote}>登录后填写需求 · 当前仅支持前端预览</LP>
+    </LSection>
+    </LArticle>
     <LanyardBrandSection />
-  </div>;
+  </LDiv>;
 }

@@ -1,6 +1,9 @@
 "use client";
-import Link from "next/link";
-import Image from "next/image";
+
+import { LArticle, LButton, LDd, LDiv, LDl, LDt, LFigcaption, LFigure, LH2, LP, LStrong } from "@/i18n/Elements";
+
+import { LocalizedLink as Link } from "@/i18n/Elements";
+import { LocalizedImage as Image } from "@/i18n/Elements";
 import { useEffect, useState } from "react";
 import { solutions, solutionCategories } from "@/data/solutions";
 import { getProductById } from "@/lib/products";
@@ -35,17 +38,17 @@ export default function SolutionExplorer() {
   }, []);
   const visible = solutions.filter(item => category === "all" || item.category === category);
   return <>
-    <div className={styles.filters} role="group" aria-label="解决方案分类">{solutionCategories.map(item=><button key={item.id} type="button" aria-pressed={category===item.id} onClick={()=>{setCategory(item.id);setExpanded(null);}}>{item.name}</button>)}</div>
-    <div className={styles.grid} aria-label="精选解决方案">{visible.map(item=><article className={styles.card} id={item.id} key={item.id}>
-      <figure><Image src={item.media.src} alt={item.media.alt} width={item.media.width} height={item.media.height} sizes="(max-width:767px) 100vw, 50vw"/><figcaption>{item.media.caption}</figcaption></figure>
-      <p className={styles.eyebrow}>{solutionCategories.find(c=>c.id===item.category)?.name}</p><h2>{item.name}</h2>
-      <p><strong>问题：</strong>{item.problem}</p><p><strong>方案：</strong>{item.description}</p>
-      <p className={styles.related}>相关系统：{[...item.productIds.map(id=>getProductById(id)?.name), item.content?.name].filter(Boolean).join(" · ")}</p>
-      {item.detailHref ? <Link className={styles.expand} href={item.detailHref}>查看方案 →</Link> : <button type="button" className={styles.expand} aria-expanded={expanded===item.id} aria-controls={`solution-${item.id}`} onClick={()=>setExpanded(expanded===item.id?null:item.id)}>{expanded===item.id?"收起方案 −":"查看方案 +"}</button>}
+    <LDiv className={styles.filters} role="group" aria-label="解决方案分类">{solutionCategories.map(item=><LButton key={item.id} type="button" aria-pressed={category===item.id} onClick={()=>{setCategory(item.id);setExpanded(null);}}>{item.name}</LButton>)}</LDiv>
+    <LDiv className={styles.grid} aria-label="精选解决方案">{visible.map(item=><LArticle className={styles.card} id={item.id} key={item.id}>
+      <LFigure><Image src={item.media.src} alt={item.media.alt} width={item.media.width} height={item.media.height} sizes="(max-width:767px) 100vw, 50vw"/><LFigcaption>{item.media.caption}</LFigcaption></LFigure>
+      <LP className={styles.eyebrow}>{solutionCategories.find(c=>c.id===item.category)?.name}</LP><LH2>{item.name}</LH2>
+      <LP><LStrong>问题：</LStrong>{item.problem}</LP><LP><LStrong>方案：</LStrong>{item.description}</LP>
+      <LP className={styles.related}>相关系统：{[...item.productIds.map(id=>getProductById(id)?.name), item.content?.name].filter(Boolean).join(" · ")}</LP>
+      {item.detailHref ? <Link className={styles.expand} href={item.detailHref}>查看方案 →</Link> : <LButton type="button" className={styles.expand} aria-expanded={expanded===item.id} aria-controls={`solution-${item.id}`} onClick={()=>setExpanded(expanded===item.id?null:item.id)}>{expanded===item.id?"收起方案 −":"查看方案 +"}</LButton>}
 
-      <div id={`solution-${item.id}`} hidden={expanded!==item.id} className={styles.detail}>
-        <dl><div><dt>适用任务</dt><dd>{item.subtitle}</dd></div><div><dt>ONE-G 如何实现</dt><dd>{item.capabilities[0]}</dd></div><div><dt>涉及能力</dt><dd>{item.capabilities.slice(1).join(" ")}</dd></div><div><dt>适用边界</dt><dd>{item.boundary}</dd></div></dl>
-      </div>
-    </article>)}</div>
+      <LDiv id={`solution-${item.id}`} hidden={expanded!==item.id} className={styles.detail}>
+        <LDl><LDiv><LDt>适用任务</LDt><LDd>{item.subtitle}</LDd></LDiv><LDiv><LDt>ONE-G 如何实现</LDt><LDd>{item.capabilities[0]}</LDd></LDiv><LDiv><LDt>涉及能力</LDt><LDd>{item.capabilities.slice(1).join(" ")}</LDd></LDiv><LDiv><LDt>适用边界</LDt><LDd>{item.boundary}</LDd></LDiv></LDl>
+      </LDiv>
+    </LArticle>)}</LDiv>
   </>;
 }

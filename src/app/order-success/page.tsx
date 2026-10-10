@@ -1,6 +1,9 @@
 "use client";
 
-import Link from "next/link";
+import { LDiv, LH1, LP } from "@/i18n/Elements";
+
+
+import { LocalizedLink as Link } from "@/i18n/Elements";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/components/AuthProvider";
 import OrderSummary from "@/components/OrderSummary";
@@ -19,8 +22,8 @@ export default function OrderSuccessPage() {
     }).catch(() => { if (active) setMessage("暂时无法查询订单，请稍后重试。"); });
     return () => { active = false; };
   }, [currentUser]);
-  return <div className="mobile-page order-success min-h-screen w-full px-6 pb-24 pt-32"><div className="mx-auto max-w-3xl"><p className="eyebrow">ONE - G / ORDER</p><h1 className="mt-5 text-4xl font-bold">订单状态</h1>
-    <p role="status" className="mt-6">{message}</p>{order && <OrderSummary order={order}/>}
-    <div className="mt-10 flex gap-6"><Link href="/">返回首页</Link><Link href="/account">查看用户中心</Link></div>
-  </div></div>;
+  return <LDiv className="mobile-page order-success min-h-screen w-full px-6 pb-24 pt-32"><LDiv className="mx-auto max-w-3xl"><LP className="eyebrow">ONE - G / ORDER</LP><LH1 className="mt-5 text-4xl font-bold">订单状态</LH1>
+    <LP role="status" className="mt-6">{message}</LP>{order && <OrderSummary order={order}/>}
+    <LDiv className="mt-10 flex gap-6"><Link href="/">返回首页</Link><Link href="/account">查看用户中心</Link></LDiv>
+  </LDiv></LDiv>;
 }

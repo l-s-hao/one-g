@@ -3,7 +3,7 @@ import type { Product } from "@/types/product";
 // Product facts: robotdock-demo @ 218a8b7, README + dist/index.html + dist/app.js.
 // Project-owned assets used under STEP 6 instructions; see docs/reference-integration.md.
 export const robotDockProduct: Product = {
-  id: "robotdock", slug: "robotdock", name: "RobotDock", category: "robot",
+  id: "robotdock", slug: "robotdock", name: "RoboDock", category: "robot",
   subtitle: "通用机器人小背包",
   description: "规划将供电管理、通信接入和设备驱动集成到机器人背部小背包，配合专用线束与手腕连接件接入夹爪和灵巧手。",
   status: "concept", featured: false,
@@ -18,9 +18,9 @@ export const robotDockProduct: Product = {
     { label: "价格 / 交付", value: "价格待定，暂未开放销售", note: "型号与交付日期未确认，套装不包含机器人本体。" },
   ],
   detail: {
-    statusNote: "首代产品构想 · 仅供方案讨论，暂未开放销售。RobotDock 为暂定展示名称；外观、接口、兼容范围与交付内容待最终确认。",
+    statusNote: "首代产品构想 · 仅供方案讨论，暂未开放销售。RoboDock 为暂定展示名称；外观、接口、兼容范围与交付内容待最终确认。",
     imageNotes: [
-      { alt: "RobotDock 石墨灰小背包 AI 概念效果图，非实物照片", caption: "AI 概念效果图 · 根据团队草图生成，非实物照片。", width: 1254, height: 1254 },
+      { alt: "RoboDock 石墨灰小背包 AI 概念效果图，非实物照片", caption: "AI 概念效果图 · 根据团队草图生成，非实物照片。", width: 1254, height: 1254 },
       { alt: "团队提供的机器人背部安装参考草图，非最终适配图", caption: "团队安装参考草图 · 非最终本体适配图。", width: 946, height: 1208 },
     ],
     highlights: [

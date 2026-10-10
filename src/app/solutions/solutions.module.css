@@ -6,7 +6,7 @@
 .page p {line-height:1.75;color:var(--text-muted);margin:.6rem 0;}
 .page .eyebrow {font-size:.7rem;letter-spacing:.15em;}
 .grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;}
-.card {padding:1.25rem;border:1px solid var(--border);border-radius:1rem;display:flex;flex-direction:column;scroll-margin-top:6rem;}
+.card {padding:1.25rem;border:1px solid var(--border);border-radius:1rem;display:flex;flex-direction:column;scroll-margin-top:calc(var(--site-header-height) + 32px);}
 .card .related {font-size:.8rem;}
 .page :focus-visible {outline:2px solid var(--text);outline-offset:3px;}
 @media(max-width:1023px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));}}

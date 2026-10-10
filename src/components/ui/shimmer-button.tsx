@@ -1,4 +1,6 @@
-"use client"
+"use client";
+
+import { LDiv } from "@/i18n/Elements";
 
 // Magic UI: https://magicui.design/r/shimmer-button.json
 // ONE-G defaults and Slot-based links keep primary actions visually consistent.
@@ -61,22 +63,22 @@ export const ShimmerButton = React.forwardRef<
         {...props}
       >
         {/* spark container */}
-        <div aria-hidden="true"
+        <LDiv aria-hidden="true"
           className={cn(
             "-z-30 blur-[2px]",
             "@container-[size] absolute inset-0 overflow-visible"
           )}
         >
           {/* spark */}
-          <div aria-hidden="true" className="animate-shimmer-slide absolute inset-0 aspect-[1] h-[100cqh] rounded-none [mask:none]">
+          <LDiv aria-hidden="true" className="animate-shimmer-slide absolute inset-0 aspect-[1] h-[100cqh] rounded-none [mask:none]">
             {/* spark before */}
-            <div aria-hidden="true" className="animate-spin-around absolute -inset-full w-auto [translate:0_0] rotate-0 [background:conic-gradient(from_calc(270deg-(var(--spread)*0.5)),transparent_0,var(--shimmer-color)_var(--spread),transparent_var(--spread))]" />
-          </div>
-        </div>
+            <LDiv aria-hidden="true" className="animate-spin-around absolute -inset-full w-auto [translate:0_0] rotate-0 [background:conic-gradient(from_calc(270deg-(var(--spread)*0.5)),transparent_0,var(--shimmer-color)_var(--spread),transparent_var(--spread))]" />
+          </LDiv>
+        </LDiv>
         <Slottable>{href ? <Link href={href}>{children}</Link> : children}</Slottable>
 
         {/* Highlight */}
-        <div aria-hidden="true"
+        <LDiv aria-hidden="true"
           className={cn(
             "absolute inset-0 size-full",
 
@@ -94,7 +96,7 @@ export const ShimmerButton = React.forwardRef<
         />
 
         {/* backdrop */}
-        <div aria-hidden="true"
+        <LDiv aria-hidden="true"
           className={cn(
             "absolute inset-(--cut) -z-20 [border-radius:var(--radius)] [background:var(--bg)]"
           )}

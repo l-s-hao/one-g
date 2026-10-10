@@ -1,5 +1,8 @@
 "use client";
 
+import { LDiv, LMain } from "@/i18n/Elements";
+
+
 import { Fragment, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { useAuth } from "./AuthProvider";
@@ -20,14 +23,14 @@ function SiteContent({ children }: { children: ReactNode }) {
   const content = role ? <RequireRole role={role}><Fragment key={currentUser?.id ?? "anonymous"}>{children}</Fragment></RequireRole> : children;
   if (pathname === "/admin" || pathname.startsWith("/admin/")) return <>{content}</>;
   if (["/login", "/register", "/forgot-password"].includes(pathname)) {
-    return <div className="min-h-dvh bg-black text-white"><Header /><main>{content}</main></div>;
+    return <LDiv className="min-h-dvh bg-black text-white"><Header /><LMain>{content}</LMain></LDiv>;
   }
   const shell = (
-    <div className="flex min-h-screen flex-col">
+    <LDiv className="flex min-h-screen flex-col">
       <Header />
-      <main className="flex flex-1 items-start justify-center">{content}</main>
+      <LMain className="flex flex-1 items-start justify-center">{content}</LMain>
       <Footer />
-    </div>
+    </LDiv>
   );
   return shell;
 }

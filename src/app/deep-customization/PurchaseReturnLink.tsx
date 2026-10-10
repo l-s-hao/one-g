@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { LocalizedLink as Link } from "@/i18n/Elements";
 import { useSearchParams } from "next/navigation";
 
 import { isPaymentMethod } from "@/lib/payments";

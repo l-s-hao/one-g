@@ -1,41 +1,24 @@
-# ONE-G Lanyard
+# ONE-G Lanyard — current TS-CSS implementation
 
-Based on the official React Bits TS-CSS registry source:
-https://reactbits.dev/r/Lanyard-TS-CSS.json
+Official registries (the downloaded files are identical):
+- https://reactbits.dev/r/Lanyard-TS-CSS.json
+- https://raw.githubusercontent.com/DavidHDev/react-bits/9f88cc7c7ea8d057b3bc43a846caf767de78a226/public/r/Lanyard-TS-CSS.json
 
-The requested shadcn registry command was attempted, but its HTTPS requests
-closed prematurely (including the local-JSON install's neutral color fetch).
-Lanyard.tsx and Lanyard.css were therefore extracted directly from the downloaded
-official JSON, then adapted for Next.js. No Vite configuration is used.
+TSX and CSS come from the same pinned official version. This version is built directly with three and declares three@^0.180.0. ONE-G retains its already-installed three 0.186.0, with matching @types/three 0.186.0. This is newer than the registry semver range; the required APIs were validated by typecheck, build and live rendering instead of downgrading the project. No Three ecosystem upgrades were made.
 
-Official assets, copied without modification:
-- public/lanyard/card.glb
-- public/lanyard/lanyard.png
+Current About props are frontImage, backImage, strapImage and imageFit="contain". The official default physical settings are retained. The former position/gravity-array/lanyardImage/lanyardWidth props, GLB loading, preload function and R3F/Rapier/Meshline implementation are no longer used.
 
-Upstream asset directory:
-https://github.com/DavidHDev/react-bits/tree/main/src/assets/lanyard
+Assets (unchanged formal artwork, existing static-export prefix):
+- Front and back: /one-g/brand/one-g-mark.png — text-free ONE-G symbol.
+- Strap: /one-g/lanyard/one-g-band.png — repeated text-free ONE-G symbols.
 
-Brand artwork:
-- Front: public/brand/one-g-mark.png, unchanged copy of public/logo/1-01.png
-  (original: /home/lsh/图片/logo/1-01.png). The source PNG is retained.
-- Band: public/lanyard/one-g-band.png, rendered from one-g-band.svg. The
-  unchanged Symbol path is repeated in white on a dark band, without text.
-  The SVG source is retained; its rotation compensates for the rope UV direction.
-- Back: public/brand/one-g-stacked.svg, the existing formal website copy of
-  ONE-G Logo文件-09.svg (cropped artboard, unchanged paths).
+The section remains after About contact content and before Footer. It is 600px high on desktop and clamp(360px, 52svh, 480px) on mobile. The component fills its parent. A symbol fallback remains until successful rendering, including WebGL initialization failure.
 
-Integration changes:
-- Base-path-aware public URLs, no GLB module import.
-- Client-only dynamic import, mounted only below About’s four content sections, before the shared Footer.
-- Suspense inside Canvas keeps asynchronous model/physics loading from tearing
-  down the WebGL context.
-- Contain-fit face artwork; white letterboxing replaces underlying demo artwork.
-- Source logo images load on CPU, only the composed atlas uploads to the GPU.
-- Typed GLTF/materials and current meshline constructor arguments.
-- Disposable custom textures; pointer cancellation resets dragging.
-- Mobile DPR 1, original 30Hz physics, 16 curve segments and disabled clearcoat.
-- Canvas fills its section; no fixed canvas or global stylesheet/theme changes.
+Local source adjustments:
+- Publish settings in the existing post-commit effect instead of mutating refs during render, to satisfy React 19 lint rules.
+- Pause the existing RAF while the document is hidden, and remove the visibility listener on unmount.
+- Respond to changes in prefers-reduced-motion through the existing settings/physics path; no new animation loop.
+- Reserve more horizontal camera room on portrait screens after testing showed default swing clipping; physics and default props are unchanged.
+- Mark successful rendering for the local CSS fallback and remove the mark on cleanup.
 
-The official rope joints, spherical joint, grab/drag and natural physics remain.
-Desktop height: clamp(520px, 65vh, 680px).
-Mobile height: clamp(360px, 52svh, 480px).
+Official springs, rendering, drag and flip behavior are retained. The old card.glb, lanyard.png and previously installed ecosystem dependencies remain as unused historical assets/dependencies; the new runtime does not load them. Their removal is outside this integration change.

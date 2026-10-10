@@ -1,5 +1,8 @@
 "use client";
-import Link from "next/link";
+
+import { LDiv, LP } from "@/i18n/Elements";
+
+import { LocalizedLink as Link } from "@/i18n/Elements";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
@@ -7,5 +10,5 @@ import { useRouter } from "next/navigation";
 export default function LegacySonicLinkRedirect() {
   const router = useRouter();
   useEffect(() => { router.replace("/solutions/teleoperation"); }, [router]);
-  return <div className="p-8"><p role="status">SONIC Link 已归入遥操作解决方案。</p><Link className="underline" href="/solutions/teleoperation">了解遥操作方案</Link></div>;
+  return <LDiv className="p-8"><LP role="status">SONIC Link 已归入遥操作解决方案。</LP><Link className="underline" href="/solutions/teleoperation">了解遥操作方案</Link></LDiv>;
 }

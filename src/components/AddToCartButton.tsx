@@ -1,4 +1,7 @@
 "use client";
+
+import { LDiv, LP } from "@/i18n/Elements";
+
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { Check, ShoppingCart } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -37,5 +40,5 @@ export default function AddToCartButton({ product }: { product: Product }) {
     finally { busy.current = false; }
   };
   if (!getProductPolicy(product).canAddToCart) return null;
-  return <div><ShimmerButton type="button" disabled={!authReady} onClick={add}>{added ? <Check size={16} /> : <ShoppingCart size={16} />}{added ? "已加入购物车" : "加入购物车"}</ShimmerButton>{notice && <p role="status" className="mt-3 text-sm">{notice}</p>}</div>;
+  return <LDiv><ShimmerButton type="button" disabled={!authReady} onClick={add}>{added ? <Check size={16} /> : <ShoppingCart size={16} />}{added ? "已加入购物车" : "加入购物车"}</ShimmerButton>{notice && <LP role="status" className="mt-3 text-sm">{notice}</LP>}</LDiv>;
 }

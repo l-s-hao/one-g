@@ -1,7 +1,10 @@
 "use client";
 
+import { LDiv, LH1, LH2, LP, LSection } from "@/i18n/Elements";
+
+
 import AccountOrders from "@/components/AccountOrders";
-import Link from "next/link";
+import { LocalizedLink as Link } from "@/i18n/Elements";
 import { useAuth } from "@/components/AuthProvider";
 import AccountActions from "@/components/AccountActions";
 import SupportButton from "@/components/SupportButton";
@@ -10,18 +13,18 @@ import styles from "./account.module.css";
 export default function AccountPage() {
   const { currentUser } = useAuth();
   if (!currentUser) return null;
-  return <div className={styles.page}>
-    <h1 className="account-title text-3xl font-semibold">用户中心</h1>
-    <section className={styles.section} aria-labelledby="account-info">
-      <h2 id="account-info">用户资料</h2>
-      <p>邮箱：{currentUser.email}</p>
-      <p className={styles.muted}>用户名：未设置</p>
-      <p className={styles.muted}>普通用户</p>
-    </section>
-    <section className={styles.section}><h2>我的订单</h2><AccountOrders key={currentUser.id} userId={currentUser.id}/></section>
-    <section className={styles.section}><h2>购物车</h2><Link href="/cart">查看购物车</Link></section>
-    <section className={styles.section}><h2>收货地址</h2><p className={styles.muted}>地址管理暂未开放。</p></section>
-    <section className={styles.section} aria-labelledby="account-support"><h2 id="account-support">客服咨询</h2><SupportButton inline entry="account"/></section>
-    <section className={styles.section} aria-labelledby="account-actions"><h2 id="account-actions">账户</h2><AccountActions /></section>
-  </div>;
+  return <LDiv className={styles.page}>
+    <LH1 className="account-title text-3xl font-semibold">用户中心</LH1>
+    <LSection className={styles.section} aria-labelledby="account-info">
+      <LH2 id="account-info">用户资料</LH2>
+      <LP>邮箱：{currentUser.email}</LP>
+      <LP className={styles.muted}>用户名：未设置</LP>
+      <LP className={styles.muted}>普通用户</LP>
+    </LSection>
+    <LSection className={styles.section}><LH2>我的订单</LH2><AccountOrders key={currentUser.id} userId={currentUser.id}/></LSection>
+    <LSection className={styles.section}><LH2>购物车</LH2><Link href="/cart">查看购物车</Link></LSection>
+    <LSection className={styles.section}><LH2>收货地址</LH2><LP className={styles.muted}>地址管理暂未开放。</LP></LSection>
+    <LSection className={styles.section} aria-labelledby="account-support"><LH2 id="account-support">客服咨询</LH2><SupportButton inline entry="account"/></LSection>
+    <LSection className={styles.section} aria-labelledby="account-actions"><LH2 id="account-actions">账户</LH2><AccountActions /></LSection>
+  </LDiv>;
 }

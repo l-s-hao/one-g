@@ -1,7 +1,10 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
+import { LButton, LDiv, LFieldset, LFigcaption, LFigure, LH1, LH2, LInput, LLabel, LLegend, LLi, LP, LSection, LSpan, LStrong, LUl } from "@/i18n/Elements";
+
+
+import { LocalizedImage as Image } from "@/i18n/Elements";
+import { LocalizedLink as Link } from "@/i18n/Elements";
 import { useEffect, useState } from "react";
 import type { getOfferingPackages } from "@/lib/configurable-offerings";
 import PaymentSelector from "./PaymentSelector";
@@ -40,37 +43,37 @@ export default function ProductPurchase({ offering }: { offering: Offering }) {
     window.history.pushState(null, "", url.pathname + url.search);
   };
   const select = (id: string) => { setSelectedId(id); updateQuery("package", id); };
-  return <div className={styles.page}>
-    <h1>购买 {product.name}</h1>
-    <div className={styles.purchase}>
-      <figure className={styles.media}>
+  return <LDiv className={styles.page}>
+    <LH1>购买 {product.name}</LH1>
+    <LDiv className={styles.purchase}>
+      <LFigure className={styles.media}>
         <Image src={product.images[heroImageIndex]} alt={note.alt} width={note.width} height={note.height} sizes="(max-width: 767px) 100vw, 60vw" loading="eager"/>
-        <figcaption>{note.caption}</figcaption>
-      </figure>
-      <div className={styles.options}>
+        <LFigcaption>{note.caption}</LFigcaption>
+      </LFigure>
+      <LDiv className={styles.options}>
         <ProductStatusBadge status={product.status}/>
-        <p className={styles.note}>{detail.statusNote}</p>
-        <fieldset className={styles.packages}><legend>配置套餐选择</legend>
-          {packages.length ? packages.map(bundle => <label key={bundle.id} className={styles.choice} data-selected={selectedId === bundle.id}>
-            <input type="radio" name={`package-${product.id}`} value={bundle.id} checked={selectedId === bundle.id} onChange={() => select(bundle.id)}/>
-            <span><strong>{bundle.name}</strong><ul>{bundle.items.map(item => <li key={item}>{item}</li>)}</ul><span className={styles.price}>价格待确认</span></span>
-          </label>) : <p>套餐待确认</p>}
-        </fieldset>
-        {detail.bundleNote && <p className={styles.note}>{detail.bundleNote}</p>}
-        <label className="mt-4 block">数量<input aria-label="数量" type="number" min="1" max="999" value={quantity} onChange={event => { const value = Number(event.target.value); if (Number.isSafeInteger(value) && value > 0 && value <= 999) { setQuantity(value); updateQuery("quantity", String(value)); } }} className="ml-3 w-20 rounded border border-[var(--border)] p-2"/></label>
-        <section className={styles.payment}><PaymentSelector value={payment} onChange={value => { selectPayment(value); updateQuery("payment", value); }}/></section>
-        <section className={styles.summary} aria-labelledby="selection-title">
-          <h2 id="selection-title">当前选择</h2><p aria-live="polite">{selected?.name ?? "请选择套餐"}</p>
-          <p className={styles.amount}>价格待确认</p>
-          <button type="button" disabled aria-describedby="purchase-unavailable">加入购物车</button>
-          <p id="purchase-unavailable" className={styles.note}>当前仅供套餐预览，暂未开放销售；套餐价格待确认，支付渠道尚未接入。</p>
-        </section>
-      </div>
-    </div>
-    <div className={styles.customization}>
-      <p>如有其他要求，可以深度定制。</p>
-      <Link href={{ pathname: "/deep-customization", query: { product: product.slug, ...(selectedId ? { package: selectedId } : {}), quantity: String(quantity), ...(payment ? { payment } : {}) } }}>深度定制 <span aria-hidden="true">→</span></Link>
-    </div>
-    <section className={styles.recommendations} aria-labelledby="recommendations-title"><h2 id="recommendations-title">更多推荐</h2><p>暂无已确认的推荐商品。</p></section>
-  </div>;
+        <LP className={styles.note}>{detail.statusNote}</LP>
+        <LFieldset className={styles.packages}><LLegend>配置套餐选择</LLegend>
+          {packages.length ? packages.map(bundle => <LLabel key={bundle.id} className={styles.choice} data-selected={selectedId === bundle.id}>
+            <LInput type="radio" name={`package-${product.id}`} value={bundle.id} checked={selectedId === bundle.id} onChange={() => select(bundle.id)}/>
+            <LSpan><LStrong>{bundle.name}</LStrong><LUl>{bundle.items.map(item => <LLi key={item}>{item}</LLi>)}</LUl><LSpan className={styles.price}>价格待确认</LSpan></LSpan>
+          </LLabel>) : <LP>套餐待确认</LP>}
+        </LFieldset>
+        {detail.bundleNote && <LP className={styles.note}>{detail.bundleNote}</LP>}
+        <LLabel className="mt-4 block">数量<LInput aria-label="数量" type="number" min="1" max="999" value={quantity} onChange={event => { const value = Number(event.target.value); if (Number.isSafeInteger(value) && value > 0 && value <= 999) { setQuantity(value); updateQuery("quantity", String(value)); } }} className="ml-3 w-20 rounded border border-[var(--border)] p-2"/></LLabel>
+        <LSection className={styles.payment}><PaymentSelector value={payment} onChange={value => { selectPayment(value); updateQuery("payment", value); }}/></LSection>
+        <LSection className={styles.summary} aria-labelledby="selection-title">
+          <LH2 id="selection-title">当前选择</LH2><LP aria-live="polite">{selected?.name ?? "请选择套餐"}</LP>
+          <LP className={styles.amount}>价格待确认</LP>
+          <LButton type="button" disabled aria-describedby="purchase-unavailable">加入购物车</LButton>
+          <LP id="purchase-unavailable" className={styles.note}>当前仅供套餐预览，暂未开放销售；套餐价格待确认，支付渠道尚未接入。</LP>
+        </LSection>
+      </LDiv>
+    </LDiv>
+    <LDiv className={styles.customization}>
+      <LP>如有其他要求，可以深度定制。</LP>
+      <Link href={{ pathname: "/deep-customization", query: { product: product.slug, ...(selectedId ? { package: selectedId } : {}), quantity: String(quantity), ...(payment ? { payment } : {}) } }}>深度定制 <LSpan aria-hidden="true">→</LSpan></Link>
+    </LDiv>
+    <LSection className={styles.recommendations} aria-labelledby="recommendations-title"><LH2 id="recommendations-title">更多推荐</LH2><LP>暂无已确认的推荐商品。</LP></LSection>
+  </LDiv>;
 }

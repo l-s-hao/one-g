@@ -1,5 +1,8 @@
 "use client";
 
+import { LButton, LDd, LDialog, LDiv, LDl, LDt, LForm, LH2, LInput, LLabel, LP, LTextarea } from "@/i18n/Elements";
+
+
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useAuth } from "./AuthProvider";
@@ -93,27 +96,27 @@ function ContactPreview({ entry, email, close }: { entry: ContactEntry; email: s
   };
   const dismiss = () => { dialog.current?.close(); close(); };
   const labels = { name: "称呼", email: "回复邮箱", company: "公司／单位", description: "需求描述" };
-  return <dialog ref={dialog} className={styles.dialog} aria-labelledby="contact-dialog-title" aria-describedby="contact-demo-note" onCancel={event => { event.preventDefault(); dismiss(); }} onClick={event => { if (event.target === event.currentTarget) { const r = event.currentTarget.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dismiss(); } }}>
-    <div className={styles.heading}><h2 id="contact-dialog-title">{preview ? "需求预览" : "填写需求"}</h2><button type="button" onClick={dismiss} aria-label="关闭需求窗口">关闭</button></div>
-    <p id="contact-demo-note" className={styles.note}>当前仅为前端演示，信息不会发送给客服。请使用测试信息。</p>
+  return <LDialog ref={dialog} className={styles.dialog} aria-labelledby="contact-dialog-title" aria-describedby="contact-demo-note" onCancel={event => { event.preventDefault(); dismiss(); }} onClick={event => { if (event.target === event.currentTarget) { const r = event.currentTarget.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dismiss(); } }}>
+    <LDiv className={styles.heading}><LH2 id="contact-dialog-title">{preview ? "需求预览" : "填写需求"}</LH2><LButton type="button" onClick={dismiss} aria-label="关闭需求窗口">关闭</LButton></LDiv>
+    <LP id="contact-demo-note" className={styles.note}>当前仅为前端演示，信息不会发送给客服。请使用测试信息。</LP>
     {preview ? <>
-      <p className={styles.previewNotice} data-preview-title tabIndex={-1}>仅供预览，尚未提交。</p>
-      <dl className={styles.preview}>{(Object.keys(labels) as (keyof ContactDraft)[]).map(field => <div key={field}><dt>{labels[field]}</dt><dd>{draft[field].trim() || "未填写"}</dd></div>)}<div><dt>来源</dt><dd>{contactEntries[entry]}{product && ` · ${product}`}</dd></div></dl>
-      <div className={styles.actions}><button type="button" onClick={() => setPreview(false)}>返回编辑</button><button type="button" onClick={dismiss}>关闭</button></div>
-    </> : <form autoComplete="off" noValidate onSubmit={event => {
+      <LP className={styles.previewNotice} data-preview-title tabIndex={-1}>仅供预览，尚未提交。</LP>
+      <LDl className={styles.preview}>{(Object.keys(labels) as (keyof ContactDraft)[]).map(field => <LDiv key={field}><LDt>{labels[field]}</LDt><LDd>{draft[field].trim() ? <span data-i18n-skip>{draft[field].trim()}</span> : "未填写"}</LDd></LDiv>)}<LDiv><LDt>来源</LDt><LDd>{contactEntries[entry]}{product && ` · ${product}`}</LDd></LDiv></LDl>
+      <LDiv className={styles.actions}><LButton type="button" onClick={() => setPreview(false)}>返回编辑</LButton><LButton type="button" onClick={dismiss}>关闭</LButton></LDiv>
+    </> : <LForm autoComplete="off" noValidate onSubmit={event => {
       event.preventDefault();
       const next = validateContactDraft(draft); setErrors(next);
       const first = Object.keys(next)[0];
       if (first) dialog.current?.querySelector<HTMLElement>(`#contact-${first}`)?.focus();
       else setPreview(true);
     }}>
-      {(Object.keys(labels) as (keyof ContactDraft)[]).map(field => <div className={styles.field} key={field}>
-        <label htmlFor={`contact-${field}`}>{labels[field]}{field === "company" ? "（选填）" : "（必填）"}</label>
-        {field === "description" ? <textarea id={`contact-${field}`} required rows={5} maxLength={5000} value={draft[field]} onChange={event => update(field, event.target.value)} aria-invalid={!!errors[field]} aria-describedby={errors[field] ? `contact-${field}-error` : undefined}/> : <input id={`contact-${field}`} type={field === "email" ? "email" : "text"} autoComplete="off" required={field !== "company"} maxLength={field === "email" ? 254 : 120} value={draft[field]} onChange={event => update(field, event.target.value)} aria-invalid={!!errors[field]} aria-describedby={errors[field] ? `contact-${field}-error` : undefined}/>}
-        {errors[field] && <p id={`contact-${field}-error`} role="alert" className={styles.error}>{errors[field]}</p>}
-      </div>)}
-      <p className={styles.note}>来源：{contactEntries[entry]}{product && ` · ${product}`}</p>
-      <div className={styles.actions}><button type="submit" className={styles.primary}>预览需求</button><button type="button" onClick={dismiss}>关闭</button></div>
-    </form>}
-  </dialog>;
+      {(Object.keys(labels) as (keyof ContactDraft)[]).map(field => <LDiv className={styles.field} key={field}>
+        <LLabel htmlFor={`contact-${field}`}>{labels[field]}{field === "company" ? "（选填）" : "（必填）"}</LLabel>
+        {field === "description" ? <LTextarea id={`contact-${field}`} required rows={5} maxLength={5000} value={draft[field]} onChange={event => update(field, event.target.value)} aria-invalid={!!errors[field]} aria-describedby={errors[field] ? `contact-${field}-error` : undefined}/> : <LInput id={`contact-${field}`} type={field === "email" ? "email" : "text"} autoComplete="off" required={field !== "company"} maxLength={field === "email" ? 254 : 120} value={draft[field]} onChange={event => update(field, event.target.value)} aria-invalid={!!errors[field]} aria-describedby={errors[field] ? `contact-${field}-error` : undefined}/>}
+        {errors[field] && <LP id={`contact-${field}-error`} role="alert" className={styles.error}>{errors[field]}</LP>}
+      </LDiv>)}
+      <LP className={styles.note}>来源：{contactEntries[entry]}{product && ` · ${product}`}</LP>
+      <LDiv className={styles.actions}><LButton type="submit" className={styles.primary}>预览需求</LButton><LButton type="button" onClick={dismiss}>关闭</LButton></LDiv>
+    </LForm>}
+  </LDialog>;
 }

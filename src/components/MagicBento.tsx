@@ -1,5 +1,8 @@
 "use client";
 
+import { LDiv, LH2, LP } from "@/i18n/Elements";
+
+
 // Official React Bits TS-CSS registry source, retained as reference only.
 // https://reactbits.dev/r/MagicBento-TS-CSS.json
 // ONE-G adaptation: white glow defaults. Entry uses MagicBentoEffect, not this demo.
@@ -346,13 +349,13 @@ const ParticleCard: React.FC<{
   }, [animateParticles, clearAllParticles, disableAnimations, enableTilt, enableMagnetism, clickEffect, glowColor]);
 
   return (
-    <div
+    <LDiv
       ref={cardRef}
       className={`${className} particle-container`}
       style={{ ...style, position: 'relative', overflow: 'hidden' }}
     >
       {children}
-    </div>
+    </LDiv>
   );
 };
 
@@ -498,9 +501,9 @@ const BentoCardGrid: React.FC<{
   children: React.ReactNode;
   gridRef?: React.RefObject<HTMLDivElement | null>;
 }> = ({ children, gridRef }) => (
-  <div className="card-grid bento-section" ref={gridRef}>
+  <LDiv className="card-grid bento-section" ref={gridRef}>
     {children}
-  </div>
+  </LDiv>
 );
 
 const useMobileDetection = () => {
@@ -570,19 +573,19 @@ const MagicBento: React.FC<BentoProps> = ({
                 clickEffect={clickEffect}
                 enableMagnetism={enableMagnetism}
               >
-                <div className="magic-bento-card__header">
-                  <div className="magic-bento-card__label">{card.label}</div>
-                </div>
-                <div className="magic-bento-card__content">
-                  <h2 className="magic-bento-card__title">{card.title}</h2>
-                  <p className="magic-bento-card__description">{card.description}</p>
-                </div>
+                <LDiv className="magic-bento-card__header">
+                  <LDiv className="magic-bento-card__label">{card.label}</LDiv>
+                </LDiv>
+                <LDiv className="magic-bento-card__content">
+                  <LH2 className="magic-bento-card__title">{card.title}</LH2>
+                  <LP className="magic-bento-card__description">{card.description}</LP>
+                </LDiv>
               </ParticleCard>
             );
           }
 
           return (
-            <div
+            <LDiv
               key={index}
               {...cardProps}
               ref={el => {
@@ -694,14 +697,14 @@ const MagicBento: React.FC<BentoProps> = ({
                 el.addEventListener('click', handleClick);
               }}
             >
-              <div className="magic-bento-card__header">
-                <div className="magic-bento-card__label">{card.label}</div>
-              </div>
-              <div className="magic-bento-card__content">
-                <h2 className="magic-bento-card__title">{card.title}</h2>
-                <p className="magic-bento-card__description">{card.description}</p>
-              </div>
-            </div>
+              <LDiv className="magic-bento-card__header">
+                <LDiv className="magic-bento-card__label">{card.label}</LDiv>
+              </LDiv>
+              <LDiv className="magic-bento-card__content">
+                <LH2 className="magic-bento-card__title">{card.title}</LH2>
+                <LP className="magic-bento-card__description">{card.description}</LP>
+              </LDiv>
+            </LDiv>
           );
         })}
       </BentoCardGrid>

@@ -1,5 +1,8 @@
 "use client";
 
+import { LButton, LDiv, LH1, LP, LSection, LSpan } from "@/i18n/Elements";
+
+
 import { Suspense, useCallback, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
@@ -14,7 +17,7 @@ const productCategories = [{ id: "all", name: "全部" }, ...filterCategories];
 const catalogProducts = getCatalogProducts();
 
 export default function ProductsPage() {
-  return <Suspense fallback={<p className="p-10 text-white/50">正在加载商品…</p>}><ProductsByQuery /></Suspense>;
+  return <Suspense fallback={<LP className="p-10 text-white/50">正在加载商品…</LP>}><ProductsByQuery /></Suspense>;
 }
 
 function ProductsByQuery() {
@@ -118,17 +121,17 @@ function ProductCatalog({ activeCategory, onCategoryChange }: {
     });
     animationRef.current.fromTo(grid, { height: pending.height }, { height, duration, ease: "power1.inOut" }, 0);
   }, [activeCategory, layoutCategory, clearAnimation, finishAnimation]);
-  return <div className={`products-page min-h-screen w-full px-6 pb-24 sm:px-10 ${styles.catalogPage}`}>
-    <div className="mx-auto max-w-7xl">
-      <h1 id="products-title" className="text-4xl font-semibold tracking-tight sm:text-5xl">商品中心</h1>
-      <p className={styles.description}>探索 ONE-G 的机器人、硬件与系统产品。</p>
-      <div className="product-categories mt-12 flex flex-wrap gap-2 border-b border-white/10 pb-5" role="tablist" aria-label="商品分类">
-        {productCategories.map(category => <button key={category.id} type="button" role="tab" aria-selected={activeCategory === category.id} onClick={() => onCategoryChange(category.id as ProductCategory | "all")} className={`rounded-full border px-5 py-2.5 text-sm ${styles.categoryButton} ${activeCategory === category.id ? "border-white bg-white text-black" : "border-white/15 text-white/60 hover:border-white/50 hover:text-white"}`}>{activeCategory === category.id && <span aria-hidden="true">✓ </span>}{category.name}</button>)}
-      </div>
-      <section ref={gridRef} id="product-catalog" aria-label="商品列表" className={`product-grid mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3 ${styles.grid}`}>
+  return <LDiv className={`products-page min-h-screen w-full px-6 pb-24 sm:px-10 ${styles.catalogPage}`}>
+    <LDiv className="mx-auto max-w-7xl">
+      <LH1 id="products-title" className="text-4xl font-semibold tracking-tight sm:text-5xl">商品中心</LH1>
+      <LP className={styles.description}>探索 ONE-G 的机器人、硬件与系统产品。</LP>
+      <LDiv className="product-categories mt-12 flex flex-wrap gap-2 border-b border-white/10 pb-5" role="tablist" aria-label="商品分类">
+        {productCategories.map(category => <LButton key={category.id} type="button" role="tab" aria-selected={activeCategory === category.id} onClick={() => onCategoryChange(category.id as ProductCategory | "all")} className={`rounded-full border px-5 py-2.5 text-sm ${styles.categoryButton} ${activeCategory === category.id ? "border-white bg-white text-black" : "border-white/15 text-white/60 hover:border-white/50 hover:text-white"}`}>{activeCategory === category.id && <LSpan aria-hidden="true">✓ </LSpan>}{category.name}</LButton>)}
+      </LDiv>
+      <LSection ref={gridRef} id="product-catalog" aria-label="商品列表" className={`product-grid mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3 ${styles.grid}`}>
         {catalogProducts.map(product => <ProductCard key={product.id} product={product} flipId={product.id} hidden={!visibleIds.has(product.id)} />)}
-      </section>
-      {visibleProducts.length === 0 && <p className="py-20 text-center text-white/50">该分类暂时没有商品。</p>}
-    </div>
-  </div>;
+      </LSection>
+      {visibleProducts.length === 0 && <LP className="py-20 text-center text-white/50">该分类暂时没有商品。</LP>}
+    </LDiv>
+  </LDiv>;
 }

@@ -1,8 +1,9 @@
 .section {
+  scroll-margin-top: var(--site-header-height);
   position: relative;
   isolation: isolate;
   width: 100%;
-  height: clamp(520px, 65vh, 680px);
+  height: 600px;
   overflow: hidden;
   background: var(--bg);
   color: var(--text);
@@ -31,5 +32,9 @@
   pointer-events: none;
 }
 @media (max-width: 767px) {
-  .section { height: clamp(360px, 52svh, 480px); }
+  .section { height: clamp(360px, 52svh, 480px); scroll-margin-top:var(--site-header-height); }
 }
+
+.fallback {position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;}
+.fallback img {object-fit:contain;}
+.section:has(:global(.lanyard[data-ready="true"])) .fallback {display:none;}

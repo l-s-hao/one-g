@@ -1,5 +1,9 @@
 "use client";
 
+import { LButton, LDiv, LH1, LH2, LH3, LHeader, LNav, LP, LSection, LSpan, LStrong } from "@/i18n/Elements";
+
+
+import LanguageSwitch from "@/components/LanguageSwitch";
 import { useState } from "react";
 import { useAuth } from "@/components/AuthProvider";
 import AccountActions from "@/components/AccountActions";
@@ -19,22 +23,22 @@ export default function AdminPage() {
   const { currentUser } = useAuth();
   const [section, setSection] = useState("Dashboard");
   const selected = modules.find(item => item.name === section);
-  return <div className={styles.dashboard}>
-    <header className={styles.toolbar}><div><p className={styles.muted}>ONE-G / ADMIN CENTER</p><h1>管理员中心</h1></div></header>
-    <section className={styles.profile} aria-labelledby="admin-profile"><h2 id="admin-profile">管理员资料</h2><p className={styles.muted}>管理员邮箱：{currentUser?.email}</p><p className={styles.muted}>ADMIN</p></section>
-    <nav className={styles.navigation} aria-label="后台管理导航">
-      {["Dashboard", ...modules.map(item => item.name)].map(item => <button key={item} type="button" aria-pressed={section === item} aria-controls="admin-content" onClick={() => setSection(item)}>{item}</button>)}
-    </nav>
-    <section id="admin-content" className={styles.panel} aria-labelledby="admin-section-title">
-      <h2 id="admin-section-title">{section === "Dashboard" ? "仪表盘 / Dashboard" : section}</h2>
+  return <LDiv className={styles.dashboard}>
+    <LHeader className={styles.toolbar}><LDiv><LP className={styles.muted}>ONE-G / ADMIN CENTER</LP><LH1>管理员中心</LH1></LDiv><LanguageSwitch /></LHeader>
+    <LSection className={styles.profile} aria-labelledby="admin-profile"><LH2 id="admin-profile">管理员资料</LH2><LP className={styles.muted}>管理员邮箱：{currentUser?.email}</LP><LP className={styles.muted}>ADMIN</LP></LSection>
+    <LNav className={styles.navigation} aria-label="后台管理导航">
+      {["Dashboard", ...modules.map(item => item.name)].map(item => <LButton key={item} type="button" aria-pressed={section === item} aria-controls="admin-content" onClick={() => setSection(item)}>{item}</LButton>)}
+    </LNav>
+    <LSection id="admin-content" className={styles.panel} aria-labelledby="admin-section-title">
+      <LH2 id="admin-section-title">{section === "Dashboard" ? "仪表盘 / Dashboard" : section}</LH2>
       {section === "Dashboard" ? <>
-        <p className={styles.muted}>管理功能预览。当前未连接正式数据。</p>
-        <div className={styles.cards}>{modules.map(item => <button key={item.name} type="button" onClick={() => setSection(item.name)}><strong>{item.name}</strong><span>{item.detail}</span></button>)}</div>
+        <LP className={styles.muted}>管理功能预览。当前未连接正式数据。</LP>
+        <LDiv className={styles.cards}>{modules.map(item => <LButton key={item.name} type="button" onClick={() => setSection(item.name)}><LStrong>{item.name}</LStrong><LSpan>{item.detail}</LSpan></LButton>)}</LDiv>
       </> : section === "网站设置" ? <>
-        <h3 className={styles.subheading}>当前客服信息</h3><p className={styles.muted}>客服需求仅支持前端填写和预览。</p>
-        <h3 className={styles.subheading}>基础站点配置</h3><p className={styles.muted}>ONE-G / 万机智能 · 当前只读，编辑功能待后台服务接入。</p>
-      </> : <><p>{selected?.detail}</p><p className={styles.muted}>功能占位，当前不读取真实数据、不执行增删改操作。</p></>}
-    </section>
-    <section className={styles.accountSection} aria-labelledby="admin-account-actions"><h2 id="admin-account-actions">账户</h2><AccountActions /></section>
-  </div>;
+        <LH3 className={styles.subheading}>当前客服信息</LH3><LP className={styles.muted}>客服需求仅支持前端填写和预览。</LP>
+        <LH3 className={styles.subheading}>基础站点配置</LH3><LP className={styles.muted}>ONE-G / 万机智能 · 当前只读，编辑功能待后台服务接入。</LP>
+      </> : <><LP>{selected?.detail}</LP><LP className={styles.muted}>功能占位，当前不读取真实数据、不执行增删改操作。</LP></>}
+    </LSection>
+    <LSection className={styles.accountSection} aria-labelledby="admin-account-actions"><LH2 id="admin-account-actions">账户</LH2><AccountActions /></LSection>
+  </LDiv>;
 }
