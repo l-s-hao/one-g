@@ -91,7 +91,7 @@ export default function VerificationLogin({ switching = false }: { switching?: b
     <LSection aria-labelledby="auth-title" className="relative w-full max-w-[440px] rounded-3xl bg-[#0a0a0a] px-7 py-10 sm:px-10">
       <ShineBorder shineColor={["var(--effect-color)", "var(--effect-dim)"]} duration={10} borderWidth={1}/>
       <LDiv className="relative">
-        <Link href="/" className="text-sm">← 返回首页</Link>
+        <Link intent="ordinary" href="/" className="text-sm">← 返回首页</Link>
         <LDiv className="my-8 text-center"><BrandLogo variant="stacked" size="md"/></LDiv>
         <LH1 id="auth-title" className="text-center text-2xl font-semibold">{switching ? "切换用户" : "欢迎登录 ONE-G"}</LH1>
         <LDiv className="my-6 flex gap-2" role="group" aria-label="登录方式">
@@ -105,10 +105,10 @@ export default function VerificationLogin({ switching = false }: { switching?: b
           </LDiv>
           <LDiv><LLabel htmlFor="verification-code" className="mb-2 block text-sm">验证码</LLabel>
             <LDiv className="flex gap-2"><LInput id="verification-code" className="auth-input min-w-0" type="text" inputMode="numeric" autoComplete="one-time-code" value={code} maxLength={challenge?.codeLength ?? 6} onChange={event => setCode(event.target.value)} disabled={pending === "verify"} aria-describedby="verification-message"/>
-              <LButton type="button" className="shrink-0 rounded-xl border border-current px-3 text-sm" disabled={!mockAuthEnabled || !!pending || seconds > 0} onClick={send}>{pending === "send" ? "发送中…" : seconds > 0 ? `${seconds} 秒后重发` : "获取验证码"}</LButton></LDiv>
+              <LButton intent="ordinary" type="button" className="shrink-0 rounded-xl border border-current px-3 text-sm" disabled={!mockAuthEnabled || !!pending || seconds > 0} onClick={send}>{pending === "send" ? "发送中…" : seconds > 0 ? `${seconds} 秒后重发` : "获取验证码"}</LButton></LDiv>
           </LDiv>
           <LP id="verification-message" role="alert" className="text-sm">{message}</LP><LP role="status" className="text-sm">{notice}</LP>
-          <LButton type="submit" className="h-12 w-full rounded-full bg-white text-sm font-semibold text-black disabled:opacity-50" disabled={!mockAuthEnabled || !authReady || !!pending || (!challenge && !shortcut)}>{pending === "verify" ? "验证中…" : mockAuthEnabled ? "登录 ONE-G（演示）" : "登录暂未开放"}</LButton>
+          <LButton intent="ordinary" type="submit" className="h-12 w-full rounded-full bg-white text-sm font-semibold text-black disabled:opacity-50" disabled={!mockAuthEnabled || !authReady || !!pending || (!challenge && !shortcut)}>{pending === "verify" ? "验证中…" : mockAuthEnabled ? "登录 ONE-G（演示）" : "登录暂未开放"}</LButton>
         </LForm>
       </LDiv>
     </LSection>

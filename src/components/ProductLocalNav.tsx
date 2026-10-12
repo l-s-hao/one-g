@@ -70,7 +70,7 @@ export default function ProductLocalNav({ name, links, view }: Props) {
           <Link href={links.overviewHref} aria-current={view === "overview" ? "page" : undefined} onClick={() => setOpen(false)}>介绍</Link>
           <Link href={links.specsHref} aria-current={view === "specs" ? "page" : undefined} onClick={() => setOpen(false)}>技术规格</Link>
         </LDiv>
-        <Link className={styles.purchase} href={links.purchaseHref}>{links.purchaseLabel}</Link>
+        <Link intent="purchase" className={styles.purchase} href={links.purchaseHref}>{links.purchaseLabel}</Link>
       </LDiv>
     </LNav>
   </LDiv>;

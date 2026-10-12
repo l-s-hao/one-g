@@ -4,6 +4,18 @@ import NextLink from "next/link";
 import NextImage from "next/image";
 import { translate, useLocale } from "./LocaleProvider";
 
+type ActionProps = { intent?: "ordinary" | "purchase" };
+function actionPresentation<T extends { children?: ReactNode }>(props: T & ActionProps) {
+  const { intent, ...rest } = props;
+  if (!intent) return rest;
+  return { ...rest, "data-button-intent": intent, children: <>
+    <span className="action-decoration" aria-hidden="true">
+      {intent === "purchase" && <><span className="top-key"/><span className="bottom-key-1"/><span className="bottom-key-2"/></>}
+    </span>
+    <span className="action-text">{rest.children}</span>
+  </> };
+}
+
 // Localise only presentation. No DOM mutation, value/ID translation or subtree remount.
 function usePresentation<T extends { children?: ReactNode }>(props: T): T {
   const { locale } = useLocale();
@@ -16,12 +28,12 @@ function usePresentation<T extends { children?: ReactNode }>(props: T): T {
   next.children = text(props.children);
   return next;
 }
-export function LocalizedLink(props: ComponentPropsWithRef<typeof NextLink>) { return createElement(NextLink, usePresentation(props)); }
+export function LocalizedLink(props: ComponentPropsWithRef<typeof NextLink> & ActionProps) { return createElement(NextLink, actionPresentation(usePresentation(props))); }
 export function LocalizedImage(props: ComponentPropsWithRef<typeof NextImage>) { return createElement(NextImage, usePresentation(props)); }
-export function LA(props: ComponentPropsWithRef<"a">) { return createElement("a", usePresentation(props)); }
+export function LA(props: ComponentPropsWithRef<"a"> & ActionProps) { return createElement("a", actionPresentation(usePresentation(props))); }
 export function LArticle(props: ComponentPropsWithRef<"article">) { return createElement("article", usePresentation(props)); }
 export function LBr(props: ComponentPropsWithRef<"br">) { return createElement("br", usePresentation(props)); }
-export function LButton(props: ComponentPropsWithRef<"button">) { return createElement("button", usePresentation(props)); }
+export function LButton(props: ComponentPropsWithRef<"button"> & ActionProps) { return createElement("button", actionPresentation(usePresentation(props))); }
 export function LDd(props: ComponentPropsWithRef<"dd">) { return createElement("dd", usePresentation(props)); }
 export function LDialog(props: ComponentPropsWithRef<"dialog">) { return createElement("dialog", usePresentation(props)); }
 export function LDiv(props: ComponentPropsWithRef<"div">) { return createElement("div", usePresentation(props)); }

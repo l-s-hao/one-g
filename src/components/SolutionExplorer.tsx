@@ -45,7 +45,7 @@ export default function SolutionExplorer() {
       <LP className={styles.eyebrow}>{solutionCategories.find(c=>c.id===item.category)?.name}</LP><LH2>{item.name}</LH2>
       <LP><LStrong>问题：</LStrong>{item.problem}</LP><LP><LStrong>方案：</LStrong>{item.description}</LP>
       <LP className={styles.related}>相关系统：{[...item.productIds.map(id=>getProductById(id)?.name), item.content?.name].filter(Boolean).join(" · ")}</LP>
-      {item.detailHref ? <Link className={styles.expand} href={item.detailHref}>查看方案 →</Link> : <LButton type="button" className={styles.expand} aria-expanded={expanded===item.id} aria-controls={`solution-${item.id}`} onClick={()=>setExpanded(expanded===item.id?null:item.id)}>{expanded===item.id?"收起方案 −":"查看方案 +"}</LButton>}
+      {item.detailHref ? <Link intent="ordinary" className={styles.expand} href={item.detailHref}>查看方案 →</Link> : <LButton intent="ordinary" type="button" className={styles.expand} aria-expanded={expanded===item.id} aria-controls={`solution-${item.id}`} onClick={()=>setExpanded(expanded===item.id?null:item.id)}>{expanded===item.id?"收起方案 −":"查看方案 +"}</LButton>}
 
       <LDiv id={`solution-${item.id}`} hidden={expanded!==item.id} className={styles.detail}>
         <LDl><LDiv><LDt>适用任务</LDt><LDd>{item.subtitle}</LDd></LDiv><LDiv><LDt>ONE-G 如何实现</LDt><LDd>{item.capabilities[0]}</LDd></LDiv><LDiv><LDt>涉及能力</LDt><LDd>{item.capabilities.slice(1).join(" ")}</LDd></LDiv><LDiv><LDt>适用边界</LDt><LDd>{item.boundary}</LDd></LDiv></LDl>

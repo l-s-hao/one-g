@@ -23,5 +23,5 @@ export default function PurchaseReturnLink({ destinations }: { destinations: Des
     },
   } : "/products";
 
-  return <Link href={href}>← 返回购买</Link>;
+  return <Link intent="ordinary" href={href}>← 返回购买</Link>;
 }

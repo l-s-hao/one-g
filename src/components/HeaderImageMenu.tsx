@@ -81,7 +81,7 @@ export default function HeaderImageMenu({ kind, open, onClose, onNavigate }: {
   }, [open, grid, category]);
   return <LDiv className={styles.menu} data-header-image-menu={kind}>
     <LDiv className={styles.heading}>
-      <Link href={`/${kind}`} onClick={onNavigate}>{kind === "products" ? "查看全部商品" : "查看全部方案"} →</Link>
+      <Link intent="ordinary" href={`/${kind}`} onClick={onNavigate}>{kind === "products" ? "查看全部商品" : "查看全部方案"} →</Link>
       <LButton type="button" aria-label="关闭菜单" onClick={onClose}><X size={18}/></LButton>
     </LDiv>
     {kind === "products" && <LDiv className={styles.categories} role="group" aria-label="商品分类">

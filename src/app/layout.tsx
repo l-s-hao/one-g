@@ -7,6 +7,7 @@ import SiteShell from "@/components/SiteShell";
 import "./globals.css";
 import "./colors.css";
 import "@/components/card-hover.css";
+import "@/components/button-effects.css";
 
 export const metadata: Metadata = {
   title: "ONE-G — 机器人系统与遥操作能力",

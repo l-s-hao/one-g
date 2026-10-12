@@ -14,5 +14,5 @@ export default function LegacyConfigurationRedirect() {
   useEffect(() => {
     router.replace(canonicalConfigurationHref(pathname + window.location.search + window.location.hash));
   }, [router, pathname]);
-  return <LDiv className="p-8"><LP role="status">正在打开产品选购页面…</LP><Link href="/" className="underline">查看产品</Link></LDiv>;
+  return <LDiv className="p-8"><LP role="status">正在打开产品选购页面…</LP><Link intent="ordinary" href="/" >查看产品</Link></LDiv>;
 }

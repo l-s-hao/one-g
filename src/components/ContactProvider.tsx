@@ -97,12 +97,12 @@ function ContactPreview({ entry, email, close }: { entry: ContactEntry; email: s
   const dismiss = () => { dialog.current?.close(); close(); };
   const labels = { name: "称呼", email: "回复邮箱", company: "公司／单位", description: "需求描述" };
   return <LDialog ref={dialog} className={styles.dialog} aria-labelledby="contact-dialog-title" aria-describedby="contact-demo-note" onCancel={event => { event.preventDefault(); dismiss(); }} onClick={event => { if (event.target === event.currentTarget) { const r = event.currentTarget.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dismiss(); } }}>
-    <LDiv className={styles.heading}><LH2 id="contact-dialog-title">{preview ? "需求预览" : "填写需求"}</LH2><LButton type="button" onClick={dismiss} aria-label="关闭需求窗口">关闭</LButton></LDiv>
+    <LDiv className={styles.heading}><LH2 id="contact-dialog-title">{preview ? "需求预览" : "填写需求"}</LH2><LButton intent="ordinary" type="button" onClick={dismiss} aria-label="关闭需求窗口">关闭</LButton></LDiv>
     <LP id="contact-demo-note" className={styles.note}>当前仅为前端演示，信息不会发送给客服。请使用测试信息。</LP>
     {preview ? <>
       <LP className={styles.previewNotice} data-preview-title tabIndex={-1}>仅供预览，尚未提交。</LP>
       <LDl className={styles.preview}>{(Object.keys(labels) as (keyof ContactDraft)[]).map(field => <LDiv key={field}><LDt>{labels[field]}</LDt><LDd>{draft[field].trim() ? <span data-i18n-skip>{draft[field].trim()}</span> : "未填写"}</LDd></LDiv>)}<LDiv><LDt>来源</LDt><LDd>{contactEntries[entry]}{product && ` · ${product}`}</LDd></LDiv></LDl>
-      <LDiv className={styles.actions}><LButton type="button" onClick={() => setPreview(false)}>返回编辑</LButton><LButton type="button" onClick={dismiss}>关闭</LButton></LDiv>
+      <LDiv className={styles.actions}><LButton intent="ordinary" type="button" onClick={() => setPreview(false)}>返回编辑</LButton><LButton intent="ordinary" type="button" onClick={dismiss}>关闭</LButton></LDiv>
     </> : <LForm autoComplete="off" noValidate onSubmit={event => {
       event.preventDefault();
       const next = validateContactDraft(draft); setErrors(next);
@@ -116,7 +116,7 @@ function ContactPreview({ entry, email, close }: { entry: ContactEntry; email: s
         {errors[field] && <LP id={`contact-${field}-error`} role="alert" className={styles.error}>{errors[field]}</LP>}
       </LDiv>)}
       <LP className={styles.note}>来源：{contactEntries[entry]}{product && ` · ${product}`}</LP>
-      <LDiv className={styles.actions}><LButton type="submit" className={styles.primary}>预览需求</LButton><LButton type="button" onClick={dismiss}>关闭</LButton></LDiv>
+      <LDiv className={styles.actions}><LButton intent="ordinary" type="submit" className={styles.primary}>预览需求</LButton><LButton intent="ordinary" type="button" onClick={dismiss}>关闭</LButton></LDiv>
     </LForm>}
   </LDialog>;
 }

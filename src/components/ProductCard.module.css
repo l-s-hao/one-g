@@ -8,7 +8,7 @@
 .bottom { margin-top:auto; padding-top:24px; font-size:14px; font-weight:600; }
 .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
 .actions a { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:10px 16px; border:1px solid var(--border-strong); border-radius:999px; font-size:14px; }
-.actions a:hover { text-decoration:underline; text-underline-offset:4px; }
+.actions a:hover { text-decoration:none; text-underline-offset:4px; }
 .card :focus-visible { outline:2px solid var(--focus-color); outline-offset:3px; }
 .card :global(.product-visual__grid) { display:none; }
 @media (max-width:767px) {

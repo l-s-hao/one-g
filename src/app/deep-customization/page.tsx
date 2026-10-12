@@ -23,7 +23,7 @@ export default function DeepCustomizationPage() {
     packages: packages.map(bundle => bundle.id),
   }));
   return <LDiv className={styles.page}><LDiv className={styles.container}><LNav aria-label="面包屑"><Link href="/">首页</Link> / 深度定制</LNav>
-    <LHeader><LP className={styles.eyebrow}>DEEP CUSTOMIZATION</LP><LH1>超出标准配置，<LBr/>进入工程级定制。</LH1><LP>ONE-G 优先通过标准产品与标准配置满足需求。对于特殊机械、电气、软件和机器人集成需求，可进入深度定制评估。</LP><Suspense fallback={<Link href="/products">← 返回购买</Link>}><PurchaseReturnLink destinations={destinations}/></Suspense></LHeader>
+    <LHeader><LP className={styles.eyebrow}>DEEP CUSTOMIZATION</LP><LH1>超出标准配置，<LBr/>进入工程级定制。</LH1><LP>ONE-G 优先通过标准产品与标准配置满足需求。对于特殊机械、电气、软件和机器人集成需求，可进入深度定制评估。</LP><Suspense fallback={<Link intent="ordinary" href="/products">← 返回购买</Link>}><PurchaseReturnLink destinations={destinations}/></Suspense></LHeader>
     <LSection><LP className={styles.eyebrow}>WHAT CAN BE CUSTOMIZED</LP><LH2>从需求出发，明确工程范围。</LH2><LDiv className={styles.grid}>{areas.map(([title,text])=><CardHover key={title}><LArticle data-card-hover-surface><LH3>{title}</LH3><LP>{text}</LP></LArticle></CardHover>)}</LDiv></LSection>
     <LSection><LP className={styles.eyebrow}>PROCESS</LP><LH2>先评估，再确认实施方案。</LH2><LOl className={styles.process}>{process.map(([title,text],i)=><CardHover as="li" key={title}><LDiv data-card-hover-surface><LSpan>{String(i+1).padStart(2,"0")}</LSpan><LH3>{title}</LH3><LP>{text}</LP></LDiv></CardHover>)}</LOl></LSection>
     <LSection><LH2>提交深度定制需求</LH2><LP>登录后填写深度定制需求，当前仅支持前端预览。</LP><SupportButton label="提交深度定制需求" entry="deep" inline/></LSection>

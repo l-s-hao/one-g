@@ -22,12 +22,12 @@ export default function HomeSolutionsPreview() {
         <LP className={styles.positioning}>{solution.description}</LP>
         <LP className={styles.note}>{solution.boundary}</LP>
         <LP className={styles.caption}>{solution.media.caption}</LP>
-        <Link className={styles.action} href={solution.detailHref ?? `/solutions#${solution.id}`}>了解方案</Link>
+        <Link intent="ordinary" className={styles.action} href={solution.detailHref ?? `/solutions#${solution.id}`}>了解方案</Link>
       </>,
     };
   });
   return <section id="home-solutions" className={styles.section} aria-labelledby="home-solutions-title">
-    <div className={styles.heading}><LH2 id="home-solutions-title">解决方案</LH2><Link href="/solutions">查看全部方案 <LSpan aria-hidden="true">→</LSpan></Link></div>
+    <div className={styles.heading}><LH2 id="home-solutions-title">解决方案</LH2><Link intent="ordinary" href="/solutions">查看全部方案 <LSpan aria-hidden="true">→</LSpan></Link></div>
     <LayoutGrid namespace="home-solutions" cards={cards}/>
   </section>;
 }

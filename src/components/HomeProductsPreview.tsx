@@ -29,12 +29,12 @@ export default function HomeProductsPreview() {
         <LP className={styles.positioning}>{product.subtitle}</LP>
         <LP className={styles.note}>{product.detail?.statusNote ?? prototypeNote}</LP>
         <LP className={styles.caption}>{caption}</LP>
-        <Link className={styles.action} href={`/products/${product.slug}`}>了解产品</Link>
+        <Link intent="ordinary" className={styles.action} href={`/products/${product.slug}`}>了解产品</Link>
       </>,
     };
   });
   return <section id="home-products" className={styles.section} aria-labelledby="home-products-title">
-    <div className={styles.heading}><LH2 id="home-products-title">产品</LH2><Link href="/products">查看全部商品 <LSpan aria-hidden="true">→</LSpan></Link></div>
+    <div className={styles.heading}><LH2 id="home-products-title">产品</LH2><Link intent="ordinary" href="/products">查看全部商品 <LSpan aria-hidden="true">→</LSpan></Link></div>
     <LayoutGrid namespace="home-products" cards={cards}/>
   </section>;
 }

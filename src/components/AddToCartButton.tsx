@@ -1,8 +1,8 @@
 "use client";
 
-import { LDiv, LP } from "@/i18n/Elements";
+import { LButton, LDiv, LP } from "@/i18n/Elements";
 
-import { ShimmerButton } from "@/components/ui/shimmer-button";
+
 import { Check, ShoppingCart } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
@@ -20,6 +20,7 @@ export default function AddToCartButton({ product }: { product: Product }) {
   const [added, setAdded] = useState(false);
   const [notice, setNotice] = useState("");
   const busy = useRef(false);
+  const [pending, setPending] = useState(false);
   useEffect(() => {
     if (!authReady || currentUser?.role !== "USER") return;
     let active = true;
@@ -35,10 +36,11 @@ export default function AddToCartButton({ product }: { product: Product }) {
       return;
     }
     busy.current = true;
+    setPending(true);
     try { await addCartProduct(product.id, currentUser.id); setAdded(true); setNotice(""); }
     catch { setAdded(false); setNotice("加入失败，请重试。"); }
-    finally { busy.current = false; }
+    finally { busy.current = false; setPending(false); }
   };
   if (!getProductPolicy(product).canAddToCart) return null;
-  return <LDiv><ShimmerButton type="button" disabled={!authReady} onClick={add}>{added ? <Check size={16} /> : <ShoppingCart size={16} />}{added ? "已加入购物车" : "加入购物车"}</ShimmerButton>{notice && <LP role="status" className="mt-3 text-sm">{notice}</LP>}</LDiv>;
+  return <LDiv><LButton intent="purchase" className="inline-flex items-center justify-center gap-2 whitespace-nowrap px-6 py-3 text-sm font-semibold" type="button" disabled={!authReady || pending} aria-busy={pending} onClick={add}>{added ? <Check size={16} /> : <ShoppingCart size={16} />}{added ? "已加入购物车" : "加入购物车"}</LButton>{notice && <LP role="status" className="mt-3 text-sm">{notice}</LP>}</LDiv>;
 }

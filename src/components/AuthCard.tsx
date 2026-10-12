@@ -14,6 +14,6 @@ export default function AuthCard({ mode, switching = false }: { mode: "login" | 
     <BrandLogo variant="stacked" size="md"/>
     <LH1 className="mt-8 text-2xl font-semibold">使用验证码登录 ONE-G</LH1>
     <LP className="my-6 text-sm leading-6 text-neutral-400">普通用户改用手机号或邮箱验证码登录，无需密码。正式认证和首次登录建号服务尚未开放。</LP>
-    <Link href="/login" className="underline">返回登录</Link>
+    <Link intent="ordinary" href="/login" >返回登录</Link>
   </LSection></LDiv>;
 }

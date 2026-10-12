@@ -3,12 +3,12 @@
 .heading {display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:24px;}
 .heading h2 {font-size:clamp(28px,3vw,40px);line-height:1.2;font-weight:650;letter-spacing:-.035em;margin:0;}
 .heading > a {font-size:14px;line-height:1.5;}
-.heading > a:hover {text-decoration:underline;text-underline-offset:4px;}
+.heading > a:hover {text-decoration:none;text-underline-offset:4px;}
 .positioning {font-size:17px;line-height:1.7;margin:12px 0;}
 .note {font-size:14px;line-height:1.8;margin:12px 0;color:var(--text-muted);}
 .caption {font-size:12px;line-height:1.7;color:var(--text-muted);margin:12px 0 20px;}
 .action {display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 22px;border-radius:28px;background:var(--button-primary-bg);color:var(--button-primary-text);font-size:14px;}
-.action:hover {text-decoration:underline;text-underline-offset:4px;}
+.action:hover {text-decoration:none;text-underline-offset:4px;}
 .section :focus-visible {outline:2px solid var(--accent);outline-offset:4px;}
 @media(max-width:899px) {.section {width:calc(100% - 40px);padding-top:48px;}.section:last-child {padding-bottom:56px;}}
 @media(max-width:599px) {.section {width:calc(100% - 32px);padding-top:40px;}.heading {gap:12px;margin-bottom:20px;}.heading > a {font-size:12px;}.positioning {font-size:15px;}.note {font-size:13px;}}

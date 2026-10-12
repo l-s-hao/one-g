@@ -80,3 +80,7 @@ flowchart TD
 认证、商品/订单数据库、服务端报价、支付通知、需求提交和管理员 CRUD 均是待完成项。现有 TypeScript service 接口为后续接入提供边界，但目前没有真实服务接入证据。[历史后台规划](backend-plan.md) 与 [历史数据库规划](database-plan.md) 仅供设计参考，不列作当前技术栈。
 
 图片导航使用 Header 局部状态和 `HeaderImageMenu`，从公开商品集合与方案集合派生入口；React 管理缩略图/网格布局，GSAP Flip 仅控制导航链接外层，完整内层表面复用共享 CSS hover。商品导航分类状态独立于商品中心和 URL，仅按原商品 category 筛选当前面板。其选择器、ID 和生命周期与商品筛选隔离。详见 [图片导航](NAVIGATION.md)。
+
+## 按钮装饰边界
+
+本地化基础元素通过显式 `intent` 接入共享装饰结构，统一 CSS 控制鼠标与减少动画。翻译先于包装；按钮内部装饰不控制外层 Motion/Flip transform。购买边框透明裁切，避免依赖外部表面颜色。详见 [BUTTON_EFFECTS.md](BUTTON_EFFECTS.md)。

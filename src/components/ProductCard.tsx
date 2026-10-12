@@ -26,8 +26,8 @@ export default function ProductCard({ product, hidden = false, flipId }: { produ
       <LDiv className={`product-card-price ${styles.bottom}`}>
         <LP>{formatPrice(product.price)}</LP>
         <LDiv className={styles.actions}>
-          <Link href={detailHref}>了解更多 <LSpan aria-hidden="true">→</LSpan></Link>
-          {offering && <Link href={offering.purchaseHref}>{offering.purchaseLabel}</Link>}
+          <Link intent="ordinary" href={detailHref}>了解更多 <LSpan aria-hidden="true">→</LSpan></Link>
+          {offering && <Link intent="purchase" href={offering.purchaseHref}>{offering.purchaseLabel}</Link>}
         </LDiv>
       </LDiv>
     </LDiv>

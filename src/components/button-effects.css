@@ -1,0 +1,42 @@
+/* Ordinary outline drawing: user-provided Uiverse.io CSS by Cornerstone-04.
+   Purchase notched outline: user-provided Uiverse.io CSS by cssbuttons-io.
+   Adapted to ONE-G tokens, existing dimensions, explicit intent and accessibility. */
+:where([data-button-intent]) {position:relative;isolation:isolate;}
+button,[data-button-intent],[data-button-intent]:is(:hover,:active,:visited,:focus) {text-decoration:none !important;}
+[data-button-intent] > .action-text {position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:inherit;gap:inherit;}
+.action-decoration {position:absolute;inset:0;pointer-events:none;border-radius:inherit;}
+[data-button-intent="ordinary"] > .action-decoration {overflow:hidden;}
+[data-button-intent="ordinary"] > .action-decoration::before,
+[data-button-intent="ordinary"] > .action-decoration::after {position:absolute;content:"";left:0;width:100%;height:4px;box-sizing:border-box;border-color:transparent;border-style:solid;pointer-events:none;}
+[data-button-intent="ordinary"] > .action-decoration::before {bottom:0;border-width:0 0 4px 4px;transform:translateX(100%);}
+[data-button-intent="ordinary"] > .action-decoration::after {top:0;border-width:4px 4px 0 0;transform:translateX(-100%);}
+/* Transparent notches, rather than opaque patches, also work on glass surfaces.
+   The key elements keep the reference structure; the outline is clipped at their positions. */
+[data-button-intent="purchase"] {border-color:transparent !important;border-radius:0 !important;background:transparent !important;color:var(--text) !important;}
+[data-button-intent="purchase"] > .action-decoration {border:2px solid currentColor;border-radius:0;clip-path:polygon(0 0, .625rem 0, .625rem 2px, 2.1875rem 2px, 2.1875rem 0, 100% 0, 100% 100%, calc(100% - .625rem) 100%, calc(100% - .625rem) calc(100% - 2px), calc(100% - 1.25rem) calc(100% - 2px), calc(100% - 1.25rem) 100%, calc(100% - 1.875rem) 100%, calc(100% - 1.875rem) calc(100% - 2px), calc(100% - 3.4375rem) calc(100% - 2px), calc(100% - 3.4375rem) 100%, 0 100%);}
+[data-button-intent="purchase"] > .action-text {padding-left:1.9375rem;}
+[data-button-intent="purchase"] > .action-text::before {content:"";position:absolute;left:0;top:50%;height:2px;width:1.5625rem;background:currentColor;transform:translateY(-50%);}
+[data-button-intent="purchase"] .top-key,[data-button-intent="purchase"] .bottom-key-1,[data-button-intent="purchase"] .bottom-key-2 {position:absolute;height:2px;pointer-events:none;}
+[data-button-intent="purchase"] .top-key {top:-2px;left:.625rem;width:1.5625rem;}
+[data-button-intent="purchase"] .bottom-key-1 {bottom:-2px;right:1.875rem;width:1.5625rem;}
+[data-button-intent="purchase"] .bottom-key-2 {bottom:-2px;right:.625rem;width:.625rem;}
+[data-button-intent]:focus-visible {outline:2px solid var(--accent);outline-offset:4px;}
+@media(hover:hover) and (pointer:fine) {
+ [data-button-intent="ordinary"] > .action-decoration {transition:box-shadow .2s ease;}
+ [data-button-intent="ordinary"]:not(:disabled):not([aria-disabled="true"]):not([aria-busy="true"]):hover > .action-decoration {box-shadow:0 5px 15px color-mix(in srgb,var(--text) 14%,transparent);}
+ [data-button-intent="ordinary"]:not(:disabled):not([aria-disabled="true"]):not([aria-busy="true"]):hover > .action-decoration::before {border-color:currentColor;height:100%;transform:translateX(0);transition:transform .3s linear,height .3s linear .3s;}
+ [data-button-intent="ordinary"]:not(:disabled):not([aria-disabled="true"]):not([aria-busy="true"]):hover > .action-decoration::after {border-color:currentColor;height:100%;transform:translateX(0);transition:transform .3s linear,height .3s linear .5s;}
+ [data-button-intent="purchase"] {transition:background-color .3s ease-in-out,color .3s ease-in-out;}
+ [data-button-intent="purchase"] > .action-decoration {transition:clip-path .5s ease-out;}
+ [data-button-intent="purchase"] > .action-text {transition:transform .3s ease-in-out;}
+ [data-button-intent="purchase"] > .action-text::before {transition:width .3s linear;}
+ [data-button-intent="purchase"]:not(:disabled):not([aria-disabled="true"]):not([aria-busy="true"]):hover {background:var(--text) !important;color:var(--bg) !important;}
+ [data-button-intent="purchase"]:not(:disabled):not([aria-disabled="true"]):not([aria-busy="true"]):hover > .action-text {transform:translateX(-.5rem);}
+ [data-button-intent="purchase"]:not(:disabled):not([aria-disabled="true"]):not([aria-busy="true"]):hover > .action-text::before {width:.9375rem;}
+ [data-button-intent="purchase"]:not(:disabled):not([aria-disabled="true"]):not([aria-busy="true"]):hover > .action-decoration {clip-path:polygon(0 0, 0 0, 0 2px, 0 2px, 0 0, 100% 0, 100% 100%, 100% 100%, 100% calc(100% - 2px), 100% calc(100% - 2px), 100% 100%, 100% 100%, 100% calc(100% - 2px), 100% calc(100% - 2px), 100% 100%, 0 100%);}
+}
+@media(prefers-reduced-motion:reduce) {
+ [data-button-intent], [data-button-intent] > .action-decoration, [data-button-intent] > .action-text, [data-button-intent] > .action-text::before {transition:none;}
+ [data-button-intent="ordinary"]:hover > .action-decoration::before,[data-button-intent="ordinary"]:hover > .action-decoration::after {transition:none !important;transform:none !important;height:100%;}
+ [data-button-intent="purchase"]:hover > .action-text {transform:none !important;}
+}

@@ -18,7 +18,7 @@ export default function HomeProductShowcase({ product, heroImageIndex, solutionH
       <LH1 id={titleId}>{product.name}</LH1>
       <LP>{product.subtitle}</LP>
       <LDiv className={styles.actions}>
-        {solutionHref ? <><Link href={solutionHref}>了解方案</Link><SupportButton inline textOnly label="联系我们" entry="solutions"/></> : links && <><Link href={links.overviewHref}>了解产品</Link><Link href={links.purchaseHref}>购买</Link></>}
+        {solutionHref ? <><Link intent="ordinary" href={solutionHref}>了解方案</Link><SupportButton inline textOnly label="联系我们" entry="solutions"/></> : links && <><Link intent="ordinary" href={links.overviewHref}>了解产品</Link><Link intent="purchase" href={links.purchaseHref}>购买</Link></>}
       </LDiv>
     </LDiv>
     <LFigure>
