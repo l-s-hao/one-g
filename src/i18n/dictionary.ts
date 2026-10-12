@@ -1,4 +1,33 @@
+// Shared copy for the home and About brand presentation; translations stay below.
+export const brandCopy = {
+  slogan: "一智通万机",
+  positioning: "具身智能开发与应用平台",
+  positioningLine: "万机 — 具身智能开发与应用平台",
+  vision: "让更多人用得起、用得好机器人，让机器人真正帮人干活。",
+  explanation: "把模型、软件和硬件接起来，让客户不必每次从头开发。",
+} as const;
+
 export const english = {
+  [brandCopy.slogan]: "One Intelligence, Connecting Countless Machines.",
+  [brandCopy.positioning]: "Embodied AI Development and Application Platform",
+  [brandCopy.positioningLine]: "ONE-G — Embodied AI Development and Application Platform",
+  [brandCopy.vision]: "Enable more people to afford and use robots effectively, so robots can truly help people get work done.",
+  [brandCopy.explanation]: "Connect models, software, and hardware, so customers do not have to start from scratch every time.",
+
+  "产品": "Products",
+  "查看全部商品": "View all products",
+  "查看全部方案": "View all solutions",
+  "展开预览": "Expand preview",
+  "关闭预览": "Close preview",
+  "点击展开": "Click to expand",
+  "商品资料用于原型展示；型号、参数与交付信息待确认。": "Product information is for prototype presentation; models, specifications and delivery details require confirmation.",
+  "视觉硬件实拍 · 型号与商品对应关系待确认。": "Vision hardware photograph · The model and its correspondence to this product require confirmation.",
+  "现有机械臂渲染图 · 产品型号与交付信息待确认。": "Existing arm rendering · Product model and delivery details require confirmation.",
+
+  "让机器人真正帮人干活。": "Let robots really help people work.",
+  "暂停拼贴动画": "Pause collage animation",
+  "继续拼贴动画": "Resume collage animation",
+  "已减少动画": "Reduced motion",
   "/ 深度定制": "/ Custom Engineering",
   "/ 解决方案": "/ Solutions",
   "01 检查连接与环境": "01 Check connections and environment",

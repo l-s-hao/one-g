@@ -1,23 +1,23 @@
 .shell { --admin-panel: var(--surface); --admin-ink: var(--text); min-height: 100dvh; background: var(--bg); color: var(--text); }
-.header { display: flex; align-items: center; gap: 24px; min-height: 72px; padding: 12px clamp(20px, 4vw, 64px); border-bottom: 1px solid #303238; }
-.header > span { color: #a8adb7; font-size: 11px; letter-spacing: .18em; }
-.prototype { padding: 12px 20px; border-bottom: 1px solid #25282d; color: #a8adb7; text-align: center; font-size: 12px; line-height: 1.6; }
-.login { width: min(420px, calc(100% - 40px)); margin: 64px auto 0; padding: 28px; border: 1px solid #3b4048; border-radius: 6px; background: #111318; }
+.header { display: flex; align-items: center; gap: 24px; min-height: 72px; padding: 12px clamp(20px, 4vw, 64px); border-bottom: 1px solid var(--border); }
+.header > span { color: var(--text-muted); font-size: 11px; letter-spacing: .18em; }
+.prototype { padding: 12px 20px; border-bottom: 1px solid var(--border); color: var(--text-muted); text-align: center; font-size: 12px; line-height: 1.6; }
+.login { width: min(420px, calc(100% - 40px)); margin: 64px auto 0; padding: 28px; border: 1px solid var(--border-strong); border-radius: 6px; background: var(--surface); }
 .shell h1 { font-size: 24px; font-weight: 600; }
 .shell h2 { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
 .login form { margin-top: 28px; }
-.login label { display: block; margin: 18px 0 8px; color: #ccd0d6; font-size: 14px; }
-.login input { width: 100%; min-height: 44px; padding: 10px 12px; background: #080a0d; color: #ededed; border: 1px solid #444a54; border-radius: 4px; }
-.navigation button, .cards button, .login button { min-height: 44px; padding: 10px 16px; border: 1px solid #444a54; border-radius: 4px; cursor: pointer; }
+.login label { display: block; margin: 18px 0 8px; color: var(--text); font-size: 14px; }
+.login input { width: 100%; min-height: 44px; padding: 10px 12px; background: var(--bg); color: var(--text); border: 1px solid var(--border-strong); border-radius: 4px; }
+.navigation button, .cards button, .login button { min-height: 44px; padding: 10px 16px; border: 1px solid var(--border-strong); border-radius: 4px; cursor: pointer; }
 .navigation button:hover, .navigation button[aria-pressed="true"] { background: var(--admin-panel); color: var(--admin-ink); border-color: var(--accent); }
 .cards button:hover { border-color: currentColor; background: rgba(var(--ink-rgb, 255,255,255),.06); }
 .shell button:disabled { opacity: .6; cursor: wait; }
-.login button { width: 100%; margin-top: 24px; background: #e2e5e9; color: #111318; font-weight: 600; }
-.login button:hover { background: #fff; }
+.login button { width: 100%; margin-top: 24px; background: var(--button-primary-bg); color: var(--button-primary-text); font-weight: 600; }
+.login button:hover { background: color-mix(in srgb,var(--accent) 88%,var(--text)); }
 .shell :focus-visible { outline: 2px solid var(--focus-color); outline-offset: 3px; }
 .message { min-height: 24px; margin-top: 12px; color: var(--color-error); font-size: 13px; }
 .muted { color: var(--ink-muted, var(--text-muted)); font-size: 14px; line-height: 1.7; overflow-wrap: anywhere; }
-.demo { margin-top: 24px; padding-top: 16px; border-top: 1px solid #303238; color: #929aa7; font-size: 12px; line-height: 1.8; }
+.demo { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 12px; line-height: 1.8; }
 .dashboard { max-width: 1280px; margin: auto; padding: 32px 24px; }
 .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
 .navigation { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 32px; }

@@ -27,7 +27,7 @@
 .searchResults a {display:inline-block;padding-block:8px;font-size:14px;}
 .header :focus-visible {outline:2px solid var(--text);outline-offset:3px;border-radius:3px;}
 .mobilePanel {display:none;}
-@supports(backdrop-filter:blur(16px)) { .header {background:rgba(247,244,238,.88);backdrop-filter:blur(16px);} .header[data-open="true"] {background:var(--bg);} }
+@supports(backdrop-filter:blur(16px)) { .header {background:rgba(var(--primary-rgb),.88);backdrop-filter:blur(16px);} .header[data-open="true"] {background:var(--bg);} }
 @media(max-width:1023px) {
  .navigation,.header .user,.desktopPanel {display:none;}
  .row {gap:12px;}
@@ -49,11 +49,7 @@
  .actions {gap:4px;}
  .actions a,.actions button {min-width:36px;}
 }
-@media(prefers-reduced-motion:no-preference) {
- .panel {transition:opacity .24s ease,transform .24s ease,display .24s allow-discrete;}
- .panel[hidden] {opacity:0;transform:translateY(-4px);pointer-events:none;}
- .header[data-open="true"] .panel[hidden] {transition:none;}
- @starting-style { .panel:not([hidden]) {opacity:0;transform:translateY(-4px);} }
-}
+.header a,.header button {transition:color 160ms ease;}
+@media(prefers-reduced-motion:reduce) {.header a,.header button {transition:none;}}
 
 @media(min-width:1024px) and (max-width:1199px){.navigation {gap:14px;}.row {gap:14px;}}

@@ -1,4 +1,4 @@
-/* Fixed ONE-G standard palette and existing utility adapters. */
+/* ONE-G light/dark standard palette and existing utility adapters. */
 :root {
  --site-header-height:44px; --site-header-width:1040px; --site-header-gutter:24px;
  --color-primary:#2B2F36; --color-secondary:#E9E5DE;
@@ -10,7 +10,7 @@
  --button-dark-bg:#2B2F36; --button-dark-text:#FFFFFF;
  --effect-rgb:23,25,29; --primary-rgb:247,244,238; --surface-ink-rgb:23,25,29;
  --effect-color:#3A73D9; --effect-dim:#555B65; --logo-shine:#17191D; --shimmer-bg:#3A73D9;
- --color-error:#B42318;
+ --color-error:#B42318; --collage-ice:#DCE7FA;
 }
 
 
@@ -144,3 +144,17 @@ html :is(.auth-input, input.bg-black, textarea.bg-black) {border-color:var(--bor
 html .product-visual {background:var(--surface-2);}
 
 @media(max-width:1023px) { :root { --site-header-height:48px; --site-header-gutter:16px; } }
+
+html.dark {
+ color-scheme:dark;
+ --color-primary:#1F2329; --color-secondary:#2A2F36;
+ --bg:#0E0F12; --surface:#161A1F; --surface-2:#2A2F36;
+ --text:#E8EAED; --text-on-surface:#E8EAED; --text-on-surface-2:#E8EAED; --text-muted:#B0B7C3;
+ --border:#4C5562; --border-strong:#727D8C;
+ --button-secondary-text:#E8EAED; --button-dark-bg:#1F2329;
+ --effect-rgb:232,234,237; --primary-rgb:14,15,18; --surface-ink-rgb:232,234,237;
+ --color-error:#FF8A80; --collage-ice:#243751;
+}
+html .product-specs,html .about-page section {border-color:var(--border);}
+html .product-specs dt,html .product-specs p,html .about-page > p,html .about-page section p {color:var(--text-muted);}
+html .product-description::before {color:var(--text);}

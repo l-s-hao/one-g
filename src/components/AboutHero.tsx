@@ -6,6 +6,7 @@ import { LDiv, LH1, LH2, LP, LSection } from "@/i18n/Elements";
 import { useSyncExternalStore } from "react";
 import BrandLogo from "./BrandLogo";
 import ScrollExpand from "./ScrollExpand/ScrollExpand";
+import { brandCopy } from "@/i18n/dictionary";
 import styles from "./AboutHero.module.css";
 
 const mobileQuery = "(max-width: 767px)";
@@ -37,7 +38,7 @@ export default function AboutHero() {
       <LDiv className={styles.expanded}>
         <BrandLogo variant="stacked" size="lg" className={styles.logo} />
         <LH2>ONE-G / 万机智能</LH2>
-        <LP>机器人开发与应用平台</LP>
+        <LP>{brandCopy.slogan}</LP>
       </LDiv>
     </ScrollExpand>
   </LSection>;

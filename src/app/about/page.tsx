@@ -3,6 +3,7 @@ import AboutVision from "@/components/AboutVision";
 import LanyardBrandSection from "@/components/LanyardBrandSection";
 import AboutHero from "@/components/AboutHero";
 import SupportButton from "@/components/SupportButton";
+import { brandCopy } from "@/i18n/dictionary";
 import styles from "./about.module.css";
 
 export default function AboutPage() {
@@ -23,8 +24,8 @@ export default function AboutPage() {
         <LH2 id="positioning-title">我们的定位</LH2>
       </LHeader>
       <LDiv className={styles.positioning}>
-        <LH3>机器人开发与应用平台</LH3>
-        <LP className={styles.positioningBody}>做机器人开发与应用平台，把模型、软件和硬件接起来，让客户不必每次从头开发。</LP>
+        <LH3>{brandCopy.positioning}</LH3>
+        <LP className={styles.positioningBody}>{brandCopy.explanation}</LP>
         <LDiv className={styles.connection} role="group" aria-label="模型、软件和硬件的连接关系">
           <LUl className={styles.connectionNodes}>
             <LLi>模型</LLi><LLi>软件</LLi><LLi>硬件</LLi>

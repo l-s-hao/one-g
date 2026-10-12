@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import LocaleProvider from "@/i18n/LocaleProvider";
 import AuthProvider from "@/components/AuthProvider";
+import ThemeProvider from "@/components/ThemeProvider";
 import SiteShell from "@/components/SiteShell";
 import "./globals.css";
 import "./colors.css";
@@ -20,9 +21,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="zh-CN">
+    <html lang="zh-CN" suppressHydrationWarning>
       <body className="min-h-screen bg-black text-white antialiased">
-        <LocaleProvider><AuthProvider><SiteShell>{children}</SiteShell></AuthProvider></LocaleProvider>
+        <ThemeProvider><LocaleProvider><AuthProvider><SiteShell>{children}</SiteShell></AuthProvider></LocaleProvider></ThemeProvider>
       </body>
     </html>
   );
