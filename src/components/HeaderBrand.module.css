@@ -1,16 +1,16 @@
-.header {position:sticky;top:0;z-index:50;background:var(--bg);color:var(--text);border-bottom:1px solid var(--border);}
+.header {--site-header-width:1120px;position:sticky;top:0;z-index:50;background:var(--bg);color:var(--text);border-bottom:1px solid var(--border);}
 .row,.panelInner {width:100%;max-width:var(--site-header-width);margin-inline:auto;padding-inline:var(--site-header-gutter);}
 .row {height:calc(var(--site-header-height) - 1px);display:flex;align-items:center;justify-content:space-between;gap:24px;}
 .brand {display:inline-flex;align-items:center;min-height:calc(var(--site-header-height) - 1px);background:transparent;flex-shrink:0;}
 .brand .desktopLogo[data-brand-logo] {height:28px;width:auto;}
 .brand .mobileLogo[data-brand-logo] {display:none;}
-.navigation {display:flex;align-items:center;gap:28px;font-size:13px;font-weight:400;}
+.navigation {position:relative;isolation:isolate;display:flex;align-items:center;gap:28px;font-size:13px;font-weight:400;}
 .navItem {display:flex;align-items:center;gap:2px;}
 .navItem > a {display:flex;align-items:center;min-height:calc(var(--site-header-height) - 1px);padding-block:0;white-space:nowrap;}
 .header button {display:inline-flex;align-items:center;justify-content:center;background:transparent;color:inherit;border:0;min-height:36px;min-width:28px;}
 .header button[aria-expanded="true"] svg {stroke-width:2.5;}
-.header a:hover,.header button:hover {color:var(--text);text-decoration:underline;text-underline-offset:5px;}
-.header a[aria-current="page"] {text-decoration:underline;text-underline-offset:6px;}
+.header a:hover,.header button:hover {color:var(--text);}
+.header a,.header button {text-decoration:none;}
 .actions {display:flex;align-items:center;gap:6px;}
 .actions a,.actions button {display:inline-flex;align-items:center;justify-content:center;min-height:calc(var(--site-header-height) - 1px);min-width:32px;}
 .header .menuButton {display:none;}
@@ -29,7 +29,7 @@
 .mobilePanel {display:none;}
 @supports(backdrop-filter:blur(16px)) { .header {background:rgba(var(--primary-rgb),.88);backdrop-filter:blur(16px);} .header[data-open="true"] {background:var(--bg);} }
 @media(max-width:1023px) {
- .navigation,.header .user,.desktopPanel {display:none;}
+ .navigation,.header .user,.desktopPanel,.header .moreButton,.settingsAnchor {display:none;}
  .row {gap:12px;}
  .header .menuButton {display:inline-flex;}
  .mobilePanel:not([hidden]) {display:block;}
@@ -52,4 +52,23 @@
 .header a,.header button {transition:color 160ms ease;}
 @media(prefers-reduced-motion:reduce) {.header a,.header button {transition:none;}}
 
-@media(min-width:1024px) and (max-width:1199px){.navigation {gap:14px;}.row {gap:14px;}}
+
+
+.settingsAnchor {position:absolute;top:calc(100% + 1px);left:50%;transform:translateX(-50%);width:100%;max-width:var(--site-header-width);padding-inline:var(--site-header-gutter);pointer-events:none;}
+.settingsPanel {position:relative;margin-left:auto;width:220px;max-width:100%;padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);pointer-events:auto;}
+.settingRow {display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:40px;font-size:13px;}
+.settingRow button {min-width:36px;min-height:36px;}
+.mobileSettings {border-top:1px solid var(--border);padding-top:12px;}
+@media(max-width:1023px) {.settingsAnchor {display:none;}}
+
+.navigationHighlight {position:absolute;left:0;top:4px;height:35px;width:0;transform:translateX(0);opacity:0;pointer-events:none;z-index:-1;border-radius:3px;background:var(--surface-2);transition:transform .5s cubic-bezier(.33,.83,.99,.98),width .5s cubic-bezier(.33,.83,.99,.98),opacity 150ms ease;}
+@media(prefers-reduced-motion:reduce) {.navigationHighlight {transition:none;}}
+@media(hover:none),(pointer:coarse),(max-width:1023px) {.navigationHighlight {display:none;}}
+
+.navigation .navItem > a,.navigation .navItem > button {text-decoration:none;}
+.navigation .navItem > button {font:inherit;min-height:calc(var(--site-header-height) - 1px);padding:0;white-space:nowrap;}
+.imagePanel {overflow:hidden;}
+.imagePanel .panelInner {padding-block:16px 20px;}
+.mobileHeading > button {width:100%;justify-content:flex-start;min-height:52px;font:inherit;text-decoration:none;}
+
+.header .settingsPanel button[aria-pressed],.header .mobileSettings button[aria-pressed] {text-decoration:none;}

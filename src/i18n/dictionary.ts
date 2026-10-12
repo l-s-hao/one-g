@@ -8,6 +8,13 @@ export const brandCopy = {
 } as const;
 
 export const english = {
+  "概念图 · 暂未开放销售": "Concept image · Sales not open",
+  "图片待补": "Image pending",
+  "型号待确认": "Model to be confirmed",
+  "产品图待确认": "Product image to be confirmed",
+  "更多设置": "More settings",
+  "语言": "Language",
+  "外观": "Appearance",
   [brandCopy.slogan]: "One Intelligence, Connecting Countless Machines.",
   [brandCopy.positioning]: "Embodied AI Development and Application Platform",
   [brandCopy.positioningLine]: "ONE-G — Embodied AI Development and Application Platform",

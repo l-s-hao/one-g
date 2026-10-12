@@ -98,3 +98,7 @@ node --test tests/i18n-dictionary.test.cjs
 | 主题圆形动画不播放 | 检查实际 startViewTransition 支持和减少动画偏好；直接换色是预期回退 |
 | 吊牌不显示 3D / 浏览器测试无法启动 | 核对 WebGL、浏览器驱动与可执行路径；保留静态回退，不修改业务功能来迁就测试环境 |
 | 旧测试失败 | 核对测试对应的历史架构与哈希基线，再判断是否属于当前功能回归 |
+
+图片导航浏览器回归：`tests/header-image-navigation.browser.cjs`。沿用可选的外部 Playwright 环境，通过 `ONE_G_PLAYWRIGHT` 指定模块位置、`ONE_G_BROWSER` 指定 Chromium、`ONE_G_TEST_URL` 指定带 basePath 的站点地址，不新增生产或开发依赖。测试覆盖全量链接、Flip 中间帧、关闭、语言/主题及手机布局。
+
+导航分类与悬停反馈回归：`tests/header-menu-feedback.browser.cjs`，复用上述 Playwright 环境变量，检查分类顺序/数量、URL 隔离、面板高度、4px 浮起与边缘稳定、无下划线、键盘焦点、减少动画和模拟触屏。

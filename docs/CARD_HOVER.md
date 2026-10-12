@@ -22,7 +22,7 @@
 
 About 正文与用户中心目前是分区/文字入口，没有对应普通说明或入口卡片；更多推荐只有“暂无”说明。因此未增加卡片。共享 ProductCard 的调用会自然使用相同规范，但不声称当前存在推荐商品卡。
 
-Header 下拉、登录整表单、客服弹窗/表单、Footer、普通按钮和输入框、首页滚动装饰拼贴、About ScrollExpand 品牌卡及 WebGL 吊牌、展开 Layout Grid 面板均保持原交互。
+Header 下拉面板容器（其中普通图片卡片除外）、登录整表单、客服弹窗/表单、Footer、普通按钮和输入框、首页滚动装饰拼贴、About ScrollExpand 品牌卡及 WebGL 吊牌、展开 Layout Grid 面板均保持原交互。
 
 ## 不改变布局与选中状态
 
@@ -48,10 +48,12 @@ Header 下拉、登录整表单、客服弹窗/表单、Footer、普通按钮和
 - Chromium：上述7类公开页面的日间/夜间悬停与复位；稳定外层不移动，内层约-4px；指针停在底边500ms无反复抖动；套餐仍可选择并保留 inset；纯触屏点击及减少动画不抬升。
 - GSAP：悬停时切换分类、连续快速切换、返回全部；动画期间新增位移停用，完成后无重叠、残余动画标记或永久偏移。
 - Layout Grid：两组悬停、展开/关闭、回位恢复；既有1280×800与390×844回归检查包含响应式、共享布局中间帧、几何回位、键盘/焦点、全部链接、中英文、两区协调、减少动画和资源/水合错误检查。
-- 额外检查：两组 Grid 直接交接、展开后立即 Escape 中断、减少动画偏好于挂载前启用时关闭，悬停停用标记均正常解除；Header/Footer/Hero/About 没有新增普通卡片标记。
+- 额外检查：两组 Grid 直接交接、展开后立即 Escape 中断、减少动画偏好于挂载前启用时关闭，悬停停用标记均正常解除；Footer/Hero/About 没有新增普通卡片标记；Header 后续接入图片卡片的情况见下文。
 - 隔离的临时源码副本开发预览：显式启用虚构 Mock，检查管理员6卡点击/回Dashboard、购物车条目悬停和数量修改；用户中心没有为本效果新增卡片。没有修改主仓库 Mock 开关或中断现有开发服务。
 - lint、`npx tsc --noEmit`、build 通过；静态导出38页。没有新 npm 依赖、配置或主题修改。
 
 回归脚本：[公开卡片检查](../tests/card-hover.browser.cjs)、[受保护卡片检查](../tests/card-hover-protected.browser.cjs)、[Grid 交接检查](../tests/card-hover-coordination.browser.cjs)，需外部 Playwright 工具和实际浏览器；后者须在显式 Mock 开发预览上运行，不能对生产静态站假装登录。
 
 本次没有声称在真实触屏硬件或 Firefox 上验收；触屏检查使用 Chromium 的触屏上下文。未提交或推送。
+
+导航图片卡片也已接入共享反馈：`HeaderImageMenu` 的真实 Link 是稳定宿主/Flip 节点，完整内层表面浮起；MenuToGrid 动画期间复用禁用标记，图片菜单、Header 分隔线与按钮本身不浮起。详见 [导航说明](NAVIGATION.md)。
