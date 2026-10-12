@@ -71,7 +71,7 @@ node --test tests/i18n-dictionary.test.cjs
 
 这里只确认命令对应真实文件，不表示本次文档任务重新运行并通过了所有测试。部分旧测试校验历史文件哈希/旧功能，不能用“所有脚本通过”代替当前入口验收。`tests/legacy/` 及旧主题/展示测试尤其需要核对范围。
 
-`tests/home-previews.browser.cjs`、`theme.browser.cjs`、`theme-state.browser.cjs` 等需要外部 Playwright 工具及实际浏览器。Playwright **不在 package.json 依赖中**；部分脚本仍含开发机浏览器路径，需检查脚本支持的环境变量/可执行文件位置后运行，不应声称全新安装可直接执行全部浏览器测试。本次不修改依赖或测试脚本。
+`tests/card-hover.browser.cjs`、`tests/home-previews.browser.cjs`、`theme.browser.cjs`、`theme-state.browser.cjs` 等需要外部 Playwright 工具及实际浏览器。Playwright **不在 package.json 依赖中**；部分脚本仍含开发机浏览器路径，需检查脚本支持的环境变量/可执行文件位置后运行，不应声称全新安装可直接执行全部浏览器测试。本次不修改依赖或测试脚本。
 
 ## 本地静态预览
 

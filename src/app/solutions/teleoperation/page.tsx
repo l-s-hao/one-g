@@ -1,3 +1,4 @@
+import CardHover from "@/components/CardHover";
 import { LA, LArticle, LDd, LDiv, LDl, LDt, LFigcaption, LFigure, LH1, LH2, LH3, LLi, LP, LSection, LSmall, LUl } from "@/i18n/Elements";
 import type { Metadata } from "next";
 import { LocalizedImage as Image } from "@/i18n/Elements";
@@ -29,7 +30,7 @@ export default function TeleoperationPage() {
       {detail.sections?.map(section => <LSection id={section.id} key={section.id} className={styles.section} aria-labelledby={`${section.id}-title`}>
         <LP className={styles.eyebrow}>{section.eyebrow}</LP><LH2 id={`${section.id}-title`}>{section.title}</LH2>
         {section.paragraphs?.map(text => <LP key={text}>{text}</LP>)}
-        {section.cards && <LDiv className={styles.grid}>{section.cards.map(card => <LDiv className={styles.card} key={card.title}><LH3>{card.title}</LH3><LP>{card.description}</LP>{card.items && <LUl>{card.items.map(item => <LLi key={item}>{item}</LLi>)}</LUl>}</LDiv>)}</LDiv>}
+        {section.cards && <LDiv className={styles.grid}>{section.cards.map(card => <CardHover key={card.title}><LDiv data-card-hover-surface className={styles.card}><LH3>{card.title}</LH3><LP>{card.description}</LP>{card.items && <LUl>{card.items.map(item => <LLi key={item}>{item}</LLi>)}</LUl>}</LDiv></CardHover>)}</LDiv>}
         {section.media && <LDiv className={styles.media}>{section.media.map(media => <LFigure key={media.src}><Image src={media.src} alt={media.alt} width={media.width} height={media.height} sizes="(max-width:767px) 100vw, 80vw"/><LFigcaption>{media.caption}</LFigcaption></LFigure>)}</LDiv>}
         {section.link && <LDiv className={styles.actions}><Link href={section.link.href}>{section.link.label}</Link></LDiv>}
       </LSection>)}

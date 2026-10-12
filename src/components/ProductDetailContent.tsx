@@ -1,3 +1,4 @@
+import CardHover from "./CardHover";
 import { LArticle, LDd, LDiv, LDl, LDt, LFigcaption, LFigure, LH1, LH2, LH3, LHeader, LLi, LP, LSection, LSmall, LSpan, LUl } from "@/i18n/Elements";
 import { LocalizedImage as Image } from "@/i18n/Elements";
 import { LocalizedLink as Link } from "@/i18n/Elements";
@@ -27,12 +28,12 @@ export default function ProductDetailContent({ product, view = "overview" }: { p
         </LSection>
         <LDiv className={styles.marker} id="product-hero-end" aria-hidden="true"/>
         <LSection className={styles.section} aria-labelledby="product-overview-title"><LP className={styles.eyebrow}>PRODUCT OVERVIEW</LP><LH2 id="product-overview-title">了解 {product.name}</LH2><LP>{product.description}</LP>
-          {detail.highlights && <LDiv className={styles.grid}>{detail.highlights.map(item => <LDiv className={styles.card} key={item.title}><LH3>{item.title}</LH3><LP>{item.description}</LP></LDiv>)}</LDiv>}
+          {detail.highlights && <LDiv className={styles.grid}>{detail.highlights.map(item => <CardHover key={item.title}><LDiv data-card-hover-surface className={styles.card}><LH3>{item.title}</LH3><LP>{item.description}</LP></LDiv></CardHover>)}</LDiv>}
         </LSection>
         {detail.sections ? detail.sections.filter(section => section.id !== "modes").map(section => <LSection id={section.id} key={section.id} className={styles.section} aria-labelledby={`${section.id}-title`}>
           <LP className={styles.eyebrow}>{section.eyebrow}</LP><LH2 id={`${section.id}-title`}>{section.title}</LH2>
           {section.paragraphs?.map(text => <LP key={text}>{text}</LP>)}
-          {section.cards && <LDiv className={styles.grid}>{section.cards.map(card => <LDiv className={styles.card} key={card.title}><LH3>{card.title}</LH3><LP>{card.description}</LP>{card.items && <LUl>{card.items.map(item => <LLi key={item}>{item}</LLi>)}</LUl>}</LDiv>)}</LDiv>}
+          {section.cards && <LDiv className={styles.grid}>{section.cards.map(card => <CardHover key={card.title}><LDiv data-card-hover-surface className={styles.card}><LH3>{card.title}</LH3><LP>{card.description}</LP>{card.items && <LUl>{card.items.map(item => <LLi key={item}>{item}</LLi>)}</LUl>}</LDiv></CardHover>)}</LDiv>}
           {section.media && <LDiv className={styles.media}>{section.media.map(media => <LFigure key={media.src}><Image src={media.src} alt={media.alt} width={media.width} height={media.height} sizes="(max-width:767px) 100vw, 80vw"/><LFigcaption>{media.caption}</LFigcaption></LFigure>)}</LDiv>}
           {section.link && <LDiv className={styles.actions}><Link href={section.link.href}>{section.link.label}</Link></LDiv>}
         </LSection>) : <>
@@ -44,7 +45,7 @@ export default function ProductDetailContent({ product, view = "overview" }: { p
           </LSection>
         </>}
         <LSection className={styles.section} id="applications" aria-labelledby="applications-title"><LP className={styles.eyebrow}>APPLICATIONS & BOUNDARIES</LP><LH2 id="applications-title">适用任务与使用边界</LH2>
-          <LDiv className={styles.grid}>{tasks.map(task => <LDiv className={styles.card} key={task.id}><LH3>{task.name}</LH3><LP>{task.description}</LP><LP className={styles.notice}>{task.boundary}</LP><Link href={`/solutions#${task.id}`}>了解{task.name}方案 →</Link></LDiv>)}</LDiv>
+          <LDiv className={styles.grid}>{tasks.map(task => <CardHover key={task.id}><LDiv data-card-hover-surface className={styles.card}><LH3>{task.name}</LH3><LP>{task.description}</LP><LP className={styles.notice}>{task.boundary}</LP><Link href={`/solutions#${task.id}`}>了解{task.name}方案 →</Link></LDiv></CardHover>)}</LDiv>
         </LSection>
         <LSection className={styles.section} id="specifications" aria-labelledby="next-title"><LH2 id="next-title">技术规格与购买方案</LH2><LP>{detail.statusNote}</LP><LDiv className={styles.actions}>{purchase}<Link href={links.specsHref}>查看技术规格</Link></LDiv></LSection>
       </> : <>

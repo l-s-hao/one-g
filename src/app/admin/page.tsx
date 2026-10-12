@@ -1,5 +1,7 @@
 "use client";
 
+import CardHover from "@/components/CardHover";
+
 import { LButton, LDiv, LH1, LH2, LH3, LHeader, LNav, LP, LSection, LSpan, LStrong } from "@/i18n/Elements";
 
 
@@ -33,7 +35,7 @@ export default function AdminPage() {
       <LH2 id="admin-section-title">{section === "Dashboard" ? "仪表盘 / Dashboard" : section}</LH2>
       {section === "Dashboard" ? <>
         <LP className={styles.muted}>管理功能预览。当前未连接正式数据。</LP>
-        <LDiv className={styles.cards}>{modules.map(item => <LButton key={item.name} type="button" onClick={() => setSection(item.name)}><LStrong>{item.name}</LStrong><LSpan>{item.detail}</LSpan></LButton>)}</LDiv>
+        <LDiv className={styles.cards}>{modules.map(item => <CardHover key={item.name}><LButton data-card-hover-surface type="button" onClick={() => setSection(item.name)}><LStrong>{item.name}</LStrong><LSpan>{item.detail}</LSpan></LButton></CardHover>)}</LDiv>
       </> : section === "网站设置" ? <>
         <LH3 className={styles.subheading}>当前客服信息</LH3><LP className={styles.muted}>客服需求仅支持前端填写和预览。</LP>
         <LH3 className={styles.subheading}>基础站点配置</LH3><LP className={styles.muted}>ONE-G / 万机智能 · 当前只读，编辑功能待后台服务接入。</LP>

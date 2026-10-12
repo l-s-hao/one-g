@@ -1,0 +1,15 @@
+/* Explicit opt-in only. Hosts stay still; complete card surfaces move together. */
+[data-card-hover-host] {display:grid;min-width:0;min-height:0;--card-hover-shadow:0 8px 20px rgba(23,25,29,.10),0 2px 6px rgba(23,25,29,.06);}
+html.dark [data-card-hover-host] {--card-hover-shadow:0 10px 24px rgba(0,0,0,.42),0 2px 6px rgba(0,0,0,.30);}
+@media (hover:hover) and (pointer:fine) {
+ [data-card-hover-surface] {transition:translate 200ms cubic-bezier(0.22,1,0.36,1),box-shadow 200ms cubic-bezier(0.22,1,0.36,1);}
+ [data-card-hover-host]:not([inert]):hover > [data-card-hover-surface]:not(:disabled) {translate:0 var(--card-hover-offset,-4px);box-shadow:var(--card-rest-shadow,0 0 0 0 transparent),var(--card-hover-shadow);}
+ /* Existing animation flags: reset instantly before geometry is measured. */
+ [data-filter-animating] [data-card-hover-surface],
+ [data-card-hover-disabled] [data-card-hover-surface],
+ [data-card-hover-host][inert] > [data-card-hover-surface] {translate:none!important;transition:none!important;box-shadow:var(--card-rest-shadow,none)!important;}
+}
+@media (prefers-reduced-motion:reduce) {
+ [data-card-hover-host] {--card-hover-offset:0px;}
+ [data-card-hover-surface] {transition:none!important;}
+}

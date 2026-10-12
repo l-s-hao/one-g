@@ -6,6 +6,7 @@ import ThemeProvider from "@/components/ThemeProvider";
 import SiteShell from "@/components/SiteShell";
 import "./globals.css";
 import "./colors.css";
+import "@/components/card-hover.css";
 
 export const metadata: Metadata = {
   title: "ONE-G — 机器人系统与遥操作能力",

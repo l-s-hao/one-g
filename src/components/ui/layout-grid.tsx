@@ -34,6 +34,7 @@ export function LayoutGrid({ cards, namespace }: { cards: LayoutGridCard[]; name
   const closeButton = useRef<HTMLButtonElement>(null);
   const triggers = useRef(new Map<string, HTMLButtonElement>());
   const focusFrame = useRef(0);
+  const hoverCard = useRef<string | null>(null);
   const [lastSelectedId, setLastSelectedId] = useState<string | null>(null);
   const [position, setPosition] = useState<PanelPosition | null>(null);
   const active = cards.find(card => selectedId === `${namespace}:${card.id}`);
@@ -44,15 +45,19 @@ export function LayoutGrid({ cards, namespace }: { cards: LayoutGridCard[]; name
     if (!activeId) return;
     const id = activeId;
     setLastSelectedId(id);
+    if (reduced) root.current?.removeAttribute("data-card-hover-disabled");
     setSelectedId(null);
     cancelAnimationFrame(focusFrame.current);
     focusFrame.current = requestAnimationFrame(() => triggers.current.get(id)?.focus({ preventScroll: true }));
-  }, [activeId, setSelectedId]);
+  }, [activeId, setSelectedId, reduced]);
 
   const open = (id: string) => {
     const grid = root.current;
     const trigger = triggers.current.get(id);
     if (!grid || !trigger) return;
+    // Reset CSS hover before measuring the shared-layout origin. No timers.
+    hoverCard.current = id;
+    grid.setAttribute("data-card-hover-disabled", "true");
     let gridRect = grid.getBoundingClientRect();
     const headerBottom = document.querySelector("header.site-header")?.getBoundingClientRect().bottom ?? 48;
     // Geometry is measured only on interaction. SSR always renders an empty selection.
@@ -81,6 +86,9 @@ export function LayoutGrid({ cards, namespace }: { cards: LayoutGridCard[]; name
     return () => { cancelAnimationFrame(frame); window.removeEventListener("keydown", escape); };
   }, [activeId, close]);
   useEffect(() => () => cancelAnimationFrame(focusFrame.current), []);
+  useEffect(() => {
+    if (!activeId && reduced) root.current?.removeAttribute("data-card-hover-disabled");
+  }, [activeId, reduced]);
 
   return <LayoutGroup id={namespace}>
     <div ref={root} className={styles.grid} data-layout-grid={namespace} data-expanded={activeId ?? ""}>
@@ -89,8 +97,12 @@ export function LayoutGrid({ cards, namespace }: { cards: LayoutGridCard[]; name
         const panelStyle: CSSProperties | undefined = expanded && position ? {
           "--panel-top": `${position.top}px`, "--panel-height": `${position.height}px`,
         } as CSSProperties : undefined;
-        return <div key={card.id} className={cn(styles.slot, card.wide && styles.wide)} data-preview-id={card.id}>
+        return <div key={card.id} className={cn(styles.slot, card.wide && styles.wide)} data-preview-id={card.id} data-card-hover-host>
+          <div data-card-hover-surface className={styles.hoverSurface}>
           <motion.article
+            onLayoutAnimationComplete={() => {
+              if (!active && hoverCard.current === card.id) root.current?.removeAttribute("data-card-hover-disabled");
+            }}
             layout={!reduced}
             layoutId={reduced ? undefined : `${namespace}:card:${card.id}`}
             transition={transition}
@@ -125,6 +137,7 @@ export function LayoutGrid({ cards, namespace }: { cards: LayoutGridCard[]; name
               <button ref={closeButton} className={styles.close} type="button" aria-label={translate("关闭预览", locale)} onClick={close}><X size={18} aria-hidden="true"/></button>
             </>}
           </motion.article>
+          </div>
         </div>;
       })}
       <motion.div className={styles.scrim} aria-hidden="true" data-preview-scrim

@@ -67,6 +67,14 @@ flowchart TD
 
 `LegacyConfigurationRedirect`、`LegacySonicLinkRedirect` 与首页旧锚点映射保留旧链接访问能力。`/configure`、`/customize` 等进入当前商品/购买内容；旧 SONIC Link 商品、购买和规格入口进入遥操作方案。它们是客户端兼容导航，不是新功能，也不是 Pages 服务器 301 配置。
 
+## 普通卡片悬停与动画边界
+
+共享规则在 `components/card-hover.css`，由根布局加载；`CardHover.tsx` 只提供稳定的外层命中区域。普通卡片显式使用 `data-card-hover-host` / `data-card-hover-surface`，不会根据 div/article 或模糊类名自动匹配。CSS individual translate 和 box-shadow 完成 200ms/-4px 反馈，不添加依赖、鼠标位置状态或每帧事件。
+
+商品中心保留外层 Product ID、Grid 身份与 Flip transform，完整视觉表面位于内层；已有 `data-filter-animating` / inert 标记即时停用新增位移。首页 slot 感知 hover，独立包装层承载悬停，Motion article/img 保持原 layoutId 和布局动画。展开前设置局部停用标记，回位完成事件解除；减少动画关闭路径直接复位，两个 Grid 选择状态仍由原 Provider 协调。
+
+选中套餐的内阴影通过局部 `--card-rest-shadow` 与新增阴影叠加。只有 hover:hover、pointer:fine 设备启用位移；减少动画取消新增位移和过渡。日夜只改变新增阴影，沿用原主题颜色和状态。范围与实际验收见 [卡片交互说明](CARD_HOVER.md)。
+
 ## 后续服务接入
 
 认证、商品/订单数据库、服务端报价、支付通知、需求提交和管理员 CRUD 均是待完成项。现有 TypeScript service 接口为后续接入提供边界，但目前没有真实服务接入证据。[历史后台规划](backend-plan.md) 与 [历史数据库规划](database-plan.md) 仅供设计参考，不列作当前技术栈。

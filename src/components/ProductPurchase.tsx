@@ -7,6 +7,7 @@ import { LocalizedImage as Image } from "@/i18n/Elements";
 import { LocalizedLink as Link } from "@/i18n/Elements";
 import { useEffect, useState } from "react";
 import type { getOfferingPackages } from "@/lib/configurable-offerings";
+import CardHover from "./CardHover";
 import PaymentSelector from "./PaymentSelector";
 import { usePaymentPreference } from "./usePaymentPreference";
 import ProductStatusBadge from "./ProductStatusBadge";
@@ -54,10 +55,10 @@ export default function ProductPurchase({ offering }: { offering: Offering }) {
         <ProductStatusBadge status={product.status}/>
         <LP className={styles.note}>{detail.statusNote}</LP>
         <LFieldset className={styles.packages}><LLegend>配置套餐选择</LLegend>
-          {packages.length ? packages.map(bundle => <LLabel key={bundle.id} className={styles.choice} data-selected={selectedId === bundle.id}>
+          {packages.length ? packages.map(bundle => <CardHover key={bundle.id}><LLabel data-card-hover-surface className={styles.choice} data-selected={selectedId === bundle.id}>
             <LInput type="radio" name={`package-${product.id}`} value={bundle.id} checked={selectedId === bundle.id} onChange={() => select(bundle.id)}/>
             <LSpan><LStrong>{bundle.name}</LStrong><LUl>{bundle.items.map(item => <LLi key={item}>{item}</LLi>)}</LUl><LSpan className={styles.price}>价格待确认</LSpan></LSpan>
-          </LLabel>) : <LP>套餐待确认</LP>}
+          </LLabel></CardHover>) : <LP>套餐待确认</LP>}
         </LFieldset>
         {detail.bundleNote && <LP className={styles.note}>{detail.bundleNote}</LP>}
         <LLabel className="mt-4 block">数量<LInput aria-label="数量" type="number" min="1" max="999" value={quantity} onChange={event => { const value = Number(event.target.value); if (Number.isSafeInteger(value) && value > 0 && value <= 999) { setQuantity(value); updateQuery("quantity", String(value)); } }} className="ml-3 w-20 rounded border border-[var(--border)] p-2"/></LLabel>
@@ -70,10 +71,10 @@ export default function ProductPurchase({ offering }: { offering: Offering }) {
         </LSection>
       </LDiv>
     </LDiv>
-    <LDiv className={styles.customization}>
+    <CardHover><LDiv data-card-hover-surface className={styles.customization}>
       <LP>如有其他要求，可以深度定制。</LP>
       <Link href={{ pathname: "/deep-customization", query: { product: product.slug, ...(selectedId ? { package: selectedId } : {}), quantity: String(quantity), ...(payment ? { payment } : {}) } }}>深度定制 <LSpan aria-hidden="true">→</LSpan></Link>
-    </LDiv>
+    </LDiv></CardHover>
     <LSection className={styles.recommendations} aria-labelledby="recommendations-title"><LH2 id="recommendations-title">更多推荐</LH2><LP>暂无已确认的推荐商品。</LP></LSection>
   </LDiv>;
 }

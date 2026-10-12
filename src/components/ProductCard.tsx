@@ -12,7 +12,8 @@ import styles from "./ProductCard.module.css";
 export default function ProductCard({ product, hidden = false, flipId }: { product: Product; hidden?: boolean; flipId?: string }) {
   const offering = isConfigurableOffering(product.id) ? getOfferingNavigation(product) : undefined;
   const detailHref = offering?.overviewHref ?? `/products/${product.slug}`;
-  return <LArticle data-product-id={product.id} data-flip-id={flipId} data-filter-hidden={hidden || undefined} inert={hidden} aria-hidden={hidden || undefined} className={`product-card ${styles.card}`}>
+  return <LArticle data-product-id={product.id} data-flip-id={flipId} data-filter-hidden={hidden || undefined} inert={hidden} aria-hidden={hidden || undefined} data-card-hover-host>
+    <LDiv data-card-hover-surface className={`product-card ${styles.card}`}>
     <Link href={detailHref} aria-label={`了解更多：${product.name}`}>
       <ProductVisual label={product.detail?.imageNotes[0]?.alt ?? getCategoryName(product.category)} images={product.images} compact />
     </Link>
@@ -29,6 +30,7 @@ export default function ProductCard({ product, hidden = false, flipId }: { produ
           {offering && <Link href={offering.purchaseHref}>{offering.purchaseLabel}</Link>}
         </LDiv>
       </LDiv>
+    </LDiv>
     </LDiv>
   </LArticle>;
 }
