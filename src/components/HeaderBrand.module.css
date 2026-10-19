@@ -29,7 +29,7 @@
 .mobilePanel {display:none;}
 @supports(backdrop-filter:blur(16px)) { .header {background:rgba(var(--primary-rgb),.88);backdrop-filter:blur(16px);} .header[data-open="true"] {background:var(--bg);} }
 @media(max-width:1023px) {
- .navigation,.header .user,.desktopPanel,.header .moreButton,.settingsAnchor {display:none;}
+ .navigation,.header .user,.desktopPanel {display:none;}
  .row {gap:12px;}
  .header .menuButton {display:inline-flex;}
  .mobilePanel:not([hidden]) {display:block;}
@@ -54,13 +54,6 @@
 
 
 
-.settingsAnchor {position:absolute;top:calc(100% + 1px);left:50%;transform:translateX(-50%);width:100%;max-width:var(--site-header-width);padding-inline:var(--site-header-gutter);pointer-events:none;}
-.settingsPanel {position:relative;margin-left:auto;width:220px;max-width:100%;padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);pointer-events:auto;}
-.settingRow {display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:40px;font-size:13px;}
-.settingRow button {min-width:36px;min-height:36px;}
-.mobileSettings {border-top:1px solid var(--border);padding-top:12px;}
-@media(max-width:1023px) {.settingsAnchor {display:none;}}
-
 .navigationHighlight {position:absolute;left:0;top:4px;height:35px;width:0;transform:translateX(0);opacity:0;pointer-events:none;z-index:-1;border-radius:3px;background:var(--surface-2);transition:transform .5s cubic-bezier(.33,.83,.99,.98),width .5s cubic-bezier(.33,.83,.99,.98),opacity 150ms ease;}
 @media(prefers-reduced-motion:reduce) {.navigationHighlight {transition:none;}}
 @media(hover:none),(pointer:coarse),(max-width:1023px) {.navigationHighlight {display:none;}}
@@ -71,4 +64,9 @@
 .imagePanel .panelInner {padding-block:16px 20px;}
 .mobileHeading > button {width:100%;justify-content:flex-start;min-height:52px;font:inherit;text-decoration:none;}
 
-.header .settingsPanel button[aria-pressed],.header .mobileSettings button[aria-pressed] {text-decoration:none;}
+
+.actions {flex-shrink:0;}
+.actions button {padding:0;}
+.actions svg {width:18px;height:18px;}
+.actions a:hover,.actions button:hover {opacity:.72;}
+@media(max-width:767px) {.actions {gap:0;}}

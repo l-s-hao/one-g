@@ -2,3 +2,6 @@
 .switch button {font:inherit;font-size:13px;min-width:26px;min-height:36px;padding:2px;border:0;color:inherit;background:transparent;}
 .switch button[aria-pressed="true"] {text-decoration:none;text-underline-offset:4px;}
 .switch button:focus-visible {outline:2px solid var(--accent);outline-offset:2px;}
+
+/* Match the existing BrandLogo SVG mask and static-export base path. */
+.icon {display:block;width:20px;height:20px;flex-shrink:0;background-color:currentColor;mask:url("/one-g/icons/language-switch.svg") center / contain no-repeat;}

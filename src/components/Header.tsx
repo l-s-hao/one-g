@@ -7,7 +7,7 @@ import { translate, useLocale } from "@/i18n/LocaleProvider";
 import LanguageSwitch from "./LanguageSwitch";
 import { LocalizedLink as Link } from "@/i18n/Elements";
 import { usePathname } from "next/navigation";
-import { Ellipsis, Menu, Search, ShoppingCart, UserRound, X } from "lucide-react";
+import { Menu, Search, ShoppingCart, UserRound, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { solutions } from "@/data/solutions";
 import { navigation } from "@/data/site-navigation";
@@ -87,7 +87,6 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
     onPointerEnter={() => { if (closeTimer.current) clearTimeout(closeTimer.current); }}
     onPointerLeave={event => {
       if (document.documentElement.dataset.magicuiThemeVt === "active") return;
-      if (panel === "settings") { if (!nav.current?.contains(document.activeElement) && !(keyboardInteraction.current && root.current?.contains(document.activeElement))) restoreHighlight(); return; }
       if (event.pointerType !== "mouse" || !window.matchMedia("(min-width: 1024px)").matches) return;
       if (openTimer.current) clearTimeout(openTimer.current);
       closeTimer.current = setTimeout(() => {
@@ -119,19 +118,16 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
         </LDiv>)}
       </LNav>
       <LDiv className={styles.actions} aria-label="快捷入口" onFocus={() => restoreHighlight()}>
+        <LanguageSwitch iconOnly />
+        <ThemeToggle />
         <LButton type="button" aria-label="搜索" aria-expanded={panel === "search"} aria-controls="header-search" onClick={event => toggle("search", event.currentTarget)}><Search size={18}/></LButton>
         <NavigationLink className={styles.user} href={userHref} aria-label={userLabel} onClick={() => close()}><UserRound size={18}/></NavigationLink>
         <NavigationLink href="/cart" aria-label="购物车" onClick={() => close()}><ShoppingCart size={18}/></NavigationLink>
-        <LButton className={styles.moreButton} type="button" aria-label="更多设置" aria-expanded={panel === "settings"} aria-controls="header-settings" onClick={event => toggle("settings", event.currentTarget)}><Ellipsis size={20}/></LButton>
         <LButton className={styles.menuButton} type="button" aria-label={mobileOpen ? "关闭菜单" : "打开菜单"} aria-expanded={mobileOpen} aria-controls="mobile-navigation" onClick={event => {
           clearTimers(); opener.current = event.currentTarget; setMobileOpen(value => !value); setPanel(null);
         }}>{mobileOpen ? <X size={20}/> : <Menu size={20}/>}</LButton>
       </LDiv>
     </LDiv>
-    <LDiv className={styles.settingsAnchor}><HeaderPanel id="header-settings" className={styles.settingsPanel} open={panel === "settings"}>
-      <LDiv className={styles.settingRow}><span>{translate("语言", locale)}</span><LanguageSwitch /></LDiv>
-      <LDiv className={styles.settingRow}><span>{translate("外观", locale)}</span><ThemeToggle /></LDiv>
-    </HeaderPanel></LDiv>
     {navigation.map((item,index) => item.groups && <HeaderPanel key={item.href} id={`desktop-nav-${index}`} className={`${styles.panel} ${styles.desktopPanel} ${styles.imagePanel}`} open={panel === item.href}>
       <LDiv className={styles.panelInner}><HeaderImageMenu kind={item.href === "/products" ? "products" : "solutions"} open={panel === item.href} onClose={() => close(true)} onNavigate={() => close()}/></LDiv>
     </HeaderPanel>)}
@@ -139,10 +135,7 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
       <LNav className={styles.panelInner} aria-label="移动端导航">{navigation.map((item,index) => <LDiv className={styles.mobileGroup} key={item.href}>
         <LDiv className={styles.mobileHeading}>{item.groups ? <LButton type="button" aria-current={current(item.href) ? "page" : undefined} aria-expanded={panel === item.href} aria-controls={`mobile-nav-${index}`} onClick={event => toggle(item.href,event.currentTarget)}>{item.label}</LButton> : <Link href={item.href} aria-current={current(item.href) ? "page" : undefined} onClick={() => close()}>{item.label}</Link>}</LDiv>
         {item.groups && <HeaderPanel id={`mobile-nav-${index}`} open={panel === item.href}><HeaderImageMenu kind={item.href === "/products" ? "products" : "solutions"} open={mobileOpen && panel === item.href} onClose={() => { setPanel(null); opener.current?.focus(); }} onNavigate={() => close()}/></HeaderPanel>}
-      </LDiv>)}<NavigationLink className={styles.mobileAccount} href={userHref} onClick={() => close()}><UserRound size={18}/>{userLabel}</NavigationLink><LDiv className={styles.mobileSettings}>
-        <LDiv className={styles.settingRow}><span>{translate("语言", locale)}</span><LanguageSwitch /></LDiv>
-        <LDiv className={styles.settingRow}><span>{translate("外观", locale)}</span><ThemeToggle /></LDiv>
-      </LDiv></LNav>
+      </LDiv>)}<NavigationLink className={styles.mobileAccount} href={userHref} onClick={() => close()}><UserRound size={18}/>{userLabel}</NavigationLink></LNav>
     </HeaderPanel>
     <HeaderPanel id="header-search" className={styles.panel} open={panel === "search"}><LDiv className={styles.panelInner}>
       <LDiv className={styles.panelHeading}><LLabel htmlFor="site-search">搜索 ONE-G</LLabel><LButton type="button" aria-label="关闭搜索" onClick={() => close(true)}><X size={20}/></LButton></LDiv>
