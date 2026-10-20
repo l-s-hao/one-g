@@ -4,3 +4,10 @@ html[data-magicui-theme-vt="active"]::view-transition-group(root) {animation-dur
 html[data-magicui-theme-vt="active"]::view-transition-old(root) {z-index:1;}
 html[data-magicui-theme-vt="active"]::view-transition-new(root) {z-index:2;clip-path:var(--magicui-theme-vt-clip-from);}
 [data-theme-toggle] svg {width:18px;height:18px;stroke-width:2;}
+
+/* Snapshots are decorative: underlying links and tools remain clickable. */
+html[data-magicui-theme-vt="active"]::view-transition,
+html[data-magicui-theme-vt="active"]::view-transition-group(root),
+html[data-magicui-theme-vt="active"]::view-transition-image-pair(root),
+html[data-magicui-theme-vt="active"]::view-transition-old(root),
+html[data-magicui-theme-vt="active"]::view-transition-new(root) {pointer-events:none;}

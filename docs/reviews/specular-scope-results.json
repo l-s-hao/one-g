@@ -1,0 +1,161 @@
+{
+  "results": [
+    {
+      "label": "products default",
+      "effects": 0,
+      "edges": 0,
+      "excluded": 0,
+      "underline": false,
+      "nested": 0,
+      "overflow": false,
+      "outputs": 0,
+      "contexts": 0,
+      "draws": 0
+    },
+    {
+      "label": "menu and filters",
+      "effects": 0,
+      "edges": 0,
+      "excluded": 0,
+      "underline": false,
+      "nested": 0,
+      "overflow": false,
+      "outputs": 0,
+      "contexts": 0,
+      "draws": 0
+    },
+    {
+      "label": "page category",
+      "effects": 0,
+      "edges": 0,
+      "excluded": 0,
+      "underline": false,
+      "nested": 0,
+      "overflow": false,
+      "outputs": 0,
+      "contexts": 0,
+      "draws": 0
+    },
+    {
+      "label": "English night compact controls",
+      "effects": 0,
+      "edges": 0,
+      "excluded": 0,
+      "underline": false,
+      "nested": 0,
+      "overflow": false,
+      "outputs": 0,
+      "contexts": 0,
+      "draws": 0
+    },
+    {
+      "label": "refresh",
+      "effects": 0,
+      "edges": 0,
+      "excluded": 0,
+      "underline": false,
+      "nested": 0,
+      "overflow": false,
+      "outputs": 0,
+      "contexts": 0,
+      "draws": 0
+    },
+    {
+      "label": "hero",
+      "effects": 2,
+      "edges": 2,
+      "excluded": 0,
+      "underline": false,
+      "nested": 0,
+      "overflow": false,
+      "outputs": 0,
+      "contexts": 0,
+      "draws": 0
+    },
+    {
+      "label": "SPA product return",
+      "effects": 0,
+      "edges": 0,
+      "excluded": 0,
+      "underline": false,
+      "nested": 0,
+      "overflow": false,
+      "outputs": 0,
+      "contexts": 1,
+      "draws": 278
+    },
+    {
+      "label": "/products/robotdock/",
+      "effects": 2,
+      "edges": 2,
+      "excluded": 0,
+      "underline": false,
+      "nested": 0,
+      "overflow": false,
+      "outputs": 0,
+      "contexts": 0,
+      "draws": 0
+    },
+    {
+      "label": "/buy/robotdock/",
+      "effects": 1,
+      "edges": 1,
+      "excluded": 0,
+      "underline": false,
+      "nested": 0,
+      "overflow": false,
+      "outputs": 0,
+      "contexts": 0,
+      "draws": 0
+    },
+    {
+      "label": "/solutions/",
+      "effects": 1,
+      "edges": 1,
+      "excluded": 0,
+      "underline": false,
+      "nested": 0,
+      "overflow": false,
+      "outputs": 0,
+      "contexts": 0,
+      "draws": 0
+    },
+    {
+      "label": "/deep-customization/",
+      "effects": 1,
+      "edges": 1,
+      "excluded": 0,
+      "underline": false,
+      "nested": 0,
+      "overflow": false,
+      "outputs": 0,
+      "contexts": 0,
+      "draws": 0
+    },
+    {
+      "label": "/about/",
+      "effects": 1,
+      "edges": 1,
+      "excluded": 0,
+      "underline": false,
+      "nested": 0,
+      "overflow": false,
+      "outputs": 0,
+      "contexts": 0,
+      "draws": 0
+    },
+    {
+      "label": "/login/",
+      "effects": 1,
+      "edges": 1,
+      "excluded": 0,
+      "underline": false,
+      "nested": 0,
+      "overflow": false,
+      "outputs": 0,
+      "contexts": 0,
+      "draws": 0
+    }
+  ],
+  "errors": []
+}

@@ -170,6 +170,7 @@ export const AnimatedThemeToggler = ({
   const isTransitioningRef = useRef(false)
   const activeAnimRef = useRef<Animation | null>(null)
   const transitionRef = useRef<ViewTransition | null>(null)
+  const finishTransitionRef = useRef<(() => void) | null>(null)
 
   const cancelAnim = useCallback(() => {
     activeAnimRef.current?.cancel()
@@ -177,14 +178,42 @@ export const AnimatedThemeToggler = ({
   }, [])
 
   useEffect(() => {
+    // Link navigation takes priority over the decorative snapshot, including a
+    // same-page link. Modified clicks retain their native new-tab behaviour.
+    const finish = () => finishTransitionRef.current?.()
+    const navigate = (event: MouseEvent) => {
+      if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return
+      const anchor = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>("a[href]") : null
+      if (!anchor || anchor.hasAttribute("download") || (anchor.target && anchor.target !== "_self")) return
+      if (new URL(anchor.href).origin === location.origin) finish()
+    }
+    // A root snapshot suppresses hit-testing of its captured descendants even
+    // with pointer-events:none. Yield before the next pointer gesture so the
+    // browser can hit-test the real Link, rather than forwarding a synthetic click.
+    const interact = (event: PointerEvent) => {
+      if (!finishTransitionRef.current) return
+      const rect = buttonRef.current?.getBoundingClientRect()
+      if (rect && event.clientX >= rect.left && event.clientX <= rect.right && event.clientY >= rect.top && event.clientY <= rect.bottom) return
+      finish()
+    }
+    const keyboard = (event: KeyboardEvent) => {
+      if (event.target !== buttonRef.current) finish()
+    }
+    document.addEventListener("pointerover", interact, { capture: true, passive: true })
+    document.addEventListener("pointermove", interact, { capture: true, passive: true })
+    document.addEventListener("pointerdown", interact, { capture: true, passive: true })
+    document.addEventListener("keydown", keyboard, true)
+    document.addEventListener("click", navigate, true)
+    window.addEventListener("popstate", finish)
     return () => {
-      transitionRef.current?.skipTransition()
+      document.removeEventListener("pointerover", interact, true)
+      document.removeEventListener("pointermove", interact, true)
+      document.removeEventListener("pointerdown", interact, true)
+      document.removeEventListener("keydown", keyboard, true)
+      document.removeEventListener("click", navigate, true)
+      window.removeEventListener("popstate", finish)
+      finish()
       cancelAnim()
-      const root = document.documentElement
-      if (root.dataset.magicuiThemeVt !== "active") return
-      delete root.dataset.magicuiThemeVt
-      root.style.removeProperty("--magicui-theme-toggle-vt-duration")
-      root.style.removeProperty("--magicui-theme-vt-clip-from")
     }
   }, [cancelAnim])
 
@@ -236,8 +265,11 @@ export const AnimatedThemeToggler = ({
       Math.max(y, viewportHeight - y)
     )
 
+    const newTheme = !isDark
+    let applied = false
     const applyTheme = () => {
-      const newTheme = !isDark
+      if (applied) return
+      applied = true
       // Always toggle the class synchronously so the View Transitions API
       // snapshots the new theme inside the startViewTransition callback.
       document.documentElement.classList.toggle("dark", newTheme)
@@ -245,7 +277,7 @@ export const AnimatedThemeToggler = ({
         onThemeChange?.(newTheme ? "dark" : "light")
       } else {
         setInternalIsDark(newTheme)
-        localStorage.setItem("theme", newTheme ? "dark" : "light")
+        try { localStorage.setItem("theme", newTheme ? "dark" : "light") } catch { /* Keep in-memory switching available. */ }
       }
     }
 
@@ -273,6 +305,8 @@ export const AnimatedThemeToggler = ({
     // theme unclipped between snapshot and the ready.then() JS animation.
     root.style.setProperty("--magicui-theme-vt-clip-from", clipPath[0])
     const cleanup = () => {
+      if (finishTransitionRef.current !== finish) return
+      finishTransitionRef.current = null
       transitionRef.current = null
       isTransitioningRef.current = false
       delete root.dataset.magicuiThemeVt
@@ -281,6 +315,12 @@ export const AnimatedThemeToggler = ({
       cancelAnim()
     }
 
+    const finish = () => {
+      applyTheme()
+      transitionRef.current?.skipTransition()
+      cleanup()
+    }
+    finishTransitionRef.current = finish
     isTransitioningRef.current = true
     let transition: ViewTransition
     try {
@@ -297,6 +337,7 @@ export const AnimatedThemeToggler = ({
     if (ready && typeof ready.then === "function") {
       ready
         .then(() => {
+          if (transitionRef.current !== transition) return
           const anim = document.documentElement.animate(
             {
               clipPath,
@@ -311,7 +352,9 @@ export const AnimatedThemeToggler = ({
           )
           activeAnimRef.current = anim
         })
-        .catch(() => { applyTheme(); transition.skipTransition(); cleanup() })
+        .catch(() => {
+          if (finishTransitionRef.current === finish) finish()
+        })
     }
   }, [
     shape,

@@ -132,7 +132,7 @@ html .site-header {background:var(--surface);}
 :root { color-scheme: light; }
 /* Existing primary actions and selected fills use the standard accent palette. */
 html :is(.one-g-shimmer, button.bg-white, a.bg-white, [role="tab"][aria-selected="true"], [data-selected="true"]) {
- background-color:var(--button-primary-bg); color:var(--button-primary-text);
+ background-color:var(--button-primary-bg);--specular-line:var(--button-primary-text); color:var(--button-primary-text);
  --ink:var(--button-primary-text); --ink-muted:var(--button-primary-text); --ink-rgb:var(--button-primary-text-rgb);
  border-color:var(--border-strong);
 }

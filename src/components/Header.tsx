@@ -8,7 +8,7 @@ import LanguageSwitch from "./LanguageSwitch";
 import { LocalizedLink as Link } from "@/i18n/Elements";
 import { usePathname } from "next/navigation";
 import { Menu, Search, ShoppingCart, UserRound, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { solutions } from "@/data/solutions";
 import { navigation } from "@/data/site-navigation";
 import { getProducts } from "@/lib/products";
@@ -41,23 +41,37 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
   const root = useRef<HTMLElement>(null);
   const current = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
   const { nav, position: highlightPosition, restore: restoreHighlight } = useNavigationHighlight(navigation.find(item => current(item.href))?.href, locale);
-  const opener = useRef<HTMLButtonElement | null>(null);
+  const opener = useRef<HTMLElement | null>(null);
+  const restoringFocus = useRef(false);
   const openTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const keyboardInteraction = useRef(false);
-  const clearTimers = () => {
+  const clearTimers = useCallback(() => {
     if (openTimer.current) clearTimeout(openTimer.current);
     if (closeTimer.current) clearTimeout(closeTimer.current);
     openTimer.current = null; closeTimer.current = null;
-  };
-  const close = (restore = false) => {
+  }, []);
+  const close = useCallback((restore = false) => {
     clearTimers(); setPanel(null); setMobileOpen(false); restoreHighlight();
     if (restore) {
+      restoringFocus.current = true;
       if (mobileOpen) root.current?.querySelector<HTMLButtonElement>(`button[aria-controls="mobile-navigation"]`)?.focus();
       else opener.current?.focus();
+      restoringFocus.current = false;
     }
-  };
-  const toggle = (id: string, button: HTMLButtonElement) => {
+  }, [clearTimers, mobileOpen, restoreHighlight]);
+  useEffect(() => {
+    if (!panel && !mobileOpen) return;
+    const escape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape" || event.defaultPrevented) return;
+      event.preventDefault();
+      keyboardInteraction.current = true;
+      close(true);
+    };
+    window.addEventListener("keydown", escape);
+    return () => window.removeEventListener("keydown", escape);
+  }, [panel, mobileOpen, close]);
+  const toggle = (id: string, button: HTMLElement) => {
     clearTimers(); opener.current = button;
     setPanel(value => value === id ? null : id);
   };
@@ -76,13 +90,13 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
     document.addEventListener("pointerdown", outside);
     media.addEventListener("change", resize);
     return () => { clearTimers(); document.removeEventListener("pointerdown", outside); media.removeEventListener("change", resize); };
-  }, [restoreHighlight]);
+  }, [restoreHighlight, clearTimers]);
   useEffect(() => {
     if (panel === "search") root.current?.querySelector<HTMLInputElement>("#site-search")?.focus();
   }, [panel]);
   const userHref = !currentUser ? "/login" : currentUser.role === "ADMIN" ? "/admin" : "/account";
   const userLabel = !currentUser ? "用户登录" : currentUser.role === "ADMIN" ? "管理后台" : "用户中心";
-  return <LHeader ref={root} className={`site-header ${styles.header}`} data-open={panel !== null || mobileOpen}
+  return <LHeader ref={root} className={`site-header ${styles.header}`} data-open={panel !== null || mobileOpen} data-navigation-path={pathname}
     onPointerDown={() => { keyboardInteraction.current = false; }}
     onPointerEnter={() => { if (closeTimer.current) clearTimeout(closeTimer.current); }}
     onPointerLeave={event => {
@@ -105,19 +119,35 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
       <LNav ref={nav} className={styles.navigation} aria-label="主导航">
         <span className={styles.navigationHighlight} data-navigation-highlight aria-hidden="true" />
         {navigation.map((item, index) => <LDiv className={styles.navItem} key={item.href} data-navigation-item={item.href}
-          onFocus={() => highlightPosition(item.href)}
+          onFocus={event => {
+            highlightPosition(item.href);
+            if (restoringFocus.current || !event.target.matches(":focus-visible")) return;
+            clearTimers();
+            opener.current = event.target;
+            setPanel(item.groups ? item.href : null);
+          }}
           onPointerEnter={event => {
-            if (event.pointerType !== "mouse") return;
-            if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) highlightPosition(item.href);
+            if (event.pointerType !== "mouse" || !window.matchMedia("(min-width:1024px) and (hover:hover) and (pointer:fine)").matches) return;
+            highlightPosition(item.href);
             keyboardInteraction.current = false;
             clearTimers();
-            const button = event.currentTarget.querySelector("button");
-            openTimer.current = setTimeout(() => { opener.current = button; setPanel(item.groups ? item.href : null); }, 120);
+            const link = event.currentTarget.querySelector("a");
+            openTimer.current = setTimeout(() => { opener.current = link; setPanel(item.groups ? item.href : null); }, 120);
           }}>
-          {item.groups ? <LButton type="button" aria-current={current(item.href) ? "page" : undefined} aria-expanded={panel === item.href} aria-controls={`desktop-nav-${index}`} onClick={event => toggle(item.href, event.currentTarget)}>{item.label}</LButton> : <Link href={item.href} aria-current={current(item.href) ? "page" : undefined} onClick={() => close()}>{item.label}</Link>}
+          <Link href={item.href} aria-current={current(item.href) ? "page" : undefined}
+            aria-expanded={item.groups ? panel === item.href : undefined}
+            aria-controls={item.groups ? `desktop-nav-${index}` : undefined}
+            onKeyDown={event => {
+              // Tab enters the preview opened by keyboard focus; Enter remains
+              // the Link's native navigation. Escape closes and restores this Link.
+              if (event.key !== "Tab" || event.shiftKey || !item.groups || panel !== item.href) return;
+              const first = root.current?.querySelector<HTMLAnchorElement>(`#desktop-nav-${index} a`);
+              if (first) { event.preventDefault(); first.focus(); }
+            }}
+            onClick={() => close()}>{item.label}</Link>
         </LDiv>)}
       </LNav>
-      <LDiv className={styles.actions} aria-label="快捷入口" onFocus={() => restoreHighlight()}>
+      <LDiv className={styles.actions} aria-label="快捷入口" onFocus={() => { if (!navigation.some(item => item.href === panel)) restoreHighlight(); }}>
         <LanguageSwitch iconOnly />
         <ThemeToggle />
         <LButton type="button" aria-label="搜索" aria-expanded={panel === "search"} aria-controls="header-search" onClick={event => toggle("search", event.currentTarget)}><Search size={18}/></LButton>
@@ -133,7 +163,13 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
     </HeaderPanel>)}
     <HeaderPanel id="mobile-navigation" className={`${styles.panel} ${styles.mobilePanel}`} open={mobileOpen && panel !== "search"}>
       <LNav className={styles.panelInner} aria-label="移动端导航">{navigation.map((item,index) => <LDiv className={styles.mobileGroup} key={item.href}>
-        <LDiv className={styles.mobileHeading}>{item.groups ? <LButton type="button" aria-current={current(item.href) ? "page" : undefined} aria-expanded={panel === item.href} aria-controls={`mobile-nav-${index}`} onClick={event => toggle(item.href,event.currentTarget)}>{item.label}</LButton> : <Link href={item.href} aria-current={current(item.href) ? "page" : undefined} onClick={() => close()}>{item.label}</Link>}</LDiv>
+        <LDiv className={styles.mobileHeading}>
+          <Link href={item.href} aria-current={current(item.href) ? "page" : undefined} onClick={() => close()}>{item.label}</Link>
+          {item.groups && <LButton className={styles.previewToggle} type="button"
+            aria-expanded={panel === item.href} aria-controls={`mobile-nav-${index}`}
+            aria-label={`${item.label}：${panel === item.href ? "收起预览" : "展开预览"}`}
+            onClick={event => toggle(item.href, event.currentTarget)}>{panel === item.href ? "收起预览" : "展开预览"}</LButton>}
+        </LDiv>
         {item.groups && <HeaderPanel id={`mobile-nav-${index}`} open={panel === item.href}><HeaderImageMenu kind={item.href === "/products" ? "products" : "solutions"} open={mobileOpen && panel === item.href} onClose={() => { setPanel(null); opener.current?.focus(); }} onNavigate={() => close()}/></HeaderPanel>}
       </LDiv>)}<NavigationLink className={styles.mobileAccount} href={userHref} onClick={() => close()}><UserRound size={18}/>{userLabel}</NavigationLink></LNav>
     </HeaderPanel>

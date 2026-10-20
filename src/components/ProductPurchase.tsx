@@ -66,7 +66,7 @@ export default function ProductPurchase({ offering }: { offering: Offering }) {
         <LSection className={styles.summary} aria-labelledby="selection-title">
           <LH2 id="selection-title">当前选择</LH2><LP aria-live="polite">{selected?.name ?? "请选择套餐"}</LP>
           <LP className={styles.amount}>价格待确认</LP>
-          <LButton intent="purchase" type="button" disabled aria-describedby="purchase-unavailable">加入购物车</LButton>
+          <LButton effect="specular" intent="purchase" type="button" disabled aria-describedby="purchase-unavailable">加入购物车</LButton>
           <LP id="purchase-unavailable" className={styles.note}>当前仅供套餐预览，暂未开放销售；套餐价格待确认，支付渠道尚未接入。</LP>
         </LSection>
       </LDiv>

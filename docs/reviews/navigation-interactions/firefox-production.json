@@ -1,0 +1,341 @@
+{
+  "base": "http://127.0.0.1:3001/one-g",
+  "checks": [
+    {
+      "label": "390 zh-CN light",
+      "width": 500,
+      "height": 914,
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "busy": null,
+      "theme": "light",
+      "locale": "zh-CN"
+    },
+    {
+      "label": "390 zh-CN dark",
+      "width": 500,
+      "height": 914,
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "busy": null,
+      "theme": "dark",
+      "locale": "zh-CN"
+    },
+    {
+      "label": "390 en light",
+      "width": 500,
+      "height": 914,
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "busy": null,
+      "theme": "light",
+      "locale": "en"
+    },
+    {
+      "label": "390 en dark",
+      "width": 500,
+      "height": 914,
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "busy": null,
+      "theme": "dark",
+      "locale": "en"
+    },
+    {
+      "label": "768 zh-CN light",
+      "width": 768,
+      "height": 914,
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "busy": null,
+      "theme": "light",
+      "locale": "zh-CN"
+    },
+    {
+      "label": "768 zh-CN dark",
+      "width": 768,
+      "height": 914,
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "busy": null,
+      "theme": "dark",
+      "locale": "zh-CN"
+    },
+    {
+      "label": "768 en light",
+      "width": 768,
+      "height": 914,
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "busy": null,
+      "theme": "light",
+      "locale": "en"
+    },
+    {
+      "label": "768 en dark",
+      "width": 768,
+      "height": 914,
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "busy": null,
+      "theme": "dark",
+      "locale": "en"
+    },
+    {
+      "label": "1440 zh-CN light",
+      "width": 1440,
+      "height": 914,
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "busy": null,
+      "theme": "light",
+      "locale": "zh-CN"
+    },
+    {
+      "label": "1440 zh-CN dark",
+      "width": 1440,
+      "height": 914,
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "busy": null,
+      "theme": "dark",
+      "locale": "zh-CN"
+    },
+    {
+      "label": "1440 en light",
+      "width": 1440,
+      "height": 914,
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "busy": null,
+      "theme": "light",
+      "locale": "en"
+    },
+    {
+      "label": "1440 en dark",
+      "width": 1440,
+      "height": 914,
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "busy": null,
+      "theme": "dark",
+      "locale": "en"
+    },
+    {
+      "label": "1920 zh-CN light",
+      "width": 1920,
+      "height": 914,
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "busy": null,
+      "theme": "light",
+      "locale": "zh-CN"
+    },
+    {
+      "label": "1920 zh-CN dark",
+      "width": 1920,
+      "height": 914,
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "busy": null,
+      "theme": "dark",
+      "locale": "zh-CN"
+    },
+    {
+      "label": "1920 en light",
+      "width": 1920,
+      "height": 914,
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "busy": null,
+      "theme": "light",
+      "locale": "en"
+    },
+    {
+      "label": "1920 en dark",
+      "width": 1920,
+      "height": 914,
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "busy": null,
+      "theme": "dark",
+      "locale": "en"
+    },
+    {
+      "label": "history refresh",
+      "width": 500,
+      "height": 814,
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "busy": null,
+      "theme": "dark",
+      "locale": "en"
+    }
+  ],
+  "entries": [
+    {
+      "label": "cold products",
+      "tag": "A",
+      "href": "/one-g/products/",
+      "url": "http://127.0.0.1:3001/one-g/products/"
+    },
+    {
+      "label": "opening solutions",
+      "tag": "A",
+      "href": "/one-g/solutions/",
+      "url": "http://127.0.0.1:3001/one-g/solutions/"
+    },
+    {
+      "label": "open products",
+      "tag": "A",
+      "href": "/one-g/products/",
+      "url": "http://127.0.0.1:3001/one-g/products/"
+    },
+    {
+      "label": "about",
+      "tag": "A",
+      "href": "/one-g/about/",
+      "url": "http://127.0.0.1:3001/one-g/about/"
+    },
+    {
+      "label": "logo",
+      "tag": "A",
+      "href": "/one-g/",
+      "url": "http://127.0.0.1:3001/one-g/"
+    },
+    {
+      "label": "view all 0",
+      "tag": "A",
+      "href": "/one-g/products/",
+      "url": "http://127.0.0.1:3001/one-g/products/"
+    },
+    {
+      "label": "header-product-robotdock",
+      "tag": "A",
+      "href": "/one-g/products/robotdock/",
+      "url": "http://127.0.0.1:3001/one-g/products/robotdock/"
+    },
+    {
+      "label": "header-product-g1",
+      "tag": "A",
+      "href": "/one-g/products/g1/",
+      "url": "http://127.0.0.1:3001/one-g/products/g1/"
+    },
+    {
+      "label": "header-product-g1-pro",
+      "tag": "A",
+      "href": "/one-g/products/g1-pro/",
+      "url": "http://127.0.0.1:3001/one-g/products/g1-pro/"
+    },
+    {
+      "label": "header-product-arm-a1",
+      "tag": "A",
+      "href": "/one-g/products/arm-a1/",
+      "url": "http://127.0.0.1:3001/one-g/products/arm-a1/"
+    },
+    {
+      "label": "header-product-arm-a2",
+      "tag": "A",
+      "href": "/one-g/products/arm-a2/",
+      "url": "http://127.0.0.1:3001/one-g/products/arm-a2/"
+    },
+    {
+      "label": "header-product-hand-d1",
+      "tag": "A",
+      "href": "/one-g/products/hand-d1/",
+      "url": "http://127.0.0.1:3001/one-g/products/hand-d1/"
+    },
+    {
+      "label": "header-product-vision-v1",
+      "tag": "A",
+      "href": "/one-g/products/vision-v1/",
+      "url": "http://127.0.0.1:3001/one-g/products/vision-v1/"
+    },
+    {
+      "label": "header-product-rgbd",
+      "tag": "A",
+      "href": "/one-g/products/rgbd/",
+      "url": "http://127.0.0.1:3001/one-g/products/rgbd/"
+    },
+    {
+      "label": "header-product-lidar-kit",
+      "tag": "A",
+      "href": "/one-g/products/lidar-kit/",
+      "url": "http://127.0.0.1:3001/one-g/products/lidar-kit/"
+    },
+    {
+      "label": "view all 1",
+      "tag": "A",
+      "href": "/one-g/solutions/",
+      "url": "http://127.0.0.1:3001/one-g/solutions/"
+    },
+    {
+      "label": "header-solution-handling",
+      "tag": "A",
+      "href": "/one-g/solutions/#handling",
+      "url": "http://127.0.0.1:3001/one-g/solutions/#handling"
+    },
+    {
+      "label": "header-solution-inspection",
+      "tag": "A",
+      "href": "/one-g/solutions/#inspection",
+      "url": "http://127.0.0.1:3001/one-g/solutions/#inspection"
+    },
+    {
+      "label": "header-solution-teleoperation",
+      "tag": "A",
+      "href": "/one-g/solutions/teleoperation/",
+      "url": "http://127.0.0.1:3001/one-g/solutions/teleoperation/"
+    },
+    {
+      "label": "header-solution-ai",
+      "tag": "A",
+      "href": "/one-g/solutions/#ai",
+      "url": "http://127.0.0.1:3001/one-g/solutions/#ai"
+    },
+    {
+      "label": "English filtered image",
+      "tag": "A",
+      "href": "/one-g/products/arm-a1/",
+      "url": "http://127.0.0.1:3001/one-g/products/arm-a1/"
+    },
+    {
+      "label": "theme in flight to solutions",
+      "tag": "A",
+      "href": "/one-g/solutions/",
+      "url": "http://127.0.0.1:3001/one-g/solutions/"
+    },
+    {
+      "label": "mobile text products",
+      "tag": "A",
+      "href": "/one-g/products/",
+      "url": "http://127.0.0.1:3001/one-g/products/"
+    },
+    {
+      "label": "mobile SONIC solution",
+      "tag": "A",
+      "href": "/one-g/solutions/teleoperation/",
+      "url": "http://127.0.0.1:3001/one-g/solutions/teleoperation/"
+    }
+  ],
+  "failures": [],
+  "browser": "158.0",
+  "status": "PASS"
+}

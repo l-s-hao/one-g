@@ -11,13 +11,13 @@
 .error {font-size:13px;font-weight:600;}
 .field [aria-invalid=true] {border-style:dashed;border-width:2px;}
 .actions {display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;}
-.actions .primary {background:var(--button-primary-bg);color:var(--button-primary-text);}
+.actions .primary {background:var(--button-primary-bg);--specular-line:var(--button-primary-text);color:var(--button-primary-text);}
 .dialog :focus-visible {outline:2px solid var(--text);outline-offset:3px;}
 .previewNotice {padding:12px;border:1px solid var(--border-strong);border-radius:8px;margin-block:16px;}
 .preview > div {padding-block:10px;border-bottom:1px solid var(--border);}
 .preview dt {color:var(--text-muted);font-size:13px;}
 .preview dd {margin:4px 0 0;white-space:pre-wrap;overflow-wrap:anywhere;}
-.trigger {display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 20px;border:1px solid var(--border-strong);border-radius:999px;background:var(--button-primary-bg);color:var(--button-primary-text);font-size:14px;cursor:pointer;}
+.trigger {display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 20px;border:1px solid var(--border-strong);border-radius:999px;background:var(--button-primary-bg);--specular-line:var(--button-primary-text);color:var(--button-primary-text);font-size:14px;cursor:pointer;}
 .trigger:disabled {opacity:.6;cursor:wait;}
 .trigger:focus-visible {outline:2px solid var(--text);outline-offset:3px;}
 .floating {position:fixed;bottom:24px;right:24px;z-index:50;}

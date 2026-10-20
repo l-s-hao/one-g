@@ -1,0 +1,33 @@
+{
+  "repository": "https://github.com/DavidHDev/react-bits",
+  "commit": "e12c22192ac7b4b452c5e2feb9b586d74765d696",
+  "sourceDirectory": "src/ts-default/Components/SpecularButton",
+  "license": "MIT + Commons Clause (see upstream/LICENSE.md)",
+  "registry": "https://reactbits.dev/r/SpecularButton-TS-CSS.json",
+  "registryDependencies": [],
+  "registryFiles": [
+    {
+      "path": "SpecularButton.css",
+      "type": "registry:file",
+      "target": "@components/SpecularButton.css"
+    },
+    {
+      "path": "SpecularButton.tsx",
+      "type": "registry:component",
+      "target": null
+    }
+  ],
+  "installation": "shadcn@4.22.1 alias and full URL both failed: other side closed; downloaded the paired official files at this commit",
+  "files": {
+    "SpecularButton.tsx": {
+      "url": "https://raw.githubusercontent.com/DavidHDev/react-bits/e12c22192ac7b4b452c5e2feb9b586d74765d696/src/ts-default/Components/SpecularButton/SpecularButton.tsx",
+      "sha256": "9ec0e4ee0ec0d69abca5fb568a73a4987a1d4159fdfb9cc407cd598120897559",
+      "registryMatchesOfficial": true
+    },
+    "SpecularButton.css": {
+      "url": "https://raw.githubusercontent.com/DavidHDev/react-bits/e12c22192ac7b4b452c5e2feb9b586d74765d696/src/ts-default/Components/SpecularButton/SpecularButton.css",
+      "sha256": "af7cad9998bd6102a21fd05da11890ca05c061f9d5e6c96f540fb744684442a9",
+      "registryMatchesOfficial": true
+    }
+  }
+}

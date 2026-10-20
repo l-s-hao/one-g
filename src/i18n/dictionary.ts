@@ -8,6 +8,7 @@ export const brandCopy = {
 } as const;
 
 export const english = {
+  "收起预览": "Hide preview",
   "概念图 · 暂未开放销售": "Concept image · Sales not open",
   "图片待补": "Image pending",
   "型号待确认": "Model to be confirmed",

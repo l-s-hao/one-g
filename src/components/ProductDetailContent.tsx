@@ -13,7 +13,7 @@ export default function ProductDetailContent({ product, view = "overview" }: { p
   const detail = product.detail;
   if (!detail) return null;
   const links = getOfferingNavigation(product);
-  const purchase = <Link intent="purchase" href={links.purchaseHref}>{links.purchaseLabel}</Link>;
+  const purchase = <Link effect="specular" intent="purchase" href={links.purchaseHref}>{links.purchaseLabel}</Link>;
   const tasks = solutions.filter(item => item.productIds.includes(product.id));
   return <LArticle data-product-page className={styles.page} id="product-top">
     <ProductLocalNav key={`${product.id}-${view}`} name={product.name} links={links} view={view}/>

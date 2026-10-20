@@ -1,0 +1,3600 @@
+{
+  "base": "http://127.0.0.1:3001/one-g",
+  "browser": "153.0.8010.12",
+  "samples": [
+    {
+      "name": "products idle baseline after first-use library initialization",
+      "listeners": [
+        {
+          "target": "window",
+          "type": "pagehide",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "pageshow",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "storage",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "error",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "unhandledrejection",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "popstate",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "resize",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "abort",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "auxclick",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "beforetoggle",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "cancel",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "canplay",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "canplaythrough",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "click",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "close",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "contextmenu",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "copy",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "cut",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "drag",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragenter",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragexit",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragleave",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragover",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "drop",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "durationchange",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "emptied",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "encrypted",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "ended",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "error",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "fullscreenchange",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "fullscreenerror",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "gotpointercapture",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "input",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "invalid",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "keydown",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "keypress",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "keyup",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "load",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "loadeddata",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "loadedmetadata",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "loadstart",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "lostpointercapture",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mousedown",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mousemove",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mouseout",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mouseover",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mouseup",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "paste",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "pause",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "play",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "playing",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "pointercancel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "pointerdown",
+          "count": 4
+        },
+        {
+          "target": "document",
+          "type": "pointermove",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "pointerout",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "pointerover",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "pointerup",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "progress",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "ratechange",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "reset",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "resize",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "seeked",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "seeking",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "stalled",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "submit",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "suspend",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "timeupdate",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "touchcancel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "touchend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "touchstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "volumechange",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "scroll",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "toggle",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "touchmove",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "waiting",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "wheel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "scrollend",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "animationend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "animationiteration",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "animationstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dblclick",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "focusin",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "focusout",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitionrun",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitionstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitioncancel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitionend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "change",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "compositionend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "textInput",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "compositionstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "compositionupdate",
+          "count": 2
+        }
+      ],
+      "raf": 0,
+      "ticks": 31,
+      "tasks": [],
+      "shifts": [
+        {
+          "value": 0.38361388888888887,
+          "recentInput": false
+        }
+      ]
+    },
+    {
+      "name": "after 10 menu cycles, idle",
+      "listeners": [
+        {
+          "target": "window",
+          "type": "pagehide",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "pageshow",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "storage",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "error",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "unhandledrejection",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "popstate",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "resize",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "abort",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "auxclick",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "beforetoggle",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "cancel",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "canplay",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "canplaythrough",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "click",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "close",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "contextmenu",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "copy",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "cut",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "drag",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragenter",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragexit",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragleave",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragover",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "drop",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "durationchange",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "emptied",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "encrypted",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "ended",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "error",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "fullscreenchange",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "fullscreenerror",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "gotpointercapture",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "input",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "invalid",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "keydown",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "keypress",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "keyup",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "load",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "loadeddata",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "loadedmetadata",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "loadstart",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "lostpointercapture",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mousedown",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mousemove",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mouseout",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mouseover",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mouseup",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "paste",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "pause",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "play",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "playing",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "pointercancel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "pointerdown",
+          "count": 4
+        },
+        {
+          "target": "document",
+          "type": "pointermove",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "pointerout",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "pointerover",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "pointerup",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "progress",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "ratechange",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "reset",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "resize",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "seeked",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "seeking",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "stalled",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "submit",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "suspend",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "timeupdate",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "touchcancel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "touchend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "touchstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "volumechange",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "scroll",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "toggle",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "touchmove",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "waiting",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "wheel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "scrollend",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "animationend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "animationiteration",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "animationstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dblclick",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "focusin",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "focusout",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitionrun",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitionstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitioncancel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitionend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "change",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "compositionend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "textInput",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "compositionstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "compositionupdate",
+          "count": 2
+        }
+      ],
+      "raf": 0,
+      "ticks": 279,
+      "tasks": [],
+      "shifts": [
+        {
+          "value": 0.38361388888888887,
+          "recentInput": false
+        }
+      ]
+    },
+    {
+      "name": "about visible after theme and locale",
+      "listeners": [
+        {
+          "target": "window",
+          "type": "pagehide",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "pageshow",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "storage",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "error",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "unhandledrejection",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "popstate",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "resize",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "scroll",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "pointermove",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "pointerdown",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "blur",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "abort",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "auxclick",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "beforetoggle",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "cancel",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "canplay",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "canplaythrough",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "click",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "close",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "contextmenu",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "copy",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "cut",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "drag",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragenter",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragexit",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragleave",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragover",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "drop",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "durationchange",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "emptied",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "encrypted",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "ended",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "error",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "fullscreenchange",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "fullscreenerror",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "gotpointercapture",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "input",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "invalid",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "keydown",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "keypress",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "keyup",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "load",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "loadeddata",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "loadedmetadata",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "loadstart",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "lostpointercapture",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mousedown",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mousemove",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mouseout",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mouseover",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mouseup",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "paste",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "pause",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "play",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "playing",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "pointercancel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "pointerdown",
+          "count": 4
+        },
+        {
+          "target": "document",
+          "type": "pointermove",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "pointerout",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "pointerover",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "pointerup",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "progress",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "ratechange",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "reset",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "resize",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "seeked",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "seeking",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "stalled",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "submit",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "suspend",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "timeupdate",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "touchcancel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "touchend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "touchstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "volumechange",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "scroll",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "toggle",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "touchmove",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "waiting",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "wheel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "scrollend",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "animationend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "animationiteration",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "animationstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dblclick",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "focusin",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "focusout",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "transitionrun",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitionstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitioncancel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitionend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "change",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "compositionend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "textInput",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "compositionstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "compositionupdate",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "visibilitychange",
+          "count": 2
+        },
+        {
+          "target": "html",
+          "type": "pointerleave",
+          "count": 1
+        }
+      ],
+      "raf": 2,
+      "ticks": 437,
+      "tasks": [
+        {
+          "start": 14814.900000002235,
+          "duration": 211
+        },
+        {
+          "start": 15073.800000000745,
+          "duration": 300
+        },
+        {
+          "start": 15375.300000000745,
+          "duration": 979
+        },
+        {
+          "start": 16356.400000002235,
+          "duration": 56
+        },
+        {
+          "start": 16418.199999999255,
+          "duration": 106
+        },
+        {
+          "start": 16524.699999999255,
+          "duration": 207
+        },
+        {
+          "start": 16732.10000000149,
+          "duration": 51
+        },
+        {
+          "start": 16828.800000000745,
+          "duration": 55
+        },
+        {
+          "start": 16974.10000000149,
+          "duration": 57
+        },
+        {
+          "start": 17031.10000000149,
+          "duration": 76
+        },
+        {
+          "start": 17108,
+          "duration": 63
+        },
+        {
+          "start": 17171.699999999255,
+          "duration": 60
+        },
+        {
+          "start": 17232.300000000745,
+          "duration": 50
+        },
+        {
+          "start": 17286.400000002235,
+          "duration": 55
+        },
+        {
+          "start": 17421,
+          "duration": 52
+        },
+        {
+          "start": 17486.699999999255,
+          "duration": 54
+        },
+        {
+          "start": 17542.10000000149,
+          "duration": 51
+        },
+        {
+          "start": 17594,
+          "duration": 58
+        },
+        {
+          "start": 17705.900000002235,
+          "duration": 50
+        },
+        {
+          "start": 17756.5,
+          "duration": 54
+        },
+        {
+          "start": 17872.60000000149,
+          "duration": 54
+        },
+        {
+          "start": 17927.5,
+          "duration": 62
+        },
+        {
+          "start": 17990,
+          "duration": 61
+        },
+        {
+          "start": 18051.5,
+          "duration": 61
+        },
+        {
+          "start": 18113.699999999255,
+          "duration": 66
+        },
+        {
+          "start": 18190.10000000149,
+          "duration": 71
+        },
+        {
+          "start": 18261.5,
+          "duration": 57
+        },
+        {
+          "start": 18319.60000000149,
+          "duration": 54
+        },
+        {
+          "start": 18374,
+          "duration": 56
+        },
+        {
+          "start": 18431.300000000745,
+          "duration": 61
+        },
+        {
+          "start": 18493.400000002235,
+          "duration": 71
+        },
+        {
+          "start": 18565.60000000149,
+          "duration": 68
+        },
+        {
+          "start": 18634.10000000149,
+          "duration": 67
+        },
+        {
+          "start": 18702.10000000149,
+          "duration": 55
+        },
+        {
+          "start": 18759.10000000149,
+          "duration": 50
+        },
+        {
+          "start": 18810.199999999255,
+          "duration": 53
+        }
+      ],
+      "shifts": [
+        {
+          "value": 0.38361388888888887,
+          "recentInput": false
+        },
+        {
+          "value": 0.004112322892554012,
+          "recentInput": true
+        }
+      ]
+    },
+    {
+      "name": "about lanyard offscreen",
+      "listeners": [
+        {
+          "target": "window",
+          "type": "pagehide",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "pageshow",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "storage",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "error",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "unhandledrejection",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "popstate",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "resize",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "scroll",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "pointermove",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "pointerdown",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "blur",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "abort",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "auxclick",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "beforetoggle",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "cancel",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "canplay",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "canplaythrough",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "click",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "close",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "contextmenu",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "copy",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "cut",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "drag",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragenter",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragexit",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragleave",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragover",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "drop",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "durationchange",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "emptied",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "encrypted",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "ended",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "error",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "fullscreenchange",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "fullscreenerror",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "gotpointercapture",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "input",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "invalid",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "keydown",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "keypress",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "keyup",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "load",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "loadeddata",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "loadedmetadata",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "loadstart",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "lostpointercapture",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mousedown",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mousemove",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mouseout",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mouseover",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mouseup",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "paste",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "pause",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "play",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "playing",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "pointercancel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "pointerdown",
+          "count": 4
+        },
+        {
+          "target": "document",
+          "type": "pointermove",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "pointerout",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "pointerover",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "pointerup",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "progress",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "ratechange",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "reset",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "resize",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "seeked",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "seeking",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "stalled",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "submit",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "suspend",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "timeupdate",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "touchcancel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "touchend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "touchstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "volumechange",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "scroll",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "toggle",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "touchmove",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "waiting",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "wheel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "scrollend",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "animationend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "animationiteration",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "animationstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dblclick",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "focusin",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "focusout",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "transitionrun",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitionstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitioncancel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitionend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "change",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "compositionend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "textInput",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "compositionstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "compositionupdate",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "visibilitychange",
+          "count": 2
+        },
+        {
+          "target": "html",
+          "type": "pointerleave",
+          "count": 1
+        }
+      ],
+      "raf": 0,
+      "ticks": 550,
+      "tasks": [
+        {
+          "start": 14814.900000002235,
+          "duration": 211
+        },
+        {
+          "start": 15073.800000000745,
+          "duration": 300
+        },
+        {
+          "start": 15375.300000000745,
+          "duration": 979
+        },
+        {
+          "start": 16356.400000002235,
+          "duration": 56
+        },
+        {
+          "start": 16418.199999999255,
+          "duration": 106
+        },
+        {
+          "start": 16524.699999999255,
+          "duration": 207
+        },
+        {
+          "start": 16732.10000000149,
+          "duration": 51
+        },
+        {
+          "start": 16828.800000000745,
+          "duration": 55
+        },
+        {
+          "start": 16974.10000000149,
+          "duration": 57
+        },
+        {
+          "start": 17031.10000000149,
+          "duration": 76
+        },
+        {
+          "start": 17108,
+          "duration": 63
+        },
+        {
+          "start": 17171.699999999255,
+          "duration": 60
+        },
+        {
+          "start": 17232.300000000745,
+          "duration": 50
+        },
+        {
+          "start": 17286.400000002235,
+          "duration": 55
+        },
+        {
+          "start": 17421,
+          "duration": 52
+        },
+        {
+          "start": 17486.699999999255,
+          "duration": 54
+        },
+        {
+          "start": 17542.10000000149,
+          "duration": 51
+        },
+        {
+          "start": 17594,
+          "duration": 58
+        },
+        {
+          "start": 17705.900000002235,
+          "duration": 50
+        },
+        {
+          "start": 17756.5,
+          "duration": 54
+        },
+        {
+          "start": 17872.60000000149,
+          "duration": 54
+        },
+        {
+          "start": 17927.5,
+          "duration": 62
+        },
+        {
+          "start": 17990,
+          "duration": 61
+        },
+        {
+          "start": 18051.5,
+          "duration": 61
+        },
+        {
+          "start": 18113.699999999255,
+          "duration": 66
+        },
+        {
+          "start": 18190.10000000149,
+          "duration": 71
+        },
+        {
+          "start": 18261.5,
+          "duration": 57
+        },
+        {
+          "start": 18319.60000000149,
+          "duration": 54
+        },
+        {
+          "start": 18374,
+          "duration": 56
+        },
+        {
+          "start": 18431.300000000745,
+          "duration": 61
+        },
+        {
+          "start": 18493.400000002235,
+          "duration": 71
+        },
+        {
+          "start": 18565.60000000149,
+          "duration": 68
+        },
+        {
+          "start": 18634.10000000149,
+          "duration": 67
+        },
+        {
+          "start": 18702.10000000149,
+          "duration": 55
+        },
+        {
+          "start": 18759.10000000149,
+          "duration": 50
+        },
+        {
+          "start": 18810.199999999255,
+          "duration": 53
+        }
+      ],
+      "shifts": [
+        {
+          "value": 0.38361388888888887,
+          "recentInput": false
+        },
+        {
+          "value": 0.004112322892554012,
+          "recentInput": true
+        }
+      ]
+    },
+    {
+      "name": "about offscreen +400ms",
+      "listeners": [
+        {
+          "target": "window",
+          "type": "pagehide",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "pageshow",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "storage",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "error",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "unhandledrejection",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "popstate",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "resize",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "scroll",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "pointermove",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "pointerdown",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "blur",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "abort",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "auxclick",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "beforetoggle",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "cancel",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "canplay",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "canplaythrough",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "click",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "close",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "contextmenu",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "copy",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "cut",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "drag",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragenter",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragexit",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragleave",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragover",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "drop",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "durationchange",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "emptied",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "encrypted",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "ended",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "error",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "fullscreenchange",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "fullscreenerror",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "gotpointercapture",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "input",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "invalid",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "keydown",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "keypress",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "keyup",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "load",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "loadeddata",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "loadedmetadata",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "loadstart",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "lostpointercapture",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mousedown",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mousemove",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mouseout",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mouseover",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mouseup",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "paste",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "pause",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "play",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "playing",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "pointercancel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "pointerdown",
+          "count": 4
+        },
+        {
+          "target": "document",
+          "type": "pointermove",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "pointerout",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "pointerover",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "pointerup",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "progress",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "ratechange",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "reset",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "resize",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "seeked",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "seeking",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "stalled",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "submit",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "suspend",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "timeupdate",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "touchcancel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "touchend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "touchstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "volumechange",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "scroll",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "toggle",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "touchmove",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "waiting",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "wheel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "scrollend",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "animationend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "animationiteration",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "animationstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dblclick",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "focusin",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "focusout",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "transitionrun",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitionstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitioncancel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitionend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "change",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "compositionend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "textInput",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "compositionstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "compositionupdate",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "visibilitychange",
+          "count": 2
+        },
+        {
+          "target": "html",
+          "type": "pointerleave",
+          "count": 1
+        }
+      ],
+      "raf": 0,
+      "ticks": 550,
+      "tasks": [
+        {
+          "start": 14814.900000002235,
+          "duration": 211
+        },
+        {
+          "start": 15073.800000000745,
+          "duration": 300
+        },
+        {
+          "start": 15375.300000000745,
+          "duration": 979
+        },
+        {
+          "start": 16356.400000002235,
+          "duration": 56
+        },
+        {
+          "start": 16418.199999999255,
+          "duration": 106
+        },
+        {
+          "start": 16524.699999999255,
+          "duration": 207
+        },
+        {
+          "start": 16732.10000000149,
+          "duration": 51
+        },
+        {
+          "start": 16828.800000000745,
+          "duration": 55
+        },
+        {
+          "start": 16974.10000000149,
+          "duration": 57
+        },
+        {
+          "start": 17031.10000000149,
+          "duration": 76
+        },
+        {
+          "start": 17108,
+          "duration": 63
+        },
+        {
+          "start": 17171.699999999255,
+          "duration": 60
+        },
+        {
+          "start": 17232.300000000745,
+          "duration": 50
+        },
+        {
+          "start": 17286.400000002235,
+          "duration": 55
+        },
+        {
+          "start": 17421,
+          "duration": 52
+        },
+        {
+          "start": 17486.699999999255,
+          "duration": 54
+        },
+        {
+          "start": 17542.10000000149,
+          "duration": 51
+        },
+        {
+          "start": 17594,
+          "duration": 58
+        },
+        {
+          "start": 17705.900000002235,
+          "duration": 50
+        },
+        {
+          "start": 17756.5,
+          "duration": 54
+        },
+        {
+          "start": 17872.60000000149,
+          "duration": 54
+        },
+        {
+          "start": 17927.5,
+          "duration": 62
+        },
+        {
+          "start": 17990,
+          "duration": 61
+        },
+        {
+          "start": 18051.5,
+          "duration": 61
+        },
+        {
+          "start": 18113.699999999255,
+          "duration": 66
+        },
+        {
+          "start": 18190.10000000149,
+          "duration": 71
+        },
+        {
+          "start": 18261.5,
+          "duration": 57
+        },
+        {
+          "start": 18319.60000000149,
+          "duration": 54
+        },
+        {
+          "start": 18374,
+          "duration": 56
+        },
+        {
+          "start": 18431.300000000745,
+          "duration": 61
+        },
+        {
+          "start": 18493.400000002235,
+          "duration": 71
+        },
+        {
+          "start": 18565.60000000149,
+          "duration": 68
+        },
+        {
+          "start": 18634.10000000149,
+          "duration": 67
+        },
+        {
+          "start": 18702.10000000149,
+          "duration": 55
+        },
+        {
+          "start": 18759.10000000149,
+          "duration": 50
+        },
+        {
+          "start": 18810.199999999255,
+          "duration": 53
+        }
+      ],
+      "shifts": [
+        {
+          "value": 0.38361388888888887,
+          "recentInput": false
+        },
+        {
+          "value": 0.004112322892554012,
+          "recentInput": true
+        }
+      ]
+    },
+    {
+      "name": "after route cycles, products idle",
+      "listeners": [
+        {
+          "target": "window",
+          "type": "pagehide",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "pageshow",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "storage",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "error",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "unhandledrejection",
+          "count": 1
+        },
+        {
+          "target": "window",
+          "type": "popstate",
+          "count": 2
+        },
+        {
+          "target": "window",
+          "type": "resize",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "abort",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "auxclick",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "beforetoggle",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "cancel",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "canplay",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "canplaythrough",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "click",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "close",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "contextmenu",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "copy",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "cut",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "drag",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragenter",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragexit",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragleave",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragover",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dragstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "drop",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "durationchange",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "emptied",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "encrypted",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "ended",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "error",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "fullscreenchange",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "fullscreenerror",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "gotpointercapture",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "input",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "invalid",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "keydown",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "keypress",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "keyup",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "load",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "loadeddata",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "loadedmetadata",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "loadstart",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "lostpointercapture",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mousedown",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mousemove",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mouseout",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mouseover",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "mouseup",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "paste",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "pause",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "play",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "playing",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "pointercancel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "pointerdown",
+          "count": 4
+        },
+        {
+          "target": "document",
+          "type": "pointermove",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "pointerout",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "pointerover",
+          "count": 3
+        },
+        {
+          "target": "document",
+          "type": "pointerup",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "progress",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "ratechange",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "reset",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "resize",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "seeked",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "seeking",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "stalled",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "submit",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "suspend",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "timeupdate",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "touchcancel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "touchend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "touchstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "volumechange",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "scroll",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "toggle",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "touchmove",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "waiting",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "wheel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "scrollend",
+          "count": 1
+        },
+        {
+          "target": "document",
+          "type": "animationend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "animationiteration",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "animationstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "dblclick",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "focusin",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "focusout",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitionrun",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitionstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitioncancel",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "transitionend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "change",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "compositionend",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "textInput",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "compositionstart",
+          "count": 2
+        },
+        {
+          "target": "document",
+          "type": "compositionupdate",
+          "count": 2
+        }
+      ],
+      "raf": 0,
+      "ticks": 680,
+      "tasks": [
+        {
+          "start": 14814.900000002235,
+          "duration": 211
+        },
+        {
+          "start": 15073.800000000745,
+          "duration": 300
+        },
+        {
+          "start": 15375.300000000745,
+          "duration": 979
+        },
+        {
+          "start": 16356.400000002235,
+          "duration": 56
+        },
+        {
+          "start": 16418.199999999255,
+          "duration": 106
+        },
+        {
+          "start": 16524.699999999255,
+          "duration": 207
+        },
+        {
+          "start": 16732.10000000149,
+          "duration": 51
+        },
+        {
+          "start": 16828.800000000745,
+          "duration": 55
+        },
+        {
+          "start": 16974.10000000149,
+          "duration": 57
+        },
+        {
+          "start": 17031.10000000149,
+          "duration": 76
+        },
+        {
+          "start": 17108,
+          "duration": 63
+        },
+        {
+          "start": 17171.699999999255,
+          "duration": 60
+        },
+        {
+          "start": 17232.300000000745,
+          "duration": 50
+        },
+        {
+          "start": 17286.400000002235,
+          "duration": 55
+        },
+        {
+          "start": 17421,
+          "duration": 52
+        },
+        {
+          "start": 17486.699999999255,
+          "duration": 54
+        },
+        {
+          "start": 17542.10000000149,
+          "duration": 51
+        },
+        {
+          "start": 17594,
+          "duration": 58
+        },
+        {
+          "start": 17705.900000002235,
+          "duration": 50
+        },
+        {
+          "start": 17756.5,
+          "duration": 54
+        },
+        {
+          "start": 17872.60000000149,
+          "duration": 54
+        },
+        {
+          "start": 17927.5,
+          "duration": 62
+        },
+        {
+          "start": 17990,
+          "duration": 61
+        },
+        {
+          "start": 18051.5,
+          "duration": 61
+        },
+        {
+          "start": 18113.699999999255,
+          "duration": 66
+        },
+        {
+          "start": 18190.10000000149,
+          "duration": 71
+        },
+        {
+          "start": 18261.5,
+          "duration": 57
+        },
+        {
+          "start": 18319.60000000149,
+          "duration": 54
+        },
+        {
+          "start": 18374,
+          "duration": 56
+        },
+        {
+          "start": 18431.300000000745,
+          "duration": 61
+        },
+        {
+          "start": 18493.400000002235,
+          "duration": 71
+        },
+        {
+          "start": 18565.60000000149,
+          "duration": 68
+        },
+        {
+          "start": 18634.10000000149,
+          "duration": 67
+        },
+        {
+          "start": 18702.10000000149,
+          "duration": 55
+        },
+        {
+          "start": 18759.10000000149,
+          "duration": 50
+        },
+        {
+          "start": 18810.199999999255,
+          "duration": 53
+        }
+      ],
+      "shifts": [
+        {
+          "value": 0.38361388888888887,
+          "recentInput": false
+        },
+        {
+          "value": 0.004112322892554012,
+          "recentInput": true
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "status": "PASS"
+}

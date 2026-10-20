@@ -38,7 +38,7 @@ export default function AboutPage() {
     <LSection className={`${styles.section} ${styles.contact}`} aria-labelledby="contact-title">
       <LP className={styles.eyebrow}>04 / TALK TO ONE-G</LP><LH2 id="contact-title">TALK TO ONE-G</LH2>
       <LP className={styles.contactIntro}>如果你有机器人开发与应用需求，欢迎与我们沟通。</LP>
-      <SupportButton inline entry="about" className={styles.contactButton}/>
+      <SupportButton effect="specular" inline entry="about" className={styles.contactButton}/>
       <LP className={styles.contactNote}>登录后填写需求 · 当前仅支持前端预览</LP>
     </LSection>
     </LArticle>

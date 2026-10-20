@@ -62,7 +62,7 @@
 .navigation .navItem > button {font:inherit;min-height:calc(var(--site-header-height) - 1px);padding:0;white-space:nowrap;}
 .imagePanel {overflow:hidden;}
 .imagePanel .panelInner {padding-block:16px 20px;}
-.mobileHeading > button {width:100%;justify-content:flex-start;min-height:52px;font:inherit;text-decoration:none;}
+.mobileHeading > .previewToggle {width:auto;flex:0 0 auto;min-width:64px;min-height:44px;padding-inline:8px;font:inherit;font-size:12px;text-decoration:none;}
 
 
 .actions {flex-shrink:0;}

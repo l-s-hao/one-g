@@ -1,0 +1,23 @@
+[
+  {
+    "test": "card hover split",
+    "innerDelta": -4,
+    "outerDelta": 0
+  },
+  {
+    "route": "/configure/robotdock/?package=base",
+    "target": "/one-g/buy/robotdock/?package=base"
+  },
+  {
+    "route": "/configure/sonic-link/",
+    "target": "/one-g/solutions/teleoperation/"
+  },
+  {
+    "route": "/buy/sonic-link/",
+    "target": "/one-g/solutions/teleoperation/"
+  },
+  {
+    "route": "/products/sonic-link/",
+    "target": "/one-g/solutions/teleoperation/"
+  }
+]

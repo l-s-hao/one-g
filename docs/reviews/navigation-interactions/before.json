@@ -1,0 +1,211 @@
+[
+  {
+    "label": "商品中心",
+    "tag": "BUTTON",
+    "href": null,
+    "hit": "BUTTON",
+    "hitInside": true,
+    "nested": false,
+    "before": "http://localhost:3000/one-g/",
+    "after": "http://localhost:3000/one-g/",
+    "changed": false
+  },
+  {
+    "label": "解决方案",
+    "tag": "BUTTON",
+    "href": null,
+    "hit": "BUTTON",
+    "hitInside": true,
+    "nested": false,
+    "before": "http://localhost:3000/one-g/",
+    "after": "http://localhost:3000/one-g/",
+    "changed": false
+  },
+  {
+    "label": "了解公司",
+    "tag": "A",
+    "href": "/one-g/about/",
+    "hit": "A",
+    "hitInside": true,
+    "nested": false,
+    "before": "http://localhost:3000/one-g/",
+    "after": "http://localhost:3000/one-g/about/",
+    "changed": true
+  },
+  {
+    "label": "Logo",
+    "tag": "A",
+    "href": "/one-g/",
+    "hit": "SPAN",
+    "hitInside": true,
+    "nested": false,
+    "before": "http://localhost:3000/one-g/about/",
+    "after": "http://localhost:3000/one-g/",
+    "changed": true
+  },
+  {
+    "label": "查看全部商品",
+    "tag": "A",
+    "href": "/one-g/products/",
+    "hit": "A",
+    "hitInside": true,
+    "nested": false,
+    "before": "http://localhost:3000/one-g/",
+    "after": "http://localhost:3000/one-g/products/",
+    "changed": true
+  },
+  {
+    "label": "商品图片 图片待补RoboDock概念图 · 暂未开放销售",
+    "tag": "A",
+    "href": "/one-g/products/robotdock/",
+    "hit": "IMG",
+    "hitInside": true,
+    "nested": false,
+    "before": "http://localhost:3000/one-g/",
+    "after": "http://localhost:3000/one-g/products/robotdock/",
+    "changed": true
+  },
+  {
+    "label": "商品图片 图片待补ONE-G G1产品图待确认",
+    "tag": "A",
+    "href": "/one-g/products/g1/",
+    "hit": "IMG",
+    "hitInside": true,
+    "nested": false,
+    "before": "http://localhost:3000/one-g/",
+    "after": "http://localhost:3000/one-g/products/g1/",
+    "changed": true
+  },
+  {
+    "label": "商品图片 图片待补ONE-G G1 Pro",
+    "tag": "A",
+    "href": "/one-g/products/g1-pro/",
+    "hit": "DIV",
+    "hitInside": true,
+    "nested": false,
+    "before": "http://localhost:3000/one-g/",
+    "after": "http://localhost:3000/one-g/products/g1-pro/",
+    "changed": true
+  },
+  {
+    "label": "商品图片 图片待补ONE-G Arm A1型号待确认",
+    "tag": "A",
+    "href": "/one-g/products/arm-a1/",
+    "hit": "IMG",
+    "hitInside": true,
+    "nested": false,
+    "before": "http://localhost:3000/one-g/",
+    "after": "http://localhost:3000/one-g/products/arm-a1/",
+    "changed": true
+  },
+  {
+    "label": "商品图片 图片待补ONE-G Arm A2",
+    "tag": "A",
+    "href": "/one-g/products/arm-a2/",
+    "hit": "DIV",
+    "hitInside": true,
+    "nested": false,
+    "before": "http://localhost:3000/one-g/",
+    "after": "http://localhost:3000/one-g/products/arm-a2/",
+    "changed": true
+  },
+  {
+    "label": "商品图片 图片待补ONE-G Hand D1",
+    "tag": "A",
+    "href": "/one-g/products/hand-d1/",
+    "hit": "DIV",
+    "hitInside": true,
+    "nested": false,
+    "before": "http://localhost:3000/one-g/",
+    "after": "http://localhost:3000/one-g/products/hand-d1/",
+    "changed": true
+  },
+  {
+    "label": "商品图片 图片待补ONE-G Vision V1",
+    "tag": "A",
+    "href": "/one-g/products/vision-v1/",
+    "hit": "DIV",
+    "hitInside": true,
+    "nested": false,
+    "before": "http://localhost:3000/one-g/",
+    "after": "http://localhost:3000/one-g/products/vision-v1/",
+    "changed": true
+  },
+  {
+    "label": "商品图片 图片待补ONE-G RGB-D",
+    "tag": "A",
+    "href": "/one-g/products/rgbd/",
+    "hit": "DIV",
+    "hitInside": true,
+    "nested": false,
+    "before": "http://localhost:3000/one-g/",
+    "after": "http://localhost:3000/one-g/products/rgbd/",
+    "changed": true
+  },
+  {
+    "label": "商品图片 图片待补ONE-G LiDAR Kit",
+    "tag": "A",
+    "href": "/one-g/products/lidar-kit/",
+    "hit": "DIV",
+    "hitInside": true,
+    "nested": false,
+    "before": "http://localhost:3000/one-g/",
+    "after": "http://localhost:3000/one-g/products/lidar-kit/",
+    "changed": true
+  },
+  {
+    "label": "查看全部方案",
+    "tag": "A",
+    "href": "/one-g/solutions/",
+    "hit": "A",
+    "hitInside": true,
+    "nested": false,
+    "before": "http://localhost:3000/one-g/",
+    "after": "http://localhost:3000/one-g/solutions/",
+    "changed": true
+  },
+  {
+    "label": "方案图片 图片待补搬运",
+    "tag": "A",
+    "href": "/one-g/solutions/#handling",
+    "hit": "IMG",
+    "hitInside": true,
+    "nested": false,
+    "before": "http://localhost:3000/one-g/",
+    "after": "http://localhost:3000/one-g/solutions/#handling",
+    "changed": true
+  },
+  {
+    "label": "方案图片 图片待补巡检",
+    "tag": "A",
+    "href": "/one-g/solutions/#inspection",
+    "hit": "IMG",
+    "hitInside": true,
+    "nested": false,
+    "before": "http://localhost:3000/one-g/",
+    "after": "http://localhost:3000/one-g/solutions/#inspection",
+    "changed": true
+  },
+  {
+    "label": "方案图片 图片待补遥操作 · SONIC Link",
+    "tag": "A",
+    "href": "/one-g/solutions/teleoperation/",
+    "hit": "IMG",
+    "hitInside": true,
+    "nested": false,
+    "before": "http://localhost:3000/one-g/",
+    "after": "http://localhost:3000/one-g/",
+    "changed": false
+  },
+  {
+    "label": "方案图片 图片待补智能任务",
+    "tag": "A",
+    "href": "/one-g/solutions/#ai",
+    "hit": "IMG",
+    "hitInside": true,
+    "nested": false,
+    "before": "http://localhost:3000/one-g/",
+    "after": "http://localhost:3000/one-g/solutions/#ai",
+    "changed": true
+  }
+]

@@ -102,3 +102,5 @@ node --test tests/i18n-dictionary.test.cjs
 图片导航浏览器回归：`tests/header-image-navigation.browser.cjs`。沿用可选的外部 Playwright 环境，通过 `ONE_G_PLAYWRIGHT` 指定模块位置、`ONE_G_BROWSER` 指定 Chromium、`ONE_G_TEST_URL` 指定带 basePath 的站点地址，不新增生产或开发依赖。测试覆盖全量链接、Flip 中间帧、关闭、语言/主题及手机布局。
 
 导航分类与悬停反馈回归：`tests/header-menu-feedback.browser.cjs`，复用上述 Playwright 环境变量，检查分类顺序/数量、URL 隔离、面板高度、4px 浮起与边缘稳定、无下划线、键盘焦点、减少动画和模拟触屏。
+
+当前主文字已从展开按钮改为真实链接。导航专项使用 `tests/navigation-interactions.browser.cjs`，性能/生命周期采样使用 `tests/navigation-resources.browser.cjs`，Firefox 使用标准库脚本 `tests/navigation-firefox.webdriver.py`（先启动现有 geckodriver，通过 `ONE_G_WEBDRIVER` 指定地址）。`tests/navigation-auth.browser.cjs` 仅用于显式启用既有开发 Mock auth 的隔离会话。旧 `header-image-navigation` / `header-menu-feedback` 脚本仍含旧“主文字是 button”选择器，不应作为当前语义的验收依据。具体环境、执行结果和限制见 [专项报告](reviews/NAVIGATION_INTERACTION_AUDIT.md)。

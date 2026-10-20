@@ -116,7 +116,7 @@ function ContactPreview({ entry, email, close }: { entry: ContactEntry; email: s
         {errors[field] && <LP id={`contact-${field}-error`} role="alert" className={styles.error}>{errors[field]}</LP>}
       </LDiv>)}
       <LP className={styles.note}>来源：{contactEntries[entry]}{product && ` · ${product}`}</LP>
-      <LDiv className={styles.actions}><LButton intent="ordinary" type="submit" className={styles.primary}>预览需求</LButton><LButton intent="ordinary" type="button" onClick={dismiss}>关闭</LButton></LDiv>
+      <LDiv className={styles.actions}><LButton effect="specular" intent="ordinary" type="submit" className={styles.primary}>预览需求</LButton><LButton intent="ordinary" type="button" onClick={dismiss}>关闭</LButton></LDiv>
     </LForm>}
   </LDialog>;
 }

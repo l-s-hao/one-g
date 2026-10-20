@@ -1,0 +1,42 @@
+[
+  {
+    "width": 390,
+    "shifts": []
+  },
+  {
+    "width": 768,
+    "shifts": [
+      {
+        "value": 0.00004602083333333333,
+        "recentInput": false,
+        "sources": [
+          "HeaderBrand_actions__NxNxO"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "shifts": [
+      {
+        "value": 0.000015594135802469137,
+        "recentInput": false,
+        "sources": [
+          "HeaderBrand_actions__NxNxO"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "shifts": [
+      {
+        "value": 0.00000877170138888889,
+        "recentInput": false,
+        "sources": [
+          "HeaderBrand_actions__NxNxO"
+        ]
+      }
+    ]
+  }
+]

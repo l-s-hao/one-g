@@ -83,4 +83,4 @@ flowchart TD
 
 ## 按钮装饰边界
 
-本地化基础元素通过显式 `intent` 接入共享装饰结构，统一 CSS 控制鼠标与减少动画。翻译先于包装；按钮内部装饰不控制外层 Motion/Flip transform。购买边框透明裁切，避免依赖外部表面颜色。详见 [BUTTON_EFFECTS.md](BUTTON_EFFECTS.md)。
+本地化基础按钮和链接均默认无 Specular，只有调用位置显式传 `effect="specular"` 才挂载装饰；`intent` 只保留用途语义与已有填充。导航和小按钮没有装饰实例，不注册追踪或动画资源。原宿主和业务事件保留。共享调度器使用一个按需 WebGL2 绘制器、最多四个局部 2D 输出、共享指针与可见性观察器，静止停止 RAF，资源不足时使用主题 CSS 静态边缘。翻译先于包装；装饰不控制外层 Motion/Flip transform，不改变原主题管理。详见 [BUTTON_EFFECTS.md](BUTTON_EFFECTS.md)。

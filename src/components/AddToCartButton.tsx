@@ -42,5 +42,5 @@ export default function AddToCartButton({ product }: { product: Product }) {
     finally { busy.current = false; setPending(false); }
   };
   if (!getProductPolicy(product).canAddToCart) return null;
-  return <LDiv><LButton intent="purchase" className="inline-flex items-center justify-center gap-2 whitespace-nowrap px-6 py-3 text-sm font-semibold" type="button" disabled={!authReady || pending} aria-busy={pending} onClick={add}>{added ? <Check size={16} /> : <ShoppingCart size={16} />}{added ? "已加入购物车" : "加入购物车"}</LButton>{notice && <LP role="status" className="mt-3 text-sm">{notice}</LP>}</LDiv>;
+  return <LDiv><LButton effect="specular" intent="purchase" className="inline-flex items-center justify-center gap-2 whitespace-nowrap px-6 py-3 text-sm font-semibold" type="button" disabled={!authReady || pending} aria-busy={pending} onClick={add}>{added ? <Check size={16} /> : <ShoppingCart size={16} />}{added ? "已加入购物车" : "加入购物车"}</LButton>{notice && <LP role="status" className="mt-3 text-sm">{notice}</LP>}</LDiv>;
 }

@@ -17,7 +17,7 @@ const productCategories = [{ id: "all", name: "全部" }, ...filterCategories];
 const catalogProducts = getCatalogProducts();
 
 export default function ProductsPage() {
-  return <Suspense fallback={<LP className="p-10 text-white/50">正在加载商品…</LP>}><ProductsByQuery /></Suspense>;
+  return <Suspense fallback={<LDiv className="min-h-screen w-full" aria-busy="true"><LP className="p-10 text-white/50">正在加载商品…</LP></LDiv>}><ProductsByQuery /></Suspense>;
 }
 
 function ProductsByQuery() {

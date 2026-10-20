@@ -159,4 +159,6 @@ npm run build
 
 `docs/` 还保留历史规划/审计，查阅时请注意日期和与当前代码的差异；本组说明以当前代码为准。
 
-普通与购买操作使用明确用途的共享按钮效果，保留日夜、减少动画、禁用与原业务行为。见 [按钮交互说明](docs/BUTTON_EFFECTS.md)。
+页面主要操作通过 `effect="specular"` 显式使用 React Bits 边缘高光；导航、小按钮、分类与 Tab 保持普通样式。共享绘制器按需启用，保留日夜、减少动画、禁用与原业务行为。见 [按钮交互说明](docs/BUTTON_EFFECTS.md)。
+
+顶部主栏目点击直接跳转，悬停预览与移动端展开分开处理；组合交互与性能检查见 [导航专项报告](docs/reviews/NAVIGATION_INTERACTION_AUDIT.md)。

@@ -1,0 +1,421 @@
+{
+  "browser": "153.0.8010.12",
+  "base": "http://localhost:3000/one-g",
+  "checks": [
+    {
+      "label": "F current-route closes",
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "animationFlags": 0,
+      "activeTheme": null
+    },
+    {
+      "label": "E Ctrl and middle click preserve native new tabs",
+      "pass": true
+    },
+    {
+      "label": "G/H menu + theme, physical click while expanding navigates and clears busy",
+      "pass": true
+    },
+    {
+      "label": "reduced motion fallback",
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "animationFlags": 0,
+      "activeTheme": null
+    },
+    {
+      "label": "390 zh-CN light",
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "animationFlags": 0,
+      "activeTheme": null
+    },
+    {
+      "label": "390 zh-CN dark",
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "animationFlags": 0,
+      "activeTheme": null
+    },
+    {
+      "label": "390 en light",
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "animationFlags": 0,
+      "activeTheme": null
+    },
+    {
+      "label": "390 en dark",
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "animationFlags": 0,
+      "activeTheme": null
+    },
+    {
+      "label": "768 zh-CN light",
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "animationFlags": 0,
+      "activeTheme": null
+    },
+    {
+      "label": "768 zh-CN dark",
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "animationFlags": 0,
+      "activeTheme": null
+    },
+    {
+      "label": "768 en light",
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "animationFlags": 0,
+      "activeTheme": null
+    },
+    {
+      "label": "768 en dark",
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "animationFlags": 0,
+      "activeTheme": null
+    },
+    {
+      "label": "1440 zh-CN light",
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "animationFlags": 0,
+      "activeTheme": null
+    },
+    {
+      "label": "1440 zh-CN dark",
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "animationFlags": 0,
+      "activeTheme": null
+    },
+    {
+      "label": "1440 en light",
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "animationFlags": 0,
+      "activeTheme": null
+    },
+    {
+      "label": "1440 en dark",
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "animationFlags": 0,
+      "activeTheme": null
+    },
+    {
+      "label": "1920 zh-CN light",
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "animationFlags": 0,
+      "activeTheme": null
+    },
+    {
+      "label": "1920 zh-CN dark",
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "animationFlags": 0,
+      "activeTheme": null
+    },
+    {
+      "label": "1920 en light",
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "animationFlags": 0,
+      "activeTheme": null
+    },
+    {
+      "label": "1920 en dark",
+      "nested": 0,
+      "effects": 0,
+      "overflow": false,
+      "animationFlags": 0,
+      "activeTheme": null
+    },
+    {
+      "label": "M/O single-touch main link, separate preview, image route, theme/language",
+      "pass": true
+    }
+  ],
+  "entries": [
+    {
+      "label": "A cold main products",
+      "tag": "A",
+      "href": "/one-g/products/",
+      "hit": "A",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/products/",
+      "clickToURLWallMs": 134
+    },
+    {
+      "label": "B opening main solutions",
+      "tag": "A",
+      "href": "/one-g/solutions/",
+      "hit": "A",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/solutions/",
+      "clickToURLWallMs": 417
+    },
+    {
+      "label": "C open main products",
+      "tag": "A",
+      "href": "/one-g/products/",
+      "hit": "A",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/products/",
+      "clickToURLWallMs": 138
+    },
+    {
+      "label": "About main",
+      "tag": "A",
+      "href": "/one-g/about/",
+      "hit": "A",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/about/",
+      "clickToURLWallMs": 748
+    },
+    {
+      "label": "Logo",
+      "tag": "A",
+      "href": "/one-g/",
+      "hit": "SPAN",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/",
+      "clickToURLWallMs": 114
+    },
+    {
+      "label": "View all products",
+      "tag": "A",
+      "href": "/one-g/products/",
+      "hit": "A",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/products/",
+      "clickToURLWallMs": 105
+    },
+    {
+      "label": "header-product-robotdock",
+      "tag": "A",
+      "href": "/one-g/products/robotdock/",
+      "hit": "IMG",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/products/robotdock/",
+      "clickToURLWallMs": 1070
+    },
+    {
+      "label": "header-product-g1",
+      "tag": "A",
+      "href": "/one-g/products/g1/",
+      "hit": "IMG",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/products/g1/",
+      "clickToURLWallMs": 156
+    },
+    {
+      "label": "header-product-g1-pro",
+      "tag": "A",
+      "href": "/one-g/products/g1-pro/",
+      "hit": "DIV",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/products/g1-pro/",
+      "clickToURLWallMs": 142
+    },
+    {
+      "label": "header-product-arm-a1",
+      "tag": "A",
+      "href": "/one-g/products/arm-a1/",
+      "hit": "IMG",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/products/arm-a1/",
+      "clickToURLWallMs": 177
+    },
+    {
+      "label": "header-product-arm-a2",
+      "tag": "A",
+      "href": "/one-g/products/arm-a2/",
+      "hit": "DIV",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/products/arm-a2/",
+      "clickToURLWallMs": 143
+    },
+    {
+      "label": "header-product-hand-d1",
+      "tag": "A",
+      "href": "/one-g/products/hand-d1/",
+      "hit": "DIV",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/products/hand-d1/",
+      "clickToURLWallMs": 150
+    },
+    {
+      "label": "header-product-vision-v1",
+      "tag": "A",
+      "href": "/one-g/products/vision-v1/",
+      "hit": "DIV",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/products/vision-v1/",
+      "clickToURLWallMs": 153
+    },
+    {
+      "label": "header-product-rgbd",
+      "tag": "A",
+      "href": "/one-g/products/rgbd/",
+      "hit": "DIV",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/products/rgbd/",
+      "clickToURLWallMs": 155
+    },
+    {
+      "label": "header-product-lidar-kit",
+      "tag": "A",
+      "href": "/one-g/products/lidar-kit/",
+      "hit": "DIV",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/products/lidar-kit/",
+      "clickToURLWallMs": 147
+    },
+    {
+      "label": "View all solutions",
+      "tag": "A",
+      "href": "/one-g/solutions/",
+      "hit": "A",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/solutions/",
+      "clickToURLWallMs": 106
+    },
+    {
+      "label": "header-solution-handling",
+      "tag": "A",
+      "href": "/one-g/solutions/#handling",
+      "hit": "IMG",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/solutions/#handling",
+      "clickToURLWallMs": 117
+    },
+    {
+      "label": "header-solution-inspection",
+      "tag": "A",
+      "href": "/one-g/solutions/#inspection",
+      "hit": "IMG",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/solutions/#inspection",
+      "clickToURLWallMs": 101
+    },
+    {
+      "label": "header-solution-teleoperation",
+      "tag": "A",
+      "href": "/one-g/solutions/teleoperation/",
+      "hit": "IMG",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/solutions/teleoperation/",
+      "clickToURLWallMs": 479
+    },
+    {
+      "label": "header-solution-ai",
+      "tag": "A",
+      "href": "/one-g/solutions/#ai",
+      "hit": "IMG",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/solutions/#ai",
+      "clickToURLWallMs": 106
+    },
+    {
+      "label": "D detail to solutions main",
+      "tag": "A",
+      "href": "/one-g/solutions/",
+      "hit": "A",
+      "hitInside": true,
+      "nested": false,
+      "actual": "/one-g/solutions/",
+      "clickToURLWallMs": 65
+    }
+  ],
+  "samples": {
+    "clicks": [],
+    "longTasks": [
+      {
+        "start": 339.1000000014901,
+        "duration": 156
+      },
+      {
+        "start": 581.4000000022352,
+        "duration": 118
+      }
+    ],
+    "shifts": [
+      {
+        "value": 0.004222013049655491,
+        "recentInput": false
+      },
+      {
+        "value": 0.0040392121632893884,
+        "recentInput": true
+      },
+      {
+        "value": 0.02910628472222222,
+        "recentInput": true
+      },
+      {
+        "value": 0.02910628472222222,
+        "recentInput": true
+      },
+      {
+        "value": 0.0043518098195393885,
+        "recentInput": true
+      },
+      {
+        "value": 0.03256850694444444,
+        "recentInput": true
+      },
+      {
+        "value": 0.03256850694444444,
+        "recentInput": true
+      }
+    ],
+    "pendingHeaderAnimations": 0
+  },
+  "errors": [],
+  "warnings": [],
+  "failures": []
+}

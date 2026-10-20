@@ -13,10 +13,6 @@ export const metadata: Metadata = {
   title: "ONE-G — 机器人系统与遥操作能力",
   description: "围绕 RoboDock，探索机器人硬件集成、SONIC Link 遥操作与面向任务的系统能力。",
   icons: {
-    icon: [
-      { url: "/one-g/brand/one-g-symbol-icon.png", type: "image/png", sizes: "192x192" },
-      { url: "/one-g/brand/one-g-symbol.svg", type: "image/svg+xml", sizes: "any" },
-    ],
     apple: "/one-g/brand/one-g-symbol-icon.png",
   },
 };
@@ -24,6 +20,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
+      <head>
+        {/* Keep the existing icons in the initial head, including streamed/new-tab navigation. */}
+        <link rel="icon" href="/one-g/brand/one-g-symbol-icon.png" type="image/png" sizes="192x192" />
+        <link rel="icon" href="/one-g/brand/one-g-symbol.svg" type="image/svg+xml" sizes="any" />
+      </head>
       <body className="min-h-screen bg-black text-white antialiased">
         <ThemeProvider><LocaleProvider><AuthProvider><SiteShell>{children}</SiteShell></AuthProvider></LocaleProvider></ThemeProvider>
       </body>

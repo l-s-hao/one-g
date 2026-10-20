@@ -1,19 +1,17 @@
 "use client";
 import { createElement, type ComponentPropsWithRef, type ReactNode } from "react";
+import SpecularEdge from "@/components/specular/SpecularEdge";
 import NextLink from "next/link";
 import NextImage from "next/image";
 import { translate, useLocale } from "./LocaleProvider";
 
-type ActionProps = { intent?: "ordinary" | "purchase" };
+type ActionProps = { intent?: "ordinary" | "purchase"; effect?: "specular" };
 function actionPresentation<T extends { children?: ReactNode }>(props: T & ActionProps) {
-  const { intent, ...rest } = props;
-  if (!intent) return rest;
-  return { ...rest, "data-button-intent": intent, children: <>
-    <span className="action-decoration" aria-hidden="true">
-      {intent === "purchase" && <><span className="top-key"/><span className="bottom-key-1"/><span className="bottom-key-2"/></>}
-    </span>
-    <span className="action-text">{rest.children}</span>
-  </> };
+  const { intent, effect, ...rest } = props;
+  return { ...rest, ...(intent ? { "data-button-intent": intent } : {}),
+    ...(effect === "specular" ? { "data-specular-host": true, children: <>
+      <SpecularEdge /><span className="action-text">{rest.children}</span>
+    </> } : {}) };
 }
 
 // Localise only presentation. No DOM mutation, value/ID translation or subtree remount.
