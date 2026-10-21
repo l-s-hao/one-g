@@ -1,0 +1,7 @@
+{
+  "browser": "Chromium touch emulation",
+  "width": 390,
+  "action": "single touchscreen tap on empty cart Browse products",
+  "url": "http://localhost:3000/one-g/products/",
+  "passed": true
+}

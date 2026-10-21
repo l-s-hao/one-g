@@ -31,7 +31,8 @@ export interface ProductDetailContent {
     media?: { src: string; alt: string; caption: string; width: number; height: number }[];
     link?: { href: string; label: string };
   }[];
-  imageNotes: { alt: string; caption: string; width: number; height: number }[];
+  sourceNotes?: { id: string; title: string; paragraphs: string[]; sourceHref: string }[];
+  imageNotes: { webSrc?: string; alt: string; caption: string; width: number; height: number }[];
   highlights?: { title: string; description: string }[];
   interfaces?: string[];
   interfaceNote?: string;

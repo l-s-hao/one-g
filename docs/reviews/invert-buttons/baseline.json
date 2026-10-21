@@ -1,0 +1,488 @@
+[
+  {
+    "width": 390,
+    "route": "/",
+    "elements": [
+      {
+        "index": 0,
+        "text": "商品中心",
+        "href": "/one-g/products/",
+        "tag": "A",
+        "width": 94,
+        "height": 44,
+        "padding": "10px 18px",
+        "border": "1px",
+        "radius": "28px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "display": "flex",
+        "label": {
+          "x": 19,
+          "y": 11.5,
+          "width": 56,
+          "height": 21
+        }
+      },
+      {
+        "index": 1,
+        "text": "解决方案",
+        "href": "/one-g/solutions/",
+        "tag": "A",
+        "width": 94,
+        "height": 44,
+        "padding": "10px 18px",
+        "border": "1px",
+        "radius": "28px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "display": "flex",
+        "label": {
+          "x": 19,
+          "y": 11.5,
+          "width": 56,
+          "height": 21
+        }
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "route": "/solutions/",
+    "elements": [
+      {
+        "index": 0,
+        "text": "联系我们",
+        "href": null,
+        "tag": "BUTTON",
+        "width": 139.015625,
+        "height": 44,
+        "padding": "10px 24px",
+        "border": "1px",
+        "radius": "999px",
+        "font": "16px / 22px Arial, Helvetica, sans-serif",
+        "display": "inline-flex",
+        "label": {
+          "x": 25,
+          "y": 11,
+          "width": 89.015625,
+          "height": 22
+        }
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "route": "/products/robotdock/",
+    "elements": [
+      {
+        "index": 0,
+        "text": "购买",
+        "href": "/one-g/buy/robotdock/",
+        "tag": "A",
+        "width": 70,
+        "height": 44,
+        "padding": "10px 20px",
+        "border": "1px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "display": "flex",
+        "label": {
+          "x": 21,
+          "y": 11.5,
+          "width": 28,
+          "height": 21
+        }
+      },
+      {
+        "index": 1,
+        "text": "购买",
+        "href": "/one-g/buy/robotdock/",
+        "tag": "A",
+        "width": 70,
+        "height": 44,
+        "padding": "10px 20px",
+        "border": "1px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "display": "flex",
+        "label": {
+          "x": 21,
+          "y": 11.5,
+          "width": 28,
+          "height": 21
+        }
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "route": "/buy/robotdock/",
+    "elements": [
+      {
+        "index": 0,
+        "text": "加入购物车",
+        "href": null,
+        "tag": "BUTTON",
+        "width": 350,
+        "height": 48,
+        "padding": "12px 20px",
+        "border": "0px",
+        "radius": "24px",
+        "font": "600 16px / 24px Arial, Helvetica, sans-serif",
+        "display": "inline-block",
+        "label": {
+          "x": 134.984375,
+          "y": 12,
+          "width": 80.015625,
+          "height": 24
+        }
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "route": "/products/arm-a1/",
+    "elements": [
+      {
+        "index": 0,
+        "text": "加入购物车",
+        "href": null,
+        "tag": "BUTTON",
+        "width": 142,
+        "height": 44,
+        "padding": "12px 24px",
+        "border": "0px",
+        "radius": "18px",
+        "font": "600 14px / 20px Arial, Helvetica, sans-serif",
+        "display": "inline-flex",
+        "label": {
+          "x": 24,
+          "y": 12,
+          "width": 94,
+          "height": 20
+        }
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "route": "/login/",
+    "elements": [
+      {
+        "index": 0,
+        "text": "登录暂未开放",
+        "href": null,
+        "tag": "BUTTON",
+        "width": 318,
+        "height": 44,
+        "padding": "0px",
+        "border": "0px",
+        "radius": "18px",
+        "font": "600 14px / 20px Arial, Helvetica, sans-serif",
+        "display": "inline-block",
+        "label": {
+          "x": 117,
+          "y": 12,
+          "width": 84,
+          "height": 20
+        }
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "route": "/about/",
+    "elements": [
+      {
+        "index": 0,
+        "text": "咨询客服",
+        "href": null,
+        "tag": "BUTTON",
+        "width": 131,
+        "height": 48,
+        "padding": "12px 24px",
+        "border": "0px",
+        "radius": "999px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "display": "inline-flex",
+        "label": {
+          "x": 24,
+          "y": 13.5,
+          "width": 83,
+          "height": 21
+        }
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "route": "/deep-customization/",
+    "elements": [
+      {
+        "index": 0,
+        "text": "提交深度定制需求",
+        "href": null,
+        "tag": "BUTTON",
+        "width": 179,
+        "height": 44,
+        "padding": "10px 20px",
+        "border": "1px",
+        "radius": "999px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "display": "inline-flex",
+        "label": {
+          "x": 21,
+          "y": 11.5,
+          "width": 137,
+          "height": 21
+        }
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "route": "/solutions/teleoperation/",
+    "elements": []
+  },
+  {
+    "width": 1440,
+    "route": "/",
+    "elements": [
+      {
+        "index": 0,
+        "text": "商品中心",
+        "href": "/one-g/products/",
+        "tag": "A",
+        "width": 102,
+        "height": 44,
+        "padding": "10px 22px",
+        "border": "1px",
+        "radius": "28px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "display": "flex",
+        "label": {
+          "x": 23,
+          "y": 11.5,
+          "width": 56,
+          "height": 21
+        }
+      },
+      {
+        "index": 1,
+        "text": "解决方案",
+        "href": "/one-g/solutions/",
+        "tag": "A",
+        "width": 102,
+        "height": 44,
+        "padding": "10px 22px",
+        "border": "1px",
+        "radius": "28px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "display": "flex",
+        "label": {
+          "x": 23,
+          "y": 11.5,
+          "width": 56,
+          "height": 21
+        }
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "route": "/solutions/",
+    "elements": [
+      {
+        "index": 0,
+        "text": "联系我们",
+        "href": null,
+        "tag": "BUTTON",
+        "width": 139.015625,
+        "height": 44,
+        "padding": "10px 24px",
+        "border": "1px",
+        "radius": "999px",
+        "font": "16px / 22px Arial, Helvetica, sans-serif",
+        "display": "inline-flex",
+        "label": {
+          "x": 25,
+          "y": 11,
+          "width": 89.015625,
+          "height": 22
+        }
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "route": "/products/robotdock/",
+    "elements": [
+      {
+        "index": 0,
+        "text": "购买",
+        "href": "/one-g/buy/robotdock/",
+        "tag": "A",
+        "width": 70,
+        "height": 44,
+        "padding": "10px 20px",
+        "border": "1px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "display": "flex",
+        "label": {
+          "x": 21,
+          "y": 11.5,
+          "width": 28,
+          "height": 21
+        }
+      },
+      {
+        "index": 1,
+        "text": "购买",
+        "href": "/one-g/buy/robotdock/",
+        "tag": "A",
+        "width": 70,
+        "height": 44,
+        "padding": "10px 20px",
+        "border": "1px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "display": "flex",
+        "label": {
+          "x": 21,
+          "y": 11.5,
+          "width": 28,
+          "height": 21
+        }
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "route": "/buy/robotdock/",
+    "elements": [
+      {
+        "index": 0,
+        "text": "加入购物车",
+        "href": null,
+        "tag": "BUTTON",
+        "width": 473.328125,
+        "height": 48,
+        "padding": "12px 20px",
+        "border": "0px",
+        "radius": "24px",
+        "font": "600 16px / 24px Arial, Helvetica, sans-serif",
+        "display": "inline-block",
+        "label": {
+          "x": 196.65625,
+          "y": 12,
+          "width": 80.015625,
+          "height": 24
+        }
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "route": "/products/arm-a1/",
+    "elements": [
+      {
+        "index": 0,
+        "text": "加入购物车",
+        "href": null,
+        "tag": "BUTTON",
+        "width": 142,
+        "height": 44,
+        "padding": "12px 24px",
+        "border": "0px",
+        "radius": "18px",
+        "font": "600 14px / 20px Arial, Helvetica, sans-serif",
+        "display": "inline-flex",
+        "label": {
+          "x": 24,
+          "y": 12,
+          "width": 94,
+          "height": 20
+        }
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "route": "/login/",
+    "elements": [
+      {
+        "index": 0,
+        "text": "登录暂未开放",
+        "href": null,
+        "tag": "BUTTON",
+        "width": 360,
+        "height": 48,
+        "padding": "0px",
+        "border": "0px",
+        "radius": "18px",
+        "font": "600 14px / 20px Arial, Helvetica, sans-serif",
+        "display": "inline-block",
+        "label": {
+          "x": 138,
+          "y": 14,
+          "width": 84,
+          "height": 20
+        }
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "route": "/about/",
+    "elements": [
+      {
+        "index": 0,
+        "text": "咨询客服",
+        "href": null,
+        "tag": "BUTTON",
+        "width": 131,
+        "height": 48,
+        "padding": "12px 24px",
+        "border": "0px",
+        "radius": "999px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "display": "inline-flex",
+        "label": {
+          "x": 24,
+          "y": 13.5,
+          "width": 83,
+          "height": 21
+        }
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "route": "/deep-customization/",
+    "elements": [
+      {
+        "index": 0,
+        "text": "提交深度定制需求",
+        "href": null,
+        "tag": "BUTTON",
+        "width": 179,
+        "height": 44,
+        "padding": "10px 20px",
+        "border": "1px",
+        "radius": "999px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "display": "inline-flex",
+        "label": {
+          "x": 21,
+          "y": 11.5,
+          "width": 137,
+          "height": 21
+        }
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "route": "/solutions/teleoperation/",
+    "elements": []
+  }
+]

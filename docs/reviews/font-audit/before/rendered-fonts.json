@@ -1,0 +1,4340 @@
+[
+  {
+    "stage": "before",
+    "route": "/",
+    "width": 1440,
+    "locale": "zh-CN",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "#home-collage-title [data-title-line]",
+        "text": "一智通万机",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 5
+          }
+        ],
+        "geometry": {
+          "width": 476,
+          "height": 68.796875,
+          "scrollWidth": 476,
+          "clientWidth": 476,
+          "fontSize": "58.32px",
+          "fontWeight": "650",
+          "lineHeight": "68.8176px",
+          "letterSpacing": "-2.916px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h1",
+        "text": "一智通万机",
+        "fonts": [],
+        "geometry": {
+          "width": 476,
+          "height": 73.453125,
+          "scrollWidth": 476,
+          "clientWidth": 476,
+          "fontSize": "58.32px",
+          "fontWeight": "650",
+          "lineHeight": "68.8176px",
+          "letterSpacing": "-2.916px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h2",
+        "text": "产品",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 2
+          }
+        ],
+        "geometry": {
+          "width": 77.203125,
+          "height": 48,
+          "scrollWidth": 77,
+          "clientWidth": 77,
+          "fontSize": "40px",
+          "fontWeight": "650",
+          "lineHeight": "48px",
+          "letterSpacing": "-1.4px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "商品中心",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 52.015625,
+          "height": 43,
+          "scrollWidth": 52,
+          "clientWidth": 52,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "商品中心",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 56,
+          "height": 21,
+          "scrollWidth": 56,
+          "clientWidth": 56,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "万机 — 具身智能开发与应用平台",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 13
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 3
+          }
+        ],
+        "geometry": {
+          "width": 476,
+          "height": 19.5,
+          "scrollWidth": 476,
+          "clientWidth": 476,
+          "fontSize": "13px",
+          "fontWeight": "600",
+          "lineHeight": "19.5px",
+          "letterSpacing": "0.78px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "footer p",
+        "text": "© ONE-G / 万机智能",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 10
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 1120,
+          "height": 35,
+          "scrollWidth": 1120,
+          "clientWidth": 1120,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "18px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 42
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 21
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 1440,
+      "viewport": 1440
+    },
+    "errors": []
+  },
+  {
+    "stage": "before",
+    "route": "/products/robotdock/",
+    "width": 1440,
+    "locale": "zh-CN",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "main h1",
+        "text": "RoboDock",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 8
+          }
+        ],
+        "geometry": {
+          "width": 1104,
+          "height": 70.390625,
+          "scrollWidth": 1104,
+          "clientWidth": 1104,
+          "fontSize": "64px",
+          "fontWeight": "650",
+          "lineHeight": "70.4px",
+          "letterSpacing": "-2.88px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h2",
+        "text": "了解 RoboDock",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 9
+          }
+        ],
+        "geometry": {
+          "width": 1104,
+          "height": 49.390625,
+          "scrollWidth": 1104,
+          "clientWidth": 1104,
+          "fontSize": "38px",
+          "fontWeight": "600",
+          "lineHeight": "49.4px",
+          "letterSpacing": "-1.14px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "商品中心",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 52.015625,
+          "height": 43,
+          "scrollWidth": 52,
+          "clientWidth": 52,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "购买",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 2
+          }
+        ],
+        "geometry": {
+          "width": 28,
+          "height": 21,
+          "scrollWidth": 28,
+          "clientWidth": 28,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "概念产品 · 配置预览",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 3
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 8
+          }
+        ],
+        "geometry": {
+          "width": 480.515625,
+          "height": 22.1875,
+          "scrollWidth": 481,
+          "clientWidth": 481,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "22.2px",
+          "letterSpacing": "0.72px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "footer p",
+        "text": "© ONE-G / 万机智能",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 10
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 1120,
+          "height": 35,
+          "scrollWidth": 1120,
+          "clientWidth": 1120,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "18px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 42
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 21
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 1440,
+      "viewport": 1440
+    },
+    "errors": []
+  },
+  {
+    "stage": "before",
+    "route": "/products/robotdock/specs/",
+    "width": 1440,
+    "locale": "zh-CN",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "main h1",
+        "text": "RoboDock技术规格",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 8
+          }
+        ],
+        "geometry": {
+          "width": 1104,
+          "height": 88.984375,
+          "scrollWidth": 1104,
+          "clientWidth": 1104,
+          "fontSize": "48px",
+          "fontWeight": "650",
+          "lineHeight": "52.8px",
+          "letterSpacing": "-2.16px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h2",
+        "text": "外形与安装",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 5
+          }
+        ],
+        "geometry": {
+          "width": 1104,
+          "height": 49.390625,
+          "scrollWidth": 1104,
+          "clientWidth": 1104,
+          "fontSize": "38px",
+          "fontWeight": "600",
+          "lineHeight": "49.4px",
+          "letterSpacing": "-1.14px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "商品中心",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 52.015625,
+          "height": 43,
+          "scrollWidth": 52,
+          "clientWidth": 52,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "购买",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 2
+          }
+        ],
+        "geometry": {
+          "width": 28,
+          "height": 21,
+          "scrollWidth": 28,
+          "clientWidth": 28,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "概念产品 · 配置预览",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 3
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 8
+          }
+        ],
+        "geometry": {
+          "width": 480.515625,
+          "height": 22.1875,
+          "scrollWidth": 481,
+          "clientWidth": 481,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "22.2px",
+          "letterSpacing": "0.72px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "footer p",
+        "text": "© ONE-G / 万机智能",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 10
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 1120,
+          "height": 35,
+          "scrollWidth": 1120,
+          "clientWidth": 1120,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "18px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 42
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 21
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 1440,
+      "viewport": 1440
+    },
+    "errors": []
+  },
+  {
+    "stage": "before",
+    "route": "/login/",
+    "width": 1440,
+    "locale": "zh-CN",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "main h1",
+        "text": "欢迎登录 ONE-G",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 6
+          }
+        ],
+        "geometry": {
+          "width": 360,
+          "height": 32,
+          "scrollWidth": 360,
+          "clientWidth": 360,
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "32px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "商品中心",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 52.015625,
+          "height": 43,
+          "scrollWidth": 52,
+          "clientWidth": 52,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "登录暂未开放",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 6
+          }
+        ],
+        "geometry": {
+          "width": 84,
+          "height": 20,
+          "scrollWidth": 84,
+          "clientWidth": 84,
+          "fontSize": "14px",
+          "fontWeight": "600",
+          "lineHeight": "20px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "验证码服务尚未接入，暂不支持真实用户登录。",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 21
+          }
+        ],
+        "geometry": {
+          "width": 360,
+          "height": 24,
+          "scrollWidth": 360,
+          "clientWidth": 360,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main label",
+        "text": "手机号",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 3
+          }
+        ],
+        "geometry": {
+          "width": 360,
+          "height": 20,
+          "scrollWidth": 360,
+          "clientWidth": 360,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "20px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main input",
+        "text": "",
+        "fonts": [],
+        "geometry": {
+          "width": 360,
+          "height": 48,
+          "scrollWidth": 358,
+          "clientWidth": 358,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 42
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 21
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 1440,
+      "viewport": 1440
+    },
+    "errors": []
+  },
+  {
+    "stage": "before",
+    "route": "/solutions/teleoperation/",
+    "width": 1440,
+    "locale": "zh-CN",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "main h1",
+        "text": "SONIC Link",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ],
+        "geometry": {
+          "width": 1104,
+          "height": 70.390625,
+          "scrollWidth": 1104,
+          "clientWidth": 1104,
+          "fontSize": "64px",
+          "fontWeight": "650",
+          "lineHeight": "70.4px",
+          "letterSpacing": "-2.88px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h2",
+        "text": "动作采集、遥操软件与机器人端接入。",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 17
+          }
+        ],
+        "geometry": {
+          "width": 1104,
+          "height": 49.390625,
+          "scrollWidth": 1104,
+          "clientWidth": 1104,
+          "fontSize": "38px",
+          "fontWeight": "600",
+          "lineHeight": "49.4px",
+          "letterSpacing": "-1.14px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "商品中心",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 52.015625,
+          "height": 43,
+          "scrollWidth": 52,
+          "clientWidth": 52,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "技术说明",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 56,
+          "height": 21,
+          "scrollWidth": 56,
+          "clientWidth": 56,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "遥操作解决方案",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 7
+          }
+        ],
+        "geometry": {
+          "width": 480.515625,
+          "height": 22.1875,
+          "scrollWidth": 481,
+          "clientWidth": 481,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "22.2px",
+          "letterSpacing": "0.72px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "footer p",
+        "text": "© ONE-G / 万机智能",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 10
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 1120,
+          "height": 35,
+          "scrollWidth": 1120,
+          "clientWidth": 1120,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "18px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 42
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 21
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 1440,
+      "viewport": 1440
+    },
+    "errors": []
+  },
+  {
+    "stage": "before",
+    "route": "/",
+    "width": 1440,
+    "locale": "en",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "#home-collage-title [data-title-line]",
+        "text": "One Intelligence,",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 17
+          }
+        ],
+        "geometry": {
+          "width": 476,
+          "height": 68.796875,
+          "scrollWidth": 476,
+          "clientWidth": 476,
+          "fontSize": "58.32px",
+          "fontWeight": "650",
+          "lineHeight": "68.8176px",
+          "letterSpacing": "-2.916px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h1",
+        "text": "One Intelligence,ConnectingCountlessMachines.",
+        "fonts": [],
+        "geometry": {
+          "width": 476,
+          "height": 279.84375,
+          "scrollWidth": 476,
+          "clientWidth": 476,
+          "fontSize": "58.32px",
+          "fontWeight": "650",
+          "lineHeight": "68.8176px",
+          "letterSpacing": "-2.916px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h2",
+        "text": "Products",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 8
+          }
+        ],
+        "geometry": {
+          "width": 162.171875,
+          "height": 48,
+          "scrollWidth": 162,
+          "clientWidth": 162,
+          "fontSize": "40px",
+          "fontWeight": "650",
+          "lineHeight": "48px",
+          "letterSpacing": "-1.4px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "Shop",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 30.375,
+          "height": 43,
+          "scrollWidth": 30,
+          "clientWidth": 30,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "Shop",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 32.703125,
+          "height": 21,
+          "scrollWidth": 33,
+          "clientWidth": 33,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "ONE-G — Embodied AI Development and Application Platform",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 56
+          }
+        ],
+        "geometry": {
+          "width": 476,
+          "height": 19.5,
+          "scrollWidth": 476,
+          "clientWidth": 476,
+          "fontSize": "13px",
+          "fontWeight": "600",
+          "lineHeight": "19.5px",
+          "letterSpacing": "0.78px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "footer p",
+        "text": "© ONE-G",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 7
+          }
+        ],
+        "geometry": {
+          "width": 1120,
+          "height": 35,
+          "scrollWidth": 1120,
+          "clientWidth": 1120,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "18px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 42
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 21
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK JP",
+            "postScriptName": "NotoSansCJKjp-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 1440,
+      "viewport": 1440
+    },
+    "errors": []
+  },
+  {
+    "stage": "before",
+    "route": "/products/robotdock/",
+    "width": 1440,
+    "locale": "en",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "main h1",
+        "text": "RoboDock",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 8
+          }
+        ],
+        "geometry": {
+          "width": 1104,
+          "height": 70.390625,
+          "scrollWidth": 1104,
+          "clientWidth": 1104,
+          "fontSize": "64px",
+          "fontWeight": "650",
+          "lineHeight": "70.4px",
+          "letterSpacing": "-2.88px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h2",
+        "text": "Learn RoboDock",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 14
+          }
+        ],
+        "geometry": {
+          "width": 1104,
+          "height": 49.390625,
+          "scrollWidth": 1104,
+          "clientWidth": 1104,
+          "fontSize": "38px",
+          "fontWeight": "600",
+          "lineHeight": "49.4px",
+          "letterSpacing": "-1.14px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "Shop",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 30.375,
+          "height": 43,
+          "scrollWidth": 30,
+          "clientWidth": 30,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "Buy",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 3
+          }
+        ],
+        "geometry": {
+          "width": 24.125,
+          "height": 21,
+          "scrollWidth": 24,
+          "clientWidth": 24,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "Concept product · Configuration preview",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 39
+          }
+        ],
+        "geometry": {
+          "width": 480.515625,
+          "height": 22.1875,
+          "scrollWidth": 481,
+          "clientWidth": 481,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "22.2px",
+          "letterSpacing": "0.72px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "footer p",
+        "text": "© ONE-G",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 7
+          }
+        ],
+        "geometry": {
+          "width": 1120,
+          "height": 35,
+          "scrollWidth": 1120,
+          "clientWidth": 1120,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "18px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK JP",
+            "postScriptName": "NotoSansCJKjp-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 42
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 21
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK JP",
+            "postScriptName": "NotoSansCJKjp-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 1440,
+      "viewport": 1440
+    },
+    "errors": []
+  },
+  {
+    "stage": "before",
+    "route": "/products/robotdock/specs/",
+    "width": 1440,
+    "locale": "en",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "main h1",
+        "text": "RoboDockSpecifications",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 14
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 8
+          }
+        ],
+        "geometry": {
+          "width": 1104,
+          "height": 88.984375,
+          "scrollWidth": 1104,
+          "clientWidth": 1104,
+          "fontSize": "48px",
+          "fontWeight": "650",
+          "lineHeight": "52.8px",
+          "letterSpacing": "-2.16px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h2",
+        "text": "Form and installation",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 21
+          }
+        ],
+        "geometry": {
+          "width": 1104,
+          "height": 49.390625,
+          "scrollWidth": 1104,
+          "clientWidth": 1104,
+          "fontSize": "38px",
+          "fontWeight": "600",
+          "lineHeight": "49.4px",
+          "letterSpacing": "-1.14px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "Shop",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 30.375,
+          "height": 43,
+          "scrollWidth": 30,
+          "clientWidth": 30,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "Buy",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 3
+          }
+        ],
+        "geometry": {
+          "width": 24.125,
+          "height": 21,
+          "scrollWidth": 24,
+          "clientWidth": 24,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "Concept product · Configuration preview",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 39
+          }
+        ],
+        "geometry": {
+          "width": 480.515625,
+          "height": 22.1875,
+          "scrollWidth": 481,
+          "clientWidth": 481,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "22.2px",
+          "letterSpacing": "0.72px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "footer p",
+        "text": "© ONE-G",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 7
+          }
+        ],
+        "geometry": {
+          "width": 1120,
+          "height": 35,
+          "scrollWidth": 1120,
+          "clientWidth": 1120,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "18px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK JP",
+            "postScriptName": "NotoSansCJKjp-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 42
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 21
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK JP",
+            "postScriptName": "NotoSansCJKjp-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 1440,
+      "viewport": 1440
+    },
+    "errors": []
+  },
+  {
+    "stage": "before",
+    "route": "/login/",
+    "width": 1440,
+    "locale": "en",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "main h1",
+        "text": "Welcome to ONE-G",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 16
+          }
+        ],
+        "geometry": {
+          "width": 360,
+          "height": 32,
+          "scrollWidth": 360,
+          "clientWidth": 360,
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "32px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "Shop",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 30.375,
+          "height": 43,
+          "scrollWidth": 30,
+          "clientWidth": 30,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "Sign-in is not available yet",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 28
+          }
+        ],
+        "geometry": {
+          "width": 175.828125,
+          "height": 20,
+          "scrollWidth": 176,
+          "clientWidth": 176,
+          "fontSize": "14px",
+          "fontWeight": "600",
+          "lineHeight": "20px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "Verification services are not integrated; real-user sign-in is not available yet.",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 80
+          }
+        ],
+        "geometry": {
+          "width": 360,
+          "height": 48,
+          "scrollWidth": 360,
+          "clientWidth": 360,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main label",
+        "text": "Phone number",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 12
+          }
+        ],
+        "geometry": {
+          "width": 360,
+          "height": 20,
+          "scrollWidth": 360,
+          "clientWidth": 360,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "20px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main input",
+        "text": "",
+        "fonts": [],
+        "geometry": {
+          "width": 360,
+          "height": 48,
+          "scrollWidth": 358,
+          "clientWidth": 358,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK JP",
+            "postScriptName": "NotoSansCJKjp-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 42
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 21
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK JP",
+            "postScriptName": "NotoSansCJKjp-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 1440,
+      "viewport": 1440
+    },
+    "errors": []
+  },
+  {
+    "stage": "before",
+    "route": "/solutions/teleoperation/",
+    "width": 1440,
+    "locale": "en",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "main h1",
+        "text": "SONIC Link",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ],
+        "geometry": {
+          "width": 1104,
+          "height": 70.390625,
+          "scrollWidth": 1104,
+          "clientWidth": 1104,
+          "fontSize": "64px",
+          "fontWeight": "650",
+          "lineHeight": "70.4px",
+          "letterSpacing": "-2.88px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h2",
+        "text": "Motion capture, teleoperation software and robot-side connections.",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 65
+          }
+        ],
+        "geometry": {
+          "width": 1104,
+          "height": 98.78125,
+          "scrollWidth": 1104,
+          "clientWidth": 1104,
+          "fontSize": "38px",
+          "fontWeight": "600",
+          "lineHeight": "49.4px",
+          "letterSpacing": "-1.14px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "Shop",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 30.375,
+          "height": 43,
+          "scrollWidth": 30,
+          "clientWidth": 30,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "Technical notes",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 15
+          }
+        ],
+        "geometry": {
+          "width": 96.515625,
+          "height": 21,
+          "scrollWidth": 97,
+          "clientWidth": 97,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "Teleoperation solution",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 22
+          }
+        ],
+        "geometry": {
+          "width": 480.515625,
+          "height": 22.1875,
+          "scrollWidth": 481,
+          "clientWidth": 481,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "22.2px",
+          "letterSpacing": "0.72px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "footer p",
+        "text": "© ONE-G",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 7
+          }
+        ],
+        "geometry": {
+          "width": 1120,
+          "height": 35,
+          "scrollWidth": 1120,
+          "clientWidth": 1120,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "18px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK JP",
+            "postScriptName": "NotoSansCJKjp-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 42
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 21
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK JP",
+            "postScriptName": "NotoSansCJKjp-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 1440,
+      "viewport": 1440
+    },
+    "errors": []
+  },
+  {
+    "stage": "before",
+    "route": "/",
+    "width": 390,
+    "locale": "zh-CN",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "#home-collage-title [data-title-line]",
+        "text": "一智通万机",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 5
+          }
+        ],
+        "geometry": {
+          "width": 346,
+          "height": 40.109375,
+          "scrollWidth": 346,
+          "clientWidth": 346,
+          "fontSize": "34px",
+          "fontWeight": "650",
+          "lineHeight": "40.12px",
+          "letterSpacing": "-1.7px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h1",
+        "text": "一智通万机",
+        "fonts": [],
+        "geometry": {
+          "width": 346,
+          "height": 42.828125,
+          "scrollWidth": 346,
+          "clientWidth": 346,
+          "fontSize": "34px",
+          "fontWeight": "650",
+          "lineHeight": "40.12px",
+          "letterSpacing": "-1.7px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h2",
+        "text": "产品",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 2
+          }
+        ],
+        "geometry": {
+          "width": 54.046875,
+          "height": 33.59375,
+          "scrollWidth": 54,
+          "clientWidth": 54,
+          "fontSize": "28px",
+          "fontWeight": "650",
+          "lineHeight": "33.6px",
+          "letterSpacing": "-0.98px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "商品中心",
+        "fonts": [],
+        "geometry": {
+          "width": 0,
+          "height": 0,
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "商品中心",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 56,
+          "height": 21,
+          "scrollWidth": 56,
+          "clientWidth": 56,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "万机 — 具身智能开发与应用平台",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 13
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 3
+          }
+        ],
+        "geometry": {
+          "width": 346,
+          "height": 18,
+          "scrollWidth": 346,
+          "clientWidth": 346,
+          "fontSize": "12px",
+          "fontWeight": "600",
+          "lineHeight": "18px",
+          "letterSpacing": "0.72px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "footer p",
+        "text": "© ONE-G / 万机智能",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 10
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 35,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "18px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 41
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 20
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 390,
+      "viewport": 390
+    },
+    "errors": []
+  },
+  {
+    "stage": "before",
+    "route": "/products/robotdock/",
+    "width": 390,
+    "locale": "zh-CN",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "main h1",
+        "text": "RoboDock",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 8
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 37.390625,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "34px",
+          "fontWeight": "650",
+          "lineHeight": "37.4px",
+          "letterSpacing": "-1.53px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h2",
+        "text": "了解 RoboDock",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 9
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 32.5,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "25px",
+          "fontWeight": "600",
+          "lineHeight": "32.5px",
+          "letterSpacing": "-0.75px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "商品中心",
+        "fonts": [],
+        "geometry": {
+          "width": 0,
+          "height": 0,
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "购买",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 2
+          }
+        ],
+        "geometry": {
+          "width": 28,
+          "height": 21,
+          "scrollWidth": 28,
+          "clientWidth": 28,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "概念产品 · 配置预览",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 3
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 8
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 22.1875,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "22.2px",
+          "letterSpacing": "0.72px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "footer p",
+        "text": "© ONE-G / 万机智能",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 10
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 35,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "18px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 41
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 20
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 390,
+      "viewport": 390
+    },
+    "errors": []
+  },
+  {
+    "stage": "before",
+    "route": "/products/robotdock/specs/",
+    "width": 390,
+    "locale": "zh-CN",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "main h1",
+        "text": "RoboDock技术规格",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 8
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 73.578125,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "34px",
+          "fontWeight": "650",
+          "lineHeight": "37.4px",
+          "letterSpacing": "-1.53px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h2",
+        "text": "外形与安装",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 5
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 32.5,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "25px",
+          "fontWeight": "600",
+          "lineHeight": "32.5px",
+          "letterSpacing": "-0.75px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "商品中心",
+        "fonts": [],
+        "geometry": {
+          "width": 0,
+          "height": 0,
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "购买",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 2
+          }
+        ],
+        "geometry": {
+          "width": 28,
+          "height": 21,
+          "scrollWidth": 28,
+          "clientWidth": 28,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "概念产品 · 配置预览",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 3
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 8
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 22.1875,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "22.2px",
+          "letterSpacing": "0.72px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "footer p",
+        "text": "© ONE-G / 万机智能",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 10
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 35,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "18px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 41
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 20
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 390,
+      "viewport": 390
+    },
+    "errors": []
+  },
+  {
+    "stage": "before",
+    "route": "/login/",
+    "width": 390,
+    "locale": "zh-CN",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "main h1",
+        "text": "欢迎登录 ONE-G",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 6
+          }
+        ],
+        "geometry": {
+          "width": 318,
+          "height": 34.65625,
+          "scrollWidth": 318,
+          "clientWidth": 318,
+          "fontSize": "26px",
+          "fontWeight": "600",
+          "lineHeight": "34.6667px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "商品中心",
+        "fonts": [],
+        "geometry": {
+          "width": 0,
+          "height": 0,
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "登录暂未开放",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 6
+          }
+        ],
+        "geometry": {
+          "width": 84,
+          "height": 20,
+          "scrollWidth": 84,
+          "clientWidth": 84,
+          "fontSize": "14px",
+          "fontWeight": "600",
+          "lineHeight": "20px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "验证码服务尚未接入，暂不支持真实用户登录。",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 21
+          }
+        ],
+        "geometry": {
+          "width": 318,
+          "height": 24,
+          "scrollWidth": 318,
+          "clientWidth": 318,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main label",
+        "text": "手机号",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 3
+          }
+        ],
+        "geometry": {
+          "width": 318,
+          "height": 20,
+          "scrollWidth": 318,
+          "clientWidth": 318,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "20px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main input",
+        "text": "",
+        "fonts": [],
+        "geometry": {
+          "width": 318,
+          "height": 44,
+          "scrollWidth": 316,
+          "clientWidth": 316,
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 41
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 20
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 390,
+      "viewport": 390
+    },
+    "errors": []
+  },
+  {
+    "stage": "before",
+    "route": "/solutions/teleoperation/",
+    "width": 390,
+    "locale": "zh-CN",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "main h1",
+        "text": "SONIC Link",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 37.390625,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "34px",
+          "fontWeight": "650",
+          "lineHeight": "37.4px",
+          "letterSpacing": "-1.53px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h2",
+        "text": "动作采集、遥操软件与机器人端接入。",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 17
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 65,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "25px",
+          "fontWeight": "600",
+          "lineHeight": "32.5px",
+          "letterSpacing": "-0.75px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "商品中心",
+        "fonts": [],
+        "geometry": {
+          "width": 0,
+          "height": 0,
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "技术说明",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 56,
+          "height": 21,
+          "scrollWidth": 56,
+          "clientWidth": 56,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "遥操作解决方案",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 7
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 22.1875,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "22.2px",
+          "letterSpacing": "0.72px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "footer p",
+        "text": "© ONE-G / 万机智能",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 10
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 35,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "18px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 41
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 20
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 390,
+      "viewport": 390
+    },
+    "errors": []
+  },
+  {
+    "stage": "before",
+    "route": "/",
+    "width": 390,
+    "locale": "en",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "#home-collage-title [data-title-line]",
+        "text": "One Intelligence,",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 17
+          }
+        ],
+        "geometry": {
+          "width": 346,
+          "height": 40.109375,
+          "scrollWidth": 346,
+          "clientWidth": 346,
+          "fontSize": "34px",
+          "fontWeight": "650",
+          "lineHeight": "40.12px",
+          "letterSpacing": "-1.7px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h1",
+        "text": "One Intelligence,ConnectingCountlessMachines.",
+        "fonts": [],
+        "geometry": {
+          "width": 346,
+          "height": 163.15625,
+          "scrollWidth": 346,
+          "clientWidth": 346,
+          "fontSize": "34px",
+          "fontWeight": "650",
+          "lineHeight": "40.12px",
+          "letterSpacing": "-1.7px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h2",
+        "text": "Products",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 8
+          }
+        ],
+        "geometry": {
+          "width": 113.515625,
+          "height": 33.59375,
+          "scrollWidth": 114,
+          "clientWidth": 114,
+          "fontSize": "28px",
+          "fontWeight": "650",
+          "lineHeight": "33.6px",
+          "letterSpacing": "-0.98px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "Shop",
+        "fonts": [],
+        "geometry": {
+          "width": 0,
+          "height": 0,
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "Shop",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 4
+          }
+        ],
+        "geometry": {
+          "width": 32.703125,
+          "height": 21,
+          "scrollWidth": 33,
+          "clientWidth": 33,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "ONE-G — Embodied AI Development and Application Platform",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 55
+          }
+        ],
+        "geometry": {
+          "width": 346,
+          "height": 35.99999237060547,
+          "scrollWidth": 346,
+          "clientWidth": 346,
+          "fontSize": "12px",
+          "fontWeight": "600",
+          "lineHeight": "18px",
+          "letterSpacing": "0.72px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "footer p",
+        "text": "© ONE-G",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 7
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 35,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "18px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 41
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 20
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK JP",
+            "postScriptName": "NotoSansCJKjp-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 390,
+      "viewport": 390
+    },
+    "errors": []
+  },
+  {
+    "stage": "before",
+    "route": "/products/robotdock/",
+    "width": 390,
+    "locale": "en",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "main h1",
+        "text": "RoboDock",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 8
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 37.390625,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "34px",
+          "fontWeight": "650",
+          "lineHeight": "37.4px",
+          "letterSpacing": "-1.53px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h2",
+        "text": "Learn RoboDock",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 14
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 32.5,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "25px",
+          "fontWeight": "600",
+          "lineHeight": "32.5px",
+          "letterSpacing": "-0.75px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "Shop",
+        "fonts": [],
+        "geometry": {
+          "width": 0,
+          "height": 0,
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "Buy",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 3
+          }
+        ],
+        "geometry": {
+          "width": 24.125,
+          "height": 21,
+          "scrollWidth": 24,
+          "clientWidth": 24,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "Concept product · Configuration preview",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 39
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 22.1875,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "22.2px",
+          "letterSpacing": "0.72px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "footer p",
+        "text": "© ONE-G",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 7
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 35,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "18px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK JP",
+            "postScriptName": "NotoSansCJKjp-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 41
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 20
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK JP",
+            "postScriptName": "NotoSansCJKjp-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 390,
+      "viewport": 390
+    },
+    "errors": []
+  },
+  {
+    "stage": "before",
+    "route": "/products/robotdock/specs/",
+    "width": 390,
+    "locale": "en",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "main h1",
+        "text": "RoboDockSpecifications",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 14
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 8
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 73.578125,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "34px",
+          "fontWeight": "650",
+          "lineHeight": "37.4px",
+          "letterSpacing": "-1.53px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h2",
+        "text": "Form and installation",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 21
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 32.5,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "25px",
+          "fontWeight": "600",
+          "lineHeight": "32.5px",
+          "letterSpacing": "-0.75px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "Shop",
+        "fonts": [],
+        "geometry": {
+          "width": 0,
+          "height": 0,
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "Buy",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 3
+          }
+        ],
+        "geometry": {
+          "width": 24.125,
+          "height": 21,
+          "scrollWidth": 24,
+          "clientWidth": 24,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "Concept product · Configuration preview",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 39
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 22.1875,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "22.2px",
+          "letterSpacing": "0.72px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "footer p",
+        "text": "© ONE-G",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 7
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 35,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "18px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK JP",
+            "postScriptName": "NotoSansCJKjp-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 41
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 20
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK JP",
+            "postScriptName": "NotoSansCJKjp-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 390,
+      "viewport": 390
+    },
+    "errors": []
+  },
+  {
+    "stage": "before",
+    "route": "/login/",
+    "width": 390,
+    "locale": "en",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "main h1",
+        "text": "Welcome to ONE-G",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 16
+          }
+        ],
+        "geometry": {
+          "width": 318,
+          "height": 34.65625,
+          "scrollWidth": 318,
+          "clientWidth": 318,
+          "fontSize": "26px",
+          "fontWeight": "600",
+          "lineHeight": "34.6667px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "Shop",
+        "fonts": [],
+        "geometry": {
+          "width": 0,
+          "height": 0,
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "Sign-in is not available yet",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 28
+          }
+        ],
+        "geometry": {
+          "width": 175.828125,
+          "height": 20,
+          "scrollWidth": 176,
+          "clientWidth": 176,
+          "fontSize": "14px",
+          "fontWeight": "600",
+          "lineHeight": "20px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "Verification services are not integrated; real-user sign-in is not available yet.",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 80
+          }
+        ],
+        "geometry": {
+          "width": 318,
+          "height": 48,
+          "scrollWidth": 318,
+          "clientWidth": 318,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main label",
+        "text": "Phone number",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 12
+          }
+        ],
+        "geometry": {
+          "width": 318,
+          "height": 20,
+          "scrollWidth": 318,
+          "clientWidth": 318,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "20px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main input",
+        "text": "",
+        "fonts": [],
+        "geometry": {
+          "width": 318,
+          "height": 44,
+          "scrollWidth": 316,
+          "clientWidth": 316,
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "24px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK JP",
+            "postScriptName": "NotoSansCJKjp-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 41
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 20
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK JP",
+            "postScriptName": "NotoSansCJKjp-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 390,
+      "viewport": 390
+    },
+    "errors": []
+  },
+  {
+    "stage": "before",
+    "route": "/solutions/teleoperation/",
+    "width": 390,
+    "locale": "en",
+    "theme": "light",
+    "rendered": [
+      {
+        "selector": "main h1",
+        "text": "SONIC Link",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 37.390625,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "34px",
+          "fontWeight": "650",
+          "lineHeight": "37.4px",
+          "letterSpacing": "-1.53px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main h2",
+        "text": "Motion capture, teleoperation software and robot-side connections.",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 64
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 97.5,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "25px",
+          "fontWeight": "600",
+          "lineHeight": "32.5px",
+          "letterSpacing": "-0.75px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "header.site-header nav a",
+        "text": "Shop",
+        "fonts": [],
+        "geometry": {
+          "width": 0,
+          "height": 0,
+          "scrollWidth": 0,
+          "clientWidth": 0,
+          "fontSize": "13px",
+          "fontWeight": "400",
+          "lineHeight": "19.5px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main [data-button-effect=invert] .action-text",
+        "text": "Technical notes",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 15
+          }
+        ],
+        "geometry": {
+          "width": 96.515625,
+          "height": 21,
+          "scrollWidth": 97,
+          "clientWidth": 97,
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "main p",
+        "text": "Teleoperation solution",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 22
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 22.1875,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "22.2px",
+          "letterSpacing": "0.72px",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      },
+      {
+        "selector": "footer p",
+        "text": "© ONE-G",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 7
+          }
+        ],
+        "geometry": {
+          "width": 350,
+          "height": 35,
+          "scrollWidth": 350,
+          "clientWidth": 350,
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "lineHeight": "18px",
+          "letterSpacing": "normal",
+          "fontFamily": "Arial, Helvetica, sans-serif"
+        }
+      }
+    ],
+    "probes": [
+      {
+        "name": "zh",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 2
+          },
+          {
+            "familyName": "Noto Sans CJK JP",
+            "postScriptName": "NotoSansCJKjp-Regular",
+            "isCustomFont": false,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "name": "en",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 41
+          }
+        ]
+      },
+      {
+        "name": "numbers",
+        "fonts": [
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans",
+            "isCustomFont": false,
+            "glyphCount": 20
+          }
+        ]
+      },
+      {
+        "name": "heavy",
+        "fonts": [
+          {
+            "familyName": "Noto Sans CJK JP",
+            "postScriptName": "NotoSansCJKjp-Regular",
+            "isCustomFont": false,
+            "glyphCount": 1
+          },
+          {
+            "familyName": "Liberation Sans",
+            "postScriptName": "LiberationSans-Bold",
+            "isCustomFont": false,
+            "glyphCount": 10
+          }
+        ]
+      }
+    ],
+    "requests": [],
+    "overflow": {
+      "document": false,
+      "body": 390,
+      "viewport": 390
+    },
+    "errors": []
+  }
+]

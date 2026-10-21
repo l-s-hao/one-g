@@ -1,0 +1,402 @@
+{
+  "browser": "153.0.8010.12",
+  "base": "http://127.0.0.1:3001/one-g",
+  "matrix": [
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "theme": "light",
+      "route": "/solutions/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "theme": "light",
+      "route": "/solutions/teleoperation/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "theme": "light",
+      "route": "/products/robotdock/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "theme": "light",
+      "route": "/products/robotdock/specs/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "theme": "dark",
+      "route": "/solutions/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "theme": "dark",
+      "route": "/solutions/teleoperation/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "theme": "dark",
+      "route": "/products/robotdock/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "theme": "dark",
+      "route": "/products/robotdock/specs/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "theme": "light",
+      "route": "/solutions/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "theme": "light",
+      "route": "/solutions/teleoperation/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "theme": "light",
+      "route": "/products/robotdock/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "theme": "light",
+      "route": "/products/robotdock/specs/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "theme": "dark",
+      "route": "/solutions/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "theme": "dark",
+      "route": "/solutions/teleoperation/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "theme": "dark",
+      "route": "/products/robotdock/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "theme": "dark",
+      "route": "/products/robotdock/specs/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "theme": "light",
+      "route": "/solutions/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "theme": "light",
+      "route": "/solutions/teleoperation/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "theme": "light",
+      "route": "/products/robotdock/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "theme": "light",
+      "route": "/products/robotdock/specs/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "theme": "dark",
+      "route": "/solutions/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "theme": "dark",
+      "route": "/solutions/teleoperation/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "theme": "dark",
+      "route": "/products/robotdock/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "theme": "dark",
+      "route": "/products/robotdock/specs/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "theme": "light",
+      "route": "/solutions/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "theme": "light",
+      "route": "/solutions/teleoperation/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "theme": "light",
+      "route": "/products/robotdock/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "theme": "light",
+      "route": "/products/robotdock/specs/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "theme": "dark",
+      "route": "/solutions/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "theme": "dark",
+      "route": "/solutions/teleoperation/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "theme": "dark",
+      "route": "/products/robotdock/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "theme": "dark",
+      "route": "/products/robotdock/specs/",
+      "status": 200,
+      "images": "decoded",
+      "overflow": false,
+      "videoRequestsBeforeClick": 0
+    }
+  ],
+  "playback": [
+    {
+      "id": "3pt-demo",
+      "duration": 21.78,
+      "width": 720,
+      "height": 960,
+      "ended": true,
+      "controls": true,
+      "volume": 0.35,
+      "readyState": 4,
+      "method": "Complete browser playback at 4x; not real-time human audiovisual watch"
+    },
+    {
+      "id": "wholebody-balance",
+      "duration": 15.133333,
+      "width": 960,
+      "height": 540,
+      "ended": true,
+      "controls": true,
+      "volume": 0.35,
+      "readyState": 4,
+      "method": "Complete browser playback at 4x; not real-time human audiovisual watch"
+    },
+    {
+      "id": "camera-teleop",
+      "duration": 26.006009,
+      "width": 960,
+      "height": 540,
+      "ended": true,
+      "controls": true,
+      "volume": 0.35,
+      "readyState": 4,
+      "method": "Complete browser playback at 4x; not real-time human audiovisual watch"
+    },
+    {
+      "id": "wholebody-pick",
+      "duration": 19.04,
+      "width": 960,
+      "height": 540,
+      "ended": true,
+      "controls": true,
+      "volume": 0.35,
+      "readyState": 4,
+      "method": "Complete browser playback at 4x; not real-time human audiovisual watch"
+    },
+    {
+      "id": "dance-video-motion",
+      "duration": 15.603991,
+      "width": 720,
+      "height": 1280,
+      "ended": true,
+      "controls": true,
+      "volume": 0.35,
+      "readyState": 4,
+      "method": "Complete browser playback at 4x; not real-time human audiovisual watch"
+    },
+    {
+      "id": "music-motion",
+      "duration": 47.806,
+      "width": 960,
+      "height": 634,
+      "ended": true,
+      "controls": true,
+      "volume": 0.35,
+      "readyState": 4,
+      "method": "Complete browser playback at 4x; not real-time human audiovisual watch"
+    }
+  ],
+  "checks": [
+    "Only one evidence video plays at a time; volume adjustable",
+    "Collapsing an expanded solution unmounts playback",
+    "404 yields visible fallback; retry recovers playback",
+    "Home, catalog, login, cart, checkout render; RoboDock retains 4 disabled-purchase previews; no SONIC Link product/purchase introduced; language switch works"
+  ],
+  "errors": [],
+  "passed": true
+}

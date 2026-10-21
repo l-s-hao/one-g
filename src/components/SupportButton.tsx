@@ -9,7 +9,7 @@ import { useContact } from "./ContactProvider";
 import type { ContactEntry } from "@/lib/contact-preview";
 import styles from "./ContactPreview.module.css";
 
-export default function SupportButton({ inline = false, label = "咨询客服", entry = "general", className, textOnly = false, effect }: { inline?: boolean; label?: string; entry?: ContactEntry; className?: string; textOnly?: boolean; effect?: "specular" }) {
+export default function SupportButton({ inline = false, label = "咨询客服", entry = "general", className, textOnly = false, effect }: { inline?: boolean; label?: string; entry?: ContactEntry; className?: string; textOnly?: boolean; effect?: "invert" }) {
   const { authReady } = useAuth();
   const open = useContact();
   return <LButton effect={effect} intent="ordinary" {...{ autoComplete: "off" }} type="button" data-contact-entry={entry} disabled={!authReady} aria-haspopup="dialog" onClick={event => open(entry, event.currentTarget)} className={textOnly ? className : `${className ?? styles.trigger} ${inline ? "" : styles.floating}`}>

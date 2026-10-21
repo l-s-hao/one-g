@@ -66,14 +66,14 @@ export default function ProductPurchase({ offering }: { offering: Offering }) {
         <LSection className={styles.summary} aria-labelledby="selection-title">
           <LH2 id="selection-title">当前选择</LH2><LP aria-live="polite">{selected?.name ?? "请选择套餐"}</LP>
           <LP className={styles.amount}>价格待确认</LP>
-          <LButton effect="specular" intent="purchase" type="button" disabled aria-describedby="purchase-unavailable">加入购物车</LButton>
+          <LButton effect="invert" intent="purchase" type="button" disabled aria-describedby="purchase-unavailable">加入购物车</LButton>
           <LP id="purchase-unavailable" className={styles.note}>当前仅供套餐预览，暂未开放销售；套餐价格待确认，支付渠道尚未接入。</LP>
         </LSection>
       </LDiv>
     </LDiv>
     <CardHover><LDiv data-card-hover-surface className={styles.customization}>
       <LP>如有其他要求，可以深度定制。</LP>
-      <Link intent="ordinary" href={{ pathname: "/deep-customization", query: { product: product.slug, ...(selectedId ? { package: selectedId } : {}), quantity: String(quantity), ...(payment ? { payment } : {}) } }}>深度定制 <LSpan aria-hidden="true">→</LSpan></Link>
+      <Link effect="invert" effectVariant="secondary" intent="ordinary" effectSurface="card" href={{ pathname: "/deep-customization", query: { product: product.slug, ...(selectedId ? { package: selectedId } : {}), quantity: String(quantity), ...(payment ? { payment } : {}) } }}>深度定制 <LSpan aria-hidden="true">→</LSpan></Link>
     </LDiv></CardHover>
     <LSection className={styles.recommendations} aria-labelledby="recommendations-title"><LH2 id="recommendations-title">更多推荐</LH2><LP>暂无已确认的推荐商品。</LP></LSection>
   </LDiv>;

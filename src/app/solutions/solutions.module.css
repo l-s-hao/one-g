@@ -14,11 +14,11 @@
 
 .filters {display:flex;gap:.5rem;overflow-x:auto;margin:1.5rem 0;padding:.2rem 0 .7rem;}
 .filters button {flex-shrink:0;border:1px solid var(--border);border-radius:2rem;padding:.65rem 1rem;min-height:44px;color:var(--text);}
-.filters [aria-pressed="true"] {background:var(--button-primary-bg);color:var(--button-primary-text);border-color:var(--border-strong);text-decoration:none;text-underline-offset:4px;}
+.filters [aria-pressed="true"] {border-color:var(--border-strong);text-decoration:none;text-underline-offset:4px;}
 .card figure {margin:0 0 1rem;}.card img{width:100%;height:150px;object-fit:contain;background:var(--surface);border-radius:.6rem;}.card figcaption{font-size:.7rem;line-height:1.5;color:var(--text-muted);margin-top:.4rem;}
 .expand {align-self:flex-start;min-height:44px;text-align:left;color:var(--text);border-bottom:1px solid var(--border-strong);}
 .detail {border-top:1px solid var(--border);margin-top:1rem;padding-top:1rem;font-size:.85rem;}.detail dl{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}.detail dt{font-weight:600;margin-bottom:.3rem;}.detail dd{line-height:1.7;color:var(--text-muted);}
 @media(max-width:767px){.detail dl{grid-template-columns:1fr;}.card img{height:130px;}}
 
 .contact {margin:18px 0 16px;max-width:32rem;}
-.page .contact > button {order:-1;min-height:44px;padding:10px 24px;font-size:16px;line-height:22px;background:var(--button-primary-bg);--specular-line:var(--button-primary-text);color:var(--button-primary-text);border-color:transparent;box-shadow:none;}
+.page .contact > button {order:-1;min-height:44px;padding:10px 24px;font-size:16px;line-height:22px;border-color:transparent;box-shadow:none;}

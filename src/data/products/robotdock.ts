@@ -1,6 +1,7 @@
 import type { Product } from "@/types/product";
 
-// Product facts: robotdock-demo @ 218a8b7, README + dist/index.html + dist/app.js.
+// Source notes: robotdock-demo @ 4b0e92f0f40f652241a123417dd1d54a06678074; see media-sources.json.
+// Existing package preview is intentionally retained independently of newer source planning.
 // Project-owned assets used under STEP 6 instructions; see docs/reference-integration.md.
 export const robotDockProduct: Product = {
   id: "robotdock", slug: "robotdock", name: "RoboDock", category: "robot",
@@ -11,7 +12,9 @@ export const robotDockProduct: Product = {
   specifications: [
     { label: "通信接口", value: "CAN / RS-485 / Ethernet / USB", note: "拟定方案，数量与电气规格待确认。" },
     { label: "供电能力", value: "集中供电与保护（规划）", note: "电压、功率及取电方式待确认。" },
-    { label: "软件接口", value: "ROS 2 / DDS / Python SDK", note: "规划支持。" },
+    { label: "软件接口", value: "基础 SDK / 驱动 / 文档（规划）", note: "ROS 2、DDS 与 Python 接口范围待确认。" },
+    { label: "主控规划", value: "接入版 Orin Nano 8GB；板载版 Orin NX 16GB", note: "暂定规划，性能与适配仍需验证。" },
+    { label: "存储容量", value: "容量与规格待确认" },
     { label: "安装方式", value: "背部安装 + 专用线束 + 手腕转接件" },
     { label: "换装方式", value: "外设独立断电换装（规划）", note: "暂停任务、安全停稳后换装并加载配置，以减少整机重启；G1+ 适配、分路供电控制和热插拔能力仍待验证。" },
     { label: "尺寸 / 重量", value: "待结构设计与样机验证后公布" },
@@ -19,9 +22,37 @@ export const robotDockProduct: Product = {
   ],
   detail: {
     statusNote: "首代产品构想 · 仅供方案讨论，暂未开放销售。RoboDock 为暂定展示名称；外观、接口、兼容范围与交付内容待最终确认。",
+    sourceNotes: [
+    {
+        "id": "design-evidence",
+        "title": "外观与安装构想",
+        "paragraphs": [
+            "概念图依据团队草图生成，安装草图用于讨论背部安装、专用线束与手腕连接件；两者均不代表最终结构、接口数量或实物交付。"
+        ],
+        "sourceHref": "https://github.com/xuanqisun/robotdock-demo/blob/4b0e92f0f40f652241a123417dd1d54a06678074/README.md#L55"
+    },
+    {
+        "id": "compute-evidence",
+        "title": "计算与外设接入 · 规划说明",
+        "paragraphs": [
+            "参考方案区分外部计算设备运行程序、背包内开发部署，以及按需适配预设应用三种使用方向。接入版主控暂定 Orin Nano 8GB，板载版暂定 Orin NX 16GB；这些是规划参数，尚非已验证规格。",
+            "基础 SDK、驱动与文档属于规划交付说明；ROS 2、DDS 与 Python 接口范围、存储容量、Web 功能及记录范围仍待验证或确认。应用示例限已验证组合，并需安装与标定，不代表所有外设或应用已交付。"
+        ],
+        "sourceHref": "https://github.com/xuanqisun/robotdock-demo/blob/4b0e92f0f40f652241a123417dd1d54a06678074/dist/index.html#L48"
+    },
+    {
+        "id": "safety-evidence",
+        "title": "供电与安全换装边界",
+        "paragraphs": [
+            "集中供电与保护、CAN / RS-485 / Ethernet / USB 均为规划方案。电压、功率、取电方式、接口数量和电气规格没有确认数值；不能从概念图推导。",
+            "换装构想要求暂停任务、安全停稳、外设独立断电，换装后加载对应配置。G1+ 适配、分路供电控制与热插拔仍待验证；不将设计目标表述为带电换装能力。"
+        ],
+        "sourceHref": "https://github.com/xuanqisun/robotdock-demo/blob/4b0e92f0f40f652241a123417dd1d54a06678074/dist/index.html#L78"
+    }
+],
     imageNotes: [
-      { alt: "RoboDock 石墨灰小背包 AI 概念效果图，非实物照片", caption: "AI 概念效果图 · 根据团队草图生成，非实物照片。", width: 1254, height: 1254 },
-      { alt: "团队提供的机器人背部安装参考草图，非最终适配图", caption: "团队安装参考草图 · 非最终本体适配图。", width: 946, height: 1208 },
+      { webSrc: "/one-g/products/robotdock/robotdock-concept.webp", alt: "RoboDock 石墨灰小背包 AI 概念效果图，非实物照片", caption: "AI 概念效果图 · 根据团队草图生成，非实物照片。", width: 1254, height: 1254 },
+      { webSrc: "/one-g/products/robotdock/installation-sketch.webp", alt: "团队提供的机器人背部安装参考草图，非最终适配图", caption: "团队安装参考草图 · 非最终本体适配图。", width: 946, height: 1208 },
     ],
     highlights: [
       { title: "集中供电", description: "规划在背包内集成供电管理与保护，减少分散电源和重复接线。" },

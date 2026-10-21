@@ -1,0 +1,998 @@
+[
+  {
+    "name": "product",
+    "route": "/products/robotdock/",
+    "selector": "main [class*=\"actions\"] > a",
+    "width": 390,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "购买",
+        "tag": "A",
+        "href": "/one-g/buy/robotdock/",
+        "width": 70,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 28,
+          "height": 16
+        }
+      },
+      {
+        "index": 1,
+        "text": "技术规格",
+        "tag": "A",
+        "href": "/one-g/products/robotdock/specs/",
+        "width": 98,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 56,
+          "height": 16
+        }
+      },
+      {
+        "index": 2,
+        "text": "购买",
+        "tag": "A",
+        "href": "/one-g/buy/robotdock/",
+        "width": 70,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 28,
+          "height": 16
+        }
+      },
+      {
+        "index": 3,
+        "text": "查看技术规格",
+        "tag": "A",
+        "href": "/one-g/products/robotdock/specs/",
+        "width": 126,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 84,
+          "height": 16
+        }
+      }
+    ]
+  },
+  {
+    "name": "specs",
+    "route": "/products/robotdock/specs/",
+    "selector": "main [class*=\"actions\"] > a",
+    "width": 390,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "购买",
+        "tag": "A",
+        "href": "/one-g/buy/robotdock/",
+        "width": 70,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 28,
+          "height": 16
+        }
+      },
+      {
+        "index": 1,
+        "text": "产品介绍",
+        "tag": "A",
+        "href": "/one-g/products/robotdock/",
+        "width": 98,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 56,
+          "height": 16
+        }
+      },
+      {
+        "index": 2,
+        "text": "购买",
+        "tag": "A",
+        "href": "/one-g/buy/robotdock/",
+        "width": 70,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 28,
+          "height": 16
+        }
+      },
+      {
+        "index": 3,
+        "text": "返回产品介绍",
+        "tag": "A",
+        "href": "/one-g/products/robotdock/",
+        "width": 126,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 84,
+          "height": 16
+        }
+      }
+    ]
+  },
+  {
+    "name": "buy",
+    "route": "/buy/robotdock/",
+    "selector": "main a[href*=\"deep-customization\"]",
+    "width": 390,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "深度定制 →",
+        "tag": "A",
+        "href": "/one-g/deep-customization/?product=robotdock&quantity=1",
+        "width": 127.015625,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "15px / 22px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 11,
+          "width": 85.015625,
+          "height": 22
+        }
+      }
+    ]
+  },
+  {
+    "name": "cart-empty",
+    "route": "/cart/",
+    "selector": "main a[data-button-intent=\"ordinary\"]",
+    "width": 390,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "开始配置",
+        "tag": "A",
+        "href": "/one-g/",
+        "width": 80,
+        "height": 44,
+        "padding": "0px 12px",
+        "radius": "3.35544e+07px",
+        "font": "700 14px / 20px Arial, Helvetica, sans-serif",
+        "borderWidth": "0px",
+        "display": "flex",
+        "textBox": {
+          "x": 12,
+          "y": 14,
+          "width": 56,
+          "height": 16
+        }
+      },
+      {
+        "index": 1,
+        "text": "浏览商品",
+        "tag": "A",
+        "href": "/one-g/products/",
+        "width": 82,
+        "height": 44,
+        "padding": "0px 12px",
+        "radius": "3.35544e+07px",
+        "font": "700 14px / 20px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 13,
+          "y": 14,
+          "width": 56,
+          "height": 16
+        }
+      }
+    ]
+  },
+  {
+    "name": "account",
+    "route": "/account/",
+    "selector": "main [class*=\"actions\"] > button",
+    "width": 390,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "切换用户",
+        "tag": "BUTTON",
+        "href": null,
+        "width": 114.015625,
+        "height": 46,
+        "padding": "10px 24px",
+        "radius": "8px",
+        "font": "16px / 24px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "block",
+        "textBox": {
+          "x": 25,
+          "y": 14,
+          "width": 64.015625,
+          "height": 17
+        }
+      },
+      {
+        "index": 1,
+        "text": "退出登录",
+        "tag": "BUTTON",
+        "href": null,
+        "width": 114.015625,
+        "height": 46,
+        "padding": "10px 24px",
+        "radius": "8px",
+        "font": "16px / 24px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "block",
+        "textBox": {
+          "x": 25,
+          "y": 14,
+          "width": 64.015625,
+          "height": 17
+        }
+      }
+    ]
+  },
+  {
+    "name": "admin",
+    "route": "/admin/",
+    "selector": "main [class*=\"actions\"] > button",
+    "width": 390,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "切换账号",
+        "tag": "BUTTON",
+        "href": null,
+        "width": 114.015625,
+        "height": 46,
+        "padding": "10px 24px",
+        "radius": "8px",
+        "font": "16px / 24px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "block",
+        "textBox": {
+          "x": 25,
+          "y": 14,
+          "width": 64.015625,
+          "height": 17
+        }
+      },
+      {
+        "index": 1,
+        "text": "退出登录",
+        "tag": "BUTTON",
+        "href": null,
+        "width": 114.015625,
+        "height": 46,
+        "padding": "10px 24px",
+        "radius": "8px",
+        "font": "16px / 24px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "block",
+        "textBox": {
+          "x": 25,
+          "y": 14,
+          "width": 64.015625,
+          "height": 17
+        }
+      }
+    ]
+  },
+  {
+    "name": "teleoperation",
+    "route": "/solutions/teleoperation/",
+    "selector": "main [class*=\"actions\"] > a",
+    "width": 390,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "技术说明",
+        "tag": "A",
+        "href": "#technical",
+        "width": 98,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 56,
+          "height": 16
+        }
+      },
+      {
+        "index": 1,
+        "text": "了解通用小背包 →",
+        "tag": "A",
+        "href": "/one-g/products/robotdock/",
+        "width": 157.890625,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 115.890625,
+          "height": 16
+        }
+      }
+    ]
+  },
+  {
+    "name": "contact-edit",
+    "route": "/solutions/",
+    "selector": "dialog[open] [class*=\"actions\"] > button",
+    "width": 390,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "预览需求",
+        "tag": "BUTTON",
+        "href": null,
+        "width": 94.015625,
+        "height": 44,
+        "padding": "8px 14px",
+        "radius": "8px",
+        "font": "16px / 24px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "block",
+        "textBox": {
+          "x": 15,
+          "y": 13,
+          "width": 64.015625,
+          "height": 17
+        }
+      },
+      {
+        "index": 1,
+        "text": "关闭",
+        "tag": "BUTTON",
+        "href": null,
+        "width": 62.015625,
+        "height": 44,
+        "padding": "8px 14px",
+        "radius": "8px",
+        "font": "16px / 24px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "block",
+        "textBox": {
+          "x": 15,
+          "y": 13,
+          "width": 32.015625,
+          "height": 17
+        }
+      }
+    ]
+  },
+  {
+    "name": "contact-preview",
+    "route": "/solutions/",
+    "selector": "dialog[open] [class*=\"actions\"] > button",
+    "width": 390,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "返回编辑",
+        "tag": "BUTTON",
+        "href": null,
+        "width": 94.015625,
+        "height": 44,
+        "padding": "8px 14px",
+        "radius": "8px",
+        "font": "16px / 24px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "block",
+        "textBox": {
+          "x": 15,
+          "y": 13,
+          "width": 64.015625,
+          "height": 17
+        }
+      },
+      {
+        "index": 1,
+        "text": "关闭",
+        "tag": "BUTTON",
+        "href": null,
+        "width": 62.015625,
+        "height": 44,
+        "padding": "8px 14px",
+        "radius": "8px",
+        "font": "16px / 24px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "block",
+        "textBox": {
+          "x": 15,
+          "y": 13,
+          "width": 32.015625,
+          "height": 17
+        }
+      }
+    ]
+  },
+  {
+    "name": "video-error",
+    "route": "/solutions/teleoperation/",
+    "selector": "[data-demo=\"3pt-demo\"] button",
+    "width": 390,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "重试加载",
+        "tag": "BUTTON",
+        "href": null,
+        "width": 98.015625,
+        "height": 44,
+        "padding": "8px 16px",
+        "radius": "24px",
+        "font": "16px / 24px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "inline-block",
+        "textBox": {
+          "x": 17,
+          "y": 13,
+          "width": 64.015625,
+          "height": 17
+        }
+      }
+    ]
+  },
+  {
+    "name": "product",
+    "route": "/products/robotdock/",
+    "selector": "main [class*=\"actions\"] > a",
+    "width": 1440,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "购买",
+        "tag": "A",
+        "href": "/one-g/buy/robotdock/",
+        "width": 70,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 28,
+          "height": 16
+        }
+      },
+      {
+        "index": 1,
+        "text": "技术规格",
+        "tag": "A",
+        "href": "/one-g/products/robotdock/specs/",
+        "width": 98,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 56,
+          "height": 16
+        }
+      },
+      {
+        "index": 2,
+        "text": "购买",
+        "tag": "A",
+        "href": "/one-g/buy/robotdock/",
+        "width": 70,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 28,
+          "height": 16
+        }
+      },
+      {
+        "index": 3,
+        "text": "查看技术规格",
+        "tag": "A",
+        "href": "/one-g/products/robotdock/specs/",
+        "width": 126,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 84,
+          "height": 16
+        }
+      }
+    ]
+  },
+  {
+    "name": "specs",
+    "route": "/products/robotdock/specs/",
+    "selector": "main [class*=\"actions\"] > a",
+    "width": 1440,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "购买",
+        "tag": "A",
+        "href": "/one-g/buy/robotdock/",
+        "width": 70,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 28,
+          "height": 16
+        }
+      },
+      {
+        "index": 1,
+        "text": "产品介绍",
+        "tag": "A",
+        "href": "/one-g/products/robotdock/",
+        "width": 98,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 56,
+          "height": 16
+        }
+      },
+      {
+        "index": 2,
+        "text": "购买",
+        "tag": "A",
+        "href": "/one-g/buy/robotdock/",
+        "width": 70,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 28,
+          "height": 16
+        }
+      },
+      {
+        "index": 3,
+        "text": "返回产品介绍",
+        "tag": "A",
+        "href": "/one-g/products/robotdock/",
+        "width": 126,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 84,
+          "height": 16
+        }
+      }
+    ]
+  },
+  {
+    "name": "buy",
+    "route": "/buy/robotdock/",
+    "selector": "main a[href*=\"deep-customization\"]",
+    "width": 1440,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "深度定制 →",
+        "tag": "A",
+        "href": "/one-g/deep-customization/?product=robotdock&quantity=1",
+        "width": 127.015625,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "15px / 22px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 11,
+          "width": 85.015625,
+          "height": 22
+        }
+      }
+    ]
+  },
+  {
+    "name": "cart-empty",
+    "route": "/cart/",
+    "selector": "main a[data-button-intent=\"ordinary\"]",
+    "width": 1440,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "开始配置",
+        "tag": "A",
+        "href": "/one-g/",
+        "width": 104,
+        "height": 44,
+        "padding": "0px 24px",
+        "radius": "3.35544e+07px",
+        "font": "700 14px / 20px Arial, Helvetica, sans-serif",
+        "borderWidth": "0px",
+        "display": "flex",
+        "textBox": {
+          "x": 24,
+          "y": 14,
+          "width": 56,
+          "height": 16
+        }
+      },
+      {
+        "index": 1,
+        "text": "浏览商品",
+        "tag": "A",
+        "href": "/one-g/products/",
+        "width": 106,
+        "height": 44,
+        "padding": "0px 24px",
+        "radius": "3.35544e+07px",
+        "font": "700 14px / 20px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 25,
+          "y": 14,
+          "width": 56,
+          "height": 16
+        }
+      }
+    ]
+  },
+  {
+    "name": "account",
+    "route": "/account/",
+    "selector": "main [class*=\"actions\"] > button",
+    "width": 1440,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "切换用户",
+        "tag": "BUTTON",
+        "href": null,
+        "width": 114.015625,
+        "height": 46,
+        "padding": "10px 24px",
+        "radius": "8px",
+        "font": "16px / 24px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "block",
+        "textBox": {
+          "x": 25,
+          "y": 14,
+          "width": 64.015625,
+          "height": 17
+        }
+      },
+      {
+        "index": 1,
+        "text": "退出登录",
+        "tag": "BUTTON",
+        "href": null,
+        "width": 114.015625,
+        "height": 46,
+        "padding": "10px 24px",
+        "radius": "8px",
+        "font": "16px / 24px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "block",
+        "textBox": {
+          "x": 25,
+          "y": 14,
+          "width": 64.015625,
+          "height": 17
+        }
+      }
+    ]
+  },
+  {
+    "name": "admin",
+    "route": "/admin/",
+    "selector": "main [class*=\"actions\"] > button",
+    "width": 1440,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "切换账号",
+        "tag": "BUTTON",
+        "href": null,
+        "width": 114.015625,
+        "height": 46,
+        "padding": "10px 24px",
+        "radius": "8px",
+        "font": "16px / 24px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "block",
+        "textBox": {
+          "x": 25,
+          "y": 14,
+          "width": 64.015625,
+          "height": 17
+        }
+      },
+      {
+        "index": 1,
+        "text": "退出登录",
+        "tag": "BUTTON",
+        "href": null,
+        "width": 114.015625,
+        "height": 46,
+        "padding": "10px 24px",
+        "radius": "8px",
+        "font": "16px / 24px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "block",
+        "textBox": {
+          "x": 25,
+          "y": 14,
+          "width": 64.015625,
+          "height": 17
+        }
+      }
+    ]
+  },
+  {
+    "name": "teleoperation",
+    "route": "/solutions/teleoperation/",
+    "selector": "main [class*=\"actions\"] > a",
+    "width": 1440,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "技术说明",
+        "tag": "A",
+        "href": "#technical",
+        "width": 98,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 56,
+          "height": 16
+        }
+      },
+      {
+        "index": 1,
+        "text": "了解通用小背包 →",
+        "tag": "A",
+        "href": "/one-g/products/robotdock/",
+        "width": 157.890625,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "flex",
+        "textBox": {
+          "x": 21,
+          "y": 13.5,
+          "width": 115.890625,
+          "height": 16
+        }
+      }
+    ]
+  },
+  {
+    "name": "contact-edit",
+    "route": "/solutions/",
+    "selector": "dialog[open] [class*=\"actions\"] > button",
+    "width": 1440,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "预览需求",
+        "tag": "BUTTON",
+        "href": null,
+        "width": 94.015625,
+        "height": 44,
+        "padding": "8px 14px",
+        "radius": "8px",
+        "font": "16px / 24px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "block",
+        "textBox": {
+          "x": 15,
+          "y": 13,
+          "width": 64.015625,
+          "height": 17
+        }
+      },
+      {
+        "index": 1,
+        "text": "关闭",
+        "tag": "BUTTON",
+        "href": null,
+        "width": 62.015625,
+        "height": 44,
+        "padding": "8px 14px",
+        "radius": "8px",
+        "font": "16px / 24px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "block",
+        "textBox": {
+          "x": 15,
+          "y": 13,
+          "width": 32.015625,
+          "height": 17
+        }
+      }
+    ]
+  },
+  {
+    "name": "contact-preview",
+    "route": "/solutions/",
+    "selector": "dialog[open] [class*=\"actions\"] > button",
+    "width": 1440,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "返回编辑",
+        "tag": "BUTTON",
+        "href": null,
+        "width": 94.015625,
+        "height": 44,
+        "padding": "8px 14px",
+        "radius": "8px",
+        "font": "16px / 24px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "block",
+        "textBox": {
+          "x": 15,
+          "y": 13,
+          "width": 64.015625,
+          "height": 17
+        }
+      },
+      {
+        "index": 1,
+        "text": "关闭",
+        "tag": "BUTTON",
+        "href": null,
+        "width": 62.015625,
+        "height": 44,
+        "padding": "8px 14px",
+        "radius": "8px",
+        "font": "16px / 24px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "block",
+        "textBox": {
+          "x": 15,
+          "y": 13,
+          "width": 32.015625,
+          "height": 17
+        }
+      }
+    ]
+  },
+  {
+    "name": "video-error",
+    "route": "/solutions/teleoperation/",
+    "selector": "[data-demo=\"3pt-demo\"] button",
+    "width": 1440,
+    "measurements": [
+      {
+        "index": 0,
+        "text": "重试加载",
+        "tag": "BUTTON",
+        "href": null,
+        "width": 98.015625,
+        "height": 44,
+        "padding": "8px 16px",
+        "radius": "24px",
+        "font": "16px / 24px Arial, Helvetica, sans-serif",
+        "borderWidth": "1px",
+        "display": "inline-block",
+        "textBox": {
+          "x": 17,
+          "y": 13,
+          "width": 64.015625,
+          "height": 17
+        }
+      }
+    ]
+  }
+]

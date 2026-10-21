@@ -1,0 +1,1256 @@
+{
+  "browser": "153.0.8010.12",
+  "base": "http://127.0.0.1:3001/one-g",
+  "geometry": [
+    {
+      "width": 390,
+      "route": "/",
+      "text": "商品中心",
+      "before": {
+        "width": 94,
+        "height": 44
+      },
+      "after": {
+        "width": 94,
+        "height": 44
+      },
+      "labelUnchanged": true
+    },
+    {
+      "width": 390,
+      "route": "/",
+      "text": "解决方案",
+      "before": {
+        "width": 94,
+        "height": 44
+      },
+      "after": {
+        "width": 94,
+        "height": 44
+      },
+      "labelUnchanged": true
+    },
+    {
+      "width": 390,
+      "route": "/solutions/",
+      "text": "联系我们",
+      "before": {
+        "width": 139.015625,
+        "height": 44
+      },
+      "after": {
+        "width": 139.015625,
+        "height": 44
+      },
+      "labelUnchanged": true
+    },
+    {
+      "width": 390,
+      "route": "/products/robotdock/",
+      "text": "购买",
+      "before": {
+        "width": 70,
+        "height": 44
+      },
+      "after": {
+        "width": 70,
+        "height": 44
+      },
+      "labelUnchanged": true
+    },
+    {
+      "width": 390,
+      "route": "/products/robotdock/",
+      "text": "购买",
+      "before": {
+        "width": 70,
+        "height": 44
+      },
+      "after": {
+        "width": 70,
+        "height": 44
+      },
+      "labelUnchanged": true
+    },
+    {
+      "width": 390,
+      "route": "/buy/robotdock/",
+      "text": "加入购物车",
+      "before": {
+        "width": 350,
+        "height": 48
+      },
+      "after": {
+        "width": 350,
+        "height": 48
+      },
+      "labelUnchanged": true
+    },
+    {
+      "width": 390,
+      "route": "/products/arm-a1/",
+      "text": "加入购物车",
+      "before": {
+        "width": 142,
+        "height": 44
+      },
+      "after": {
+        "width": 142,
+        "height": 44
+      },
+      "labelUnchanged": true
+    },
+    {
+      "width": 390,
+      "route": "/login/",
+      "text": "登录暂未开放",
+      "before": {
+        "width": 318,
+        "height": 44
+      },
+      "after": {
+        "width": 318,
+        "height": 44
+      },
+      "labelUnchanged": true
+    },
+    {
+      "width": 390,
+      "route": "/about/",
+      "text": "咨询客服",
+      "before": {
+        "width": 131,
+        "height": 48
+      },
+      "after": {
+        "width": 131,
+        "height": 48
+      },
+      "labelUnchanged": true
+    },
+    {
+      "width": 390,
+      "route": "/deep-customization/",
+      "text": "提交深度定制需求",
+      "before": {
+        "width": 179,
+        "height": 44
+      },
+      "after": {
+        "width": 179,
+        "height": 44
+      },
+      "labelUnchanged": true
+    },
+    {
+      "width": 1440,
+      "route": "/",
+      "text": "商品中心",
+      "before": {
+        "width": 102,
+        "height": 44
+      },
+      "after": {
+        "width": 102,
+        "height": 44
+      },
+      "labelUnchanged": true
+    },
+    {
+      "width": 1440,
+      "route": "/",
+      "text": "解决方案",
+      "before": {
+        "width": 102,
+        "height": 44
+      },
+      "after": {
+        "width": 102,
+        "height": 44
+      },
+      "labelUnchanged": true
+    },
+    {
+      "width": 1440,
+      "route": "/solutions/",
+      "text": "联系我们",
+      "before": {
+        "width": 139.015625,
+        "height": 44
+      },
+      "after": {
+        "width": 139.015625,
+        "height": 44
+      },
+      "labelUnchanged": true
+    },
+    {
+      "width": 1440,
+      "route": "/products/robotdock/",
+      "text": "购买",
+      "before": {
+        "width": 70,
+        "height": 44
+      },
+      "after": {
+        "width": 70,
+        "height": 44
+      },
+      "labelUnchanged": true
+    },
+    {
+      "width": 1440,
+      "route": "/products/robotdock/",
+      "text": "购买",
+      "before": {
+        "width": 70,
+        "height": 44
+      },
+      "after": {
+        "width": 70,
+        "height": 44
+      },
+      "labelUnchanged": true
+    },
+    {
+      "width": 1440,
+      "route": "/buy/robotdock/",
+      "text": "加入购物车",
+      "before": {
+        "width": 473.328125,
+        "height": 48
+      },
+      "after": {
+        "width": 473.328125,
+        "height": 48
+      },
+      "labelUnchanged": true
+    },
+    {
+      "width": 1440,
+      "route": "/products/arm-a1/",
+      "text": "加入购物车",
+      "before": {
+        "width": 142,
+        "height": 44
+      },
+      "after": {
+        "width": 142,
+        "height": 44
+      },
+      "labelUnchanged": true
+    },
+    {
+      "width": 1440,
+      "route": "/login/",
+      "text": "登录暂未开放",
+      "before": {
+        "width": 360,
+        "height": 48
+      },
+      "after": {
+        "width": 360,
+        "height": 48
+      },
+      "labelUnchanged": true
+    },
+    {
+      "width": 1440,
+      "route": "/about/",
+      "text": "咨询客服",
+      "before": {
+        "width": 131,
+        "height": 48
+      },
+      "after": {
+        "width": 131,
+        "height": 48
+      },
+      "labelUnchanged": true
+    },
+    {
+      "width": 1440,
+      "route": "/deep-customization/",
+      "text": "提交深度定制需求",
+      "before": {
+        "width": 179,
+        "height": 44
+      },
+      "after": {
+        "width": 179,
+        "height": 44
+      },
+      "labelUnchanged": true
+    }
+  ],
+  "states": [
+    {
+      "width": 390,
+      "theme": "light",
+      "locale": "en",
+      "name": "cta",
+      "before": {
+        "text": "Contact us",
+        "width": 151.484375,
+        "height": 44,
+        "padding": "10px 24px",
+        "radius": "999px",
+        "font": "16px / 22px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 25,
+          "y": 11,
+          "width": 101.484375,
+          "height": 22
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": false
+      },
+      "hover": {
+        "text": "Contact us",
+        "width": 151.484375,
+        "height": 44,
+        "padding": "10px 24px",
+        "radius": "999px",
+        "font": "16px / 22px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 25,
+          "y": 11,
+          "width": 101.484375,
+          "height": 22
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": false
+      }
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "locale": "en",
+      "name": "purchase-link",
+      "before": {
+        "text": "Buy",
+        "width": 66.125,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 21,
+          "y": 11.5,
+          "width": 24.125,
+          "height": 21
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": false
+      },
+      "hover": {
+        "text": "Buy",
+        "width": 66.125,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 21,
+          "y": 11.5,
+          "width": 24.125,
+          "height": 21
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": false
+      }
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "locale": "en",
+      "name": "disabled",
+      "before": {
+        "text": "Add to cart",
+        "width": 350,
+        "height": 48,
+        "padding": "12px 20px",
+        "radius": "24px",
+        "font": "600 16px / 24px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 132.765625,
+          "y": 12,
+          "width": 84.453125,
+          "height": 24
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": true
+      },
+      "hover": {
+        "text": "Add to cart",
+        "width": 350,
+        "height": 48,
+        "padding": "12px 20px",
+        "radius": "24px",
+        "font": "600 16px / 24px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 132.765625,
+          "y": 12,
+          "width": 84.453125,
+          "height": 24
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": true
+      }
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "locale": "en",
+      "name": "login-disabled",
+      "before": {
+        "text": "Sign-in is not available yet",
+        "width": 318,
+        "height": 44,
+        "padding": "0px",
+        "radius": "18px",
+        "font": "600 14px / 20px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 71.078125,
+          "y": 12,
+          "width": 175.828125,
+          "height": 20
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": true
+      },
+      "hover": {
+        "text": "Sign-in is not available yet",
+        "width": 318,
+        "height": 44,
+        "padding": "0px",
+        "radius": "18px",
+        "font": "600 14px / 20px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 71.078125,
+          "y": 12,
+          "width": 175.828125,
+          "height": 20
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": true
+      }
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "locale": "en",
+      "name": "cta",
+      "before": {
+        "text": "Contact us",
+        "width": 151.484375,
+        "height": 44,
+        "padding": "10px 24px",
+        "radius": "999px",
+        "font": "16px / 22px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 25,
+          "y": 11,
+          "width": 101.484375,
+          "height": 22
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": false
+      },
+      "hover": {
+        "text": "Contact us",
+        "width": 151.484375,
+        "height": 44,
+        "padding": "10px 24px",
+        "radius": "999px",
+        "font": "16px / 22px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 25,
+          "y": 11,
+          "width": 101.484375,
+          "height": 22
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": false
+      }
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "locale": "en",
+      "name": "purchase-link",
+      "before": {
+        "text": "Buy",
+        "width": 66.125,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 21,
+          "y": 11.5,
+          "width": 24.125,
+          "height": 21
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": false
+      },
+      "hover": {
+        "text": "Buy",
+        "width": 66.125,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 21,
+          "y": 11.5,
+          "width": 24.125,
+          "height": 21
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": false
+      }
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "locale": "en",
+      "name": "disabled",
+      "before": {
+        "text": "Add to cart",
+        "width": 350,
+        "height": 48,
+        "padding": "12px 20px",
+        "radius": "24px",
+        "font": "600 16px / 24px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 132.765625,
+          "y": 12,
+          "width": 84.453125,
+          "height": 24
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": true
+      },
+      "hover": {
+        "text": "Add to cart",
+        "width": 350,
+        "height": 48,
+        "padding": "12px 20px",
+        "radius": "24px",
+        "font": "600 16px / 24px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 132.765625,
+          "y": 12,
+          "width": 84.453125,
+          "height": 24
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": true
+      }
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "locale": "en",
+      "name": "login-disabled",
+      "before": {
+        "text": "Sign-in is not available yet",
+        "width": 318,
+        "height": 44,
+        "padding": "0px",
+        "radius": "18px",
+        "font": "600 14px / 20px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 71.078125,
+          "y": 12,
+          "width": 175.828125,
+          "height": 20
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": true
+      },
+      "hover": {
+        "text": "Sign-in is not available yet",
+        "width": 318,
+        "height": 44,
+        "padding": "0px",
+        "radius": "18px",
+        "font": "600 14px / 20px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 71.078125,
+          "y": 12,
+          "width": 175.828125,
+          "height": 20
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": true
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "locale": "zh-CN",
+      "name": "cta",
+      "before": {
+        "text": "联系我们",
+        "width": 139.015625,
+        "height": 44,
+        "padding": "10px 24px",
+        "radius": "999px",
+        "font": "16px / 22px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 25,
+          "y": 11,
+          "width": 89.015625,
+          "height": 22
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": false
+      },
+      "hover": {
+        "text": "联系我们",
+        "width": 139.015625,
+        "height": 44,
+        "padding": "10px 24px",
+        "radius": "999px",
+        "font": "16px / 22px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 25,
+          "y": 11,
+          "width": 89.015625,
+          "height": 22
+        },
+        "bg": "rgb(247, 244, 238)",
+        "color": "rgb(23, 25, 29)",
+        "border": "rgb(58, 115, 217)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": false
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "locale": "zh-CN",
+      "name": "purchase-link",
+      "before": {
+        "text": "购买",
+        "width": 70,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 21,
+          "y": 11.5,
+          "width": 28,
+          "height": 21
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": false
+      },
+      "hover": {
+        "text": "购买",
+        "width": 70,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 21,
+          "y": 11.5,
+          "width": 28,
+          "height": 21
+        },
+        "bg": "rgb(247, 244, 238)",
+        "color": "rgb(23, 25, 29)",
+        "border": "rgb(58, 115, 217)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": false
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "locale": "zh-CN",
+      "name": "disabled",
+      "before": {
+        "text": "加入购物车",
+        "width": 473.328125,
+        "height": 48,
+        "padding": "12px 20px",
+        "radius": "24px",
+        "font": "600 16px / 24px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 196.65625,
+          "y": 12,
+          "width": 80.015625,
+          "height": 24
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": true
+      },
+      "hover": {
+        "text": "加入购物车",
+        "width": 473.328125,
+        "height": 48,
+        "padding": "12px 20px",
+        "radius": "24px",
+        "font": "600 16px / 24px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 196.65625,
+          "y": 12,
+          "width": 80.015625,
+          "height": 24
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": true
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "locale": "zh-CN",
+      "name": "login-disabled",
+      "before": {
+        "text": "登录暂未开放",
+        "width": 360,
+        "height": 48,
+        "padding": "0px",
+        "radius": "18px",
+        "font": "600 14px / 20px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 138,
+          "y": 14,
+          "width": 84,
+          "height": 20
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": true
+      },
+      "hover": {
+        "text": "登录暂未开放",
+        "width": 360,
+        "height": 48,
+        "padding": "0px",
+        "radius": "18px",
+        "font": "600 14px / 20px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 138,
+          "y": 14,
+          "width": 84,
+          "height": 20
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": true
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "locale": "zh-CN",
+      "name": "cta",
+      "before": {
+        "text": "联系我们",
+        "width": 139.015625,
+        "height": 44,
+        "padding": "10px 24px",
+        "radius": "999px",
+        "font": "16px / 22px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 25,
+          "y": 11,
+          "width": 89.015625,
+          "height": 22
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": false
+      },
+      "hover": {
+        "text": "联系我们",
+        "width": 139.015625,
+        "height": 44,
+        "padding": "10px 24px",
+        "radius": "999px",
+        "font": "16px / 22px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 25,
+          "y": 11,
+          "width": 89.015625,
+          "height": 22
+        },
+        "bg": "rgb(14, 15, 18)",
+        "color": "rgb(232, 234, 237)",
+        "border": "rgb(58, 115, 217)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": false
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "locale": "zh-CN",
+      "name": "purchase-link",
+      "before": {
+        "text": "购买",
+        "width": 70,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 21,
+          "y": 11.5,
+          "width": 28,
+          "height": 21
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": false
+      },
+      "hover": {
+        "text": "购买",
+        "width": 70,
+        "height": 44,
+        "padding": "10px 20px",
+        "radius": "24px",
+        "font": "14px / 21px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 21,
+          "y": 11.5,
+          "width": 28,
+          "height": 21
+        },
+        "bg": "rgb(14, 15, 18)",
+        "color": "rgb(232, 234, 237)",
+        "border": "rgb(58, 115, 217)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": false
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "locale": "zh-CN",
+      "name": "disabled",
+      "before": {
+        "text": "加入购物车",
+        "width": 473.328125,
+        "height": 48,
+        "padding": "12px 20px",
+        "radius": "24px",
+        "font": "600 16px / 24px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 196.65625,
+          "y": 12,
+          "width": 80.015625,
+          "height": 24
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": true
+      },
+      "hover": {
+        "text": "加入购物车",
+        "width": 473.328125,
+        "height": 48,
+        "padding": "12px 20px",
+        "radius": "24px",
+        "font": "600 16px / 24px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 196.65625,
+          "y": 12,
+          "width": 80.015625,
+          "height": 24
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": true
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "locale": "zh-CN",
+      "name": "login-disabled",
+      "before": {
+        "text": "登录暂未开放",
+        "width": 360,
+        "height": 48,
+        "padding": "0px",
+        "radius": "18px",
+        "font": "600 14px / 20px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 138,
+          "y": 14,
+          "width": 84,
+          "height": 20
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": true
+      },
+      "hover": {
+        "text": "登录暂未开放",
+        "width": 360,
+        "height": 48,
+        "padding": "0px",
+        "radius": "18px",
+        "font": "600 14px / 20px Arial, Helvetica, sans-serif",
+        "label": {
+          "x": 138,
+          "y": 14,
+          "width": 84,
+          "height": 20
+        },
+        "bg": "rgb(58, 115, 217)",
+        "color": "rgb(255, 255, 255)",
+        "border": "rgba(0, 0, 0, 0)",
+        "borderWidth": "2px",
+        "duration": "0.2s",
+        "transition": "background-color, color, border-color",
+        "transform": "none",
+        "filter": "none",
+        "decoration": "none",
+        "outline": "none",
+        "outlineWidth": "3px",
+        "surface": "page",
+        "disabled": true
+      }
+    }
+  ],
+  "checks": [
+    "Existing host dimensions, padding, radius, font and label offsets match recorded baseline",
+    "No button Canvas, old edge DOM, nested controls or excluded navigation/filter opt-ins",
+    "200ms color-only transitions; stable hover dimensions; disabled/loading exclusions; independent keyboard focus; reduced motion instant",
+    "Mouse and touch, light/dark, Chinese/English, Layout Grid CTA and card surface; native Link/Enter navigation; add-to-cart login guard"
+  ],
+  "errors": [],
+  "passed": true
+}

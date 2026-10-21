@@ -24,7 +24,7 @@ export default function AccountPage() {
     <LSection className={styles.section}><LH2>我的订单</LH2><AccountOrders key={currentUser.id} userId={currentUser.id}/></LSection>
     <LSection className={styles.section}><LH2>购物车</LH2><Link intent="ordinary" href="/cart">查看购物车</Link></LSection>
     <LSection className={styles.section}><LH2>收货地址</LH2><LP className={styles.muted}>地址管理暂未开放。</LP></LSection>
-    <LSection className={styles.section} aria-labelledby="account-support"><LH2 id="account-support">客服咨询</LH2><SupportButton effect="specular" inline entry="account"/></LSection>
+    <LSection className={styles.section} aria-labelledby="account-support"><LH2 id="account-support">客服咨询</LH2><SupportButton effect="invert" inline entry="account"/></LSection>
     <LSection className={styles.section} aria-labelledby="account-actions"><LH2 id="account-actions">账户</LH2><AccountActions /></LSection>
   </LDiv>;
 }

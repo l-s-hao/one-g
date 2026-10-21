@@ -1,0 +1,27 @@
+{
+  "file": "/home/lsh/ONE/src/components/fonts/InterVariable.ttf",
+  "names": {
+    "0": "Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter)",
+    "1": "Inter",
+    "2": "Regular",
+    "3": "4.001;git-66647c0bb;RSMS;Inter-Regular-Regular",
+    "5": "Version 4.001;git-66647c0bb",
+    "6": "Inter-Regular",
+    "13": "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.org",
+    "14": "https://openfontlicense.org"
+  },
+  "axes": [
+    {
+      "tag": "opsz",
+      "min": 14.0,
+      "default": 14.0,
+      "max": 32.0
+    },
+    {
+      "tag": "wght",
+      "min": 100.0,
+      "default": 400.0,
+      "max": 900.0
+    }
+  ]
+}

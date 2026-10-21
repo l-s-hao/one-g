@@ -1,97 +1,98 @@
-# 页面主要操作的 Specular 光效
+# 页面 CTA 反色效果
 
-本次只修改 ONE 主仓库，无提交、推送；两个参考仓库未写入。开始时 `git status --short` 和 `git diff` 均为空，基线补丁记录于 `/tmp/one-specular-audit/before.patch`。
+2026-10-21。只修改 ONE-G 主仓库，不提交或推送，不写参考仓库。改前状态、二进制 diff 与文件哈希保存在 /tmp/one-invert-audit/before.status、before.patch、files-before.json。开始时已有素材整合修改和未跟踪文件，本次完整保留。
 
-## 来源、安装与依赖
+## 实际环境
 
-采用 React Bits **TS-CSS** 官方提交 `e12c22192ac7b4b452c5e2feb9b586d74765d696`：
-
-- [组件说明](https://reactbits.dev/components/specular-button)
-- [固定版本 TSX](https://raw.githubusercontent.com/DavidHDev/react-bits/e12c22192ac7b4b452c5e2feb9b586d74765d696/src/ts-default/Components/SpecularButton/SpecularButton.tsx)
-- [同一版本 CSS](https://raw.githubusercontent.com/DavidHDev/react-bits/e12c22192ac7b4b452c5e2feb9b586d74765d696/src/ts-default/Components/SpecularButton/SpecularButton.css)
-
-实时下载的 registry 已更新：包含 TSX 和 CSS 两个文件，`dependencies: []`，支持 `idleIntensity`、`glow`，使用原生 WebGL2。两个文件内容与该提交完全一致，不能继续按旧 registry 认为需要 ogl。`source.json` 保存地址、提交号、SHA-256 和比对结果，`upstream/` 保存完整配套原件（`.txt`，不加入生产运行或类型检查），同时保存官方 **MIT + Commons Clause** 许可证。
-
-已执行 `npx shadcn@latest add @react-bits/SpecularButton-TS-CSS`，也用完整 JSON 地址重试；shadcn 4.22.1 两次都报 `other side closed`，没有生成组件。随后按固定提交下载同一套官方源码并手动接入。未新增项目依赖，`package.json`、`package-lock.json`、`components.json` 不变。现有 ogl 被 MicroSlats 使用，保留不动。浏览器验收工具仅安装于临时目录。
-
-## 显式启用与当前范围
-
-此次范围修正以前一轮未提交 diff 为基线，不 reset、不覆盖整个文件。额外基线保存在 `/tmp/one-specular-audit/before-scope-correction.patch`。以下范围取代先前“全站按钮”范围。
-
-`src/i18n/Elements.tsx` 的 LButton、LocalizedLink、LA 默认不挂载任何 Specular 装饰。只有 `effect="specular"` 才输出 `data-specular-host`、SpecularEdge 和标签层。`intent="purchase"` 本身不启用效果，也不依据文案、尺寸测量或全局 button/link 选择器推断。SupportButton 也只转发可选 effect，默认无效果。
-
-| 显式启用位置 | 操作 |
-| --- | --- |
-| HomeCollageHero | 首页 Hero 的商品中心、解决方案两个正常尺寸主入口 |
-| ProductDetailContent | 产品介绍/技术规格正文的购买操作 |
-| AddToCartButton、ProductPurchase | 详情加入购物车和购买页加入购物车（原禁用状态保留） |
-| cart、checkout | 结算主入口及原禁用提示主按钮、演示订单主提交 |
-| solutions、about、deep-customization、account | 页面级联系我们/咨询客服/提交深度定制需求 |
-| VerificationLogin | 登录表单主提交 |
-| ContactProvider | 填写需求表单的预览需求主提交 |
-
-明确排除：整个 Header 和所有导航图片面板、ProductLocalNav 的紧凑购买、语言/日夜/搜索/用户/购物车/更多菜单、所有图标/关闭/箭头/分页、分类筛选和 Tab、获取验证码、商品卡片和首页展开卡片的紧凑购买/了解入口、返回/取消/辅助按钮、Footer 紧凑咨询入口、账户切换/退出与管理员模块选择。不存在依据“购买”字样自动启用的逻辑。
-
-排除控件不输出 SpecularEdge/Canvas、不注册 scheduler。原生 LanguageSwitch、AnimatedThemeToggler、Layout Grid 关闭与 Hero 暂停按钮已移除前次加入的导入和装饰；Header 的用户/购物车链接恢复原调用形式。导航高亮、MenuToGrid、展开/收起、卡片浮起与日夜圆形扩散的逻辑保持不变。
-
-共享光效仍在 `src/components/specular/`：SpecularEdge 为装饰注册入口，scheduler 为共享资源调度，shader 为固定官方 shader 与辅助数学。`button-effects.css` 的光效和缺省圆角仅匹配显式 `data-specular-host`，已删除专用于导航的光效样式。所有 button 和按钮式链接继续清除文字下划线，保留 focus-visible；正文链接不作全局清理。
-
-现有 button/Next Link/a、ref、type、表单、aria/data 属性、事件和目标地址保持。仅启用时添加装饰；不新增按钮或业务行为，不统一放大尺寸，不改变套餐 radio、支付方式和输入框。
-
-## 参数、主题和布局
-
-共享配置为 `intensity=1`、`idleIntensity=0.35`、`shineSize=10`、`shineFade=34`、`thickness=1.2`、`glow=1`、`followMouse=true`、`proximity=250`、`autoAnimate=false`。没有全站自动旋转，也没有引入另一套动画库。
-
-显式启用光效的文字按钮缺省圆角为 18px；已有组件的 pill、Chip、圆形关闭按钮和尺寸规则优先。Header 与小控件完全不使用光效或其圆角适配，不增加 padding、字号、导航高度或实色背景块。画布延伸 24px，但 `pointer-events:none`，仍在按钮自己的隔离层内；保留卡片、图片、弹窗和面板的原裁切规则。未改 CardHover、GSAP Flip、MenuToGrid、共享导航底板或 Layout Grid 的 transform 和业务代码。
-
-| 颜色用途 | 日间 | 夜间 |
+| 项目 | 实际证据 | 结论 |
 | --- | --- | --- |
-| 页面 | 原 `--bg` #F7F4EE | 原 `--bg` #0E0F12 |
-| 普通文字 | 原 `--text` #17191D | 原 `--text` #E8EAED |
-| 普通高光 | `--accent` #3A73D9 | `--text` #E8EAED |
-| 基础边线 | `--border` #858A92 | `--border` #4C5562 |
-| 主操作 | 原 `--button-primary-bg` 实色及 `--button-primary-text` 反差文字 | 同一现有 Token 系统 |
-| 实色主操作高光 | `--button-primary-text` | `--button-primary-text` |
+| shadcn/ui | components.json：new-york、rsc/tsx、CSS variables、ui/utils aliases、Magic UI / React Bits registries；ui 目录有 animated-theme-toggler、layout-grid、shimmer-button | CLI 的项目级配置与兼容目录组织已存在；没有标准 shadcn Button/ButtonLink，也没有 shadcn 包或本地 CLI 可执行文件。未运行 CLI，不能称为安装了整套 shadcn/ui |
+| Tailwind | package.json 声明 tailwindcss、@tailwindcss/postcss 为 ^4；package-lock.json 和实际安装均为 4.3.3 | 已用 v4；没有 tailwind.config.js 不构成缺失 |
+| CSS / 构建 | globals.css 以 @import "tailwindcss" 开始；postcss.config.mjs 使用 @tailwindcss/postcss；Next 16.3.4、Webpack、静态导出、/one-g 前缀；无 Vite 配置 | 沿用 CSS Modules 和全局共享 CSS，不改 Reset、配置或构建系统 |
+| TypeScript | 声明 ^5，锁文件/安装均为 5.9.3；tsconfig strict、noEmit、bundler、Next 插件和 @/* aliases | 已启用；无独立 typecheck 脚本，使用 npx tsc --noEmit；沿用已有 lint/build |
 
-已有实色主按钮 CSS 仅增加局部 `--specular-line` 映射；普通、secondary、ghost、selected 的填充与状态由原组件控制，未把全部按钮设成透明玻璃。购买按钮恢复实色主操作层级。未把 baseColor 当作背景，glow 仅控制原 shader 的柔光，不使用巨型阴影。
+本次在现有 LButton、LocalizedLink、LA 上增加明确的 effect="invert" 外观，使用普通 CSS 等价实现。没有技术栈迁移、CLI 安装、依赖安装或配置重建。
 
-绘制时从装饰元素的**计算后 color/border-color** 获得 rgb 数值，再传给 uniform；不把 `var(...)` 字符串交给 Canvas 解析。主题 class 变化唤醒绘制并更新 uniform，不使用 `key={theme}`。服务端和首轮客户端均只输出同一装饰 span，所有浏览器读取在 effect/共享调度器内；不为光效重挂宿主、标签或表单。
+## registry 实际读取与提取
 
-## 性能与明确降级
+来源：[Aceternity registry](https://ui.aceternity.com/registry/tailwindcss-buttons-demo.json)。浏览工具首次打开失败，随后 curl -fL 下载成功，JSON 实际解析成功。
 
-这是 ONE-G 对官方光效的共享适配，**不是原版每实例一个 Canvas/WebGL 的原样部署**：
+- name 为 tailwindcss-buttons-demo，类型 registry:component；实际文件为 components/tailwindcss-buttons-demo.tsx。
+- 导出 default TailwindcssButtons 与 buttons 数组。完整 Demo 导入 React、react-element-to-jsx-string、sonner 的 toast/Toaster，以及 ButtonsCard；JSON 没有 dependencies/registryDependencies 声明。
+- 实际找到 name="Invert"、文字“Invert it”的条目，class 与用户提供的完整示例一致。
+- 只学习默认填充、hover 表面/文字/强调边框、200ms 过渡；不复制 padding、圆角、字重或 teal 色。不复制展示墙、代码复制、其它例子或 Shimmer，不安装 Demo 依赖。
+- 原响应 12,079 B，SHA-256：13dc7002547caf46dfe549f24e8d78a1efca702e2f443a1285cab0024d690206。原件在 /tmp/one-invert-audit/registry.json；[结构与出处记录](./reviews/invert-buttons/source.json)。没有安装 registry 组件。
 
-1. 指针尚未靠近、无键盘焦点时不申请 WebGL。全站最多一个离屏 WebGL2 context，依次运行同一官方 shader，将结果同步复制到最多 **4 个**按钮局部 2D canvas。键盘焦点优先，其余按距指针的距离选择。
-2. 可见性使用共享 IntersectionObserver，几何变化使用共享 ResizeObserver，指针采集全站只有一组；没有每按钮 window pointermove 监听。每个绘制帧只有一个共享 RAF，插值稳定后立即停止，静止不会维持空转。
-3. 离屏、hidden/inert/aria-hidden、CSS 隐藏、disabled、aria-disabled、aria-busy 的按钮不申请动态输出。页面后台停止并清理局部输出；闲置回落后 800ms 移除输出，仍保留一个可复用绘制器。全部宿主注销时释放 GL buffer、VAO、program/context 和监听/观察器。
-4. 路由变化仅注册/注销装饰，宿主不因预算被替换；资源始终受 1 context/4 输出硬上限约束。DPR 上限 2。
-5. 无预算的按钮始终保留主题静态边缘。未支持 WebGL2、初始化失败、2D 输出不可用或 context lost 时回退到 CSS 静态边缘，不清空文字和表单，也不改变可点击性。
-6. 触屏不启用鼠标追踪，不需要点击两次。reduced-motion 下完全关闭动态资源、追踪插值和按压脉冲，保留稳定边框与独立 focus-visible。此适配所有模式均未添加原版按压脉冲。
+## 按钮范围
 
-静态边缘是 CSS 对 idle 层次的近似，资源不足、禁用、减少动画和触屏时不会呈现官方完整动态高光。原有常规边框保留，不以透明空按钮作为降级。
+| 分类 | 调用位置 / 操作 | 决定 |
+| --- | --- | --- |
+| 必须替换 | HomeCollageHero 两个入口；ProductDetailContent 购买；ProductPurchase 禁用加购；AddToCartButton；购物车结算与不可结算分支；checkout 主操作；VerificationLogin 主提交；About、解决方案、深度定制、账户的显式客服；ContactProvider 预览需求 | 14 处原 Specular 声明全部替换；运行实例数随页面/分支变化。保留原 props 和业务 |
+| 适合新增 | HomeProductsPreview“了解产品”、HomeSolutionsPreview“了解方案” | 2 处模板显式启用，原本为普通尺寸 CTA，使用 card 表面；不改 Layout Grid 核心 |
+| 保持原样 | 首页标题旁“查看全部商品/方案” | 12/14px 紧凑文字入口，不扩成填充 CTA |
+| 保持原样 | Header、共享滑动高亮、图片菜单、产品局部导航；语言、主题、搜索、用户、购物车图标 | 导航/工具和紧凑操作，保留此前反馈 |
+| 保持原样 | Chip、Tab、单选/复选/开关、数量、箭头、关闭、验证码发送/重发、视频重试、账户切换/退出 | 选择、状态或辅助操作，不机械匹配名称 |
+| 保持原样 | 删除/移除、返回购买/编辑等返回、正文/来源链接、商品卡片紧凑操作 | 保留特殊或次级语义，不统一品牌蓝 |
+| 保持原样 | 卡片整体、Layout Grid、GSAP Flip、About Lanyard、其它 Canvas | 不属于本次按钮范围。About 只替换原 Specular 客服 CTA，不动内容和布局 |
 
-## 旧效果清理
+未显式启用的 SupportButton 保留原填充。没有全局将所有 button/a 改为反色。
 
-已替换共享 `button-effects.css` 的 Cornerstone-04 分段描边、cssbuttons-io 缺口、clip-path 闭合、购买左侧短线与文字横移。共享 JSX 移除 `action-decoration` 和 top-key/bottom-key 三个节点。只留下用于原布局的 `action-text` 标签。
+## 实现与状态
 
-实际入口没有引用 ShimmerButton，迁移前的加入购物车等入口已通过共享 intent；因此没有叠加它的 shimmer/glow/ripple。无引用的历史 `ui/shimmer-button.tsx` 及其通用动画定义不作为本次按钮资源导入，未越界清理其它卡片/登录容器效果。
+- 继续使用原生 button、Next Link 和 a；不增加嵌套交互元素或 div 模拟链接。保留 ref/type/href/form/name/value/aria/事件及测试标识。
+- effect="invert" 输出 data-button-effect="invert"。保留 action-text 文字/图标排列层，移除旧绘制装饰。没有按钮 Store、页面 key、主题初始化或颜色业务事件。
+- 默认读 --button-primary-bg / --button-primary-text；hover 文字读 --text、边框读 --accent。页面使用 --bg，卡片和弹窗使用 --surface，手机结算栏使用 --surface-2。
+- 只过渡 background-color、color、border-color，200ms。固定的向内覆盖 2px 伪元素默认透明、hover 主色，不改变宿主 border-width/padding、外部尺寸或文字位置。
+- 不增加 transform、缩放/位移、滤镜、发光、流动边框或图片反色。已清理选中宿主的旧颜色及 bg-white/text-black 冲突。
+- 仅 hover:hover、pointer:fine 且非 disabled/aria-disabled/aria-busy 才反色；触屏一次点击正常操作，无粘滞 hover。
+- native disabled 保留；aria-disabled 的 button/Next Link/a 阻止点击和 Enter/Space，保留 href/ref，不以 pointer-events:none 代替键盘保护。
+- 保留独立 focus-visible；减少动画时取消过渡但即时显示正确状态。文字无下划线，loading 文案/图标/尺寸和原禁用逻辑保留。
 
-## 当前范围验收
+## 旧资源清理
 
-`tests/button-effects.browser.cjs` 已替换为显式范围验收：商品页（含分类和菜单）要求零装饰、零光效 WebGL 创建，Header/Footer/Tab 无装饰；检查 Hero、详情购买、购买页禁用主操作、页面咨询和登录主提交的明确启用数量。检查真实高光输出、静止停止绘制、SPA 离开清理、语言/日夜、完整刷新、桌面 MenuToGrid/分类、390px 触屏菜单、键盘焦点、减少动画与水合错误。
+四类代表验证通过后，检查普通/动态 import、barrel、样式和测试引用，删除以下 7 个专属文件：
 
-`tests/button-business.browser.cjs` 保留前次的开发 Mock 业务回归脚本。本次只修正效果范围，没有改动业务处理；本次未重新启用 Mock 会话执行整套购物车/客服/管理员流程。前次业务验收不能当作本次新执行结果。
+- src/components/specular/SpecularEdge.tsx
+- src/components/specular/scheduler.ts
+- src/components/specular/shader.ts
+- src/components/specular/source.json
+- src/components/specular/upstream/SpecularButton.tsx.txt
+- src/components/specular/upstream/SpecularButton.css.txt
+- src/components/specular/upstream/LICENSE.md
 
-本次执行 `npm run lint`、`npx tsc --noEmit` 通过；`npm run build` 在沙箱中出现既有的 TypeScript --showConfig 输出解析错误，沙箱外重跑通过，38 个页面静态导出完成。
+button-effects.css 已替换旧遮罩/Canvas 样式；--specular-line 退出。运行源码没有旧组件 import、effect="specular"、边缘节点、鼠标跟踪、接近感应、专属 RAF/监听、WebGL 输出或调度入口。旧效果浏览器测试已更新；其它测试中对旧节点数量为 0 的检查不是模块引用。
 
-范围浏览器验收通过（Chromium）：
+未恢复分段描边、购买缺口或 Shimmer。已有未使用的 shimmer-button 源文件、登录容器自己的 ShineBorder 和其它动画保持原状，不新增挂载。
 
-- 商品中心、展开的桌面菜单、分类 Tab：0 装饰、0 输出、0 光效 WebGL context 创建；英文夜间与刷新后仍为 0。排除控件的选择状态、点击及导航未变化。
-- 首页 Hero 仅 2 个显式主操作，详情正文 2 个购买、购买页 1 个禁用主操作，解决方案/关于/深度定制页各 1 个咨询主操作，登录页仅 1 个提交主操作。均通过实例数量断言。
-- 主按钮鼠标靠近真实创建局部光效 Canvas；稳定后 shader 绘制计数停止。减少动画下不绘制，键盘独立焦点框保留。点击主按钮跳转正常，SPA 离开后装饰和局部 Canvas 清理。
-- 导航高亮、菜单展开、MenuToGrid/筛选、中英文、日夜圆形扩散保持。390px 触屏菜单打开、分类点击和布局通过；导航和小按钮没有光效实例，触屏没有遗留光效画布。
-- 各状态无按钮下划线、无嵌套 button/a、无横向溢出，无新增水合或页面脚本错误。
+没有新增或卸载依赖。package.json、package-lock.json 未改；ogl/three/motion/gsap 保留，避免误伤其它页面。
 
-实际计数见 [scope 验收 JSON](reviews/specular-scope-results.json)。当前截图：[日间主操作](images/specular-scope/hero-light.png)、[夜间主操作](images/specular-scope/hero-dark.png)、[手机首页](images/specular-scope/hero-mobile.png)、[桌面导航](images/specular-scope/navigation-light.png)、[手机导航](images/specular-scope/navigation-mobile.png)、[商品页夜间普通小按钮](images/specular-scope/products-dark.png)、[详情购买](images/specular-scope/detail-purchase.png)。`images/specular-buttons/` 与 `reviews/specular-buttons-results.json` 是前次全站范围的历史产物，不代表本次正确范围。新范围以本节及 scope 截图为准。
+## 实测结果
 
-生产认证、真实短信/邮件、正式订单和真实付款不在本次范围；RoboDock 不可售与 SONIC Link 的方案身份保留。Firefox/Safari、实体手机/真实 GPU 本次未测试。
+[浏览器 JSON](./reviews/invert-buttons/browser-results.json) · [改前尺寸](./reviews/invert-buttons/baseline.json) · [Mock 业务 JSON](./reviews/invert-buttons/business-results.json)
+
+- 先验证普通 CTA、购买主操作、真实链接、disabled 代表，再增加两个模板并清理旧资源。
+- 390/1440 两宽度 × 9 页面，共 18 组；20 个原按钮实例的宽高、padding、圆角、字体及文字偏移与改前一致，阈值 0.1px。
+- 16 组代表状态覆盖桌面中文/手机英文、日夜、CTA/购买链接/禁用加购/禁用登录。检查尺寸、200ms 颜色变化、无下划线/transform/filter、焦点、减少动画；另验证卡片表面 CTA、真实点击/Enter 跳转及加购登录守卫。
+- 所选按钮没有 Canvas/旧 edge DOM；导航、Tab、图片菜单未被选中；无交互元素嵌套和页面运行/新增词典错误。不声称整个站点没有 RAF/Canvas，其它动画仍保留。
+- Mock 使用独立 /tmp/one-invert-audit/mock-site 快照、localhost:3002，仅快照启用已有 Mock 环境变量，主项目配置不变。实际“验证中…”禁用、宽 360px/高 48px、hover 边框透明；客服校验/预览/编辑/关闭、显式加购、结算 Link、支付方式预选通过。未执行创建订单、发邮件或设备控制，非 GET/HEAD 请求为 0。
+- 静态测试针对 out/ 的 /one-g/ 路径；手机为 Chromium 触屏模拟，未测真实手机、Safari/Firefox。
+
+| 状态 | 日间 | 夜间 |
+| --- | --- | --- |
+| 桌面 CTA hover | [截图](./reviews/invert-buttons/cta-1440-light.png) | [截图](./reviews/invert-buttons/cta-1440-dark.png) |
+| 桌面 CTA 细节 | [截图](./reviews/invert-buttons/cta-detail-1440-light.png) | [截图](./reviews/invert-buttons/cta-detail-1440-dark.png) |
+| 手机英文默认 | [截图](./reviews/invert-buttons/cta-390-light.png) | [截图](./reviews/invert-buttons/cta-390-dark.png) |
+| 卡片 CTA hover | [截图](./reviews/invert-buttons/editorial-1440-light.png) | [截图](./reviews/invert-buttons/editorial-1440-dark.png) |
+| 手机卡片默认 | [截图](./reviews/invert-buttons/editorial-390-light.png) | [截图](./reviews/invert-buttons/editorial-390-dark.png) |
+
+[真实 Mock loading](./reviews/invert-buttons/loading-login.png) · [需求预览 hover](./reviews/invert-buttons/contact-preview-hover.png)。已查看桌面日夜、卡片夜间、手机夜间及 loading 代表截图。
+
+lint、npx tsc --noEmit、build（38 个静态页面）通过。invert-actions、i18n-dictionary、auth-payment、mock-login、media-integration 五个测试文件通过。git diff --check 通过。88 个受保护源码/媒体文件及构建、依赖配置与任务开始前一致，详见 [范围检查](./reviews/invert-buttons/scope-check.json)。
+
+受限环境曾阻止 Next 的 TypeScript 子进程解析 showConfig；沙箱外原命令构建成功，未关闭类型检查或改构建配置。Mock 初次使用 127.0.0.1 被开发来源策略阻止，改用 localhost 后通过，没有放宽安全配置。中途类型和测试定位问题已修正，以最终 JSON 为准。
+
+最终[导航/主题/商品回归](./reviews/invert-buttons/regression-results.json)通过。临时 Mock 服务已关闭，原 localhost:3000 开发预览返回 200。
+
+## 后续跨页适配（2026-10-21）
+
+继续沿用 invert，实现显式 secondary 低强调变体；新增 16 处正常尺寸操作，保留 77 处导航/紧凑/特殊语义声明。登录和结算补 card 表面 Token。完整逐页决策、尺寸对照、状态矩阵、实际交互及截图见 [跨页清单](./button-invert-coverage.md)。本轮未新增依赖、页面、提交或推送，既有主按钮和业务状态保留。

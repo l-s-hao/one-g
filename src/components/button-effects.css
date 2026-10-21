@@ -1,25 +1,54 @@
-/* ONE-G Specular: theme-aware static fallback; shared WebGL decoration is optional.
-   The host keeps its existing fill, size, position, events and selected state. */
-:root { --specular-line:var(--accent); }
-html.dark { --specular-line:var(--text); }
-:where([data-specular-host]) { position:relative; isolation:isolate; border-radius:18px; }
-button, [data-button-intent], [data-specular-host] { text-decoration:none !important; }
-:is(button,[data-button-intent],[data-specular-host]):is(:hover,:active,:visited,:focus,:focus-visible) { text-decoration:none !important; }
-[data-specular-host] > .action-text { position:relative; z-index:1; display:inline-flex; align-items:center; justify-content:inherit; gap:inherit; }
-[data-specular-host] > .specular-edge { position:absolute; inset:0; border-radius:inherit; pointer-events:none !important;
-  color:var(--specular-line); border-color:var(--border); z-index:0; }
-.specular-edge::before { content:""; position:absolute; inset:0; padding:1.2px; border-radius:inherit;
-  background:linear-gradient(135deg,color-mix(in srgb,currentColor 35%,var(--border)),var(--border) 35%,var(--border) 65%,color-mix(in srgb,currentColor 16%,var(--border)));
-  mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0); mask-composite:exclude; pointer-events:none; }
-.specular-edge[data-dynamic]::before { opacity:0; }
-.specular-edge__canvas { position:absolute; inset:-24px; display:block; width:calc(100% + 48px); height:calc(100% + 48px); pointer-events:none !important; }
-/* Restore primary purchase hierarchy removed by the previous notched effect. */
-html [data-button-intent="purchase"] { background:var(--button-primary-bg); color:var(--button-primary-text); border-color:var(--border-strong); }
-html [data-button-intent="purchase"]:hover { background:var(--button-primary-bg); color:var(--button-primary-text); }
-/* Bright rim on solid primary fills retains contrast in both appearances. */
-[data-button-intent="purchase"] > .specular-edge { color:var(--button-primary-text); }
-:is([data-button-intent],[data-specular-host]):focus-visible { outline:2px solid var(--focus-color); outline-offset:3px; }
-:is([data-button-intent],[data-specular-host]):is(:disabled,[aria-disabled="true"],[aria-busy="true"]) > .specular-edge { opacity:.45; }
+/* ONE-G: Aceternity's "Invert it" state colors only. No runtime decoration.
+   Source and scoped call-site audit: docs/BUTTON_EFFECTS.md. */
+button, [data-button-intent] { text-decoration:none !important; }
+:is(button,[data-button-intent]):is(:hover,:active,:visited,:focus,:focus-visible) { text-decoration:none !important; }
+
+/* Keep the old fallback radius and label layout; component sizes always win. */
+:where([data-button-effect="invert"]) { position:relative; isolation:isolate; }
+:where([data-button-effect="invert"]:not([data-invert-variant="secondary"]):not([data-invert-native-radius])) { border-radius:18px; }
+[data-button-effect="invert"] > .action-text { position:relative; z-index:1; display:inline-flex; align-items:center; justify-content:inherit; gap:inherit; }
+html body [data-button-effect="invert"] {
+  --invert-surface:var(--bg);
+  background-color:var(--button-primary-bg);
+  color:var(--button-primary-text);
+  border-color:transparent;
+  transition-property:background-color,color,border-color;
+  transition-duration:200ms;
+  transition-timing-function:ease;
+}
+html body [data-button-effect="invert"][data-invert-surface="card"] { --invert-surface:var(--surface); }
+html body [data-button-effect="invert"][data-invert-surface="inset"] { --invert-surface:var(--surface-2); }
+/* A constant 2px inward border overlays the existing border box. No padding,
+   border-width, box size or label position changes, including borderless CTAs. */
+[data-button-effect="invert"]::after {
+  content:"";position:absolute;inset:0;border:2px solid transparent;border-radius:inherit;
+  pointer-events:none;z-index:0;transition:border-color 200ms ease;
+}
+/* Secondary actions keep a quiet surface and their existing corner geometry.
+   Their constant 1px inward outline does not change the native border box. */
+html body [data-button-effect="invert"][data-invert-variant="secondary"] {
+  background-color:var(--invert-surface);color:var(--text);
+}
+[data-button-effect="invert"][data-invert-variant="secondary"]::after {
+  border-width:1px;border-color:var(--border-strong);
+}
+@media (hover:hover) and (pointer:fine) {
+  html body [data-button-effect="invert"]:hover:not(:disabled):not([aria-disabled="true"]):not([aria-busy="true"]) {
+    background-color:var(--invert-surface);color:var(--text);
+  }
+  html body [data-button-effect="invert"][data-invert-variant="secondary"]:hover:not(:disabled):not([aria-disabled="true"]):not([aria-busy="true"]) {
+    background-color:var(--button-primary-bg);color:var(--button-primary-text);
+  }
+  [data-button-effect="invert"]:hover:not(:disabled):not([aria-disabled="true"]):not([aria-busy="true"])::after { border-color:var(--accent); }
+}
+:is([data-button-intent],[data-button-effect="invert"]):focus-visible { outline:2px solid var(--focus-color);outline-offset:3px; }
+[data-button-effect="invert"]:is(:disabled,[aria-disabled="true"]) { cursor:not-allowed; opacity:.55; }
+[data-button-effect="invert"][aria-busy="true"] { cursor:wait; }
+/* Compact purchase navigation keeps its prior appearance and does not opt in. */
+html [data-button-intent="purchase"]:not([data-button-effect="invert"]) { background:var(--button-primary-bg);color:var(--button-primary-text);border-color:var(--border-strong); }
+@media(max-width:767px) {
+  html body .mobile-checkout-bar [data-button-effect="invert"] { --invert-surface:var(--surface-2); }
+}
 @media(prefers-reduced-motion:reduce) {
- .specular-edge__canvas { display:none; }
+  html body [data-button-effect="invert"], [data-button-effect="invert"]::after { transition:none; }
 }

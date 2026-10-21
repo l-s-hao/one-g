@@ -1,0 +1,901 @@
+{
+  "states": [
+    {
+      "width": 1440,
+      "theme": "light",
+      "locale": "zh-CN",
+      "state": "edit",
+      "buttons": [
+        {
+          "normal": {
+            "text": "预览需求",
+            "variant": "primary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 94.015625,
+            "height": 44
+          },
+          "hover": {
+            "text": "预览需求",
+            "variant": "primary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 94.015625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        },
+        {
+          "normal": {
+            "text": "关闭",
+            "variant": "secondary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 62.015625,
+            "height": 44
+          },
+          "hover": {
+            "text": "关闭",
+            "variant": "secondary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 62.015625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "locale": "zh-CN",
+      "state": "preview",
+      "buttons": [
+        {
+          "normal": {
+            "text": "返回编辑",
+            "variant": "secondary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 94.015625,
+            "height": 44
+          },
+          "hover": {
+            "text": "返回编辑",
+            "variant": "secondary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 94.015625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        },
+        {
+          "normal": {
+            "text": "关闭",
+            "variant": "secondary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 62.015625,
+            "height": 44
+          },
+          "hover": {
+            "text": "关闭",
+            "variant": "secondary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 62.015625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "locale": "zh-CN",
+      "state": "video-error",
+      "retry": {
+        "text": "重试加载",
+        "bg": "rgb(58, 115, 217)",
+        "height": 44
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "locale": "en",
+      "state": "edit",
+      "buttons": [
+        {
+          "normal": {
+            "text": "Preview requirements",
+            "variant": "primary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 184.734375,
+            "height": 44
+          },
+          "hover": {
+            "text": "Preview requirements",
+            "variant": "primary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 184.734375,
+            "height": 44
+          },
+          "keyboardFocus": true
+        },
+        {
+          "normal": {
+            "text": "Close",
+            "variant": "secondary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 70.90625,
+            "height": 44
+          },
+          "hover": {
+            "text": "Close",
+            "variant": "secondary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 70.90625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "locale": "en",
+      "state": "preview",
+      "buttons": [
+        {
+          "normal": {
+            "text": "Back to editing",
+            "variant": "secondary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 134.953125,
+            "height": 44
+          },
+          "hover": {
+            "text": "Back to editing",
+            "variant": "secondary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 134.953125,
+            "height": 44
+          },
+          "keyboardFocus": true
+        },
+        {
+          "normal": {
+            "text": "Close",
+            "variant": "secondary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 70.90625,
+            "height": 44
+          },
+          "hover": {
+            "text": "Close",
+            "variant": "secondary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 70.90625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "locale": "en",
+      "state": "video-error",
+      "retry": {
+        "text": "Retry loading",
+        "bg": "rgb(58, 115, 217)",
+        "height": 44
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "locale": "zh-CN",
+      "state": "edit",
+      "buttons": [
+        {
+          "normal": {
+            "text": "预览需求",
+            "variant": "primary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 94.015625,
+            "height": 44
+          },
+          "hover": {
+            "text": "预览需求",
+            "variant": "primary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 94.015625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        },
+        {
+          "normal": {
+            "text": "关闭",
+            "variant": "secondary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 62.015625,
+            "height": 44
+          },
+          "hover": {
+            "text": "关闭",
+            "variant": "secondary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 62.015625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "locale": "zh-CN",
+      "state": "preview",
+      "buttons": [
+        {
+          "normal": {
+            "text": "返回编辑",
+            "variant": "secondary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 94.015625,
+            "height": 44
+          },
+          "hover": {
+            "text": "返回编辑",
+            "variant": "secondary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 94.015625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        },
+        {
+          "normal": {
+            "text": "关闭",
+            "variant": "secondary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 62.015625,
+            "height": 44
+          },
+          "hover": {
+            "text": "关闭",
+            "variant": "secondary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 62.015625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "locale": "zh-CN",
+      "state": "video-error",
+      "retry": {
+        "text": "重试加载",
+        "bg": "rgb(58, 115, 217)",
+        "height": 44
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "locale": "en",
+      "state": "edit",
+      "buttons": [
+        {
+          "normal": {
+            "text": "Preview requirements",
+            "variant": "primary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 184.734375,
+            "height": 44
+          },
+          "hover": {
+            "text": "Preview requirements",
+            "variant": "primary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 184.734375,
+            "height": 44
+          },
+          "keyboardFocus": true
+        },
+        {
+          "normal": {
+            "text": "Close",
+            "variant": "secondary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 70.90625,
+            "height": 44
+          },
+          "hover": {
+            "text": "Close",
+            "variant": "secondary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 70.90625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "locale": "en",
+      "state": "preview",
+      "buttons": [
+        {
+          "normal": {
+            "text": "Back to editing",
+            "variant": "secondary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 134.953125,
+            "height": 44
+          },
+          "hover": {
+            "text": "Back to editing",
+            "variant": "secondary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 134.953125,
+            "height": 44
+          },
+          "keyboardFocus": true
+        },
+        {
+          "normal": {
+            "text": "Close",
+            "variant": "secondary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 70.90625,
+            "height": 44
+          },
+          "hover": {
+            "text": "Close",
+            "variant": "secondary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 70.90625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "locale": "en",
+      "state": "video-error",
+      "retry": {
+        "text": "Retry loading",
+        "bg": "rgb(58, 115, 217)",
+        "height": 44
+      }
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "locale": "zh-CN",
+      "state": "edit",
+      "buttons": [
+        {
+          "normal": {
+            "text": "预览需求",
+            "variant": "primary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 94.015625,
+            "height": 44
+          },
+          "hover": {
+            "text": "预览需求",
+            "variant": "primary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 94.015625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        },
+        {
+          "normal": {
+            "text": "关闭",
+            "variant": "secondary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 62.015625,
+            "height": 44
+          },
+          "hover": {
+            "text": "关闭",
+            "variant": "secondary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 62.015625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "locale": "zh-CN",
+      "state": "preview",
+      "buttons": [
+        {
+          "normal": {
+            "text": "返回编辑",
+            "variant": "secondary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 94.015625,
+            "height": 44
+          },
+          "hover": {
+            "text": "返回编辑",
+            "variant": "secondary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 94.015625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        },
+        {
+          "normal": {
+            "text": "关闭",
+            "variant": "secondary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 62.015625,
+            "height": 44
+          },
+          "hover": {
+            "text": "关闭",
+            "variant": "secondary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 62.015625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "locale": "zh-CN",
+      "state": "video-error",
+      "retry": {
+        "text": "重试加载",
+        "bg": "rgb(247, 244, 238)",
+        "height": 44
+      }
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "locale": "en",
+      "state": "edit",
+      "buttons": [
+        {
+          "normal": {
+            "text": "Preview requirements",
+            "variant": "primary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 184.734375,
+            "height": 44
+          },
+          "hover": {
+            "text": "Preview requirements",
+            "variant": "primary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 184.734375,
+            "height": 44
+          },
+          "keyboardFocus": true
+        },
+        {
+          "normal": {
+            "text": "Close",
+            "variant": "secondary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 70.90625,
+            "height": 44
+          },
+          "hover": {
+            "text": "Close",
+            "variant": "secondary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 70.90625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "locale": "en",
+      "state": "preview",
+      "buttons": [
+        {
+          "normal": {
+            "text": "Back to editing",
+            "variant": "secondary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 134.953125,
+            "height": 44
+          },
+          "hover": {
+            "text": "Back to editing",
+            "variant": "secondary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 134.953125,
+            "height": 44
+          },
+          "keyboardFocus": true
+        },
+        {
+          "normal": {
+            "text": "Close",
+            "variant": "secondary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 70.90625,
+            "height": 44
+          },
+          "hover": {
+            "text": "Close",
+            "variant": "secondary",
+            "bg": "rgb(255, 255, 255)",
+            "color": "rgb(23, 25, 29)",
+            "width": 70.90625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "locale": "en",
+      "state": "video-error",
+      "retry": {
+        "text": "Retry loading",
+        "bg": "rgb(247, 244, 238)",
+        "height": 44
+      }
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "locale": "zh-CN",
+      "state": "edit",
+      "buttons": [
+        {
+          "normal": {
+            "text": "预览需求",
+            "variant": "primary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 94.015625,
+            "height": 44
+          },
+          "hover": {
+            "text": "预览需求",
+            "variant": "primary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 94.015625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        },
+        {
+          "normal": {
+            "text": "关闭",
+            "variant": "secondary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 62.015625,
+            "height": 44
+          },
+          "hover": {
+            "text": "关闭",
+            "variant": "secondary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 62.015625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "locale": "zh-CN",
+      "state": "preview",
+      "buttons": [
+        {
+          "normal": {
+            "text": "返回编辑",
+            "variant": "secondary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 94.015625,
+            "height": 44
+          },
+          "hover": {
+            "text": "返回编辑",
+            "variant": "secondary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 94.015625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        },
+        {
+          "normal": {
+            "text": "关闭",
+            "variant": "secondary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 62.015625,
+            "height": 44
+          },
+          "hover": {
+            "text": "关闭",
+            "variant": "secondary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 62.015625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "locale": "zh-CN",
+      "state": "video-error",
+      "retry": {
+        "text": "重试加载",
+        "bg": "rgb(14, 15, 18)",
+        "height": 44
+      }
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "locale": "en",
+      "state": "edit",
+      "buttons": [
+        {
+          "normal": {
+            "text": "Preview requirements",
+            "variant": "primary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 184.734375,
+            "height": 44
+          },
+          "hover": {
+            "text": "Preview requirements",
+            "variant": "primary",
+            "bg": "rgb(58, 115, 217)",
+            "color": "rgb(255, 255, 255)",
+            "width": 184.734375,
+            "height": 44
+          },
+          "keyboardFocus": true
+        },
+        {
+          "normal": {
+            "text": "Close",
+            "variant": "secondary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 70.90625,
+            "height": 44
+          },
+          "hover": {
+            "text": "Close",
+            "variant": "secondary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 70.90625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "locale": "en",
+      "state": "preview",
+      "buttons": [
+        {
+          "normal": {
+            "text": "Back to editing",
+            "variant": "secondary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 134.953125,
+            "height": 44
+          },
+          "hover": {
+            "text": "Back to editing",
+            "variant": "secondary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 134.953125,
+            "height": 44
+          },
+          "keyboardFocus": true
+        },
+        {
+          "normal": {
+            "text": "Close",
+            "variant": "secondary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 70.90625,
+            "height": 44
+          },
+          "hover": {
+            "text": "Close",
+            "variant": "secondary",
+            "bg": "rgb(22, 26, 31)",
+            "color": "rgb(232, 234, 237)",
+            "width": 70.90625,
+            "height": 44
+          },
+          "keyboardFocus": true
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "locale": "en",
+      "state": "video-error",
+      "retry": {
+        "text": "Retry loading",
+        "bg": "rgb(14, 15, 18)",
+        "height": 44
+      }
+    }
+  ],
+  "checks": [
+    {
+      "width": 1440,
+      "theme": "light",
+      "locale": "zh-CN",
+      "contact": "validation/preview/edit/close passed",
+      "video": "real 404/retry/recovered playback passed"
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "locale": "en",
+      "contact": "validation/preview/edit/close passed",
+      "video": "real 404/retry/recovered playback passed"
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "locale": "zh-CN",
+      "contact": "validation/preview/edit/close passed",
+      "video": "real 404/retry/recovered playback passed"
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "locale": "en",
+      "contact": "validation/preview/edit/close passed",
+      "video": "real 404/retry/recovered playback passed"
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "locale": "zh-CN",
+      "contact": "validation/preview/edit/close passed",
+      "video": "real 404/retry/recovered playback passed"
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "locale": "en",
+      "contact": "validation/preview/edit/close passed",
+      "video": "real 404/retry/recovered playback passed"
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "locale": "zh-CN",
+      "contact": "validation/preview/edit/close passed",
+      "video": "real 404/retry/recovered playback passed"
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "locale": "en",
+      "contact": "validation/preview/edit/close passed",
+      "video": "real 404/retry/recovered playback passed"
+    },
+    {
+      "width": 1440,
+      "otp": "actual loading disabled/size preserved",
+      "touch": "one click cart browse Link navigates",
+      "checkout": "commerce remains unavailable and disabled"
+    },
+    {
+      "width": 390,
+      "otp": "actual loading disabled/size preserved",
+      "touch": "one click cart browse Link navigates",
+      "checkout": "commerce remains unavailable and disabled"
+    }
+  ],
+  "errors": [],
+  "nonReadRequests": [],
+  "passed": true
+}

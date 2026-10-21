@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "Actual OTP verification loading remains disabled, label/height retained and hover border transparent",
+    "Contact remains login-gated, validates fields, previews locally, retains edit state and closes",
+    "Explicit add-to-cart and checkout Link retain behavior; payment selection enables the existing local demo order action (not executed)"
+  ],
+  "requests": [],
+  "errors": [],
+  "loading": {
+    "text": "验证中…",
+    "bg": "rgb(58, 115, 217)",
+    "border": "rgba(0, 0, 0, 0)",
+    "width": 360,
+    "height": 48
+  },
+  "passed": true
+}

@@ -38,6 +38,7 @@ input, textarea, [contenteditable="true"] { cursor: text; }
 }
 
 :root {
+  --font-ui: "Inter Variable", "Noto Sans SC", system-ui, sans-serif;
   --directory-width: 1200px;
   --directory-gutter: clamp(20px, 3vw, 40px);
   --background: #000000;
@@ -47,7 +48,7 @@ input, textarea, [contenteditable="true"] { cursor: text; }
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: Arial, Helvetica, sans-serif;
+  --font-sans: var(--font-ui);
 }
 
 @utility container-shell {
@@ -66,7 +67,7 @@ input, textarea, [contenteditable="true"] { cursor: text; }
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-ui);
 }
 
 .eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.28em; color: rgba(255,255,255,0.42); text-transform: uppercase; }

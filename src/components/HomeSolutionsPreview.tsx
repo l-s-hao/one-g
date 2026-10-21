@@ -22,7 +22,7 @@ export default function HomeSolutionsPreview() {
         <LP className={styles.positioning}>{solution.description}</LP>
         <LP className={styles.note}>{solution.boundary}</LP>
         <LP className={styles.caption}>{solution.media.caption}</LP>
-        <Link intent="ordinary" className={styles.action} href={solution.detailHref ?? `/solutions#${solution.id}`}>了解方案</Link>
+        <Link effect="invert" effectSurface="card" intent="ordinary" className={styles.action} href={solution.detailHref ?? `/solutions#${solution.id}`}>了解方案</Link>
       </>,
     };
   });

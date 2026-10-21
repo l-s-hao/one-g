@@ -1,3 +1,4 @@
+import EvidenceVideos from "@/components/EvidenceVideos";
 import CardHover from "@/components/CardHover";
 import { LA, LArticle, LDd, LDiv, LDl, LDt, LFigcaption, LFigure, LH1, LH2, LH3, LLi, LP, LSection, LSmall, LUl } from "@/i18n/Elements";
 import type { Metadata } from "next";
@@ -23,7 +24,7 @@ export default function TeleoperationPage() {
         <LP className={styles.eyebrow}>遥操作解决方案</LP>
         <LH1 id="solution-title">{content.name}</LH1><LP className={styles.subtitle}>{content.subtitle}</LP>
         <LP>{content.description}</LP>
-        <LDiv className={styles.actions}><LA intent="ordinary" href="#technical">技术说明</LA><SupportButton inline textOnly label="联系我们" entry="solutions"/></LDiv>
+        <LDiv className={styles.actions}><LA effect="invert" effectVariant="secondary" intent="ordinary" href="#technical">技术说明</LA><SupportButton inline textOnly label="联系我们" entry="solutions"/></LDiv>
         <LFigure className={styles.mainImage}><Image src={content.images[0]} alt={detail.imageNotes[0].alt} width={detail.imageNotes[0].width} height={detail.imageNotes[0].height} sizes="(max-width:767px) 90vw, 800px" loading="eager"/><LFigcaption>{detail.imageNotes[0].caption}</LFigcaption></LFigure>
         <LP className={styles.heroNotice}>{solution.boundary}</LP>
       </LSection>
@@ -32,8 +33,13 @@ export default function TeleoperationPage() {
         {section.paragraphs?.map(text => <LP key={text}>{text}</LP>)}
         {section.cards && <LDiv className={styles.grid}>{section.cards.map(card => <CardHover key={card.title}><LDiv data-card-hover-surface className={styles.card}><LH3>{card.title}</LH3><LP>{card.description}</LP>{card.items && <LUl>{card.items.map(item => <LLi key={item}>{item}</LLi>)}</LUl>}</LDiv></CardHover>)}</LDiv>}
         {section.media && <LDiv className={styles.media}>{section.media.map(media => <LFigure key={media.src}><Image src={media.src} alt={media.alt} width={media.width} height={media.height} sizes="(max-width:767px) 100vw, 80vw"/><LFigcaption>{media.caption}</LFigcaption></LFigure>)}</LDiv>}
-        {section.link && <LDiv className={styles.actions}><Link intent="ordinary" href={section.link.href}>{section.link.label}</Link></LDiv>}
+        {section.link && <LDiv className={styles.actions}><Link effect="invert" effectVariant="secondary" intent="ordinary" href={section.link.href}>{section.link.label}</Link></LDiv>}
       </LSection>)}
+      <LSection id="research-demos" className={styles.section} aria-labelledby="research-demos-title">
+        <LH2 id="research-demos-title">遥操作研究演示</LH2>
+        <LP>前两项 VR 模式有来源中的 SONIC Link 方案链接；单摄像头属于相关研究候选。演示不提供设备控制入口。</LP>
+        <EvidenceVideos ids={["3pt-demo", "wholebody-balance", "camera-teleop"]}/>
+      </LSection>
       <LSection id="technical" className={styles.section}><LH2>技术说明与部署边界</LH2><LDl className={styles.specs}>{content.specifications?.filter(spec => spec.label !== "价格 / 销售").map(spec => <LDiv key={spec.label}><LDt>{spec.label}</LDt><LDd>{spec.value}{spec.note && <LSmall>{spec.note}</LSmall>}</LDd></LDiv>)}</LDl><LDiv className={styles.actions}><SupportButton inline textOnly label="联系我们" entry="solutions"/></LDiv></LSection>
     </LDiv>
   </LArticle>;

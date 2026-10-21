@@ -129,4 +129,4 @@ About 正文、用户中心和更多推荐当前没有对应普通卡片，不�
 
 ## 按钮用途反馈
 
-Specular 仅在页面主要操作上通过 `effect="specular"` 显式启用：Hero、购买/加入购物车/结算、页面级咨询与表单主提交。导航、工具图标、分类/Tab、验证码及卡片紧凑操作排除；普通 Button 不挂载光效实例。保留尺寸、主题和原业务行为。详见 [BUTTON_EFFECTS.md](BUTTON_EFFECTS.md)。
+主要 CTA 通过 `effect="invert"` 显式采用 200ms 的填充/文字/边框颜色变化，读取日夜与页面/卡片表面 Token；替换原 Specular 调用，并用于首页展开区文字 CTA。导航、工具、分类/Tab、验证码及卡片整体不启用。旧按钮绘制器与调度已删除，现有尺寸、业务和其它动画保留。详见 [BUTTON_EFFECTS.md](BUTTON_EFFECTS.md)。

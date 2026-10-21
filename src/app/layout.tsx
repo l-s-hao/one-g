@@ -4,6 +4,7 @@ import LocaleProvider from "@/i18n/LocaleProvider";
 import AuthProvider from "@/components/AuthProvider";
 import ThemeProvider from "@/components/ThemeProvider";
 import SiteShell from "@/components/SiteShell";
+import "./fonts.css";
 import "./globals.css";
 import "./colors.css";
 import "@/components/card-hover.css";

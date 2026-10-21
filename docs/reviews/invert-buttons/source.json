@@ -1,0 +1,51 @@
+{
+  "readDate": "2026-10-21",
+  "registry": "https://ui.aceternity.com/registry/tailwindcss-buttons-demo.json",
+  "registrySha256": "13dc7002547caf46dfe549f24e8d78a1efca702e2f443a1285cab0024d690206",
+  "bytes": 12079,
+  "name": "tailwindcss-buttons-demo",
+  "type": "registry:component",
+  "actualFiles": [
+    {
+      "path": "components/tailwindcss-buttons-demo.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "exports": [
+    "default TailwindcssButtons",
+    "buttons"
+  ],
+  "demoImports": [
+    "react",
+    "react-element-to-jsx-string",
+    "sonner",
+    "@/components/ui/tailwindcss-buttons"
+  ],
+  "dependencyFields": {
+    "dependencies": null,
+    "registryDependencies": null
+  },
+  "selected": "buttons entry name=Invert; text=Invert it",
+  "implementation": "Existing LButton/LocalizedLink + opt-in CSS; no registry package/component installed",
+  "copiedStyleBehavior": [
+    "filled default",
+    "surface/text/accent border on fine-pointer hover",
+    "200ms background-color/color/border-color"
+  ],
+  "excluded": [
+    "ButtonsCard gallery",
+    "copy-code function",
+    "other button examples",
+    "Shimmer",
+    "demo dependencies"
+  ],
+  "removed": [
+    "src/components/specular/SpecularEdge.tsx",
+    "src/components/specular/scheduler.ts",
+    "src/components/specular/shader.ts",
+    "src/components/specular/source.json",
+    "src/components/specular/upstream/SpecularButton.css.txt",
+    "src/components/specular/upstream/SpecularButton.tsx.txt",
+    "src/components/specular/upstream/LICENSE.md"
+  ]
+}

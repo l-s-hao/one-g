@@ -1,0 +1,138 @@
+{
+  "checked": [
+    {
+      "locale": "zh-CN",
+      "theme": "dark",
+      "route": "/",
+      "fullReload": true
+    },
+    {
+      "locale": "zh-CN",
+      "theme": "dark",
+      "route": "/products/",
+      "fullReload": true
+    },
+    {
+      "locale": "zh-CN",
+      "theme": "dark",
+      "route": "/products/arm-a1/",
+      "fullReload": true
+    },
+    {
+      "locale": "zh-CN",
+      "theme": "dark",
+      "route": "/products/robotdock/",
+      "fullReload": true
+    },
+    {
+      "locale": "zh-CN",
+      "theme": "dark",
+      "route": "/products/robotdock/specs/",
+      "fullReload": true
+    },
+    {
+      "locale": "zh-CN",
+      "theme": "dark",
+      "route": "/buy/robotdock/",
+      "fullReload": true
+    },
+    {
+      "locale": "zh-CN",
+      "theme": "dark",
+      "route": "/solutions/",
+      "fullReload": true
+    },
+    {
+      "locale": "zh-CN",
+      "theme": "dark",
+      "route": "/solutions/teleoperation/",
+      "fullReload": true
+    },
+    {
+      "locale": "zh-CN",
+      "theme": "dark",
+      "route": "/about/",
+      "fullReload": true
+    },
+    {
+      "locale": "zh-CN",
+      "theme": "dark",
+      "route": "/deep-customization/",
+      "fullReload": true
+    },
+    {
+      "locale": "zh-CN",
+      "theme": "dark",
+      "route": "/login/",
+      "fullReload": true
+    },
+    {
+      "locale": "en",
+      "theme": "dark",
+      "route": "/",
+      "fullReload": true
+    },
+    {
+      "locale": "en",
+      "theme": "dark",
+      "route": "/products/",
+      "fullReload": true
+    },
+    {
+      "locale": "en",
+      "theme": "dark",
+      "route": "/products/arm-a1/",
+      "fullReload": true
+    },
+    {
+      "locale": "en",
+      "theme": "dark",
+      "route": "/products/robotdock/",
+      "fullReload": true
+    },
+    {
+      "locale": "en",
+      "theme": "dark",
+      "route": "/products/robotdock/specs/",
+      "fullReload": true
+    },
+    {
+      "locale": "en",
+      "theme": "dark",
+      "route": "/buy/robotdock/",
+      "fullReload": true
+    },
+    {
+      "locale": "en",
+      "theme": "dark",
+      "route": "/solutions/",
+      "fullReload": true
+    },
+    {
+      "locale": "en",
+      "theme": "dark",
+      "route": "/solutions/teleoperation/",
+      "fullReload": true
+    },
+    {
+      "locale": "en",
+      "theme": "dark",
+      "route": "/about/",
+      "fullReload": true
+    },
+    {
+      "locale": "en",
+      "theme": "dark",
+      "route": "/deep-customization/",
+      "fullReload": true
+    },
+    {
+      "locale": "en",
+      "theme": "dark",
+      "route": "/login/",
+      "fullReload": true
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

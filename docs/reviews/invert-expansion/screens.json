@@ -1,0 +1,22 @@
+[
+  {
+    "width": 1440,
+    "theme": "light",
+    "state": "secondary hover"
+  },
+  {
+    "width": 1440,
+    "theme": "dark",
+    "state": "secondary hover"
+  },
+  {
+    "width": 390,
+    "theme": "light",
+    "state": "secondary default touch"
+  },
+  {
+    "width": 390,
+    "theme": "dark",
+    "state": "secondary default touch"
+  }
+]

@@ -1,0 +1,392 @@
+{
+  "beforeScenarios": 20,
+  "afterScenarios": 104,
+  "routes": 13,
+  "pageErrors": [],
+  "fontHTTPFailures": [],
+  "horizontalOverflow": [],
+  "typographicStyleDifferences": [],
+  "naturalGeometryChanges": [
+    {
+      "route": "/products/robotdock/",
+      "width": 1440,
+      "locale": "zh-CN",
+      "selector": "main p",
+      "before": {
+        "width": 480.515625,
+        "height": 22.1875
+      },
+      "after": {
+        "width": 545.0625,
+        "height": 22.1875
+      }
+    },
+    {
+      "route": "/products/robotdock/specs/",
+      "width": 1440,
+      "locale": "zh-CN",
+      "selector": "main p",
+      "before": {
+        "width": 480.515625,
+        "height": 22.1875
+      },
+      "after": {
+        "width": 545.0625,
+        "height": 22.1875
+      }
+    },
+    {
+      "route": "/solutions/teleoperation/",
+      "width": 1440,
+      "locale": "zh-CN",
+      "selector": "main p",
+      "before": {
+        "width": 480.515625,
+        "height": 22.1875
+      },
+      "after": {
+        "width": 545.0625,
+        "height": 22.1875
+      }
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "locale": "en",
+      "selector": "main h2",
+      "before": {
+        "width": 162.171875,
+        "height": 48
+      },
+      "after": {
+        "width": 154.46875,
+        "height": 48
+      }
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "locale": "en",
+      "selector": "header.site-header nav a",
+      "before": {
+        "width": 30.375,
+        "height": 43
+      },
+      "after": {
+        "width": 31.796875,
+        "height": 43
+      }
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "locale": "en",
+      "selector": "main [data-button-effect=invert] .action-text",
+      "before": {
+        "width": 32.703125,
+        "height": 21
+      },
+      "after": {
+        "width": 34.234375,
+        "height": 21
+      }
+    },
+    {
+      "route": "/products/robotdock/",
+      "width": 1440,
+      "locale": "en",
+      "selector": "header.site-header nav a",
+      "before": {
+        "width": 30.375,
+        "height": 43
+      },
+      "after": {
+        "width": 31.796875,
+        "height": 43
+      }
+    },
+    {
+      "route": "/products/robotdock/",
+      "width": 1440,
+      "locale": "en",
+      "selector": "main [data-button-effect=invert] .action-text",
+      "before": {
+        "width": 24.125,
+        "height": 21
+      },
+      "after": {
+        "width": 25.3125,
+        "height": 21
+      }
+    },
+    {
+      "route": "/products/robotdock/",
+      "width": 1440,
+      "locale": "en",
+      "selector": "main p",
+      "before": {
+        "width": 480.515625,
+        "height": 22.1875
+      },
+      "after": {
+        "width": 545.0625,
+        "height": 22.1875
+      }
+    },
+    {
+      "route": "/products/robotdock/specs/",
+      "width": 1440,
+      "locale": "en",
+      "selector": "header.site-header nav a",
+      "before": {
+        "width": 30.375,
+        "height": 43
+      },
+      "after": {
+        "width": 31.796875,
+        "height": 43
+      }
+    },
+    {
+      "route": "/products/robotdock/specs/",
+      "width": 1440,
+      "locale": "en",
+      "selector": "main [data-button-effect=invert] .action-text",
+      "before": {
+        "width": 24.125,
+        "height": 21
+      },
+      "after": {
+        "width": 25.3125,
+        "height": 21
+      }
+    },
+    {
+      "route": "/products/robotdock/specs/",
+      "width": 1440,
+      "locale": "en",
+      "selector": "main p",
+      "before": {
+        "width": 480.515625,
+        "height": 22.1875
+      },
+      "after": {
+        "width": 545.0625,
+        "height": 22.1875
+      }
+    },
+    {
+      "route": "/login/",
+      "width": 1440,
+      "locale": "en",
+      "selector": "header.site-header nav a",
+      "before": {
+        "width": 30.375,
+        "height": 43
+      },
+      "after": {
+        "width": 31.796875,
+        "height": 43
+      }
+    },
+    {
+      "route": "/login/",
+      "width": 1440,
+      "locale": "en",
+      "selector": "main [data-button-effect=invert] .action-text",
+      "before": {
+        "width": 175.828125,
+        "height": 20
+      },
+      "after": {
+        "width": 177.53125,
+        "height": 20
+      }
+    },
+    {
+      "route": "/solutions/teleoperation/",
+      "width": 1440,
+      "locale": "en",
+      "selector": "main h2",
+      "before": {
+        "width": 1104,
+        "height": 98.78125
+      },
+      "after": {
+        "width": 1104,
+        "height": 49.390625
+      }
+    },
+    {
+      "route": "/solutions/teleoperation/",
+      "width": 1440,
+      "locale": "en",
+      "selector": "header.site-header nav a",
+      "before": {
+        "width": 30.375,
+        "height": 43
+      },
+      "after": {
+        "width": 31.796875,
+        "height": 43
+      }
+    },
+    {
+      "route": "/solutions/teleoperation/",
+      "width": 1440,
+      "locale": "en",
+      "selector": "main [data-button-effect=invert] .action-text",
+      "before": {
+        "width": 96.515625,
+        "height": 21
+      },
+      "after": {
+        "width": 104.03125,
+        "height": 21
+      }
+    },
+    {
+      "route": "/solutions/teleoperation/",
+      "width": 1440,
+      "locale": "en",
+      "selector": "main p",
+      "before": {
+        "width": 480.515625,
+        "height": 22.1875
+      },
+      "after": {
+        "width": 545.0625,
+        "height": 22.1875
+      }
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "locale": "en",
+      "selector": "main h2",
+      "before": {
+        "width": 113.515625,
+        "height": 33.59375
+      },
+      "after": {
+        "width": 109.59375,
+        "height": 33.59375
+      }
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "locale": "en",
+      "selector": "main [data-button-effect=invert] .action-text",
+      "before": {
+        "width": 32.703125,
+        "height": 21
+      },
+      "after": {
+        "width": 34.234375,
+        "height": 21
+      }
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "locale": "en",
+      "selector": "main p",
+      "before": {
+        "width": 346,
+        "height": 35.99999237060547
+      },
+      "after": {
+        "width": 346,
+        "height": 36
+      }
+    },
+    {
+      "route": "/products/robotdock/",
+      "width": 390,
+      "locale": "en",
+      "selector": "main [data-button-effect=invert] .action-text",
+      "before": {
+        "width": 24.125,
+        "height": 21
+      },
+      "after": {
+        "width": 25.3125,
+        "height": 21
+      }
+    },
+    {
+      "route": "/products/robotdock/specs/",
+      "width": 390,
+      "locale": "en",
+      "selector": "main [data-button-effect=invert] .action-text",
+      "before": {
+        "width": 24.125,
+        "height": 21
+      },
+      "after": {
+        "width": 25.3125,
+        "height": 21
+      }
+    },
+    {
+      "route": "/login/",
+      "width": 390,
+      "locale": "en",
+      "selector": "main [data-button-effect=invert] .action-text",
+      "before": {
+        "width": 175.828125,
+        "height": 20
+      },
+      "after": {
+        "width": 177.53125,
+        "height": 20
+      }
+    },
+    {
+      "route": "/solutions/teleoperation/",
+      "width": 390,
+      "locale": "en",
+      "selector": "main [data-button-effect=invert] .action-text",
+      "before": {
+        "width": 96.515625,
+        "height": 21
+      },
+      "after": {
+        "width": 104.03125,
+        "height": 21
+      }
+    }
+  ],
+  "homeColdExamples": [
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "fontFiles": 12,
+      "fontBodyBytes": 988196,
+      "transferredBytes": 991796
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "fontFiles": 12,
+      "fontBodyBytes": 988196,
+      "transferredBytes": 991796
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "fontFiles": 11,
+      "fontBodyBytes": 927368,
+      "transferredBytes": 930668
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "fontFiles": 11,
+      "fontBodyBytes": 927368,
+      "transferredBytes": 930668
+    }
+  ],
+  "method": "CSS.getPlatformFontsForNode: actual glyph shaping for page nodes and separately labelled probes. Input user-agent shadow DOM checked in interactions.json; computed styles only used for layout comparisons."
+}

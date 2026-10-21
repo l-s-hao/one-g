@@ -1,0 +1,3570 @@
+{
+  "schemaVersion": 1,
+  "target": {
+    "repository": "l-s-hao/one-g",
+    "baselineCommit": "0bae3782cb7a0614e071fc5a2022b002256f7f5e",
+    "baselineStatus": "clean",
+    "publicBytesBefore": 14835336
+  },
+  "repositories": [
+    {
+      "name": "g1-humanoid-teleoperation",
+      "url": "https://github.com/xuanqisun/g1-humanoid-teleoperation",
+      "defaultBranch": "main",
+      "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "readDate": "2026-10-21",
+      "readFiles": [
+        "README.md",
+        "index.html",
+        "script.js",
+        "styles.css",
+        "assets/images/3pt-poster.jpg",
+        "assets/images/balance-poster.jpg",
+        "assets/images/camera-poster.jpg",
+        "assets/images/dance-video-motion-poster.jpg",
+        "assets/images/favicon.svg",
+        "assets/images/g1-cutout.png",
+        "assets/images/headset-hand-interaction-poster.jpg",
+        "assets/images/headset-only-poster.jpg",
+        "assets/images/hero-poster.jpg",
+        "assets/images/kick-poster.jpg",
+        "assets/images/music-motion-poster.jpg",
+        "assets/images/pick-poster.jpg",
+        "assets/videos/3pt-demo.mp4",
+        "assets/videos/camera-teleop.mp4",
+        "assets/videos/dance-video-motion.mp4",
+        "assets/videos/headset-hand-interaction.mp4",
+        "assets/videos/headset-only-teleop.mp4",
+        "assets/videos/music-motion.mp4",
+        "assets/videos/wholebody-balance.mp4",
+        "assets/videos/wholebody-kick.mp4",
+        "assets/videos/wholebody-pick.mp4"
+      ],
+      "statusBefore": "",
+      "statusAfter": ""
+    },
+    {
+      "name": "one-g-website",
+      "url": "https://github.com/xuanqisun/one-g-website",
+      "defaultBranch": "main",
+      "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+      "readDate": "2026-10-21",
+      "readFiles": [
+        "README.md",
+        "check-site.mjs",
+        "dist/about/index.html",
+        "dist/app.js",
+        "dist/custom/index.html",
+        "dist/index.html",
+        "dist/store/index.html",
+        "dist/styles.css",
+        "github-pages.mjs",
+        "image-edit-prompt.txt",
+        "dist/assets/demo-grasp.jpg",
+        "dist/assets/demo-motion.jpg",
+        "dist/assets/design-sketch.png",
+        "dist/assets/industrial-design-extended.png",
+        "dist/assets/industrial-design-page-1.png",
+        "dist/assets/one-g-header-logo.svg",
+        "dist/assets/one-g-logo.svg",
+        "dist/assets/one-g-symbol.svg",
+        "dist/assets/pico-kit.jpg",
+        "dist/assets/robotdock-concept.png",
+        "dist/assets/sonic-link-console.png",
+        "dist/assets/teleoperation-demo.mp4"
+      ],
+      "statusBefore": "",
+      "statusAfter": ""
+    },
+    {
+      "name": "robotdock-demo",
+      "url": "https://github.com/xuanqisun/robotdock-demo",
+      "defaultBranch": "main",
+      "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+      "readDate": "2026-10-21",
+      "readFiles": [
+        "README.md",
+        "dist/app.js",
+        "dist/index.html",
+        "dist/styles.css",
+        "dist/teleoperation/app.js",
+        "dist/teleoperation/index.html",
+        "dist/teleoperation/teleoperation.css",
+        "github-pages.mjs",
+        "tests/purchase-panel.test.mjs",
+        "tests/teleoperation.test.mjs",
+        "dist/assets/design-sketch.png",
+        "dist/assets/one-g-logo-horizontal.svg",
+        "dist/assets/one-g-logo.svg",
+        "dist/assets/one-g-symbol.svg",
+        "dist/assets/robotdock-concept.png",
+        "dist/teleoperation/assets/demo-grasp.jpg",
+        "dist/teleoperation/assets/demo-motion.jpg",
+        "dist/teleoperation/assets/pico-kit.jpg",
+        "dist/teleoperation/assets/sonic-link-console.png"
+      ],
+      "statusBefore": "",
+      "statusAfter": ""
+    },
+    {
+      "name": "sonic-link-demo",
+      "url": "https://github.com/xuanqisun/sonic-link-demo",
+      "defaultBranch": "main",
+      "commit": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+      "readDate": "2026-10-21",
+      "readFiles": [
+        "README.md",
+        "dist/app.js",
+        "dist/index.html",
+        "dist/styles.css",
+        "dist/teleoperation.css",
+        "github-pages.mjs",
+        "tests/teleoperation.test.mjs",
+        "dist/assets/demo-grasp.jpg",
+        "dist/assets/demo-motion.jpg",
+        "dist/assets/one-g-logo.svg",
+        "dist/assets/one-g-symbol.svg",
+        "dist/assets/pico-kit.jpg",
+        "dist/assets/sonic-link-console.png"
+      ],
+      "statusBefore": "",
+      "statusAfter": ""
+    }
+  ],
+  "assets": [
+    {
+      "id": "image-61baa29fa5bc",
+      "type": "image",
+      "sha256": "61baa29fa5bccb0640bde70e034f3a928ee2779486ba7848723564525a5d6355",
+      "bytes": 56561,
+      "dimensions": [
+        720,
+        960
+      ],
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/images/3pt-poster.jpg",
+          "originalName": "3pt-poster.jpg"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "not-selected",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 219,
+          "originalText": "poster=\"assets/images/3pt-poster.jpg\""
+        }
+      ],
+      "exclusionReason": "Existing poster replaced with a frame extracted from the actual selected clip",
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": [
+        720,
+        960
+      ],
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "image-c7c8ce90328c",
+      "type": "image",
+      "sha256": "c7c8ce90328c614fee773700f44f34b6abad5383671e4cf4fc61c25e7358590d",
+      "bytes": 118580,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/images/balance-poster.jpg",
+          "originalName": "balance-poster.jpg"
+        },
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/images/hero-poster.jpg",
+          "originalName": "hero-poster.jpg"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "not-selected",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 120,
+          "originalText": "poster=\"assets/images/balance-poster.jpg\""
+        }
+      ],
+      "exclusionReason": "Existing poster replaced with a frame extracted from the actual selected clip",
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": [
+        1280,
+        720
+      ],
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "image-3ea943a410b9",
+      "type": "image",
+      "sha256": "3ea943a410b97dfa7cadd5f0088652aa2a2e84e95911de666f2e49bdfa501038",
+      "bytes": 120151,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/images/camera-poster.jpg",
+          "originalName": "camera-poster.jpg"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "not-selected",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 347,
+          "originalText": "poster=\"assets/images/camera-poster.jpg?v=20260828-camera\""
+        }
+      ],
+      "exclusionReason": "Existing poster replaced with a frame extracted from the actual selected clip",
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": [
+        1280,
+        720
+      ],
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "image-acdb13d2bcb7",
+      "type": "image",
+      "sha256": "acdb13d2bcb7e86cb9bcfb2b7188b04c26540dcfc9d8fdf5621b03056d65d759",
+      "bytes": 144477,
+      "dimensions": [
+        720,
+        1280
+      ],
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/images/dance-video-motion-poster.jpg",
+          "originalName": "dance-video-motion-poster.jpg"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "not-selected",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 396,
+          "originalText": "poster=\"assets/images/dance-video-motion-poster.jpg\""
+        }
+      ],
+      "exclusionReason": "Existing poster replaced with a frame extracted from the actual selected clip",
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": [
+        720,
+        1280
+      ],
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "image-d6f3f34dd7b5",
+      "type": "image",
+      "sha256": "d6f3f34dd7b50edb060aaf57a8ba700d6bd837bccbd5a62027a2eeba77b3294e",
+      "bytes": 192,
+      "dimensions": {
+        "viewBox": "0 0 64 64"
+      },
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/images/favicon.svg",
+          "originalName": "favicon.svg"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "source-inspected-not-selected",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "not-selected",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 29,
+          "originalText": "<link rel=\"icon\" href=\"assets/images/favicon.svg\" type=\"image/svg+xml\" />"
+        }
+      ],
+      "exclusionReason": "No relevant new placement; preserve current logo and page scope",
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": {
+        "viewBox": "0 0 64 64"
+      },
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "image-79677199e534",
+      "type": "image",
+      "sha256": "79677199e534db8bb4f5930b3e62a498a3295704ef7afb8a4df77a87032f6cc9",
+      "bytes": 1131366,
+      "dimensions": [
+        1086,
+        1448
+      ],
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/images/g1-cutout.png",
+          "originalName": "g1-cutout.png"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "not-selected",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 92,
+          "originalText": "<img src=\"assets/images/g1-cutout.png\" alt=\"\" decoding=\"async\" />"
+        }
+      ],
+      "exclusionReason": "No relevant new placement; preserve current logo and page scope",
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": [
+        1086,
+        1448
+      ],
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "image-68ca99ed8f39",
+      "type": "image",
+      "sha256": "68ca99ed8f394f4ab4942b083fb6b3d995b2c4628babc9920268205536639599",
+      "bytes": 48240,
+      "dimensions": [
+        720,
+        720
+      ],
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/images/headset-hand-interaction-poster.jpg",
+          "originalName": "headset-hand-interaction-poster.jpg"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "not-selected",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 293,
+          "originalText": "poster=\"assets/images/headset-hand-interaction-poster.jpg?v=20261019\""
+        }
+      ],
+      "exclusionReason": "Existing poster replaced with a frame extracted from the actual selected clip",
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": [
+        720,
+        720
+      ],
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "image-a2d9fcbe74bd",
+      "type": "image",
+      "sha256": "a2d9fcbe74bd3b245444bba0669669570c8fe8d458275dd3743e8d3032ec0475",
+      "bytes": 221965,
+      "dimensions": [
+        1920,
+        960
+      ],
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/images/headset-only-poster.jpg",
+          "originalName": "headset-only-poster.jpg"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "not-selected",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 263,
+          "originalText": "poster=\"assets/images/headset-only-poster.jpg?v=20261016-headset-demo\""
+        }
+      ],
+      "exclusionReason": "Existing poster replaced with a frame extracted from the actual selected clip",
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": [
+        1920,
+        960
+      ],
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "image-63fe0d79ed66",
+      "type": "image",
+      "sha256": "63fe0d79ed6663f920780c97f2427e94093a8a2807928e50761930570bcb732a",
+      "bytes": 75646,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/images/kick-poster.jpg",
+          "originalName": "kick-poster.jpg"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "not-selected",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 23,
+          "originalText": "content=\"https://xuanqisun.github.io/g1-humanoid-teleoperation/assets/images/kick-poster.jpg\""
+        },
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 50,
+          "originalText": "poster=\"assets/images/kick-poster.jpg\""
+        },
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 161,
+          "originalText": "poster=\"assets/images/kick-poster.jpg\""
+        }
+      ],
+      "exclusionReason": "Existing poster replaced with a frame extracted from the actual selected clip",
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": [
+        1280,
+        720
+      ],
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "image-6a0664f1b41e",
+      "type": "image",
+      "sha256": "6a0664f1b41e30d5ddd121a79c1f56f83c49e0254bee96619865f264eddf79f5",
+      "bytes": 42842,
+      "dimensions": [
+        1440,
+        952
+      ],
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/images/music-motion-poster.jpg",
+          "originalName": "music-motion-poster.jpg"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "not-selected",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 444,
+          "originalText": "poster=\"assets/images/music-motion-poster.jpg\""
+        }
+      ],
+      "exclusionReason": "Existing poster replaced with a frame extracted from the actual selected clip",
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": [
+        1440,
+        952
+      ],
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "image-e2a622022ae3",
+      "type": "image",
+      "sha256": "e2a622022ae3edaee05141d22b4e460ffd40091ae6003da01fdcf0ad4914eacc",
+      "bytes": 119782,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/images/pick-poster.jpg",
+          "originalName": "pick-poster.jpg"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "not-selected",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 141,
+          "originalText": "poster=\"assets/images/pick-poster.jpg\""
+        }
+      ],
+      "exclusionReason": "Existing poster replaced with a frame extracted from the actual selected clip",
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": [
+        1280,
+        720
+      ],
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "video-d66a70232dec",
+      "type": "video",
+      "sha256": "d66a70232dece8fc1ad3a81d236423870715553d686468f26732055730daf23f",
+      "bytes": 3848610,
+      "dimensions": null,
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/videos/3pt-demo.mp4",
+          "originalName": "3pt-demo.mp4"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "full-duration-decoded-and-timeline-visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": "/one-g/solutions/teleoperation/3pt-demo.mp4",
+      "suggestedUse": "teleoperation demonstration",
+      "pagePlacements": [
+        "/solutions/teleoperation/"
+      ],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 223,
+          "originalText": "<source data-src=\"assets/videos/3pt-demo.mp4\" type=\"video/mp4\" />"
+        }
+      ],
+      "decodeStatus": "complete",
+      "duration": "00:00:21.78",
+      "streams": [
+        "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 720x960, 1307 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+        "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 97 kb/s (default)"
+      ],
+      "timelineFrames": 44,
+      "timelineIntervalSeconds": 0.5,
+      "reviewMethod": "Decode entire clip; inspect chronological frames every 0.5s from beginning through final interval against source HTML/README. This is not a real-time audiovisual viewing or hardware verification.",
+      "originalArchive": "/home/lsh/one-g-media-originals/2026-10-21/d66a70232dece8fc1ad3a81d236423870715553d686468f26732055730daf23f.mp4",
+      "attribution": "AI-CDR Center (Center for Artificial Intelligence and Cross-Domain Robotics)",
+      "posterTimestampSeconds": 7,
+      "outputs": [
+        {
+          "path": "/one-g/solutions/teleoperation/3pt-demo.mp4",
+          "bytes": 2890772,
+          "sha256": "5d35447203c09450265eb5d23aab90af4749cc36c6648d74ef8b88d7216a9a6f",
+          "kind": "video",
+          "derivedFrom": "d66a70232dece8fc1ad3a81d236423870715553d686468f26732055730daf23f"
+        },
+        {
+          "path": "/one-g/solutions/teleoperation/3pt-demo-poster.webp",
+          "bytes": 26200,
+          "sha256": "39b8ed94ec13642427148b9d23299270e1231631afcc21875f6b592b5cf53e77",
+          "kind": "poster",
+          "derivedFrom": "d66a70232dece8fc1ad3a81d236423870715553d686468f26732055730daf23f"
+        }
+      ],
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": "00:00:21.78",
+      "attributionReview": {
+        "status": "source-credit-retained",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      },
+      "classification": "physical-device-research",
+      "solutionRelationship": "source-links-to-SONIC-Link-mode; exact software/hardware version unconfirmed"
+    },
+    {
+      "id": "video-a6d531d0395a",
+      "type": "video",
+      "sha256": "a6d531d0395a6d02d9629bd56a92a23efdf41767471e5c7890fb478f89816c70",
+      "bytes": 9471859,
+      "dimensions": null,
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/videos/camera-teleop.mp4",
+          "originalName": "camera-teleop.mp4"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "full-duration-decoded-and-timeline-visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": "/one-g/solutions/teleoperation/camera-teleop.mp4",
+      "suggestedUse": "teleoperation demonstration",
+      "pagePlacements": [
+        "/solutions/teleoperation/"
+      ],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 351,
+          "originalText": "<source data-src=\"assets/videos/camera-teleop.mp4?v=20260827-camera\" type=\"video/mp4\" />"
+        }
+      ],
+      "decodeStatus": "complete",
+      "duration": "00:00:26.00",
+      "streams": [
+        "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1280x720, 2712 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+        "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 192 kb/s (default)"
+      ],
+      "timelineFrames": 52,
+      "timelineIntervalSeconds": 0.5,
+      "reviewMethod": "Decode entire clip; inspect chronological frames every 0.5s from beginning through final interval against source HTML/README. This is not a real-time audiovisual viewing or hardware verification.",
+      "originalArchive": "/home/lsh/one-g-media-originals/2026-10-21/a6d531d0395a6d02d9629bd56a92a23efdf41767471e5c7890fb478f89816c70.mp4",
+      "attribution": "AI-CDR Center (Center for Artificial Intelligence and Cross-Domain Robotics)",
+      "posterTimestampSeconds": 4,
+      "outputs": [
+        {
+          "path": "/one-g/solutions/teleoperation/camera-teleop.mp4",
+          "bytes": 2098593,
+          "sha256": "365ed43f0f50d31d6ac1846508cdd4b652b773096de9f6297e3bc76e91177e9a",
+          "kind": "video",
+          "derivedFrom": "a6d531d0395a6d02d9629bd56a92a23efdf41767471e5c7890fb478f89816c70"
+        },
+        {
+          "path": "/one-g/solutions/teleoperation/camera-teleop-poster.webp",
+          "bytes": 40580,
+          "sha256": "b1d7d2065345d263968636e723449a1206e011b3aee7ccb7c5eab915db41a35e",
+          "kind": "poster",
+          "derivedFrom": "a6d531d0395a6d02d9629bd56a92a23efdf41767471e5c7890fb478f89816c70"
+        }
+      ],
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": "00:00:26.00",
+      "attributionReview": {
+        "status": "source-credit-retained",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      },
+      "classification": "physical-device-research",
+      "solutionRelationship": "related-candidate; not-confirmed-as-SONIC-Link"
+    },
+    {
+      "id": "video-25a82aa2af0c",
+      "type": "video",
+      "sha256": "25a82aa2af0c4fdfdd52721c684d51cf149afaf8a6120406e11048f672bbf606",
+      "bytes": 5949829,
+      "dimensions": null,
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/videos/dance-video-motion.mp4",
+          "originalName": "dance-video-motion.mp4"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "full-duration-decoded-and-timeline-visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": "/one-g/solutions/intelligent-tasks/dance-video-motion.mp4",
+      "suggestedUse": "intelligent-tasks demonstration",
+      "pagePlacements": [
+        "/solutions/#ai"
+      ],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 400,
+          "originalText": "<source data-src=\"assets/videos/dance-video-motion.mp4\" type=\"video/mp4\" />"
+        }
+      ],
+      "decodeStatus": "complete",
+      "duration": "00:00:15.60",
+      "streams": [
+        "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 720x1280, 2913 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+        "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 128 kb/s (default)"
+      ],
+      "timelineFrames": 31,
+      "timelineIntervalSeconds": 0.5,
+      "reviewMethod": "Decode entire clip; inspect chronological frames every 0.5s from beginning through final interval against source HTML/README. This is not a real-time audiovisual viewing or hardware verification.",
+      "originalArchive": "/home/lsh/one-g-media-originals/2026-10-21/25a82aa2af0c4fdfdd52721c684d51cf149afaf8a6120406e11048f672bbf606.mp4",
+      "attribution": "AI-CDR Center (Center for Artificial Intelligence and Cross-Domain Robotics)",
+      "posterTimestampSeconds": 3,
+      "outputs": [
+        {
+          "path": "/one-g/solutions/intelligent-tasks/dance-video-motion.mp4",
+          "bytes": 4224178,
+          "sha256": "812fa2ff75675b318ad5aa03364d13e18e01c8808d24c46034683fe63f45fc96",
+          "kind": "video",
+          "derivedFrom": "25a82aa2af0c4fdfdd52721c684d51cf149afaf8a6120406e11048f672bbf606"
+        },
+        {
+          "path": "/one-g/solutions/intelligent-tasks/dance-video-motion-poster.webp",
+          "bytes": 88296,
+          "sha256": "df55c0c86acc2a5a414299a656c6829d35da50558ac6d3a4ebed5128c514740f",
+          "kind": "poster",
+          "derivedFrom": "25a82aa2af0c4fdfdd52721c684d51cf149afaf8a6120406e11048f672bbf606"
+        }
+      ],
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": "00:00:15.60",
+      "attributionReview": {
+        "status": "source-credit-retained",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      },
+      "classification": "physical-device-research",
+      "solutionRelationship": "related-candidate; not-confirmed-as-SONIC-Link"
+    },
+    {
+      "id": "video-344600905a91",
+      "type": "video",
+      "sha256": "344600905a91040b85331c51f210c2ee76b8cde04e44672777f4c5f2294e664f",
+      "bytes": 5249711,
+      "dimensions": null,
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/videos/headset-hand-interaction.mp4",
+          "originalName": "headset-hand-interaction.mp4"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "full-duration-decoded-and-timeline-visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "related simulation candidate",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 297,
+          "originalText": "<source data-src=\"assets/videos/headset-hand-interaction.mp4?v=20261019\" type=\"video/mp4\" />"
+        }
+      ],
+      "decodeStatus": "complete",
+      "duration": "00:00:55.19",
+      "streams": [
+        "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 720x720, 753 kb/s, 24 fps, 24 tbr, 12288 tbn (default)",
+        "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, mono, fltp, 1 kb/s (default)"
+      ],
+      "timelineFrames": 110,
+      "timelineIntervalSeconds": 0.5,
+      "reviewMethod": "Decode entire clip; inspect chronological frames every 0.5s from beginning through final interval against source HTML/README. This is not a real-time audiovisual viewing or hardware verification.",
+      "exclusionReason": "Not needed for selected themes; avoid redundant or large files",
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": "00:00:55.19",
+      "attributionReview": {
+        "status": "source-credit-retained",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "video-bfd6204854a4",
+      "type": "video",
+      "sha256": "bfd6204854a4dc97c8ce1aada2d185454a0cd8a951fcc26a8e1583855cff453f",
+      "bytes": 25363586,
+      "dimensions": null,
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/videos/headset-only-teleop.mp4",
+          "originalName": "headset-only-teleop.mp4"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "full-duration-decoded-and-timeline-visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "related simulation candidate",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 267,
+          "originalText": "<source data-src=\"assets/videos/headset-only-teleop.mp4?v=20261016-headset-demo\" type=\"video/mp4\" />"
+        }
+      ],
+      "decodeStatus": "complete",
+      "duration": "00:01:04.27",
+      "streams": [
+        "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1920x960, 3135 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+        "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 12 kb/s (default)"
+      ],
+      "timelineFrames": 129,
+      "timelineIntervalSeconds": 0.5,
+      "reviewMethod": "Decode entire clip; inspect chronological frames every 0.5s from beginning through final interval against source HTML/README. This is not a real-time audiovisual viewing or hardware verification.",
+      "exclusionReason": "Not needed for selected themes; avoid redundant or large files",
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": "00:01:04.27",
+      "attributionReview": {
+        "status": "source-credit-retained",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "video-7d355660562a",
+      "type": "video",
+      "sha256": "7d355660562a94e64f8683ae986aa41974f49e3226ef5d1e568aa1c9808fd5d2",
+      "bytes": 5277372,
+      "dimensions": null,
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/videos/music-motion.mp4",
+          "originalName": "music-motion.mp4"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "full-duration-decoded-and-timeline-visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": "/one-g/solutions/intelligent-tasks/music-motion.mp4",
+      "suggestedUse": "intelligent-tasks demonstration",
+      "pagePlacements": [
+        "/solutions/#ai"
+      ],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 448,
+          "originalText": "<source data-src=\"assets/videos/music-motion.mp4\" type=\"video/mp4\" />"
+        }
+      ],
+      "decodeStatus": "complete",
+      "duration": "00:00:47.81",
+      "streams": [
+        "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1440x952, 718 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+        "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 156 kb/s (default)"
+      ],
+      "timelineFrames": 95,
+      "timelineIntervalSeconds": 0.5,
+      "reviewMethod": "Decode entire clip; inspect chronological frames every 0.5s from beginning through final interval against source HTML/README. This is not a real-time audiovisual viewing or hardware verification.",
+      "originalArchive": "/home/lsh/one-g-media-originals/2026-10-21/7d355660562a94e64f8683ae986aa41974f49e3226ef5d1e568aa1c9808fd5d2.mp4",
+      "attribution": "AI-CDR Center (Center for Artificial Intelligence and Cross-Domain Robotics)",
+      "posterTimestampSeconds": 3,
+      "outputs": [
+        {
+          "path": "/one-g/solutions/intelligent-tasks/music-motion.mp4",
+          "bytes": 2511486,
+          "sha256": "3853ca7595671a439188ac13f77d2891226e43e44cb2f6a22398fe136282f180",
+          "kind": "video",
+          "derivedFrom": "7d355660562a94e64f8683ae986aa41974f49e3226ef5d1e568aa1c9808fd5d2"
+        },
+        {
+          "path": "/one-g/solutions/intelligent-tasks/music-motion-poster.webp",
+          "bytes": 13346,
+          "sha256": "363d480d68600beb9580b6e01e57427d63df3edb582460736aa8fc7c2db8ef78",
+          "kind": "poster",
+          "derivedFrom": "7d355660562a94e64f8683ae986aa41974f49e3226ef5d1e568aa1c9808fd5d2"
+        }
+      ],
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": "00:00:47.81",
+      "attributionReview": {
+        "status": "source-credit-retained",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      },
+      "classification": "simulation-research",
+      "solutionRelationship": "related-candidate; not-confirmed-as-SONIC-Link"
+    },
+    {
+      "id": "video-1687f2756ac5",
+      "type": "video",
+      "sha256": "1687f2756ac5d9d0e585ac7d11bd75ead4de4681efaa6d736574f6b84448b29e",
+      "bytes": 1916639,
+      "dimensions": null,
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/videos/wholebody-balance.mp4",
+          "originalName": "wholebody-balance.mp4"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "full-duration-decoded-and-timeline-visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": "/one-g/solutions/teleoperation/wholebody-balance.mp4",
+      "suggestedUse": "teleoperation demonstration",
+      "pagePlacements": [
+        "/solutions/teleoperation/"
+      ],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 124,
+          "originalText": "<source data-src=\"assets/videos/wholebody-balance.mp4\" type=\"video/mp4\" />"
+        }
+      ],
+      "decodeStatus": "complete",
+      "duration": "00:00:15.13",
+      "streams": [
+        "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1280x720, 906 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+        "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 97 kb/s (default)"
+      ],
+      "timelineFrames": 30,
+      "timelineIntervalSeconds": 0.5,
+      "reviewMethod": "Decode entire clip; inspect chronological frames every 0.5s from beginning through final interval against source HTML/README. This is not a real-time audiovisual viewing or hardware verification.",
+      "originalArchive": "/home/lsh/one-g-media-originals/2026-10-21/1687f2756ac5d9d0e585ac7d11bd75ead4de4681efaa6d736574f6b84448b29e.mp4",
+      "attribution": "AI-CDR Center (Center for Artificial Intelligence and Cross-Domain Robotics)",
+      "posterTimestampSeconds": 6,
+      "outputs": [
+        {
+          "path": "/one-g/solutions/teleoperation/wholebody-balance.mp4",
+          "bytes": 1067671,
+          "sha256": "686a0b5214345c454040eaba128f6858790509cbb39790197fce9216e045c62b",
+          "kind": "video",
+          "derivedFrom": "1687f2756ac5d9d0e585ac7d11bd75ead4de4681efaa6d736574f6b84448b29e"
+        },
+        {
+          "path": "/one-g/solutions/teleoperation/wholebody-balance-poster.webp",
+          "bytes": 30550,
+          "sha256": "b31d3f78f7ff795f4feee0dbecae59397cc48002a7384d09053587fd457178cb",
+          "kind": "poster",
+          "derivedFrom": "1687f2756ac5d9d0e585ac7d11bd75ead4de4681efaa6d736574f6b84448b29e"
+        }
+      ],
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": "00:00:15.13",
+      "attributionReview": {
+        "status": "source-credit-retained",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      },
+      "classification": "physical-device-research",
+      "solutionRelationship": "source-links-to-SONIC-Link-mode; exact software/hardware version unconfirmed"
+    },
+    {
+      "id": "video-6daf4d5252ec",
+      "type": "video",
+      "sha256": "6daf4d5252ecaf8fe74920a2c148e4372663b051ac7a2f41f0efd5b18974b8ae",
+      "bytes": 1156045,
+      "dimensions": null,
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/videos/wholebody-kick.mp4",
+          "originalName": "wholebody-kick.mp4"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "full-duration-decoded-and-timeline-visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "additional full-body demo",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 53,
+          "originalText": "<source src=\"assets/videos/wholebody-kick.mp4\" type=\"video/mp4\" />"
+        },
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 165,
+          "originalText": "<source data-src=\"assets/videos/wholebody-kick.mp4\" type=\"video/mp4\" />"
+        }
+      ],
+      "decodeStatus": "complete",
+      "duration": "00:00:11.82",
+      "streams": [
+        "Stream #0:0[0x1](eng): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1280x720, 677 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+        "Stream #0:1[0x2](eng): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 96 kb/s (default)"
+      ],
+      "timelineFrames": 24,
+      "timelineIntervalSeconds": 0.5,
+      "reviewMethod": "Decode entire clip; inspect chronological frames every 0.5s from beginning through final interval against source HTML/README. This is not a real-time audiovisual viewing or hardware verification.",
+      "exclusionReason": "Not needed for selected themes; avoid redundant or large files",
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": "00:00:11.82",
+      "attributionReview": {
+        "status": "source-credit-retained",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "video-da7736a3223f",
+      "type": "video",
+      "sha256": "da7736a3223f32878ae99723a24271e1ad76b93f27e07f234c0b808da35f7014",
+      "bytes": 2359318,
+      "dimensions": null,
+      "sources": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "path": "assets/videos/wholebody-pick.mp4",
+          "originalName": "wholebody-pick.mp4"
+        },
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "path": "dist/assets/teleoperation-demo.mp4",
+          "originalName": "teleoperation-demo.mp4"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "full-duration-decoded-and-timeline-visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": "/one-g/solutions/handling/wholebody-pick.mp4",
+      "suggestedUse": "handling demonstration",
+      "pagePlacements": [
+        "/solutions/#handling"
+      ],
+      "descriptionEvidence": [
+        {
+          "repository": "g1-humanoid-teleoperation",
+          "commit": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+          "file": "index.html",
+          "line": 145,
+          "originalText": "<source data-src=\"assets/videos/wholebody-pick.mp4\" type=\"video/mp4\" />"
+        },
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "file": "README.md",
+          "line": 25,
+          "originalText": "公共资源在 `dist/assets/`，来自用户已有项目与提供的资料；不得将概念图描述为产品实拍。`industrial-design-page-1.png` 是用户指定的《工业设计.pdf》第一页渲染，完整 PDF 未上传。`industrial-design-extended.png` 经内置图像编辑向上下扩展蓝灰色背景，用于首页完整高度展示；原始渲染保留。其作品内标识仅属于原设计画面，不表示客户背书。编辑提示词见 `image-edit-prompt.txt`。"
+        }
+      ],
+      "decodeStatus": "complete",
+      "duration": "00:00:19.04",
+      "streams": [
+        "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1280x720, 886 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+        "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 96 kb/s (default)"
+      ],
+      "timelineFrames": 38,
+      "timelineIntervalSeconds": 0.5,
+      "reviewMethod": "Decode entire clip; inspect chronological frames every 0.5s from beginning through final interval against source HTML/README. This is not a real-time audiovisual viewing or hardware verification.",
+      "originalArchive": "/home/lsh/one-g-media-originals/2026-10-21/da7736a3223f32878ae99723a24271e1ad76b93f27e07f234c0b808da35f7014.mp4",
+      "attribution": "AI-CDR Center (Center for Artificial Intelligence and Cross-Domain Robotics)",
+      "posterTimestampSeconds": 17,
+      "outputs": [
+        {
+          "path": "/one-g/solutions/handling/wholebody-pick.mp4",
+          "bytes": 1321588,
+          "sha256": "ca0b378624af4ea813f49878aee29178a3b1b32d25011e62ebb8e8c21e00524d",
+          "kind": "video",
+          "derivedFrom": "da7736a3223f32878ae99723a24271e1ad76b93f27e07f234c0b808da35f7014"
+        },
+        {
+          "path": "/one-g/solutions/handling/wholebody-pick-poster.webp",
+          "bytes": 31268,
+          "sha256": "bd1bcd0376a5335d817094ff8c35bc3f476d1d56efebca801c4317e95df00557",
+          "kind": "poster",
+          "derivedFrom": "da7736a3223f32878ae99723a24271e1ad76b93f27e07f234c0b808da35f7014"
+        }
+      ],
+      "sourceVersion": "0b1671685a9e075af44d60d16f89c75f090bc6aa",
+      "dimensionsOrDuration": "00:00:19.04",
+      "attributionReview": {
+        "status": "source-credit-retained",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      },
+      "classification": "physical-device-research",
+      "solutionRelationship": "source-links-to-SONIC-Link-mode; exact software/hardware version unconfirmed"
+    },
+    {
+      "id": "image-bf6d0ea6047c",
+      "type": "image",
+      "sha256": "bf6d0ea6047c69fe067f0ca54feb0a2b24060764dcc891e2e9105fcc87ded4a9",
+      "bytes": 1059324,
+      "dimensions": [
+        2400,
+        1080
+      ],
+      "sources": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "path": "dist/assets/demo-grasp.jpg",
+          "originalName": "demo-grasp.jpg"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "path": "dist/teleoperation/assets/demo-grasp.jpg",
+          "originalName": "demo-grasp.jpg"
+        },
+        {
+          "repository": "sonic-link-demo",
+          "commit": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+          "path": "dist/assets/demo-grasp.jpg",
+          "originalName": "demo-grasp.jpg"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": "/one-g/products/sonic-link/demo-grasp.jpg",
+      "suggestedUse": "Existing device photograph, manual demo photograph or historical console UI",
+      "pagePlacements": [
+        "/solutions/teleoperation/"
+      ],
+      "descriptionEvidence": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "file": "README.md",
+          "line": 25,
+          "originalText": "公共资源在 `dist/assets/`，来自用户已有项目与提供的资料；不得将概念图描述为产品实拍。`industrial-design-page-1.png` 是用户指定的《工业设计.pdf》第一页渲染，完整 PDF 未上传。`industrial-design-extended.png` 经内置图像编辑向上下扩展蓝灰色背景，用于首页完整高度展示；原始渲染保留。其作品内标识仅属于原设计画面，不表示客户背书。编辑提示词见 `image-edit-prompt.txt`。"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "file": "README.md",
+          "line": 57,
+          "originalText": "- 产品名称已统一为 RoboDock（2026-10-09）。页面标题、图片说明、接口示意及复制清单同步更新。"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "file": "README.md",
+          "line": 65,
+          "originalText": "## 图片"
+        },
+        {
+          "repository": "sonic-link-demo",
+          "commit": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+          "file": "README.md",
+          "line": 43,
+          "originalText": "`main` 保存源码、素材、说明和测试；`gh-pages` 仅发布 `dist/` 内容。"
+        },
+        {
+          "repository": "sonic-link-demo",
+          "commit": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+          "file": "README.md",
+          "line": 61,
+          "originalText": "## 素材"
+        }
+      ],
+      "exclusionReason": null,
+      "existingBeforeTask": true,
+      "sourceVersion": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+      "dimensionsOrDuration": [
+        2400,
+        1080
+      ],
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "image-1b2ccecfb1dd",
+      "type": "image",
+      "sha256": "1b2ccecfb1ddd6e4ba5d3bf6be2e084b6d0e58fe87aa36911a2036cb1a12bb3d",
+      "bytes": 1055537,
+      "dimensions": [
+        2400,
+        1080
+      ],
+      "sources": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "path": "dist/assets/demo-motion.jpg",
+          "originalName": "demo-motion.jpg"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "path": "dist/teleoperation/assets/demo-motion.jpg",
+          "originalName": "demo-motion.jpg"
+        },
+        {
+          "repository": "sonic-link-demo",
+          "commit": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+          "path": "dist/assets/demo-motion.jpg",
+          "originalName": "demo-motion.jpg"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": "/one-g/products/sonic-link/demo-motion.jpg",
+      "suggestedUse": "Existing device photograph, manual demo photograph or historical console UI",
+      "pagePlacements": [
+        "/solutions/teleoperation/"
+      ],
+      "descriptionEvidence": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "file": "README.md",
+          "line": 25,
+          "originalText": "公共资源在 `dist/assets/`，来自用户已有项目与提供的资料；不得将概念图描述为产品实拍。`industrial-design-page-1.png` 是用户指定的《工业设计.pdf》第一页渲染，完整 PDF 未上传。`industrial-design-extended.png` 经内置图像编辑向上下扩展蓝灰色背景，用于首页完整高度展示；原始渲染保留。其作品内标识仅属于原设计画面，不表示客户背书。编辑提示词见 `image-edit-prompt.txt`。"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "file": "README.md",
+          "line": 57,
+          "originalText": "- 产品名称已统一为 RoboDock（2026-10-09）。页面标题、图片说明、接口示意及复制清单同步更新。"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "file": "README.md",
+          "line": 65,
+          "originalText": "## 图片"
+        },
+        {
+          "repository": "sonic-link-demo",
+          "commit": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+          "file": "README.md",
+          "line": 43,
+          "originalText": "`main` 保存源码、素材、说明和测试；`gh-pages` 仅发布 `dist/` 内容。"
+        },
+        {
+          "repository": "sonic-link-demo",
+          "commit": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+          "file": "README.md",
+          "line": 61,
+          "originalText": "## 素材"
+        }
+      ],
+      "exclusionReason": null,
+      "existingBeforeTask": true,
+      "sourceVersion": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+      "dimensionsOrDuration": [
+        2400,
+        1080
+      ],
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "image-038f625105e7",
+      "type": "image",
+      "sha256": "038f625105e7396aa71002d0cfd8c8cacafaa237ca8d48450ce282fd14df9d1d",
+      "bytes": 662255,
+      "dimensions": [
+        946,
+        1208
+      ],
+      "sources": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "path": "dist/assets/design-sketch.png",
+          "originalName": "design-sketch.png"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "path": "dist/assets/design-sketch.png",
+          "originalName": "design-sketch.png"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": "/one-g/products/robotdock/installation-sketch.png",
+      "suggestedUse": "Existing RoboDock concept or installation illustration",
+      "pagePlacements": [
+        "/products/robotdock/",
+        "/products/robotdock/specs/"
+      ],
+      "descriptionEvidence": [
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "file": "README.md",
+          "line": 69,
+          "originalText": "`design-sketch.png`：用户提供的设计参考草图。"
+        }
+      ],
+      "exclusionReason": null,
+      "existingBeforeTask": true,
+      "sourceVersion": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+      "dimensionsOrDuration": [
+        946,
+        1208
+      ],
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      },
+      "outputs": [
+        {
+          "path": "/one-g/products/robotdock/installation-sketch.webp",
+          "bytes": 34824,
+          "sha256": "0776d05ab5dd71dd245a2bb5be31071059a35de95fe0045b2f4235f202a59719",
+          "kind": "image",
+          "dimensions": [
+            946,
+            1208
+          ],
+          "derivedFrom": "038f625105e7396aa71002d0cfd8c8cacafaa237ca8d48450ce282fd14df9d1d"
+        }
+      ]
+    },
+    {
+      "id": "image-0fa355e6c7ea",
+      "type": "image",
+      "sha256": "0fa355e6c7ea30a415e916ce16b21d94a342cdd74f5177ff68c8bd41839a69fe",
+      "bytes": 1332201,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sources": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "path": "dist/assets/industrial-design-extended.png",
+          "originalName": "industrial-design-extended.png"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "not-selected",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "file": "README.md",
+          "line": 25,
+          "originalText": "公共资源在 `dist/assets/`，来自用户已有项目与提供的资料；不得将概念图描述为产品实拍。`industrial-design-page-1.png` 是用户指定的《工业设计.pdf》第一页渲染，完整 PDF 未上传。`industrial-design-extended.png` 经内置图像编辑向上下扩展蓝灰色背景，用于首页完整高度展示；原始渲染保留。其作品内标识仅属于原设计画面，不表示客户背书。编辑提示词见 `image-edit-prompt.txt`。"
+        }
+      ],
+      "exclusionReason": "No relevant new placement; preserve current logo and page scope",
+      "sourceVersion": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+      "dimensionsOrDuration": [
+        1254,
+        1254
+      ],
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "image-2d60ab2fe7f0",
+      "type": "image",
+      "sha256": "2d60ab2fe7f0b0b0047d17506a5eb0e329d63853bc46ecbaeffd3af4e7781c22",
+      "bytes": 899237,
+      "dimensions": [
+        2000,
+        1125
+      ],
+      "sources": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "path": "dist/assets/industrial-design-page-1.png",
+          "originalName": "industrial-design-page-1.png"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "not-selected",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "file": "README.md",
+          "line": 25,
+          "originalText": "公共资源在 `dist/assets/`，来自用户已有项目与提供的资料；不得将概念图描述为产品实拍。`industrial-design-page-1.png` 是用户指定的《工业设计.pdf》第一页渲染，完整 PDF 未上传。`industrial-design-extended.png` 经内置图像编辑向上下扩展蓝灰色背景，用于首页完整高度展示；原始渲染保留。其作品内标识仅属于原设计画面，不表示客户背书。编辑提示词见 `image-edit-prompt.txt`。"
+        }
+      ],
+      "exclusionReason": "No relevant new placement; preserve current logo and page scope",
+      "sourceVersion": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+      "dimensionsOrDuration": [
+        2000,
+        1125
+      ],
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "image-bb5466e7d782",
+      "type": "image",
+      "sha256": "bb5466e7d782a7a37ba163baafbf2028d4e31a1f45db67c1717475c006d2b8fa",
+      "bytes": 7316,
+      "dimensions": {
+        "viewBox": "304 524 1090 369"
+      },
+      "sources": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "path": "dist/assets/one-g-header-logo.svg",
+          "originalName": "one-g-header-logo.svg"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "source-inspected-not-selected",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "not-selected",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "file": "README.md",
+          "line": 25,
+          "originalText": "公共资源在 `dist/assets/`，来自用户已有项目与提供的资料；不得将概念图描述为产品实拍。`industrial-design-page-1.png` 是用户指定的《工业设计.pdf》第一页渲染，完整 PDF 未上传。`industrial-design-extended.png` 经内置图像编辑向上下扩展蓝灰色背景，用于首页完整高度展示；原始渲染保留。其作品内标识仅属于原设计画面，不表示客户背书。编辑提示词见 `image-edit-prompt.txt`。"
+        }
+      ],
+      "exclusionReason": "No relevant new placement; preserve current logo and page scope",
+      "sourceVersion": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+      "dimensionsOrDuration": {
+        "viewBox": "304 524 1090 369"
+      },
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "image-12b5b8e0dee3",
+      "type": "image",
+      "sha256": "12b5b8e0dee36f6288409758b71eb2c54acf6470e61c708c691071dc9799e1a5",
+      "bytes": 7266,
+      "dimensions": {
+        "viewBox": "304 524 810 369"
+      },
+      "sources": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "path": "dist/assets/one-g-logo.svg",
+          "originalName": "one-g-logo.svg"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "path": "dist/assets/one-g-logo.svg",
+          "originalName": "one-g-logo.svg"
+        },
+        {
+          "repository": "sonic-link-demo",
+          "commit": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+          "path": "dist/assets/one-g-logo.svg",
+          "originalName": "one-g-logo.svg"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "source-inspected-not-selected",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "not-selected",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "file": "README.md",
+          "line": 25,
+          "originalText": "公共资源在 `dist/assets/`，来自用户已有项目与提供的资料；不得将概念图描述为产品实拍。`industrial-design-page-1.png` 是用户指定的《工业设计.pdf》第一页渲染，完整 PDF 未上传。`industrial-design-extended.png` 经内置图像编辑向上下扩展蓝灰色背景，用于首页完整高度展示；原始渲染保留。其作品内标识仅属于原设计画面，不表示客户背书。编辑提示词见 `image-edit-prompt.txt`。"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "file": "README.md",
+          "line": 57,
+          "originalText": "- 产品名称已统一为 RoboDock（2026-10-09）。页面标题、图片说明、接口示意及复制清单同步更新。"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "file": "README.md",
+          "line": 65,
+          "originalText": "## 图片"
+        },
+        {
+          "repository": "sonic-link-demo",
+          "commit": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+          "file": "README.md",
+          "line": 43,
+          "originalText": "`main` 保存源码、素材、说明和测试；`gh-pages` 仅发布 `dist/` 内容。"
+        },
+        {
+          "repository": "sonic-link-demo",
+          "commit": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+          "file": "README.md",
+          "line": 61,
+          "originalText": "## 素材"
+        }
+      ],
+      "exclusionReason": "No relevant new placement; preserve current logo and page scope",
+      "sourceVersion": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+      "dimensionsOrDuration": {
+        "viewBox": "304 524 810 369"
+      },
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "image-6fdd724655d2",
+      "type": "image",
+      "sha256": "6fdd724655d21e0fcec60072f6c53621261634e9858262c014d2bb7cd8104b8b",
+      "bytes": 660,
+      "dimensions": {
+        "viewBox": "177 177 1065 1065"
+      },
+      "sources": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "path": "dist/assets/one-g-symbol.svg",
+          "originalName": "one-g-symbol.svg"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "path": "dist/assets/one-g-symbol.svg",
+          "originalName": "one-g-symbol.svg"
+        },
+        {
+          "repository": "sonic-link-demo",
+          "commit": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+          "path": "dist/assets/one-g-symbol.svg",
+          "originalName": "one-g-symbol.svg"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "source-inspected-not-selected",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "not-selected",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "file": "README.md",
+          "line": 25,
+          "originalText": "公共资源在 `dist/assets/`，来自用户已有项目与提供的资料；不得将概念图描述为产品实拍。`industrial-design-page-1.png` 是用户指定的《工业设计.pdf》第一页渲染，完整 PDF 未上传。`industrial-design-extended.png` 经内置图像编辑向上下扩展蓝灰色背景，用于首页完整高度展示；原始渲染保留。其作品内标识仅属于原设计画面，不表示客户背书。编辑提示词见 `image-edit-prompt.txt`。"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "file": "README.md",
+          "line": 57,
+          "originalText": "- 产品名称已统一为 RoboDock（2026-10-09）。页面标题、图片说明、接口示意及复制清单同步更新。"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "file": "README.md",
+          "line": 65,
+          "originalText": "## 图片"
+        },
+        {
+          "repository": "sonic-link-demo",
+          "commit": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+          "file": "README.md",
+          "line": 43,
+          "originalText": "`main` 保存源码、素材、说明和测试；`gh-pages` 仅发布 `dist/` 内容。"
+        },
+        {
+          "repository": "sonic-link-demo",
+          "commit": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+          "file": "README.md",
+          "line": 61,
+          "originalText": "## 素材"
+        }
+      ],
+      "exclusionReason": "No relevant new placement; preserve current logo and page scope",
+      "sourceVersion": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+      "dimensionsOrDuration": {
+        "viewBox": "177 177 1065 1065"
+      },
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "image-57dcc0abdada",
+      "type": "image",
+      "sha256": "57dcc0abdadacebb3c1801a82188842f12ceb89c4ed2ea3c60cac89044041598",
+      "bytes": 2914795,
+      "dimensions": [
+        4000,
+        3000
+      ],
+      "sources": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "path": "dist/assets/pico-kit.jpg",
+          "originalName": "pico-kit.jpg"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "path": "dist/teleoperation/assets/pico-kit.jpg",
+          "originalName": "pico-kit.jpg"
+        },
+        {
+          "repository": "sonic-link-demo",
+          "commit": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+          "path": "dist/assets/pico-kit.jpg",
+          "originalName": "pico-kit.jpg"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": "/one-g/products/sonic-link/device-pico-kit.jpg",
+      "suggestedUse": "Existing device photograph, manual demo photograph or historical console UI",
+      "pagePlacements": [
+        "/solutions/teleoperation/"
+      ],
+      "descriptionEvidence": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "file": "README.md",
+          "line": 25,
+          "originalText": "公共资源在 `dist/assets/`，来自用户已有项目与提供的资料；不得将概念图描述为产品实拍。`industrial-design-page-1.png` 是用户指定的《工业设计.pdf》第一页渲染，完整 PDF 未上传。`industrial-design-extended.png` 经内置图像编辑向上下扩展蓝灰色背景，用于首页完整高度展示；原始渲染保留。其作品内标识仅属于原设计画面，不表示客户背书。编辑提示词见 `image-edit-prompt.txt`。"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "file": "README.md",
+          "line": 57,
+          "originalText": "- 产品名称已统一为 RoboDock（2026-10-09）。页面标题、图片说明、接口示意及复制清单同步更新。"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "file": "README.md",
+          "line": 65,
+          "originalText": "## 图片"
+        },
+        {
+          "repository": "sonic-link-demo",
+          "commit": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+          "file": "README.md",
+          "line": 43,
+          "originalText": "`main` 保存源码、素材、说明和测试；`gh-pages` 仅发布 `dist/` 内容。"
+        },
+        {
+          "repository": "sonic-link-demo",
+          "commit": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+          "file": "README.md",
+          "line": 61,
+          "originalText": "## 素材"
+        }
+      ],
+      "exclusionReason": null,
+      "existingBeforeTask": true,
+      "sourceVersion": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+      "dimensionsOrDuration": [
+        4000,
+        3000
+      ],
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "image-ead4b3e68fbb",
+      "type": "image",
+      "sha256": "ead4b3e68fbb9b81f64f0c056e28d433569ff5b455e1a35101329a94b77053d2",
+      "bytes": 2004460,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sources": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "path": "dist/assets/robotdock-concept.png",
+          "originalName": "robotdock-concept.png"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "path": "dist/assets/robotdock-concept.png",
+          "originalName": "robotdock-concept.png"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": "/one-g/products/robotdock/robotdock-concept.png",
+      "suggestedUse": "Existing RoboDock concept or installation illustration",
+      "pagePlacements": [
+        "/products/robotdock/",
+        "/products/robotdock/specs/"
+      ],
+      "descriptionEvidence": [
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "file": "README.md",
+          "line": 71,
+          "originalText": "`robotdock-concept.png`：内置 image_gen 工具生成。提示词：以用户草图中间的背包为设计参考，生成单个石墨灰机器人电子背包的产品概念图，渐窄圆角外壳、中央青色灯条、侧面散热槽、底部接口与顶部安装耳，浅灰棚拍背景，三分之四视角，无机器人、背带、文字或商标。"
+        }
+      ],
+      "exclusionReason": null,
+      "existingBeforeTask": true,
+      "sourceVersion": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+      "dimensionsOrDuration": [
+        1254,
+        1254
+      ],
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      },
+      "outputs": [
+        {
+          "path": "/one-g/products/robotdock/robotdock-concept.webp",
+          "bytes": 102378,
+          "sha256": "d4f82403306fa9df79b94547da9e993fad6230865adc7261e23f800fbea42d29",
+          "kind": "image",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "derivedFrom": "ead4b3e68fbb9b81f64f0c056e28d433569ff5b455e1a35101329a94b77053d2"
+        }
+      ]
+    },
+    {
+      "id": "image-6b2233dac216",
+      "type": "image",
+      "sha256": "6b2233dac21650ada5dabaa11f8a601f85e47ee992851a13ee03e10e73144b65",
+      "bytes": 593492,
+      "dimensions": [
+        3374,
+        1418
+      ],
+      "sources": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "path": "dist/assets/sonic-link-console.png",
+          "originalName": "sonic-link-console.png"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "path": "dist/teleoperation/assets/sonic-link-console.png",
+          "originalName": "sonic-link-console.png"
+        },
+        {
+          "repository": "sonic-link-demo",
+          "commit": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+          "path": "dist/assets/sonic-link-console.png",
+          "originalName": "sonic-link-console.png"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "visually-reviewed",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": "/one-g/products/sonic-link/software-console-early.png",
+      "suggestedUse": "Existing device photograph, manual demo photograph or historical console UI",
+      "pagePlacements": [
+        "/solutions/teleoperation/"
+      ],
+      "descriptionEvidence": [
+        {
+          "repository": "one-g-website",
+          "commit": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+          "file": "README.md",
+          "line": 25,
+          "originalText": "公共资源在 `dist/assets/`，来自用户已有项目与提供的资料；不得将概念图描述为产品实拍。`industrial-design-page-1.png` 是用户指定的《工业设计.pdf》第一页渲染，完整 PDF 未上传。`industrial-design-extended.png` 经内置图像编辑向上下扩展蓝灰色背景，用于首页完整高度展示；原始渲染保留。其作品内标识仅属于原设计画面，不表示客户背书。编辑提示词见 `image-edit-prompt.txt`。"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "file": "README.md",
+          "line": 57,
+          "originalText": "- 产品名称已统一为 RoboDock（2026-10-09）。页面标题、图片说明、接口示意及复制清单同步更新。"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "file": "README.md",
+          "line": 65,
+          "originalText": "## 图片"
+        },
+        {
+          "repository": "sonic-link-demo",
+          "commit": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+          "file": "README.md",
+          "line": 43,
+          "originalText": "`main` 保存源码、素材、说明和测试；`gh-pages` 仅发布 `dist/` 内容。"
+        },
+        {
+          "repository": "sonic-link-demo",
+          "commit": "d6f8b26b1cdc3f56f6b6e4091342a56228527b9c",
+          "file": "README.md",
+          "line": 61,
+          "originalText": "## 素材"
+        }
+      ],
+      "exclusionReason": null,
+      "existingBeforeTask": true,
+      "sourceVersion": "0748e1a77f45d4a2360ab8183806a1a0d9b1fc9f",
+      "dimensionsOrDuration": [
+        3374,
+        1418
+      ],
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    },
+    {
+      "id": "image-57fc077ddba3",
+      "type": "image",
+      "sha256": "57fc077ddba3c419760d45dfc1236b6ec6c67e5ee3b79731c94ba0ff5b5c5938",
+      "bytes": 7497,
+      "dimensions": {
+        "viewBox": "0 0 176 48"
+      },
+      "sources": [
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "path": "dist/assets/one-g-logo-horizontal.svg",
+          "originalName": "one-g-logo-horizontal.svg"
+        }
+      ],
+      "lfsPointer": false,
+      "downloadStatus": "git-checkout-complete",
+      "reviewStatus": "source-inspected-not-selected",
+      "authorization": {
+        "status": "user-confirmed-display-permission",
+        "date": "2026-10-21",
+        "statement": "团队素材及 AI-CDR 视频均已获授权",
+        "publicLicense": "not-found; user permission is not an open-source license",
+        "attribution": "retain source institution/brand; no claim of ONE-G authorship or exclusive partnership"
+      },
+      "targetPublicPath": null,
+      "suggestedUse": "not-selected",
+      "pagePlacements": [],
+      "descriptionEvidence": [
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "file": "README.md",
+          "line": 57,
+          "originalText": "- 产品名称已统一为 RoboDock（2026-10-09）。页面标题、图片说明、接口示意及复制清单同步更新。"
+        },
+        {
+          "repository": "robotdock-demo",
+          "commit": "4b0e92f0f40f652241a123417dd1d54a06678074",
+          "file": "README.md",
+          "line": 65,
+          "originalText": "## 图片"
+        }
+      ],
+      "exclusionReason": "No relevant new placement; preserve current logo and page scope",
+      "sourceVersion": "4b0e92f0f40f652241a123417dd1d54a06678074",
+      "dimensionsOrDuration": {
+        "viewBox": "0 0 176 48"
+      },
+      "attributionReview": {
+        "status": "source-recorded",
+        "note": "AI-CDR name retained for research clips; model/brand marks remain as supplied. No independent model license or exclusive partnership inferred."
+      }
+    }
+  ],
+  "referenceScan": {
+    "extensions": [
+      ".avif",
+      ".gif",
+      ".jpeg",
+      ".jpg",
+      ".m4v",
+      ".mov",
+      ".mp4",
+      ".png",
+      ".svg",
+      ".webm",
+      ".webp"
+    ],
+    "references": [
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "README.md",
+        "line": 18,
+        "text": "Then open <http://localhost:8000>."
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 23,
+        "text": "content=\"https://xuanqisun.github.io/g1-humanoid-teleoperation/assets/images/kick-poster.jpg\""
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 29,
+        "text": "<link rel=\"icon\" href=\"assets/images/favicon.svg\" type=\"image/svg+xml\" />"
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 50,
+        "text": "poster=\"assets/images/kick-poster.jpg\""
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 53,
+        "text": "<source src=\"assets/videos/wholebody-kick.mp4\" type=\"video/mp4\" />"
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 92,
+        "text": "<img src=\"assets/images/g1-cutout.png\" alt=\"\" decoding=\"async\" />"
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 120,
+        "text": "poster=\"assets/images/balance-poster.jpg\""
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 124,
+        "text": "<source data-src=\"assets/videos/wholebody-balance.mp4\" type=\"video/mp4\" />"
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 141,
+        "text": "poster=\"assets/images/pick-poster.jpg\""
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 145,
+        "text": "<source data-src=\"assets/videos/wholebody-pick.mp4\" type=\"video/mp4\" />"
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 161,
+        "text": "poster=\"assets/images/kick-poster.jpg\""
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 165,
+        "text": "<source data-src=\"assets/videos/wholebody-kick.mp4\" type=\"video/mp4\" />"
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 175,
+        "text": "href=\"https://xuanqisun.github.io/sonic-link-demo/?bundle=full\" target=\"_blank\" rel=\"noopener noreferrer\""
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 196,
+        "text": "href=\"https://xuanqisun.github.io/sonic-link-demo/?bundle=three\" target=\"_blank\" rel=\"noopener noreferrer\""
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 219,
+        "text": "poster=\"assets/images/3pt-poster.jpg\""
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 223,
+        "text": "<source data-src=\"assets/videos/3pt-demo.mp4\" type=\"video/mp4\" />"
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 263,
+        "text": "poster=\"assets/images/headset-only-poster.jpg?v=20261016-headset-demo\""
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 267,
+        "text": "<source data-src=\"assets/videos/headset-only-teleop.mp4?v=20261016-headset-demo\" type=\"video/mp4\" />"
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 293,
+        "text": "poster=\"assets/images/headset-hand-interaction-poster.jpg?v=20261019\""
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 297,
+        "text": "<source data-src=\"assets/videos/headset-hand-interaction.mp4?v=20261019\" type=\"video/mp4\" />"
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 347,
+        "text": "poster=\"assets/images/camera-poster.jpg?v=20260828-camera\""
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 351,
+        "text": "<source data-src=\"assets/videos/camera-teleop.mp4?v=20260827-camera\" type=\"video/mp4\" />"
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 396,
+        "text": "poster=\"assets/images/dance-video-motion-poster.jpg\""
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 400,
+        "text": "<source data-src=\"assets/videos/dance-video-motion.mp4\" type=\"video/mp4\" />"
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 444,
+        "text": "poster=\"assets/images/music-motion-poster.jpg\""
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 448,
+        "text": "<source data-src=\"assets/videos/music-motion.mp4\" type=\"video/mp4\" />"
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "index.html",
+        "line": 477,
+        "text": "<script src=\"script.js?v=20261019-dual-mode-copy\"></script>"
+      },
+      {
+        "repository": "g1-humanoid-teleoperation",
+        "file": "script.js",
+        "line": 306,
+        "text": "source.src = source.dataset.src;"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "README.md",
+        "line": 25,
+        "text": "公共资源在 `dist/assets/`，来自用户已有项目与提供的资料；不得将概念图描述为产品实拍。`industrial-design-page-1.png` 是用户指定的《工业设计.pdf》第一页渲染，完整 PDF 未上传。`industrial-design-extended.png` 经内置图像编辑向上下扩展蓝灰色背景，用于首页完整高度展示；原始渲染保留。其作品内标识仅属于原设计画面，不表示客户背书。编辑提示词见 `image-edit-prompt.txt`。"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/about/index.html",
+        "line": 2,
+        "text": "<html lang=\"zh-CN\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"description\" content=\"了解 ONE-G 万机智能的机器人拓展、遥操作与智能硬件方向，查看团队技术演示。\"><meta name=\"theme-color\" content=\"#ffffff\"><title>企业展示 · ONE-G 万机智能</title><link rel=\"icon\" href=\"../assets/one-g-symbol.svg\" type=\"image/svg+xml\"><link rel=\"stylesheet\" href=\"../styles.css\"><script src=\"../app.js\" defer></script></head>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/about/index.html",
+        "line": 3,
+        "text": "<body data-root=\"../\" data-page=\"about\"><a class=\"skip-link\" href=\"#main\">跳转到内容</a><header class=\"site-header\"><div class=\"header-inner\"><a class=\"brand\" href=\"../\" aria-label=\"ONE-G 万机智能首页\"><img src=\"../assets/one-g-header-logo.svg?v=2\" alt=\"ONE-G Robotics\" width=\"136\" height=\"46\"></a><nav class=\"main-nav\" aria-label=\"主导航\"><a href=\"../\">首页</a><a href=\"../store/\">万机商城</a><a href=\"../custom/\">定制中心</a><a href=\"./\" aria-current=\"page\">企业展示</a></nav><a class=\"header-contact\" href=\"../custom/#inquiry\">项目咨询 <span aria-hidden=\"true\">↗</span></a></div></header>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/about/index.html",
+        "line": 5,
+        "text": "<section class=\"about-image shell\"><img src=\"../assets/demo-motion.jpg\" alt=\"ONE-G 团队在实际环境中进行 VR 遥操作演示\" width=\"2400\" height=\"1080\"><div><span>从实验到应用</span><p>让技术被看见，也让它被使用。</p></div></section>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/about/index.html",
+        "line": 7,
+        "text": "<section class=\"work-section shell\"><div class=\"work-copy\"><p class=\"eyebrow\">SEE THE WORK</p><h2>用实际演示，<br>介绍我们的工作。</h2><p>查看 G1 遥操作演示，了解三点、全身等不同控制方式；或走进产品页，查看对应设备与软件组合。</p><div class=\"button-row\"><a class=\"button button-dark\" href=\"https://xuanqisun.github.io/g1-humanoid-teleoperation/\">查看技术演示 <span aria-hidden=\"true\">↗</span></a><a class=\"text-link\" href=\"../store/\">查看产品 →</a></div></div><figure><img src=\"../assets/sonic-link-console.png\" alt=\"ONE-G Sonic Link 软件控制台界面，包含设备连接与环境检查流程\" loading=\"lazy\" width=\"3374\" height=\"1418\"><figcaption>Sonic Link 控制台界面示例 · 截图版本不代表最终交付范围</figcaption></figure></section>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/about/index.html",
+        "line": 9,
+        "text": "<footer class=\"site-footer\"><div class=\"shell footer-top\"><a class=\"brand\" href=\"../\"><img src=\"../assets/one-g-logo.svg\" alt=\"ONE-G Robotics\" width=\"136\" height=\"44\"></a><p>让机器人，连接更多可能。</p><a href=\"../custom/#inquiry\">联系我们 ↗</a></div><div class=\"shell footer-bottom\"><span>© 2026 ONE-G 万机智能</span><span>产品与方案展示 · 商业条款以沟通确认为准</span></div></footer></body></html>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/custom/index.html",
+        "line": 2,
+        "text": "<html lang=\"zh-CN\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"description\" content=\"ONE-G 定制中心：沟通机械臂、机器人设备适配、板卡与智能硬件开发需求。\"><meta name=\"theme-color\" content=\"#ffffff\"><title>定制中心 · ONE-G</title><link rel=\"icon\" href=\"../assets/one-g-symbol.svg\" type=\"image/svg+xml\"><link rel=\"stylesheet\" href=\"../styles.css\"><script src=\"../app.js\" defer></script></head>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/custom/index.html",
+        "line": 3,
+        "text": "<body data-root=\"../\" data-page=\"custom\"><a class=\"skip-link\" href=\"#main\">跳转到内容</a><header class=\"site-header\"><div class=\"header-inner\"><a class=\"brand\" href=\"../\" aria-label=\"ONE-G 万机智能首页\"><img src=\"../assets/one-g-header-logo.svg?v=2\" alt=\"ONE-G Robotics\" width=\"136\" height=\"46\"></a><nav class=\"main-nav\" aria-label=\"主导航\"><a href=\"../\">首页</a><a href=\"../store/\">万机商城</a><a href=\"./\" aria-current=\"page\">定制中心</a><a href=\"../about/\">企业展示</a></nav><a class=\"header-contact\" href=\"#inquiry\">项目咨询 <span aria-hidden=\"true\">↗</span></a></div></header>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/custom/index.html",
+        "line": 8,
+        "text": "<footer class=\"site-footer\"><div class=\"shell footer-top\"><a class=\"brand\" href=\"../\"><img src=\"../assets/one-g-logo.svg\" alt=\"ONE-G Robotics\" width=\"136\" height=\"44\"></a><p>让机器人，连接更多可能。</p><a href=\"../store/\">浏览标准产品 ↗</a></div><div class=\"shell footer-bottom\"><span>© 2026 ONE-G 万机智能</span><span>产品与方案展示 · 商业条款以沟通确认为准</span></div></footer></body></html>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/index.html",
+        "line": 9,
+        "text": "<link rel=\"icon\" href=\"assets/one-g-symbol.svg\" type=\"image/svg+xml\">"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/index.html",
+        "line": 11,
+        "text": "<script src=\"app.js\" defer></script>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/index.html",
+        "line": 17,
+        "text": "<a class=\"brand\" href=\"./\" aria-label=\"ONE-G 万机智能首页\"><img src=\"assets/one-g-header-logo.svg?v=2\" alt=\"ONE-G Robotics\" width=\"136\" height=\"46\"></a>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/index.html",
+        "line": 26,
+        "text": "<div class=\"hero-copy\"><p class=\"eyebrow\">ROBODOCK <span>机器人拓展坞</span></p><h1>小背包<br>大有可为</h1><p class=\"hero-description\">连接夹爪、灵巧手与感知设备。<br>为 G1 拓展更多可能。</p><div class=\"button-row\"><a class=\"button button-dark\" href=\"https://xuanqisun.github.io/robotdock-demo/\">探索小背包 <span aria-hidden=\"true\">↗</span></a><a class=\"text-link\" href=\"store/\">进入万机商城 <span aria-hidden=\"true\">→</span></a></div></div>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/index.html",
+        "line": 27,
+        "text": "<div class=\"hero-visual\"><img src=\"assets/robotdock-concept.png\" alt=\"RoboDock 银灰色小背包外观概念，正面带竖向蓝色灯带\" width=\"1254\" height=\"1254\" fetchpriority=\"high\"><span class=\"image-note\">外观概念图 · 非最终产品</span></div>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/index.html",
+        "line": 30,
+        "text": "<div class=\"hero-copy\"><p class=\"eyebrow\">SONIC LINK <span>遥操作解决方案</span></p><h2 lang=\"en\">You jump,<br>I jump</h2><p class=\"hero-description\">VR 设备、遥操软件与机器人拓展坞。<br>从设备连接，到动作传递。</p><div class=\"button-row\"><a class=\"button button-light\" href=\"https://xuanqisun.github.io/sonic-link-demo/\">查看全套方案 <span aria-hidden=\"true\">↗</span></a><button class=\"text-link light-link\" type=\"button\" data-play-video>观看演示 <span aria-hidden=\"true\">▷</span></button></div></div>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/index.html",
+        "line": 31,
+        "text": "<div class=\"hero-visual\"><img src=\"assets/demo-motion.jpg\" alt=\"团队成员佩戴 VR 设备，G1 机器人同步展示动作\" width=\"2400\" height=\"1080\"><span class=\"image-note\">团队遥操作实拍</span></div>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/index.html",
+        "line": 35,
+        "text": "<div class=\"hero-visual industrial-visual\"><img src=\"assets/industrial-design-extended.png\" alt=\"工业设计作品：双机械臂架空线路机器人，蓝灰色背景向上下延展\" width=\"1254\" height=\"1254\"><span class=\"image-note\">工业设计作品 · 效果图</span></div>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/index.html",
+        "line": 46,
+        "text": "<article class=\"product-card\"><a class=\"product-picture dock-picture\" href=\"https://xuanqisun.github.io/robotdock-demo/\"><img src=\"assets/robotdock-concept.png\" alt=\"RoboDock 小背包外观概念\" loading=\"lazy\" width=\"1254\" height=\"1254\"><span class=\"picture-label\">外观概念</span></a><div class=\"product-content\"><p class=\"category-label\">机器人拓展</p><h3>RoboDock 小背包</h3><p>为末端与感知设备，提供统一的连接入口。</p><a class=\"text-link\" href=\"https://xuanqisun.github.io/robotdock-demo/\">查看产品方案 <span aria-hidden=\"true\">↗</span></a></div></article>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/index.html",
+        "line": 47,
+        "text": "<article class=\"product-card\"><a class=\"product-picture\" href=\"https://xuanqisun.github.io/sonic-link-demo/\"><img src=\"assets/pico-kit.jpg\" alt=\"遥操作方案使用的 PICO 头显与两个手柄\" loading=\"lazy\" width=\"4000\" height=\"3000\"></a><div class=\"product-content\"><p class=\"category-label\">遥操作方案</p><h3>Sonic Link</h3><p>三点、全身、双模式。选择适合你的遥操方式。</p><a class=\"text-link\" href=\"https://xuanqisun.github.io/sonic-link-demo/\">选择遥操套装 <span aria-hidden=\"true\">↗</span></a></div></article>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/index.html",
+        "line": 50,
+        "text": "<section class=\"application-section shell\" aria-labelledby=\"application-title\"><div class=\"application-media\"><img src=\"assets/demo-grasp.jpg\" alt=\"团队用 VR 设备遥操作 G1，演示抓取玩偶\" loading=\"lazy\" width=\"2400\" height=\"1080\"><button class=\"play-button\" type=\"button\" data-play-video aria-label=\"播放遥操作使用演示\"><span aria-hidden=\"true\">▶</span></button><span class=\"media-caption\">团队实拍 / 遥操作使用示例</span></div><div class=\"application-copy\"><p class=\"eyebrow\">FROM PRODUCT TO ACTION</p><h2 id=\"application-title\">不只看产品。<br>看它如何工作。</h2><p>戴上头显，拿起手柄，让动作传递给机器人。Sonic Link 将 VR 设备、遥操软件与小背包组合成一套方案。</p><a class=\"text-link\" href=\"https://xuanqisun.github.io/sonic-link-demo/\">了解遥操作解决方案 <span aria-hidden=\"true\">↗</span></a><p class=\"fine-print\">视频为团队技术演示，机器人本体不包含在套装内。</p></div></section>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/index.html",
+        "line": 53,
+        "text": "<footer class=\"site-footer\"><div class=\"shell footer-top\"><a class=\"brand\" href=\"./\"><img src=\"assets/one-g-logo.svg\" alt=\"ONE-G Robotics\" width=\"136\" height=\"44\"></a><p>让机器人，连接更多可能。</p><a href=\"custom/#inquiry\">联系我们 ↗</a></div><div class=\"shell footer-bottom\"><span>© 2026 ONE-G 万机智能</span><span>产品与方案展示 · 商业条款以沟通确认为准</span></div></footer>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/index.html",
+        "line": 54,
+        "text": "<dialog class=\"video-dialog\" aria-label=\"ONE-G 遥操作实拍\"><div class=\"dialog-heading\"><span>SONIC LINK · 遥操作实拍</span><button type=\"button\" data-close-video aria-label=\"关闭视频\">✕</button></div><video controls playsinline preload=\"none\" poster=\"assets/demo-grasp.jpg\"><source src=\"assets/teleoperation-demo.mp4\" type=\"video/mp4\"></video><p>团队使用示例；机器人本体不包含在遥操作套装内。</p></dialog>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/store/index.html",
+        "line": 2,
+        "text": "<html lang=\"zh-CN\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"description\" content=\"万机商城：探索 RoboDock 机器人小背包、Sonic Link 遥操作套装与 AI 智能硬件。\"><meta name=\"theme-color\" content=\"#ffffff\"><title>万机商城 · ONE-G</title><link rel=\"icon\" href=\"../assets/one-g-symbol.svg\" type=\"image/svg+xml\"><link rel=\"stylesheet\" href=\"../styles.css\"><script src=\"../app.js\" defer></script></head>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/store/index.html",
+        "line": 3,
+        "text": "<body data-root=\"../\" data-page=\"store\"><a class=\"skip-link\" href=\"#main\">跳转到内容</a><header class=\"site-header\"><div class=\"header-inner\"><a class=\"brand\" href=\"../\" aria-label=\"ONE-G 万机智能首页\"><img src=\"../assets/one-g-header-logo.svg?v=2\" alt=\"ONE-G Robotics\" width=\"136\" height=\"46\"></a><nav class=\"main-nav\" aria-label=\"主导航\"><a href=\"../\">首页</a><a href=\"./\" aria-current=\"page\">万机商城</a><a href=\"../custom/\">定制中心</a><a href=\"../about/\">企业展示</a></nav><a class=\"header-contact\" href=\"../custom/#inquiry\">项目咨询 <span aria-hidden=\"true\">↗</span></a></div></header>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/store/index.html",
+        "line": 5,
+        "text": "<section class=\"store-feature shell\" id=\"dock\" aria-labelledby=\"dock-title\"><div class=\"store-feature-image\"><img src=\"../assets/robotdock-concept.png\" alt=\"银灰色 RoboDock 小背包外观概念\" width=\"1254\" height=\"1254\"><span class=\"picture-label\">外观概念 · 非最终产品</span></div><div class=\"store-feature-copy\"><p class=\"category-label\">机器人拓展坞 / 面向 G1</p><h2 id=\"dock-title\">RoboDock<br>通用接口小背包</h2><p class=\"lead\">把分散的设备连接，集中到一个小背包。</p><ul class=\"feature-list\"><li>末端扩展：夹爪、灵巧手</li><li>感知扩展：手腕、头部等相机</li><li>状态外显：连接、网络、供电、温度与故障</li></ul><p class=\"fine-print\">接口、供电范围与设备兼容性按适配清单确认。小背包页面为产品方案展示。</p><div class=\"button-row\"><a class=\"button button-dark\" href=\"https://xuanqisun.github.io/robotdock-demo/\">查看配置方案 <span aria-hidden=\"true\">↗</span></a><span class=\"price-note\">售价待确认</span></div></div></section>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/store/index.html",
+        "line": 7,
+        "text": "<article class=\"bundle-card\"><span class=\"bundle-number\">01 / THREE-POINT</span><h3>三点遥操</h3><p class=\"bundle-description\">头部与双手输入<br>轻装开启遥操作</p><dl><div><dt>硬件</dt><dd>PICO 头显 + 2 个手柄</dd></div><div><dt>软件</dt><dd>三点模式</dd></div><div><dt>拓展</dt><dd>通用小背包</dd></div></dl><a class=\"button button-outline\" href=\"https://xuanqisun.github.io/sonic-link-demo/?bundle=three\">查看三点套装 <span aria-hidden=\"true\">↗</span></a></article>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/store/index.html",
+        "line": 8,
+        "text": "<article class=\"bundle-card\"><span class=\"bundle-number\">02 / FULL-BODY</span><h3>全身遥操</h3><p class=\"bundle-description\">加入双脚输入<br>传递全身动作</p><dl><div><dt>硬件</dt><dd>PICO 头显 + 2 个手柄 + 2 个脚环</dd></div><div><dt>软件</dt><dd>全身模式，不含三点模式</dd></div><div><dt>拓展</dt><dd>通用小背包</dd></div></dl><a class=\"button button-outline\" href=\"https://xuanqisun.github.io/sonic-link-demo/?bundle=full\">查看全身套装 <span aria-hidden=\"true\">↗</span></a></article>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/store/index.html",
+        "line": 9,
+        "text": "<article class=\"bundle-card bundle-featured\"><span class=\"bundle-number\">03 / DUAL-MODE</span><h3>双模式套装</h3><p class=\"bundle-description\">一套硬件<br>两种遥操方式</p><dl><div><dt>硬件</dt><dd>PICO 头显 + 2 个手柄 + 2 个脚环</dd></div><div><dt>软件</dt><dd>三点模式 + 全身模式</dd></div><div><dt>拓展</dt><dd>通用小背包</dd></div></dl><a class=\"button button-dark\" href=\"https://xuanqisun.github.io/sonic-link-demo/?bundle=dual\">查看双模式套装 <span aria-hidden=\"true\">↗</span></a></article>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "dist/store/index.html",
+        "line": 13,
+        "text": "<footer class=\"site-footer\"><div class=\"shell footer-top\"><a class=\"brand\" href=\"../\"><img src=\"../assets/one-g-logo.svg\" alt=\"ONE-G Robotics\" width=\"136\" height=\"44\"></a><p>让机器人，连接更多可能。</p><a href=\"../custom/#inquiry\">联系我们 ↗</a></div><div class=\"shell footer-bottom\"><span>© 2026 ONE-G 万机智能</span><span>产品与方案展示 · 商业条款以沟通确认为准</span></div></footer></body></html>"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "github-pages.mjs",
+        "line": 21,
+        "text": "const response = await fetch(`https://api.github.com${path}`, {"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "github-pages.mjs",
+        "line": 41,
+        "text": "const created = await request('/user/repos', 'POST', { name: repo, private: false, auto_init: false, description: 'ONE-G 万机智能：万机商城、定制中心与企业展示。', homepage: `https://${owner}.github.io/${repo}/` });"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "image-edit-prompt.txt",
+        "line": 2,
+        "text": "Input: dist/assets/industrial-design-page-1.png"
+      },
+      {
+        "repository": "one-g-website",
+        "file": "image-edit-prompt.txt",
+        "line": 3,
+        "text": "Output: dist/assets/industrial-design-extended.png"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "README.md",
+        "line": 9,
+        "text": "访问地址：https://xuanqisun.github.io/robotdock-demo/"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "README.md",
+        "line": 11,
+        "text": "源码仓库：https://github.com/xuanqisun/robotdock-demo"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "README.md",
+        "line": 26,
+        "text": "本地预览：`python3 -m http.server 8765 --bind 127.0.0.1 --directory dist`，打开 `http://127.0.0.1:8765/`。"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "README.md",
+        "line": 30,
+        "text": "独立产品页面：`https://xuanqisun.github.io/robotdock-demo/teleoperation/`，源码位于 `dist/teleoperation/`。复用 ONE-G 标识与商品模板，保留桌面端左右独立滚动，不改变原小背包页面。"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "README.md",
+        "line": 34,
+        "text": "- 用户提供的两张使用示例、一张 VR 实拍和一张软件截图按原文件复制到该页面的 `assets/`，没有生成或改动照片。支持缩略图切换与大图查看。"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "README.md",
+        "line": 62,
+        "text": "- 换装规划改为外设独立断电、换装后加载配置，以减少整机重启。宇树 G1+ 官方页已公布外接供电能力，但不能据此认定外设支持热插拔；背包分路供电控制、G1+ 适配与换装流程仍需验证。参考：https://www.unitree.com/cn/G1plus/"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "README.md",
+        "line": 69,
+        "text": "`design-sketch.png`：用户提供的设计参考草图。"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "README.md",
+        "line": 71,
+        "text": "`robotdock-concept.png`：内置 image_gen 工具生成。提示词：以用户草图中间的背包为设计参考，生成单个石墨灰机器人电子背包的产品概念图，渐窄圆角外壳、中央青色灯条、侧面散热槽、底部接口与顶部安装耳，浅灰棚拍背景，三分之四视角，无机器人、背带、文字或商标。"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/app.js",
+        "line": 50,
+        "text": "concept: { src: './assets/robotdock-concept.png', alt: 'RoboDock 小背包工业设计概念效果图', label: '工业设计 · 概念效果图', caption: '源自背部一体化安装构想', count: '01 / 03' },"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/app.js",
+        "line": 51,
+        "text": "sketch: { src: './assets/design-sketch.png', alt: '团队提供的机器人背部安装设计草图，非最终成品', label: '原始草图 · 安装构想', caption: '团队设计参考 · 非最终本体适配图', count: '02 / 03' },"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/app.js",
+        "line": 114,
+        "text": "if (view.src) { image.src = view.src; image.alt = view.alt; }"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/index.html",
+        "line": 10,
+        "text": "<link rel=\"icon\" type=\"image/svg+xml\" href=\"./assets/one-g-symbol.svg\">"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/index.html",
+        "line": 12,
+        "text": "<script src=\"./app.js?v=robodock-accessories-20261009-2\" defer></script>"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/index.html",
+        "line": 18,
+        "text": "<a href=\"#\" class=\"brand company-brand\" aria-label=\"ONE-G Robotics 首页\"><img class=\"company-logo\" src=\"./assets/one-g-logo-horizontal.svg\" alt=\"ONE-G Robotics\" width=\"176\" height=\"48\"></a>"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/index.html",
+        "line": 29,
+        "text": "<img id=\"product-image\" class=\"product-image\" src=\"./assets/robotdock-concept.png\" alt=\"RoboDock 小背包概念效果图：深灰外壳、青色状态灯、侧面散热槽和底部接口\" width=\"1254\" height=\"1254\" fetchpriority=\"high\">"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/index.html",
+        "line": 41,
+        "text": "<button class=\"thumbnail selected\" type=\"button\" data-view=\"concept\" aria-pressed=\"true\"><img src=\"./assets/robotdock-concept.png\" alt=\"\" width=\"64\" height=\"64\"><span>外观概念</span></button>"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/index.html",
+        "line": 42,
+        "text": "<button class=\"thumbnail\" type=\"button\" data-view=\"sketch\" aria-pressed=\"false\"><img src=\"./assets/design-sketch.png\" alt=\"\" width=\"64\" height=\"64\"><span>安装构想</span></button>"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/index.html",
+        "line": 130,
+        "text": "<footer class=\"site-footer\"><a class=\"footer-brand company-footer\" href=\"#\" aria-label=\"ONE-G Robotics 首页\"><img src=\"./assets/one-g-logo.svg\" alt=\"ONE-G Robotics\" width=\"110\" height=\"50\"><span>RoboDock / PRODUCT LINE 01</span></a><p>产品规划展示 · 外观、配置与交付范围以最终确认为准。</p></footer>"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/teleoperation/app.js",
+        "line": 17,
+        "text": "grasp: { src: './assets/demo-grasp.jpg', alt: '操作者佩戴 VR 设备，机器人配合进行玩偶抓取的使用示例', label: '使用实拍 · 抓取示例', caption: '从人的动作，到机器人的动作。', count: '01 / 04' },"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/teleoperation/app.js",
+        "line": 18,
+        "text": "motion: { src: './assets/demo-motion.jpg', alt: '操作者与机器人同时展开双臂、抬起一条腿的动作示例', label: '使用实拍 · 动作示例', caption: '全身动作示例 · 需在受控场地操作', count: '02 / 04' },"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/teleoperation/app.js",
+        "line": 19,
+        "text": "vr: { src: './assets/pico-kit.jpg', alt: '团队提供的 VR 头显与两个手柄实拍，脚环未在图中展示', label: '设备实拍 · VR 头显与手柄', caption: '方案含 PICO、手柄、脚环；脚环未入镜', count: '03 / 04' },"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/teleoperation/app.js",
+        "line": 20,
+        "text": "software: { src: './assets/sonic-link-console.png', alt: 'ONE-G Sonic Link 的 PICO × G1 控制台：五点遥操连接入口与检查记录', label: '软件实图 · Sonic Link', caption: '检查、校准、人工确认后启动遥操作', count: '04 / 04' },"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/teleoperation/app.js",
+        "line": 51,
+        "text": "image.src = view.src;"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/teleoperation/app.js",
+        "line": 74,
+        "text": "image.src = view.src;"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/teleoperation/index.html",
+        "line": 10,
+        "text": "<link rel=\"icon\" type=\"image/svg+xml\" href=\"../assets/one-g-symbol.svg\">"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/teleoperation/index.html",
+        "line": 13,
+        "text": "<script src=\"./app.js?v=photo-display-2\" defer></script>"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/teleoperation/index.html",
+        "line": 18,
+        "text": "<a href=\"../\" class=\"brand company-brand\" aria-label=\"ONE-G Robotics 小背包产品页\"><img class=\"company-logo\" src=\"../assets/one-g-logo-horizontal.svg\" alt=\"ONE-G Robotics\" width=\"176\" height=\"48\"></a>"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/teleoperation/index.html",
+        "line": 30,
+        "text": "<img id=\"product-image\" class=\"product-image demo-photo\" src=\"./assets/demo-grasp.jpg\" alt=\"操作者佩戴 VR 设备，机器人配合进行玩偶抓取的使用示例\" width=\"2400\" height=\"1080\" fetchpriority=\"high\">"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/teleoperation/index.html",
+        "line": 35,
+        "text": "<button class=\"thumbnail selected\" type=\"button\" data-view=\"grasp\" aria-pressed=\"true\"><img class=\"demo-photo\" src=\"./assets/demo-grasp.jpg\" alt=\"\" width=\"64\" height=\"64\"><span>抓取示例</span></button>"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/teleoperation/index.html",
+        "line": 36,
+        "text": "<button class=\"thumbnail\" type=\"button\" data-view=\"motion\" aria-pressed=\"false\"><img class=\"demo-photo\" src=\"./assets/demo-motion.jpg\" alt=\"\" width=\"64\" height=\"64\"><span>动作示例</span></button>"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/teleoperation/index.html",
+        "line": 37,
+        "text": "<button class=\"thumbnail\" type=\"button\" data-view=\"vr\" aria-pressed=\"false\"><img src=\"./assets/pico-kit.jpg\" alt=\"\" width=\"64\" height=\"64\"><span>VR 设备</span></button>"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/teleoperation/index.html",
+        "line": 38,
+        "text": "<button class=\"thumbnail\" type=\"button\" data-view=\"software\" aria-pressed=\"false\"><img src=\"./assets/sonic-link-console.png\" alt=\"\" width=\"64\" height=\"64\"><span>软件界面</span></button>"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/teleoperation/index.html",
+        "line": 64,
+        "text": "<img src=\"./assets/sonic-link-console.png\" alt=\"Sonic Link 软件实际界面：五点遥操的连接入口，以及运行环境、PICO 采样、人体校准、G1 只读和隔离闭环检查记录；三点遥操与 GEM 标记为待开发\" width=\"3374\" height=\"1418\" loading=\"lazy\">"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "dist/teleoperation/index.html",
+        "line": 110,
+        "text": "<footer class=\"site-footer\"><a class=\"footer-brand company-footer\" href=\"../\" aria-label=\"查看 ONE-G 小背包产品\"><img src=\"../assets/one-g-logo.svg\" alt=\"ONE-G Robotics\" width=\"110\" height=\"50\"><span>SONIC LINK / TELEOPERATION</span></a><p>ONE-G 遥操作方案展示 · 型号、价格及交付范围待最终确认。</p></footer>"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "github-pages.mjs",
+        "line": 21,
+        "text": "const base = 'https://api.github.com/repos/xuanqisun/robotdock-demo';"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "tests/purchase-panel.test.mjs",
+        "line": 5,
+        "text": "const pageUrl = new URL('../dist/index.html', import.meta.url);"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "tests/purchase-panel.test.mjs",
+        "line": 6,
+        "text": "const app = readFileSync(new URL('../dist/app.js', import.meta.url), 'utf8');"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "tests/purchase-panel.test.mjs",
+        "line": 8,
+        "text": "const css = readFileSync(new URL('../dist/styles.css', import.meta.url), 'utf8');"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "tests/purchase-panel.test.mjs",
+        "line": 14,
+        "text": "else assert.ok(existsSync(new URL(link.split('?')[0], pageUrl)), `Local asset exists: ${link}`);"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "tests/teleoperation.test.mjs",
+        "line": 5,
+        "text": "const pageUrl = new URL('../dist/teleoperation/index.html', import.meta.url);"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "tests/teleoperation.test.mjs",
+        "line": 7,
+        "text": "const app = readFileSync(new URL('../dist/teleoperation/app.js', import.meta.url), 'utf8');"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "tests/teleoperation.test.mjs",
+        "line": 8,
+        "text": "const css = readFileSync(new URL('../dist/styles.css', import.meta.url), 'utf8');"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "tests/teleoperation.test.mjs",
+        "line": 9,
+        "text": "const photoCss = readFileSync(new URL('../dist/teleoperation/teleoperation.css', import.meta.url), 'utf8');"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "tests/teleoperation.test.mjs",
+        "line": 17,
+        "text": "const asset = new URL(link.split('?')[0], pageUrl);"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "tests/teleoperation.test.mjs",
+        "line": 112,
+        "text": "assert.ok(existsSync(new URL(ids['product-image'].src, pageUrl)));"
+      },
+      {
+        "repository": "robotdock-demo",
+        "file": "tests/teleoperation.test.mjs",
+        "line": 124,
+        "text": "assert.match(ids['expanded-image'].src, /sonic-link-console\\.png$/);"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "README.md",
+        "line": 5,
+        "text": "- 网站：https://xuanqisun.github.io/sonic-link-demo/"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "README.md",
+        "line": 6,
+        "text": "- 仓库：https://github.com/xuanqisun/sonic-link-demo"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "README.md",
+        "line": 7,
+        "text": "- 小背包产品页：https://xuanqisun.github.io/robotdock-demo/"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "dist/app.js",
+        "line": 23,
+        "text": "grasp: { src: './assets/demo-grasp.jpg', alt: '操作者佩戴 VR 设备，机器人配合进行玩偶抓取的使用示例', label: '使用实拍 · 抓取示例', caption: '从人的动作，到机器人的动作。', count: '01 / 04' },"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "dist/app.js",
+        "line": 24,
+        "text": "motion: { src: './assets/demo-motion.jpg', alt: '操作者与机器人同时展开双臂、抬起一条腿的动作示例', label: '使用实拍 · 动作示例', caption: '全身动作示例 · 需在受控场地操作', count: '02 / 04' },"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "dist/app.js",
+        "line": 25,
+        "text": "vr: { src: './assets/pico-kit.jpg', alt: '团队提供的 VR 头显与两个手柄实拍，脚环未在图中展示', label: '设备实拍 · VR 头显与手柄', caption: '全身与双模式套装另含 2 个脚环（未入镜）', count: '03 / 04' },"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "dist/app.js",
+        "line": 26,
+        "text": "software: { src: './assets/sonic-link-console.png', alt: 'ONE-G Sonic Link 早期控制台界面，图中开发状态为历史标注，三点与全身遥操现均已具备', label: '软件界面 · 早期版本', caption: '三点与全身均为已有技术 · 图中状态为早期标注', count: '04 / 04' },"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "dist/app.js",
+        "line": 71,
+        "text": "image.src = view.src;"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "dist/app.js",
+        "line": 94,
+        "text": "image.src = view.src;"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "dist/index.html",
+        "line": 10,
+        "text": "<link rel=\"icon\" type=\"image/svg+xml\" href=\"./assets/one-g-symbol.svg\">"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "dist/index.html",
+        "line": 13,
+        "text": "<script src=\"./app.js?v=bundle-deep-links-1\" defer></script>"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "dist/index.html",
+        "line": 18,
+        "text": "<a href=\"https://xuanqisun.github.io/robotdock-demo/\" class=\"brand company-brand\" aria-label=\"ONE-G Robotics 小背包产品页\"><img class=\"company-logo\" src=\"./assets/one-g-logo.svg\" alt=\"ONE-G Robotics\" width=\"154\" height=\"70\"></a>"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "dist/index.html",
+        "line": 20,
+        "text": "<a class=\"header-caption related-product\" href=\"https://xuanqisun.github.io/robotdock-demo/\">通用小背包 ↗</a>"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "dist/index.html",
+        "line": 23,
+        "text": "<div class=\"breadcrumb\"><a href=\"https://xuanqisun.github.io/robotdock-demo/\">ONE-G 产品</a><span>/</span><span>机器人遥操作</span><span>/</span><strong>Sonic Link</strong></div>"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "dist/index.html",
+        "line": 30,
+        "text": "<img id=\"product-image\" class=\"product-image demo-photo\" src=\"./assets/demo-grasp.jpg\" alt=\"操作者佩戴 VR 设备，机器人配合进行玩偶抓取的使用示例\" width=\"2400\" height=\"1080\" fetchpriority=\"high\">"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "dist/index.html",
+        "line": 35,
+        "text": "<button class=\"thumbnail selected\" type=\"button\" data-view=\"grasp\" aria-pressed=\"true\"><img class=\"demo-photo\" src=\"./assets/demo-grasp.jpg\" alt=\"\" width=\"64\" height=\"64\"><span>抓取示例</span></button>"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "dist/index.html",
+        "line": 36,
+        "text": "<button class=\"thumbnail\" type=\"button\" data-view=\"motion\" aria-pressed=\"false\"><img class=\"demo-photo\" src=\"./assets/demo-motion.jpg\" alt=\"\" width=\"64\" height=\"64\"><span>动作示例</span></button>"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "dist/index.html",
+        "line": 37,
+        "text": "<button class=\"thumbnail\" type=\"button\" data-view=\"vr\" aria-pressed=\"false\"><img src=\"./assets/pico-kit.jpg\" alt=\"\" width=\"64\" height=\"64\"><span>VR 设备</span></button>"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "dist/index.html",
+        "line": 38,
+        "text": "<button class=\"thumbnail\" type=\"button\" data-view=\"software\" aria-pressed=\"false\"><img src=\"./assets/sonic-link-console.png\" alt=\"\" width=\"64\" height=\"64\"><span>软件界面</span></button>"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "dist/index.html",
+        "line": 53,
+        "text": "<article><span class=\"kit-code\">I/O</span><div><h3>通用小背包 / 机器人拓展坞</h3><p>集中接入机器人端外设，配套所选末端的连接与适配。</p><a class=\"inline-link\" href=\"https://xuanqisun.github.io/robotdock-demo/\">查看小背包产品详情 ↗</a></div><span class=\"included-label\">标配</span></article>"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "dist/index.html",
+        "line": 64,
+        "text": "<img src=\"./assets/sonic-link-console.png\" alt=\"Sonic Link 早期软件界面：五点遥操入口和连接检查记录；图中待开发标签为历史状态，三点与全身遥操现均已具备\" width=\"3374\" height=\"1418\" loading=\"lazy\">"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "dist/index.html",
+        "line": 121,
+        "text": "<footer class=\"site-footer\"><a class=\"footer-brand company-footer\" href=\"https://xuanqisun.github.io/robotdock-demo/\" aria-label=\"查看 ONE-G 小背包产品\"><img src=\"./assets/one-g-logo.svg\" alt=\"ONE-G Robotics\" width=\"110\" height=\"50\"><span>SONIC LINK / TELEOPERATION</span></a><p>ONE-G 遥操作方案展示 · 型号、价格及交付范围待最终确认。</p></footer>"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "github-pages.mjs",
+        "line": 31,
+        "text": "const response = await fetch(`https://api.github.com${path}`, {"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "github-pages.mjs",
+        "line": 53,
+        "text": "homepage: `https://${owner}.github.io/${repo}/`,"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "tests/teleoperation.test.mjs",
+        "line": 5,
+        "text": "const pageUrl = new URL('../dist/index.html', import.meta.url);"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "tests/teleoperation.test.mjs",
+        "line": 7,
+        "text": "const app = readFileSync(new URL('../dist/app.js', import.meta.url), 'utf8');"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "tests/teleoperation.test.mjs",
+        "line": 8,
+        "text": "const css = readFileSync(new URL('../dist/styles.css', import.meta.url), 'utf8');"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "tests/teleoperation.test.mjs",
+        "line": 9,
+        "text": "const photoCss = readFileSync(new URL('../dist/teleoperation.css', import.meta.url), 'utf8');"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "tests/teleoperation.test.mjs",
+        "line": 14,
+        "text": "if (link.startsWith('https://')) {"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "tests/teleoperation.test.mjs",
+        "line": 15,
+        "text": "assert.equal(link, 'https://xuanqisun.github.io/robotdock-demo/', 'Only the existing related product link is external');"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "tests/teleoperation.test.mjs",
+        "line": 19,
+        "text": "const asset = new URL(link.split('?')[0], pageUrl);"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "tests/teleoperation.test.mjs",
+        "line": 163,
+        "text": "assert.ok(existsSync(new URL(ids['product-image'].src, pageUrl)));"
+      },
+      {
+        "repository": "sonic-link-demo",
+        "file": "tests/teleoperation.test.mjs",
+        "line": 175,
+        "text": "assert.match(ids['expanded-image'].src, /sonic-link-console\\.png$/);"
+      }
+    ],
+    "findings": {
+      "mediaOccurrences": 48,
+      "uniqueMedia": 32,
+      "duplicateOccurrencesAvoided": 16,
+      "uniqueVideos": 9,
+      "uniqueImages": 23,
+      "gitLfsPointers": 0,
+      "embeddedBase64Media": 0,
+      "dataUriMedia": 0,
+      "externalMedia": "Only G1 og:image URL, backed by checked-out kick-poster.jpg; no external media downloaded.",
+      "missing": "one-g-website README mentions original 工业设计.pdf not uploaded; neither guessed nor downloaded. No missing local HTML/CSS/JS media references found.",
+      "inlineSvg": "Source HTML contains interface/accessory icons; inspected as markup, not copied as a site or icon system.",
+      "buildInputs": "No source build/package installation run. HTML, scripts, styles, README and tracked file inventory scanned; github-pages/check scripts read as text only."
+    }
+  },
+  "copy": [
+    {
+      "assetId": "video-d66a70232dec",
+      "outputs": [
+        {
+          "path": "/one-g/solutions/teleoperation/3pt-demo.mp4",
+          "bytes": 2890772,
+          "sha256": "5d35447203c09450265eb5d23aab90af4749cc36c6648d74ef8b88d7216a9a6f",
+          "kind": "video",
+          "derivedFrom": "d66a70232dece8fc1ad3a81d236423870715553d686468f26732055730daf23f"
+        },
+        {
+          "path": "/one-g/solutions/teleoperation/3pt-demo-poster.webp",
+          "bytes": 26200,
+          "sha256": "39b8ed94ec13642427148b9d23299270e1231631afcc21875f6b592b5cf53e77",
+          "kind": "poster",
+          "derivedFrom": "d66a70232dece8fc1ad3a81d236423870715553d686468f26732055730daf23f"
+        }
+      ]
+    },
+    {
+      "assetId": "video-a6d531d0395a",
+      "outputs": [
+        {
+          "path": "/one-g/solutions/teleoperation/camera-teleop.mp4",
+          "bytes": 2098593,
+          "sha256": "365ed43f0f50d31d6ac1846508cdd4b652b773096de9f6297e3bc76e91177e9a",
+          "kind": "video",
+          "derivedFrom": "a6d531d0395a6d02d9629bd56a92a23efdf41767471e5c7890fb478f89816c70"
+        },
+        {
+          "path": "/one-g/solutions/teleoperation/camera-teleop-poster.webp",
+          "bytes": 40580,
+          "sha256": "b1d7d2065345d263968636e723449a1206e011b3aee7ccb7c5eab915db41a35e",
+          "kind": "poster",
+          "derivedFrom": "a6d531d0395a6d02d9629bd56a92a23efdf41767471e5c7890fb478f89816c70"
+        }
+      ]
+    },
+    {
+      "assetId": "video-25a82aa2af0c",
+      "outputs": [
+        {
+          "path": "/one-g/solutions/intelligent-tasks/dance-video-motion.mp4",
+          "bytes": 4224178,
+          "sha256": "812fa2ff75675b318ad5aa03364d13e18e01c8808d24c46034683fe63f45fc96",
+          "kind": "video",
+          "derivedFrom": "25a82aa2af0c4fdfdd52721c684d51cf149afaf8a6120406e11048f672bbf606"
+        },
+        {
+          "path": "/one-g/solutions/intelligent-tasks/dance-video-motion-poster.webp",
+          "bytes": 88296,
+          "sha256": "df55c0c86acc2a5a414299a656c6829d35da50558ac6d3a4ebed5128c514740f",
+          "kind": "poster",
+          "derivedFrom": "25a82aa2af0c4fdfdd52721c684d51cf149afaf8a6120406e11048f672bbf606"
+        }
+      ]
+    },
+    {
+      "assetId": "video-7d355660562a",
+      "outputs": [
+        {
+          "path": "/one-g/solutions/intelligent-tasks/music-motion.mp4",
+          "bytes": 2511486,
+          "sha256": "3853ca7595671a439188ac13f77d2891226e43e44cb2f6a22398fe136282f180",
+          "kind": "video",
+          "derivedFrom": "7d355660562a94e64f8683ae986aa41974f49e3226ef5d1e568aa1c9808fd5d2"
+        },
+        {
+          "path": "/one-g/solutions/intelligent-tasks/music-motion-poster.webp",
+          "bytes": 13346,
+          "sha256": "363d480d68600beb9580b6e01e57427d63df3edb582460736aa8fc7c2db8ef78",
+          "kind": "poster",
+          "derivedFrom": "7d355660562a94e64f8683ae986aa41974f49e3226ef5d1e568aa1c9808fd5d2"
+        }
+      ]
+    },
+    {
+      "assetId": "video-1687f2756ac5",
+      "outputs": [
+        {
+          "path": "/one-g/solutions/teleoperation/wholebody-balance.mp4",
+          "bytes": 1067671,
+          "sha256": "686a0b5214345c454040eaba128f6858790509cbb39790197fce9216e045c62b",
+          "kind": "video",
+          "derivedFrom": "1687f2756ac5d9d0e585ac7d11bd75ead4de4681efaa6d736574f6b84448b29e"
+        },
+        {
+          "path": "/one-g/solutions/teleoperation/wholebody-balance-poster.webp",
+          "bytes": 30550,
+          "sha256": "b31d3f78f7ff795f4feee0dbecae59397cc48002a7384d09053587fd457178cb",
+          "kind": "poster",
+          "derivedFrom": "1687f2756ac5d9d0e585ac7d11bd75ead4de4681efaa6d736574f6b84448b29e"
+        }
+      ]
+    },
+    {
+      "assetId": "video-da7736a3223f",
+      "outputs": [
+        {
+          "path": "/one-g/solutions/handling/wholebody-pick.mp4",
+          "bytes": 1321588,
+          "sha256": "ca0b378624af4ea813f49878aee29178a3b1b32d25011e62ebb8e8c21e00524d",
+          "kind": "video",
+          "derivedFrom": "da7736a3223f32878ae99723a24271e1ad76b93f27e07f234c0b808da35f7014"
+        },
+        {
+          "path": "/one-g/solutions/handling/wholebody-pick-poster.webp",
+          "bytes": 31268,
+          "sha256": "bd1bcd0376a5335d817094ff8c35bc3f476d1d56efebca801c4317e95df00557",
+          "kind": "poster",
+          "derivedFrom": "da7736a3223f32878ae99723a24271e1ad76b93f27e07f234c0b808da35f7014"
+        }
+      ]
+    },
+    {
+      "assetId": "image-ead4b3e68fbb",
+      "outputs": [
+        {
+          "path": "/one-g/products/robotdock/robotdock-concept.webp",
+          "bytes": 102378,
+          "sha256": "d4f82403306fa9df79b94547da9e993fad6230865adc7261e23f800fbea42d29",
+          "kind": "image",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "derivedFrom": "ead4b3e68fbb9b81f64f0c056e28d433569ff5b455e1a35101329a94b77053d2"
+        }
+      ]
+    },
+    {
+      "assetId": "image-038f625105e7",
+      "outputs": [
+        {
+          "path": "/one-g/products/robotdock/installation-sketch.webp",
+          "bytes": 34824,
+          "sha256": "0776d05ab5dd71dd245a2bb5be31071059a35de95fe0045b2f4235f202a59719",
+          "kind": "image",
+          "dimensions": [
+            946,
+            1208
+          ],
+          "derivedFrom": "038f625105e7396aa71002d0cfd8c8cacafaa237ca8d48450ce282fd14df9d1d"
+        }
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "robodock-design-evidence",
+      "page": "/products/robotdock/#design-evidence",
+      "text": [
+        "概念图依据团队草图生成，安装草图用于讨论背部安装、专用线束与手腕连接件；两者均不代表最终结构、接口数量或实物交付。"
+      ],
+      "sourceUrl": "https://github.com/xuanqisun/robotdock-demo/blob/4b0e92f0f40f652241a123417dd1d54a06678074/README.md#L55",
+      "mediaIds": [
+        "image-038f625105e7",
+        "image-ead4b3e68fbb"
+      ],
+      "status": "source-supported-planning-only",
+      "originalEvidence": [
+        {
+          "file": "README.md",
+          "line": 58,
+          "text": "- 背包产品图为依据团队草图生成的 AI 概念效果图，不是实物照片。"
+        },
+        {
+          "file": "README.md",
+          "line": 67,
+          "text": "`one-g-logo.svg` / `one-g-symbol.svg`：用户公司 ONE-G Robotics 的原版矢量标识，取自所提供 AI 文件同目录的 SVG 导出版本。原版资产仅裁切画板空白。页头使用 `one-g-logo-horizontal.svg`：沿用同一原始矢量路径，单独缩放圆形与字标并调整间距，使导航栏中的圆形高度接近文字组合高度；未重绘字形或图形轮廓。页脚与图标保留原版资产。"
+        },
+        {
+          "file": "README.md",
+          "line": 69,
+          "text": "`design-sketch.png`：用户提供的设计参考草图。"
+        }
+      ]
+    },
+    {
+      "id": "robodock-compute-evidence",
+      "page": "/products/robotdock/#compute-evidence",
+      "text": [
+        "参考方案区分外部计算设备运行程序、背包内开发部署，以及按需适配预设应用三种使用方向。接入版主控暂定 Orin Nano 8GB，板载版暂定 Orin NX 16GB；这些是规划参数，尚非已验证规格。",
+        "基础 SDK、驱动与文档属于规划交付说明；ROS 2、DDS 与 Python 接口范围、存储容量、Web 功能及记录范围仍待验证或确认。应用示例限已验证组合，并需安装与标定，不代表所有外设或应用已交付。"
+      ],
+      "sourceUrl": "https://github.com/xuanqisun/robotdock-demo/blob/4b0e92f0f40f652241a123417dd1d54a06678074/dist/index.html#L48",
+      "mediaIds": [
+        "image-038f625105e7",
+        "image-ead4b3e68fbb"
+      ],
+      "status": "source-supported-planning-only",
+      "originalEvidence": [
+        {
+          "file": "README.md",
+          "line": 17,
+          "text": "- **基础接入版**：面向已有工作站或计算设备的团队，交付接入硬件、基础 SDK、驱动与文档；外部设备运行客户程序，背包提供数据与控制接口。"
+        },
+        {
+          "file": "README.md",
+          "line": 18,
+          "text": "- **板载开发版**：提供算力平台、基础 SDK 与开发环境，在背包内开发与部署程序，通过 SSH 或本机接口接入。"
+        },
+        {
+          "file": "README.md",
+          "line": 19,
+          "text": "- **板载应用版**：开发版全部内容加选配应用包，通过 Web 使用预设程序，通过开放接口进行二次开发。"
+        },
+        {
+          "file": "README.md",
+          "line": 20,
+          "text": "- 主控暂定：接入版 Orin Nano 8GB，板载开发版与应用版 Orin NX 16GB。存储规格、应用性能、基础 Web 与记录范围待验证 / 确认。"
+        },
+        {
+          "file": "README.md",
+          "line": 24,
+          "text": "- 应用包限已验证的 G1、外设与软件组合，需必要安装与标定；二次开发范围按应用包约定。应用示例不代表所有组合已经交付。"
+        }
+      ]
+    },
+    {
+      "id": "robodock-safety-evidence",
+      "page": "/products/robotdock/#safety-evidence",
+      "text": [
+        "集中供电与保护、CAN / RS-485 / Ethernet / USB 均为规划方案。电压、功率、取电方式、接口数量和电气规格没有确认数值；不能从概念图推导。",
+        "换装构想要求暂停任务、安全停稳、外设独立断电，换装后加载对应配置。G1+ 适配、分路供电控制与热插拔仍待验证；不将设计目标表述为带电换装能力。"
+      ],
+      "sourceUrl": "https://github.com/xuanqisun/robotdock-demo/blob/4b0e92f0f40f652241a123417dd1d54a06678074/dist/index.html#L78",
+      "mediaIds": [
+        "image-038f625105e7",
+        "image-ead4b3e68fbb"
+      ],
+      "status": "source-supported-planning-only",
+      "originalEvidence": [
+        {
+          "file": "README.md",
+          "line": 59,
+          "text": "- 团队已接通过智元夹爪；具体型号、G1 版本和量产适配仍待确认。"
+        },
+        {
+          "file": "README.md",
+          "line": 60,
+          "text": "- 灵巧手与相机品牌型号、接口数量、供电参数、售价和交付日期尚未确认。"
+        },
+        {
+          "file": "README.md",
+          "line": 61,
+          "text": "- 页面中的即插即用是已适配组合的设计目标，不意味着任意设备兼容或带电热插拔。"
+        },
+        {
+          "file": "README.md",
+          "line": 62,
+          "text": "- 换装规划改为外设独立断电、换装后加载配置，以减少整机重启。宇树 G1+ 官方页已公布外接供电能力，但不能据此认定外设支持热插拔；背包分路供电控制、G1+ 适配与换装流程仍需验证。参考：https://www.unitree.com/cn/G1plus/"
+        }
+      ]
+    },
+    {
+      "id": "3pt-demo",
+      "page": "/solutions/teleoperation/",
+      "text": [
+        "三点 VR 遥操作",
+        "头显与两个手柄提供头部、双手输入；来源说明通过摇杆控制前后移动，无需脚踝追踪器。",
+        "来源将此模式链接至 SONIC Link 三点方案；视频未确认采集设备具体型号、软件版本或 RoboDock 驱动关系。",
+        "真实设备 · 研究演示",
+        "研究演示 · AI-CDR Center（Center for Artificial Intelligence and Cross-Domain Robotics）"
+      ],
+      "sourceUrl": "https://github.com/xuanqisun/g1-humanoid-teleoperation/blob/0b1671685a9e075af44d60d16f89c75f090bc6aa/index.html#L186",
+      "mediaIds": [
+        "video-d66a70232dec"
+      ],
+      "status": "source-and-timeline-supported; no device/performance verification"
+    },
+    {
+      "id": "wholebody-balance",
+      "page": "/solutions/teleoperation/",
+      "text": [
+        "全身遥操作：单腿平衡",
+        "来源列出头显、双手柄与脚踝追踪器，画面展示操作者与 G1 的抬臂、抬腿和平衡动作。",
+        "来源链接 SONIC Link 全身方案；这是受控场地研究演示，不证明任意动作复现、通用稳定性或 RoboDock 接入。",
+        "真实设备 · 研究演示",
+        "研究演示 · AI-CDR Center（Center for Artificial Intelligence and Cross-Domain Robotics）"
+      ],
+      "sourceUrl": "https://github.com/xuanqisun/g1-humanoid-teleoperation/blob/0b1671685a9e075af44d60d16f89c75f090bc6aa/index.html#L97",
+      "mediaIds": [
+        "video-1687f2756ac5"
+      ],
+      "status": "source-and-timeline-supported; no device/performance verification"
+    },
+    {
+      "id": "camera-teleop",
+      "page": "/solutions/teleoperation/",
+      "text": [
+        "单摄像头、无穿戴遥操作",
+        "来源说明使用单目相机捕捉人体动作，画面中操作者未佩戴头显或手柄，G1 配合展示上肢和身体动作。",
+        "相关演示候选：未找到此模式与当前 SONIC Link 软件或 RoboDock 的明确对应；相机型号与部署条件待确认。",
+        "相关研究 · 方案归属待确认",
+        "研究演示 · AI-CDR Center（Center for Artificial Intelligence and Cross-Domain Robotics）"
+      ],
+      "sourceUrl": "https://github.com/xuanqisun/g1-humanoid-teleoperation/blob/0b1671685a9e075af44d60d16f89c75f090bc6aa/index.html#L322",
+      "mediaIds": [
+        "video-a6d531d0395a"
+      ],
+      "status": "source-and-timeline-supported; no device/performance verification"
+    },
+    {
+      "id": "wholebody-pick",
+      "page": "/solutions/#handling",
+      "text": [
+        "人工遥操作：抓取与取放",
+        "画面展示佩戴 VR 设备的操作者引导 G1 俯身抓取并提起玩偶。来源将其归为全身遥操作的抓取演示。",
+        "仅说明人工遥操作抓取验证；未证明自主搬运、载荷、节拍或由 RoboDock 驱动。",
+        "人工遥操作 · 真实设备",
+        "研究演示 · AI-CDR Center（Center for Artificial Intelligence and Cross-Domain Robotics）"
+      ],
+      "sourceUrl": "https://github.com/xuanqisun/g1-humanoid-teleoperation/blob/0b1671685a9e075af44d60d16f89c75f090bc6aa/index.html#L132",
+      "mediaIds": [
+        "video-da7736a3223f"
+      ],
+      "status": "source-and-timeline-supported; no device/performance verification"
+    },
+    {
+      "id": "dance-video-motion",
+      "page": "/solutions/#ai",
+      "text": [
+        "舞蹈视频到动作",
+        "来源将此片段描述为舞蹈视频动作复现；画面展示 G1 在室内完成连续舞蹈动作。",
+        "相关研究演示；片段未展示输入视频、处理流程或训练方法，不等于自主规划，也未确认属于 SONIC Link 应用包。",
+        "真实设备 · 相关研究",
+        "研究演示 · AI-CDR Center（Center for Artificial Intelligence and Cross-Domain Robotics）"
+      ],
+      "sourceUrl": "https://github.com/xuanqisun/g1-humanoid-teleoperation/blob/0b1671685a9e075af44d60d16f89c75f090bc6aa/index.html#L369",
+      "mediaIds": [
+        "video-25a82aa2af0c"
+      ],
+      "status": "source-and-timeline-supported; no device/performance verification"
+    },
+    {
+      "id": "music-motion",
+      "page": "/solutions/#ai",
+      "text": [
+        "音乐驱动动作：仿真",
+        "来源描述音乐驱动全身动作；实际画面为虚拟场景中的人形模型舞动，并非真实设备实拍。",
+        "仅作仿真研究展示；未确认模型权属、算法交付或与 SONIC Link、RoboDock 的集成，不代表通用智能或自主任务能力。",
+        "仿真 · 相关研究",
+        "研究演示 · AI-CDR Center（Center for Artificial Intelligence and Cross-Domain Robotics）"
+      ],
+      "sourceUrl": "https://github.com/xuanqisun/g1-humanoid-teleoperation/blob/0b1671685a9e075af44d60d16f89c75f090bc6aa/index.html#L418",
+      "mediaIds": [
+        "video-7d355660562a"
+      ],
+      "status": "source-and-timeline-supported; no device/performance verification"
+    },
+    {
+      "id": "console-ui",
+      "page": "/solutions/teleoperation/#workflow",
+      "sourceUrl": "https://github.com/xuanqisun/sonic-link-demo/blob/d6f8b26b1cdc3f56f6b6e4091342a56228527b9c/README.md#L29",
+      "text": [
+        "Early console screenshot is UI demonstration; no real backend/device connection established. Historical three-point label retained."
+      ],
+      "mediaIds": [
+        "image-6b2233dac216"
+      ],
+      "status": "historical-UI-only"
+    },
+    {
+      "id": "robodock-specifications",
+      "page": "/products/robotdock/specs/",
+      "text": [
+        "基础 SDK / 驱动 / 文档（规划）",
+        "ROS 2、DDS 与 Python 接口范围待确认。",
+        "主控规划",
+        "接入版 Orin Nano 8GB；板载版 Orin NX 16GB",
+        "暂定规划，性能与适配仍需验证。",
+        "存储容量",
+        "容量与规格待确认"
+      ],
+      "sourceUrl": "https://github.com/xuanqisun/robotdock-demo/blob/4b0e92f0f40f652241a123417dd1d54a06678074/dist/index.html#L78",
+      "originalEvidence": {
+        "file": "dist/index.html",
+        "line": 82,
+        "text": "          <dl class=\"spec-table\"><div><dt>通信接口</dt><dd>CAN / RS-485 / Ethernet / USB <small>拟定</small></dd></div><div><dt>供电能力</dt><dd>集中供电与保护 <small>电压、功率及取电方式待确认</small></dd></div><div><dt>基础软件</dt><dd>基础 SDK、驱动与文档<small>ROS 2 / DDS / Python 接口范围待确认</small></dd></div><div><dt>接入版主控</dt><dd>Orin Nano 8GB <small>暂定 · 客户程序运行于外部计算设备</small></dd></div><div><dt>板载版主控</dt><dd>Orin NX 16GB <small>暂定 · 适用于板载开发版与板载应用版</small></dd></div><div><dt>开发与使用</dt><dd>开发版：SSH 或本机接口<br>应用版：Web 预设程序 + 开放接口<small>应用性能、基础 Web 与记录范围待验证 / 确认</small></dd></div><div><dt>存储容量</dt><dd>按项目需求选配 <small>容量与规格待确认</small></dd></div><div><dt>安装方式</dt><dd>背部安装 + 专用线束 + 手腕转接件</dd></div><div><dt>换装方式</dt><dd>外设独立断电换装（规划）<small>暂停任务、安全停稳后换装并加载配置，减少整机重启</small><small>G1+ 适配、分路供电控制及热插拔能力待验证</small></dd></div><div><dt>尺寸 / 重量</dt><dd>待结构设计与样机验证后公布</dd></div><div><dt>交付版本</dt><dd>基础接入版 / 板载开发版 / 板载应用版</dd></div><div><dt>外设选配</dt><dd>夹爪 / 灵巧手 / 腕部相机<small>可同时选择、分别调整数量；具体型号与安装组合按方案确认</small></dd></div></dl>"
+      },
+      "status": "planning-only; existing purchase options retained"
+    }
+  ],
+  "translations": {
+    "file": "src/i18n/dictionary.ts",
+    "newMessages": {
+      "研究演示 · AI-CDR Center（Center for Artificial Intelligence and Cross-Domain Robotics）": "Research demonstration · AI-CDR Center (Center for Artificial Intelligence and Cross-Domain Robotics)",
+      "三点 VR 遥操作": "Three-point VR teleoperation",
+      "头显与两个手柄提供头部、双手输入；来源说明通过摇杆控制前后移动，无需脚踝追踪器。": "A headset and two controllers provide head and hand inputs. The source describes joystick control for forward and backward movement, without ankle trackers.",
+      "来源将此模式链接至 SONIC Link 三点方案；视频未确认采集设备具体型号、软件版本或 RoboDock 驱动关系。": "The source links this mode to the SONIC Link three-point solution. The clip does not establish the exact tracking hardware, software version or use of RoboDock.",
+      "真实设备 · 研究演示": "Physical robot · Research demo",
+      "来源与演示说明 ↗": "Source and demonstration notes ↗",
+      "全身遥操作：单腿平衡": "Full-body teleoperation: single-leg balance",
+      "来源列出头显、双手柄与脚踝追踪器，画面展示操作者与 G1 的抬臂、抬腿和平衡动作。": "The source lists a headset, two controllers and ankle trackers. The footage shows an operator and G1 raising arms and legs and performing balance motions.",
+      "来源链接 SONIC Link 全身方案；这是受控场地研究演示，不证明任意动作复现、通用稳定性或 RoboDock 接入。": "The source links to the SONIC Link full-body solution. This controlled-site research demo does not establish arbitrary motion reproduction, general stability or RoboDock integration.",
+      "单摄像头、无穿戴遥操作": "Single-camera teleoperation without wearables",
+      "来源说明使用单目相机捕捉人体动作，画面中操作者未佩戴头显或手柄，G1 配合展示上肢和身体动作。": "The source describes monocular motion capture. The footage shows an operator without a headset or controllers alongside G1 performing arm and body motions.",
+      "相关演示候选：未找到此模式与当前 SONIC Link 软件或 RoboDock 的明确对应；相机型号与部署条件待确认。": "Related demonstration candidate: no explicit mapping to current SONIC Link software or RoboDock was found. Camera model and deployment conditions remain unconfirmed.",
+      "相关研究 · 方案归属待确认": "Related research · Solution mapping unconfirmed",
+      "人工遥操作：抓取与取放": "Manual teleoperation: reaching and picking",
+      "画面展示佩戴 VR 设备的操作者引导 G1 俯身抓取并提起玩偶。该片段也以 teleoperation-demo.mp4 出现在 one-g-website，内容哈希一致。": "The footage shows a VR-equipped operator guiding G1 to bend down, grasp and lift a plush toy. The same clip appears as teleoperation-demo.mp4 in one-g-website, with an identical content hash.",
+      "仅说明人工遥操作抓取验证；未证明自主搬运、载荷、节拍或由 RoboDock 驱动。": "This illustrates manual teleoperation grasping validation only. It does not establish autonomous handling, payload, cycle time or operation through RoboDock.",
+      "人工遥操作 · 真实设备": "Manual teleoperation · Physical robot",
+      "舞蹈视频到动作": "Dance video to motion",
+      "来源将此片段描述为舞蹈视频动作复现；画面展示 G1 在室内完成连续舞蹈动作。": "The source describes motion recreation from a dance video. The footage shows G1 performing a continuous dance sequence indoors.",
+      "相关研究演示；片段未展示输入视频、处理流程或训练方法，不等于自主规划，也未确认属于 SONIC Link 应用包。": "Related research demo. The clip does not show the input video, processing pipeline or training method. It does not establish autonomous planning or inclusion in a SONIC Link application package.",
+      "真实设备 · 相关研究": "Physical robot · Related research",
+      "音乐驱动动作：仿真": "Music-driven motion: simulation",
+      "来源描述音乐驱动全身动作；实际画面为虚拟场景中的人形模型舞动，并非真实设备实拍。": "The source describes music-driven full-body motion. The actual footage shows a humanoid model dancing in a virtual scene, rather than a physical robot recording.",
+      "仅作仿真研究展示；未确认模型权属、算法交付或与 SONIC Link、RoboDock 的集成，不代表通用智能或自主任务能力。": "Simulation research display only. Model ownership, algorithm delivery and integration with SONIC Link or RoboDock are unconfirmed. This does not establish general intelligence or autonomous task capability.",
+      "仿真 · 相关研究": "Simulation · Related research",
+      "画面展示佩戴 VR 设备的操作者引导 G1 俯身抓取并提起玩偶。来源将其归为全身遥操作的抓取演示。": "The footage shows a VR-equipped operator guiding G1 to bend down, grasp and lift a plush toy. The source presents it as a full-body teleoperation reaching and picking demo.",
+      "播放演示": "Play demonstration",
+      "视频暂时无法加载，请稍后重试或查看来源说明。": "The video could not be loaded. Please retry later or see the source notes.",
+      "重试加载": "Retry loading",
+      "视频无法播放时可查看来源说明。": "If the video cannot play, see the source notes.",
+      "遥操作研究演示": "Teleoperation research demonstrations",
+      "前两项 VR 模式有来源中的 SONIC Link 方案链接；单摄像头属于相关研究候选。演示不提供设备控制入口。": "The first two VR modes have source links to SONIC Link solutions; single-camera control is related research with an unconfirmed solution mapping. These demos provide no device-control interface.",
+      "动作研究与仿真": "Motion research and simulation",
+      "以下为相关研究演示，不是已交付的自主任务或通用智能功能。": "These are related research demos, not delivered autonomous-task or general-intelligence capabilities.",
+      "媒体出处": "Media source",
+      "外观与安装构想": "Appearance and installation concept",
+      "概念图依据团队草图生成，安装草图用于讨论背部安装、专用线束与手腕连接件；两者均不代表最终结构、接口数量或实物交付。": "The concept rendering was generated from the team sketch. The installation sketch supports discussion of back mounting, dedicated wiring and wrist connectors. Neither establishes the final structure, port count or delivered hardware.",
+      "计算与外设接入 · 规划说明": "Compute and peripheral connections · Planning notes",
+      "参考方案区分外部计算设备运行程序、背包内开发部署，以及按需适配预设应用三种使用方向。接入版主控暂定 Orin Nano 8GB，板载版暂定 Orin NX 16GB；这些是规划参数，尚非已验证规格。": "The reference distinguishes programs running on external compute, onboard development and deployment, and adaptation of preset applications. Proposed controllers are Orin Nano 8GB for access and Orin NX 16GB for onboard versions. These are planning parameters, not validated specifications.",
+      "基础 SDK、驱动与文档属于规划交付说明；ROS 2、DDS 与 Python 接口范围、存储容量、Web 功能及记录范围仍待验证或确认。应用示例限已验证组合，并需安装与标定，不代表所有外设或应用已交付。": "The basic SDK, drivers and documentation are described as planned deliverables. ROS 2, DDS and Python interface scope, storage capacity, Web functions and recording scope still require validation or confirmation. Application examples are limited to validated combinations and require installation and calibration; they do not establish delivery of every peripheral or application.",
+      "供电与安全换装边界": "Power and safe replacement boundaries",
+      "集中供电与保护、CAN / RS-485 / Ethernet / USB 均为规划方案。电压、功率、取电方式、接口数量和电气规格没有确认数值；不能从概念图推导。": "Centralized power and protection, CAN / RS-485 / Ethernet / USB are planned. Voltage, power, power source, port counts and electrical specifications have no confirmed values and cannot be inferred from the concept rendering.",
+      "换装构想要求暂停任务、安全停稳、外设独立断电，换装后加载对应配置。G1+ 适配、分路供电控制与热插拔仍待验证；不将设计目标表述为带电换装能力。": "The replacement concept requires pausing the task, reaching a safe stop, powering down the peripheral independently and loading its configuration after replacement. G1+ adaptation, branch power control and hot swapping still need validation; the design goal is not a claim of live replacement capability.",
+      "早期控制台界面演示 · 截图中的状态与检查记录不证明已连接真实后台或设备。三点“待开发”为历史标注；GEM 不在本方案范围内，交付界面与运行条件待确认。": "Early console UI demonstration · Status indicators and check records in the screenshot do not establish a connection to a real backend or device. The three-point development label is historical; GEM is outside this solution. The delivered interface and operating conditions remain unconfirmed.",
+      "基础 SDK / 驱动 / 文档（规划）": "Basic SDK / drivers / documentation (planned)",
+      "ROS 2、DDS 与 Python 接口范围待确认。": "The scope of ROS 2, DDS and Python interfaces remains unconfirmed.",
+      "主控规划": "Proposed controller",
+      "接入版 Orin Nano 8GB；板载版 Orin NX 16GB": "Access version: Orin Nano 8GB; onboard versions: Orin NX 16GB",
+      "暂定规划，性能与适配仍需验证。": "Provisional plan; performance and adaptation still require validation.",
+      "存储容量": "Storage capacity",
+      "容量与规格待确认": "Capacity and specifications remain unconfirmed"
+    },
+    "evidence": "Each English message inherits the Chinese source scope; presentation/error strings are site-authored."
+  },
+  "totals": {
+    "publicBytesBefore": 14835336,
+    "publicBytesAfter": 29317066,
+    "selectedVideos": 6,
+    "newSourceImagesCopied": 0,
+    "existingSourceImagesReused": 6,
+    "generatedPosters": 6,
+    "optimizedExistingImages": 2,
+    "originalsRetainedOutsidePublic": "/home/lsh/one-g-media-originals/2026-10-21 (selected videos); existing original product PNG/JPG files unchanged; all other sources remain in isolated checkouts.",
+    "publicBytesDelta": 14481730
+  },
+  "validation": {
+    "report": "docs/reviews/media-integration/verification.md",
+    "browser": "docs/reviews/media-integration/browser-results.json",
+    "assetChecks": "docs/reviews/media-integration/asset-checks.json",
+    "regression": "docs/reviews/media-integration/regression-results.json",
+    "lint": "passed",
+    "typecheck": "npx tsc --noEmit passed",
+    "build": "npm run build passed; 38 static pages",
+    "unitTests": "4 test files passed",
+    "screenshotsRetained": 11,
+    "limitations": [
+      "No real-time human audiovisual viewing; full-duration decode and 0.5-second visual timeline review plus complete 4x browser playback",
+      "No hardware/control-stack validation",
+      "No real handset, Firefox or Safari validation"
+    ]
+  }
+}

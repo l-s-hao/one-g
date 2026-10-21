@@ -108,7 +108,7 @@ export default function VerificationLogin({ switching = false }: { switching?: b
               <LButton intent="ordinary" type="button" className="shrink-0 rounded-xl border border-current px-3 text-sm" disabled={!mockAuthEnabled || !!pending || seconds > 0} onClick={send}>{pending === "send" ? "发送中…" : seconds > 0 ? `${seconds} 秒后重发` : "获取验证码"}</LButton></LDiv>
           </LDiv>
           <LP id="verification-message" role="alert" className="text-sm">{message}</LP><LP role="status" className="text-sm">{notice}</LP>
-          <LButton effect="specular" intent="ordinary" type="submit" className="h-12 w-full rounded-full bg-white text-sm font-semibold text-black disabled:opacity-50" disabled={!mockAuthEnabled || !authReady || !!pending || (!challenge && !shortcut)}>{pending === "verify" ? "验证中…" : mockAuthEnabled ? "登录 ONE-G（演示）" : "登录暂未开放"}</LButton>
+          <LButton effect="invert" effectSurface="card" intent="ordinary" type="submit" className="h-12 w-full rounded-full text-sm font-semibold disabled:opacity-50" disabled={!mockAuthEnabled || !authReady || !!pending || (!challenge && !shortcut)}>{pending === "verify" ? "验证中…" : mockAuthEnabled ? "登录 ONE-G（演示）" : "登录暂未开放"}</LButton>
         </LForm>
       </LDiv>
     </LSection>

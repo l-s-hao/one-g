@@ -1,17 +1,15 @@
 "use client";
-import { createElement, type ComponentPropsWithRef, type ReactNode } from "react";
-import SpecularEdge from "@/components/specular/SpecularEdge";
+import { createElement, type ComponentPropsWithRef, type ReactNode, type MouseEvent, type KeyboardEvent } from "react";
 import NextLink from "next/link";
 import NextImage from "next/image";
 import { translate, useLocale } from "./LocaleProvider";
 
-type ActionProps = { intent?: "ordinary" | "purchase"; effect?: "specular" };
+type ActionProps = { intent?: "ordinary" | "purchase"; effect?: "invert"; effectVariant?: "primary" | "secondary"; effectSurface?: "page" | "card" | "inset" };
 function actionPresentation<T extends { children?: ReactNode }>(props: T & ActionProps) {
-  const { intent, effect, ...rest } = props;
+  const { intent, effect, effectVariant, effectSurface, ...rest } = props;
   return { ...rest, ...(intent ? { "data-button-intent": intent } : {}),
-    ...(effect === "specular" ? { "data-specular-host": true, children: <>
-      <SpecularEdge /><span className="action-text">{rest.children}</span>
-    </> } : {}) };
+    ...(effect === "invert" ? { "data-button-effect": "invert", "data-invert-variant": effectVariant ?? "primary", "data-invert-surface": effectSurface ?? "page",
+      children: <span className="action-text">{rest.children}</span> } : {}) };
 }
 
 // Localise only presentation. No DOM mutation, value/ID translation or subtree remount.
@@ -26,12 +24,27 @@ function usePresentation<T extends { children?: ReactNode }>(props: T): T {
   next.children = text(props.children);
   return next;
 }
-export function LocalizedLink(props: ComponentPropsWithRef<typeof NextLink> & ActionProps) { return createElement(NextLink, actionPresentation(usePresentation(props))); }
+function disabledAction<T extends HTMLElement>(props: {
+  "aria-disabled"?: boolean | "true" | "false";
+  onKeyDown?: (event: KeyboardEvent<T>) => void;
+}) {
+  if (props["aria-disabled"] !== true && props["aria-disabled"] !== "true") return {};
+  return {
+    onClick: (event: MouseEvent<T>) => { event.preventDefault(); event.stopPropagation(); },
+    onKeyDown: (event: KeyboardEvent<T>) => {
+      if (event.key === "Enter" || event.key === " ") { event.preventDefault(); event.stopPropagation(); }
+      else props.onKeyDown?.(event);
+    },
+  };
+}
+export function LocalizedLink(props: ComponentPropsWithRef<typeof NextLink> & ActionProps) {
+  return createElement(NextLink, { ...actionPresentation(usePresentation(props)), ...disabledAction<HTMLAnchorElement>(props) });
+}
 export function LocalizedImage(props: ComponentPropsWithRef<typeof NextImage>) { return createElement(NextImage, usePresentation(props)); }
-export function LA(props: ComponentPropsWithRef<"a"> & ActionProps) { return createElement("a", actionPresentation(usePresentation(props))); }
+export function LA(props: ComponentPropsWithRef<"a"> & ActionProps) { return createElement("a", { ...actionPresentation(usePresentation(props)), ...disabledAction<HTMLAnchorElement>(props) }); }
 export function LArticle(props: ComponentPropsWithRef<"article">) { return createElement("article", usePresentation(props)); }
 export function LBr(props: ComponentPropsWithRef<"br">) { return createElement("br", usePresentation(props)); }
-export function LButton(props: ComponentPropsWithRef<"button"> & ActionProps) { return createElement("button", actionPresentation(usePresentation(props))); }
+export function LButton(props: ComponentPropsWithRef<"button"> & ActionProps) { return createElement("button", { ...actionPresentation(usePresentation(props)), ...disabledAction<HTMLButtonElement>(props) }); }
 export function LDd(props: ComponentPropsWithRef<"dd">) { return createElement("dd", usePresentation(props)); }
 export function LDialog(props: ComponentPropsWithRef<"dialog">) { return createElement("dialog", usePresentation(props)); }
 export function LDiv(props: ComponentPropsWithRef<"div">) { return createElement("div", usePresentation(props)); }

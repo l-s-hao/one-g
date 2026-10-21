@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "Theme/language switch retains form node and entered draft; dialog closes without effect overlay",
+    "Account secondary switch retains logout and /login?mode=switch target",
+    "Home Layout Grid expanded primary Link remains clickable with real navigation",
+    "Product card hover keeps compact links unchanged; header excluded"
+  ],
+  "errors": [],
+  "passed": true
+}

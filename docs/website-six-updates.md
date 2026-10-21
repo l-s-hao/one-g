@@ -40,7 +40,9 @@ Preference restoration happens after mount. useSyncExternalStore supplies the Ch
 
 Coverage includes Header/search/menu, Footer, homepage, products/filters/details/specifications, purchase packages/payment notes, solutions, About, custom engineering, sign-in/verification/errors, account/admin layout and controls, cart/checkout/order states, support form/preview/validation, alt and accessible names. Stable business values remain Chinese-independent. Currency remains CNY and payment integration status is unchanged. Admin gets the same compact language switch; mobile navigation also exposes it.
 
-## Font audit: retained
+## Font audit: retained (historical snapshot)
+
+> This section records the earlier system-font implementation. The current homepage no longer mounts TechText. The 2026-10-21 [font audit](./font-audit.md) supersedes the active-font/loading conclusions below with locally hosted OFL Inter Variable and Noto Sans SC; the inactive source Inter asset remains retained.
 
 There is no next/font usage, @font-face declaration, remote font dependency or public font bundle. The existing global declaration remains Arial, Helvetica, sans-serif, with Arial/Helvetica/sans-serif in the Tailwind token. TechText inherits this family and calls document.fonts.load/ready to remeasure and redraw. Its fontWeight remains 600; page weights and type scale are unchanged. The effect label font is a system monospace stack, without embedded commercial font files.
 

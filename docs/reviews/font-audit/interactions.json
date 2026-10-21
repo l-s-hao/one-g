@@ -1,0 +1,298 @@
+{
+  "checks": [
+    {
+      "locale": "zh-CN",
+      "hero": "title spans fit clipping containers",
+      "layoutGrid": "expand and actual Link navigation passed"
+    },
+    {
+      "locale": "zh-CN",
+      "about": {
+        "before": {
+          "clipPath": "inset(21% 29% round 24px)"
+        },
+        "after": {
+          "clipPath": "inset(2.76982% 3.82499% round 3.16551px)"
+        },
+        "scrollExpand": "passed"
+      }
+    },
+    {
+      "locale": "en",
+      "hero": "title spans fit clipping containers",
+      "layoutGrid": "expand and actual Link navigation passed"
+    },
+    {
+      "locale": "en",
+      "about": {
+        "before": {
+          "clipPath": "inset(21% 29% round 24px)"
+        },
+        "after": {
+          "clipPath": "inset(2.85169% 3.93804% round 3.25907px)"
+        },
+        "scrollExpand": "passed"
+      }
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "contact": "Chinese name and long email fit dialog; local preview passed"
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "contact": "Chinese name and long email fit dialog; local preview passed"
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "contact": "Chinese name and long email fit dialog; local preview passed"
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "contact": "Chinese name and long email fit dialog; local preview passed"
+    }
+  ],
+  "navigation": [
+    {
+      "locale": "zh-CN",
+      "bounds": {
+        "item": {
+          "left": 574.140625,
+          "width": 52.015625
+        },
+        "highlight": {
+          "left": 574.140625,
+          "width": 52.015625
+        }
+      },
+      "menuFonts": [
+        {
+          "familyName": "Inter Variable",
+          "postScriptName": "InterVariable",
+          "isCustomFont": true,
+          "glyphCount": 3
+        },
+        {
+          "familyName": "Noto Sans SC Thin",
+          "postScriptName": "NotoSansSC-Thin",
+          "isCustomFont": true,
+          "glyphCount": 9
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "bounds": {
+        "item": {
+          "left": 589.5625,
+          "width": 31.796875
+        },
+        "highlight": {
+          "left": 589.5625,
+          "width": 31.796875
+        }
+      },
+      "menuFonts": [
+        {
+          "familyName": "Inter Variable",
+          "postScriptName": "InterVariable",
+          "isCustomFont": true,
+          "glyphCount": 30
+        }
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "bounds": {
+        "left": 440,
+        "right": 1000,
+        "width": 560,
+        "viewport": 1440,
+        "scrollWidth": 558,
+        "clientWidth": 558
+      },
+      "labelFonts": [
+        {
+          "familyName": "Noto Sans SC Thin",
+          "postScriptName": "NotoSansSC-Thin",
+          "isCustomFont": true,
+          "glyphCount": 6
+        }
+      ],
+      "nameFonts": [
+        {
+          "familyName": "Noto Sans SC Thin",
+          "postScriptName": "NotoSansSC-Thin",
+          "isCustomFont": true,
+          "glyphCount": 2
+        }
+      ],
+      "emailFonts": [
+        {
+          "familyName": "Inter Variable",
+          "postScriptName": "InterVariable",
+          "isCustomFont": true,
+          "glyphCount": 47
+        }
+      ],
+      "buttonFonts": [
+        {
+          "familyName": "Noto Sans SC Thin",
+          "postScriptName": "NotoSansSC-Thin",
+          "isCustomFont": true,
+          "glyphCount": 4
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "bounds": {
+        "left": 440,
+        "right": 1000,
+        "width": 560,
+        "viewport": 1440,
+        "scrollWidth": 558,
+        "clientWidth": 558
+      },
+      "labelFonts": [
+        {
+          "familyName": "Inter Variable",
+          "postScriptName": "InterVariable",
+          "isCustomFont": true,
+          "glyphCount": 14
+        }
+      ],
+      "nameFonts": [
+        {
+          "familyName": "Noto Sans SC Thin",
+          "postScriptName": "NotoSansSC-Thin",
+          "isCustomFont": true,
+          "glyphCount": 2
+        }
+      ],
+      "emailFonts": [
+        {
+          "familyName": "Inter Variable",
+          "postScriptName": "InterVariable",
+          "isCustomFont": true,
+          "glyphCount": 47
+        }
+      ],
+      "buttonFonts": [
+        {
+          "familyName": "Inter Variable",
+          "postScriptName": "InterVariable",
+          "isCustomFont": true,
+          "glyphCount": 20
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "bounds": {
+        "left": 19,
+        "right": 371,
+        "width": 352,
+        "viewport": 390,
+        "scrollWidth": 350,
+        "clientWidth": 350
+      },
+      "labelFonts": [
+        {
+          "familyName": "Noto Sans SC Thin",
+          "postScriptName": "NotoSansSC-Thin",
+          "isCustomFont": true,
+          "glyphCount": 6
+        }
+      ],
+      "nameFonts": [
+        {
+          "familyName": "Noto Sans SC Thin",
+          "postScriptName": "NotoSansSC-Thin",
+          "isCustomFont": true,
+          "glyphCount": 2
+        }
+      ],
+      "emailFonts": [
+        {
+          "familyName": "Inter Variable",
+          "postScriptName": "InterVariable",
+          "isCustomFont": true,
+          "glyphCount": 47
+        }
+      ],
+      "buttonFonts": [
+        {
+          "familyName": "Noto Sans SC Thin",
+          "postScriptName": "NotoSansSC-Thin",
+          "isCustomFont": true,
+          "glyphCount": 4
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "bounds": {
+        "left": 19,
+        "right": 371,
+        "width": 352,
+        "viewport": 390,
+        "scrollWidth": 350,
+        "clientWidth": 350
+      },
+      "labelFonts": [
+        {
+          "familyName": "Inter Variable",
+          "postScriptName": "InterVariable",
+          "isCustomFont": true,
+          "glyphCount": 14
+        }
+      ],
+      "nameFonts": [
+        {
+          "familyName": "Noto Sans SC Thin",
+          "postScriptName": "NotoSansSC-Thin",
+          "isCustomFont": true,
+          "glyphCount": 2
+        }
+      ],
+      "emailFonts": [
+        {
+          "familyName": "Inter Variable",
+          "postScriptName": "InterVariable",
+          "isCustomFont": true,
+          "glyphCount": 47
+        }
+      ],
+      "buttonFonts": [
+        {
+          "familyName": "Inter Variable",
+          "postScriptName": "InterVariable",
+          "isCustomFont": true,
+          "glyphCount": 20
+        }
+      ]
+    }
+  ],
+  "canvasCalls": [
+    {
+      "locale": "zh-CN",
+      "calls": []
+    },
+    {
+      "locale": "en",
+      "calls": []
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

@@ -64,7 +64,7 @@ export default function CheckoutPage() {
       </LSection>
       <LSection className="rounded-3xl border border-white/10 bg-[#0d0d0d] p-7"><PaymentSelector value={payment} onChange={selectPayment} disabled={pending}/>
         <LH2 className="mt-8 text-xl font-bold">联系人信息</LH2><LP className="mt-3 text-sm text-white/55">正式订单服务未接入，演示不收集真实收货资料。</LP>
-        <LDiv className="checkout-dock mobile-checkout-bar"><LButton effect="specular" intent="purchase" type="button" onClick={create} disabled={blocked || !mockCommerceEnabled || !ready || pending || !!configuration || !payment || !items.length || total === undefined} className="mt-7 rounded-full bg-white px-6 py-3 text-sm font-semibold text-black disabled:opacity-50">{pending ? "正在创建…" : mockCommerceEnabled ? "创建演示待支付订单" : "订单服务尚未接入"}</LButton></LDiv>
+        <LDiv className="checkout-dock mobile-checkout-bar"><LButton effect="invert" effectSurface="card" intent="purchase" type="button" onClick={create} disabled={blocked || !mockCommerceEnabled || !ready || pending || !!configuration || !payment || !items.length || total === undefined} className="mt-7 rounded-full px-6 py-3 text-sm font-semibold disabled:opacity-50">{pending ? "正在创建…" : mockCommerceEnabled ? "创建演示待支付订单" : "订单服务尚未接入"}</LButton></LDiv>
         <LP role="alert" className="mt-4 text-sm">{message}</LP>
       </LSection>
     </LDiv>

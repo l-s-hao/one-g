@@ -1,0 +1,18 @@
+{
+  "g1-humanoid-teleoperation": {
+    "status": "",
+    "exitCode": 0
+  },
+  "robotdock-demo": {
+    "status": "",
+    "exitCode": 0
+  },
+  "sonic-link-demo": {
+    "status": "",
+    "exitCode": 0
+  },
+  "one-g-website": {
+    "status": "",
+    "exitCode": 0
+  }
+}

@@ -1,102 +1,86 @@
-/* eslint-disable @typescript-eslint/no-require-imports -- Standalone browser scope acceptance. */
+/* eslint-disable @typescript-eslint/no-require-imports -- Standalone opt-in appearance acceptance. */
 const { chromium } = require(process.env.ONE_G_PLAYWRIGHT || 'playwright-core');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
-const base = (process.env.ONE_G_TEST_URL || 'http://localhost:3000/one-g').replace(/\/$/, '');
-const out = process.env.ONE_G_SCREENSHOTS || '/tmp/one-specular-scope';
+const path = require('node:path');
+const base = process.env.ONE_G_TEST_URL || 'http://127.0.0.1:3001/one-g';
+const out = process.env.ONE_G_SCREENSHOTS || path.resolve(__dirname, '../docs/reviews/invert-buttons');
+const baseline = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../docs/reviews/invert-buttons/baseline.json')));
 fs.mkdirSync(out, { recursive: true });
+const read = el => el.evaluate(e => {
+  const s = getComputedStyle(e), r = e.getBoundingClientRect(), pseudo = getComputedStyle(e, '::after'), label = e.querySelector('.action-text')?.getBoundingClientRect();
+  return { text: e.textContent.trim(), width: r.width, height: r.height, padding: s.padding, radius: s.borderRadius, font: s.font,
+    label: label ? { x: label.x-r.x, y: label.y-r.y, width: label.width, height: label.height } : null,
+    bg: s.backgroundColor, color: s.color, border: pseudo.borderColor, borderWidth: pseudo.borderWidth,
+    duration: s.transitionDuration, transition: s.transitionProperty, transform: s.transform, filter: s.filter,
+    decoration: s.textDecorationLine, outline: s.outlineStyle, outlineWidth: s.outlineWidth,
+    surface: e.dataset.invertSurface, disabled: e.matches(':disabled,[aria-disabled="true"],[aria-busy="true"]') };
+});
 (async () => {
-  const browser = await chromium.launch({ executablePath: process.env.ONE_G_BROWSER, args: ['--no-sandbox', '--enable-unsafe-swiftshader'] });
-  const results = [], errors = [];
+  const browser = await chromium.launch({ headless: true, executablePath: process.env.ONE_G_BROWSER });
+  const result = { browser: await browser.version(), base, geometry: [], states: [], checks: [], errors: [] };
   try {
-    const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
-    await context.addInitScript(() => {
-      window.buttonAudit = { contexts: 0, draws: 0 };
-      const original = HTMLCanvasElement.prototype.getContext;
-      HTMLCanvasElement.prototype.getContext = function(type, ...args) {
-        const gl = original.call(this, type, ...args);
-        if (type === 'webgl2' && gl) {
-          window.buttonAudit.contexts++;
-          const draw = gl.drawArrays.bind(gl);
-          gl.drawArrays = (...values) => { window.buttonAudit.draws++; return draw(...values); };
+    for (const width of [390, 1440]) {
+      const p = await browser.newPage({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
+      p.on('pageerror', error => result.errors.push(error.message));
+      for (const row of baseline.filter(item => item.width === width)) {
+        await p.goto(base + row.route); await p.locator('main').waitFor(); await p.waitForTimeout(180);
+        const hosts = p.locator('[data-button-effect="invert"]');
+        for (const old of row.elements) {
+          const candidates = await hosts.all(); let found;
+          for (const el of candidates) {
+            if (await el.evaluate((e, old) => e.tagName === old.tag && e.textContent.trim() === old.text && e.getAttribute('href') === old.href, old)) { found = el; break; }
+          }
+          assert.ok(found, 'Existing host absent: ' + row.route + old.text);
+          const current = await read(found);
+          for (const field of ['width','height']) assert.ok(Math.abs(current[field]-old[field]) < .1, `${row.route} ${old.text} ${field}: ${old[field]} -> ${current[field]}`);
+          assert.equal(current.padding, old.padding); assert.equal(current.radius, old.radius); assert.equal(current.font, old.font);
+          for (const field of ['x','y','width','height']) assert.ok(Math.abs(current.label[field]-old.label[field]) < .1, 'Label moved: ' + row.route + old.text + field);
+          result.geometry.push({ width, route: row.route, text: old.text, before: { width: old.width, height: old.height }, after: { width: current.width, height: current.height }, labelUnchanged: true });
         }
-        return gl;
-      };
-    });
-    const page = await context.newPage();
-    page.on('pageerror', e => errors.push(e.message));
-    page.on('console', m => { if (/hydrat|didn.t match|too many.*context/i.test(m.text())) errors.push(m.text()); });
-    async function go(path) { const response = await page.goto(base + path); assert.equal(response.status(), 200); await page.waitForTimeout(450); }
-    async function audit(label) {
-      const value = await page.evaluate(() => ({
-        effects: document.querySelectorAll('[data-specular-host]').length,
-        edges: document.querySelectorAll('.specular-edge').length,
-        excluded: document.querySelectorAll('header.site-header .specular-edge, footer .specular-edge, [role=tab] .specular-edge, button[aria-pressed] .specular-edge, [data-header-image-card] .specular-edge').length,
-        underline: [...document.querySelectorAll('button,[data-button-intent]')].some(e => getComputedStyle(e).textDecorationLine.includes('underline')),
-        nested: document.querySelectorAll('button a,a button').length,
-        overflow: document.documentElement.scrollWidth > innerWidth,
-        outputs: document.querySelectorAll('.specular-edge__canvas').length,
-        ...window.buttonAudit,
-      }));
-      assert.equal(value.edges, value.effects); assert.equal(value.excluded, 0);
-      assert.equal(value.underline, false); assert.equal(value.nested, 0); assert.equal(value.overflow, false);
-      assert.ok(value.outputs <= 4); results.push({ label, ...value }); return value;
+        assert.equal(await p.locator('[data-specular-host],.specular-edge,.specular-edge__canvas').count(), 0);
+        assert.equal(await p.locator('header.site-header [data-button-effect], [role=tab][data-button-effect], [data-header-image-card][data-button-effect]').count(), 0);
+        assert.equal(await p.locator('a button,button a').count(), 0);
+      }
+      await p.close();
     }
-    await go('/products/');
-    assert.equal((await audit('products default')).effects, 0);
-    const nav = page.locator('header nav').first();
-    await nav.getByRole('link', { name: '商品中心', exact: true }).hover(); await page.waitForTimeout(600);
-    await page.locator('#desktop-nav-0').getByRole('button', { name: '机械臂', exact: true }).click(); await page.waitForTimeout(500);
-    assert.equal(await page.locator('#desktop-nav-0 [data-header-image-card]').count(), 2);
-    assert.equal((await audit('menu and filters')).contexts, 0);
-    await page.screenshot({ path: out + '/navigation-light.png' }); await page.keyboard.press('Escape');
-    const category = page.getByRole('tab').nth(1); await category.click(); await page.waitForTimeout(500);
-    assert.equal(await category.getAttribute('aria-selected'), 'true');
-    assert.equal((await audit('page category')).contexts, 0);
-    await page.locator('[data-theme-toggle]').click(); await page.waitForTimeout(500);
-    await page.locator('[data-language-toggle]').click(); await page.waitForTimeout(150);
-    assert.equal(await page.locator('body').evaluate(e => getComputedStyle(e).backgroundColor), 'rgb(14, 15, 18)');
-    assert.equal((await audit('English night compact controls')).effects, 0);
-    await page.screenshot({ path: out + '/products-dark.png' });
-    await page.reload(); await page.waitForTimeout(400); assert.equal((await audit('refresh')).contexts, 0);
-    await page.locator('[data-language-toggle]').click(); await page.locator('[data-theme-toggle]').click(); await page.waitForTimeout(450);
-    await go('/'); assert.equal((await audit('hero')).effects, 2);
-    const main = page.locator('main [data-specular-host]').first();
-    await page.locator('main section[data-running="true"]').waitFor();
-    await main.hover(); await page.waitForTimeout(1600); assert.equal(await main.locator('canvas').count(), 1);
-    const draws = await page.evaluate(() => window.buttonAudit.draws); await page.waitForTimeout(400);
-    assert.equal(await page.evaluate(() => window.buttonAudit.draws), draws);
-    await page.screenshot({ path: out + '/hero-light.png' });
-    await page.locator('[data-theme-toggle]').click(); await page.waitForTimeout(450); await main.hover(); await page.waitForTimeout(1200);
-    await page.screenshot({ path: out + '/hero-dark.png' });
-    await page.emulateMedia({ reducedMotion: 'reduce' }); await page.waitForTimeout(150); assert.equal(await page.locator('.specular-edge__canvas').count(), 0);
-    await page.keyboard.press("Tab"); await main.focus(); assert.notEqual(await main.evaluate(e => getComputedStyle(e).outlineStyle), 'none');
-    await page.emulateMedia({ reducedMotion: 'no-preference' });
-    await main.click(); await page.waitForURL('**/products/'); await page.waitForTimeout(400);
-    assert.equal((await audit('SPA product return')).edges, 0); assert.equal(await page.locator('canvas.specular-edge__canvas').count(), 0);
-    for (const [route, count] of [['/products/robotdock/', 2], ['/buy/robotdock/', 1], ['/solutions/', 1], ['/deep-customization/', 1], ['/about/', 1], ['/login/', 1]]) {
-      await go(route); assert.equal((await audit(route)).effects, count, route);
+    // Four appearances/languages, mouse and touch; check the real CSS states.
+    for (const width of [390,1440]) for (const theme of ['light','dark']) {
+      const locale = width === 390 ? 'en' : 'zh-CN';
+      const context = await browser.newContext({ viewport: { width, height: 900 }, hasTouch: width===390, isMobile: width===390, reducedMotion: 'no-preference' });
+      await context.addInitScript(({theme,locale}) => { localStorage.setItem('one-g-appearance-v1',theme);localStorage.setItem('one-g-locale',locale); }, {theme,locale});
+      const p = await context.newPage(); p.on('pageerror', error => result.errors.push(error.message));
+      p.on('console', message => { if(message.type()==='error' && /\[i18n\]|hydration/i.test(message.text())) result.errors.push(message.text()); });
+      for (const [route,selector,name] of [['/solutions/','main [data-button-effect]','cta'],['/products/robotdock/','main a[data-button-effect]','purchase-link'],['/buy/robotdock/','main button[data-button-effect]','disabled'],['/login/','button[type=submit]','login-disabled']]) {
+        await p.goto(base+route);await p.waitForFunction(locale=>document.documentElement.lang===locale,locale);
+        const el=p.locator(selector).first();await el.waitFor();await el.scrollIntoViewIfNeeded();await p.mouse.move(0,0);await p.waitForTimeout(250);
+        const before=await read(el);assert.equal(before.duration,'0.2s');assert.equal(before.transition,'background-color, color, border-color');
+        await el.hover();await p.waitForTimeout(250);const hover=await read(el);
+        assert.equal(hover.width,before.width);assert.equal(hover.height,before.height);assert.equal(hover.decoration,'none');assert.equal(hover.transform,'none');assert.equal(hover.filter,'none');assert.equal(hover.borderWidth,'2px');
+        if(width===1440 && !before.disabled){assert.notEqual(before.bg,hover.bg);assert.equal(hover.border,'rgb(58, 115, 217)');}
+        else assert.equal(before.bg,hover.bg,'Disabled/touch does not invert');
+        if(name==='cta') {
+          await p.screenshot({path:path.join(out,`cta-${width}-${theme}.png`),fullPage:false});
+          await el.screenshot({path:path.join(out,`cta-detail-${width}-${theme}.png`)});
+        }
+        if(!before.disabled){await p.mouse.move(0,0);await p.keyboard.press('Tab');await el.focus();assert.equal((await read(el)).outline,'solid');assert.equal((await read(el)).outlineWidth,'2px');}
+        await p.emulateMedia({reducedMotion:'reduce'});assert.equal((await read(el)).duration,'0s');await p.emulateMedia({reducedMotion:'no-preference'});
+        result.states.push({width,theme,locale,name,before,hover});
+      }
+      await p.goto(base+'/');await p.locator('#home-products button[data-layout-trigger]').first().count();
+      // Use the established Layout Grid opener; its whole-card interaction is unchanged.
+      const trigger=p.locator('#home-products button').first();await trigger.scrollIntoViewIfNeeded();await trigger.click();
+      const editorial=p.locator('#home-products a[data-button-effect="invert"]');await editorial.waitFor({state:'visible'});assert.equal(await editorial.getAttribute('data-invert-surface'),'card');await editorial.scrollIntoViewIfNeeded();await p.mouse.move(0,0);await p.waitForTimeout(250);const initial=await read(editorial);await editorial.hover();await p.waitForTimeout(250);const hovered=await read(editorial);assert.equal(initial.width,hovered.width);assert.equal(initial.height,hovered.height);
+      if(width===1440)assert.notEqual(initial.bg,hovered.bg);
+      await editorial.screenshot({path:path.join(out,`editorial-${width}-${theme}.png`)});
+      // A single tap/click follows a real Next link; native keyboard Enter also works.
+      await editorial.click();await p.waitForURL('**/products/robotdock/');
+      await p.goto(base+'/products/arm-a1/');await p.locator('main [data-button-effect="invert"]').click();await p.waitForURL('**/login/**');
+      assert.ok(new URL(p.url()).searchParams.get('returnTo').includes('/products/arm-a1'));
+      await p.goto(base+'/products/robotdock/');const buy=p.locator('#product-hero a[data-button-effect]');await buy.focus();await p.keyboard.press('Enter');await p.waitForURL('**/buy/robotdock/');
+      await context.close();
     }
-    assert.equal(await page.getByRole('button', { name: '获取验证码', exact: true }).locator('.specular-edge').count(), 0);
-    assert.equal(await page.locator('button[type=submit] .specular-edge').count(), 1);
-    await go('/products/robotdock/'); const buy = page.locator('main a[data-specular-host]').first();
-    await buy.hover(); await page.waitForTimeout(1200); assert.equal(await buy.locator('canvas').count(), 1);
-    await page.screenshot({ path: out + '/detail-purchase.png' });
-    await buy.click(); await page.waitForURL('**/buy/robotdock/'); await page.waitForTimeout(300);
-    const disabled = page.locator('main button[disabled]'); assert.equal(await disabled.locator('.specular-edge').count(), 1); assert.equal(await disabled.locator('canvas').count(), 0);
-    const mobile = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
-    const phone = await mobile.newPage(); phone.on('pageerror', e => errors.push(e.message));
-    await phone.goto(base + '/'); await phone.locator('main section[data-running="true"]').waitFor(); assert.equal(await phone.locator('[data-specular-host]').count(), 2);
-    await phone.screenshot({ path: out + '/hero-mobile.png' });
-    await phone.getByRole('button', { name: '打开菜单', exact: true }).tap(); await phone.waitForTimeout(300);
-    await phone.locator('#mobile-navigation button[aria-controls="mobile-nav-0"]').tap(); await phone.waitForTimeout(600);
-    assert.equal(await phone.locator('header .specular-edge').count(), 0);
-    await phone.locator('#mobile-nav-0').getByRole('button', { name: '机械臂', exact: true }).tap(); await phone.waitForTimeout(500);
-    assert.equal(await phone.locator('#mobile-nav-0 [data-header-image-card]').count(), 2);
-    await phone.screenshot({ path: out + '/navigation-mobile.png' });
-    assert.equal(await phone.locator('.specular-edge__canvas').count(), 0);
-    assert.equal(await phone.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
-    assert.deepEqual(errors, []); fs.writeFileSync(out + '/results.json', JSON.stringify({ results, errors }, null, 2));
-    console.log('PASS explicit primary scope, excluded menus/chips/cards/icons have no effects/resources, theme/language, mobile, focus, reduced motion, static disabled, SPA cleanup', JSON.stringify(results));
-  } finally { await browser.close(); }
-})().catch(error => { console.error(error); process.exitCode = 1; });
+    result.checks.push('Existing host dimensions, padding, radius, font and label offsets match recorded baseline', 'No button Canvas, old edge DOM, nested controls or excluded navigation/filter opt-ins', '200ms color-only transitions; stable hover dimensions; disabled/loading exclusions; independent keyboard focus; reduced motion instant', 'Mouse and touch, light/dark, Chinese/English, Layout Grid CTA and card surface; native Link/Enter navigation; add-to-cart login guard');
+    assert.deepEqual(result.errors,[]);result.passed=true;
+  } catch(error) {result.failure=String(error.stack);throw error;} finally {fs.writeFileSync(path.join(out,'browser-results.json'),JSON.stringify(result,null,2));await browser.close();}
+})().catch(error=>{console.error(error);process.exitCode=1});

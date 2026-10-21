@@ -1,0 +1,52 @@
+{
+  "commands": [
+    {
+      "command": "npm run lint",
+      "exitCode": 0
+    },
+    {
+      "command": "npx tsc --noEmit",
+      "exitCode": 0,
+      "note": "No package typecheck script exists"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "staticPages": 38,
+      "note": "webpack production export; source unchanged since this build except tests/docs"
+    },
+    {
+      "command": "node --test tests/invert-actions.test.cjs tests/i18n-dictionary.test.cjs tests/auth-payment.test.mjs tests/mock-login.test.mjs tests/media-integration.test.mjs",
+      "exitCode": 0,
+      "passedFiles": 5
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    }
+  ],
+  "browserMatrix": {
+    "routes": 16,
+    "scenarios": 128,
+    "actions": 224,
+    "failures": [],
+    "invalid": []
+  },
+  "geometry": {
+    "scenarios": 20,
+    "controls": 44,
+    "failures": []
+  },
+  "livePreview": "http://localhost:3000/one-g/",
+  "mockAuthEnabled": true,
+  "mockCommerceEnabled": false,
+  "committed": false,
+  "pushed": false,
+  "newDependencies": false,
+  "limitations": [
+    "Chromium touch emulation, not physical phones",
+    "Safari/Firefox not tested",
+    "Full populated-cart and successful-order business flow not repeated in this phase",
+    "No real payments, messages or device actions"
+  ]
+}

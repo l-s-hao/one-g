@@ -101,7 +101,7 @@ export default function HomeCollageHero() {
         <span className={styles.descriptionLine}>{access}{separator.trim()}</span>
         <span className={styles.descriptionLine}>{locale === "en" ? " " : ""}{purpose}</span>
       </LP>
-      <div className={styles.actions} data-copy><Link effect="specular" intent="ordinary" href="/products">商品中心</Link><Link effect="specular" intent="ordinary" href="/solutions">解决方案</Link></div>
+      <div className={styles.actions} data-copy><Link effect="invert" intent="ordinary" href="/products">商品中心</Link><Link effect="invert" intent="ordinary" href="/solutions">解决方案</Link></div>
     </div>
     <div className={styles.scene}>
       <div className={styles.columns} aria-hidden="true">

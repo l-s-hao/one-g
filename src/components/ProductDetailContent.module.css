@@ -17,7 +17,6 @@
 .notice {border-left:2px solid var(--border-strong);padding-left:14px;}
 .actions {display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;}
 .actions a {display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;border:1px solid var(--border-strong);border-radius:24px;min-height:44px;font-size:14px;}
-.actions a:first-child {background:var(--button-primary-bg);--specular-line:var(--button-primary-text);color:var(--button-primary-text);border-color:transparent;}
 .page a:hover {text-decoration:underline;text-underline-offset:4px;}
 .page :focus-visible {outline:2px solid var(--text);outline-offset:4px;}
 .page [id],.page :focus {scroll-margin-top:calc(var(--product-header-height) + 90px);}

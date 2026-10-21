@@ -102,7 +102,7 @@ function ContactPreview({ entry, email, close }: { entry: ContactEntry; email: s
     {preview ? <>
       <LP className={styles.previewNotice} data-preview-title tabIndex={-1}>仅供预览，尚未提交。</LP>
       <LDl className={styles.preview}>{(Object.keys(labels) as (keyof ContactDraft)[]).map(field => <LDiv key={field}><LDt>{labels[field]}</LDt><LDd>{draft[field].trim() ? <span data-i18n-skip>{draft[field].trim()}</span> : "未填写"}</LDd></LDiv>)}<LDiv><LDt>来源</LDt><LDd>{contactEntries[entry]}{product && ` · ${product}`}</LDd></LDiv></LDl>
-      <LDiv className={styles.actions}><LButton intent="ordinary" type="button" onClick={() => setPreview(false)}>返回编辑</LButton><LButton intent="ordinary" type="button" onClick={dismiss}>关闭</LButton></LDiv>
+      <LDiv className={styles.actions}><LButton effect="invert" effectVariant="secondary" effectSurface="card" intent="ordinary" type="button" onClick={() => setPreview(false)}>返回编辑</LButton><LButton effect="invert" effectVariant="secondary" effectSurface="card" intent="ordinary" type="button" onClick={dismiss}>关闭</LButton></LDiv>
     </> : <LForm autoComplete="off" noValidate onSubmit={event => {
       event.preventDefault();
       const next = validateContactDraft(draft); setErrors(next);
@@ -116,7 +116,7 @@ function ContactPreview({ entry, email, close }: { entry: ContactEntry; email: s
         {errors[field] && <LP id={`contact-${field}-error`} role="alert" className={styles.error}>{errors[field]}</LP>}
       </LDiv>)}
       <LP className={styles.note}>来源：{contactEntries[entry]}{product && ` · ${product}`}</LP>
-      <LDiv className={styles.actions}><LButton effect="specular" intent="ordinary" type="submit" className={styles.primary}>预览需求</LButton><LButton intent="ordinary" type="button" onClick={dismiss}>关闭</LButton></LDiv>
+      <LDiv className={styles.actions}><LButton effect="invert" effectSurface="card" intent="ordinary" type="submit">预览需求</LButton><LButton effect="invert" effectVariant="secondary" effectSurface="card" intent="ordinary" type="button" onClick={dismiss}>关闭</LButton></LDiv>
     </LForm>}
   </LDialog>;
 }

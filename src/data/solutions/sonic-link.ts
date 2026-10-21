@@ -42,7 +42,7 @@ export const sonicLinkContent: Pick<Product, "id" | "name" | "subtitle" | "descr
         { title: "01 检查连接与环境", description: "按引导核查运行环境、PICO 采样与机器人状态。" },
         { title: "02 人体校准", description: "完成校准与接管前检查，确认现场安全。" },
         { title: "03 确认并启动", description: "准备完成后点击启动遥操作，接管前仍需人工确认。" },
-      ], media: [{ src: asset("software-console-early.png"), alt: "SONIC Link 早期控制台截图，三点待开发是历史标注", caption: "早期界面示例，交付界面以实际版本为准。图中的三点“待开发”为历史状态；GEM 不在本方案范围内，检查记录不代表实时在线状态。截图内标识仅为历史界面内容。", width: 3374, height: 1418 }] },
+      ], media: [{ src: asset("software-console-early.png"), alt: "SONIC Link 早期控制台截图，三点待开发是历史标注", caption: "早期控制台界面演示 · 截图中的状态与检查记录不证明已连接真实后台或设备。三点“待开发”为历史标注；GEM 不在本方案范围内，交付界面与运行条件待确认。", width: 3374, height: 1418 }] },
       { id: "showcase", eyebrow: "05 / SHOWCASE", title: "遥操作使用实拍。", paragraphs: ["以下为真实使用示例，不属于性能规格，也不代表所有动作和场地均可直接复现。操作需在受控场地进行，预留安全距离并配备急停。"], media: [
         { src: asset("demo-grasp.jpg"), alt: "操作者佩戴 VR 设备，机器人配合进行玩偶抓取的使用示例", caption: "抓取使用示例 · 团队提供实拍。", width: 2400, height: 1080 },
         { src: asset("demo-motion.jpg"), alt: "操作者与机器人展开双臂、抬起一条腿的动作示例", caption: "全身动作示例 · 团队提供实拍。", width: 2400, height: 1080 },

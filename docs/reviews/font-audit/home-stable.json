@@ -1,0 +1,278 @@
+[
+  {
+    "width": 1440,
+    "locale": "zh-CN",
+    "theme": "light",
+    "lines": [
+      {
+        "text": "一智通万机",
+        "transform": "none",
+        "opacity": "1",
+        "top": 383.75,
+        "parentTop": 383.75,
+        "bottom": 452.546875,
+        "parentBottom": 457.203125,
+        "width": 476,
+        "parentWidth": 476
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "locale": "zh-CN",
+    "theme": "dark",
+    "lines": [
+      {
+        "text": "一智通万机",
+        "transform": "none",
+        "opacity": "1",
+        "top": 383.75,
+        "parentTop": 383.75,
+        "bottom": 452.546875,
+        "parentBottom": 457.203125,
+        "width": 476,
+        "parentWidth": 476
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "locale": "en",
+    "theme": "light",
+    "lines": [
+      {
+        "text": "One Intelligence,",
+        "transform": "none",
+        "opacity": "1",
+        "top": 265.765625,
+        "parentTop": 265.765625,
+        "bottom": 334.5625,
+        "parentBottom": 339.21875,
+        "width": 476,
+        "parentWidth": 476
+      },
+      {
+        "text": "Connecting",
+        "transform": "none",
+        "opacity": "1",
+        "top": 334.5625,
+        "parentTop": 334.5625,
+        "bottom": 403.359375,
+        "parentBottom": 408.015625,
+        "width": 476,
+        "parentWidth": 476
+      },
+      {
+        "text": "Countless",
+        "transform": "none",
+        "opacity": "1",
+        "top": 403.359375,
+        "parentTop": 403.359375,
+        "bottom": 472.15625,
+        "parentBottom": 476.8125,
+        "width": 476,
+        "parentWidth": 476
+      },
+      {
+        "text": "Machines.",
+        "transform": "none",
+        "opacity": "1",
+        "top": 472.15625,
+        "parentTop": 472.15625,
+        "bottom": 540.953125,
+        "parentBottom": 545.609375,
+        "width": 476,
+        "parentWidth": 476
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "locale": "en",
+    "theme": "dark",
+    "lines": [
+      {
+        "text": "One Intelligence,",
+        "transform": "none",
+        "opacity": "1",
+        "top": 265.765625,
+        "parentTop": 265.765625,
+        "bottom": 334.5625,
+        "parentBottom": 339.21875,
+        "width": 476,
+        "parentWidth": 476
+      },
+      {
+        "text": "Connecting",
+        "transform": "none",
+        "opacity": "1",
+        "top": 334.5625,
+        "parentTop": 334.5625,
+        "bottom": 403.359375,
+        "parentBottom": 408.015625,
+        "width": 476,
+        "parentWidth": 476
+      },
+      {
+        "text": "Countless",
+        "transform": "none",
+        "opacity": "1",
+        "top": 403.359375,
+        "parentTop": 403.359375,
+        "bottom": 472.15625,
+        "parentBottom": 476.8125,
+        "width": 476,
+        "parentWidth": 476
+      },
+      {
+        "text": "Machines.",
+        "transform": "none",
+        "opacity": "1",
+        "top": 472.15625,
+        "parentTop": 472.15625,
+        "bottom": 540.953125,
+        "parentBottom": 545.609375,
+        "width": 476,
+        "parentWidth": 476
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "locale": "zh-CN",
+    "theme": "light",
+    "lines": [
+      {
+        "text": "一智通万机",
+        "transform": "none",
+        "opacity": "1",
+        "top": 126,
+        "parentTop": 126,
+        "bottom": 166.109375,
+        "parentBottom": 168.828125,
+        "width": 346,
+        "parentWidth": 346
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "locale": "zh-CN",
+    "theme": "dark",
+    "lines": [
+      {
+        "text": "一智通万机",
+        "transform": "none",
+        "opacity": "1",
+        "top": 126,
+        "parentTop": 126,
+        "bottom": 166.109375,
+        "parentBottom": 168.828125,
+        "width": 346,
+        "parentWidth": 346
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "locale": "en",
+    "theme": "light",
+    "lines": [
+      {
+        "text": "One Intelligence,",
+        "transform": "none",
+        "opacity": "1",
+        "top": 144,
+        "parentTop": 144,
+        "bottom": 184.109375,
+        "parentBottom": 186.828125,
+        "width": 346,
+        "parentWidth": 346
+      },
+      {
+        "text": "Connecting",
+        "transform": "none",
+        "opacity": "1",
+        "top": 184.109375,
+        "parentTop": 184.109375,
+        "bottom": 224.21875,
+        "parentBottom": 226.9375,
+        "width": 346,
+        "parentWidth": 346
+      },
+      {
+        "text": "Countless",
+        "transform": "none",
+        "opacity": "1",
+        "top": 224.21875,
+        "parentTop": 224.21875,
+        "bottom": 264.328125,
+        "parentBottom": 267.046875,
+        "width": 346,
+        "parentWidth": 346
+      },
+      {
+        "text": "Machines.",
+        "transform": "none",
+        "opacity": "1",
+        "top": 264.328125,
+        "parentTop": 264.328125,
+        "bottom": 304.4375,
+        "parentBottom": 307.15625,
+        "width": 346,
+        "parentWidth": 346
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "locale": "en",
+    "theme": "dark",
+    "lines": [
+      {
+        "text": "One Intelligence,",
+        "transform": "none",
+        "opacity": "1",
+        "top": 144,
+        "parentTop": 144,
+        "bottom": 184.109375,
+        "parentBottom": 186.828125,
+        "width": 346,
+        "parentWidth": 346
+      },
+      {
+        "text": "Connecting",
+        "transform": "none",
+        "opacity": "1",
+        "top": 184.109375,
+        "parentTop": 184.109375,
+        "bottom": 224.21875,
+        "parentBottom": 226.9375,
+        "width": 346,
+        "parentWidth": 346
+      },
+      {
+        "text": "Countless",
+        "transform": "none",
+        "opacity": "1",
+        "top": 224.21875,
+        "parentTop": 224.21875,
+        "bottom": 264.328125,
+        "parentBottom": 267.046875,
+        "width": 346,
+        "parentWidth": 346
+      },
+      {
+        "text": "Machines.",
+        "transform": "none",
+        "opacity": "1",
+        "top": 264.328125,
+        "parentTop": 264.328125,
+        "bottom": 304.4375,
+        "parentBottom": 307.15625,
+        "width": 346,
+        "parentWidth": 346
+      }
+    ]
+  }
+]

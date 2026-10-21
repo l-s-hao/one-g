@@ -1,0 +1,122 @@
+{
+  "outputs": [
+    {
+      "path": "/one-g/solutions/teleoperation/3pt-demo.mp4",
+      "bytes": 2890772,
+      "hashVerified": true,
+      "completeDecode": true,
+      "streams": [
+        "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 720x960, 957 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+        "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 96 kb/s (default)"
+      ],
+      "duration": "00:00:21.78"
+    },
+    {
+      "path": "/one-g/solutions/teleoperation/3pt-demo-poster.webp",
+      "bytes": 26200,
+      "hashVerified": true
+    },
+    {
+      "path": "/one-g/solutions/teleoperation/camera-teleop.mp4",
+      "bytes": 2098593,
+      "hashVerified": true,
+      "completeDecode": true,
+      "streams": [
+        "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 960x540, 540 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+        "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 96 kb/s (default)"
+      ],
+      "duration": "00:00:26.01"
+    },
+    {
+      "path": "/one-g/solutions/teleoperation/camera-teleop-poster.webp",
+      "bytes": 40580,
+      "hashVerified": true
+    },
+    {
+      "path": "/one-g/solutions/intelligent-tasks/dance-video-motion.mp4",
+      "bytes": 4224178,
+      "hashVerified": true,
+      "completeDecode": true,
+      "streams": [
+        "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 720x1280, 2059 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+        "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 96 kb/s (default)"
+      ],
+      "duration": "00:00:15.60"
+    },
+    {
+      "path": "/one-g/solutions/intelligent-tasks/dance-video-motion-poster.webp",
+      "bytes": 88296,
+      "hashVerified": true
+    },
+    {
+      "path": "/one-g/solutions/intelligent-tasks/music-motion.mp4",
+      "bytes": 2511486,
+      "hashVerified": true,
+      "completeDecode": true,
+      "streams": [
+        "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 960x634, 316 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+        "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 94 kb/s (default)"
+      ],
+      "duration": "00:00:47.81"
+    },
+    {
+      "path": "/one-g/solutions/intelligent-tasks/music-motion-poster.webp",
+      "bytes": 13346,
+      "hashVerified": true
+    },
+    {
+      "path": "/one-g/solutions/teleoperation/wholebody-balance.mp4",
+      "bytes": 1067671,
+      "hashVerified": true,
+      "completeDecode": true,
+      "streams": [
+        "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 960x540, 456 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+        "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 98 kb/s (default)"
+      ],
+      "duration": "00:00:15.13"
+    },
+    {
+      "path": "/one-g/solutions/teleoperation/wholebody-balance-poster.webp",
+      "bytes": 30550,
+      "hashVerified": true
+    },
+    {
+      "path": "/one-g/solutions/handling/wholebody-pick.mp4",
+      "bytes": 1321588,
+      "hashVerified": true,
+      "completeDecode": true,
+      "streams": [
+        "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 960x540, 449 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+        "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 97 kb/s (default)"
+      ],
+      "duration": "00:00:19.04"
+    },
+    {
+      "path": "/one-g/solutions/handling/wholebody-pick-poster.webp",
+      "bytes": 31268,
+      "hashVerified": true
+    },
+    {
+      "path": "/one-g/products/robotdock/installation-sketch.webp",
+      "bytes": 34824,
+      "hashVerified": true
+    },
+    {
+      "path": "/one-g/products/robotdock/robotdock-concept.webp",
+      "bytes": 102378,
+      "hashVerified": true
+    }
+  ],
+  "duplicatePublicVideos": [],
+  "missingLiteralReferencePaths": [],
+  "embeddedDataMedia": [],
+  "externalMediaReferences": [
+    [
+      "g1-humanoid-teleoperation",
+      "index.html",
+      "https://xuanqisun.github.io/g1-humanoid-teleoperation/assets/images/kick-poster.jpg"
+    ]
+  ],
+  "publicBytesBefore": 14835336,
+  "publicBytesAfter": 29317066
+}

@@ -1,3 +1,4 @@
+import { LA } from "@/i18n/Elements";
 import CardHover from "./CardHover";
 import { LArticle, LDd, LDiv, LDl, LDt, LFigcaption, LFigure, LH1, LH2, LH3, LHeader, LLi, LP, LSection, LSmall, LSpan, LUl } from "@/i18n/Elements";
 import { LocalizedImage as Image } from "@/i18n/Elements";
@@ -13,7 +14,7 @@ export default function ProductDetailContent({ product, view = "overview" }: { p
   const detail = product.detail;
   if (!detail) return null;
   const links = getOfferingNavigation(product);
-  const purchase = <Link effect="specular" intent="purchase" href={links.purchaseHref}>{links.purchaseLabel}</Link>;
+  const purchase = <Link effect="invert" intent="purchase" href={links.purchaseHref}>{links.purchaseLabel}</Link>;
   const tasks = solutions.filter(item => item.productIds.includes(product.id));
   return <LArticle data-product-page className={styles.page} id="product-top">
     <ProductLocalNav key={`${product.id}-${view}`} name={product.name} links={links} view={view}/>
@@ -22,8 +23,8 @@ export default function ProductDetailContent({ product, view = "overview" }: { p
         <LSection className={styles.hero} id="product-hero" aria-labelledby="product-title">
           <LP className={styles.eyebrow}><ProductStatusBadge status={product.status}/></LP>
           <LH1 id="product-title">{product.name}</LH1><LP className={styles.subtitle}>{product.subtitle}</LP>
-          <LDiv className={styles.actions}>{purchase}<Link intent="ordinary" href={links.specsHref}>技术规格</Link></LDiv>
-          <LFigure className={styles.mainImage}><Image src={product.images[0]} alt={detail.imageNotes[0].alt} width={detail.imageNotes[0].width} height={detail.imageNotes[0].height} sizes="(max-width:767px) 90vw, 800px" loading="eager"/><LFigcaption>{detail.imageNotes[0].caption}</LFigcaption></LFigure>
+          <LDiv className={styles.actions}>{purchase}<Link effect="invert" effectVariant="secondary" intent="ordinary" href={links.specsHref}>技术规格</Link></LDiv>
+          <LFigure className={styles.mainImage}><Image src={detail.imageNotes[0].webSrc ?? product.images[0]} alt={detail.imageNotes[0].alt} width={detail.imageNotes[0].width} height={detail.imageNotes[0].height} sizes="(max-width:767px) 90vw, 800px" loading="eager"/><LFigcaption>{detail.imageNotes[0].caption}</LFigcaption></LFigure>
           <LP className={styles.heroNotice}>{detail.statusNote}</LP>
         </LSection>
         <LDiv className={styles.marker} id="product-hero-end" aria-hidden="true"/>
@@ -35,24 +36,28 @@ export default function ProductDetailContent({ product, view = "overview" }: { p
           {section.paragraphs?.map(text => <LP key={text}>{text}</LP>)}
           {section.cards && <LDiv className={styles.grid}>{section.cards.map(card => <CardHover key={card.title}><LDiv data-card-hover-surface className={styles.card}><LH3>{card.title}</LH3><LP>{card.description}</LP>{card.items && <LUl>{card.items.map(item => <LLi key={item}>{item}</LLi>)}</LUl>}</LDiv></CardHover>)}</LDiv>}
           {section.media && <LDiv className={styles.media}>{section.media.map(media => <LFigure key={media.src}><Image src={media.src} alt={media.alt} width={media.width} height={media.height} sizes="(max-width:767px) 100vw, 80vw"/><LFigcaption>{media.caption}</LFigcaption></LFigure>)}</LDiv>}
-          {section.link && <LDiv className={styles.actions}><Link intent="ordinary" href={section.link.href}>{section.link.label}</Link></LDiv>}
+          {section.link && <LDiv className={styles.actions}><Link effect="invert" effectVariant="secondary" intent="ordinary" href={section.link.href}>{section.link.label}</Link></LDiv>}
         </LSection>) : <>
           <LSection className={styles.section} aria-labelledby="interface-title"><LP className={styles.eyebrow}>INTERFACE</LP><LH2 id="interface-title">接口与集成 · 规划方案</LH2><LP>{detail.interfaces?.join(" · ")}</LP><LP>{detail.interfaceNote}</LP></LSection>
           <LSection className={styles.section} aria-labelledby="compatibility-title"><LP className={styles.eyebrow}>COMPATIBILITY</LP><LH2 id="compatibility-title">兼容设备 · 分阶段适配</LH2>
             <LDiv className={styles.compatibility}><LDiv>{detail.compatibility?.map(device => <LDiv className={styles.device} key={device.name}><LH3>{device.name}</LH3><LSpan>{device.status}</LSpan><LP>{device.description}</LP></LDiv>)}<LP>{detail.compatibilityNote}</LP></LDiv>
-              {product.images[1] && detail.imageNotes[1] && <LFigure className={styles.sketch}><Image src={product.images[1]} alt={detail.imageNotes[1].alt} width={detail.imageNotes[1].width} height={detail.imageNotes[1].height} sizes="(max-width:767px) 90vw, 400px"/><LFigcaption>{detail.imageNotes[1].caption}</LFigcaption></LFigure>}
+              {product.images[1] && detail.imageNotes[1] && <LFigure className={styles.sketch}><Image src={detail.imageNotes[1].webSrc ?? product.images[1]} alt={detail.imageNotes[1].alt} width={detail.imageNotes[1].width} height={detail.imageNotes[1].height} sizes="(max-width:767px) 90vw, 400px"/><LFigcaption>{detail.imageNotes[1].caption}</LFigcaption></LFigure>}
             </LDiv>
           </LSection>
         </>}
+        {detail.sourceNotes?.map(note => <LSection key={note.id} id={note.id} className={styles.section}>
+          <LH2>{note.title}</LH2>{note.paragraphs.map(text => <LP key={text}>{text}</LP>)}
+          <LP><LA href={note.sourceHref} target="_blank" rel="noopener noreferrer">来源与演示说明 ↗</LA></LP>
+        </LSection>)}
         <LSection className={styles.section} id="applications" aria-labelledby="applications-title"><LP className={styles.eyebrow}>APPLICATIONS & BOUNDARIES</LP><LH2 id="applications-title">适用任务与使用边界</LH2>
           <LDiv className={styles.grid}>{tasks.map(task => <CardHover key={task.id}><LDiv data-card-hover-surface className={styles.card}><LH3>{task.name}</LH3><LP>{task.description}</LP><LP className={styles.notice}>{task.boundary}</LP><Link intent="ordinary" href={`/solutions#${task.id}`}>了解{task.name}方案 →</Link></LDiv></CardHover>)}</LDiv>
         </LSection>
-        <LSection className={styles.section} id="specifications" aria-labelledby="next-title"><LH2 id="next-title">技术规格与购买方案</LH2><LP>{detail.statusNote}</LP><LDiv className={styles.actions}>{purchase}<Link intent="ordinary" href={links.specsHref}>查看技术规格</Link></LDiv></LSection>
+        <LSection className={styles.section} id="specifications" aria-labelledby="next-title"><LH2 id="next-title">技术规格与购买方案</LH2><LP>{detail.statusNote}</LP><LDiv className={styles.actions}>{purchase}<Link effect="invert" effectVariant="secondary" intent="ordinary" href={links.specsHref}>查看技术规格</Link></LDiv></LSection>
       </> : <>
-        <LHeader className={styles.specHeader}><LP className={styles.eyebrow}><ProductStatusBadge status={product.status}/></LP><LH1>{product.name}<LSpan>技术规格</LSpan></LH1><LP className={styles.notice}>{detail.statusNote}</LP><LDiv className={styles.actions}>{purchase}<Link intent="ordinary" href={links.overviewHref}>产品介绍</Link></LDiv></LHeader>
+        <LHeader className={styles.specHeader}><LP className={styles.eyebrow}><ProductStatusBadge status={product.status}/></LP><LH1>{product.name}<LSpan>技术规格</LSpan></LH1><LP className={styles.notice}>{detail.statusNote}</LP><LDiv className={styles.actions}>{purchase}<Link effect="invert" effectVariant="secondary" intent="ordinary" href={links.overviewHref}>产品介绍</Link></LDiv></LHeader>
         {getOfferingSpecificationGroups(product).map(group => <LSection className={styles.section} key={group.title}><LH2>{group.title}</LH2><LDl className={styles.specs}>{group.fields.map(spec => <LDiv key={spec.label}><LDt>{spec.label}</LDt><LDd>{spec.value}{spec.note && <LSmall>{spec.note}</LSmall>}</LDd></LDiv>)}</LDl></LSection>)}
         {detail.compatibility && <LSection className={styles.section}><LH2>支持设备与适配边界</LH2><LDl className={styles.specs}>{detail.compatibility.map(device => <LDiv key={device.name}><LDt>{device.name}</LDt><LDd>{device.status}<LSmall>{device.description}</LSmall></LDd></LDiv>)}</LDl><LP>{detail.compatibilityNote}</LP></LSection>}
-        <LSection className={styles.section}><LH2>包含内容与购买方案</LH2><LP>{detail.bundleNote ?? product.specifications?.find(spec => spec.label === "交付范围")?.value}</LP><LP>具体包含内容以所选标准套餐为准，兼容设备不等于包装内包含设备。</LP><LDiv className={styles.actions}>{purchase}<Link intent="ordinary" href={links.overviewHref}>返回产品介绍</Link></LDiv></LSection>
+        <LSection className={styles.section}><LH2>包含内容与购买方案</LH2><LP>{detail.bundleNote ?? product.specifications?.find(spec => spec.label === "交付范围")?.value}</LP><LP>具体包含内容以所选标准套餐为准，兼容设备不等于包装内包含设备。</LP><LDiv className={styles.actions}>{purchase}<Link effect="invert" effectVariant="secondary" intent="ordinary" href={links.overviewHref}>返回产品介绍</Link></LDiv></LSection>
       </>}
     </LDiv>
     <LDiv id="product-content-end" className={styles.marker} aria-hidden="true"/>

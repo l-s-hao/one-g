@@ -16,7 +16,7 @@ export default function AccountActions() {
     router.replace(target);
   };
   return <LDiv className={styles.actions}>
-    <LButton intent="ordinary" type="button" onClick={() => leave("/login?mode=switch")}>{currentUser?.role === "ADMIN" ? "切换账号" : "切换用户"}</LButton>
-    <LButton intent="ordinary" type="button" onClick={() => leave(currentUser?.role === "ADMIN" ? "/admin/login" : "/")}>退出登录</LButton>
+    <LButton effect="invert" effectVariant="secondary" intent="ordinary" type="button" onClick={() => leave("/login?mode=switch")}>{currentUser?.role === "ADMIN" ? "切换账号" : "切换用户"}</LButton>
+    <LButton effect="invert" effectVariant="secondary" intent="ordinary" type="button" onClick={() => leave(currentUser?.role === "ADMIN" ? "/admin/login" : "/")}>退出登录</LButton>
   </LDiv>;
 }

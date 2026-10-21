@@ -29,7 +29,7 @@ export default function HomeProductsPreview() {
         <LP className={styles.positioning}>{product.subtitle}</LP>
         <LP className={styles.note}>{product.detail?.statusNote ?? prototypeNote}</LP>
         <LP className={styles.caption}>{caption}</LP>
-        <Link intent="ordinary" className={styles.action} href={`/products/${product.slug}`}>了解产品</Link>
+        <Link effect="invert" effectSurface="card" intent="ordinary" className={styles.action} href={`/products/${product.slug}`}>了解产品</Link>
       </>,
     };
   });

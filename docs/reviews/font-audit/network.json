@@ -1,0 +1,369 @@
+{
+  "checks": [
+    "No manual font preload and no blanket Chinese preload",
+    "Cold and cached reload use real custom font shaping",
+    "Theme/locale switch reuses same heading and fetches zero additional fonts",
+    "Warm offline locale switch retains text",
+    "Cold font failure renders actual system fallback",
+    "Delayed web fonts do not hide navigation"
+  ],
+  "errors": [],
+  "cold": {
+    "requests": [
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/inter/InterVariable.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.118.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.117.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.115.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.116.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.114.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.119.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.108.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.109.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.107.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.112.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.113.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      }
+    ],
+    "timing": [
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/inter/InterVariable.woff2",
+        "transferSize": 345888,
+        "encodedBodySize": 345588
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.118.woff2",
+        "transferSize": 46292,
+        "encodedBodySize": 45992
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.119.woff2",
+        "transferSize": 76624,
+        "encodedBodySize": 76324
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.117.woff2",
+        "transferSize": 52528,
+        "encodedBodySize": 52228
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.115.woff2",
+        "transferSize": 56564,
+        "encodedBodySize": 56264
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.116.woff2",
+        "transferSize": 53096,
+        "encodedBodySize": 52796
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.114.woff2",
+        "transferSize": 58040,
+        "encodedBodySize": 57740
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.112.woff2",
+        "transferSize": 57760,
+        "encodedBodySize": 57460
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.113.woff2",
+        "transferSize": 58728,
+        "encodedBodySize": 58428
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.109.woff2",
+        "transferSize": 60508,
+        "encodedBodySize": 60208
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.108.woff2",
+        "transferSize": 64640,
+        "encodedBodySize": 64340
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.107.woff2",
+        "transferSize": 61128,
+        "encodedBodySize": 60828
+      }
+    ],
+    "rendered": [
+      {
+        "familyName": "Noto Sans SC Thin",
+        "postScriptName": "NotoSansSC-Thin",
+        "isCustomFont": true,
+        "glyphCount": 5
+      }
+    ]
+  },
+  "warm": {
+    "requests": [
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/inter/InterVariable.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.107.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.108.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.109.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.112.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.113.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.114.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.115.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.116.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.117.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.118.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.119.woff2",
+        "status": 200,
+        "fromDiskCache": false,
+        "fromPrefetchCache": false
+      }
+    ],
+    "timing": [
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/inter/InterVariable.woff2",
+        "transferSize": 0,
+        "encodedBodySize": 345588
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.107.woff2",
+        "transferSize": 0,
+        "encodedBodySize": 60828
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.108.woff2",
+        "transferSize": 0,
+        "encodedBodySize": 64340
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.109.woff2",
+        "transferSize": 0,
+        "encodedBodySize": 60208
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.112.woff2",
+        "transferSize": 0,
+        "encodedBodySize": 57460
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.113.woff2",
+        "transferSize": 0,
+        "encodedBodySize": 58428
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.114.woff2",
+        "transferSize": 0,
+        "encodedBodySize": 57740
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.115.woff2",
+        "transferSize": 0,
+        "encodedBodySize": 56264
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.116.woff2",
+        "transferSize": 0,
+        "encodedBodySize": 52796
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.117.woff2",
+        "transferSize": 0,
+        "encodedBodySize": 52228
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.118.woff2",
+        "transferSize": 0,
+        "encodedBodySize": 45992
+      },
+      {
+        "url": "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.119.woff2",
+        "transferSize": 0,
+        "encodedBodySize": 76324
+      }
+    ],
+    "rendered": [
+      {
+        "familyName": "Noto Sans SC Thin",
+        "postScriptName": "NotoSansSC-Thin",
+        "isCustomFont": true,
+        "glyphCount": 5
+      }
+    ]
+  },
+  "toggles": {
+    "requests": [],
+    "sameHeadingNode": true,
+    "rendered": [
+      {
+        "familyName": "Inter Variable",
+        "postScriptName": "InterVariable",
+        "isCustomFont": true,
+        "glyphCount": 17
+      }
+    ]
+  },
+  "cachedOffline": {
+    "rendered": [
+      {
+        "familyName": "Noto Sans SC Thin",
+        "postScriptName": "NotoSansSC-Thin",
+        "isCustomFont": true,
+        "glyphCount": 5
+      }
+    ],
+    "visible": true
+  },
+  "unavailableFonts": {
+    "failedRequests": [
+      "http://127.0.0.1:3001/one-g/fonts/inter/InterVariable.woff2",
+      "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALRLoKI.woff2",
+      "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.119.woff2",
+      "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.118.woff2",
+      "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.117.woff2",
+      "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.115.woff2",
+      "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.116.woff2",
+      "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.114.woff2",
+      "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.113.woff2",
+      "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.112.woff2",
+      "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.109.woff2",
+      "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.108.woff2",
+      "http://127.0.0.1:3001/one-g/fonts/noto-sans-sc/k3kXo84MPvpLmixcA63oeALhLOCT-xWNm8Hqd37g1OkDRZe7lR4sg1IzSy-MNbE9VH8V.107.woff2"
+    ],
+    "rendered": [
+      {
+        "familyName": "Noto Sans CJK SC",
+        "postScriptName": "NotoSansCJKsc-Regular",
+        "isCustomFont": false,
+        "glyphCount": 5
+      }
+    ],
+    "visible": true,
+    "body": {
+      "opacity": "1",
+      "visibility": "visible"
+    }
+  },
+  "swapDuringLoad": {
+    "rendered": [
+      {
+        "familyName": "Noto Sans CJK SC",
+        "postScriptName": "NotoSansCJKsc-Regular",
+        "isCustomFont": false,
+        "glyphCount": 4
+      }
+    ],
+    "visible": true,
+    "fontStatus": "loading"
+  },
+  "passed": true
+}

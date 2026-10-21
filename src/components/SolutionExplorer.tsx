@@ -7,6 +7,7 @@ import { LocalizedImage as Image } from "@/i18n/Elements";
 import { useEffect, useState } from "react";
 import { solutions, solutionCategories } from "@/data/solutions";
 import { getProductById } from "@/lib/products";
+import EvidenceVideos from "./EvidenceVideos";
 import CardHover from "./CardHover";
 import styles from "@/app/solutions/solutions.module.css";
 export default function SolutionExplorer() {
@@ -49,6 +50,12 @@ export default function SolutionExplorer() {
 
       <LDiv id={`solution-${item.id}`} hidden={expanded!==item.id} className={styles.detail}>
         <LDl><LDiv><LDt>适用任务</LDt><LDd>{item.subtitle}</LDd></LDiv><LDiv><LDt>ONE-G 如何实现</LDt><LDd>{item.capabilities[0]}</LDd></LDiv><LDiv><LDt>涉及能力</LDt><LDd>{item.capabilities.slice(1).join(" ")}</LDd></LDiv><LDiv><LDt>适用边界</LDt><LDd>{item.boundary}</LDd></LDiv></LDl>
+        {expanded === item.id && item.id === "handling" && <EvidenceVideos ids={["wholebody-pick"]}/>}
+        {expanded === item.id && item.id === "ai" && <>
+          <LH2>动作研究与仿真</LH2><LP>以下为相关研究演示，不是已交付的自主任务或通用智能功能。</LP>
+          <EvidenceVideos ids={["dance-video-motion", "music-motion"]}/>
+        </>}
+
       </LDiv>
     </LArticle></CardHover>)}</LDiv>
   </>;

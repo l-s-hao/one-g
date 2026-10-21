@@ -1,0 +1,53 @@
+{
+  "commands": [
+    {
+      "command": "npm run lint",
+      "exitCode": 0
+    },
+    {
+      "command": "npx tsc --noEmit",
+      "exitCode": 0,
+      "note": "No package typecheck script exists"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "staticPages": 38,
+      "note": "Final production build after removing redundant hand-written font preload"
+    },
+    {
+      "command": "node --test tests/font-audit.test.mjs tests/invert-actions.test.cjs tests/i18n-dictionary.test.cjs tests/auth-payment.test.mjs tests/mock-login.test.mjs tests/media-integration.test.mjs",
+      "exitCode": 0,
+      "passedFiles": 6
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    }
+  ],
+  "fontRenderedScenarios": 104,
+  "fontRenderingMethod": "Chromium CSS.getPlatformFontsForNode, including native input shadow DOM",
+  "fontFamiliesDistributed": 2,
+  "fontFilesDistributed": 102,
+  "fontBinaryBytesAdded": 4846132,
+  "fontCSSBytesAdded": 111347,
+  "sourceChanges": [
+    "src/app/layout.tsx: import fonts.css",
+    "src/app/globals.css: common font token",
+    "src/app/fonts.css: new local @font-face mapping"
+  ],
+  "newDependencies": false,
+  "pageGeometryAdjustmentRequired": false,
+  "referenceRepositoriesModified": false,
+  "staged": false,
+  "committed": false,
+  "pushed": false,
+  "preview": "http://localhost:3000/one-g/",
+  "limitations": [
+    "No physical-device, Safari or Firefox tests",
+    "System fallback varies across OS",
+    "Existing inactive Inter 4.001 exact original download record remains unverified; not shipped",
+    "Independent Logo/image/video/printed artwork font rights remain outside this web-font audit",
+    "Offline tests cover font-failure fallback and warm cached text, not offline app navigation"
+  ]
+}

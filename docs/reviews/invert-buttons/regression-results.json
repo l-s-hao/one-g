@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "Theme toggle and reload persistence",
+    "Image menu, category filter, Escape, and teleoperation navigation",
+    "Contact remains login-gated with safe return route",
+    "Catalog filter/Flip transition and restore"
+  ],
+  "errors": [],
+  "passed": true
+}
