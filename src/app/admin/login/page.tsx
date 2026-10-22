@@ -12,7 +12,7 @@ export default function AdminLoginPage() {
   const router = useRouter();
   useEffect(() => {
     const target = safeReturnTo(new URLSearchParams(window.location.search).get("returnTo"), "ADMIN");
-    router.replace(loginDestination(target));
+    router.replace(`${loginDestination(target, "ADMIN")}&method=admin`);
   }, [router]);
   return <LP role="status" className="p-8">正在前往统一登录…</LP>;
 }

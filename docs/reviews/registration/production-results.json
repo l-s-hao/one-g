@@ -1,0 +1,6 @@
+[
+  "Region channels, explicit register/login links, empty/dirty leave, safe focus, continue/confirm, Header and cancel, theme/language/blur retain draft, native reload warning",
+  "Browser back cancelled without pushState; confirmed back and forward preserve history and clear draft",
+  "Production has no register/password/code/human mock access or exposed test code",
+  "16 screenshots, both regions, locale/theme/mobile, natural scrolling, no overflow or browser/hydration/i18n errors"
+]

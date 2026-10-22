@@ -11,9 +11,7 @@ function findTestUser(channel: LoginChannel, recipient: string) {
   const address = normalizeRecipient(channel, recipient);
   const identity = testIdentities.find(item => item[channel] === address);
   if (identity) return mockUsers.find(user => user.id === identity.userId && user.role === "USER");
-  // Reuse the existing administrator record, not a pattern or domain-based role inference.
-  const administrator = mockUsers.find(user => user.id === "admin-demo" && user.role === "ADMIN");
-  return channel === "email" && administrator?.email === address ? administrator : undefined;
+  return undefined;
 }
 export function canUseMockShortcut(channel: LoginChannel, recipient: string) {
   return mockShortcutEnabled && !!findTestUser(channel, recipient);

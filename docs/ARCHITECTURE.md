@@ -53,9 +53,9 @@ flowchart TD
 
 ## 认证与角色边界
 
-`lib/demo-mode.ts` 要求 development/test 环境及显式 Mock 开关；正式构建始终关闭。普通入口是手机号/邮箱验证码界面。本地开发快捷登录仅使用虚构白名单，统一入口可返回演示 USER/ADMIN；验证码挑战服务本身是内存 Mock，不发送短信或邮件。
+`lib/demo-mode.ts` 要求 development/test 环境及显式 Mock 开关；正式构建始终关闭。普通入口默认邮箱验证码，也支持密码。`auth/policy.ts` 集中定义大陆/海外渠道与注册字段规则，`auth/human.ts` 管理单次模拟人机凭据，`auth/verification.ts` 按用途/地区/目标管理挑战，`auth/accounts.ts` 和 `account-service.ts` 管理内存普通账户与显式注册。注册成功返回登录，不建立会话。正式服务均未接入，详见 [注册/登录契约](registration-auth-contract.md)。
 
-`RequireRole`、`auth-routing.ts` 和 `safeReturnTo` 在前端控制访问和安全返回。它们改善演示流程，不能代替生产后端授权。旧 `/admin/login` 只进入统一登录流程；旧 `/register`、`/forgot-password` 是兼容说明，不执行注册或密码重置。
+`RequireRole`、`auth-routing.ts` 和 `safeReturnTo` 在前端控制访问和安全返回。它们改善演示流程，不能代替生产后端授权。旧 `/admin/login` 只进入统一登录流程；`/register` 现在是显式资料表单；只有 Mock 环境创建短期内存 USER，刷新失效。`/forgot-password` 仍不执行密码重置。注册范围内的导航保护仅在有未保存内容时启用，未修改全站导航组件。
 
 ## 购物车、订单与支付
 

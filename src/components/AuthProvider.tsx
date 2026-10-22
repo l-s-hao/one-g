@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { authenticate, getCurrentUser, demoAuthKey, readDemoSession, saveDemoSession } from "@/lib/auth-client";
 import type { CurrentUser, LoginResult, UserRole } from "@/types/auth";
+import { accountService, type PasswordLoginRequest } from "@/lib/auth/account-service";
 import { authenticateMockShortcut } from "@/lib/auth/mock-login";
 import { verificationService, type VerifyRequest, type LoginChannel } from "@/lib/auth/verification";
 export type { CurrentUser } from "@/types/auth";
@@ -15,7 +16,8 @@ export interface AuthState {
   isAuthenticated: boolean;
   ready: boolean;
   authReady: boolean;
-  login: (email: string, password: string, role: UserRole) => Promise<LoginResult>;
+  login: (email: string, password: string, role: UserRole, signal?: AbortSignal) => Promise<LoginResult>;
+  loginPassword: (input: PasswordLoginRequest, signal: AbortSignal) => Promise<LoginResult>;
   loginTestAccount: (channel: LoginChannel, recipient: string, signal: AbortSignal) => Promise<LoginResult>;
   verifyCode: (request: VerifyRequest, signal: AbortSignal) => Promise<LoginResult>;
   logout: (target?: SessionExitTarget) => void;
@@ -48,10 +50,17 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     window.addEventListener("storage", sync);
     return () => { active = false; requests.value++; window.removeEventListener("storage", sync); };
   }, []);
-  const login = async (email: string, password: string, role: UserRole): Promise<LoginResult> => {
+  const login = async (email: string, password: string, role: UserRole, signal?: AbortSignal): Promise<LoginResult> => {
     const request = ++revision.current.value;
     const result = await authenticate(email, password, role);
-    if (request !== revision.current.value) return { ok: false, error: "SESSION_CHANGED" };
+    if (signal?.aborted || request !== revision.current.value) return { ok: false, error: "SESSION_CHANGED" };
+    if (result.ok) { setExitTarget(null); saveDemoSession(result.user); setCurrentUser(result.user); }
+    return result;
+  };
+  const loginPassword = async (input: PasswordLoginRequest, signal: AbortSignal): Promise<LoginResult> => {
+    const request = ++revision.current.value;
+    const result = await accountService.passwordLogin(input, signal);
+    if (signal.aborted || request !== revision.current.value) return { ok: false, error: "SESSION_CHANGED" };
     if (result.ok) { setExitTarget(null); saveDemoSession(result.user); setCurrentUser(result.user); }
     return result;
   };
@@ -70,5 +79,5 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     return { ok: true, user };
   };
   const logout = (target?: SessionExitTarget) => { setExitTarget(target ?? null); revision.current.value++; saveDemoSession(null); setCurrentUser(null); };
-  return <AuthContext.Provider value={{ currentUser, role: currentUser?.role ?? null, isAuthenticated: !!currentUser, ready, authReady: ready, login, loginTestAccount, verifyCode, logout, exitTarget }}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{ currentUser, role: currentUser?.role ?? null, isAuthenticated: !!currentUser, ready, authReady: ready, login, loginPassword, loginTestAccount, verifyCode, logout, exitTarget }}>{children}</AuthContext.Provider>;
 }

@@ -1,116 +1,104 @@
 "use client";
-
-import { LButton, LDiv, LForm, LH1, LInput, LLabel, LP, LSection } from "@/i18n/Elements";
-
-
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { LocalizedLink as Link } from "@/i18n/Elements";
+import { LocalizedLink as Link, LButton, LDiv, LForm, LH1, LLabel, LP, LSection, LSpan } from "@/i18n/Elements";
+import { useLocale, translate } from "@/i18n/LocaleProvider";
+import { Smartphone, MessageCircle, ShieldCheck } from "lucide-react";
 import { useAuth } from "./AuthProvider";
 import { safeReturnTo } from "@/lib/auth-routing";
-import { canUseMockShortcut, mockShortcutEnabled } from "@/lib/auth/mock-login";
 import { mockAuthEnabled } from "@/lib/demo-mode";
-import { verificationService, normalizeRecipient, validRecipient, VerificationError, testIdentities, testCode, type Challenge, type LoginChannel } from "@/lib/auth/verification";
+import { testCode, testIdentities, type LoginChannel } from "@/lib/auth/verification";
+import { normalizeAddress, validAddress, type ServiceRegion } from "@/lib/auth/policy";
+import { useAuthVerification } from "./useAuthVerification";
+import { RegionField, PasswordField, HumanField } from "./AuthFields";
 import BrandLogo from "./BrandLogo";
-import ShineBorder from "./ShineBorder";
+import LoginInput from "./LoginInput";
+import styles from "./VerificationLogin.module.css";
 
-export default function VerificationLogin({ switching = false }: { switching?: boolean }) {
-  const router = useRouter();
-  const { verifyCode, loginTestAccount, currentUser, authReady } = useAuth();
+type LoginMode = LoginChannel | "wechat" | "admin";
+export default function VerificationLogin({ switching = false, initialMode = "email", initialRegion = "mainland", returnTo = null, registered = false }: {
+  switching?: boolean; initialMode?: "email" | "admin"; initialRegion?: ServiceRegion; returnTo?: string | null; registered?: boolean;
+}) {
+  const router = useRouter(); const { locale } = useLocale();
+  const { login, loginPassword, verifyCode, currentUser, authReady } = useAuth();
+  const [mode, setMode] = useState<LoginMode>(initialMode);
+  const [region, setRegion] = useState<ServiceRegion>(initialRegion);
+  const [method, setMethod] = useState<"password" | "code">("code");
+  const [recipient, setRecipient] = useState(""); const [password, setPassword] = useState("");
+  const [adminAccount, setAdminAccount] = useState("");
   const [destination, setDestination] = useState<{ userId: string; href: string } | null>(null);
-  const [channel, setChannel] = useState<LoginChannel>("phone");
-  const [recipient, setRecipient] = useState("");
-  const [code, setCode] = useState("");
-  const [challenge, setChallenge] = useState<Challenge | null>(null);
-  const [message, setMessage] = useState("");
-  const [notice, setNotice] = useState("");
-  const [pending, setPending] = useState<"send" | "verify" | null>(null);
-  const [retryAt, setRetryAt] = useState(0);
-  const [now, setNow] = useState(0);
-  const request = useRef<AbortController | null>(null);
-  const currentChallenge = useRef<string | null>(null);
+  const addresses = useRef({ email: "", phone: "" });
+  const channel: LoginChannel = mode === "phone" ? "phone" : "email";
+  const verification = useAuthVerification({ purpose: "login", region, channel, recipient });
+  const completed = !!destination;
   useEffect(() => {
-    const timer = setInterval(() => setNow(Date.now()), 500);
-    return () => { clearInterval(timer); request.current?.abort(); if (currentChallenge.current) verificationService.discard(currentChallenge.current); };
-  }, []);
-  useEffect(() => {
-    // Navigate only once the single AuthProvider has committed the authenticated user.
     if (authReady && destination && currentUser?.id === destination.userId) router.replace(destination.href);
   }, [authReady, currentUser, destination, router]);
-  const shortcut = !challenge && !code && canUseMockShortcut(channel, recipient);
-  const clear = () => {
-    setDestination(null);
-    request.current?.abort(); request.current = null;
-    if (currentChallenge.current) verificationService.discard(currentChallenge.current);
-    currentChallenge.current = null;
-    setChallenge(null); setCode(""); setMessage(""); setNotice(""); setPending(null); setRetryAt(0);
+  const clear = () => { verification.clear(); setPassword(""); setDestination(null); };
+  const changeMode = (next: LoginMode) => {
+    if (mode === next) return; clear(); setMode(next);
+    setRecipient(next === "email" || next === "phone" ? addresses.current[next] : "");
   };
-  const begin = (kind: "send" | "verify") => {
-    if (request.current || !mockAuthEnabled || !authReady) return null;
-    const controller = new AbortController(); request.current = controller;
-    setPending(kind); setMessage(""); setNotice(""); return controller;
+  const changeRegion = (next: ServiceRegion) => {
+    if (next === region) return; clear(); setRegion(next);
+    if (next === "international") {
+      addresses.current.phone = "";
+      if (mode === "phone" || mode === "wechat") { setMode("email"); setRecipient(addresses.current.email); }
+    }
   };
-  const finish = (controller: AbortController) => { if (request.current === controller) { request.current = null; setPending(null); } };
-  const fail = (error: unknown, controller: AbortController) => {
-    if (controller.signal.aborted) return;
-    setMessage(error instanceof VerificationError ? error.message : "暂时无法完成请求，请稍后重试。");
-    if (error instanceof VerificationError && error.retryAt) { setRetryAt(error.retryAt); setNow(Date.now()); }
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); if (completed || !authReady || !mockAuthEnabled) return;
+    if (mode !== "admin" && !validAddress(channel, normalizeAddress(channel, recipient))) { verification.error(channel === "phone" ? "请输入有效的 11 位手机号。" : "请输入有效的邮箱地址。"); return; }
+    if ((mode === "admin" && (!adminAccount.trim() || !password)) || (mode !== "admin" && method === "password" && !password)) { verification.error(mode === "admin" ? "请输入管理员账号和密码。" : "请输入密码。"); return; }
+    if (mode !== "admin" && method === "code" && !verification.checkCode()) return;
+    await verification.run("submit", async signal => {
+      const result = mode === "admin" ? await login(adminAccount, password, "ADMIN", signal)
+        : method === "password" ? await loginPassword({ region, channel, recipient, password }, signal)
+        : await verifyCode({ region, channel, recipient, purpose: "login", challengeId: verification.challenge!.id, code: verification.code }, signal);
+      if (signal.aborted) return;
+      if (!result.ok || (mode === "admin" ? result.user.role !== "ADMIN" : result.user.role !== "USER")) { verification.error("无法完成验证，请检查资料或稍后重试。"); return; }
+      setPassword(""); setDestination({ userId: result.user.id, href: safeReturnTo(returnTo, result.user.role) });
+    });
   };
-  const send = async () => {
-    const address = normalizeRecipient(channel, recipient);
-    if (!validRecipient(channel, address)) { setMessage(channel === "phone" ? "请输入有效的 11 位手机号。" : "请输入有效的邮箱地址。"); return; }
-    if (retryAt > Date.now()) return;
-    const controller = begin("send"); if (!controller) return;
-    setCode(""); setChallenge(null);
-    if (currentChallenge.current) verificationService.discard(currentChallenge.current);
-    currentChallenge.current = null;
-    try {
-      const result = await verificationService.send({ channel, recipient: address }, controller.signal);
-      if (controller.signal.aborted) { verificationService.discard(result.id); return; }
-      currentChallenge.current = result.id; setChallenge(result); setRetryAt(result.resendAt); setNow(Date.now());
-      setNotice("演示验证请求已就绪，未发送真实短信/邮件。");
-    } catch (error) { fail(error, controller); } finally { finish(controller); }
-  };
-  const submit = async (event: FormEvent) => {
-    event.preventDefault();
-    if (!shortcut && (!challenge || challenge.expiresAt <= Date.now())) { setMessage("验证码错误或已失效，请重新获取。"); return; }
-    if (!shortcut && challenge && !new RegExp(`^\\d{${challenge.codeLength}}$`).test(code)) { setMessage(`请输入 ${challenge.codeLength} 位数字验证码。`); return; }
-    const controller = begin("verify"); if (!controller) return;
-    try {
-      const result = shortcut
-        ? await loginTestAccount(channel, recipient, controller.signal)
-        : await verifyCode({ channel, recipient: normalizeRecipient(channel, recipient), challengeId: challenge!.id, code }, controller.signal);
-      if (controller.signal.aborted) return;
-      if (!result.ok) { setMessage("登录状态已更新，请重试。"); finish(controller); return; }
-      setDestination({ userId: result.user.id, href: safeReturnTo(new URLSearchParams(window.location.search).get("returnTo"), result.user.role) });
-      // Keep the lock until navigation unmounts the form. Never auto-add to cart.
-    } catch (error) { fail(error, controller); finish(controller); }
-  };
-  const seconds = Math.max(0, Math.ceil((retryAt - now) / 1000));
-  return <LDiv className="auth-page flex min-h-dvh items-center justify-center px-5 py-12">
-    <LSection aria-labelledby="auth-title" className="relative w-full max-w-[440px] rounded-3xl bg-[#0a0a0a] px-7 py-10 sm:px-10">
-      <ShineBorder shineColor={["var(--effect-color)", "var(--effect-dim)"]} duration={10} borderWidth={1}/>
-      <LDiv className="relative">
-        <Link intent="ordinary" href="/" className="text-sm">← 返回首页</Link>
-        <LDiv className="my-8 text-center"><BrandLogo variant="stacked" size="md"/></LDiv>
-        <LH1 id="auth-title" className="text-center text-2xl font-semibold">{switching ? "切换用户" : "欢迎登录 ONE-G"}</LH1>
-        <LDiv className="my-6 flex gap-2" role="group" aria-label="登录方式">
-          {([['phone', '手机号登录'], ['email', '邮箱登录']] as const).map(([value, label]) => <LButton key={value} type="button" aria-pressed={channel === value} onClick={() => { if (channel !== value) { clear(); setChannel(value); setRecipient(""); } }} className="flex-1 rounded-full border border-current px-3 py-2 text-sm" style={{ opacity: channel === value ? 1 : .55 }}>{label}</LButton>)}
+  const registrationParams = new URLSearchParams({ region, returnTo: safeReturnTo(returnTo, "USER") });
+  const busy = !!verification.pending || completed;
+  return <LDiv className={styles.page}><LSection aria-labelledby="auth-title" className={styles.card} data-login-mode={mode}>
+    <Link href="/" className={styles.brand} aria-label="返回首页"><BrandLogo variant="horizontal" size="sm" /></Link>
+    <LH1 id="auth-title" className={styles.title}>登录 ONE-G</LH1><LP className={styles.slogan}>一智通万机</LP>
+    {registered && <LP role="status" className={styles.feedback}>注册成功，请登录。</LP>}
+    {switching && <LP className={styles.feedback}>切换用户</LP>}
+    {mode !== "admin" && <RegionField value={region} onChange={changeRegion} />}
+    {mode !== "email" && <LButton type="button" className={styles.back} onClick={() => changeMode("email")}>← 返回邮箱登录</LButton>}
+    {mode === "wechat" ? <LDiv className={styles.wechat}>
+      <LDiv className={styles.placeholder} aria-hidden="true"><MessageCircle size={32} /></LDiv>
+      <LP role="status" className={styles.feedback}>微信登录暂未接入，请先使用邮箱或手机号登录。</LP>
+    </LDiv> : <>
+      {mode !== "admin" && <LDiv className={styles.authMethods} role="group" aria-label="验证方式">
+        {([['password', '密码登录'], ['code', '验证码登录']] as const).map(([value, label]) => <LButton key={value} type="button" className={styles.secondary} aria-pressed={method === value} onClick={() => { if (value !== method) { clear(); setMethod(value); } }}>{label}</LButton>)}
+      </LDiv>}
+      <LForm noValidate className={styles.form} onSubmit={submit} aria-busy={!!verification.pending}>
+        <LDiv className={styles.field}><LLabel htmlFor="recipient">{mode === "admin" ? "管理员账号" : channel === "phone" ? "手机号" : "邮箱"}</LLabel>
+          <LoginInput id="recipient" disabled={!authReady || completed} type={mode === "admin" ? "text" : channel === "phone" ? "tel" : "email"} inputMode={channel === "phone" ? "tel" : "email"} autoComplete={mode === "admin" ? "username" : channel === "phone" ? "tel" : "email"} value={mode === "admin" ? adminAccount : recipient} aria-invalid={!!verification.message} aria-describedby="auth-feedback" onChange={event => { clear(); if (mode === "admin") setAdminAccount(event.target.value); else { setRecipient(event.target.value); addresses.current[channel] = event.target.value; } }} />
         </LDiv>
-        <LP className="text-sm leading-6 text-neutral-400">{mockAuthEnabled ? "演示模式，未发送真实短信/邮件。仅限以下虚构测试身份。" : "验证码服务尚未接入，暂不支持真实用户登录。"}</LP>
-        {mockAuthEnabled && <LDiv className="mt-3 text-xs leading-6"><LP>测试身份：{testIdentities.map(item => item[channel]).join(" / ")}</LP><LP>测试验证码：{testCode}（5 分钟有效，60 秒重发）</LP><LP>{mockShortcutEnabled ? "可输入测试账号直接点击登录；如需测试验证码，请先获取验证码。" : "仅使用预置演示账号，不创建真实账号。"}</LP></LDiv>}
-        <LForm onSubmit={submit} noValidate className="mt-6 space-y-5">
-          <LDiv><LLabel htmlFor="recipient" className="mb-2 block text-sm">{channel === "phone" ? "手机号" : "邮箱"}</LLabel>
-            <LInput id="recipient" className="auth-input" type={channel === "phone" ? "tel" : "email"} autoComplete={channel === "phone" ? "tel" : "email"} value={recipient} onChange={event => { clear(); setRecipient(event.target.value); }} aria-describedby="verification-message"/>
-          </LDiv>
-          <LDiv><LLabel htmlFor="verification-code" className="mb-2 block text-sm">验证码</LLabel>
-            <LDiv className="flex gap-2"><LInput id="verification-code" className="auth-input min-w-0" type="text" inputMode="numeric" autoComplete="one-time-code" value={code} maxLength={challenge?.codeLength ?? 6} onChange={event => setCode(event.target.value)} disabled={pending === "verify"} aria-describedby="verification-message"/>
-              <LButton intent="ordinary" type="button" className="shrink-0 rounded-xl border border-current px-3 text-sm" disabled={!mockAuthEnabled || !!pending || seconds > 0} onClick={send}>{pending === "send" ? "发送中…" : seconds > 0 ? `${seconds} 秒后重发` : "获取验证码"}</LButton></LDiv>
-          </LDiv>
-          <LP id="verification-message" role="alert" className="text-sm">{message}</LP><LP role="status" className="text-sm">{notice}</LP>
-          <LButton effect="invert" effectSurface="card" intent="ordinary" type="submit" className="h-12 w-full rounded-full text-sm font-semibold disabled:opacity-50" disabled={!mockAuthEnabled || !authReady || !!pending || (!challenge && !shortcut)}>{pending === "verify" ? "验证中…" : mockAuthEnabled ? "登录 ONE-G（演示）" : "登录暂未开放"}</LButton>
-        </LForm>
-      </LDiv>
-    </LSection>
-  </LDiv>;
+        {mode === "admin" || method === "password" ? <PasswordField id="login-password" autoComplete="current-password" value={password} disabled={busy || !authReady} onChange={event => setPassword(event.target.value)} aria-invalid={!!verification.message} aria-describedby="auth-feedback" /> : <>
+          <HumanField ready={verification.humanReady} pending={verification.pending === "human"} disabled={busy || !authReady} onVerify={verification.requestHuman} />
+          <LDiv className={styles.field}><LLabel htmlFor="verification-code">验证码</LLabel><LDiv className={styles.codeRow}>
+            <LoginInput id="verification-code" type="text" inputMode="numeric" autoComplete="one-time-code" value={verification.code} maxLength={6} disabled={busy || !authReady} onChange={event => verification.setCode(event.target.value)} aria-invalid={!!verification.message} aria-describedby="auth-feedback" />
+            <LButton type="button" className={styles.secondary} disabled={!verification.humanReady || busy || !authReady || verification.seconds > 0} onClick={verification.send}>{verification.pending === "send" ? "发送中…" : verification.seconds > 0 ? `${verification.seconds} 秒后重发` : "获取验证码"}</LButton>
+          </LDiv></LDiv>
+        </>}
+        {mode === "phone" && <LP className={styles.feedback}>仅限已有已验证绑定的手机号。手机绑定验证尚未接入，新注册手机号不能用于登录。</LP>}
+        <LP id="auth-feedback" role="alert" tabIndex={-1} className={`${styles.feedback} ${styles.error}`} hidden={!verification.message}>{verification.message}</LP>
+        <LP role="status" className={styles.feedback} hidden={!verification.notice}>{verification.notice}</LP>
+        <LButton effect="invert" effectSurface="card" intent="ordinary" type="submit" className={styles.submit} disabled={!mockAuthEnabled || !authReady || busy}>{verification.pending === "submit" ? "验证中…" : mockAuthEnabled ? "登录 ONE-G（演示）" : "登录暂未开放"}</LButton>
+      </LForm>
+    </>}
+    <LDiv className={styles.divider}>其他登录方式</LDiv><LDiv className={styles.methods} role="group" aria-label="其他登录方式">
+      {([{ value: "phone", label: "手机号登录", icon: Smartphone }, { value: "wechat", label: "微信扫码登录", icon: MessageCircle }, { value: "admin", label: "管理员号登录", icon: ShieldCheck }] as const).filter(item => region === "mainland" || item.value === "admin").map(({ value, label, icon: Icon }) => <LButton key={value} type="button" className={styles.secondary} aria-pressed={mode === value} onClick={() => changeMode(value)}><Icon size={16} aria-hidden="true" /><LSpan>{label}</LSpan></LButton>)}
+    </LDiv>
+    {mode !== "admin" && <Link href={`/register?${registrationParams}`} className={styles.accountLink}>没有账号？注册账号</Link>}
+    <LDiv className={styles.demo}><LP>{mockAuthEnabled ? "本地演示：没有真实邮件或人机服务；新注册的虚构账号仅在本次页面运行期间有效，刷新后失效。" : "认证服务尚未接入，暂不支持真实用户登录。"}</LP>
+      {mockAuthEnabled && mode !== "admin" && <details><summary>{translate("本地测试说明", locale)}</summary><LP>测试身份：{testIdentities.map(item => item[channel]).join(" / ")}</LP><LP>测试验证码：{testCode}（5 分钟有效，60 秒重发）</LP><LP>没有账号请先显式注册；验证码登录不会创建账号。</LP></details>}
+    </LDiv>
+  </LSection></LDiv>;
 }

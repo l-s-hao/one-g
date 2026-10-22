@@ -1,0 +1,8 @@
+[
+  "default email, exactly three non-submit entries, one active form, honest WeChat placeholder",
+  "invalid/send failure, aborted send/verify, stale feedback rejected, cooldown survives switching",
+  "leading-zero OTP, wrong code, stable user ID, USER cannot enter admin",
+  "phone shortcut B, admin excluded from email shortcut, USER password denied, existing admin credentials and compatibility redirect",
+  "cart/purchase/contact query returns, external/admin return denied, shared session committed before navigation",
+  "Functional run: live theme/language preserve draft; no browser/hydration/i18n errors"
+]

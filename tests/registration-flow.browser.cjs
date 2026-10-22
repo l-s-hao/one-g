@@ -1,0 +1,61 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- Browser regression. */
+const {chromium}=require(process.env.ONE_G_PLAYWRIGHT||'playwright-core');
+const assert=require('node:assert/strict');const fs=require('node:fs');
+const base=process.env.ONE_G_TEST_URL||'http://127.0.0.1:5556/one-g';const production=process.env.ONE_G_PRODUCTION==='1';
+(async()=>{
+ const browser=await chromium.launch({headless:true,executablePath:process.env.ONE_G_BROWSER});const c=await browser.newContext();const p=await c.newPage();const errors=[],rows=[];let reloadPrompts=0;
+ p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+ const button=name=>p.getByRole('button',{name,exact:true});
+ const guard=()=>p.getByRole('dialog',{name:'离开后信息不会被保存',exact:true});
+ const session=()=>p.evaluate(()=>localStorage.getItem('one-g-auth-demo'));
+ const human=()=>button('模拟人机验证（仅开发）');
+ const waitReady=async()=>{if(!production)await p.waitForFunction(()=>!document.querySelector('input#recipient')?.disabled);};
+ const login=async(email,password)=>{await button('密码登录').click();await p.getByLabel('邮箱',{exact:true}).fill(email);await p.getByLabel('密码',{exact:true}).fill(password);await button('登录 ONE-G（演示）').click();};
+ const fill=async(email,region='international',affiliation='individual')=>{await p.getByLabel('服务地区',{exact:true}).selectOption(region);await p.getByLabel('昵称',{exact:true}).fill('Fictional Test');await p.getByLabel('密码',{exact:true}).fill('Synthetic-Passphrase-7!');await p.getByLabel('邮箱',{exact:true}).fill(email);if(region==='mainland')await p.getByLabel('手机号（中国大陆 +86）',{exact:true}).fill('19900000003');await p.getByLabel('所属类型',{exact:true}).selectOption(affiliation);if(affiliation==='organization')await p.getByLabel('公司／组织名称',{exact:true}).fill('Fictional Organization');};
+ const returnTo='/buy/robotdock/?package=hand&quantity=3&payment=alipay';
+ try{
+ await p.goto(base+'/login/?returnTo='+encodeURIComponent(returnTo));await waitReady();await p.getByLabel('服务地区',{exact:true}).selectOption('international');assert.equal(await button('手机号登录').count(),0);assert.equal(await button('微信扫码登录').count(),0);assert.equal(await button('密码登录').count(),1);assert.equal(await button('验证码登录').count(),1);
+ await p.getByRole('link',{name:'没有账号？注册账号',exact:true}).click();await p.getByLabel('昵称',{exact:true}).waitFor();assert.equal(await p.getByLabel('服务地区',{exact:true}).inputValue(),'international');assert.equal(await p.locator('#register-phone').count(),0);
+ // Empty form exits immediately and preserves original returnTo.
+ await p.getByRole('link',{name:'已有账号？返回登录',exact:true}).click();await p.waitForURL('**/login/**');assert.equal(await guard().count(),0);await p.getByRole('link',{name:'没有账号？注册账号',exact:true}).click();await p.getByLabel('昵称',{exact:true}).fill('Fictional Draft');
+ await p.getByRole('link',{name:'已有账号？返回登录',exact:true}).click();await guard().waitFor();assert.equal(await p.locator(':focus').textContent(),'继续填写');await button('继续填写').click();await guard().waitFor({state:'hidden'});assert.equal(await p.getByLabel('昵称',{exact:true}).inputValue(),'Fictional Draft');
+ await p.locator('[data-language-toggle]').click();await p.getByLabel('Nickname',{exact:true}).waitFor();assert.equal(await p.getByLabel('Service region',{exact:true}).inputValue(),'international');assert.equal(await p.locator('#register-nickname').inputValue(),'Fictional Draft');await p.locator('[data-language-toggle]').click();
+ await p.getByRole('button',{name:'切换到夜间模式',exact:true}).click();assert.equal(await p.locator('#register-nickname').inputValue(),'Fictional Draft');assert.equal(await guard().count(),0);
+ await p.evaluate(()=>{dispatchEvent(new Event('blur'));document.dispatchEvent(new Event('visibilitychange'));});assert.equal(await p.locator('#register-nickname').inputValue(),'Fictional Draft');
+ // Native reload warning: no custom text claim. Rejecting reload keeps form.
+ p.once('dialog',async d=>{assert.equal(d.type(),'beforeunload');reloadPrompts++;await d.dismiss();});await p.reload().catch(()=>{});assert.equal(reloadPrompts,1);assert.equal(await p.locator('#register-nickname').inputValue(),'Fictional Draft');
+ await p.locator('header a[href="/one-g/"]').first().click();await guard().waitFor();await button('继续填写').click();
+ await button('取消注册').click();await guard().waitFor();await button('确认离开').click();await p.waitForURL('**/login/**');await p.getByRole('link',{name:'没有账号？注册账号',exact:true}).click();assert.equal(await p.getByLabel('昵称',{exact:true}).inputValue(),'');
+ rows.push('Region channels, explicit register/login links, empty/dirty leave, safe focus, continue/confirm, Header and cancel, theme/language/blur retain draft, native reload warning');
+ // Same-origin History traversal uses actual Navigation API cancellation, no added entries.
+ await p.getByLabel('昵称',{exact:true}).fill('History Draft');const historyBefore=await p.evaluate(()=>history.length);await p.evaluate(()=>history.back());await guard().waitFor();await button('继续填写').click();assert.equal(await p.getByLabel('昵称',{exact:true}).inputValue(),'History Draft');assert.equal(await p.evaluate(()=>history.length),historyBefore);
+ await p.evaluate(()=>history.back());await guard().waitFor();await button('确认离开').click();await p.waitForURL('**/login/**');await p.evaluate(()=>history.forward());await p.waitForURL('**/register/**');assert.equal(await p.getByLabel('昵称',{exact:true}).inputValue(),'');rows.push('Browser back cancelled without pushState; confirmed back and forward preserve history and clear draft');console.log('PASS leave/history checks');
+ if(production){
+  assert.ok(await button('注册服务暂未开放').isDisabled());assert.ok(await human().isDisabled());assert.ok(await button('获取验证码').isDisabled());assert.equal(await p.getByText(/004271/).count(),0);
+  await button('取消注册').click();await p.waitForURL('**/login/**');await button('管理员号登录').click();assert.ok(await button('登录暂未开放').isDisabled());rows.push('Production has no register/password/code/human mock access or exposed test code');
+ }else{
+  await human().click();assert.equal(await p.locator(':focus').getAttribute('id'),'register-nickname');
+  await fill('registration-browser@example.test');await p.getByLabel('服务地区',{exact:true}).selectOption('mainland');assert.equal(await p.getByLabel('昵称',{exact:true}).inputValue(),'Fictional Test');await human().click();await p.getByText('请输入有效的 11 位手机号。',{exact:true}).waitFor();await p.getByLabel('服务地区',{exact:true}).selectOption('international');assert.equal(await p.locator('#register-phone').count(),0);
+  await p.getByLabel('所属类型',{exact:true}).selectOption('organization');await human().click();await p.getByText('请输入公司或组织名称（最多 100 字）。',{exact:true}).waitFor();await p.getByLabel('所属类型',{exact:true}).selectOption('individual');
+  assert.ok(await button('获取验证码').isDisabled());await human().click();await button('演示人机凭据已就绪（单次使用）').waitFor();await button('获取验证码').click();await p.getByText('演示验证请求已就绪，未发送真实短信/邮件。',{exact:true}).waitFor();assert.ok(await p.getByRole('button',{name:/秒后重发/}).isDisabled());
+  await p.getByLabel('邮箱验证码',{exact:true}).fill('004271');await p.getByLabel('邮箱',{exact:true}).fill('changed-browser@example.test');assert.equal(await p.getByLabel('邮箱验证码',{exact:true}).inputValue(),'');assert.ok(await button('获取验证码').isDisabled());await p.getByLabel('邮箱',{exact:true}).fill('registration-browser-final@example.test');
+  await p.getByText('实名信息 / 实名绑定（选填）',{exact:true}).click();await p.getByText('实名绑定暂未开通，请勿提交真实证件信息。不填写不影响普通注册。',{exact:true}).waitFor();assert.equal(await p.locator('input').filter({hasText:/身份证/}).count(),0);
+  await human().click();await button('获取验证码').click();await p.getByText('演示验证请求已就绪，未发送真实短信/邮件。',{exact:true}).waitFor();await p.getByLabel('邮箱验证码',{exact:true}).fill('004271');await button('注册账号（本地演示）').click();await p.waitForURL('**/login/**');await p.getByText('注册成功，请登录。',{exact:true}).waitFor();console.log('PASS registered without session');assert.equal(await session(),null);assert.equal(await guard().count(),0);assert.equal(new URL(p.url()).searchParams.get('returnTo'),returnTo);
+  assert.equal(await p.locator('input[type=password]').count(),0);await login('registration-browser-final@example.test','Synthetic-Passphrase-7!');await p.waitForURL('**/buy/robotdock/**');await p.waitForFunction(()=>document.querySelector('input[type=number]')?.value==='3');assert.ok(await p.getByRole('radio',{name:/支付宝/}).isChecked());const userId=JSON.parse(await session()).userId;assert.ok(userId);
+  await p.locator('header a[href="/one-g/account/"]').first().click();await p.getByRole('button',{name:'退出登录',exact:true}).click();await p.waitForURL(base+'/');await p.locator('header a[href*="/login"]').first().click();await waitReady();
+  await p.clock.install();await p.clock.fastForward(61000);await p.getByLabel('服务地区',{exact:true}).selectOption('international');await p.getByLabel('邮箱',{exact:true}).fill('registration-browser-final@example.test');await human().click();await button('获取验证码').click();await p.getByText('演示验证请求已就绪，未发送真实短信/邮件。',{exact:true}).waitFor();await p.getByLabel('验证码',{exact:true}).fill('004271');await button('登录 ONE-G（演示）').click();await p.waitForURL('**/account/**');assert.equal(JSON.parse(await session()).userId,userId);
+  assert.notEqual(userId,'admin-demo');
+  const stored=await p.evaluate(()=>JSON.stringify({local:{...localStorage},session:{...sessionStorage}}));assert.ok(!stored.includes('Synthetic-Passphrase')&&!stored.includes('004271')&&!stored.includes('registration-browser-final'));
+  await p.goto(base+'/account/');await p.waitForURL('**/login/**');await waitReady();
+  await login('demo-a@example.test','123456');await p.waitForURL('**/account/**');assert.equal(JSON.parse(await session()).userId,'user-demo');
+  await p.goto(base+'/admin/');await p.getByRole('heading',{name:'无权限',exact:true}).waitFor();
+  await p.goto(base+'/admin/login/');await p.waitForURL('**/login/**');await p.getByLabel('管理员账号',{exact:true}).fill('admin@one-g.com');await p.getByLabel('密码',{exact:true}).fill('admin123');await button('登录 ONE-G（演示）').click();await p.waitForURL(base+'/admin/');assert.equal(JSON.parse(await session()).userId,'admin-demo');
+  rows.push('Required mainland phone and organization; international/personal exceptions; human gate and one-use proof; email change clears code; optional identity has no sensitive input; explicit register returns login with no session; password and OTP logins share ID and restore purchase; reload loses memory account; stable fixture USER denied admin; existing administrator password reaches admin; no credential/draft storage');
+ }
+ // Visual matrix on a clean context (no registration mutation is persisted).
+ if(process.env.ONE_G_SKIP_SCREENSHOTS!=='1')for(const region of ['mainland','international'])for(const width of [1440,390])for(const locale of ['zh-CN','en'])for(const theme of ['light','dark']){
+  const visual=await browser.newContext({viewport:{width,height:950},hasTouch:width===390,isMobile:width===390,reducedMotion:'reduce'});await visual.addInitScript(({locale,theme})=>{localStorage.setItem('one-g-locale',locale);localStorage.setItem('one-g-appearance-v1',theme);},{locale,theme});const v=await visual.newPage();v.on('pageerror',e=>errors.push(e.message));v.on('console',m=>{if(m.type()==='error')errors.push(m.text());});await v.goto(base+'/register/?region='+region);await v.getByLabel(locale==='en'?'Nickname':'昵称',{exact:true}).waitFor();await v.evaluate(()=>document.fonts.ready);assert.equal(await v.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);await v.screenshot({path:`docs/reviews/registration/${production?'production':'mock'}-${region}-${width}-${locale}-${theme}.png`,fullPage:true});await visual.close();
+ }
+ assert.deepEqual(errors,[]);rows.push(process.env.ONE_G_SKIP_SCREENSHOTS==='1'?'Functional run, no browser/hydration/i18n errors':'16 screenshots, both regions, locale/theme/mobile, natural scrolling, no overflow or browser/hydration/i18n errors');fs.writeFileSync(`docs/reviews/registration/${production?'production':'mock'}-results.json`,JSON.stringify(rows,null,2));console.log(rows.join('\n'));
+ }finally{await browser.close();}
+})().catch(e=>{console.error(e);process.exitCode=1;});

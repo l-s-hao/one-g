@@ -1,0 +1,5 @@
+[
+  "default email, exactly three non-submit entries, one active form, honest WeChat placeholder",
+  "production rejects mock/forged session, no demo fixtures, legacy admin lands on disabled admin form",
+  "8 locale/theme/desktop/mobile screenshots, keyboard focus, touch/reduced-motion pointer suppression, live theme/language preserve draft, no overflow or browser/hydration/i18n errors"
+]

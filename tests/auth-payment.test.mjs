@@ -18,6 +18,12 @@ function loader() {
 process.env.NODE_ENV='test';process.env.NEXT_PUBLIC_ONE_G_MOCK_AUTH='1';process.env.NEXT_PUBLIC_ONE_G_MOCK_COMMERCE='1';
 const load=loader();
 const otp=load('src/lib/auth/verification');
+const human=load('src/lib/auth/human').humanVerification;
+async function sendChecked(service, request, signal) {
+ const context={purpose:'login',region:'mainland',...request};
+ const proof=await human.issue(context,signal);
+ return service.send({...context,humanToken:proof.token},signal);
+}
 const values=new Map();
 global.localStorage={getItem:k=>values.get(k)??null,setItem:(k,v)=>values.set(k,v),removeItem:k=>values.delete(k)};
 global.window={localStorage};
@@ -25,27 +31,27 @@ const session=id=>localStorage.setItem('one-g-auth-demo',JSON.stringify({version
 test('Mock OTP: stable bound identities, leading zero, single use, role isolation',async()=>{
  const service=otp.createMockVerificationService(Date.now,0);
  for(const channel of ['phone','email']) {
-  const request={channel,recipient:otp.testIdentities[0][channel]};const c=await service.send(request);
+  const request={purpose:'login',region:'mainland',channel,recipient:otp.testIdentities[0][channel]};const c=await sendChecked(service,request);
   const verified=await service.verify({...request,challengeId:c.id,code:otp.testCode});assert.equal(verified.id,'user-demo');assert.equal(verified.role,'USER');
   await assert.rejects(service.verify({...request,challengeId:c.id,code:otp.testCode}),/错误或已失效/);
  }
- await assert.rejects(service.send({channel:'email',recipient:'admin@one-g.com'}),/暂时无法完成/);
+ await assert.rejects(sendChecked(service,{channel:'email',recipient:'admin@one-g.com'}),/无法完成验证/);
 });
 test('OTP invalid format, unknown recipient, resend, expiry, attempts, discard, address/channel mismatch and cancellation',async()=>{
- let now=1000;const service=otp.createMockVerificationService(()=>now,0);const a={channel:'phone',recipient:otp.testIdentities[0].phone};
- await assert.rejects(service.send({...a,recipient:'123'}),/有效/);
- await assert.rejects(service.send({...a,recipient:'19900000999'}),/暂时无法完成/);
- let c=await service.send(a);await assert.rejects(service.send(a),e=>e.retryAt===61000);
+ let now=1000;const service=otp.createMockVerificationService(()=>now,0);const a={purpose:'login',region:'mainland',channel:'phone',recipient:otp.testIdentities[0].phone};
+ await assert.rejects(sendChecked(service,{...a,recipient:'123'}),/无法完成验证/);
+ await assert.rejects(sendChecked(service,{...a,recipient:'19900000999'}),/无法完成验证/);
+ let c=await sendChecked(service,a);await assert.rejects(sendChecked(service,a),e=>e.retryAt===61000);
  for(let i=0;i<5;i++)await assert.rejects(service.verify({...a,challengeId:c.id,code:'000000'}),/错误或已失效/);
  await assert.rejects(service.verify({...a,challengeId:c.id,code:otp.testCode}),/错误或已失效/);
- now+=61000;c=await service.send(a);
+ now+=61000;c=await sendChecked(service,a);
  await assert.rejects(service.verify({...a,recipient:otp.testIdentities[1].phone,challengeId:c.id,code:otp.testCode}),/错误或已失效/);
  await assert.rejects(service.verify({...a,channel:'email',challengeId:c.id,code:otp.testCode}),/错误或已失效/);
  now+=300001;await assert.rejects(service.verify({...a,challengeId:c.id,code:otp.testCode}),/错误或已失效/);
- c=await service.send(a);now+=61000;const newer=await service.send(a);
+ c=await sendChecked(service,a);now+=61000;const newer=await sendChecked(service,a);
  await assert.rejects(service.verify({...a,challengeId:c.id,code:otp.testCode}),/错误或已失效/);
  service.discard(newer.id);await assert.rejects(service.verify({...a,challengeId:newer.id,code:otp.testCode}),/错误或已失效/);
- const abort=new AbortController();abort.abort();await assert.rejects(service.send(a,abort.signal),{name:'AbortError'});
+ const abort=new AbortController();abort.abort();await assert.rejects(sendChecked(service,a,abort.signal),{name:'AbortError'});
 });
 test('Cart and demo orders belong to stable user ID, no legacy auto-assignment, no fake paid status',async()=>{
  values.clear();const cart=load('src/lib/cart'),service=load('src/lib/commerce/service').commerceService;
@@ -64,9 +70,10 @@ test('Cart and demo orders belong to stable user ID, no legacy auto-assignment, 
  await assert.rejects(cart.readCart('user-demo'));await assert.rejects(service.getOrder('user-demo',order.id));
  assert.ok(localStorage.getItem('one-g-cart'));
 });
-test('Existing IDs remain, password USER disabled, admin stays independent, safe return preserves choices',async()=>{
+test('Existing IDs remain, admin adapter excludes USER, user password adapter is separate, safe return preserves choices',async()=>{
  const auth=load('src/lib/auth-client'),routing=load('src/lib/auth-routing');
  assert.equal((await auth.authenticate('user@one-g.com','123456','USER')).ok,false);
+ assert.equal((await load('src/lib/auth/account-service').accountService.passwordLogin({region:'mainland',channel:'email',recipient:'demo-a@example.test',password:'123456'})).user.id,'user-demo');
  assert.equal((await auth.authenticate('admin@one-g.com','admin123','ADMIN')).ok,true);
  const target='/buy/robotdock/?package=hand&quantity=3&payment=alipay';assert.equal(routing.safeReturnTo(target,'USER'),target);
  for(const url of ['https://evil.test','//evil.test','/admin','/%2f%2fevil.test'])assert.equal(routing.safeReturnTo(url,'USER'),'/account');

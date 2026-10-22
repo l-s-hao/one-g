@@ -1,0 +1,6 @@
+[
+  "Region channels, explicit register/login links, empty/dirty leave, safe focus, continue/confirm, Header and cancel, theme/language/blur retain draft, native reload warning",
+  "Browser back cancelled without pushState; confirmed back and forward preserve history and clear draft",
+  "Required mainland phone and organization; international/personal exceptions; human gate and one-use proof; email change clears code; optional identity has no sensitive input; explicit register returns login with no session; password and OTP logins share ID and restore purchase; reload loses memory account; stable fixture USER denied admin; existing administrator password reaches admin; no credential/draft storage",
+  "Functional run, no browser/hydration/i18n errors"
+]

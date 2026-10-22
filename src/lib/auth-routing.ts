@@ -2,7 +2,7 @@ import type { UserRole } from "@/types/auth";
 import { canonicalConfigurationHref } from "./configuration-routing";
 
 const USER_ROUTE_ROOTS = ["/cart", "/checkout", "/orders", "/account", "/order-success"];
-const LOGIN_ROUTES = new Set(["/login", "/admin/login"]);
+const LOGIN_ROUTES = new Set(["/login", "/admin/login", "/register"]);
 
 export function requiredRole(href: string): UserRole | null {
   if (!href.startsWith("/") || href.startsWith("//")) return null;

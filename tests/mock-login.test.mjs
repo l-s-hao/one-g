@@ -15,10 +15,10 @@ function loader() {
 const values=new Map();global.localStorage={getItem:k=>values.get(k)??null,setItem:(k,v)=>values.set(k,v),removeItem:k=>values.delete(k)};
 test('Explicit development Mock adapter: exact fixture identities retain IDs and roles',async()=>{
  process.env.NODE_ENV='development';process.env.NEXT_PUBLIC_ONE_G_MOCK_AUTH='1';const load=loader(),adapter=load('src/lib/auth/mock-login');
- for(const [channel,recipient,id,role] of [['phone','19900000001','user-demo','USER'],['phone','19900000002','user-demo-b','USER'],['email','demo-a@example.test','user-demo','USER'],['email','demo-b@example.test','user-demo-b','USER'],['email','admin@one-g.com','admin-demo','ADMIN']]) {
+ for(const [channel,recipient,id,role] of [['phone','19900000001','user-demo','USER'],['phone','19900000002','user-demo-b','USER'],['email','demo-a@example.test','user-demo','USER'],['email','demo-b@example.test','user-demo-b','USER']]) {
   assert.equal(adapter.canUseMockShortcut(channel,recipient),true);const result=await adapter.authenticateMockShortcut(channel,recipient);assert.equal(result.ok,true);assert.equal(result.user.id,id);assert.equal(result.user.role,role);
  }
- for(const recipient of ['', 'someone@one-g.com','superadmin@one-g.com','admin@evil.test','role=ADMIN']){assert.equal(adapter.canUseMockShortcut('email',recipient),false);assert.equal((await adapter.authenticateMockShortcut('email',recipient)).ok,false);}
+ for(const recipient of ['', 'admin@one-g.com', 'someone@one-g.com','superadmin@one-g.com','admin@evil.test','role=ADMIN']){assert.equal(adapter.canUseMockShortcut('email',recipient),false);assert.equal((await adapter.authenticateMockShortcut('email',recipient)).ok,false);}
  assert.equal((await adapter.authenticateMockShortcut('phone','19900000003')).ok,false);
  const abort=new AbortController();abort.abort();await assert.rejects(adapter.authenticateMockShortcut('phone','19900000001',abort.signal),{name:'AbortError'});
  const routes=load('src/lib/auth-routing');assert.equal(routes.safeReturnTo(null,'ADMIN'),'/admin');assert.equal(routes.safeReturnTo('/account','ADMIN'),'/admin');assert.equal(routes.safeReturnTo('/admin','USER'),'/account');assert.equal(routes.loginDestination('/admin','ADMIN'),'/login?returnTo=%2Fadmin');

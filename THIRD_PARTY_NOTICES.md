@@ -38,3 +38,7 @@ the website output.
 These notices do not certify fonts embedded in independent Logo artwork,
 photographs, video subtitles or printed Lanyard textures. Those assets are
 unchanged and have a separate review boundary documented in the audit.
+
+## Login card design reference
+
+The compact form composition and local pointer-accent idea are adapted from Manu Arora / Aceternity UI: https://ui.aceternity.com/components/signup-form and its signup-form-demo, input and label registries. ONE-G uses its own login flow, localized native labels, scoped CSS and existing icons; no signup or social authentication example is shipped. See [source review](docs/login-card-review.md).

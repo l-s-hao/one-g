@@ -27,7 +27,7 @@
 | 8. SONIC Link 详情 | 已实现 | `app/solutions/teleoperation/page.tsx`、`data/solutions/sonic-link.ts` | 遥操作工作流说明与已有媒体 | 本仓库未接机器人运行控制服务 |
 | 9. RoboDock 套餐配置 | 前端演示 | `app/buy/[id]/page.tsx`、`components/ProductPurchase.tsx` | 四套餐、数量、URL 恢复、定制返回 | 价格待确认，加购禁用，无销售/交付闭环 |
 | 10. 支付方式选择 | 前端演示 | `components/PaymentSelector.tsx`、`lib/payments.ts` | 支付宝/微信/对公预选与偏好保存 | 无真实支付、商户、银行资料和回调核验 |
-| 11. 登录/访问控制 | 前端演示 | `components/VerificationLogin.tsx`、`AuthProvider.tsx`、`lib/auth/` | 本地验证码/快捷演示，角色隔离、安全返回与退出 | 正式短信/邮件验证码、注册和服务器 session 未接入 |
+| 11. 登录/访问控制 | 前端演示 | `components/VerificationLogin.tsx`、`AuthProvider.tsx`、`lib/auth/` | 显式资料注册、地区规则、人机/验证码用途隔离、密码登录、离页保护与安全返回 | 正式短信/邮件验证码、注册和服务器 session 未接入 |
 | 12. 购物车/结算/订单 | 前端演示 | `app/cart/`、`app/checkout/`、`lib/cart.ts`、`lib/commerce/service.ts` | 用户隔离本地记录、Mock pending 订单与幂等校验 | 无数据库、库存、服务端价格/真实成交；生产禁用 Mock |
 | 13. 用户中心 | 前端演示 | `app/account/page.tsx`、`components/AccountOrders.tsx` | 演示资料、订单、购物车、咨询、切换/退出 | 地址管理未开放，资料/订单无服务端同步 |
 | 14. 管理员中心 | 前端演示 | `app/admin/page.tsx` | 模块切换、只读说明、演示角色保护 | 无真实管理数据、CRUD、后台权限体系 |
@@ -92,3 +92,7 @@
 ## 2026-10-21 字体来源与许可审计
 
 全局字体入口接入本地官方 Inter Variable 4.000 与 Noto Sans SC 2.004，原始二进制、完整 OFL、版权、来源提交和哈希随站保存。104 组代表页面 Rendered Fonts、输入框、缓存/断网回退及导航/布局回归见 [字体审计](font-audit.md)。保持原字号、字重、行高、间距和业务逻辑；系统回退与图片/Logo 的授权边界单独记录。
+
+2026-10-22 登录页：邮箱默认紧凑卡片，登录专用输入框；三个次级入口切换手机号、微信未接入状态、管理员密码验证。普通快捷白名单仅返回 USER。正式认证和微信仍未接入。检查、构建和截图见 [登录卡片验收](login-card-review.md)。
+
+2026-10-22 注册流程更新：只有明确注册并通过 register challenge 才创建临时内存 USER，成功返回登录且不建立 session。海外仅邮箱，新填写电话保持未验证；人机/邮件/短信/实名服务仍未接入。验收及浏览器历史导航边界见 [注册登录报告](registration-auth-review.md)。

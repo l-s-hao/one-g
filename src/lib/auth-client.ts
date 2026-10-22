@@ -1,4 +1,5 @@
 import { mockAuthEnabled } from "./demo-mode";
+import { findSessionUser, fixturePasswordMatches } from "./auth/accounts";
 import { mockUsers } from "@/data/mock-users";
 import type { CurrentUser, LoginResult, UserRole } from "@/types/auth";
 
@@ -9,8 +10,8 @@ const publicUser = (user: CurrentUser): CurrentUser => ({ id: user.id, email: us
 // Replace this adapter with backend auth + HttpOnly session cookies later.
 export async function authenticate(email: string, password: string, role: UserRole): Promise<LoginResult> {
   if (!mockAuthEnabled || role !== "ADMIN") return { ok: false, error: "INVALID_CREDENTIALS" };
-  const user = mockUsers.find(item => item.email === email.trim().toLowerCase() && item.password === password);
-  if (!user) return { ok: false, error: "INVALID_CREDENTIALS" };
+  const user = mockUsers.find(item => item.email === email.trim().toLowerCase());
+  if (!user || !await fixturePasswordMatches(user.id, password)) return { ok: false, error: "INVALID_CREDENTIALS" };
   if (user.role !== role) return { ok: false, error: "WRONG_ROLE" };
   return { ok: true, user: publicUser(user) };
 }
@@ -20,7 +21,7 @@ export function readDemoSession(): CurrentUser | null {
   try {
     const stored: unknown = JSON.parse(localStorage.getItem(demoAuthKey) ?? "null");
     if (!stored || typeof stored !== "object" || !("userId" in stored) || !("version" in stored) || stored.version !== 1) return null;
-    const user = mockUsers.find(item => item.id === stored.userId);
+    const user = typeof stored.userId === "string" ? findSessionUser(stored.userId) : undefined;
     return user ? publicUser(user) : null;
   } catch { return null; }
 }

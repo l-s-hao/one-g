@@ -73,9 +73,9 @@
 
 ## 11. 登录与访问控制
 
-- 页面：`/login/`，旧管理员/注册/找回入口兼容；组件：`VerificationLogin`、`AuthProvider`、`RequireRole`。
-- 前端演示：手机号/邮箱校验、Mock 挑战与取消、登录返回、用户切换、退出、USER/ADMIN 区分；本地开发有显式白名单快捷路径。
-- 来源：`lib/auth/verification.ts`、`auth/mock-login.ts`、本地虚构身份。生产默认未接入；不发送真实验证码，不注册真实用户，不执行密码重置。
+- 页面：`/login/`、`/register/`，旧管理员/找回入口兼容；组件：`VerificationLogin`、`AuthProvider`、`RequireRole`。
+- 前端演示：大陆/海外集中策略，显式资料注册 → 人机凭据 → 注册邮箱码 → 创建内存 USER → 返回登录；邮箱密码/验证码登录，国内原已验证手机号关系保留。注册有离页确认；微信仍未接入。普通登录不再使用“只输入账号”的快捷路径。见 [注册登录报告](registration-auth-review.md)。
+- 来源：`lib/auth/verification.ts`、`auth/mock-login.ts`、本地虚构身份。生产默认未接入；不发送真实验证码，不创建持久真实用户，不执行密码重置。
 
 ## 12. 购物车、结算与订单
 

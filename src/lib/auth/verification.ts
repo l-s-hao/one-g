@@ -1,71 +1,70 @@
 import type { CurrentUser } from "@/types/auth";
 import { mockAuthEnabled } from "../demo-mode";
-import { mockUsers } from "@/data/mock-users";
-
+import { findAccount } from "./accounts";
+import { humanVerification, type HumanVerificationAdapter } from "./human";
+import { AuthFlowError, checkedContext, contextKey, genericAuthError, normalizeAddress, validAddress, type VerificationContext } from "./policy";
+export { testIdentities } from "./accounts";
+export { AuthFlowError as VerificationError } from "./policy";
 export type LoginChannel = "phone" | "email";
-export type VerificationRequest = { channel: LoginChannel; recipient: string };
-export type Challenge = VerificationRequest & { id: string; expiresAt: number; resendAt: number; codeLength: number };
-export type VerifyRequest = VerificationRequest & { challengeId: string; code: string };
+export type VerificationRequest = VerificationContext & { humanToken: string };
+export type Challenge = VerificationContext & { id: string; createdAt: number; expiresAt: number; resendAt: number; codeLength: number };
+export type VerifyRequest = VerificationContext & { challengeId: string; code: string };
 export interface VerificationService {
   readonly mode: "mock" | "unconfigured";
   send(request: VerificationRequest, signal?: AbortSignal): Promise<Challenge>;
   verify(request: VerifyRequest, signal?: AbortSignal): Promise<CurrentUser>;
+  consumeRegistration(request: VerifyRequest, signal?: AbortSignal): Promise<void>;
   discard(id: string): void;
 }
-export const normalizeRecipient = (channel: LoginChannel, value: string) => channel === "email" ? value.trim().toLowerCase() : value.trim();
-export const validRecipient = (channel: LoginChannel, value: string) => channel === "phone" ? /^1[3-9]\d{9}$/.test(value) : /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-export class VerificationError extends Error {
-  constructor(message: string, readonly retryAt?: number) { super(message); }
-}
-
-// Fictional fixtures with explicitly pre-bound identifiers. Never infer links from profile/contact data.
-// Existing IDs remain unchanged; no signup, role input, account merging or real message delivery.
-export const testIdentities = [
-  { userId: "user-demo", phone: "19900000001", email: "demo-a@example.test" },
-  { userId: "user-demo-b", phone: "19900000002", email: "demo-b@example.test" },
-] as const;
+export const normalizeRecipient = normalizeAddress;
+export const validRecipient = validAddress;
+// Mock-only fixture, never returned by a real send endpoint.
 export const testCode = "004271";
-export function createMockVerificationService(now = () => Date.now(), delay = 350): VerificationService {
-  const challenges = new Map<string, Challenge & { userId: string; attempts: number }>();
+export function createMockVerificationService(now = () => Date.now(), delay = 350, human: HumanVerificationAdapter = humanVerification): VerificationService {
+  const challenges = new Map<string, { challenge: Challenge; attempts: number }>();
   const cooldowns = new Map<string, number>();
   const pause = async (signal?: AbortSignal) => { await new Promise(resolve => setTimeout(resolve, delay)); signal?.throwIfAborted(); };
+  const consume = async (request: VerifyRequest, purpose: "login" | "register", signal?: AbortSignal) => {
+    await pause(signal);
+    const invalid = () => new AuthFlowError("验证码错误或已失效，请重试或重新获取。");
+    const item = challenges.get(request.challengeId);
+    if (!item || item.challenge.expiresAt <= now() || item.attempts >= 5) { challenges.delete(request.challengeId); throw invalid(); }
+    item.attempts++;
+    let matches = false;
+    try { matches = request.purpose === purpose && contextKey(item.challenge) === contextKey(request); } catch { /* Reject malformed requests uniformly. */ }
+    if (!matches || request.code !== testCode) { if (item.attempts >= 5) challenges.delete(request.challengeId); throw invalid(); }
+    challenges.delete(request.challengeId);
+  };
   return {
     mode: "mock",
-    async send(request, signal) {
+    async send(input, signal) {
       await pause(signal);
-      const recipient = normalizeRecipient(request.channel, request.recipient);
-      if (!validRecipient(request.channel, recipient)) throw new VerificationError("请输入有效的手机号或邮箱。");
-      const key = `${request.channel}:${recipient}`;
+      const request = checkedContext(input);
+      human.consume(input.humanToken, request);
+      const key = `${request.channel}:${request.recipient}`;
       const retryAt = cooldowns.get(key) ?? 0;
-      if (retryAt > now()) throw new VerificationError("请求过于频繁，请稍后重试。", retryAt);
-      const identity = testIdentities.find(item => item[request.channel] === recipient);
-      if (!identity) throw new VerificationError("暂时无法完成请求，请检查输入或稍后重试。");
-      for (const [id, old] of challenges) if (old.channel === request.channel && old.recipient === recipient) challenges.delete(id);
-      const challenge: Challenge = { ...request, recipient, id: crypto.randomUUID(), expiresAt: now() + 300_000, resendAt: now() + 60_000, codeLength: 6 };
-      challenges.set(challenge.id, { ...challenge, userId: identity.userId, attempts: 0 });
-      cooldowns.set(key, challenge.resendAt);
+      if (retryAt > now()) throw new AuthFlowError("请求过于频繁，请稍后重试。", retryAt);
+      if (request.purpose === "register" && !request.recipient.endsWith(".test")) throw new AuthFlowError("本地演示仅接受虚构的 .test 邮箱，请勿填写真实资料。");
+      // Login never creates users, including unknown email/WeChat identities.
+      if (request.purpose === "login" && !findAccount(request.channel, request.recipient)) throw genericAuthError();
+      for (const [id, old] of challenges) if (old.challenge.channel === request.channel && old.challenge.recipient === request.recipient) challenges.delete(id);
+      for (const [id, old] of challenges) if (old.challenge.expiresAt <= now()) challenges.delete(id);
+      const challenge: Challenge = { ...request, id: crypto.randomUUID(), createdAt: now(), expiresAt: now() + 300_000, resendAt: now() + 60_000, codeLength: 6 };
+      challenges.set(challenge.id, { challenge, attempts: 0 }); cooldowns.set(key, challenge.resendAt);
       return challenge;
     },
     async verify(request, signal) {
-      await pause(signal);
-      const challenge = challenges.get(request.challengeId);
-      const invalid = () => new VerificationError("验证码错误或已失效，请重试或重新获取。");
-      if (!challenge || challenge.expiresAt <= now() || challenge.attempts >= 5) { challenges.delete(request.challengeId); throw invalid(); }
-      challenge.attempts++;
-      if (challenge.channel !== request.channel || challenge.recipient !== normalizeRecipient(request.channel, request.recipient) || request.code !== testCode) {
-        if (challenge.attempts >= 5) challenges.delete(request.challengeId);
-        throw invalid();
-      }
-      challenges.delete(request.challengeId);
-      const user = mockUsers.find(item => item.id === challenge.userId && item.role === "USER");
-      if (!user) throw invalid();
+      await consume(request, "login", signal);
+      const user = findAccount(request.channel, request.recipient);
+      if (!user || user.role !== "USER") throw genericAuthError();
       return { id: user.id, email: user.email, role: "USER" };
     },
+    async consumeRegistration(request, signal) { await consume(request, "register", signal); },
     discard(id) { challenges.delete(id); },
   };
 }
-const unavailable = async (): Promise<never> => { throw new VerificationError("验证码服务尚未接入，暂不支持真实用户登录。"); };
-// Replace the adapter only after a real backend contract is configured; no imaginary static API.
-export const verificationService: VerificationService = mockAuthEnabled
-  ? createMockVerificationService()
-  : { mode: "unconfigured", send: unavailable, verify: unavailable, discard() {} };
+const unavailable = async (): Promise<never> => { throw new AuthFlowError("验证码服务尚未接入，暂不支持真实用户登录。"); };
+// A real backend must enforce these same purpose/region/verified-identifier checks.
+export const verificationService: VerificationService = mockAuthEnabled ? createMockVerificationService() : {
+  mode: "unconfigured", send: unavailable, verify: unavailable, consumeRegistration: unavailable, discard() {},
+};
