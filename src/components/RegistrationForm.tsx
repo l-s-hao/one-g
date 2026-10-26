@@ -10,7 +10,7 @@ import { safeReturnTo } from "@/lib/auth-routing";
 import { type ServiceRegion } from "@/lib/auth/policy";
 import BrandLogo from "./BrandLogo";
 import LoginInput from "./LoginInput";
-import { RegionField, HumanField, PasswordField } from "./AuthFields";
+import { ResendLabel, RegionField, HumanField, PasswordField } from "./AuthFields";
 import { useAuthVerification } from "./useAuthVerification";
 import { useRegistrationLeaveGuard } from "./useRegistrationLeaveGuard";
 import styles from "./VerificationLogin.module.css";
@@ -88,7 +88,7 @@ export default function RegistrationForm() {
       <HumanField ready={verification.humanReady} pending={verification.pending === "human"} disabled={!!verification.pending} onVerify={() => { if (validate()) void verification.requestHuman(); }} />
       <LDiv className={styles.field}><LLabel htmlFor="registration-code">邮箱验证码</LLabel><LDiv className={styles.codeRow}>
         <LoginInput id="registration-code" type="text" inputMode="numeric" autoComplete="one-time-code" value={verification.code} maxLength={6} disabled={verification.pending === "submit"} onChange={event => verification.setCode(event.target.value)} aria-describedby="auth-feedback" aria-invalid={!!verification.message} />
-        <LButton type="button" className={styles.secondary} disabled={!verification.humanReady || !!verification.pending || verification.seconds > 0} onClick={() => { if (validate()) void verification.send(); }}>{verification.pending === "send" ? "发送中…" : verification.seconds > 0 ? `${verification.seconds} 秒后重发` : "获取验证码"}</LButton>
+        <LButton type="button" className={styles.secondary} disabled={!verification.humanReady || !!verification.pending || verification.seconds > 0} onClick={() => { if (validate()) void verification.send(); }}><ResendLabel seconds={verification.seconds} sending={verification.pending === "send"} /></LButton>
       </LDiv></LDiv>
       <LP id="auth-feedback" role="alert" tabIndex={-1} className={`${styles.feedback} ${styles.error}`} hidden={!verification.message}>{verification.message}</LP>
       <LP role="status" className={styles.feedback} hidden={!verification.notice}>{verification.notice}</LP>

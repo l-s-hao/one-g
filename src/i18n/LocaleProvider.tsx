@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
-import { usePathname } from "next/navigation";
+import { useAppPathname } from "@/lib/use-app-pathname";
 import { english, type Locale, type MessageKey } from "./dictionary";
 
 const preferenceKey = "one-g-locale";
@@ -31,7 +31,7 @@ export function useLocale() {
 }
 export default function LocaleProvider({ children }: { children: ReactNode }) {
   const [locale, updateLocale] = useState<Locale>("zh-CN");
-  const pathname = usePathname();
+  const pathname = useAppPathname();
   const titles = useRef(new Map<string, string>());
   useEffect(() => {
     try {

@@ -13,7 +13,7 @@ export default function ProductCard({ product, hidden = false, flipId }: { produ
   const offering = isConfigurableOffering(product.id) ? getOfferingNavigation(product) : undefined;
   const detailHref = offering?.overviewHref ?? `/products/${product.slug}`;
   return <LArticle data-product-id={product.id} data-flip-id={flipId} data-filter-hidden={hidden || undefined} inert={hidden} aria-hidden={hidden || undefined} data-card-hover-host>
-    <LDiv data-card-hover-surface className={`product-card ${styles.card}`}>
+    <LDiv data-card-hover-surface data-card-depth className={`product-card ${styles.card}`}>
     <Link href={detailHref} aria-label={`了解更多：${product.name}`}>
       <ProductVisual label={product.detail?.imageNotes[0]?.alt ?? getCategoryName(product.category)} images={product.images} compact />
     </Link>
@@ -24,7 +24,7 @@ export default function ProductCard({ product, hidden = false, flipId }: { produ
       <LP className={`product-subtitle ${styles.subtitle}`}>{product.subtitle}</LP>
       {product.detail?.statusNote && <LP className={styles.note}>{product.detail.statusNote}</LP>}
       <LDiv className={`product-card-price ${styles.bottom}`}>
-        <LP>{formatPrice(product.price)}</LP>
+        <LP className="tabular-nums whitespace-nowrap">{formatPrice(product.price)}</LP>
         <LDiv className={styles.actions}>
           <Link intent="ordinary" href={detailHref}>了解更多 <LSpan aria-hidden="true">→</LSpan></Link>
           {offering && <Link intent="purchase" href={offering.purchaseHref}>{offering.purchaseLabel}</Link>}

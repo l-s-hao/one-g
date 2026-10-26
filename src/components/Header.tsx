@@ -6,7 +6,7 @@ import { LButton, LDiv, LHeader, LInput, LLabel, LLi, LNav, LP, LUl } from "@/i1
 import { translate, useLocale } from "@/i18n/LocaleProvider";
 import LanguageSwitch from "./LanguageSwitch";
 import { LocalizedLink as Link } from "@/i18n/Elements";
-import { usePathname } from "next/navigation";
+import { useAppPathname } from "@/lib/use-app-pathname";
 import { Menu, Search, ShoppingCart, UserRound, X } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { solutions } from "@/data/solutions";
@@ -27,7 +27,7 @@ const searchItems = [...navigation, ...solutions.filter(item => item.detailHref)
 }))];
 
 export default function Header() {
-  const pathname = usePathname();
+  const pathname = useAppPathname();
   // Remount on navigation, including browser back, so panels and focus state cannot leak to another page.
   return <HeaderNavigation key={pathname} pathname={pathname.replace(/\/+$/, "") || "/"} />;
 }

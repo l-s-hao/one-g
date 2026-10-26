@@ -10,7 +10,7 @@ import { mockAuthEnabled } from "@/lib/demo-mode";
 import { testCode, testIdentities, type LoginChannel } from "@/lib/auth/verification";
 import { normalizeAddress, validAddress, type ServiceRegion } from "@/lib/auth/policy";
 import { useAuthVerification } from "./useAuthVerification";
-import { RegionField, PasswordField, HumanField } from "./AuthFields";
+import { ResendLabel, RegionField, PasswordField, HumanField } from "./AuthFields";
 import BrandLogo from "./BrandLogo";
 import LoginInput from "./LoginInput";
 import styles from "./VerificationLogin.module.css";
@@ -84,7 +84,7 @@ export default function VerificationLogin({ switching = false, initialMode = "em
           <HumanField ready={verification.humanReady} pending={verification.pending === "human"} disabled={busy || !authReady} onVerify={verification.requestHuman} />
           <LDiv className={styles.field}><LLabel htmlFor="verification-code">验证码</LLabel><LDiv className={styles.codeRow}>
             <LoginInput id="verification-code" type="text" inputMode="numeric" autoComplete="one-time-code" value={verification.code} maxLength={6} disabled={busy || !authReady} onChange={event => verification.setCode(event.target.value)} aria-invalid={!!verification.message} aria-describedby="auth-feedback" />
-            <LButton type="button" className={styles.secondary} disabled={!verification.humanReady || busy || !authReady || verification.seconds > 0} onClick={verification.send}>{verification.pending === "send" ? "发送中…" : verification.seconds > 0 ? `${verification.seconds} 秒后重发` : "获取验证码"}</LButton>
+            <LButton type="button" className={styles.secondary} disabled={!verification.humanReady || busy || !authReady || verification.seconds > 0} onClick={verification.send}><ResendLabel seconds={verification.seconds} sending={verification.pending === "send"} /></LButton>
           </LDiv></LDiv>
         </>}
         {mode === "phone" && <LP className={styles.feedback}>仅限已有已验证绑定的手机号。手机绑定验证尚未接入，新注册手机号不能用于登录。</LP>}

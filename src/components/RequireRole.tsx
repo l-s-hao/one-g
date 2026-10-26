@@ -5,7 +5,8 @@ import { LDiv, LH1, LP } from "@/i18n/Elements";
 
 import { useEffect, useRef, type ReactNode } from "react";
 import { LocalizedLink as Link } from "@/i18n/Elements";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useAppPathname } from "@/lib/use-app-pathname";
 import { canAccessRole, loginDestination } from "@/lib/auth-routing";
 import type { UserRole } from "@/types/auth";
 import { useAuth } from "./AuthProvider";
@@ -13,7 +14,7 @@ import { useAuth } from "./AuthProvider";
 export default function RequireRole({ role, children }: { role: UserRole; children: ReactNode }) {
   const { currentUser, authReady, exitTarget } = useAuth();
   const router = useRouter();
-  const pathname = usePathname().replace(/\/+$/, "") || "/";
+  const pathname = useAppPathname().replace(/\/+$/, "") || "/";
   const hadSession = useRef(false);
   useEffect(() => {
     if (!authReady) return;

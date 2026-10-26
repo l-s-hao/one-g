@@ -28,3 +28,13 @@ export function HumanField({ ready, pending, disabled, onVerify }: { ready: bool
     <LButton type="button" className={styles.secondary} disabled={disabled || humanVerification.mode !== "mock"} onClick={onVerify}>{pending ? "验证中…" : ready ? "演示人机凭据已就绪（单次使用）" : "模拟人机验证（仅开发）"}</LButton>
   </LDiv>;
 }
+
+/** Reserve each localized resend state; only the visible label is announced. */
+export function ResendLabel({ seconds, sending }: { seconds: number; sending: boolean }) {
+  return <LSpan className={`${styles.resendLabel} tabular-nums`}>
+    <LSpan aria-hidden="true" className={styles.resendReserve}>60 秒后重发</LSpan>
+    <LSpan aria-hidden="true" className={styles.resendReserve}>获取验证码</LSpan>
+    <LSpan aria-hidden="true" className={styles.resendReserve}>发送中…</LSpan>
+    <LSpan>{sending ? "发送中…" : seconds > 0 ? `${seconds} 秒后重发` : "获取验证码"}</LSpan>
+  </LSpan>;
+}

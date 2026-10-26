@@ -4,7 +4,7 @@ import { LButton, LDiv, LFooter, LH2, LLi, LNav, LP, LSection, LSpan, LUl } from
 
 
 import { LocalizedLink as Link } from "@/i18n/Elements";
-import { usePathname } from "next/navigation";
+import { useAppPathname } from "@/lib/use-app-pathname";
 import { useState } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { footerGroups } from "@/data/footer-navigation";
@@ -26,7 +26,7 @@ const routeNames: Record<string, string> = {
 };
 
 export default function Footer() {
-  const pathname = usePathname().replace(/\/+$/, "") || "/";
+  const pathname = useAppPathname().replace(/\/+$/, "") || "/";
   const [expanded, setExpanded] = useState<number | null>(null);
   const product = (pathname.startsWith("/products/") || pathname.startsWith("/buy/")) ? getProductBySlug(pathname.split("/")[2]) : undefined;
   const offering = product && isConfigurableOffering(product.id);

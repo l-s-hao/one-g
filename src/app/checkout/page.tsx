@@ -1,6 +1,6 @@
 "use client";
 
-import { LButton, LDiv, LH1, LH2, LP, LSection } from "@/i18n/Elements";
+import { LButton, LDiv, LH1, LH2, LP, LSpan, LSection } from "@/i18n/Elements";
 
 
 import { useEffect, useRef, useState } from "react";
@@ -58,9 +58,9 @@ export default function CheckoutPage() {
     <LDiv className="checkout-sections mt-12 grid gap-5 lg:grid-cols-2">
       <LSection className="rounded-3xl border border-white/10 bg-[#0d0d0d] p-7"><LH2 className="text-xl font-bold">商品与配置</LH2>
         {!items.length && <LP className="mt-5">{ready ? "购物车为空。" : "正在读取购物车…"}</LP>}
-        {items.map(item => <LP key={item.id} className="mt-4">{item.name} × {item.quantity}</LP>)}
+        {items.map(item => <LP key={item.id} className="mt-4">{item.name} × <LSpan className="tabular-nums">{item.quantity}</LSpan></LP>)}
         {configuration && <LP className="mt-4">{configuration.name}：配置订单服务尚未接入，暂不能提交。请勿将此方案视为已下单。</LP>}
-        <LP className="mt-10 text-3xl font-bold">{formatPrice(total)}</LP><LP className="mt-2 text-xs text-white/50">演示价格，仅用于原型展示；正式金额须由订单后端确认。</LP>
+        <LP className="tabular-nums whitespace-nowrap mt-10 text-3xl font-bold">{formatPrice(total)}</LP><LP className="mt-2 text-xs text-white/50">演示价格，仅用于原型展示；正式金额须由订单后端确认。</LP>
       </LSection>
       <LSection className="rounded-3xl border border-white/10 bg-[#0d0d0d] p-7"><PaymentSelector value={payment} onChange={selectPayment} disabled={pending}/>
         <LH2 className="mt-8 text-xl font-bold">联系人信息</LH2><LP className="mt-3 text-sm text-white/55">正式订单服务未接入，演示不收集真实收货资料。</LP>

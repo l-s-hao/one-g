@@ -46,3 +46,9 @@
 .authMethods {margin-block:16px;}
 .card > .field {margin-bottom:16px;}
 .form {margin-top:16px;}
+
+/* The ghost labels size the grid in the active language without changing button typography. */
+.resendLabel {display:grid;white-space:nowrap;}
+.resendLabel > span {grid-area:1 / 1;}
+.resendReserve {visibility:hidden;pointer-events:none;}
+.title {text-wrap:balance;}

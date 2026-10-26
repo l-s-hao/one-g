@@ -1,0 +1,41 @@
+{
+  "viewportWidths": [
+    390,
+    768,
+    1440,
+    1920
+  ],
+  "locales": [
+    "zh-CN",
+    "en"
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "beforeCases": 144,
+  "titlesCases": 144,
+  "finalCases": 144,
+  "cardGeometryUnchanged": true,
+  "fontSpecsAndTextUnchanged": true,
+  "numericRegressionGroups": 8,
+  "staggerRegressionPageCombinations": 24,
+  "functionalStateGroups": 8,
+  "forcedColors": [
+    "light",
+    "dark"
+  ],
+  "equivalentZoom": [
+    1.25,
+    1.5
+  ],
+  "equivalentZoomCombinations": 16,
+  "zoomPagesPerCombination": 5,
+  "nativeBrowserZoomShortcutTested": false,
+  "lint": "3 existing no-require-imports errors in docs/reviews/font-audit/home-stable.cjs",
+  "typecheck": "passed",
+  "build": "passed",
+  "changedFileLint": "passed",
+  "fullMeasurements": "/tmp/one-g-detail",
+  "earlierChangesPreserved": true
+}

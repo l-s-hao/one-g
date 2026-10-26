@@ -8,6 +8,8 @@ export const brandCopy = {
 } as const;
 
 export const english = {
+  "· 数量": "· Quantity",
+  "60 秒后重发": "60 seconds until resend",
   "请返回登录使用已注册账号的密码或邮箱验证码。密码重置服务尚未接入。": "Return to sign-in and use your registered password or email code. Password reset is not connected.",
   "正在加载注册表单…": "Loading registration…",
   "服务地区": "Service region",

@@ -119,3 +119,25 @@ A＝已核实开源且许可完整；B＝已核实开源但项目缺少许可记
 - [字体不可用时的回退](./reviews/font-audit/offline-fallback.png)。
 
 复跑：`tests/font-audit.browser.cjs` 通过 ONE_G_PLAYWRIGHT/ONE_G_BROWSER 指向外部工具，通过 ONE_G_TEST_URL 指向静态导出、ONE_G_MOCK_URL 指向仅启用已有模拟登录的本地服务；默认输出系统临时目录。STAGE=before 仅用于事先保存的旧构建，不能在改完后冒充历史字体证据。
+
+## STEP 1：等宽数字与位数稳定性（2026-10-26）
+
+沿用 Inter Variable / Noto Sans SC 字体栈，复用 Tailwind `tabular-nums`（`font-variant-numeric: tabular-nums`）。仅用于商品卡片与详情价格、购物车单价/总价及数量、购买页数量、结算数量/金额、订单金额和验证码重发标签。普通正文与标题不统一应用。
+
+登录和注册共用 `AuthFields.ResendLabel`，用当前语言的不可见且 `aria-hidden` 的标签占位，使发送中、获取验证码和两位/一位倒计时共享合理宽度。保留数量输入框原宽度；购物车输入框增加 `shrink-0` 防止 flex 挤压。金额使用 `whitespace-nowrap` 保持币种和金额在同一行，不统一设置固定金额宽度。套餐目前仍是“价格待确认”；导航没有购物车数量徽标；管理员中心没有统计数字，本轮不新增这些功能。
+
+Chromium 的 `CSS.getPlatformFontsForNode` 确认数字实际由本地 Inter Variable 渲染。400、600、700 字重下，40px 的 0–9 开启等宽数字后均为 25.78125px；未开启时数字宽度不同。此结论针对当前实际加载字体，未声称系统回退字体一定支持。字体文件、字号、字重、颜色、格式化函数和业务逻辑不变；验证码 `004271`、手机号和订单号保持原字符串，不补零或转为数字。
+
+复跑 `tests/numeric-layout.browser.cjs`：需要外部 Playwright，通过 `ONE_G_PLAYWRIGHT` 和 `ONE_G_BROWSER` 指定工具，`ONE_G_TEST_URL` 指定开发服务器；开发服务器需显式启用已有的 `NEXT_PUBLIC_ONE_G_MOCK_AUTH=1 NEXT_PUBLIC_ONE_G_MOCK_COMMERCE=1`。全部测试仅用隔离浏览器上下文中的虚构资料。默认结果和截图输出至 `/tmp/one-g-numeric`。倒计时测试调整浏览器时钟，执行真实现有倒计时逻辑；金额 999 → 1,000 → 9,999 使用真实金额元素的 DOM 展示夹具，79,600 → 119,400 则通过真实购物车数量计算触发，不修改商品价格。
+
+验证结果：1440px 桌面和 390px 手机 × 中文/英文 × 日间/夜间共 8 组浏览器检查通过；登录/注册真实倒计时 59 → 58、10 → 9、购买/购物车数量 9 → 10、金额跨位数、结算和订单金额均通过。确认相邻操作按钮、数量输入框和卡片宽度稳定，手机购物车无横向溢出，并人工查看手机中文日间购物车、英文夜间登录截图。`tsc --noEmit`、`npm run build`、本轮文件 ESLint 和两项既有认证/支付测试通过。全仓库 `npm run lint` 未通过，原因是既有 `docs/reviews/font-audit/home-stable.cjs` 的 3 处 `@typescript-eslint/no-require-imports` 错误，本轮未修改该文件。未提交或推送，未涉及后续步骤。
+
+## STEP 4：局部平衡标题换行（2026-10-26）
+
+只增加原生 `text-wrap: balance`：商品中心主标题与 ProductCard 名称、解决方案主标题/卡片标题、ProductDetailContent（含遥操作页复用样式）的介绍主标题/区块/卡片/兼容设备标题、深度定制区块和卡片标题、登录/注册标题、客服对话框标题。均使用原有 CSS Module 局部选择器，不作用于正文、按钮、输入框、金额、编号或技术参数单元格；不支持的浏览器自然忽略声明，回到原换行。文字、字体、字号、字重、行高、间距与容器宽度不变。
+
+没有移除硬断行。深度定制主标题的两段文案、首页逐行揭示与遮罩、About 愿景独立行、产品技术规格标题的品牌/副标题层级均属于明确表达或动画结构，保持原样。About 定位标题原有 balance 也不重复修改。ONE-G、RoboDock、SONIC Link 的实测标题没有新增品牌内断行；没有加入全局 nowrap、break-all 或 JS 排版。
+
+`tests/interface-detail.browser.cjs` 分 before/titles/after 三阶段保存数据到 `/tmp/one-g-detail`。9 个实际页面/客服对话框 × 390/768/1440/1920px × 中英文 × 日夜，每阶段 144 组合；before 与 titles 对比证明字体规格、颜色、容器宽度、卡片/图片尺寸与原 padding/radius 全部不变，50 个测量标题布局变得更均衡（含主题重复项）。例如 390px 中文解决方案主标题由末行仅“方案”变为均衡两行。隐藏的 sr-only 辅助标题不作为可见标题溢出判断对象。
+
+四宽度的 125%/150% 等效缩放检查和首页原中英文逐行揭示已通过。截图对照与最终五项回归见 [卡片交互说明](CARD_HOVER.md#step-5普通展示卡片的多层阴影2026-10-26)。保留全部原硬断行，标题文字、字体规格与布局尺度保持不变。

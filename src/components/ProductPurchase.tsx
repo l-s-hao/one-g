@@ -61,7 +61,7 @@ export default function ProductPurchase({ offering }: { offering: Offering }) {
           </LLabel></CardHover>) : <LP>套餐待确认</LP>}
         </LFieldset>
         {detail.bundleNote && <LP className={styles.note}>{detail.bundleNote}</LP>}
-        <LLabel className="mt-4 block">数量<LInput aria-label="数量" type="number" min="1" max="999" value={quantity} onChange={event => { const value = Number(event.target.value); if (Number.isSafeInteger(value) && value > 0 && value <= 999) { setQuantity(value); updateQuery("quantity", String(value)); } }} className="ml-3 w-20 rounded border border-[var(--border)] p-2"/></LLabel>
+        <LLabel className="mt-4 block">数量<LInput aria-label="数量" type="number" min="1" max="999" value={quantity} onChange={event => { const value = Number(event.target.value); if (Number.isSafeInteger(value) && value > 0 && value <= 999) { setQuantity(value); updateQuery("quantity", String(value)); } }} className="tabular-nums ml-3 w-20 rounded border border-[var(--border)] p-2"/></LLabel>
         <LSection className={styles.payment}><PaymentSelector value={payment} onChange={value => { selectPayment(value); updateQuery("payment", value); }}/></LSection>
         <LSection className={styles.summary} aria-labelledby="selection-title">
           <LH2 id="selection-title">当前选择</LH2><LP aria-live="polite">{selected?.name ?? "请选择套餐"}</LP>

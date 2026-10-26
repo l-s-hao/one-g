@@ -4,7 +4,8 @@ import { LButton, LDd, LDialog, LDiv, LDl, LDt, LForm, LH2, LInput, LLabel, LP, 
 
 
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useAppPathname } from "@/lib/use-app-pathname";
 import { useAuth } from "./AuthProvider";
 import { loginDestination } from "@/lib/auth-routing";
 import { getProductBySlug } from "@/lib/products";
@@ -21,7 +22,7 @@ export function useContact() {
 }
 export default function ContactProvider({ children }: { children: ReactNode }) {
   const { currentUser, authReady } = useAuth();
-  const pathname = usePathname().replace(/\/+$/, "") || "/";
+  const pathname = useAppPathname().replace(/\/+$/, "") || "/";
   const router = useRouter();
   const userId = currentUser?.id;
   const [request, setRequest] = useState<{ entry: ContactEntry; userId: string; pathname: string } | null>(null);
@@ -69,7 +70,7 @@ export default function ContactProvider({ children }: { children: ReactNode }) {
 }
 function ContactPreview({ entry, email, close }: { entry: ContactEntry; email: string; close: () => void }) {
   const dialog = useRef<HTMLDialogElement>(null);
-  const pathname = usePathname().replace(/\/+$/, "") || "/";
+  const pathname = useAppPathname().replace(/\/+$/, "") || "/";
   const [draft, setDraft] = useState<ContactDraft>({ name: "", email, company: "", description: "" });
   const [errors, setErrors] = useState<ReturnType<typeof validateContactDraft>>({});
   const [preview, setPreview] = useState(false);

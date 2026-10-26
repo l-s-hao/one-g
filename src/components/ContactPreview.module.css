@@ -24,3 +24,4 @@
 
 /* Unselected support controls retain their existing fill. */
 .trigger:not([data-button-effect="invert"]) {background:var(--button-primary-bg);color:var(--button-primary-text);}
+.heading h2 {text-wrap:balance;}

@@ -7,7 +7,7 @@ import { LocalizedLink as Link } from "@/i18n/Elements";
 import VerificationLogin from "./VerificationLogin";
 import BrandLogo from "./BrandLogo";
 
-// Compatibility for old entry URLs. Ordinary password authentication is retired.
+// Compatibility for the old forgot-password entry; login uses the current password/code flow.
 export default function AuthCard({ mode, switching = false }: { mode: "login" | "register" | "forgot-password"; switching?: boolean }) {
   if (mode === "login") return <VerificationLogin switching={switching}/>;
   return <LDiv className="auth-page flex min-h-dvh items-center justify-center px-5 py-12"><LSection className="w-full max-w-[440px] rounded-3xl bg-[#0a0a0a] px-7 py-10 text-center">

@@ -1,3 +1,4 @@
+import { BASE_PATH } from "./src/lib/route-paths";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -5,8 +6,8 @@ const nextConfig: NextConfig = {
   devIndicators: false,
   output: "export",
   trailingSlash: true,
-  basePath: "/one-g",
-  assetPrefix: "/one-g/",
+  basePath: BASE_PATH,
+  assetPrefix: `${BASE_PATH}/`,
   images: { unoptimized: true },
 };
 

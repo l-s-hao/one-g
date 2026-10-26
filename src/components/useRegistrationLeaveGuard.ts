@@ -1,5 +1,6 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { appPathname } from "@/lib/route-paths";
 import { useRouter } from "next/navigation";
 
 type NavigationEvent = Event & {
@@ -42,7 +43,7 @@ export function useRegistrationLeaveGuard(dirty: boolean, clear: () => void) {
       event.preventDefault(); event.stopPropagation();
       request(() => {
         if (target.origin === location.origin) {
-          const logicalPath = target.pathname.replace(/^\/one-g(?=\/|$)/, "") || "/";
+          const logicalPath = appPathname(target.pathname);
           router.push(`${logicalPath}${target.search}${target.hash}`);
         } else location.assign(target.href);
       });

@@ -1,1 +1,39 @@
-const{chromium}=require('/tmp/one-media-audit/tooling/node_modules/playwright-core'),fs=require('fs'),a=require('node:assert/strict');(async()=>{const b=await chromium.launch({executablePath:'/home/lsh/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome'}),rows=[];for(const width of[1440,390])for(const locale of['zh-CN','en'])for(const theme of['light','dark']){const c=await b.newContext({viewport:{width,height:900},isMobile:width===390,hasTouch:width===390});await c.addInitScript(({locale,theme})=>{localStorage.setItem('one-g-locale',locale);localStorage.setItem('one-g-appearance-v1',theme)},{locale,theme});const p=await c.newPage();await p.goto('http://127.0.0.1:3001/one-g/');await p.evaluate(()=>document.fonts.ready);await p.waitForTimeout(2600);const lines=await p.locator('[data-title-line]').evaluateAll(es=>es.map(e=>{const r=e.getBoundingClientRect(),b=e.parentElement.getBoundingClientRect();return{text:e.textContent,transform:getComputedStyle(e).transform,opacity:getComputedStyle(e).opacity,top:r.top,parentTop:b.top,bottom:r.bottom,parentBottom:b.bottom,width:r.width,parentWidth:b.width}}));for(const l of lines){a.equal(l.opacity,'1');a.ok(l.top>=l.parentTop-1,JSON.stringify(l));a.ok(l.bottom<=l.parentBottom+1,JSON.stringify(l));a.ok(l.width<=l.parentWidth+1)}rows.push({width,locale,theme,lines});await p.screenshot({path:`/tmp/one-font-audit/home-stable-${width}-${locale}-${theme}.png`});await c.close()}await b.close();fs.writeFileSync('/tmp/one-font-audit/home-stable.json',JSON.stringify(rows,null,2));console.log('8 stable home screenshots / title clipping checks passed')})().catch(e=>{console.error(e);process.exitCode=1})
+// Historical audit entry retained; native imports keep CJS execution and lint compatible.
+(async () => {
+  const fs = await import('node:fs');
+  const path = await import('node:path');
+  const { pathToFileURL } = await import('node:url');
+  const { default: assert } = await import('node:assert/strict');
+  const tooling = process.env.ONE_G_PLAYWRIGHT;
+  const { chromium } = await import(tooling ? pathToFileURL(path.extname(tooling) ? tooling : path.join(tooling, 'index.mjs')).href : 'playwright-core');
+  const base = process.env.ONE_G_TEST_URL || 'http://localhost:3000/one-g';
+  const output = process.env.ONE_G_FONT_AUDIT_OUT || '/tmp/one-font-audit';
+  fs.mkdirSync(output, { recursive: true });
+  const browser = await chromium.launch({ executablePath: process.env.ONE_G_BROWSER });
+  const rows = [];
+  try {
+    for (const width of [1440, 390]) for (const locale of ['zh-CN', 'en']) for (const theme of ['light', 'dark']) {
+      const context = await browser.newContext({ viewport: { width, height: 900 }, isMobile: width === 390, hasTouch: width === 390 });
+      await context.addInitScript(({ locale, theme }) => { localStorage.setItem('one-g-locale', locale); localStorage.setItem('one-g-appearance-v1', theme); }, { locale, theme });
+      const page = await context.newPage();
+      await page.goto(base + '/');
+      await page.locator('[data-theme-toggle]').waitFor();
+      await page.evaluate(() => document.fonts.ready);
+      await page.waitForTimeout(2600);
+      const lines = await page.locator('[data-title-line]').evaluateAll(elements => elements.map(element => {
+        const rect = element.getBoundingClientRect(), parent = element.parentElement.getBoundingClientRect();
+        return { text: element.textContent, opacity: getComputedStyle(element).opacity, top: rect.top, parentTop: parent.top, bottom: rect.bottom, parentBottom: parent.bottom, width: rect.width, parentWidth: parent.width };
+      }));
+      assert.ok(lines.length > 0);
+      for (const line of lines) {
+        assert.equal(line.opacity, '1');
+        assert.ok(line.top >= line.parentTop - 1 && line.bottom <= line.parentBottom + 1 && line.width <= line.parentWidth + 1);
+      }
+      rows.push({ width, locale, theme, lines });
+      await page.screenshot({ path: path.join(output, `home-stable-${width}-${locale}-${theme}.png`) });
+      await context.close();
+    }
+  } finally { await browser.close(); }
+  fs.writeFileSync(path.join(output, 'home-stable.json'), JSON.stringify(rows, null, 2));
+  console.log('PASS 8 home title clipping checks');
+})().catch(error => { console.error(error); process.exitCode = 1; });

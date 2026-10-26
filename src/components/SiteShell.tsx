@@ -4,7 +4,7 @@ import { LDiv, LMain } from "@/i18n/Elements";
 
 
 import { Fragment, type ReactNode } from "react";
-import { usePathname } from "next/navigation";
+import { useAppPathname } from "@/lib/use-app-pathname";
 import { useAuth } from "./AuthProvider";
 import RequireRole from "./RequireRole";
 import { requiredRole } from "@/lib/auth-routing";
@@ -18,7 +18,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
 
 function SiteContent({ children }: { children: ReactNode }) {
   const { currentUser } = useAuth();
-  const pathname = usePathname().replace(/\/+$/, "") || "/";
+  const pathname = useAppPathname().replace(/\/+$/, "") || "/";
   const role = requiredRole(pathname);
   const content = role ? <RequireRole role={role}><Fragment key={currentUser?.id ?? "anonymous"}>{children}</Fragment></RequireRole> : children;
   if (pathname === "/admin" || pathname.startsWith("/admin/")) return <>{content}</>;

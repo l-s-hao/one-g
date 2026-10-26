@@ -13,9 +13,12 @@
 .card :global(.product-visual__grid) { display:none; }
 @media (max-width:767px) {
  .card { padding:8px; border-radius:12px; }
+ .card :global(.product-visual) {min-height:0;height:auto;aspect-ratio:1.1;border-radius:8px;}
+ .subtitle {display:none;}
  .copy { padding:12px 2px 4px; }
  .copy h2 { font-size:14px; line-height:1.5; overflow-wrap:anywhere; }
  .bottom { padding-top:8px; font-size:13px; }
  .actions { gap:6px; margin-top:10px; }
  .actions a { padding:8px 10px; font-size:12px; }
 }
+.copy h2 {text-wrap:balance;}

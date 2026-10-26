@@ -4,13 +4,14 @@ import { LDiv, LP } from "@/i18n/Elements";
 
 import { useEffect } from "react";
 import { LocalizedLink as Link } from "@/i18n/Elements";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useAppPathname } from "@/lib/use-app-pathname";
 import { canonicalConfigurationHref } from "@/lib/configuration-routing";
 
 /** Public client redirect: compatible with exported HTML on GitHub Pages. */
 export default function LegacyConfigurationRedirect() {
   const router = useRouter();
-  const pathname = usePathname();
+  const pathname = useAppPathname();
   useEffect(() => {
     router.replace(canonicalConfigurationHref(pathname + window.location.search + window.location.hash));
   }, [router, pathname]);

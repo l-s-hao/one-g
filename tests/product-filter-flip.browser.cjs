@@ -114,7 +114,7 @@ const labels = { all:'全部', robot:'机器人', arm:'机械臂', hand:'灵巧�
     await mobile.getByRole('tab',{name:'机械臂',exact:true}).tap();
     await mobile.waitForSelector('#product-catalog[data-filter-animating]');
     await mobile.waitForFunction(()=>!document.querySelector('#product-catalog').hasAttribute('data-filter-animating'));
-    assert.deepEqual(await mobile.locator('.product-card:not([data-filter-hidden])').evaluateAll(es=>es.map(e=>e.dataset.productId)),expected.arm);
+    assert.deepEqual(await mobile.locator('#product-catalog > [data-product-id]:not([data-filter-hidden])').evaluateAll(es=>es.map(e=>e.dataset.productId)),expected.arm);
     await touch.close();
     assert.deepEqual(errors,[]);
     console.log('PASS: filter counts/order; retained movement; enter/leave opacity; rapid switching; resize; refresh; history; direct query; touch; reduced motion; stable content/IDs; purchase link; clean styles; no hydration/GSAP errors');

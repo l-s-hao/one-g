@@ -1,10 +1,14 @@
+import { localAppPathname } from "./route-paths";
 import { getOfferingPackages } from "./configurable-offerings";
 
 /** Static-export compatibility. Only known product/package IDs survive migration. */
 export function canonicalConfigurationHref(href: string) {
   const url = new URL(href, "https://one-g.invalid");
-  const path = url.pathname.replace(/\/+$/, "");
-  if (!["/configure", "/customize", "/customize/start", "/configure/robot", "/configure/robotdock", "/configure/sonic-link"].includes(path)) return href;
+  if (url.origin !== "https://one-g.invalid") return href;
+  const logical = localAppPathname(url.pathname);
+  if (logical === null) return "/";
+  const path = logical.replace(/\/+$/, "");
+  if (!["/configure", "/customize", "/customize/start", "/configure/robot", "/configure/robotdock", "/configure/sonic-link"].includes(path)) return `${logical}${url.search}${url.hash}`;
   if (path === "/configure/sonic-link" || [url.searchParams.get("productId"), url.searchParams.get("product"), url.hash.slice(1)].includes("sonic-link")) return "/solutions/teleoperation";
   const offerings = getOfferingPackages();
   const pathProduct = offerings.find(({ product }) => path === `/configure/${product.id}`);
