@@ -1,0 +1,150 @@
+{
+  "checks": 2880,
+  "failures": [],
+  "errors": [],
+  "fonts": [
+    {
+      "sample": "thai",
+      "fonts": [
+        {
+          "familyName": "Inter Variable",
+          "postScriptName": "InterVariable",
+          "isCustomFont": true,
+          "glyphCount": 1
+        },
+        {
+          "familyName": "Loma",
+          "postScriptName": "Loma",
+          "isCustomFont": false,
+          "glyphCount": 36
+        }
+      ]
+    },
+    {
+      "sample": "vietnamese",
+      "fonts": [
+        {
+          "familyName": "Inter Variable",
+          "postScriptName": "InterVariable",
+          "isCustomFont": true,
+          "glyphCount": 40
+        }
+      ]
+    },
+    {
+      "sample": "arabic",
+      "fonts": [
+        {
+          "familyName": "Inter Variable",
+          "postScriptName": "InterVariable",
+          "isCustomFont": true,
+          "glyphCount": 5
+        },
+        {
+          "familyName": "DejaVu Sans",
+          "postScriptName": "DejaVuSans-Bold",
+          "isCustomFont": false,
+          "glyphCount": 31
+        }
+      ]
+    }
+  ],
+  "cssWidths": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "zoom": [
+    1,
+    2
+  ],
+  "zoomMethod": "chrome.tabs.setZoom; viewport = CSS target width * zoom; verified innerWidth and devicePixelRatio",
+  "countsByRoute": {
+    "register": 288,
+    "login": 288,
+    "cart-empty": 288,
+    "cart": 288,
+    "checkout": 288,
+    "buy/robotdock": 288,
+    "products": 288,
+    "products/g1": 288,
+    "contact": 288,
+    "home": 288
+  },
+  "liveButtonStates": [
+    {
+      "locale": "zh-CN",
+      "theme": "light",
+      "width": 390,
+      "pass": true
+    },
+    {
+      "locale": "zh-CN",
+      "theme": "light",
+      "width": 1440,
+      "pass": true
+    },
+    {
+      "locale": "zh-CN",
+      "theme": "dark",
+      "width": 390,
+      "pass": true
+    },
+    {
+      "locale": "zh-CN",
+      "theme": "dark",
+      "width": 1440,
+      "pass": true
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "width": 390,
+      "pass": true
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "width": 1440,
+      "pass": true
+    },
+    {
+      "locale": "en",
+      "theme": "dark",
+      "width": 390,
+      "pass": true
+    },
+    {
+      "locale": "en",
+      "theme": "dark",
+      "width": 1440,
+      "pass": true
+    }
+  ],
+  "inputGlyphs": [
+    {
+      "text": "ยืนยันการสั่งซื้อ",
+      "height": 42,
+      "available": 42,
+      "glyphHeight": 17,
+      "font": "\"Inter Variable\", \"Noto Sans SC\", system-ui, sans-serif"
+    },
+    {
+      "text": "Xác nhận đặt hàng",
+      "height": 42,
+      "available": 42,
+      "glyphHeight": 16,
+      "font": "\"Inter Variable\", \"Noto Sans SC\", system-ui, sans-serif"
+    },
+    {
+      "text": "تأكيد الشراء",
+      "height": 42,
+      "available": 42,
+      "glyphHeight": 22,
+      "font": "\"Inter Variable\", \"Noto Sans SC\", system-ui, sans-serif"
+    }
+  ],
+  "rawResults": "/tmp/one-multilingual-layout/results.json",
+  "knownLimitation": "320/390 physical-pixel windows at 200% leave 160/195 CSS px; unchanged header icon area needs approximately 252px."
+}

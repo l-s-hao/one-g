@@ -1,5 +1,7 @@
 # 页面 CTA 反色效果
 
+2026-10-29 多语言布局补充见 [按钮布局验收](multilingual-button-layout.md)：沿用本效果，增加长标签换行、图标保护及现有结算栏高度占位，不修改按钮业务。
+
 2026-10-21。只修改 ONE-G 主仓库，不提交或推送，不写参考仓库。改前状态、二进制 diff 与文件哈希保存在 /tmp/one-invert-audit/before.status、before.patch、files-before.json。开始时已有素材整合修改和未跟踪文件，本次完整保留。
 
 ## 实际环境

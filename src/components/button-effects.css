@@ -6,7 +6,8 @@ button, [data-button-intent] { text-decoration:none !important; }
 /* Keep the old fallback radius and label layout; component sizes always win. */
 :where([data-button-effect="invert"]) { position:relative; isolation:isolate; }
 :where([data-button-effect="invert"]:not([data-invert-variant="secondary"]):not([data-invert-native-radius])) { border-radius:18px; }
-[data-button-effect="invert"] > .action-text { position:relative; z-index:1; display:inline-flex; align-items:center; justify-content:inherit; gap:inherit; }
+[data-button-effect="invert"] > .action-text { position:relative; z-index:1; display:inline-flex; align-items:center; justify-content:inherit; gap:inherit; min-inline-size:0; white-space:normal; overflow-wrap:anywhere; }
+[data-button-effect="invert"] > .action-text > svg { flex-shrink:0; }
 html body [data-button-effect="invert"] {
   --invert-surface:var(--bg);
   background-color:var(--button-primary-bg);

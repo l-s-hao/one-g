@@ -117,6 +117,16 @@ body {
 /* Shared mobile primitives; desktop layout remains in the original components. */
 .mobile-only { display: none; }
 .checkout-dock { display: contents; }
+/* The total is the auxiliary area; the primary action can use the remaining row
+   or move to the next one. Neither area imposes a fixed height. */
+.cart-checkout { display:flex; flex-wrap:wrap; gap:16px; }
+.cart-checkout > div { flex:1 1 8rem; min-inline-size:0; overflow-wrap:anywhere; }
+.cart-checkout > :is(a,button) { flex:1 1 11rem; min-inline-size:0; white-space:normal; }
+.cart-checkout > div > p:last-child { white-space:normal; overflow-wrap:anywhere; }
+.cart-page a[data-button-intent],.cart-page button[data-button-intent="ordinary"] { max-inline-size:100%; overflow-wrap:anywhere; }
+.cart-page a[data-button-effect] { white-space:normal; }
+.product-detail > div > a[data-button-intent] {min-inline-size:0;max-inline-size:100%;overflow-wrap:anywhere;}
+.product-detail > div > a[data-button-intent] > svg {flex-shrink:0;}
 @media (max-width: 767px) {
   .support-widget { bottom: 16px; right: 16px; }
   .support-widget > button { width: 44px; height: 44px; padding: 0; justify-content: center; }
@@ -172,7 +182,8 @@ body {
   .cart-row > p { grid-column: 2; grid-row: 2; font-size: 13px; }
   .cart-row input { grid-column: 3; grid-row: 2; width: 52px; min-height: 40px; padding: 8px 4px; font-size: 14px; }
   .cart-row > button { grid-column: 3; grid-row: 1; min-width: 40px; min-height: 40px; display: grid; place-items: center; }
-  .mobile-checkout-bar { position: fixed; z-index: 40; inset: auto 0 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid #ffffff30; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: #080808f5; backdrop-filter: blur(12px); }
+  .mobile-checkout-bar { position: fixed; z-index: 40; inset: auto 0 0; display: flex; flex-wrap:wrap; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid #ffffff30; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: #080808f5; backdrop-filter: blur(12px); }
+  .mobile-checkout-bar > :is(a,button) {flex:1 1 11rem;min-inline-size:0;margin:0;white-space:normal;}
   .mobile-checkout-bar > strong, .mobile-checkout-bar > div > p:last-child { font-size: 20px; margin: 0; }
   .mobile-checkout-bar > div > p:first-child { font-size: 12px; }
   .mobile-checkout-bar > a { min-height: 44px; margin: 0; padding: 10px 16px; font-size: 13px; }
@@ -183,7 +194,8 @@ body {
   .checkout-sections section > div:not(.checkout-dock) { margin-top: 16px; }
   .checkout-sections input { height: 44px; padding: 10px 12px; font-size: 16px; }
   .checkout-sections textarea { height: 88px; padding: 10px 12px; font-size: 16px; }
-  body:has(.mobile-checkout-bar) footer, body:has([data-mobile-tab]) footer { padding-bottom: calc(88px + env(safe-area-inset-bottom)); }
+  body:has([data-mobile-tab]) footer { padding-bottom: calc(88px + env(safe-area-inset-bottom)); }
+  body:has(.mobile-checkout-bar) footer {padding-block-end:var(--checkout-bar-height,calc(88px + env(safe-area-inset-bottom)));}
   .order-success { align-items: flex-start; padding-top: 48px; }
   .order-success > div > div { margin-top: 24px; gap: 8px; }
   .order-success a { min-height: 44px; padding: 10px 16px; font-size: 13px; }
