@@ -129,4 +129,4 @@ About 正文、用户中心和更多推荐当前没有对应普通卡片，不�
 
 ## 按钮用途反馈
 
-主要 CTA 通过 `effect="invert"` 显式采用 200ms 的填充/文字/边框颜色变化，读取日夜与页面/卡片表面 Token；替换原 Specular 调用，并用于首页展开区文字 CTA。导航、工具、分类/Tab、验证码及卡片整体不启用。旧按钮绘制器与调度已删除，现有尺寸、业务和其它动画保留。详见 [BUTTON_EFFECTS.md](BUTTON_EFFECTS.md)。
+主要 CTA 通过 `effect="invert"` 显式采用 200ms 的填充/文字/边框颜色变化，读取日夜与页面/卡片表面 Token；替换原 Specular 调用，并用于首页展开区文字 CTA。主导航、工具、页面分类/Tab、验证码及卡片整体不启用；图片抽屉内部按钮采用同一反色体系。旧按钮绘制器与调度已删除，现有尺寸、业务和其它动画保留。详见 [BUTTON_EFFECTS.md](BUTTON_EFFECTS.md)。

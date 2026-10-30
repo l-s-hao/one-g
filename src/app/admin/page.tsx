@@ -26,8 +26,8 @@ export default function AdminPage() {
   const [section, setSection] = useState("Dashboard");
   const selected = modules.find(item => item.name === section);
   return <LDiv className={styles.dashboard}>
-    <LHeader className={styles.toolbar}><LDiv><LP className={styles.muted}>ONE-G / ADMIN CENTER</LP><LH1>管理员中心</LH1></LDiv><LanguageSwitch /></LHeader>
-    <LSection className={styles.profile} aria-labelledby="admin-profile"><LH2 id="admin-profile">管理员资料</LH2><LP className={styles.muted}>管理员邮箱：{currentUser?.email}</LP><LP className={styles.muted}>ADMIN</LP></LSection>
+    <LHeader className={styles.toolbar}><LDiv><LH1>管理员中心</LH1></LDiv><LanguageSwitch /></LHeader>
+    <LSection className={styles.profile} aria-labelledby="admin-profile"><LH2 id="admin-profile">管理员资料</LH2><LP className={styles.muted}>管理员邮箱：{currentUser?.email}</LP></LSection>
     <LNav className={styles.navigation} aria-label="后台管理导航">
       {["Dashboard", ...modules.map(item => item.name)].map(item => <LButton key={item} type="button" aria-pressed={section === item} aria-controls="admin-content" onClick={() => setSection(item)}>{item}</LButton>)}
     </LNav>

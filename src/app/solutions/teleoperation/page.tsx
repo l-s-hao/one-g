@@ -22,7 +22,6 @@ export default function TeleoperationPage() {
     <LDiv className={styles.container}>
       <LSection className={styles.hero} aria-labelledby="solution-title">
         <Link intent="ordinary" href="/solutions">返回解决方案</Link>
-        <LP className={styles.eyebrow}>遥操作解决方案</LP>
         <LH1 id="solution-title">{content.name}</LH1><LP className={styles.subtitle}>{content.subtitle}</LP>
         <LP>{content.description}</LP>
         <LDiv className={styles.actions}><LA effect="invert" effectVariant="secondary" intent="ordinary" href="#technical">技术说明</LA><SupportButton inline textOnly label="联系我们" entry="solutions"/></LDiv>
@@ -30,7 +29,7 @@ export default function TeleoperationPage() {
         <LP className={styles.heroNotice}>{solution.boundary}</LP>
       </LSection>
       {detail.sections?.map(section => <LSection id={section.id} key={section.id} className={styles.section} aria-labelledby={`${section.id}-title`}>
-        <LP className={styles.eyebrow}>{section.eyebrow}</LP><LH2 id={`${section.id}-title`}>{section.title}</LH2>
+        <LH2 id={`${section.id}-title`}>{section.title}</LH2>
         {section.paragraphs?.map(text => <LP key={text}>{text}</LP>)}
         {section.cards && <StaggerGroup className={styles.grid}>{section.cards.map(card => <CardHover key={card.title}><LDiv data-card-hover-surface className={styles.card}><LH3>{card.title}</LH3><LP>{card.description}</LP>{card.items && <LUl>{card.items.map(item => <LLi key={item}>{item}</LLi>)}</LUl>}</LDiv></CardHover>)}</StaggerGroup>}
         {section.media && <LDiv className={styles.media}>{section.media.map(media => <LFigure key={media.src}><Image src={media.src} alt={media.alt} width={media.width} height={media.height} sizes="(max-width:767px) 100vw, 80vw"/><LFigcaption>{media.caption}</LFigcaption></LFigure>)}</LDiv>}

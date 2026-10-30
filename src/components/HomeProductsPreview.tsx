@@ -5,7 +5,7 @@ import styles from "./HomePreviews.module.css";
 
 // Editorial selection only; catalog order and canonical Product records stay intact.
 const productIds = ["robotdock", "g1", "arm-a1", "vision-v1"] as const;
-const prototypeNote = "商品资料用于原型展示；型号、参数与交付信息待确认。";
+const prototypeNote = "产品预览：型号、参数与交付待确认。";
 
 export default function HomeProductsPreview() {
   const cards: LayoutGridCard[] = productIds.map(id => {

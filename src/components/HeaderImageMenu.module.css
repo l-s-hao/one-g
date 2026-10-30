@@ -25,3 +25,16 @@
 .menu a,.menu button {text-decoration:none;}
 @media(hover:hover) and (pointer:fine) {.grid {padding:8px 12px 20px;margin:-4px -8px -16px;}}
 @media(prefers-reduced-motion:reduce) {.menu .categories button {transition:none;}}
+
+/* Only action surfaces change: preserve all grid, image and Flip geometry. */
+.heading .allAction {display:inline-flex;align-items:center;min-width:0;padding:6px 10px;border-radius:8px;white-space:normal;}
+.heading .closeAction {border-radius:8px;}
+.menu .categories button[data-button-effect] {border-color:transparent;}
+.copy[data-button-effect] {border-radius:0 0 8px 8px;}
+.copy[data-button-effect]::after {border-color:transparent;}
+@media(hover:hover) and (pointer:fine) {
+ .card:hover .copy[data-button-effect] {background-color:var(--button-primary-bg);color:var(--button-primary-text);}
+ .card:hover .copy[data-button-effect] p {color:inherit;}
+}
+.menu :is(button,a):active {box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--accent) 45%,transparent);}
+.card:active .copy[data-button-effect] {box-shadow:inset 0 0 0 2px var(--accent);}

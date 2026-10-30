@@ -8,6 +8,13 @@ export const brandCopy = {
 } as const;
 
 export const english = {
+  "仅限前端演示，不用于正式认证或真实用户数据。": "Frontend demo only. Not for production authentication or real user data.",
+  "概念阶段，暂未开售；名称、外观、接口、适配及交付待确认。": "Concept stage; not on sale. Name, appearance, interfaces, compatibility and delivery are unconfirmed.",
+  "AI 概念图，非实物照片。": "AI concept image, not a product photograph.",
+  "安装参考草图，适配未确认。": "Installation sketch; compatibility is unconfirmed.",
+  "产品预览：型号、参数与交付待确认。": "Product preview: model, specifications and delivery are unconfirmed.",
+  "定制范围": "Customisation scope",
+  "定制流程": "Customisation process",
   "· 数量": "· Quantity",
   "60 秒后重发": "60 seconds until resend",
   "请返回登录使用已注册账号的密码或邮箱验证码。密码重置服务尚未接入。": "Return to sign-in and use your registered password or email code. Password reset is not connected.",
@@ -589,7 +596,7 @@ export const english = {
   "管理员中心": "Admin centre",
   "管理员账号或密码错误。": "Incorrect administrator account or password.",
   "管理员资料": "Administrator profile",
-  "管理员邮箱：": "Administrator email:",
+  "管理员邮箱：": "Administrator email: ",
   "类别": "Category",
   "精准、稳定，适配装配与搬运任务。": "Precise and stable for assembly and handling tasks.",
   "精细操作的末端能力": "Fine manipulation capabilities",
@@ -708,7 +715,7 @@ export const english = {
   "遥操作解决方案": "Teleoperation solution",
   "邮箱": "Email",
   "邮箱登录": "Email sign-in",
-  "邮箱：": "Email:",
+  "邮箱：": "Email: ",
   "部分价格待确认": "Some prices require confirmation",
   "配件": "Accessories",
   "配置套餐选择": "Configuration package selection",

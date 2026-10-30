@@ -54,7 +54,7 @@ export default function CheckoutPage() {
     } catch (error) { setMessage(error instanceof Error ? error.message : "订单创建失败，请重试。"); lock.current = false; setPending(false); }
   };
   return <LDiv className="mobile-page checkout-page min-h-screen w-full bg-black px-6 pb-24 pt-32 text-white sm:px-10"><LDiv className="mx-auto max-w-4xl">
-    <LP className="eyebrow">ONE - G / CHECKOUT</LP><LH1 className="mt-5 text-5xl font-bold tracking-[-0.06em]">确认订单</LH1>
+    <LH1 className="text-5xl font-bold tracking-[-0.06em]">确认订单</LH1>
     <LP className="mt-5 text-sm">{mockCommerceEnabled ? "演示模式：仅创建本地演示待支付订单，不收款、不发货。" : "订单与支付服务尚未接入，暂不能创建真实订单。"}</LP>
     {blocked && <LP role="alert" className="mt-5">{unavailableSonicLinkMessage}</LP>}
     <LDiv className="checkout-sections mt-12 grid gap-5 lg:grid-cols-2">

@@ -21,7 +21,7 @@ export const robotDockProduct: Product = {
     { label: "价格 / 交付", value: "价格待定，暂未开放销售", note: "型号与交付日期未确认，套装不包含机器人本体。" },
   ],
   detail: {
-    statusNote: "首代产品构想 · 仅供方案讨论，暂未开放销售。RoboDock 为暂定展示名称；外观、接口、兼容范围与交付内容待最终确认。",
+    statusNote: "概念阶段，暂未开售；名称、外观、接口、适配及交付待确认。",
     sourceNotes: [
     {
         "id": "design-evidence",
@@ -51,8 +51,8 @@ export const robotDockProduct: Product = {
     }
 ],
     imageNotes: [
-      { webSrc: "/one-g/products/robotdock/robotdock-concept.webp", alt: "RoboDock 石墨灰小背包 AI 概念效果图，非实物照片", caption: "AI 概念效果图 · 根据团队草图生成，非实物照片。", width: 1254, height: 1254 },
-      { webSrc: "/one-g/products/robotdock/installation-sketch.webp", alt: "团队提供的机器人背部安装参考草图，非最终适配图", caption: "团队安装参考草图 · 非最终本体适配图。", width: 946, height: 1208 },
+      { webSrc: "/one-g/products/robotdock/robotdock-concept.webp", alt: "RoboDock 石墨灰小背包 AI 概念效果图，非实物照片", caption: "AI 概念图，非实物照片。", width: 1254, height: 1254 },
+      { webSrc: "/one-g/products/robotdock/installation-sketch.webp", alt: "团队提供的机器人背部安装参考草图，非最终适配图", caption: "安装参考草图，适配未确认。", width: 946, height: 1208 },
     ],
     highlights: [
       { title: "集中供电", description: "规划在背包内集成供电管理与保护，减少分散电源和重复接线。" },

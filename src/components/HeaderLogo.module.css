@@ -1,0 +1,23 @@
+.root {display:inline-flex;align-items:center;color:inherit;}
+.art {--logo-stroke:12px;position:relative;display:block;height:28px;aspect-ratio:1222 / 328;color:inherit;}
+.art[data-brand-logo="mark"] {--logo-stroke:37px;aspect-ratio:1;}
+.art > .original[data-brand-logo] {display:block;width:100%;height:100%;}
+.root[data-logo-run] .original {opacity:0;}
+.overlay {position:absolute;inset:0;width:100%;height:100%;overflow:hidden;pointer-events:none;animation:lifetime 1700ms linear both;}
+.outer,.inner {fill:none;stroke:currentColor;stroke-width:var(--logo-stroke);stroke-dasharray:1;stroke-dashoffset:1;}
+.outer {animation:draw 500ms cubic-bezier(.22,.61,.36,1) both,clear-stroke 1ms 1240ms forwards;}
+.main {animation:draw 450ms 500ms cubic-bezier(.22,.61,.36,1) both,clear-stroke 1ms 1240ms forwards;}
+.connection {animation:draw 350ms 580ms cubic-bezier(.22,.61,.36,1) both,clear-stroke 1ms 1240ms forwards;}
+.detail {animation:draw 350ms 660ms cubic-bezier(.22,.61,.36,1) both,clear-stroke 1ms 1240ms forwards;}
+.fill {animation:reveal 80ms 1160ms ease-out both;}
+.english {animation:reveal 300ms 1240ms ease-out both;}
+.chinese {animation:reveal 300ms 1400ms ease-out both;}
+@keyframes draw {from{stroke-dashoffset:1;}to{stroke-dashoffset:0;}}
+@keyframes reveal {from{opacity:0;}to{opacity:1;}}
+@keyframes clear-stroke {to{visibility:hidden;}}
+@keyframes lifetime {from{opacity:1;}to{opacity:1;}}
+@media(prefers-reduced-motion:reduce) {
+  .root[data-logo-run] .original {opacity:1;}
+  .overlay {display:none;animation:none;}
+  .overlay * {animation:none;}
+}

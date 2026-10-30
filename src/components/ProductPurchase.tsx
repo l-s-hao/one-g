@@ -72,9 +72,7 @@ export default function ProductPurchase({ offering }: { offering: Offering }) {
       </LDiv>
     </LDiv>
     <CardHover><LDiv data-card-hover-surface className={styles.customization}>
-      <LP>如有其他要求，可以深度定制。</LP>
       <Link effect="invert" effectVariant="secondary" intent="ordinary" effectSurface="card" href={{ pathname: "/deep-customization", query: { product: product.slug, ...(selectedId ? { package: selectedId } : {}), quantity: String(quantity), ...(payment ? { payment } : {}) } }}>深度定制 <LSpan aria-hidden="true">→</LSpan></Link>
     </LDiv></CardHover>
-    <LSection className={styles.recommendations} aria-labelledby="recommendations-title"><LH2 id="recommendations-title">更多推荐</LH2><LP>暂无已确认的推荐商品。</LP></LSection>
   </LDiv>;
 }

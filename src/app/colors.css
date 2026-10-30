@@ -1,6 +1,6 @@
 /* ONE-G light/dark standard palette and existing utility adapters. */
 :root {
- --site-header-height:44px; --site-header-width:1040px; --site-header-gutter:24px;
+ --site-header-bar-height:76px; --site-header-height:calc(var(--site-header-bar-height) + env(safe-area-inset-top, 0px)); --site-header-width:1040px; --site-header-gutter:24px;
  --color-primary:#2B2F36; --color-secondary:#E9E5DE;
  --bg:#F7F4EE; --surface:#FFFFFF; --surface-2:#E9E5DE;
  --text:#17191D; --text-on-surface:#17191D; --text-on-surface-2:#17191D; --text-muted:#555B65;
@@ -144,7 +144,8 @@ html :is(input,textarea):focus-visible {border-color:var(--focus-color);}
 html :is(.auth-input, input.bg-black, textarea.bg-black) {border-color:var(--border-strong);}
 html .product-visual {background:var(--surface-2);}
 
-@media(max-width:1023px) { :root { --site-header-height:48px; --site-header-gutter:16px; } }
+@media(min-width:1024px) and (max-width:1199px) { :root { --site-header-bar-height:72px; } }
+@media(max-width:1023px) { :root { --site-header-bar-height:56px; --site-header-gutter:16px; } }
 
 html.dark {
  color-scheme:dark;

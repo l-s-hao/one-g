@@ -64,7 +64,7 @@ export default function VerificationLogin({ switching = false, initialMode = "em
   const busy = !!verification.pending || completed;
   return <LDiv className={styles.page}><LSection aria-labelledby="auth-title" className={styles.card} data-login-mode={mode}>
     <Link href="/" className={styles.brand} aria-label="返回首页"><BrandLogo variant="horizontal" size="sm" /></Link>
-    <LH1 id="auth-title" className={styles.title}>登录 ONE-G</LH1><LP className={styles.slogan}>一智通万机</LP>
+    <LH1 id="auth-title" className={styles.title}>登录 ONE-G</LH1>
     {registered && <LP role="status" className={styles.feedback}>注册成功，请登录。</LP>}
     {switching && <LP className={styles.feedback}>切换用户</LP>}
     {mode !== "admin" && <RegionField value={region} onChange={changeRegion} />}

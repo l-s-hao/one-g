@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Pause, Play } from "lucide-react";
-import { LocalizedImage as Image, LocalizedLink as Link, LP, LSpan } from "@/i18n/Elements";
+import { LocalizedImage as Image, LocalizedLink as Link, LSpan } from "@/i18n/Elements";
 import { translate, useLocale } from "@/i18n/LocaleProvider";
 import { brandCopy } from "@/i18n/dictionary";
 import styles from "./HomeCollageHero.module.css";
@@ -88,19 +88,11 @@ export default function HomeCollageHero() {
   const heading = translate(brandCopy.slogan, locale);
   const [lead, continuation] = heading.split(", ");
   const lines = locale === "en" ? [`${lead},`, ...continuation.split(" ")] : [heading];
-  const vision = translate(brandCopy.vision, locale);
-  const separator = locale === "en" ? ", " : "，";
-  const [access, purpose] = vision.split(separator);
   return <section ref={root} className={styles.hero} data-paused={paused} data-running="false" aria-labelledby="home-collage-title">
     <div className={styles.copy}>
-      <LP className={styles.brand} data-reveal>{brandCopy.positioningLine}</LP>
       <h1 id="home-collage-title" className={styles.title} aria-label={heading}>
         {lines.map((line, i) => <span className={styles.line} key={i} aria-hidden="true"><span data-title-line>{line}</span></span>)}
       </h1>
-      <LP className={styles.description} data-copy>
-        <span className={styles.descriptionLine}>{access}{separator.trim()}</span>
-        <span className={styles.descriptionLine}>{locale === "en" ? " " : ""}{purpose}</span>
-      </LP>
       <div className={styles.actions} data-copy><Link effect="invert" intent="ordinary" href="/products">商品中心</Link><Link effect="invert" intent="ordinary" href="/solutions">解决方案</Link></div>
     </div>
     <div className={styles.scene}>

@@ -81,11 +81,11 @@ export default function HeaderImageMenu({ kind, open, onClose, onNavigate }: {
   }, [open, grid, category]);
   return <LDiv className={styles.menu} data-header-image-menu={kind}>
     <LDiv className={styles.heading}>
-      <Link intent="ordinary" href={`/${kind}`} onClick={onNavigate}>{kind === "products" ? "查看全部商品" : "查看全部方案"} →</Link>
-      <LButton type="button" aria-label="关闭菜单" onClick={onClose}><X size={18}/></LButton>
+      <Link className={styles.allAction} intent="ordinary" effect="invert" data-invert-native-radius href={`/${kind}`} onClick={onNavigate}>{kind === "products" ? "查看全部商品" : "查看全部方案"} →</Link>
+      <LButton className={styles.closeAction} effect="invert" effectVariant="secondary" type="button" aria-label="关闭菜单" onClick={onClose}><X size={18}/></LButton>
     </LDiv>
     {kind === "products" && <LDiv className={styles.categories} role="group" aria-label="商品分类">
-      {menuCategories.map(item => <LButton key={item.id} type="button" aria-pressed={category === item.id} onClick={() => {
+      {menuCategories.map(item => <LButton key={item.id} effect="invert" effectVariant={category === item.id ? "primary" : "secondary"} data-invert-native-radius type="button" aria-pressed={category === item.id} onClick={() => {
         animation.current?.progress(1);
         setCategory(item.id as ProductCategory | "all");
       }}>{item.name}</LButton>)}
@@ -96,7 +96,7 @@ export default function HeaderImageMenu({ kind, open, onClose, onNavigate }: {
         <LDiv className={styles.media}>{item.src ? <Image src={item.src} alt={item.alt} width={320} height={200} sizes="(max-width:1023px) 44vw, 260px" loading="lazy" onError={event => { event.currentTarget.hidden = true; event.currentTarget.parentElement?.setAttribute("data-image-failed", "true"); }}/>: null}
           <LSpan className={styles.placeholder} hidden={!!item.src}>图片待补</LSpan>
         </LDiv>
-        <LDiv className={styles.copy}><LSpan>{item.name}</LSpan>{item.note && <LP>{item.note}</LP>}</LDiv>
+        <LDiv className={styles.copy} data-button-effect="invert" data-invert-variant="secondary" data-invert-surface="card"><LSpan>{item.name}</LSpan>{item.note && <LP>{item.note}</LP>}</LDiv>
         </LDiv>
       </Link>)}
       {items.length === 0 && <LP className={styles.empty}>该分类暂时没有商品。</LP>}

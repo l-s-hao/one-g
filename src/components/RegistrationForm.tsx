@@ -69,7 +69,7 @@ export default function RegistrationForm() {
   };
   return <LDiv className={`${styles.page} ${styles.registration}`}><LSection className={styles.card} aria-labelledby="register-title">
     <Link href="/" className={styles.brand} aria-label="返回首页"><BrandLogo variant="horizontal" size="sm" /></Link>
-    <LH1 id="register-title" className={styles.title}>注册 ONE-G 账号</LH1><LP className={styles.slogan}>一智通万机</LP>
+    <LH1 id="register-title" className={styles.title}>注册 ONE-G 账号</LH1>
     <LForm className={styles.form} noValidate onSubmit={submit} aria-busy={!!verification.pending}>
       <RegionField disabled={verification.pending === "submit"} value={profile.region} onChange={region => update("region", region)} />
       <ProfileInput field="nickname" label="昵称" type="text" autoComplete="nickname" value={profile.nickname} error={errors.nickname} disabled={verification.pending === "submit"} onValueChange={value => update("nickname", value)} />

@@ -1,5 +1,4 @@
 .catalogPage { padding-top: 64px; background: var(--bg); color: var(--text); }
-.description { margin-top: 20px; color: var(--text-muted); line-height: 1.7; }
 .grid { position: relative; }
 .grid > [data-filter-hidden] { display: none; }
 .grid[data-filter-animating] { pointer-events: none; }

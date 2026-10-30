@@ -34,7 +34,7 @@
 .device span {font-size:12px;}
 .sketch {max-width:400px;margin:auto;}
 .sketch img {width:100%;height:auto;max-height:500px;object-fit:contain;}
-.specHeader {padding-top:104px;}
+.specHeader {padding-top:48px;}
 .specHeader h1 {font-size:clamp(32px,4vw,48px);}
 .specHeader h1 span {display:block;font-size:22px;margin-top:12px;font-weight:500;}
 .specs > div {display:grid;grid-template-columns:180px minmax(0,1fr);gap:24px;padding:20px 0;border-bottom:1px solid var(--border);font-size:15px;line-height:1.85;}
@@ -51,7 +51,7 @@
  .section {margin-top:28px;padding-top:28px;}
  .compatibility {grid-template-columns:1fr;}
  .sketch img {max-height:360px;}
- .specHeader {padding-top:88px;}
+ .specHeader {padding-top:32px;}
  .specs > div {grid-template-columns:1fr;gap:6px;font-size:14px;}
 }
 .hero h1, .section h2, .card h3, .device h3 {text-wrap:balance;}

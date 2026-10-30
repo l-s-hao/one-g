@@ -1,6 +1,6 @@
 "use client";
 
-import { LArticle, LButton, LDd, LDiv, LDl, LDt, LFigcaption, LFigure, LH2, LP, LStrong } from "@/i18n/Elements";
+import { LArticle, LButton, LDd, LDiv, LDl, LDt, LFigcaption, LFigure, LH2, LP } from "@/i18n/Elements";
 
 import { LocalizedLink as Link } from "@/i18n/Elements";
 import { LocalizedImage as Image } from "@/i18n/Elements";
@@ -43,8 +43,8 @@ export default function SolutionExplorer() {
     <LDiv className={styles.filters} role="group" aria-label="解决方案分类">{solutionCategories.map(item=><LButton key={item.id} type="button" aria-pressed={category===item.id} onClick={()=>{setCategory(item.id);setExpanded(null);}}>{item.name}</LButton>)}</LDiv>
     <LDiv className={styles.grid} aria-label="精选解决方案">{visible.map(item=><CardHover key={item.id}><LArticle data-card-hover-surface data-card-depth className={styles.card} id={item.id}>
       <LFigure><Image src={item.media.src} alt={item.media.alt} width={item.media.width} height={item.media.height} sizes="(max-width:767px) 100vw, 50vw"/><LFigcaption>{item.media.caption}</LFigcaption></LFigure>
-      <LP className={styles.eyebrow}>{solutionCategories.find(c=>c.id===item.category)?.name}</LP><LH2>{item.name}</LH2>
-      <LP><LStrong>问题：</LStrong>{item.problem}</LP><LP><LStrong>方案：</LStrong>{item.description}</LP>
+      <LH2>{item.name}</LH2>
+      <LP>{item.description}</LP>
       <LP className={styles.related}>相关系统：{[...item.productIds.map(id=>getProductById(id)?.name), item.content?.name].filter(Boolean).join(" · ")}</LP>
       {item.detailHref ? <Link intent="ordinary" className={styles.expand} href={item.detailHref}>查看方案 →</Link> : <LButton intent="ordinary" type="button" className={styles.expand} aria-expanded={expanded===item.id} aria-controls={`solution-${item.id}`} onClick={()=>setExpanded(expanded===item.id?null:item.id)}>{expanded===item.id?"收起方案 −":"查看方案 +"}</LButton>}
 

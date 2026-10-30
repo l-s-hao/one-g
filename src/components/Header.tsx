@@ -1,24 +1,25 @@
 "use client";
 
-import { LButton, LDiv, LHeader, LInput, LLabel, LLi, LNav, LP, LUl } from "@/i18n/Elements";
+import { LButton, LDiv, LInput, LLabel, LLi, LNav, LP, LUl } from "@/i18n/Elements";
 
 
 import { translate, useLocale } from "@/i18n/LocaleProvider";
 import LanguageSwitch from "./LanguageSwitch";
 import { LocalizedLink as Link } from "@/i18n/Elements";
 import { useAppPathname } from "@/lib/use-app-pathname";
-import { Menu, Search, ShoppingCart, UserRound, X } from "lucide-react";
+import { Search, ShoppingCart, UserRound, X } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { solutions } from "@/data/solutions";
 import { navigation } from "@/data/site-navigation";
 import { getProducts } from "@/lib/products";
 import { useAuth } from "./AuthProvider";
 import { NavigationLink } from "./ProtectedLink";
-import BrandLogo from "./BrandLogo";
+import HeaderLogo from "./HeaderLogo";
 import ThemeToggle from "./ThemeToggle";
 import HeaderPanel from "./HeaderPanel";
 import HeaderImageMenu from "./HeaderImageMenu";
 import useNavigationHighlight from "./useNavigationHighlight";
+import { Navbar, NavBody, NavItems, NavbarLogo, MobileNavToggle } from "./ui/resizable-navbar";
 import styles from "./HeaderBrand.module.css";
 
 const searchItems = [...navigation, ...solutions.filter(item => item.detailHref).map(item => ({ label: `${item.name} · ${item.content?.name ?? ""}`, href: item.detailHref! })), ...getProducts().map(product => ({
@@ -40,7 +41,7 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
   const [query, setQuery] = useState("");
   const root = useRef<HTMLElement>(null);
   const current = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
-  const { nav, position: highlightPosition, restore: restoreHighlight } = useNavigationHighlight(navigation.find(item => current(item.href))?.href, locale);
+  const { nav, position: highlightPosition, restore: restoreHighlight } = useNavigationHighlight(navigation.find(item => current(item.href))?.href, locale, pathname);
   const opener = useRef<HTMLElement | null>(null);
   const restoringFocus = useRef(false);
   const openTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -96,7 +97,7 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
   }, [panel]);
   const userHref = !currentUser ? "/login" : currentUser.role === "ADMIN" ? "/admin" : "/account";
   const userLabel = !currentUser ? "用户登录" : currentUser.role === "ADMIN" ? "管理后台" : "用户中心";
-  return <LHeader ref={root} className={`site-header ${styles.header}`} data-open={panel !== null || mobileOpen} data-navigation-path={pathname}
+  return <><div className={styles.spacer} aria-hidden="true" data-navbar-spacer /><Navbar ref={root} className={`site-header ${styles.header}`} data-open={panel !== null || mobileOpen} data-navigation-path={pathname}
     onPointerDown={() => { keyboardInteraction.current = false; }}
     onPointerEnter={() => { if (closeTimer.current) clearTimeout(closeTimer.current); }}
     onPointerLeave={event => {
@@ -111,12 +112,11 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
     }}
     onBlur={event => { if (document.documentElement.dataset.magicuiThemeVt === "active") return; if (!event.currentTarget.contains(event.relatedTarget)) { clearTimers(); setPanel(null); setMobileOpen(false); restoreHighlight(); } }}
     onKeyDown={event => { keyboardInteraction.current = true; if (event.key === "Escape") { event.preventDefault(); close(true); } }}>
-    <LDiv className={styles.row}>
-      <Link href="/" className={styles.brand} aria-label="ONE-G / 万机智能 首页" onClick={() => close()}>
-        <BrandLogo variant="horizontal" size="sm" context="header" className={styles.desktopLogo}/>
-        <BrandLogo variant="mark" size="sm" context="header" className={styles.mobileLogo}/>
-      </Link>
-      <LNav ref={nav} className={styles.navigation} aria-label="主导航">
+    <NavBody className={styles.row}>
+      <NavbarLogo href="/" className={styles.brand} aria-label="ONE-G / 万机智能 首页" onClick={() => close()}>
+        <HeaderLogo desktopClassName={styles.desktopLogo} mobileClassName={styles.mobileLogo}/>
+      </NavbarLogo>
+      <NavItems ref={nav} className={styles.navigation} aria-label="主导航">
         <span className={styles.navigationHighlight} data-navigation-highlight aria-hidden="true" />
         {navigation.map((item, index) => <LDiv className={styles.navItem} key={item.href} data-navigation-item={item.href}
           onFocus={event => {
@@ -146,18 +146,18 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
             }}
             onClick={() => close()}>{item.label}</Link>
         </LDiv>)}
-      </LNav>
+      </NavItems>
       <LDiv className={styles.actions} aria-label="快捷入口" onFocus={() => { if (!navigation.some(item => item.href === panel)) restoreHighlight(); }}>
         <LanguageSwitch iconOnly />
         <ThemeToggle />
         <LButton type="button" aria-label="搜索" aria-expanded={panel === "search"} aria-controls="header-search" onClick={event => toggle("search", event.currentTarget)}><Search size={18}/></LButton>
         <NavigationLink className={styles.user} href={userHref} aria-label={userLabel} onClick={() => close()}><UserRound size={18}/></NavigationLink>
         <NavigationLink href="/cart" aria-label="购物车" onClick={() => close()}><ShoppingCart size={18}/></NavigationLink>
-        <LButton className={styles.menuButton} type="button" aria-label={mobileOpen ? "关闭菜单" : "打开菜单"} aria-expanded={mobileOpen} aria-controls="mobile-navigation" onClick={event => {
+        <MobileNavToggle isOpen={mobileOpen} className={styles.menuButton} aria-label={mobileOpen ? "关闭菜单" : "打开菜单"} aria-expanded={mobileOpen} aria-controls="mobile-navigation" onClick={event => {
           clearTimers(); opener.current = event.currentTarget; setMobileOpen(value => !value); setPanel(null);
-        }}>{mobileOpen ? <X size={20}/> : <Menu size={20}/>}</LButton>
+        }} />
       </LDiv>
-    </LDiv>
+    </NavBody>
     {navigation.map((item,index) => item.groups && <HeaderPanel key={item.href} id={`desktop-nav-${index}`} className={`${styles.panel} ${styles.desktopPanel} ${styles.imagePanel}`} open={panel === item.href}>
       <LDiv className={styles.panelInner}><HeaderImageMenu kind={item.href === "/products" ? "products" : "solutions"} open={panel === item.href} onClose={() => close(true)} onNavigate={() => close()}/></LDiv>
     </HeaderPanel>)}
@@ -165,7 +165,7 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
       <LNav className={styles.panelInner} aria-label="移动端导航">{navigation.map((item,index) => <LDiv className={styles.mobileGroup} key={item.href}>
         <LDiv className={styles.mobileHeading}>
           <Link href={item.href} aria-current={current(item.href) ? "page" : undefined} onClick={() => close()}>{item.label}</Link>
-          {item.groups && <LButton className={styles.previewToggle} type="button"
+          {item.groups && <LButton className={styles.previewToggle} effect="invert" effectVariant="secondary" type="button"
             aria-expanded={panel === item.href} aria-controls={`mobile-nav-${index}`}
             aria-label={`${item.label}：${panel === item.href ? "收起预览" : "展开预览"}`}
             onClick={event => toggle(item.href, event.currentTarget)}>{panel === item.href ? "收起预览" : "展开预览"}</LButton>}
@@ -179,5 +179,5 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
       <LUl className={styles.searchResults}>{searchItems.filter(item => !query.trim() || [item.label, translate(item.label, locale)].some(label => label.toLowerCase().includes(query.trim().toLowerCase()))).map(item => <LLi key={item.href}><Link href={item.href} onClick={() => close()}>{item.label}</Link></LLi>)}</LUl>
       {query.trim() && !searchItems.some(item => [item.label, translate(item.label, locale)].some(label => label.toLowerCase().includes(query.trim().toLowerCase()))) && <LP>没有匹配的产品或栏目。</LP>}
     </LDiv></HeaderPanel>
-  </LHeader>;
+  </Navbar></>;
 }

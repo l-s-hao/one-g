@@ -124,8 +124,7 @@ function ProductCatalog({ activeCategory, onCategoryChange }: {
   return <LDiv className={`products-page min-h-screen w-full px-6 pb-24 sm:px-10 ${styles.catalogPage}`}>
     <LDiv className="mx-auto max-w-7xl">
       <LH1 id="products-title" className="text-4xl font-semibold tracking-tight sm:text-5xl">商品中心</LH1>
-      <LP className={styles.description}>探索 ONE-G 的机器人、硬件与系统产品。</LP>
-      <LDiv className="product-categories mt-12 flex flex-wrap gap-2 border-b border-white/10 pb-5" role="tablist" aria-label="商品分类">
+      <LDiv className="product-categories mt-8 flex flex-wrap gap-2 border-b border-white/10 pb-5" role="tablist" aria-label="商品分类">
         {productCategories.map(category => <LButton key={category.id} type="button" role="tab" aria-selected={activeCategory === category.id} onClick={() => onCategoryChange(category.id as ProductCategory | "all")} className={`rounded-full border px-5 py-2.5 text-sm ${styles.categoryButton} ${activeCategory === category.id ? "border-white bg-white text-black" : "border-white/15 text-white/60 hover:border-white/50 hover:text-white"}`}>{activeCategory === category.id && <LSpan aria-hidden="true">✓ </LSpan>}{category.name}</LButton>)}
       </LDiv>
       <LSection ref={gridRef} id="product-catalog" aria-label="商品列表" className={`product-grid mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3 ${styles.grid}`}>

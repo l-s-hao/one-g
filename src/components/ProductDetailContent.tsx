@@ -29,18 +29,18 @@ export default function ProductDetailContent({ product, view = "overview" }: { p
           <LP className={styles.heroNotice}>{detail.statusNote}</LP>
         </LSection>
         <LDiv className={styles.marker} id="product-hero-end" aria-hidden="true"/>
-        <LSection className={styles.section} aria-labelledby="product-overview-title"><LP className={styles.eyebrow}>PRODUCT OVERVIEW</LP><LH2 id="product-overview-title">了解 {product.name}</LH2><LP>{product.description}</LP>
+        <LSection className={styles.section} aria-labelledby="product-overview-title"><LH2 id="product-overview-title">了解 {product.name}</LH2><LP>{product.description}</LP>
           {detail.highlights && <StaggerGroup className={styles.grid}>{detail.highlights.map(item => <CardHover key={item.title}><LDiv data-card-hover-surface className={styles.card}><LH3>{item.title}</LH3><LP>{item.description}</LP></LDiv></CardHover>)}</StaggerGroup>}
         </LSection>
         {detail.sections ? detail.sections.filter(section => section.id !== "modes").map(section => <LSection id={section.id} key={section.id} className={styles.section} aria-labelledby={`${section.id}-title`}>
-          <LP className={styles.eyebrow}>{section.eyebrow}</LP><LH2 id={`${section.id}-title`}>{section.title}</LH2>
+          <LH2 id={`${section.id}-title`}>{section.title}</LH2>
           {section.paragraphs?.map(text => <LP key={text}>{text}</LP>)}
           {section.cards && <StaggerGroup className={styles.grid}>{section.cards.map(card => <CardHover key={card.title}><LDiv data-card-hover-surface className={styles.card}><LH3>{card.title}</LH3><LP>{card.description}</LP>{card.items && <LUl>{card.items.map(item => <LLi key={item}>{item}</LLi>)}</LUl>}</LDiv></CardHover>)}</StaggerGroup>}
           {section.media && <LDiv className={styles.media}>{section.media.map(media => <LFigure key={media.src}><Image src={media.src} alt={media.alt} width={media.width} height={media.height} sizes="(max-width:767px) 100vw, 80vw"/><LFigcaption>{media.caption}</LFigcaption></LFigure>)}</LDiv>}
           {section.link && <LDiv className={styles.actions}><Link effect="invert" effectVariant="secondary" intent="ordinary" href={section.link.href}>{section.link.label}</Link></LDiv>}
         </LSection>) : <>
-          <LSection className={styles.section} aria-labelledby="interface-title"><LP className={styles.eyebrow}>INTERFACE</LP><LH2 id="interface-title">接口与集成 · 规划方案</LH2><LP>{detail.interfaces?.join(" · ")}</LP><LP>{detail.interfaceNote}</LP></LSection>
-          <LSection className={styles.section} aria-labelledby="compatibility-title"><LP className={styles.eyebrow}>COMPATIBILITY</LP><LH2 id="compatibility-title">兼容设备 · 分阶段适配</LH2>
+          <LSection className={styles.section} aria-labelledby="interface-title"><LH2 id="interface-title">接口与集成 · 规划方案</LH2><LP>{detail.interfaces?.join(" · ")}</LP><LP>{detail.interfaceNote}</LP></LSection>
+          <LSection className={styles.section} aria-labelledby="compatibility-title"><LH2 id="compatibility-title">兼容设备 · 分阶段适配</LH2>
             <LDiv className={styles.compatibility}><LDiv>{detail.compatibility?.map(device => <LDiv className={styles.device} key={device.name}><LH3>{device.name}</LH3><LSpan>{device.status}</LSpan><LP>{device.description}</LP></LDiv>)}<LP>{detail.compatibilityNote}</LP></LDiv>
               {product.images[1] && detail.imageNotes[1] && <LFigure className={styles.sketch}><Image src={detail.imageNotes[1].webSrc ?? product.images[1]} alt={detail.imageNotes[1].alt} width={detail.imageNotes[1].width} height={detail.imageNotes[1].height} sizes="(max-width:767px) 90vw, 400px"/><LFigcaption>{detail.imageNotes[1].caption}</LFigcaption></LFigure>}
             </LDiv>
@@ -50,10 +50,10 @@ export default function ProductDetailContent({ product, view = "overview" }: { p
           <LH2>{note.title}</LH2>{note.paragraphs.map(text => <LP key={text}>{text}</LP>)}
           <LP><LA href={note.sourceHref} target="_blank" rel="noopener noreferrer">来源与演示说明 ↗</LA></LP>
         </LSection>)}
-        <LSection className={styles.section} id="applications" aria-labelledby="applications-title"><LP className={styles.eyebrow}>APPLICATIONS & BOUNDARIES</LP><LH2 id="applications-title">适用任务与使用边界</LH2>
+        <LSection className={styles.section} id="applications" aria-labelledby="applications-title"><LH2 id="applications-title">适用任务与使用边界</LH2>
           <StaggerGroup className={styles.grid}>{tasks.map(task => <CardHover key={task.id}><LDiv data-card-hover-surface className={styles.card}><LH3>{task.name}</LH3><LP>{task.description}</LP><LP className={styles.notice}>{task.boundary}</LP><Link intent="ordinary" href={`/solutions#${task.id}`}>了解{task.name}方案 →</Link></LDiv></CardHover>)}</StaggerGroup>
         </LSection>
-        <LSection className={styles.section} id="specifications" aria-labelledby="next-title"><LH2 id="next-title">技术规格与购买方案</LH2><LP>{detail.statusNote}</LP><LDiv className={styles.actions}>{purchase}<Link effect="invert" effectVariant="secondary" intent="ordinary" href={links.specsHref}>查看技术规格</Link></LDiv></LSection>
+        <LSection className={styles.section} id="specifications" aria-labelledby="next-title"><LH2 id="next-title">技术规格与购买方案</LH2><LDiv className={styles.actions}>{purchase}<Link effect="invert" effectVariant="secondary" intent="ordinary" href={links.specsHref}>查看技术规格</Link></LDiv></LSection>
       </> : <>
         <LHeader className={styles.specHeader}><LP className={styles.eyebrow}><ProductStatusBadge status={product.status}/></LP><LH1>{product.name}<LSpan>技术规格</LSpan></LH1><LP className={styles.notice}>{detail.statusNote}</LP><LDiv className={styles.actions}>{purchase}<Link effect="invert" effectVariant="secondary" intent="ordinary" href={links.overviewHref}>产品介绍</Link></LDiv></LHeader>
         {getOfferingSpecificationGroups(product).map(group => <LSection className={styles.section} key={group.title}><LH2>{group.title}</LH2><LDl className={styles.specs}>{group.fields.map(spec => <LDiv key={spec.label}><LDt>{spec.label}</LDt><LDd>{spec.value}{spec.note && <LSmall>{spec.note}</LSmall>}</LDd></LDiv>)}</LDl></LSection>)}

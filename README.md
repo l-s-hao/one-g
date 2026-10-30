@@ -162,8 +162,10 @@ npm run build
 
 ## 相关文档
 
+- [2026-10-30 项目更新汇报](docs/PROJECT_UPDATE_2026-10-30.md)
 - [系统架构](docs/ARCHITECTURE.md)
 - [功能说明](docs/FEATURES.md)
+- [文案精简规则与本轮验收](docs/reviews/copy-simplify/verification.md)
 - [开发指南](docs/DEVELOPMENT.md)
 - [构建与部署](docs/DEPLOYMENT.md)
 - [项目状态与未完成项](docs/PROJECT_STATUS.md)
@@ -171,6 +173,6 @@ npm run build
 
 `docs/` 还保留历史规划/审计，查阅时请注意日期和与当前代码的差异；本组说明以当前代码为准。
 
-页面主要操作通过 `effect="invert"` 显式使用 200ms 的主题反色反馈，保留原尺寸、禁用/焦点状态与业务行为；导航、小按钮、分类与 Tab 保持原样。旧按钮 WebGL/Canvas 与调度器已移除，不影响其它页面动画。见 [按钮交互说明与验收](docs/BUTTON_EFFECTS.md)。
+页面主要操作通过 `effect="invert"` 显式使用 200ms 的主题反色反馈，保留原尺寸、禁用/焦点状态与业务行为；主导航、工具和页面分类与 Tab 保持原样，图片抽屉内部操作也使用这套反色样式。旧按钮 WebGL/Canvas 与调度器已移除，不影响其它页面动画。见 [按钮交互说明与验收](docs/BUTTON_EFFECTS.md)。
 
-顶部主栏目点击直接跳转，悬停预览与移动端展开分开处理；组合交互与性能检查见 [导航专项报告](docs/reviews/NAVIGATION_INTERACTION_AUDIT.md)。
+顶部使用 Resizable Navbar 的响应式组合适配，固定高度与占位保持，滚动只改变主题表面、阴影和模糊；主栏目仍直接跳转，悬停预览与移动端展开分开处理，MenuToGrid 图片抽屉布局和动画保留。见 [当前导航说明](docs/NAVIGATION.md)；原组合交互与性能检查见 [导航专项报告](docs/reviews/NAVIGATION_INTERACTION_AUDIT.md)。
