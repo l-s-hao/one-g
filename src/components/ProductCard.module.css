@@ -23,3 +23,45 @@
  .actions a { padding:8px 10px; font-size:12px; }
 }
 .copy h2 {text-wrap:balance;}
+
+/* 此例外仅由商品中心显式开启；稳定的 Link 与内部完整表面等量分配原有 padding/border。 */
+.catalogActions {
+ --catalog-action-shadow:0 4px 10px rgba(23,25,29,.12);
+ --catalog-action-hover-shadow:var(--catalog-action-shadow);
+ --catalog-action-lift:-2px;
+ --catalog-action-arrow-offset:2px;
+ --catalog-action-duration:200ms;
+}
+:global(html.dark) .catalogActions {--catalog-action-shadow:0 4px 12px rgba(0,0,0,.4);}
+.catalogActions > a[data-button-intent] {padding:0;border:0;background-color:transparent;color:var(--text);}
+.catalogActions .actionSurface {
+ display:inline-flex;align-items:center;justify-content:inherit;gap:inherit;
+ min-inline-size:0;max-inline-size:100%;min-height:44px;padding:10px 16px;
+ border:1px solid var(--border-strong);border-radius:inherit;background-color:var(--surface);color:var(--text);
+ white-space:normal;overflow-wrap:anywhere;pointer-events:none;
+ transition-property:transform,background-color,color,border-color,box-shadow;
+ transition-duration:var(--catalog-action-duration);
+ transition-timing-function:cubic-bezier(.22,1,.36,1);
+}
+.catalogActions > a[data-button-intent="purchase"] > .actionSurface {background-color:var(--button-primary-bg);color:var(--button-primary-text);}
+.catalogActions .actionArrow {display:inline-block;flex-shrink:0;transition:transform var(--catalog-action-duration) cubic-bezier(.22,1,.36,1);}
+@media(hover:hover) and (pointer:fine) {
+ .catalogActions > a:not([aria-disabled="true"]):not([aria-busy="true"]):hover > .actionSurface {
+  transform:translateY(var(--catalog-action-lift));box-shadow:var(--catalog-action-hover-shadow);
+  background-color:var(--button-primary-bg);color:var(--button-primary-text);border-color:var(--accent);
+ }
+ .catalogActions > a[data-button-intent="purchase"]:not([aria-disabled="true"]):not([aria-busy="true"]):hover > .actionSurface {background-color:var(--surface);color:var(--text);}
+ .catalogActions > a:hover .actionArrow {transform:translateX(var(--catalog-action-arrow-offset));}
+ .catalogActions > a:active {--catalog-action-lift:0px;--catalog-action-hover-shadow:none;--catalog-action-arrow-offset:0px;}
+}
+/* 复用现有 Flip/inert 协调标记即时复位；没有另一条动画调度或延时恢复路径。 */
+:global([data-filter-animating]) .catalogActions,
+:global([data-card-hover-disabled]) .catalogActions,
+:global([inert]) .catalogActions,
+.catalogActions > a:is([aria-disabled="true"],[aria-busy="true"]) {
+ --catalog-action-lift:0px;--catalog-action-hover-shadow:none;--catalog-action-arrow-offset:0px;--catalog-action-duration:0ms;
+}
+@media(max-width:767px) {.catalogActions .actionSurface {padding:8px 10px;}}
+@media(prefers-reduced-motion:reduce) {
+ .catalogActions {--catalog-action-lift:0px;--catalog-action-arrow-offset:0px;--catalog-action-duration:0ms;}
+}

@@ -4,12 +4,6 @@ import type { Solution } from "@/types/solution";
 
 const demoMedia = sonicLinkContent.detail!.sections!.find(section => section.id === "showcase")!.media!;
 const dockMedia = (index: number) => ({ src: robotDockProduct.images[index], ...robotDockProduct.detail!.imageNotes[index] });
-export const solutionCategories = [
-  { id: "all", name: "全部" }, { id: "execution", name: "作业执行" },
-  { id: "remote", name: "远程操作" }, { id: "perception", name: "感知与巡检" },
-  { id: "intelligence", name: "智能能力" },
-] as const;
-
 // Editorial successors to the four former robotScenes. No selection/recommendation state.
 // Capability evidence: existing RobotDock hardware and SONIC Link solution content.
 export const solutions: readonly Solution[] = [

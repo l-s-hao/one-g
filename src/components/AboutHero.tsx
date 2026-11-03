@@ -1,12 +1,13 @@
 "use client";
 
-import { LDiv, LH1, LH2, LP, LSection } from "@/i18n/Elements";
+import { LDiv, LH1, LH2, LP, LSection, LocalizedLink as Link } from "@/i18n/Elements";
 
 
 import { useSyncExternalStore } from "react";
 import BrandLogo from "./BrandLogo";
 import ScrollExpand from "./ScrollExpand/ScrollExpand";
 import { brandCopy } from "@/i18n/dictionary";
+import { aboutNavigation as links } from "@/lib/about-navigation";
 import styles from "./AboutHero.module.css";
 
 const mobileQuery = "(max-width: 767px)";
@@ -23,6 +24,8 @@ export default function AboutHero() {
 
   return <LSection className={styles.hero} aria-labelledby="about-hero-title">
     <LH1 id="about-hero-title" className="sr-only">ABOUT ONE-G</LH1>
+    {/* 操作区不放进随进度隐藏的 overlay，键盘和减少动画用户无需等待展开。 */}
+    <LDiv className={styles.intro}><LP>{brandCopy.positioning}</LP><LDiv className={styles.actions}><Link effect="invert" href={links.dock}>了解 RoboDock</Link><Link effect="invert" effectVariant="secondary" href={links.solutions}>查看解决方案</Link></LDiv></LDiv>
     <ScrollExpand
       key={isMobile ? "mobile" : "desktop"}
       src="/one-g/hero/one-g-service.png"

@@ -1133,7 +1133,8 @@
       "targetPublicPath": "/one-g/solutions/teleoperation/wholebody-balance.mp4",
       "suggestedUse": "teleoperation demonstration",
       "pagePlacements": [
-        "/solutions/teleoperation/"
+        "/solutions/teleoperation/",
+        "/solutions/#teleoperation"
       ],
       "descriptionEvidence": [
         {

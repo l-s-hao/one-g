@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-require-imports -- Standalone browser acceptance test. */
-const {chromium}=require('playwright-core');
+const {chromium}=require(process.env.ONE_G_PLAYWRIGHT || 'playwright-core');
 const fs=require('node:fs'),assert=require('node:assert/strict');
 const base=process.env.ONE_G_TEST_URL || 'http://127.0.0.1:3001/one-g',dir=process.env.ONE_G_ARTIFACTS || require('node:path').resolve(__dirname,'../docs/reviews/media-integration');fs.mkdirSync(dir,{recursive:true});
 (async()=>{
@@ -20,20 +20,20 @@ for(const width of [390,1440])for(const locale of ['zh-CN','en'])for(const theme
   assert.equal(videos.length,0,'preload none must not fetch videos');
   assert.equal(await p.locator('video[autoplay],video[loop],video[muted]').count(),0);
   if(route==='/solutions/'){
-   assert.equal(await p.locator('main article').count(),4);assert.equal(await p.locator('main video').count(),0);
-   assert.equal(await p.locator('main [data-demo]').count(),0,'index has no expanded demos initially');
+   assert.equal(await p.locator('main [data-solution-section]').count(),4);assert.equal(await p.locator('main video').count(),4);
+   assert.equal(await p.locator('main [data-demo]').count(),4,'index demos exist without expanding content');
   }
   if(route==='/products/robotdock/')assert.equal(await p.locator('#compute-evidence').count(),1);
   await p.evaluate(()=>scrollTo(0,0));
-  await p.screenshot({path:`${dir}/${route.split('/').filter(Boolean).join('-')}-${width}-${locale}-${theme}.png`,fullPage:true});
+  await p.screenshot({path:`${dir}/${route.split('/').filter(Boolean).join('-')}-${width}-${locale}-${theme}.png`,fullPage:true,caret:'initial'});
   results.matrix.push({width,locale,theme,route,status:200,images:'decoded',overflow:false,videoRequestsBeforeClick:videos.length});
  }
  await c.close();
 }
 const c=await b.newContext({viewport:{width:1440,height:900},reducedMotion:'reduce'}),p=await c.newPage();p.on('pageerror',e=>results.errors.push(e.message));
 async function go(route){const response=await p.goto(base+route);if(response)assert.equal(response.status(),200);else assert.equal(p.url(),base+route);await p.locator('main h1').waitFor();}
-async function playAll(){
- for(const video of await p.locator('video[data-evidence-video]').all()){
+async function playAll(scope='main'){
+ for(const video of await p.locator(scope).locator('video[data-evidence-video]').all()){
   await video.scrollIntoViewIfNeeded();const id=await video.evaluate(v=>v.closest('[data-demo]').dataset.demo);
   assert.equal(await video.getAttribute('preload'),'none');assert.equal(await video.evaluate(v=>v.controls&&!v.autoplay&&!v.loop),true);
   const info=await video.evaluate(async v=>{
@@ -45,10 +45,10 @@ async function playAll(){
 await go('/solutions/teleoperation/');await playAll();
 // second play pauses first and keeps user-set volume controls
 const vv=p.locator('video');await vv.nth(0).evaluate(v=>v.play());await vv.nth(1).evaluate(v=>v.play());assert.equal(await vv.nth(0).evaluate(v=>v.paused),true);await vv.nth(1).evaluate(v=>v.pause());results.checks.push('Only one evidence video plays at a time; volume adjustable');
-await go('/solutions/#handling');await p.locator('#handling video').waitFor();await playAll();
-await p.locator('#handling button[aria-expanded]').click();assert.equal(await p.locator('main video').count(),0);results.checks.push('Collapsing an expanded solution unmounts playback');
-await go('/solutions/#ai');await p.locator('#ai video').first().waitFor();await playAll();await p.screenshot({path:dir+'/intelligent-expanded-desktop.png',fullPage:true});
-await p.setViewportSize({width:390,height:844});await p.screenshot({path:dir+'/intelligent-expanded-mobile.png',fullPage:true});assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+await go('/solutions/#handling');await p.locator('#handling video').waitFor();await playAll('#handling');
+await p.locator('main nav a[href="#ai"]').click();assert.equal(await p.locator('main video').count(),4);results.checks.push('Directory navigation keeps all section players available without a collapse state');
+await go('/solutions/#ai');await p.locator('#ai video').first().waitFor();await playAll('#ai');await p.screenshot({path:dir+'/intelligent-expanded-desktop.png',fullPage:true,caret:'initial'});
+await p.setViewportSize({width:390,height:844});await p.screenshot({path:dir+'/intelligent-expanded-mobile.png',fullPage:true,caret:'initial'});assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
 // deterministic network failure and retry without relying on a broken production URL
 await p.route('**/3pt-demo.mp4',r=>r.fulfill({status:404,body:'missing'}));await go('/solutions/teleoperation/');const first=p.locator('[data-demo="3pt-demo"]');await first.locator('video').evaluate(v=>v.load());await first.locator('video').evaluate(v=>v.play().catch(()=>{}));await first.locator('[role=status]').waitFor();await first.screenshot({path:dir+'/media-failure-mobile.png'});await p.unroute('**/3pt-demo.mp4');await first.getByRole('button').click();await first.locator('video').evaluate(v=>v.play());await p.waitForFunction(()=>document.querySelector('[data-demo="3pt-demo"] video').currentTime>0);await first.locator('video').evaluate(v=>v.pause());assert.equal(await first.locator('[role=status]').count(),0);results.checks.push('404 yields visible fallback; retry recovers playback');
 // Route/business regression smoke, using production export (no actual auth or payment)

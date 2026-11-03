@@ -1,0 +1,28 @@
+{
+  "id": "2026-11-03T10-41-22-223Z-production-2e025aea-ccf2-4e1a-ab50-970513dfbe9b",
+  "name": "about-layout",
+  "condition": "production",
+  "artificial": false,
+  "startedAt": "2026-11-03T10:41:22.231Z",
+  "result": "passed",
+  "command": [
+    "node",
+    "tests/about-layout.browser.mjs"
+  ],
+  "node": "v24.20.0",
+  "platform": "linux",
+  "productionBranch": true,
+  "target": {
+    "origin": "http://127.0.0.1:5562",
+    "pathname": "/one-g"
+  },
+  "commit": "b2f23c980262095d7e2360a0025157c0d6968055",
+  "worktreeDiffSha256": "4f32110df0b6cc8f6051ef035ebf7079d66a5df60454fa4306744f0416c0566b",
+  "codeVersionUnavailable": true,
+  "browser": "153.0.8010.12",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "finishedAt": "2026-11-03T10:41:36.824Z"
+}

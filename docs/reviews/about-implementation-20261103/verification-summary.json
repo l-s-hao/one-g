@@ -1,0 +1,499 @@
+{
+  "completedAt": "2026-11-03T10:44:04.626716+00:00",
+  "status": "implemented-confirmed-content; pending-practice-not-published",
+  "stages": {
+    "stage1": "About structure, content layer, dictionary; type check passed",
+    "stage2": "minimal product/solutions reverse entries",
+    "stage3": "production/development browser matrices, Mock contact, visual and UX review"
+  },
+  "baselineNodeFiles": {
+    "passed": 14,
+    "total": 14
+  },
+  "finalNodeFiles": {
+    "passed": 15,
+    "total": 15
+  },
+  "lint": {
+    "errors": 0,
+    "warnings": 1,
+    "warning": ".oil-ui/residual-20261102/session-cases.mjs:4 events unused"
+  },
+  "types": "passed",
+  "build": "passed; original sandbox showConfig failure retained",
+  "diffCheck": "passed",
+  "production": "docs/reviews/browser-runs/about-layout-2026-11-03T10-41-22-223Z-production-2e025aea-ccf2-4e1a-ab50-970513dfbe9b",
+  "development": "docs/reviews/browser-runs/about-layout-2026-11-03T10-36-09-127Z-warm-2cb3a83d-8bb8-4e87-bcfc-59deb8ace349",
+  "productionMatrix": 12,
+  "developmentMatrix": 12,
+  "browserRunsIncludingFailures": [
+    {
+      "path": "docs/reviews/browser-runs/about-layout-2026-11-03T09-33-37-044Z-warm-955ac302-e1e5-4609-8bed-36609dc9b605",
+      "metadata": {
+        "id": "2026-11-03T09-33-37-044Z-warm-955ac302-e1e5-4609-8bed-36609dc9b605",
+        "name": "about-layout",
+        "condition": "warm",
+        "artificial": false,
+        "startedAt": "2026-11-03T09:33:37.044Z",
+        "result": "failed",
+        "command": [
+          "node",
+          "tests/about-layout.browser.mjs"
+        ],
+        "node": "v24.20.0",
+        "platform": "linux",
+        "productionBranch": false,
+        "target": {
+          "origin": "http://127.0.0.1:5561",
+          "pathname": "/one-g"
+        },
+        "commit": "b2f23c980262095d7e2360a0025157c0d6968055",
+        "worktreeDiffSha256": "d5f5cbb485b05b842ca45d517b0ed4dc3517b56b713bb7976062be1128865e99",
+        "codeVersionUnavailable": true,
+        "browser": "153.0.8010.12",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "failureScreenshot": "failure.png",
+        "finishedAt": "2026-11-03T09:33:37.351Z"
+      },
+      "matrixCount": 0
+    },
+    {
+      "path": "docs/reviews/browser-runs/about-layout-2026-11-03T09-34-02-779Z-warm-162879bb-708c-4622-a5ef-eb0650eda6c3",
+      "metadata": {
+        "id": "2026-11-03T09-34-02-779Z-warm-162879bb-708c-4622-a5ef-eb0650eda6c3",
+        "name": "about-layout",
+        "condition": "warm",
+        "artificial": false,
+        "startedAt": "2026-11-03T09:34:02.779Z",
+        "result": "failed",
+        "command": [
+          "node",
+          "tests/about-layout.browser.mjs"
+        ],
+        "node": "v24.20.0",
+        "platform": "linux",
+        "productionBranch": false,
+        "target": {
+          "origin": "http://127.0.0.1:3000",
+          "pathname": "/one-g"
+        },
+        "commit": "b2f23c980262095d7e2360a0025157c0d6968055",
+        "worktreeDiffSha256": "d5f5cbb485b05b842ca45d517b0ed4dc3517b56b713bb7976062be1128865e99",
+        "codeVersionUnavailable": true,
+        "browser": "153.0.8010.12",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "failureScreenshot": "failure.png",
+        "finishedAt": "2026-11-03T09:34:34.847Z"
+      },
+      "matrixCount": 0
+    },
+    {
+      "path": "docs/reviews/browser-runs/about-layout-2026-11-03T09-35-59-211Z-production-11f24821-d068-48b6-95ba-b9c672ee2003",
+      "metadata": {
+        "id": "2026-11-03T09-35-59-211Z-production-11f24821-d068-48b6-95ba-b9c672ee2003",
+        "name": "about-layout",
+        "condition": "production",
+        "artificial": false,
+        "startedAt": "2026-11-03T09:35:59.212Z",
+        "result": "failed",
+        "command": [
+          "node",
+          "tests/about-layout.browser.mjs"
+        ],
+        "node": "v24.20.0",
+        "platform": "linux",
+        "productionBranch": true,
+        "target": {
+          "origin": "http://127.0.0.1:5562",
+          "pathname": "/one-g"
+        },
+        "commit": "b2f23c980262095d7e2360a0025157c0d6968055",
+        "worktreeDiffSha256": "a6242917d73f808854941149c0a6d7509a1b6d5a558f3c247477752945f9d442",
+        "codeVersionUnavailable": true,
+        "browser": "153.0.8010.12",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "failureScreenshot": "failure.png",
+        "finishedAt": "2026-11-03T09:36:30.411Z"
+      },
+      "matrixCount": 1
+    },
+    {
+      "path": "docs/reviews/browser-runs/about-layout-2026-11-03T09-36-42-092Z-production-d5f5de8a-5c81-4dd8-9baf-407357c979dc",
+      "metadata": {
+        "id": "2026-11-03T09-36-42-092Z-production-d5f5de8a-5c81-4dd8-9baf-407357c979dc",
+        "name": "about-layout",
+        "condition": "production",
+        "artificial": false,
+        "startedAt": "2026-11-03T09:36:42.092Z",
+        "result": "failed",
+        "command": [
+          "node",
+          "tests/about-layout.browser.mjs"
+        ],
+        "node": "v24.20.0",
+        "platform": "linux",
+        "productionBranch": true,
+        "target": {
+          "origin": "http://127.0.0.1:5562",
+          "pathname": "/one-g"
+        },
+        "commit": "b2f23c980262095d7e2360a0025157c0d6968055",
+        "worktreeDiffSha256": "b5082b364661535b43d047a9d261b70f46c983e0a0a335d544eca2cd35e80e87",
+        "codeVersionUnavailable": true,
+        "browser": "153.0.8010.12",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "failureScreenshot": "failure.png",
+        "finishedAt": "2026-11-03T09:37:13.686Z"
+      },
+      "matrixCount": 1
+    },
+    {
+      "path": "docs/reviews/browser-runs/about-layout-2026-11-03T09-38-29-785Z-production-502e7fea-2523-473a-ab3a-9e0cdd707488",
+      "metadata": {
+        "id": "2026-11-03T09-38-29-785Z-production-502e7fea-2523-473a-ab3a-9e0cdd707488",
+        "name": "about-layout",
+        "condition": "production",
+        "artificial": false,
+        "startedAt": "2026-11-03T09:38:29.785Z",
+        "result": "failed",
+        "command": [
+          "node",
+          "tests/about-layout.browser.mjs"
+        ],
+        "node": "v24.20.0",
+        "platform": "linux",
+        "productionBranch": true,
+        "target": {
+          "origin": "http://127.0.0.1:5562",
+          "pathname": "/one-g"
+        },
+        "commit": "b2f23c980262095d7e2360a0025157c0d6968055",
+        "worktreeDiffSha256": "4f32110df0b6cc8f6051ef035ebf7079d66a5df60454fa4306744f0416c0566b",
+        "codeVersionUnavailable": true,
+        "browser": "153.0.8010.12",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "finishedAt": "2026-11-03T09:38:40.654Z"
+      },
+      "matrixCount": 12
+    },
+    {
+      "path": "docs/reviews/browser-runs/about-layout-2026-11-03T09-39-53-112Z-production-0e112ffe-76b9-48fa-949f-fccb084e3cce",
+      "metadata": {
+        "id": "2026-11-03T09-39-53-112Z-production-0e112ffe-76b9-48fa-949f-fccb084e3cce",
+        "name": "about-layout",
+        "condition": "production",
+        "artificial": false,
+        "startedAt": "2026-11-03T09:39:53.112Z",
+        "result": "passed",
+        "command": [
+          "node",
+          "tests/about-layout.browser.mjs"
+        ],
+        "node": "v24.20.0",
+        "platform": "linux",
+        "productionBranch": true,
+        "target": {
+          "origin": "http://127.0.0.1:5562",
+          "pathname": "/one-g"
+        },
+        "commit": "b2f23c980262095d7e2360a0025157c0d6968055",
+        "worktreeDiffSha256": "4f32110df0b6cc8f6051ef035ebf7079d66a5df60454fa4306744f0416c0566b",
+        "codeVersionUnavailable": true,
+        "browser": "153.0.8010.12",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "finishedAt": "2026-11-03T09:40:06.687Z"
+      },
+      "matrixCount": 12
+    },
+    {
+      "path": "docs/reviews/browser-runs/about-layout-2026-11-03T09-40-04-410Z-warm-76c391ad-6b59-4f83-afa4-24479e1899aa",
+      "metadata": {
+        "id": "2026-11-03T09-40-04-410Z-warm-76c391ad-6b59-4f83-afa4-24479e1899aa",
+        "name": "about-layout",
+        "condition": "warm",
+        "artificial": false,
+        "startedAt": "2026-11-03T09:40:04.411Z",
+        "result": "failed",
+        "command": [
+          "node",
+          "tests/about-layout.browser.mjs"
+        ],
+        "node": "v24.20.0",
+        "platform": "linux",
+        "productionBranch": false,
+        "target": {
+          "origin": "http://127.0.0.1:3000",
+          "pathname": "/one-g"
+        },
+        "commit": "b2f23c980262095d7e2360a0025157c0d6968055",
+        "worktreeDiffSha256": "4f32110df0b6cc8f6051ef035ebf7079d66a5df60454fa4306744f0416c0566b",
+        "codeVersionUnavailable": true,
+        "browser": "153.0.8010.12",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "failureScreenshot": "failure.png",
+        "finishedAt": "2026-11-03T09:40:11.787Z"
+      },
+      "matrixCount": 1
+    },
+    {
+      "path": "docs/reviews/browser-runs/about-layout-2026-11-03T09-41-26-531Z-warm-c74beac4-8b84-4cff-98f9-861440882086",
+      "metadata": {
+        "id": "2026-11-03T09-41-26-531Z-warm-c74beac4-8b84-4cff-98f9-861440882086",
+        "name": "about-layout",
+        "condition": "warm",
+        "artificial": false,
+        "startedAt": "2026-11-03T09:41:26.531Z",
+        "result": "failed",
+        "command": [
+          "node",
+          "tests/about-layout.browser.mjs"
+        ],
+        "node": "v24.20.0",
+        "platform": "linux",
+        "productionBranch": false,
+        "target": {
+          "origin": "http://127.0.0.1:3000",
+          "pathname": "/one-g"
+        },
+        "commit": "b2f23c980262095d7e2360a0025157c0d6968055",
+        "worktreeDiffSha256": "4f32110df0b6cc8f6051ef035ebf7079d66a5df60454fa4306744f0416c0566b",
+        "codeVersionUnavailable": true,
+        "browser": "153.0.8010.12",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "failureScreenshot": "failure.png",
+        "finishedAt": "2026-11-03T09:41:29.072Z"
+      },
+      "matrixCount": 0
+    },
+    {
+      "path": "docs/reviews/browser-runs/about-layout-2026-11-03T09-42-58-959Z-warm-372c3de2-ed68-4646-aa31-efd0ef6be31a",
+      "metadata": {
+        "id": "2026-11-03T09-42-58-959Z-warm-372c3de2-ed68-4646-aa31-efd0ef6be31a",
+        "name": "about-layout",
+        "condition": "warm",
+        "artificial": false,
+        "startedAt": "2026-11-03T09:42:58.960Z",
+        "result": "failed",
+        "command": [
+          "node",
+          "tests/about-layout.browser.mjs"
+        ],
+        "node": "v24.20.0",
+        "platform": "linux",
+        "productionBranch": false,
+        "target": {
+          "origin": "http://127.0.0.1:5563",
+          "pathname": "/one-g"
+        },
+        "commit": "b2f23c980262095d7e2360a0025157c0d6968055",
+        "worktreeDiffSha256": "4f32110df0b6cc8f6051ef035ebf7079d66a5df60454fa4306744f0416c0566b",
+        "codeVersionUnavailable": true,
+        "browser": "153.0.8010.12",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "failureScreenshot": "failure.png",
+        "finishedAt": "2026-11-03T09:43:33.392Z"
+      },
+      "matrixCount": 0
+    },
+    {
+      "path": "docs/reviews/browser-runs/about-layout-2026-11-03T10-36-09-127Z-warm-2cb3a83d-8bb8-4e87-bcfc-59deb8ace349",
+      "metadata": {
+        "id": "2026-11-03T10-36-09-127Z-warm-2cb3a83d-8bb8-4e87-bcfc-59deb8ace349",
+        "name": "about-layout",
+        "condition": "warm",
+        "artificial": false,
+        "startedAt": "2026-11-03T10:36:09.128Z",
+        "result": "passed",
+        "command": [
+          "node",
+          "tests/about-layout.browser.mjs"
+        ],
+        "node": "v24.20.0",
+        "platform": "linux",
+        "productionBranch": false,
+        "target": {
+          "origin": "http://localhost:5563",
+          "pathname": "/one-g"
+        },
+        "commit": "b2f23c980262095d7e2360a0025157c0d6968055",
+        "worktreeDiffSha256": "4f32110df0b6cc8f6051ef035ebf7079d66a5df60454fa4306744f0416c0566b",
+        "codeVersionUnavailable": true,
+        "browser": "153.0.8010.12",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "finishedAt": "2026-11-03T10:36:38.943Z"
+      },
+      "matrixCount": 12
+    },
+    {
+      "path": "docs/reviews/browser-runs/about-layout-2026-11-03T10-41-22-223Z-production-2e025aea-ccf2-4e1a-ab50-970513dfbe9b",
+      "metadata": {
+        "id": "2026-11-03T10-41-22-223Z-production-2e025aea-ccf2-4e1a-ab50-970513dfbe9b",
+        "name": "about-layout",
+        "condition": "production",
+        "artificial": false,
+        "startedAt": "2026-11-03T10:41:22.231Z",
+        "result": "passed",
+        "command": [
+          "node",
+          "tests/about-layout.browser.mjs"
+        ],
+        "node": "v24.20.0",
+        "platform": "linux",
+        "productionBranch": true,
+        "target": {
+          "origin": "http://127.0.0.1:5562",
+          "pathname": "/one-g"
+        },
+        "commit": "b2f23c980262095d7e2360a0025157c0d6968055",
+        "worktreeDiffSha256": "4f32110df0b6cc8f6051ef035ebf7079d66a5df60454fa4306744f0416c0566b",
+        "codeVersionUnavailable": true,
+        "browser": "153.0.8010.12",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "finishedAt": "2026-11-03T10:41:36.824Z"
+      },
+      "matrixCount": 12
+    }
+  ],
+  "mockContact": [
+    {
+      "run": 1,
+      "loginReturned": true,
+      "preservedHash": true,
+      "consumedOnce": true,
+      "previewOnly": true,
+      "noPosts": true,
+      "focusReturned": true,
+      "noReopenOnRefresh": true
+    },
+    {
+      "run": 2,
+      "loginReturned": true,
+      "preservedHash": true,
+      "consumedOnce": true,
+      "previewOnly": true,
+      "noPosts": true,
+      "focusReturned": true,
+      "noReopenOnRefresh": true
+    },
+    {
+      "run": 3,
+      "loginReturned": true,
+      "preservedHash": true,
+      "consumedOnce": true,
+      "previewOnly": true,
+      "noPosts": true,
+      "focusReturned": true,
+      "noReopenOnRefresh": true
+    }
+  ],
+  "effects": [
+    {
+      "width": 1440,
+      "scrollExpandProgress": true,
+      "lanyardReady": true,
+      "dragHitConfirmed": true,
+      "footerPresent": true
+    },
+    {
+      "width": 390,
+      "scrollExpandProgress": true,
+      "lanyardReady": true,
+      "dragHitConfirmed": true,
+      "footerPresent": true
+    }
+  ],
+  "independentReviews": [
+    ".oil-ui/about-implementation-20261103/independent-visual.md",
+    ".oil-ui/about-implementation-20261103/independent-ux.md"
+  ],
+  "pendingNotPublished": [
+    "care practice",
+    "Xixi wetland patrol",
+    "power-line dual-arm work",
+    "scenario-body design ownership"
+  ],
+  "noDevelopmentPreviewOfPendingContent": true,
+  "protectedFilesUnchanged": {
+    "src/components/ScrollExpand/ScrollExpand.tsx": true,
+    "src/components/ScrollExpand/ScrollExpand.css": true,
+    "src/components/LanyardBrandSection.tsx": true,
+    "src/components/Lanyard/Lanyard.tsx": true,
+    "src/components/Footer.tsx": true,
+    "src/components/Header.tsx": true,
+    "src/components/ContactProvider.tsx": true,
+    "src/components/AuthProvider.tsx": true,
+    "src/data/products/robotdock.ts": true,
+    "src/data/solutions/sonic-link.ts": true,
+    "src/data/site-navigation.ts": true,
+    "src/app/solutions/teleoperation/page.tsx": true
+  },
+  "existingFilesIntentionallyChanged": [
+    "docs/ABOUT_REPLAN.md",
+    "README.md",
+    "docs/code-integration-audit.md",
+    "docs/media-sources.md",
+    "src/app/about/about.module.css",
+    "src/app/about/page.tsx",
+    "src/app/solutions/page.tsx",
+    "src/components/AboutHero.module.css",
+    "src/components/AboutHero.tsx",
+    "src/components/ProductDetailContent.tsx",
+    "src/i18n/dictionary.ts",
+    "tests/product-v2-baseline.json"
+  ],
+  "snapshotChangedEntries": [
+    "src/app/about/page.tsx"
+  ],
+  "isolatedDevelopmentCopyMatchesFinalSource": true,
+  "originalOpenIssues": "unchanged; no claims of resolving exit timeout, first input loss or historical hydration",
+  "limitations": [
+    "Chromium only, not all browsers or all site pages",
+    "No real auth/contact/payment/robot services",
+    "Historical hero contrast limitation retained",
+    "Existing purchase wording confusion recorded, outside scope",
+    "Original development process had script error/instance change/500; not stopped; earliest cause not confirmed",
+    "Dev 127.0.0.1 origin rejection evidenced; localhost isolated run passed",
+    "Static preview HEAD basePath issue fixed in test server, not app",
+    "No full new-page video recording; screenshots and actual interaction assertions retained"
+  ],
+  "committed": false,
+  "pushed": false,
+  "newDeliveryFiles": [
+    "src/lib/about-navigation.ts",
+    "tests/about-layout.test.mjs",
+    "tests/about-layout.browser.mjs"
+  ]
+}

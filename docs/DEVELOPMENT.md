@@ -112,3 +112,10 @@ node --test tests/i18n-dictionary.test.cjs
 导航分类与悬停反馈回归：`tests/header-menu-feedback.browser.cjs`，复用上述 Playwright 环境变量，检查分类顺序/数量、URL 隔离、面板高度、4px 浮起与边缘稳定、无下划线、键盘焦点、减少动画和模拟触屏。
 
 当前主文字已从展开按钮改为真实链接。导航专项使用 `tests/navigation-interactions.browser.cjs`，性能/生命周期采样使用 `tests/navigation-resources.browser.cjs`，Firefox 使用标准库脚本 `tests/navigation-firefox.webdriver.py`（先启动现有 geckodriver，通过 `ONE_G_WEBDRIVER` 指定地址）。`tests/navigation-auth.browser.cjs` 仅用于显式启用既有开发 Mock auth 的隔离会话。旧 `header-image-navigation` / `header-menu-feedback` 脚本仍含旧“主文字是 button”选择器，不应作为当前语义的验收依据。具体环境、执行结果和限制见 [专项报告](reviews/NAVIGATION_INTERACTION_AUDIT.md)。
+
+
+## 解决方案连续正文回归
+
+`tests/solutions-layout.browser.mjs` 使用既有可选 Playwright 环境（`ONE_G_PLAYWRIGHT`、`ONE_G_BROWSER`、`ONE_G_TEST_URL`）。通过 `ONE_G_EVIDENCE_ROOT` 指定新证据根，每次保存独立时间＋条件＋UUID目录，不覆盖历史；正式静态预览加 `ONE_G_PRODUCTION=1`。覆盖1440/1920/768/390、中英文/日夜、原生锚点与旧ID、正文始终存在、真实视频播放、详情及客服返回。目录不分类、不新增 ScrollSpy；主题和语言保持原状态入口。
+
+媒体专项 `tests/media-integration.browser.cjs` 已将旧“默认无视频/折叠卸载”的断言迁移为“4个默认存在但preload=none的播放器/目录定位保持正文”，仍保留媒体解码、播放、单视频播放、失败重试和业务边界检查；运行时必须为 `ONE_G_ARTIFACTS` 指定新的独立目录，禁止覆盖旧媒体审计。

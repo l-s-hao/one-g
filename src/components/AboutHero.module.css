@@ -25,3 +25,11 @@
   /* The original positioning occupied two lines at this width. */
   .expanded p { min-height: 3.6em; }
 }
+
+.intro { padding: calc(var(--site-header-height) + 24px) max(5vw, 20px) 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.intro > p { font-size: clamp(18px, 2vw, 28px); line-height: 1.5; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.actions a { white-space: normal; }
+@media (max-width: 767px) { .intro { align-items: flex-start; flex-direction: column; gap: 16px; } }
+
+.actions a[data-button-effect="invert"] { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 20px; border-radius: 999px; font-size: 14px; line-height: 1.5; text-decoration: none; }

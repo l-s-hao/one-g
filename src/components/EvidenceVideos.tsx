@@ -29,8 +29,8 @@ function EvidenceVideo({ demo }: { demo: SolutionDemo }) {
   </LFigure>;
 }
 
-export default function EvidenceVideos({ ids }: { ids: readonly string[] }) {
-  return <LDiv className={styles.grid}>{ids.map(id => {
+export default function EvidenceVideos({ ids, layout = "grid" }: { ids: readonly string[]; layout?: "grid" | "feature" }) {
+  return <LDiv className={`${styles.grid} ${layout === "feature" ? styles.feature : ""}`}>{ids.map(id => {
     const demo = solutionDemos.find(item => item.id === id);
     return demo ? <EvidenceVideo key={id} demo={demo}/> : null;
   })}</LDiv>;

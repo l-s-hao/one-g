@@ -86,7 +86,7 @@ SONIC 控制台截图保持“早期界面演示”说明：截图/检查记录�
 
 新增复制的来源图片 **0 张**：RoboDock 两图与 SONIC 四图在 ONE-G 已有，哈希匹配后复用；没有再次搬运。同批新增网页视频 **6 段**、从各自真实画面生成 WebP 封面 **6 张**、既有 RoboDock 原图的优化 WebP 副本 **2 张**。产品原始 PNG/JPG 保留；选中视频原始文件按内容哈希另存 `/home/lsh/one-g-media-originals/2026-10-21/`，不在 public 复制原片与网页片两份。未选媒体留在只读参考快照，不纳入正式发布资源。
 
-视频采用 H.264/yuv420p + AAC，保留音轨，CRF 26、faststart、宽度不超过 960 且保持比例。每个封面来自对应视频，取帧时间与输出 SHA 见清单。播放器默认不自动播放、不循环、preload=none、controls/音量可用；第二段开始时暂停第一段，展开区关闭时卸载播放器。加载失败显示文字、来源链接与重试。图片按原比例显示，没有重绘产品或去水印。媒体 URL 沿用 `/one-g/` 前缀及当前资料层的公开资源路径方式，不改部署设置。
+视频采用 H.264/yuv420p + AAC，保留音轨，CRF 26、faststart、宽度不超过 960 且保持比例。每个封面来自对应视频，取帧时间与输出 SHA 见清单。播放器默认不自动播放、不循环、preload=none、controls/音量可用；第二段开始时暂停第一段。`/solutions` 连续正文中的演示默认存在，但不预加载或自动播放；离开页面时卸载。全身平衡演示同时用于遥操作详情和本页遥操作分区，来源映射见清单新增 placement。加载失败显示文字、来源链接与重试。图片按原比例显示，没有重绘产品或去水印。媒体 URL 沿用 `/one-g/` 前缀及当前资料层的公开资源路径方式，不改部署设置。
 
 ## 新增文案逐段出处
 
@@ -199,3 +199,7 @@ SONIC 控制台截图保持“早期界面演示”说明：截图/检查记录�
 以实际命令输出和 JSON 为准；浏览器与最终构建结果见 [验收报告](./reviews/media-integration/verification.md)。截图和测试 JSON 位于 `docs/reviews/media-integration/`。
 
 可重复检查命令：`npm run lint`、`npx tsc --noEmit`、`npm run build`、`node --test tests/i18n-dictionary.test.cjs tests/auth-payment.test.mjs tests/mock-login.test.mjs`。package.json 没有独立 typecheck/test 脚本，类型检查使用已有 TypeScript。
+
+## 2026-11-03 About 既有素材复用
+
+About `#capabilities` 复用已有 RoboDock 概念图（从 Product imageNotes 读取，保留非实物图注）和 `wholebody-balance` 研究演示（从 solutionDemos 读取，保留 AI-CDR 署名、原片标识、来源链接及 SONIC Link/版本/RoboDock 关系限定）。没有新增媒体文件或改变授权结论。用户新介绍视频仅作内部规划来源，康养、景区巡查、线路作业及其中第三方机器人图形均未新增到正式页面。About 原首屏和品牌吊牌资产保持。

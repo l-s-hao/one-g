@@ -1,0 +1,32 @@
+[
+  {
+    "run": 1,
+    "loginReturned": true,
+    "preservedHash": true,
+    "consumedOnce": true,
+    "previewOnly": true,
+    "noPosts": true,
+    "focusReturned": true,
+    "noReopenOnRefresh": true
+  },
+  {
+    "run": 2,
+    "loginReturned": true,
+    "preservedHash": true,
+    "consumedOnce": true,
+    "previewOnly": true,
+    "noPosts": true,
+    "focusReturned": true,
+    "noReopenOnRefresh": true
+  },
+  {
+    "run": 3,
+    "loginReturned": true,
+    "preservedHash": true,
+    "consumedOnce": true,
+    "previewOnly": true,
+    "noPosts": true,
+    "focusReturned": true,
+    "noReopenOnRefresh": true
+  }
+]

@@ -9,6 +9,7 @@ import { solutions } from "@/data/solutions";
 import { getOfferingNavigation, getOfferingSpecificationGroups } from "@/lib/offering-navigation";
 import ProductStatusBadge from "./ProductStatusBadge";
 import ProductLocalNav from "./ProductLocalNav";
+import { aboutNavigation } from "@/lib/about-navigation";
 import styles from "./ProductDetailContent.module.css";
 
 export default function ProductDetailContent({ product, view = "overview" }: { product: Product; view?: "overview" | "specs" }) {
@@ -30,6 +31,7 @@ export default function ProductDetailContent({ product, view = "overview" }: { p
         </LSection>
         <LDiv className={styles.marker} id="product-hero-end" aria-hidden="true"/>
         <LSection className={styles.section} aria-labelledby="product-overview-title"><LH2 id="product-overview-title">了解 {product.name}</LH2><LP>{product.description}</LP>
+          {product.id === "robotdock" && <LP><Link href={aboutNavigation.platformRoute}>了解万机的平台路线</Link></LP>}
           {detail.highlights && <StaggerGroup className={styles.grid}>{detail.highlights.map(item => <CardHover key={item.title}><LDiv data-card-hover-surface className={styles.card}><LH3>{item.title}</LH3><LP>{item.description}</LP></LDiv></CardHover>)}</StaggerGroup>}
         </LSection>
         {detail.sections ? detail.sections.filter(section => section.id !== "modes").map(section => <LSection id={section.id} key={section.id} className={styles.section} aria-labelledby={`${section.id}-title`}>

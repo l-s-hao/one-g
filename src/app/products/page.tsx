@@ -128,7 +128,7 @@ function ProductCatalog({ activeCategory, onCategoryChange }: {
         {productCategories.map(category => <LButton key={category.id} type="button" role="tab" aria-selected={activeCategory === category.id} onClick={() => onCategoryChange(category.id as ProductCategory | "all")} className={`rounded-full border px-5 py-2.5 text-sm ${styles.categoryButton} ${activeCategory === category.id ? "border-white bg-white text-black" : "border-white/15 text-white/60 hover:border-white/50 hover:text-white"}`}>{activeCategory === category.id && <LSpan aria-hidden="true">✓ </LSpan>}{category.name}</LButton>)}
       </LDiv>
       <LSection ref={gridRef} id="product-catalog" aria-label="商品列表" className={`product-grid mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3 ${styles.grid}`}>
-        {catalogProducts.map(product => <ProductCard key={product.id} product={product} flipId={product.id} hidden={!visibleIds.has(product.id)} />)}
+        {catalogProducts.map(product => <ProductCard key={product.id} product={product} actionVariant="catalog" flipId={product.id} hidden={!visibleIds.has(product.id)} />)}
       </LSection>
       {visibleProducts.length === 0 && <LP className="py-20 text-center text-white/50">该分类暂时没有商品。</LP>}
     </LDiv>

@@ -1,5 +1,15 @@
 # 页面 CTA 反色效果
 
+2026-11-03 商品中心明确例外：仅 `/products` 的 ProductCard 操作区启用 `actionVariant="catalog"`，不扩展下方历史表格中其它紧凑按钮的范围。默认外观、字号、圆角、padding等量保留；现有“了解更多”及“购买”链接不改文案、数量、href或权限语义。
+
+- `ProductCard.module.css` 局部控制完整内部表面（背景/边框/文字/原箭头）；Link 外层为稳定命中与焦点框。Flip 管 article，原卡片 hover 管卡片 surface，按钮只管自己的2px transform，不争用节点。
+- 精确鼠标 hover：200ms `cubic-bezier(.22,1,.36,1)` 反色、上移2px、单层柔和阴影；按下归零，原箭头可右移2px且占位不变。只过渡 transform/background-color/color/border-color/box-shadow，没有缩放、Specular、Canvas、RAF或新鼠标监听。
+- 继续使用现有主题色；日夜阴影强度局部区分。`data-filter-animating`、`data-card-hover-disabled` 和 inert 通过CSS变量即时复位，无定时器。减少动画取消位移与时长；触屏无hover激活阶段，键盘保留原Link行为与focus-visible。
+- 当前卡片没有新增loading或disabled业务。样式防守已有aria-disabled/aria-busy状态，专项用隔离DOM探针验证不产生位移；不以探针替代业务禁用检查。购买仍只是原概念套餐预览，不开放加购。
+- 当前 ProductCard 仅商品中心调用，首页/导航图片菜单使用各自组件。共享 `Elements.tsx`、`button-effects.css`、`card-hover.css` 和 Flip 过程均未修改。默认standard变体保留旧结构，防止以后复用时扩散效果。
+- 专项为 `tests/catalog-actions.browser.mjs`，沿用可选外部Playwright；`ONE_G_CATALOG_BASELINE` 可指定改前几何JSON，`ONE_G_EVIDENCE_ROOT` 指定本次独立证据根。静止8组合对照无几何差异，详情、购买预览、边缘/快速悬停、按下、实际Flip、键盘、触屏与减少动画均作实际浏览器检查。状态与长标签注入只发生在测试context，且在真实分类事件完成水合后执行。
+
+
 2026-10-30 导航增量：图片抽屉的查看全部、分类、关闭、移动预览按钮，以及完整图片链接的原文字区域接入现有反色样式。主导航文字与工具图标仍保留原交互。仅此范围覆盖下方历史表格里“图片菜单/分类保持原样”的旧约定；没有恢复 Specular/Canvas。见 [当前导航说明](NAVIGATION.md) 与 [本轮验收](reviews/resizable-navbar/verification.md)。
 
 2026-10-29 多语言布局补充见 [按钮布局验收](multilingual-button-layout.md)：沿用本效果，增加长标签换行、图标保护及现有结算栏高度占位，不修改按钮业务。

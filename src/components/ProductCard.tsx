@@ -9,7 +9,8 @@ import { getOfferingNavigation } from "@/lib/offering-navigation";
 import type { Product } from "@/types/product";
 import styles from "./ProductCard.module.css";
 
-export default function ProductCard({ product, hidden = false, flipId }: { product: Product; hidden?: boolean; flipId?: string }) {
+export default function ProductCard({ product, hidden = false, flipId, actionVariant = "standard" }: { product: Product; hidden?: boolean; flipId?: string; actionVariant?: "standard" | "catalog" }) {
+  const catalogActions = actionVariant === "catalog";
   const offering = isConfigurableOffering(product.id) ? getOfferingNavigation(product) : undefined;
   const detailHref = offering?.overviewHref ?? `/products/${product.slug}`;
   return <LArticle data-product-id={product.id} data-flip-id={flipId} data-filter-hidden={hidden || undefined} inert={hidden} aria-hidden={hidden || undefined} data-card-hover-host>
@@ -25,9 +26,10 @@ export default function ProductCard({ product, hidden = false, flipId }: { produ
       {product.detail?.statusNote && <LP className={styles.note}>{product.detail.statusNote}</LP>}
       <LDiv className={`product-card-price ${styles.bottom}`}>
         <LP className="tabular-nums whitespace-nowrap">{formatPrice(product.price)}</LP>
-        <LDiv className={styles.actions}>
-          <Link intent="ordinary" href={detailHref}>了解更多 <LSpan aria-hidden="true">→</LSpan></Link>
-          {offering && <Link intent="purchase" href={offering.purchaseHref}>{offering.purchaseLabel}</Link>}
+        <LDiv className={`${styles.actions} ${catalogActions ? styles.catalogActions : ""}`} data-catalog-actions={catalogActions || undefined}>
+          {/* 外层 Link 保持命中/焦点与业务语义；只有商品中心的内部完整表面承担新增位移。 */}
+          <Link intent="ordinary" href={detailHref}>{catalogActions ? <LSpan className={styles.actionSurface}>了解更多 <LSpan aria-hidden="true" className={styles.actionArrow}>→</LSpan></LSpan> : <>了解更多 <LSpan aria-hidden="true">→</LSpan></>}</Link>
+          {offering && <Link intent="purchase" href={offering.purchaseHref}>{catalogActions ? <LSpan className={styles.actionSurface}>{offering.purchaseLabel}</LSpan> : offering.purchaseLabel}</Link>}
         </LDiv>
       </LDiv>
     </LDiv>

@@ -1,0 +1,83 @@
+{
+  "matrix": [
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "theme": "light",
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "theme": "dark",
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "theme": "light",
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "theme": "dark",
+      "passed": true
+    },
+    {
+      "width": 768,
+      "locale": "zh-CN",
+      "theme": "light",
+      "passed": true
+    },
+    {
+      "width": 768,
+      "locale": "zh-CN",
+      "theme": "dark",
+      "passed": true
+    },
+    {
+      "width": 768,
+      "locale": "en",
+      "theme": "light",
+      "passed": true
+    },
+    {
+      "width": 768,
+      "locale": "en",
+      "theme": "dark",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "theme": "light",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "theme": "dark",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "theme": "light",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "theme": "dark",
+      "passed": true
+    }
+  ],
+  "checks": [
+    "real product/category/solution links, history, preferences preserve video, login return",
+    "direct anchor and refresh",
+    "RoboDock and solutions reverse entries",
+    "native new-tab and keyboard Enter"
+  ],
+  "errors": []
+}

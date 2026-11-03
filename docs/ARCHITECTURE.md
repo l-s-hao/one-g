@@ -49,6 +49,7 @@ flowchart TD
 
 - `data/products.ts` 与 `data/products/robotdock.ts` 是商品数据来源，`lib/products.ts` 统一查询，`types/product.ts` 定义形状。
 - `data/solutions.ts` 是四个方案的数据来源，SONIC Link 长内容在 `data/solutions/sonic-link.ts`。方案可引用商品 ID，但不因此成为商品。
+- `/solutions` 正文由 `SolutionSections` 连续输出，`lib/solution-sections.ts` 仅保存本页阅读顺序与演示ID引用；不改变共享方案集合。目录为原生锚点，四个稳定方案ID及旧 `solution-ID` 标题入口保留，无分类筛选或正文展开状态，详见 [本页布局约定](SOLUTIONS_LAYOUT.md)。`EvidenceVideos` 的 feature 布局只放大本页媒体，默认详情网格不变。
 - 首页只保存展示 ID 列表；通过现有数据派生标题、状态和链接，不维护第二份商品数据库。
 - `lib/product-policy.ts` 判断展示状态和加购许可。RoboDock 为 concept，购买页只允许套餐预览。Mock active 商品也不代表真实销售/库存已核实。
 - `public/` 保存公开媒体；Next Link 根据 basePath 处理页面路由，现有图片字段通常已经含 `/one-g/`，不能再次拼接。
