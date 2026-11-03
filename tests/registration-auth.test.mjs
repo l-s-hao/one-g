@@ -10,6 +10,18 @@ function loader(env='development',flag='1') {
 }
 const profile=(extra={})=>({region:'international',nickname:'Fictional tester',password:'  Synthetic-passphrase-7!  ',email:'fictional-new@example.test',phone:'',affiliation:'individual',organization:'',...extra});
 const registrationContext=email=>({purpose:'register',region:'international',channel:'email',recipient:email});
+test('Email format extraction preserves auth normalization and contact preview errors without rewriting drafts',()=>{
+ const load=loader(),policy=load('src/lib/auth/policy'),contact=load('src/lib/contact-preview');
+ for(const [email,valid] of [['Name+tag@Example.test',true],['  Name@Example.test  ',true],['',false],['a@b',false],['a b@example.test',false],['a@@example.test',false],['a@example.test\nother',false]]){
+  const draft={name:'测试',email,company:'',description:'测试需求'};
+  assert.equal(policy.validAddress('email',policy.normalizeAddress('email',email)),valid,email);
+  assert.equal(contact.validateContactDraft(draft).email===undefined,valid,email);
+  assert.equal(draft.email,email);
+ }
+ assert.equal(policy.validAddress('email',' a@example.test '),false);
+ assert.equal(contact.validateContactDraft({name:'',email:' ',company:'',description:''}).email,'请填写回复邮箱。');
+ assert.equal(contact.validateContactDraft({name:'测试',email:'bad',company:'',description:'测试'}).email,'请填写有效的回复邮箱。');
+});
 async function send(load,context,service=load('src/lib/auth/verification').verificationService){const proof=await load('src/lib/auth/human').humanVerification.issue(context);return service.send({...context,humanToken:proof.token});}
 test('Central region/profile policy: mainland phone, international email only, individual vs organization, no password rewriting',()=>{
  const load=loader(),policy=load('src/lib/auth/policy'),accounts=load('src/lib/auth/accounts');

@@ -30,7 +30,7 @@ const searchItems = [...navigation, ...solutions.filter(item => item.detailHref)
 export default function Header() {
   const pathname = useAppPathname();
   // Remount on navigation, including browser back, so panels and focus state cannot leak to another page.
-  return <HeaderNavigation key={pathname} pathname={pathname.replace(/\/+$/, "") || "/"} />;
+  return <HeaderNavigation key={pathname} pathname={pathname} />;
 }
 
 function HeaderNavigation({ pathname }: { pathname: string }) {

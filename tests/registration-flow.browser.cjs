@@ -2,9 +2,15 @@
 const {chromium}=require(process.env.ONE_G_PLAYWRIGHT||'playwright-core');
 const assert=require('node:assert/strict');const fs=require('node:fs');
 const base=process.env.ONE_G_TEST_URL||'http://127.0.0.1:5556/one-g';const production=process.env.ONE_G_PRODUCTION==='1';
+let evidence;let registration;
 (async()=>{
+ const {createBrowserEvidence}=await import('./helpers/browser-evidence.mjs');
+ evidence=createBrowserEvidence({name:'registration-flow',condition:process.env.ONE_G_RUN_CONDITION||(production?'production':'unspecified')});
  const browser=await chromium.launch({headless:true,executablePath:process.env.ONE_G_BROWSER});const c=await browser.newContext();const p=await c.newPage();const errors=[],rows=[];let reloadPrompts=0;
  p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+ await evidence.attach(p);
+ const {watchRegistration}=await import('./helpers/registration-lifecycle.mjs');
+ registration=await watchRegistration(p,evidence);
  const button=name=>p.getByRole('button',{name,exact:true});
  const guard=()=>p.getByRole('dialog',{name:'离开后信息不会被保存',exact:true});
  const session=()=>p.evaluate(()=>localStorage.getItem('one-g-auth-demo'));
@@ -23,7 +29,7 @@ const base=process.env.ONE_G_TEST_URL||'http://127.0.0.1:5556/one-g';const produ
  await p.getByRole('button',{name:'切换到夜间模式',exact:true}).click();assert.equal(await p.locator('#register-nickname').inputValue(),'Fictional Draft');assert.equal(await guard().count(),0);
  await p.evaluate(()=>{dispatchEvent(new Event('blur'));document.dispatchEvent(new Event('visibilitychange'));});assert.equal(await p.locator('#register-nickname').inputValue(),'Fictional Draft');
  // Native reload warning: no custom text claim. Rejecting reload keeps form.
- p.once('dialog',async d=>{assert.equal(d.type(),'beforeunload');reloadPrompts++;await d.dismiss();});await p.reload().catch(()=>{});assert.equal(reloadPrompts,1);assert.equal(await p.locator('#register-nickname').inputValue(),'Fictional Draft');
+ await registration.cancelReload();reloadPrompts++;assert.equal(reloadPrompts,1);assert.equal(await p.locator('#register-nickname').inputValue(),'Fictional Draft');
  await p.locator('header a[href="/one-g/"]').first().click();await guard().waitFor();await button('继续填写').click();
  await button('取消注册').click();await guard().waitFor();await button('确认离开').click();await p.waitForURL('**/login/**');await p.getByRole('link',{name:'没有账号？注册账号',exact:true}).click();assert.equal(await p.getByLabel('昵称',{exact:true}).inputValue(),'');
  rows.push('Region channels, explicit register/login links, empty/dirty leave, safe focus, continue/confirm, Header and cancel, theme/language/blur retain draft, native reload warning');
@@ -53,9 +59,12 @@ const base=process.env.ONE_G_TEST_URL||'http://127.0.0.1:5556/one-g';const produ
   rows.push('Required mainland phone and organization; international/personal exceptions; human gate and one-use proof; email change clears code; optional identity has no sensitive input; explicit register returns login with no session; password and OTP logins share ID and restore purchase; reload loses memory account; stable fixture USER denied admin; existing administrator password reaches admin; no credential/draft storage');
  }
  // Visual matrix on a clean context (no registration mutation is persisted).
+ // 截图可早于 Suspense 子树水合；保持原 caret，避免工具提前写入 input 内联样式。
  if(process.env.ONE_G_SKIP_SCREENSHOTS!=='1')for(const region of ['mainland','international'])for(const width of [1440,390])for(const locale of ['zh-CN','en'])for(const theme of ['light','dark']){
-  const visual=await browser.newContext({viewport:{width,height:950},hasTouch:width===390,isMobile:width===390,reducedMotion:'reduce'});await visual.addInitScript(({locale,theme})=>{localStorage.setItem('one-g-locale',locale);localStorage.setItem('one-g-appearance-v1',theme);},{locale,theme});const v=await visual.newPage();v.on('pageerror',e=>errors.push(e.message));v.on('console',m=>{if(m.type()==='error')errors.push(m.text());});await v.goto(base+'/register/?region='+region);await v.getByLabel(locale==='en'?'Nickname':'昵称',{exact:true}).waitFor();await v.evaluate(()=>document.fonts.ready);assert.equal(await v.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);await v.screenshot({path:`docs/reviews/registration/${production?'production':'mock'}-${region}-${width}-${locale}-${theme}.png`,fullPage:true});await visual.close();
+  const visual=await browser.newContext({viewport:{width,height:950},hasTouch:width===390,isMobile:width===390,reducedMotion:'reduce'});await visual.addInitScript(({locale,theme})=>{localStorage.setItem('one-g-locale',locale);localStorage.setItem('one-g-appearance-v1',theme);},{locale,theme});const v=await visual.newPage();v.on('pageerror',e=>errors.push(e.message));v.on('console',m=>{if(m.type()==='error')errors.push(m.text());});await v.goto(base+'/register/?region='+region);await v.getByLabel(locale==='en'?'Nickname':'昵称',{exact:true}).waitFor();await v.evaluate(()=>document.fonts.ready);assert.equal(await v.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);await v.screenshot({path:`${evidence.dir}/${production?'production':'mock'}-${region}-${width}-${locale}-${theme}.png`,fullPage:true,caret:'initial',mask:[v.locator('input,[class*="demo"]')]});await visual.close();
  }
- assert.deepEqual(errors,[]);rows.push(process.env.ONE_G_SKIP_SCREENSHOTS==='1'?'Functional run, no browser/hydration/i18n errors':'16 screenshots, both regions, locale/theme/mobile, natural scrolling, no overflow or browser/hydration/i18n errors');fs.writeFileSync(`docs/reviews/registration/${production?'production':'mock'}-results.json`,JSON.stringify(rows,null,2));console.log(rows.join('\n'));
- }finally{await browser.close();}
-})().catch(e=>{console.error(e);process.exitCode=1;});
+ assert.deepEqual(errors,[]);rows.push(process.env.ONE_G_SKIP_SCREENSHOTS==='1'?'Functional run, no browser/hydration/i18n errors':'16 screenshots, both regions, locale/theme/mobile, natural scrolling, no overflow or browser/hydration/i18n errors');fs.writeFileSync(`${evidence.dir}/${production?'production':'mock'}-results.json`,JSON.stringify(rows,null,2));console.log(rows.join('\n'));
+ registration.assertNoUnexpected();
+ }catch(error){await evidence.fail(error,p);throw error;}finally{registration?.close();await browser.close();}
+ evidence.finish('passed');
+})().catch(async e=>{await evidence?.fail(e);console.error(evidence ? evidence.safeError(e) : e.name);process.exitCode=1;});

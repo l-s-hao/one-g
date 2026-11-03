@@ -8,10 +8,11 @@
 .field label {font-size:14px;}
 .field input,.field textarea {width:100%;min-height:44px;padding:10px 12px;border:1px solid var(--border-strong);border-radius:8px;background:var(--bg);color:var(--text);font:inherit;}
 .field textarea {resize:vertical;}
-.error {font-size:13px;font-weight:600;}
-.field [aria-invalid=true] {border-style:dashed;border-width:2px;}
+.error {font-size:13px;line-height:1.6;color:var(--color-error);}
+.dialog .field [aria-invalid=true] {border-color:var(--color-error);outline:2px solid var(--color-error);outline-offset:0;}
+.dialog .field [aria-invalid=true]:focus-visible {outline-color:var(--focus-color);outline-offset:3px;}
 .actions {display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;}
-.dialog :focus-visible {outline:2px solid var(--text);outline-offset:3px;}
+.dialog :focus-visible {outline:2px solid var(--focus-color);outline-offset:3px;}
 .previewNotice {padding:12px;border:1px solid var(--border-strong);border-radius:8px;margin-block:16px;}
 .preview > div {padding-block:10px;border-bottom:1px solid var(--border);}
 .preview dt {color:var(--text-muted);font-size:13px;}

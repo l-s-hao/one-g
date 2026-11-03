@@ -26,7 +26,7 @@ const routeNames: Record<string, string> = {
 };
 
 export default function Footer() {
-  const pathname = useAppPathname().replace(/\/+$/, "") || "/";
+  const pathname = useAppPathname();
   const [expanded, setExpanded] = useState<number | null>(null);
   const product = (pathname.startsWith("/products/") || pathname.startsWith("/buy/")) ? getProductBySlug(pathname.split("/")[2]) : undefined;
   const offering = product && isConfigurableOffering(product.id);

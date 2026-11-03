@@ -4,7 +4,7 @@ import { useEffect, useRef, type ReactNode } from "react";
 
 type Props = { children: ReactNode; className?: string; as?: "div" | "ol" };
 
-/** Opt-in static card groups. Existing hosts enter; their child surfaces own hover. */
+/** 只负责显式卡片 host 的一次性入场；内部 surface 的悬停由原组件负责，避免争用 transform。 */
 export default function StaggerGroup({ as = "div", children, ...props }: Props) {
   const root = useRef<HTMLDivElement & HTMLOListElement>(null);
   const seen = useRef(new WeakSet<Element>());
@@ -67,6 +67,7 @@ export default function StaggerGroup({ as = "div", children, ...props }: Props) 
     document.addEventListener("visibilitychange", visibility);
     media.addEventListener("change", reduce);
     return () => {
+      // 此 effect 创建的 observer、动画和监听在此统一释放；cancel 后恢复底层可见样式，不残留隐藏内容。
       observer?.disconnect();
       animations.forEach(animation => animation.cancel());
       animations.clear();

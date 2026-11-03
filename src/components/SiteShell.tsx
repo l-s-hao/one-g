@@ -18,7 +18,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
 
 function SiteContent({ children }: { children: ReactNode }) {
   const { currentUser } = useAuth();
-  const pathname = useAppPathname().replace(/\/+$/, "") || "/";
+  const pathname = useAppPathname();
   const role = requiredRole(pathname);
   const content = role ? <RequireRole role={role}><Fragment key={currentUser?.id ?? "anonymous"}>{children}</Fragment></RequireRole> : children;
   if (pathname === "/admin" || pathname.startsWith("/admin/")) return <>{content}</>;

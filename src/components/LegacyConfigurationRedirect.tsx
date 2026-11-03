@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { useAppPathname } from "@/lib/use-app-pathname";
 import { canonicalConfigurationHref } from "@/lib/configuration-routing";
 
-/** Public client redirect: compatible with exported HTML on GitHub Pages. */
+/** 旧书签仍需在 GitHub Pages 的静态 HTML 中可访问，故保留客户端兼容入口；目标由统一迁移规则决定。 */
 export default function LegacyConfigurationRedirect() {
   const router = useRouter();
   const pathname = useAppPathname();

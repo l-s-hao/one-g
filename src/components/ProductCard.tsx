@@ -18,10 +18,10 @@ export default function ProductCard({ product, hidden = false, flipId }: { produ
       <ProductVisual label={product.detail?.imageNotes[0]?.alt ?? getCategoryName(product.category)} images={product.images} compact />
     </Link>
     <LDiv className={`product-card-copy ${styles.copy}`}>
-      {product.status !== "active" && <LP className={styles.status}><ProductStatusBadge status={product.status} /></LP>}
-      {product.detail?.imageNotes[0] && <LP className={styles.note}>{product.detail.imageNotes[0].caption}</LP>}
       <LH2>{product.name}</LH2>
       <LP className={`product-subtitle ${styles.subtitle}`}>{product.subtitle}</LP>
+      {product.status !== "active" && <LP className={styles.status}><ProductStatusBadge status={product.status} /></LP>}
+      {product.detail?.imageNotes[0] && <LP className={styles.note}>{product.detail.imageNotes[0].caption}</LP>}
       {product.detail?.statusNote && <LP className={styles.note}>{product.detail.statusNote}</LP>}
       <LDiv className={`product-card-price ${styles.bottom}`}>
         <LP className="tabular-nums whitespace-nowrap">{formatPrice(product.price)}</LP>

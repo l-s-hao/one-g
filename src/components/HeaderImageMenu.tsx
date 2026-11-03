@@ -95,6 +95,7 @@ export default function HeaderImageMenu({ kind, open, onClose, onNavigate }: {
         <LDiv className={styles.surface} data-card-hover-surface>
         <LDiv className={styles.media}>{item.src ? <Image src={item.src} alt={item.alt} width={320} height={200} sizes="(max-width:1023px) 44vw, 260px" loading="lazy" onError={event => { event.currentTarget.hidden = true; event.currentTarget.parentElement?.setAttribute("data-image-failed", "true"); }}/>: null}
           <LSpan className={styles.placeholder} hidden={!!item.src}>图片待补</LSpan>
+          <LSpan className={`${styles.placeholder} ${styles.failedPlaceholder}`} hidden>图片加载失败</LSpan>
         </LDiv>
         <LDiv className={styles.copy} data-button-effect="invert" data-invert-variant="secondary" data-invert-surface="card"><LSpan>{item.name}</LSpan>{item.note && <LP>{item.note}</LP>}</LDiv>
         </LDiv>

@@ -1,3 +1,5 @@
+import { isEmailAddress } from "./validation";
+
 export const contactEntries = {
   about: "About 咨询",
   solutions: "解决方案咨询",
@@ -16,7 +18,7 @@ export function validateContactDraft(draft: ContactDraft) {
   const errors: Partial<Record<keyof ContactDraft, string>> = {};
   if (!draft.name.trim()) errors.name = "请填写称呼。";
   if (!draft.email.trim()) errors.email = "请填写回复邮箱。";
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(draft.email.trim())) errors.email = "请填写有效的回复邮箱。";
+  else if (!isEmailAddress(draft.email.trim())) errors.email = "请填写有效的回复邮箱。";
   if (!draft.description.trim()) errors.description = "请填写需求描述。";
   return errors;
 }

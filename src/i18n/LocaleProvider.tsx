@@ -24,8 +24,7 @@ const subscribeHydration = () => () => {};
 const serverLocale = (): Locale => "zh-CN";
 export function useLocale() {
   const context = useContext(LocaleContext);
-  // Suspense children may hydrate after preference restoration. Each boundary still
-  // consumes the server snapshot first, then the live locale without remounting.
+  // Suspense 子树可能晚于偏好恢复才水合；每个边界先使用中文服务端快照，再读取当前语言，避免重挂表单。
   const locale = useSyncExternalStore(subscribeHydration, () => context.locale, serverLocale);
   return { locale, setLocale: context.setLocale };
 }
@@ -36,7 +35,7 @@ export default function LocaleProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     try {
       const saved = localStorage.getItem(preferenceKey);
-      // Restore first; never persist the default before reading the saved preference.
+      // 先读偏好再恢复；不能先写入中文默认值，否则会覆盖用户已保存的英文选择。
       // eslint-disable-next-line react-hooks/set-state-in-effect -- Hydration uses the same Chinese default as SSR.
       if (saved === "en" || saved === "zh-CN") updateLocale(saved);
     } catch { /* In-memory switching remains available. */ }

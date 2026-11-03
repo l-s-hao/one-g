@@ -142,6 +142,7 @@ export const english = {
   "收起预览": "Hide preview",
   "概念图 · 暂未开放销售": "Concept image · Sales not open",
   "图片待补": "Image pending",
+  "图片加载失败": "Image unavailable",
   "型号待确认": "Model to be confirmed",
   "产品图待确认": "Product image to be confirmed",
   "更多设置": "More settings",

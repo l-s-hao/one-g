@@ -43,6 +43,8 @@ flowchart TD
 
 没有 Redux、Zustand 或全局业务数据库。剩余 `lib/configuration/` 和旧 schema 是历史兼容/迁移代码，不代表旧配置工作台仍启用。
 
+页面壳、导航、权限入口与客服预览统一消费 `lib/use-app-pathname.ts`：它将部署路径转为逻辑路径并去除尾斜杠，根路径保留 `/`，调用方无需重复处理。该 hook 不替代 `auth-routing.ts` 对不可信返回 URL 的权限检查，也不替代 `configuration-routing.ts` 的旧入口迁移。
+
 ## 商品与解决方案
 
 - `data/products.ts` 与 `data/products/robotdock.ts` 是商品数据来源，`lib/products.ts` 统一查询，`types/product.ts` 定义形状。
@@ -56,6 +58,8 @@ flowchart TD
 `lib/demo-mode.ts` 要求 development/test 环境及显式 Mock 开关；正式构建始终关闭。普通入口默认邮箱验证码，也支持密码。`auth/policy.ts` 集中定义大陆/海外渠道与注册字段规则，`auth/human.ts` 管理单次模拟人机凭据，`auth/verification.ts` 按用途/地区/目标管理挑战，`auth/accounts.ts` 和 `account-service.ts` 管理内存普通账户与显式注册。注册成功返回登录，不建立会话。正式服务均未接入，详见 [注册/登录契约](registration-auth-contract.md)。
 
 `RequireRole`、`auth-routing.ts` 和 `safeReturnTo` 在前端控制访问和安全返回。它们改善演示流程，不能代替生产后端授权。旧 `/admin/login` 只进入统一登录流程；`/register` 现在是显式资料表单；只有 Mock 环境创建短期内存 USER，刷新失效。`/forgot-password` 仍不执行密码重置。注册范围内的导航保护仅在有未保存内容时启用，未修改全站导航组件。
+
+认证地区/渠道规则仍由 `lib/auth/policy.ts` 负责；与客服预览相同的邮箱格式检查复用 `lib/validation.ts:isEmailAddress`。这个纯函数不裁剪或规范化输入、不验证邮箱所有权、不触发服务；认证先规范化账号，客服只 trim 后检查，保留草稿原文及自身必填/错误提示。
 
 ## 购物车、订单与支付
 

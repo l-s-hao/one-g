@@ -1,3 +1,5 @@
+import { isEmailAddress } from "../validation";
+
 export const serviceRegions = {
   mainland: { label: "中国大陆（+86）", channels: ["email", "phone", "wechat"], requiresPhone: true },
   international: { label: "中国大陆以外（仅邮箱）", channels: ["email"], requiresPhone: false },
@@ -7,13 +9,12 @@ export type AccountChannel = "email" | "phone";
 export type VerificationPurpose = "register" | "login" | "bind-phone";
 export const isServiceRegion = (value: unknown): value is ServiceRegion => value === "mainland" || value === "international";
 export const normalizeAddress = (channel: AccountChannel, value: string) => channel === "email" ? value.trim().toLowerCase() : value.trim();
-export const validAddress = (channel: AccountChannel, value: string) => channel === "email" ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) : /^1[3-9]\d{9}$/.test(value);
+export const validAddress = (channel: AccountChannel, value: string) => channel === "email" ? isEmailAddress(value) : /^1[3-9]\d{9}$/.test(value);
 export function allowsChannel(region: ServiceRegion, channel: string) {
   return isServiceRegion(region) && (serviceRegions[region].channels as readonly string[]).includes(channel);
 }
 export function validPassword(value: string) {
-  // No existing registration policy existed. Proposed registration policy only;
-  // old fixture passwords remain usable. Never trim/truncate password input.
+  // 当前注册表单执行此规则；历史测试账号仍走原有密码校验，密码输入不裁剪、不截断。
   return value.length >= 12 && value.length <= 128 && /[A-Za-z]/.test(value) && /[^A-Za-z]/.test(value);
 }
 export class AuthFlowError extends Error {
