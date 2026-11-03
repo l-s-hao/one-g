@@ -74,6 +74,7 @@ body {
 .section-title { font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 700; line-height: 0.98; letter-spacing: -0.06em; }
 .product-visual { position: relative; min-height: 26rem; overflow: hidden; border-radius: 1.5rem; background: radial-gradient(circle at 65% 35%, rgba(255,255,255,0.18), transparent 25%), linear-gradient(135deg, #25252a 0%, #111116 48%, #070708 100%); }
 .product-visual--compact { min-height: 18rem; border-radius: 1.25rem; }
+.product-visual__placeholder {position:absolute;inset:0;display:grid;place-items:center;padding:12px;color:var(--text-muted);font-size:13px;line-height:1.5;text-align:center;}
 .product-visual__grid { position: absolute; inset: 0; opacity: 0.22; background-image: linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px); background-size: 42px 42px; transform: perspective(500px) rotateX(58deg) scale(1.6); transform-origin: center bottom; }
 .product-visual__mark { position: absolute; left: 2rem; top: 2rem; font-size: clamp(2rem, 5vw, 4rem); font-weight: 800; letter-spacing: -0.07em; color: rgba(255,255,255,0.88); }
 .product-visual__label { position: absolute; bottom: 1.5rem; left: 1.5rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.25em; color: rgba(255,255,255,0.5); text-transform: uppercase; }

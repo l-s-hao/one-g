@@ -37,6 +37,7 @@ export function useAuthVerification(context: VerificationContext) {
     requestAnimationFrame(() => document.getElementById("auth-feedback")?.focus());
   };
   const run = async (kind: "human" | "send" | "submit", task: (signal: AbortSignal) => Promise<void>) => {
+    // clear/卸载会取消当前请求；旧请求结束时只有仍持有同一 controller 才能清除 pending，避免覆盖下一次请求。
     if (request.current) return;
     const controller = new AbortController(); request.current = controller;
     setPending(kind); setMessage(""); setNotice("");
@@ -71,6 +72,7 @@ export function useAuthVerification(context: VerificationContext) {
       if (challengeId.current) verificationService.discard(challengeId.current);
       challengeId.current = null;
       const result = await verificationService.send({ ...context, humanToken }, signal);
+      // 服务可能在取消后才返回；销毁晚到的挑战，不把旧收件人或旧地区的结果写回表单。
       if (signal.aborted) { verificationService.discard(result.id); return; }
       challengeId.current = result.id; setChallenge(result);
       setCooldowns(previous => new Map(previous).set(key, result.resendAt)); setNow(Date.now());

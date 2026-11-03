@@ -22,7 +22,7 @@ export function useContact() {
 }
 export default function ContactProvider({ children }: { children: ReactNode }) {
   const { currentUser, authReady } = useAuth();
-  const pathname = useAppPathname().replace(/\/+$/, "") || "/";
+  const pathname = useAppPathname();
   const router = useRouter();
   const userId = currentUser?.id;
   const [request, setRequest] = useState<{ entry: ContactEntry; userId: string; pathname: string } | null>(null);
@@ -69,8 +69,9 @@ export default function ContactProvider({ children }: { children: ReactNode }) {
   </ContactContext.Provider>;
 }
 function ContactPreview({ entry, email, close }: { entry: ContactEntry; email: string; close: () => void }) {
+  // 草稿仅供当前弹窗预览；校验通过只切换预览视图，不发送请求、不写存储，也不表示客服已收到。
   const dialog = useRef<HTMLDialogElement>(null);
-  const pathname = useAppPathname().replace(/\/+$/, "") || "/";
+  const pathname = useAppPathname();
   const [draft, setDraft] = useState<ContactDraft>({ name: "", email, company: "", description: "" });
   const [errors, setErrors] = useState<ReturnType<typeof validateContactDraft>>({});
   const [preview, setPreview] = useState(false);

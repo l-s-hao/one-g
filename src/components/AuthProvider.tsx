@@ -30,12 +30,13 @@ export function useAuth() {
   return context;
 }
 
-// DEMO ONLY — Frontend Authentication Prototype, not backend authorization.
+// 仅为受开关控制的前端认证演示；本地身份和角色守卫不能充当真实服务的会话或后端授权。
 export default function AuthProvider({ children }: { children: ReactNode }) {
   const [currentUser, setCurrentUser] = useState<CurrentUser | null>(null);
   const [ready, setReady] = useState(false);
   const [exitTarget, setExitTarget] = useState<SessionExitTarget | null>(null);
   const revision = useRef({ value: 0 });
+  // 登录请求持有递增版本；退出、跨标签更新和卸载使旧版本失效，晚到的登录结果不得恢复旧会话。
   useEffect(() => {
     const requests = revision.current;
     let active = true;

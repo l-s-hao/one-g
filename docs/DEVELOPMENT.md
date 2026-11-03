@@ -73,6 +73,14 @@ node --test tests/i18n-dictionary.test.cjs
 
 `tests/card-hover.browser.cjs`、`tests/home-previews.browser.cjs`、`theme.browser.cjs`、`theme-state.browser.cjs` 等需要外部 Playwright 工具及实际浏览器。Playwright **不在 package.json 依赖中**；部分脚本仍含开发机浏览器路径，需检查脚本支持的环境变量/可执行文件位置后运行，不应声称全新安装可直接执行全部浏览器测试。本次不修改依赖或测试脚本。
 
+## 注册回归证据归档
+
+`tests/registration-flow.browser.cjs` 现在通过 `tests/helpers/browser-evidence.mjs` 为每次运行分配独立目录，默认在 `docs/reviews/browser-runs/`，可用 `ONE_G_EVIDENCE_ROOT` 指定本地证据根目录。`ONE_G_RUN_CONDITION` 接受 `cold`、`warm`、`session-restored`、`production` 或 `unspecified`；运行者应按实际条件标记，工具不会自动把普通启动当作冷启动。
+
+每个目录含 UTC 时间、条件和 UUID，保存 `run.json`、追加式 `output.log`、`timeline.jsonl` 与结束时的 `timeline.json`；失败时尽力保存 `failure.png`。元数据记录命令、运行环境、Git 提交和源码指纹。输入文字、演示凭据、预览用户文本及邮箱区域会遮蔽，日志会脱敏；不采集 Cookie/Token 或包含网络凭据的完整 Playwright trace。只使用隔离浏览器和虚构测试资料。
+
+结束后原始记录不再写入，下一轮不会复用目录；只有 `latest.json` 原子更新指针，并标明条件及是否为人为探针。`tests/evidence-preservation.browser.mjs` 用明确标记的失败/成功探针核验旧文件逐字节不变，不表示复现退出超时。旧 `.oil-ui` 任务目录中的固定命名脚本与结果是历史快照，不应再作为新批次输出目录复用。其他尚未接入的历史浏览器脚本应显式指定全新输出目录，不能据此宣称它们已自动迁移归档。
+
 ## 本地静态预览
 
 见 [部署说明的本地预览](DEPLOYMENT.md#本地静态预览)。保持 `/one-g/` 前缀；不要用 `next start` 启动 `out/`。
@@ -84,7 +92,7 @@ node --test tests/i18n-dictionary.test.cjs
 - 品牌与中英文：`src/i18n/dictionary.ts`；日夜配色：`src/app/colors.css`。
 - 公开图片放 `public/`，前端不使用用户机器绝对路径。
 - 参考实现说明保留在历史 docs，不能把计划代码或残留组件当作启用功能。
-- 执行任务前阅读 `AGENTS.md`、Git diff；不要覆盖未提交改动。当前文档任务不改业务代码或配置，不提交/推送。
+- 执行任务前阅读 `AGENTS.md`、Git diff 并记录暂存、未暂存与未跟踪文件；不要覆盖未提交改动。逐条职责链迁移并验证，未经授权不提交/推送。路径/校验精简和关键注释记录复用 [代码整合审计](code-integration-audit.md)。
 
 ## 常见问题
 
