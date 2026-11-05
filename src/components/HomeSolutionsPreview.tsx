@@ -1,5 +1,5 @@
 import { solutions } from "@/data/solutions";
-import { LocalizedLink as Link, LH2, LH3, LP, LSpan } from "@/i18n/Elements";
+import { LocalizedLink as Link, LH2, LH3, LSpan } from "@/i18n/Elements";
 import { LayoutGrid, type LayoutGridCard } from "./ui/layout-grid";
 import styles from "./HomePreviews.module.css";
 
@@ -19,9 +19,6 @@ export default function HomeSolutionsPreview() {
       wide: id === "teleoperation" || id === "ai",
       content: <>
         <LH3 id={`home-solutions-${id}-title`}>{solution.name}{solution.content && ` · ${solution.content.name}`}</LH3>
-        <LP className={styles.positioning}>{solution.description}</LP>
-        <LP className={styles.note}>{solution.boundary}</LP>
-        <LP className={styles.caption}>{solution.media.caption}</LP>
         <Link effect="invert" effectSurface="card" intent="ordinary" className={styles.action} href={solution.detailHref ?? `/solutions#${solution.id}`}>了解方案</Link>
       </>,
     };

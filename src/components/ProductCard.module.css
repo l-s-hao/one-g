@@ -2,9 +2,8 @@
 .card > a { display:block; border-radius:20px; }
 .copy { display:flex; flex:1; flex-direction:column; padding:16px; }
 .copy h2 { font-size:20px; font-weight:700; line-height:1.4; }
-.status { margin-bottom:8px; font-size:14px; font-weight:600; }
+.status { margin-block:8px; font-size:14px; font-weight:600; }
 .note { margin-block:0 12px; color:var(--text-muted); font-size:12px; line-height:1.7; }
-.subtitle { margin-block:8px 12px; color:var(--text-muted); font-size:14px; line-height:1.7; }
 .bottom { margin-top:auto; padding-top:16px; font-size:14px; font-weight:600; }
 .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
 .actions a { display:inline-flex; align-items:center; justify-content:center; min-inline-size:0; max-inline-size:100%; white-space:normal; overflow-wrap:anywhere; min-height:44px; padding:10px 16px; border:1px solid var(--border-strong); border-radius:999px; font-size:14px; }
@@ -15,7 +14,6 @@
 @media (max-width:767px) {
  .card { padding:8px; border-radius:12px; }
  .card :global(.product-visual) {min-height:0;height:auto;aspect-ratio:1.1;border-radius:8px;}
- .subtitle {display:none;}
  .copy { padding:12px 2px 4px; }
  .copy h2 { font-size:14px; line-height:1.5; overflow-wrap:anywhere; }
  .bottom { padding-top:8px; font-size:13px; }

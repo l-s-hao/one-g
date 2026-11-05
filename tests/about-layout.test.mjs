@@ -35,3 +35,15 @@ test('About publishes only selected evidence and retains old entry points', () =
   const { solutionDemos } = load('src/data/solution-demos');
   assert.match(solutionDemos.find(d=>d.id==='wholebody-balance').boundary, /研究演示/);
 });
+
+test('About chapter registry preserves published order and legacy hash mapping', () => {
+  const { publishedAboutChapters: chapters, aboutChapterIndex } = load('src/data/about-chapters');
+  assert.deepEqual(chapters.map(c => c.id), ['company-introduction','our-vision','platform-route','capabilities','contact']);
+  assert.equal(new Set(chapters.flatMap(c => c.anchors)).size, chapters.flatMap(c => c.anchors).length);
+  for (const [hash, expected] of [['#integration-layer',2],['#our-positioning',2],['#platform-route',2],['#contact-title',4],['#platform-direction',4],['#capabilities',3],['#our-vision',1]]) assert.equal(aboutChapterIndex(hash),expected);
+  assert.equal(aboutChapterIndex('#team-practice'),-1);
+  assert.equal(aboutChapterIndex('#invalid'),-1);
+  const hero = fs.readFileSync('src/components/AboutHero.tsx','utf8');
+  assert.doesNotMatch(hero,/ScrollExpand|ABOUT ONE-G/);
+  assert.match(hero,/brandCopy.slogan/);
+});

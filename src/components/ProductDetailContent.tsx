@@ -1,7 +1,6 @@
 import StaggerGroup from "@/components/StaggerGroup";
-import { LA } from "@/i18n/Elements";
 import CardHover from "./CardHover";
-import { LArticle, LDd, LDiv, LDl, LDt, LFigcaption, LFigure, LH1, LH2, LH3, LHeader, LLi, LP, LSection, LSmall, LSpan, LUl } from "@/i18n/Elements";
+import { LArticle, LDd, LDiv, LDl, LDt, LFigure, LH1, LH2, LH3, LHeader, LLi, LP, LSection, LSmall, LSpan, LUl } from "@/i18n/Elements";
 import { LocalizedImage as Image } from "@/i18n/Elements";
 import { LocalizedLink as Link } from "@/i18n/Elements";
 import type { Product } from "@/types/product";
@@ -10,6 +9,7 @@ import { getOfferingNavigation, getOfferingSpecificationGroups } from "@/lib/off
 import ProductStatusBadge from "./ProductStatusBadge";
 import ProductLocalNav from "./ProductLocalNav";
 import { aboutNavigation } from "@/lib/about-navigation";
+import MediaSources from "./MediaSources";
 import styles from "./ProductDetailContent.module.css";
 
 export default function ProductDetailContent({ product, view = "overview" }: { product: Product; view?: "overview" | "specs" }) {
@@ -25,9 +25,9 @@ export default function ProductDetailContent({ product, view = "overview" }: { p
         <LSection className={styles.hero} id="product-hero" aria-labelledby="product-title">
           <LP className={styles.eyebrow}><ProductStatusBadge status={product.status}/></LP>
           <LH1 id="product-title">{product.name}</LH1><LP className={styles.subtitle}>{product.subtitle}</LP>
-          <LDiv className={styles.actions}>{purchase}<Link effect="invert" effectVariant="secondary" intent="ordinary" href={links.specsHref}>技术规格</Link></LDiv>
-          <LFigure className={styles.mainImage}><Image src={detail.imageNotes[0].webSrc ?? product.images[0]} alt={detail.imageNotes[0].alt} width={detail.imageNotes[0].width} height={detail.imageNotes[0].height} sizes="(max-width:767px) 90vw, 800px" loading="eager"/><LFigcaption>{detail.imageNotes[0].caption}</LFigcaption></LFigure>
           <LP className={styles.heroNotice}>{detail.statusNote}</LP>
+          <LDiv className={styles.actions}>{purchase}<Link effect="invert" effectVariant="secondary" intent="ordinary" href={links.specsHref}>技术规格</Link></LDiv>
+          <LFigure className={styles.mainImage}><Image src={detail.imageNotes[0].webSrc ?? product.images[0]} alt={detail.imageNotes[0].alt} width={detail.imageNotes[0].width} height={detail.imageNotes[0].height} sizes="(max-width:767px) 90vw, 800px" loading="eager"/></LFigure>
         </LSection>
         <LDiv className={styles.marker} id="product-hero-end" aria-hidden="true"/>
         <LSection className={styles.section} aria-labelledby="product-overview-title"><LH2 id="product-overview-title">了解 {product.name}</LH2><LP>{product.description}</LP>
@@ -38,24 +38,24 @@ export default function ProductDetailContent({ product, view = "overview" }: { p
           <LH2 id={`${section.id}-title`}>{section.title}</LH2>
           {section.paragraphs?.map(text => <LP key={text}>{text}</LP>)}
           {section.cards && <StaggerGroup className={styles.grid}>{section.cards.map(card => <CardHover key={card.title}><LDiv data-card-hover-surface className={styles.card}><LH3>{card.title}</LH3><LP>{card.description}</LP>{card.items && <LUl>{card.items.map(item => <LLi key={item}>{item}</LLi>)}</LUl>}</LDiv></CardHover>)}</StaggerGroup>}
-          {section.media && <LDiv className={styles.media}>{section.media.map(media => <LFigure key={media.src}><Image src={media.src} alt={media.alt} width={media.width} height={media.height} sizes="(max-width:767px) 100vw, 80vw"/><LFigcaption>{media.caption}</LFigcaption></LFigure>)}</LDiv>}
+          {section.media && <LDiv className={styles.media}>{section.media.map(media => <LFigure key={media.src}><Image src={media.src} alt={media.alt} width={media.width} height={media.height} sizes="(max-width:767px) 100vw, 80vw"/></LFigure>)}</LDiv>}
           {section.link && <LDiv className={styles.actions}><Link effect="invert" effectVariant="secondary" intent="ordinary" href={section.link.href}>{section.link.label}</Link></LDiv>}
         </LSection>) : <>
           <LSection className={styles.section} aria-labelledby="interface-title"><LH2 id="interface-title">接口与集成 · 规划方案</LH2><LP>{detail.interfaces?.join(" · ")}</LP><LP>{detail.interfaceNote}</LP></LSection>
           <LSection className={styles.section} aria-labelledby="compatibility-title"><LH2 id="compatibility-title">兼容设备 · 分阶段适配</LH2>
             <LDiv className={styles.compatibility}><LDiv>{detail.compatibility?.map(device => <LDiv className={styles.device} key={device.name}><LH3>{device.name}</LH3><LSpan>{device.status}</LSpan><LP>{device.description}</LP></LDiv>)}<LP>{detail.compatibilityNote}</LP></LDiv>
-              {product.images[1] && detail.imageNotes[1] && <LFigure className={styles.sketch}><Image src={detail.imageNotes[1].webSrc ?? product.images[1]} alt={detail.imageNotes[1].alt} width={detail.imageNotes[1].width} height={detail.imageNotes[1].height} sizes="(max-width:767px) 90vw, 400px"/><LFigcaption>{detail.imageNotes[1].caption}</LFigcaption></LFigure>}
+              {product.images[1] && detail.imageNotes[1] && <LFigure className={styles.sketch}><Image src={detail.imageNotes[1].webSrc ?? product.images[1]} alt={detail.imageNotes[1].alt} width={detail.imageNotes[1].width} height={detail.imageNotes[1].height} sizes="(max-width:767px) 90vw, 400px"/></LFigure>}
             </LDiv>
           </LSection>
         </>}
         {detail.sourceNotes?.map(note => <LSection key={note.id} id={note.id} className={styles.section}>
           <LH2>{note.title}</LH2>{note.paragraphs.map(text => <LP key={text}>{text}</LP>)}
-          <LP><LA href={note.sourceHref} target="_blank" rel="noopener noreferrer">来源与演示说明 ↗</LA></LP>
         </LSection>)}
         <LSection className={styles.section} id="applications" aria-labelledby="applications-title"><LH2 id="applications-title">适用任务与使用边界</LH2>
           <StaggerGroup className={styles.grid}>{tasks.map(task => <CardHover key={task.id}><LDiv data-card-hover-surface className={styles.card}><LH3>{task.name}</LH3><LP>{task.description}</LP><LP className={styles.notice}>{task.boundary}</LP><Link intent="ordinary" href={`/solutions#${task.id}`}>了解{task.name}方案 →</Link></LDiv></CardHover>)}</StaggerGroup>
         </LSection>
         <LSection className={styles.section} id="specifications" aria-labelledby="next-title"><LH2 id="next-title">技术规格与购买方案</LH2><LDiv className={styles.actions}>{purchase}<Link effect="invert" effectVariant="secondary" intent="ordinary" href={links.specsHref}>查看技术规格</Link></LDiv></LSection>
+        <MediaSources sources={detail.sourceNotes} />
       </> : <>
         <LHeader className={styles.specHeader}><LP className={styles.eyebrow}><ProductStatusBadge status={product.status}/></LP><LH1>{product.name}<LSpan>技术规格</LSpan></LH1><LP className={styles.notice}>{detail.statusNote}</LP><LDiv className={styles.actions}>{purchase}<Link effect="invert" effectVariant="secondary" intent="ordinary" href={links.overviewHref}>产品介绍</Link></LDiv></LHeader>
         {getOfferingSpecificationGroups(product).map(group => <LSection className={styles.section} key={group.title}><LH2>{group.title}</LH2><LDl className={styles.specs}>{group.fields.map(spec => <LDiv key={spec.label}><LDt>{spec.label}</LDt><LDd>{spec.value}{spec.note && <LSmall>{spec.note}</LSmall>}</LDd></LDiv>)}</LDl></LSection>)}

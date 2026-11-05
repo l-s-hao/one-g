@@ -38,6 +38,9 @@ input, textarea, [contenteditable="true"] { cursor: text; }
 }
 
 :root {
+  /* 详情正文共用尺寸，不影响导航、按钮、状态标签和表单。 */
+  --detail-body-size: 18px;
+  --detail-body-leading: 1.85;
   --font-ui: "Inter Variable", "Noto Sans SC", system-ui, sans-serif;
   --directory-width: 1200px;
   --directory-gutter: clamp(20px, 3vw, 40px);
@@ -155,10 +158,9 @@ body {
   .product-specs { order: 5; margin-top: 28px; padding-top: 20px; border-top: 1px solid #ffffff26; }
   .product-specs dl { margin-top: 12px; }
   .product-specs dl > div { display: flex; gap: 16px; padding-block: 8px; font-size: 13px; }
-  .product-specs dt { color: #999; width: 40px; flex-shrink: 0; }
+  .product-specs dt { color: #999; min-width: 40px; flex-shrink: 0; }
   .product-specs p { margin-top: 8px; color: #888; font-size: 12px; }
-  .product-detail-copy > .product-description { order: 6; margin-top: 24px; font-size: 14px; line-height: 1.8; }
-  .product-description::before { content: '详细说明'; display: block; color: #fff; font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+  .product-detail-copy > .product-description { order: 6; margin-top: 24px; }
   .desktop-about-title { display: none; }
   .about-page > p { font-size: 14px; line-height: 1.8; color: #aaa; margin-top: 12px; }
   .about-image { position: relative; height: 230px; margin-block: 24px; overflow: hidden; border-radius: 10px; }
@@ -215,4 +217,10 @@ body {
 .auth-error:empty { display: none; }
 input[aria-invalid="true"] { border-color: var(--color-error) !important; }
 
-html[lang="en"] .product-description::before { content: 'Detailed information'; }
+
+@media (max-width: 767px) { :root { --detail-body-size: 16px; } }
+
+/* 普通商品介绍有真实标题；仅正文使用详情 token，不改变价格和操作区域。 */
+.product-detail-copy > .product-description { color: var(--text); }
+.product-detail-copy > .product-description h2 { font-size: clamp(24px, 2.5vw, 32px); font-weight: 600; line-height: 1.4; margin-bottom: 16px; }
+.product-detail-copy > .product-description p { font-size: var(--detail-body-size); line-height: var(--detail-body-leading); margin-top: 12px; color: var(--text); }

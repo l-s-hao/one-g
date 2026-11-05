@@ -8,7 +8,6 @@
 .placeholder {font-size:12px;color:var(--text-muted);}
 .media[data-image-failed] .failedPlaceholder[hidden] {display:inline;}
 .copy {padding:9px 10px;font-size:13px;opacity:1;transition:opacity 200ms ease 80ms;}
-.copy p {margin:4px 0 0;font-size:11px;color:var(--text-muted);}
 .grid[data-layout="thumbnails"] {grid-template-columns:repeat(auto-fit,64px);gap:12px;}
 .grid[data-layout="thumbnails"] .copy {opacity:0;}
 .grid[data-layout="thumbnails"] .media {aspect-ratio:1;}

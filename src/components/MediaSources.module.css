@@ -1,0 +1,7 @@
+.sources {margin-top:48px;padding-top:32px;border-top:1px solid var(--border);color:var(--text);font-size:16px;line-height:1.8;scroll-margin-top:calc(var(--site-header-height) + 24px);}
+.sources h2 {font-size:24px;font-weight:600;line-height:1.4;margin-bottom:16px;}
+.sources p {margin:12px 0;}
+.sources ul {list-style:none;margin:0;padding:0;}
+.sources li {margin:8px 0;}
+.sources a {display:inline-block;color:var(--text);text-underline-offset:4px;overflow-wrap:anywhere;}
+.sources a:focus-visible {outline:2px solid var(--focus-color);outline-offset:4px;}

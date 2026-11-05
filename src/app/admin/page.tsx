@@ -32,7 +32,7 @@ export default function AdminPage() {
       {["Dashboard", ...modules.map(item => item.name)].map(item => <LButton key={item} type="button" aria-pressed={section === item} aria-controls="admin-content" onClick={() => setSection(item)}>{item}</LButton>)}
     </LNav>
     <LSection id="admin-content" className={styles.panel} aria-labelledby="admin-section-title">
-      <LH2 id="admin-section-title">{section === "Dashboard" ? "仪表盘 / Dashboard" : section}</LH2>
+      <LH2 id="admin-section-title">{section === "Dashboard" ? "仪表盘" : section}</LH2>
       {section === "Dashboard" ? <>
         <LP className={styles.muted}>管理功能预览。当前未连接正式数据。</LP>
         <LDiv className={styles.cards}>{modules.map(item => <CardHover key={item.name}><LButton data-card-hover-surface type="button" onClick={() => setSection(item.name)}><LStrong>{item.name}</LStrong><LSpan>{item.detail}</LSpan></LButton></CardHover>)}</LDiv>

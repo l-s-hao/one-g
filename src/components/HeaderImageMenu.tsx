@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
 import { X } from "lucide-react";
 import { LocalizedImage as Image, LocalizedLink as Link, LButton, LDiv, LP, LSpan } from "@/i18n/Elements";
-import { getCatalogProducts, getProductStatusLabel, getCategories } from "@/lib/products";
+import { getCatalogProducts, getCategories } from "@/lib/products";
 import { solutions } from "@/data/solutions";
 import type { ProductCategory } from "@/types/product";
 import styles from "./HeaderImageMenu.module.css";
@@ -14,12 +14,11 @@ import styles from "./HeaderImageMenu.module.css";
 const products = getCatalogProducts().map(product => ({
   category: product.category, id: `header-product-${product.id}`, name: product.name, href: `/products/${product.slug}`,
   src: product.images[0], alt: product.detail?.imageNotes[0]?.alt ?? product.showcase?.imageAlt ?? product.name,
-  note: product.status === "active" ? (product.id === "arm-a1" ? "型号待确认" : product.id === "g1" ? "产品图待确认" : "") : product.id === "robotdock" ? "概念图 · 暂未开放销售" : getProductStatusLabel(product.status),
 }));
 const menuCategories = [{ id: "all", name: "全部" }, ...getCategories().filter(category => ["robot", "arm", "hand", "vision"].includes(category.id))];
 const solutionItems = solutions.map(solution => ({
   id: `header-solution-${solution.id}`, name: solution.content ? `${solution.name} · ${solution.content.name}` : solution.name,
-  href: solution.detailHref ?? `/solutions#${solution.id}`, src: solution.media.src, alt: solution.media.alt, note: "",
+  href: solution.detailHref ?? `/solutions#${solution.id}`, src: solution.media.src, alt: solution.media.alt,
 }));
 
 export default function HeaderImageMenu({ kind, open, onClose, onNavigate }: {
@@ -97,7 +96,7 @@ export default function HeaderImageMenu({ kind, open, onClose, onNavigate }: {
           <LSpan className={styles.placeholder} hidden={!!item.src}>图片待补</LSpan>
           <LSpan className={`${styles.placeholder} ${styles.failedPlaceholder}`} hidden>图片加载失败</LSpan>
         </LDiv>
-        <LDiv className={styles.copy} data-button-effect="invert" data-invert-variant="secondary" data-invert-surface="card"><LSpan>{item.name}</LSpan>{item.note && <LP>{item.note}</LP>}</LDiv>
+        <LDiv className={styles.copy} data-button-effect="invert" data-invert-variant="secondary" data-invert-surface="card"><LSpan>{item.name}</LSpan></LDiv>
         </LDiv>
       </Link>)}
       {items.length === 0 && <LP className={styles.empty}>该分类暂时没有商品。</LP>}

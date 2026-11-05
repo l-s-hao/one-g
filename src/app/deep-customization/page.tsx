@@ -27,6 +27,6 @@ export default function DeepCustomizationPage() {
     <LHeader><LH1>超出标准配置，<LBr/>进入工程级定制。</LH1><Suspense fallback={<Link intent="ordinary" href="/products">← 返回购买</Link>}><PurchaseReturnLink destinations={destinations}/></Suspense></LHeader>
     <LSection><LH2>定制范围</LH2><StaggerGroup className={styles.grid}>{areas.map(([title,text])=><CardHover key={title}><LArticle data-card-hover-surface><LH3>{title}</LH3><LP>{text}</LP></LArticle></CardHover>)}</StaggerGroup></LSection>
     <LSection><LH2>定制流程</LH2><StaggerGroup as="ol" className={styles.process}>{process.map(([title,text],i)=><CardHover as="li" key={title}><LDiv data-card-hover-surface><LSpan>{String(i+1).padStart(2,"0")}</LSpan><LH3>{title}</LH3><LP>{text}</LP></LDiv></CardHover>)}</StaggerGroup></LSection>
-    <LSection><LH2>提交深度定制需求</LH2><LP>登录后填写深度定制需求，当前仅支持前端预览。</LP><SupportButton effect="invert" label="提交深度定制需求" entry="deep" inline/></LSection>
+    <LSection><LH2>提交深度定制需求</LH2><LP>需求填写需登录，当前仅供前端预览。</LP><SupportButton effect="invert" label="提交深度定制需求" entry="deep" inline/></LSection>
   </LDiv></LDiv>;
 }

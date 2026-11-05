@@ -50,7 +50,7 @@
 .routes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; margin-top: 40px; }
 .routes > div { border-top: 1px solid var(--border); padding-top: 24px; }
 .routes h3, .capability h3 { font-size: clamp(22px, 2.2vw, 32px); font-weight: 600; line-height: 1.5; text-wrap: balance; }
-.routes p, .capability p { margin-top: 16px; line-height: 1.85; }
+.routes p, .capability p { margin-top: 16px; line-height: var(--detail-body-leading); }
 .integration { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 64px; margin-top: 32px; }
 .layers { list-style: none; padding: 0; margin: 0; }
 .layers li { border-top: 1px solid var(--border); padding: 24px 20px; }
@@ -62,7 +62,6 @@
 .capability > div > a { margin-top: 24px; }
 .productMedia { margin: 0; }
 .productMedia img { width: 100%; max-height: 500px; object-fit: contain; border-radius: 20px; }
-.productMedia figcaption { margin-top: 12px; font-size: 13px; line-height: 1.7; color: var(--text-muted); }
 .teleoperation { padding-top: 48px; margin-top: 48px; border-top: 1px solid var(--border); }
 @media (min-width: 1024px) { .teleoperation > div:first-child { grid-column: 2; grid-row: 1; } .teleoperation > div:last-child { grid-column: 1; grid-row: 1; } }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 24px; }
@@ -76,3 +75,12 @@
 .actions a[data-button-effect="invert"] { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 20px; border-radius: 999px; font-size: 14px; line-height: 1.5; text-decoration: none; }
 
 .capability > div > a[data-button-effect="invert"] { display: inline-flex; min-height: 44px; align-items: center; padding: 10px 20px; border-radius: 999px; text-decoration: none; }
+
+.routes p, .capability > div > p:not(.note) { font-size: var(--detail-body-size); color: var(--text); }
+
+/* 章节切换使用自然高度，不保留旧长页首屏与分段满屏间距。 */
+.section { padding-block: 16px 40px; border-top: 0; }
+.statementSection { display:block; }
+.sectionLabel { margin-bottom:32px; }
+.sectionLabel h2 { font-size:clamp(28px,3.4vw,48px); }
+.note, .contactNote { font-size:var(--detail-body-size); color:var(--text); }

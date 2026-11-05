@@ -13,6 +13,10 @@ export default function ProductCard({ product, hidden = false, flipId, actionVar
   const catalogActions = actionVariant === "catalog";
   const offering = isConfigurableOffering(product.id) ? getOfferingNavigation(product) : undefined;
   const detailHref = offering?.overviewHref ?? `/products/${product.slug}`;
+  // 状态标签已说明概念阶段；只去掉重复前缀，销售和适配限制仍留在操作附近。
+  const statusNote = product.status === "concept"
+    ? product.detail?.statusNote.replace(/^概念阶段，/, "")
+    : product.detail?.statusNote;
   return <LArticle data-product-id={product.id} data-flip-id={flipId} data-filter-hidden={hidden || undefined} inert={hidden} aria-hidden={hidden || undefined} data-card-hover-host>
     <LDiv data-card-hover-surface data-card-depth className={`product-card ${styles.card}`}>
     <Link href={detailHref} aria-label={`了解更多：${product.name}`}>
@@ -20,10 +24,8 @@ export default function ProductCard({ product, hidden = false, flipId, actionVar
     </Link>
     <LDiv className={`product-card-copy ${styles.copy}`}>
       <LH2>{product.name}</LH2>
-      <LP className={`product-subtitle ${styles.subtitle}`}>{product.subtitle}</LP>
       {product.status !== "active" && <LP className={styles.status}><ProductStatusBadge status={product.status} /></LP>}
-      {product.detail?.imageNotes[0] && <LP className={styles.note}>{product.detail.imageNotes[0].caption}</LP>}
-      {product.detail?.statusNote && <LP className={styles.note}>{product.detail.statusNote}</LP>}
+      {statusNote && <LP className={styles.note}>{statusNote}</LP>}
       <LDiv className={`product-card-price ${styles.bottom}`}>
         <LP className="tabular-nums whitespace-nowrap">{formatPrice(product.price)}</LP>
         <LDiv className={`${styles.actions} ${catalogActions ? styles.catalogActions : ""}`} data-catalog-actions={catalogActions || undefined}>

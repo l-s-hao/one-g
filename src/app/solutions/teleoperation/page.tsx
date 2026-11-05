@@ -1,7 +1,8 @@
 import StaggerGroup from "@/components/StaggerGroup";
+import MediaSources from "@/components/MediaSources";
 import EvidenceVideos from "@/components/EvidenceVideos";
 import CardHover from "@/components/CardHover";
-import { LA, LArticle, LDd, LDiv, LDl, LDt, LFigcaption, LFigure, LH1, LH2, LH3, LLi, LP, LSection, LSmall, LUl } from "@/i18n/Elements";
+import { LA, LArticle, LDd, LDiv, LDl, LDt, LFigure, LH1, LH2, LH3, LLi, LP, LSection, LSmall, LUl } from "@/i18n/Elements";
 import type { Metadata } from "next";
 import { LocalizedImage as Image } from "@/i18n/Elements";
 import { LocalizedLink as Link } from "@/i18n/Elements";
@@ -24,23 +25,25 @@ export default function TeleoperationPage() {
         <Link intent="ordinary" href="/solutions">返回解决方案</Link>
         <LH1 id="solution-title">{content.name}</LH1><LP className={styles.subtitle}>{content.subtitle}</LP>
         <LP>{content.description}</LP>
-        <LDiv className={styles.actions}><LA effect="invert" effectVariant="secondary" intent="ordinary" href="#technical">技术说明</LA><SupportButton inline textOnly label="联系我们" entry="solutions"/></LDiv>
-        <LFigure className={styles.mainImage}><Image src={content.images[0]} alt={detail.imageNotes[0].alt} width={detail.imageNotes[0].width} height={detail.imageNotes[0].height} sizes="(max-width:767px) 90vw, 800px" loading="eager"/><LFigcaption>{detail.imageNotes[0].caption}</LFigcaption></LFigure>
         <LP className={styles.heroNotice}>{solution.boundary}</LP>
+        <LDiv className={styles.actions}><LA effect="invert" effectVariant="secondary" intent="ordinary" href="#technical">技术说明</LA><SupportButton inline textOnly label="联系我们" entry="solutions"/></LDiv>
+        <LFigure className={styles.mainImage}><Image src={content.images[0]} alt={detail.imageNotes[0].alt} width={detail.imageNotes[0].width} height={detail.imageNotes[0].height} sizes="(max-width:767px) 90vw, 800px" loading="eager"/></LFigure>
       </LSection>
       {detail.sections?.map(section => <LSection id={section.id} key={section.id} className={styles.section} aria-labelledby={`${section.id}-title`}>
         <LH2 id={`${section.id}-title`}>{section.title}</LH2>
         {section.paragraphs?.map(text => <LP key={text}>{text}</LP>)}
+        {section.id === "workflow" && <LP>控制台为早期界面演示，不能证明真实后台或设备接通；图中三点“待开发”是历史标注，GEM 不在当前方案范围内。</LP>}
         {section.cards && <StaggerGroup className={styles.grid}>{section.cards.map(card => <CardHover key={card.title}><LDiv data-card-hover-surface className={styles.card}><LH3>{card.title}</LH3><LP>{card.description}</LP>{card.items && <LUl>{card.items.map(item => <LLi key={item}>{item}</LLi>)}</LUl>}</LDiv></CardHover>)}</StaggerGroup>}
-        {section.media && <LDiv className={styles.media}>{section.media.map(media => <LFigure key={media.src}><Image src={media.src} alt={media.alt} width={media.width} height={media.height} sizes="(max-width:767px) 100vw, 80vw"/><LFigcaption>{media.caption}</LFigcaption></LFigure>)}</LDiv>}
+        {section.media && <LDiv className={styles.media}>{section.media.map(media => <LFigure key={media.src}><Image src={media.src} alt={media.alt} width={media.width} height={media.height} sizes="(max-width:767px) 100vw, 80vw"/></LFigure>)}</LDiv>}
         {section.link && <LDiv className={styles.actions}><Link effect="invert" effectVariant="secondary" intent="ordinary" href={section.link.href}>{section.link.label}</Link></LDiv>}
       </LSection>)}
       <LSection id="research-demos" className={styles.section} aria-labelledby="research-demos-title">
         <LH2 id="research-demos-title">遥操作研究演示</LH2>
-        <LP>前两项 VR 模式有来源中的 SONIC Link 方案链接；单摄像头属于相关研究候选。演示不提供设备控制入口。</LP>
+        <LP>前两项 VR 模式有来源中的 SONIC Link 方案链接；单摄像头属于相关研究候选，尚未确认与当前方案或 RoboDock 集成。以下均为受控场地研究演示，不代表通用稳定性，不提供设备控制入口。</LP>
         <EvidenceVideos ids={["3pt-demo", "wholebody-balance", "camera-teleop"]}/>
       </LSection>
       <LSection id="technical" className={styles.section}><LH2>技术说明与部署边界</LH2><LDl className={styles.specs}>{content.specifications?.filter(spec => spec.label !== "价格 / 销售").map(spec => <LDiv key={spec.label}><LDt>{spec.label}</LDt><LDd>{spec.value}{spec.note && <LSmall>{spec.note}</LSmall>}</LDd></LDiv>)}</LDl><LDiv className={styles.actions}><SupportButton inline textOnly label="联系我们" entry="solutions"/></LDiv></LSection>
+      <MediaSources demoIds={["3pt-demo", "wholebody-balance", "camera-teleop"]} />
     </LDiv>
   </LArticle>;
 }

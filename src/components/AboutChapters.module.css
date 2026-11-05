@@ -1,0 +1,24 @@
+.layout { display:grid; grid-template-columns:260px minmax(0,1fr); gap:clamp(24px,4vw,64px); width:100%; padding-inline:clamp(24px,1.6vw,32px); align-items:start; color:var(--text); }
+.sidebar { min-width:0; z-index:2; }
+.stage { position:relative; min-width:0; }
+.chapter { min-width:0; transform-origin:0 40%; scroll-margin-top:var(--site-header-height); }
+.chapter[hidden] { display:none; }
+.chapter[inert] { pointer-events:none; }
+/* Header已有独立占位，不能再扣一次安全区；100svh避免手机地址栏小幅收放改变外壳。 */
+.layout[data-enhanced]:not([data-reduced="true"]) { height:calc(100svh - var(--about-header,var(--site-header-height))); min-height:0; align-items:stretch; }
+.layout[data-enhanced]:not([data-reduced="true"]) .sidebar { display:flex; align-items:center; min-height:0; }
+.layout[data-enhanced]:not([data-reduced="true"]) .stage { height:100%; min-height:0; overflow:clip; overflow-clip-margin:8px; }
+.layout[data-enhanced]:not([data-reduced="true"]) .chapter { position:absolute; inset:0; width:100%; height:100%; min-height:0; overflow-y:auto; overscroll-behavior-y:contain; scrollbar-width:thin; scrollbar-color:var(--text-muted) transparent; padding:24px 12px 32px 8px; }
+.layout[data-enhanced][data-phase="tail"]:not([data-reduced="true"]) .chapter { overscroll-behavior-y:auto; }
+.chapter:focus-visible { outline:2px solid var(--accent); outline-offset:-3px; }
+@media(max-width:1023px) { .layout { grid-template-columns:220px minmax(0,1fr); gap:24px; } }
+@media(max-width:600px) {
+ .layout { grid-template-columns:minmax(0,1fr); grid-template-rows:auto minmax(0,1fr); gap:8px; padding-inline:20px; }
+ .layout[data-enhanced]:not([data-reduced="true"]) .sidebar { display:block; }
+ .chapter { transform-origin:0 25%; }
+ .layout[data-enhanced]:not([data-reduced="true"]) .chapter { padding:8px 6px 24px 2px; }
+}
+/* 减少动画/无脚本保留所有正文正常文档流，不以固定一屏牺牲可访问性。 */
+.layout[data-reduced="true"] { height:auto; }
+.layout[data-reduced="true"] .chapter { position:relative; overflow:visible; height:auto; transform:none !important; opacity:1 !important; }
+@media(prefers-reduced-motion:reduce) { .chapter { transform:none !important; opacity:1 !important; } }

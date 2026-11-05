@@ -1,0 +1,13 @@
+.about-option-wheel { position: relative; width: 100%; font-size: 1.3rem; line-height: 1.45; user-select: none; }
+.about-option-wheel a { display: block; padding: 10px 4px; color: var(--text-muted); text-decoration: none; }
+.about-option-wheel[data-ready] { height: 390px; touch-action: pan-x; cursor: grab; }
+.about-option-wheel[data-ready] a { position: absolute; top: 50%; left: 4px; width:max-content; max-width:calc(100% - 4px); transform-origin: left center; color: color-mix(in srgb,var(--text) calc(var(--ow-p,0)*100%), var(--text-muted)); }
+.about-option-wheel a[aria-current] { font-weight: 650; }
+.about-option-wheel a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media(max-width:1023px) { .about-option-wheel { font-size: 1rem; } .about-option-wheel[data-ready] { height: 210px; } .about-option-wheel[data-ready] a { left: 4px; } }
+@media(max-width:600px) { .about-option-wheel { font-size: 1.05rem; } .about-option-wheel[data-ready] { height: 190px; max-width: 320px; margin-inline:auto; } }
+
+@media(max-width:600px) {
+ .about-option-wheel[data-ready] { display:flex; flex-wrap:wrap; align-items:center; gap:8px 12px; height:auto; max-width:none; padding-block:8px; }
+ .about-option-wheel[data-ready] a { position:relative; top:auto; left:auto; width:auto; max-width:100%; min-height:44px; display:flex; align-items:center; padding:6px 4px; font-size:1rem; }
+}

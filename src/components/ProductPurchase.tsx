@@ -1,8 +1,5 @@
 "use client";
-
-import { LButton, LDiv, LFieldset, LFigcaption, LFigure, LH1, LH2, LInput, LLabel, LLegend, LLi, LP, LSection, LSpan, LStrong, LUl } from "@/i18n/Elements";
-
-
+import { LButton, LDiv, LFieldset, LFigure, LH1, LH2, LInput, LLabel, LLegend, LLi, LP, LSection, LSpan, LStrong, LUl } from "@/i18n/Elements";
 import { LocalizedImage as Image } from "@/i18n/Elements";
 import { LocalizedLink as Link } from "@/i18n/Elements";
 import { useEffect, useState } from "react";
@@ -12,9 +9,7 @@ import PaymentSelector from "./PaymentSelector";
 import { usePaymentPreference } from "./usePaymentPreference";
 import ProductStatusBadge from "./ProductStatusBadge";
 import styles from "./ProductPurchase.module.css";
-
 type Offering = ReturnType<typeof getOfferingPackages>[number];
-
 /** Existing bundles are editorial previews: no confirmed bundle prices or payment configuration. */
 export default function ProductPurchase({ offering }: { offering: Offering }) {
   const { product, detail, packages, heroImageIndex } = offering;
@@ -49,7 +44,6 @@ export default function ProductPurchase({ offering }: { offering: Offering }) {
     <LDiv className={styles.purchase}>
       <LFigure className={styles.media}>
         <Image src={product.images[heroImageIndex]} alt={note.alt} width={note.width} height={note.height} sizes="(max-width: 767px) 100vw, 60vw" loading="eager"/>
-        <LFigcaption>{note.caption}</LFigcaption>
       </LFigure>
       <LDiv className={styles.options}>
         <ProductStatusBadge status={product.status}/>

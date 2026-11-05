@@ -125,7 +125,7 @@ export function LayoutGrid({ cards, namespace }: { cards: LayoutGridCard[]; name
               aria-expanded={expanded} aria-controls={`${namespace}-${card.id}-preview`}
               aria-label={`${translate("展开预览", locale)}: ${translate(card.title, locale)}`}
               onClick={() => open(card.id)}>
-              <span className={styles.label}><LSpan className={styles.name}>{card.title}</LSpan><span className={styles.hint}><LSpan>点击展开</LSpan><ArrowUpRight size={16} aria-hidden="true"/></span></span>
+              <span className={styles.label}><LSpan className={styles.name}>{card.title}</LSpan><span className={styles.hint}><ArrowUpRight size={16} aria-hidden="true"/></span></span>
             </button>
             {expanded && <>
               <motion.div id={`${namespace}-${card.id}-preview`} className={styles.content}

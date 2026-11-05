@@ -8,7 +8,6 @@
 .actions a:hover, .actions button:hover {text-decoration:none;text-underline-offset:4px;}
 .product figure {width:100%;max-width:960px;margin:24px 0 0;}
 .product img {display:block;width:100%;height:clamp(300px,43svh,460px);object-fit:contain;object-position:center;}
-.product figcaption {font-size:12px;line-height:1.6;color:var(--text-muted);margin-top:12px;}
 .status {display:flex;align-items:baseline;justify-content:center;gap:7px;max-width:720px;margin:10px 0 0;font-size:12px;line-height:1.7;color:var(--text-muted);}
 .status svg {flex-shrink:0;align-self:flex-start;margin-top:3px;}
 .product :focus-visible {outline:2px solid var(--text);outline-offset:3px;}
@@ -20,6 +19,6 @@
  .actions a, .actions button {padding:9px 18px;font-size:13px;}
  .product figure {margin-top:20px;}
  .product img {height:clamp(230px,32svh,300px);}
- .product figcaption,.status {font-size:12px;line-height:1.6;}
+ .status {font-size:12px;line-height:1.6;}
  .status {max-width:480px;}
 }
