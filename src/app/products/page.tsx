@@ -7,6 +7,7 @@ import { Suspense, useCallback, useLayoutEffect, useRef, useState } from "react"
 import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import BrandLoader from "@/components/BrandLoader";
 import ProductCard from "@/components/ProductCard";
 import { getCategories, getCatalogProducts } from "@/lib/products";
 import type { ProductCategory } from "@/types/product";
@@ -17,7 +18,7 @@ const productCategories = [{ id: "all", name: "全部" }, ...filterCategories];
 const catalogProducts = getCatalogProducts();
 
 export default function ProductsPage() {
-  return <Suspense fallback={<LDiv className="min-h-screen w-full" aria-busy="true"><LP className="p-10 text-white/50">正在加载商品…</LP></LDiv>}><ProductsByQuery /></Suspense>;
+  return <Suspense fallback={<LDiv className="min-h-screen w-full"><BrandLoader size="page" label="正在加载商品…"/></LDiv>}><ProductsByQuery /></Suspense>;
 }
 
 function ProductsByQuery() {

@@ -1,4 +1,5 @@
 "use client";
+import { PendingLabel } from "./BrandLoader";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { LocalizedLink as Link, LButton, LDialog, LDiv, LForm, LH1, LH2, LLabel, LP, LSection } from "@/i18n/Elements";
@@ -92,7 +93,7 @@ export default function RegistrationForm() {
       </LDiv></LDiv>
       <LP id="auth-feedback" role="alert" tabIndex={-1} className={`${styles.feedback} ${styles.error}`} hidden={!verification.message}>{verification.message}</LP>
       <LP role="status" className={styles.feedback} hidden={!verification.notice}>{verification.notice}</LP>
-      <LButton type="submit" effect="invert" effectSurface="card" intent="ordinary" className={styles.submit} disabled={!mockAuthEnabled || !!verification.pending}>{verification.pending === "submit" ? "注册中…" : mockAuthEnabled ? "注册账号（本地演示）" : "注册服务暂未开放"}</LButton>
+      <LButton type="submit" effect="invert" effectSurface="card" intent="ordinary" className={styles.submit} disabled={!mockAuthEnabled || !!verification.pending}><PendingLabel active={verification.pending === "submit"}>{verification.pending === "submit" ? "注册中…" : mockAuthEnabled ? "注册账号（本地演示）" : "注册服务暂未开放"}</PendingLabel></LButton>
       <LButton type="button" className={styles.secondary} onClick={() => guard.request(() => router.push(loginHref()))}>取消注册</LButton>
     </LForm>
     <Link href={loginHref()} className={styles.accountLink}>已有账号？返回登录</Link>

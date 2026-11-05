@@ -6,6 +6,7 @@ import { LDiv, LH1, LP } from "@/i18n/Elements";
 import { LocalizedLink as Link } from "@/i18n/Elements";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/components/AuthProvider";
+import BrandLoader from "@/components/BrandLoader";
 import OrderSummary from "@/components/OrderSummary";
 import { queryPaymentStatus, type Order } from "@/lib/commerce/service";
 
@@ -23,7 +24,7 @@ export default function OrderSuccessPage() {
     return () => { active = false; };
   }, [currentUser]);
   return <LDiv className="mobile-page order-success min-h-screen w-full px-6 pb-24 pt-32"><LDiv className="mx-auto max-w-3xl"><LH1 className="text-4xl font-bold">订单状态</LH1>
-    <LP role="status" className="mt-6">{message}</LP>{order && <OrderSummary order={order}/>}
+    {currentUser && message === "正在查询订单…" ? <BrandLoader label="正在查询订单…"/> : <LP role="status" className="mt-6">{message}</LP>}{order && <OrderSummary order={order}/>}
     <LDiv className="mt-10 flex gap-6"><Link intent="ordinary" href="/">返回首页</Link><Link intent="ordinary" href="/account">查看用户中心</Link></LDiv>
   </LDiv></LDiv>;
 }

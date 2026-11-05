@@ -1,4 +1,5 @@
 "use client";
+import { PendingLabel } from "./BrandLoader";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { LocalizedLink as Link, LButton, LDiv, LForm, LH1, LLabel, LP, LSection, LSpan } from "@/i18n/Elements";
@@ -90,7 +91,7 @@ export default function VerificationLogin({ switching = false, initialMode = "em
         {mode === "phone" && <LP className={styles.feedback}>仅限已有已验证绑定的手机号。手机绑定验证尚未接入，新注册手机号不能用于登录。</LP>}
         <LP id="auth-feedback" role="alert" tabIndex={-1} className={`${styles.feedback} ${styles.error}`} hidden={!verification.message}>{verification.message}</LP>
         <LP role="status" className={styles.feedback} hidden={!verification.notice}>{verification.notice}</LP>
-        <LButton effect="invert" effectSurface="card" intent="ordinary" type="submit" className={styles.submit} disabled={!mockAuthEnabled || !authReady || busy}>{verification.pending === "submit" ? "验证中…" : mockAuthEnabled ? "登录 ONE-G（演示）" : "登录暂未开放"}</LButton>
+        <LButton effect="invert" effectSurface="card" intent="ordinary" type="submit" className={styles.submit} disabled={!mockAuthEnabled || !authReady || busy}><PendingLabel active={verification.pending === "submit"}>{verification.pending === "submit" ? "验证中…" : mockAuthEnabled ? "登录 ONE-G（演示）" : "登录暂未开放"}</PendingLabel></LButton>
       </LForm>
     </>}
     <LDiv className={styles.divider}>其他登录方式</LDiv><LDiv className={styles.methods} role="group" aria-label="其他登录方式">

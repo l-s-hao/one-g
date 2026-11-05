@@ -1,5 +1,6 @@
 "use client";
 
+import BrandLoader, { PendingLabel } from "@/components/BrandLoader";
 import CheckoutBar from "@/components/CheckoutBar";
 
 import { LButton, LDiv, LH1, LH2, LP, LSpan, LSection } from "@/i18n/Elements";
@@ -50,6 +51,7 @@ export default function CheckoutPage() {
       const key = previous?.fingerprint === fingerprint && typeof previous.key === "string" ? previous.key : crypto.randomUUID();
       sessionStorage.setItem(storageKey, JSON.stringify({ fingerprint, key }));
       const order = await commerceService.createOrder(userId, { items: lines, payment, idempotencyKey: key });
+      setPending(false);
       router.push(`/order-success?order=${encodeURIComponent(order.id)}`);
     } catch (error) { setMessage(error instanceof Error ? error.message : "订单创建失败，请重试。"); lock.current = false; setPending(false); }
   };
@@ -59,14 +61,15 @@ export default function CheckoutPage() {
     {blocked && <LP role="alert" className="mt-5">{unavailableSonicLinkMessage}</LP>}
     <LDiv className="checkout-sections mt-12 grid gap-5 lg:grid-cols-2">
       <LSection className="rounded-3xl border border-white/10 bg-[#0d0d0d] p-7"><LH2 className="text-xl font-bold">商品与配置</LH2>
-        {!items.length && <LP className="mt-5">{ready ? "购物车为空。" : "正在读取购物车…"}</LP>}
+        {!ready && !message && <BrandLoader active={!!userId} label="正在读取购物车…"/>}
+        {ready && !items.length && <LP className="mt-5">购物车为空。</LP>}
         {items.map(item => <LP key={item.id} className="mt-4">{item.name} × <LSpan className="tabular-nums">{item.quantity}</LSpan></LP>)}
         {configuration && <LP className="mt-4">{configuration.name}：配置订单服务尚未接入，暂不能提交。请勿将此方案视为已下单。</LP>}
         <LP className="tabular-nums whitespace-nowrap mt-10 text-3xl font-bold">{formatPrice(total)}</LP><LP className="mt-2 text-xs text-white/50">演示价格，仅用于原型展示；正式金额须由订单后端确认。</LP>
       </LSection>
       <LSection className="rounded-3xl border border-white/10 bg-[#0d0d0d] p-7"><PaymentSelector value={payment} onChange={selectPayment} disabled={pending}/>
         <LH2 className="mt-8 text-xl font-bold">联系人信息</LH2><LP className="mt-3 text-sm text-white/55">正式订单服务未接入，演示不收集真实收货资料。</LP>
-        <CheckoutBar className="checkout-dock mobile-checkout-bar"><LButton effect="invert" effectSurface="card" intent="purchase" type="button" onClick={create} disabled={blocked || !mockCommerceEnabled || !ready || pending || !!configuration || !payment || !items.length || total === undefined} className="mt-7 rounded-full px-6 py-3 text-sm font-semibold disabled:opacity-50">{pending ? "正在创建…" : mockCommerceEnabled ? "创建演示待支付订单" : "订单服务尚未接入"}</LButton></CheckoutBar>
+        <CheckoutBar className="checkout-dock mobile-checkout-bar"><LButton effect="invert" effectSurface="card" intent="purchase" type="button" onClick={create} disabled={blocked || !mockCommerceEnabled || !ready || pending || !!configuration || !payment || !items.length || total === undefined} className="mt-7 rounded-full px-6 py-3 text-sm font-semibold disabled:opacity-50"><PendingLabel active={pending}>{pending ? "正在创建…" : mockCommerceEnabled ? "创建演示待支付订单" : "订单服务尚未接入"}</PendingLabel></LButton></CheckoutBar>
         <LP role="alert" className="mt-4 text-sm">{message}</LP>
       </LSection>
     </LDiv>

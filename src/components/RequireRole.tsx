@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { useAppPathname } from "@/lib/use-app-pathname";
 import { canAccessRole, loginDestination } from "@/lib/auth-routing";
 import type { UserRole } from "@/types/auth";
+import BrandLoader from "./BrandLoader";
 import { useAuth } from "./AuthProvider";
 
 export default function RequireRole({ role, children }: { role: UserRole; children: ReactNode }) {
@@ -27,7 +28,8 @@ export default function RequireRole({ role, children }: { role: UserRole; childr
       if (role === "USER" && currentUser.role === "ADMIN" && !canAccessRole(currentUser.role, role)) router.replace("/admin");
     }
   }, [currentUser, authReady, exitTarget, role, router, pathname]);
-  if (!authReady || !currentUser) return <LP role="status" className="p-8">正在确认登录状态…</LP>;
+  if (!authReady) return <BrandLoader size="page" label="正在确认登录状态…"/>;
+  if (!currentUser) return <LP role="status" className="p-8">正在确认登录状态…</LP>;
   if (!canAccessRole(currentUser.role, role)) return <LDiv className="p-8"><LH1 className="text-xl">无权限</LH1><LP className="my-4">无管理员权限或当前入口不适用于此账户。</LP><Link intent="ordinary" href="/" >返回首页</Link></LDiv>;
   return children;
 }

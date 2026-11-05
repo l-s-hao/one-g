@@ -1,4 +1,5 @@
 "use client";
+import { PendingLabel } from "./BrandLoader";
 import { useState, type ComponentPropsWithRef } from "react";
 import { LButton, LDiv, LLabel, LSpan } from "@/i18n/Elements";
 import { useLocale, translate } from "@/i18n/LocaleProvider";
@@ -25,16 +26,16 @@ export function PasswordField({ id, label = "密码", ...props }: ComponentProps
 export function HumanField({ ready, pending, disabled, onVerify }: { ready: boolean; pending: boolean; disabled: boolean; onVerify: () => void }) {
   return <LDiv className={styles.field}>
     <LSpan className={styles.feedback}>{humanVerification.mode === "mock" ? "开发演示：人机验证为模拟步骤，不代表真实反机器人防护。" : "人机验证服务尚未接入，暂不能发送真实验证码。"}</LSpan>
-    <LButton type="button" className={styles.secondary} disabled={disabled || humanVerification.mode !== "mock"} onClick={onVerify}>{pending ? "验证中…" : ready ? "演示人机凭据已就绪（单次使用）" : "模拟人机验证（仅开发）"}</LButton>
+    <LButton type="button" className={styles.secondary} disabled={disabled || humanVerification.mode !== "mock"} onClick={onVerify}><PendingLabel active={pending}>{pending ? "验证中…" : ready ? "演示人机凭据已就绪（单次使用）" : "模拟人机验证（仅开发）"}</PendingLabel></LButton>
   </LDiv>;
 }
 
 /** Reserve each localized resend state; only the visible label is announced. */
 export function ResendLabel({ seconds, sending }: { seconds: number; sending: boolean }) {
   return <LSpan className={`${styles.resendLabel} tabular-nums`}>
-    <LSpan aria-hidden="true" className={styles.resendReserve}>60 秒后重发</LSpan>
-    <LSpan aria-hidden="true" className={styles.resendReserve}>获取验证码</LSpan>
-    <LSpan aria-hidden="true" className={styles.resendReserve}>发送中…</LSpan>
-    <LSpan>{sending ? "发送中…" : seconds > 0 ? `${seconds} 秒后重发` : "获取验证码"}</LSpan>
+    <LSpan aria-hidden="true" className={styles.resendReserve}><PendingLabel active={false}>60 秒后重发</PendingLabel></LSpan>
+    <LSpan aria-hidden="true" className={styles.resendReserve}><PendingLabel active={false}>获取验证码</PendingLabel></LSpan>
+    <LSpan aria-hidden="true" className={styles.resendReserve}><PendingLabel active={false}>发送中…</PendingLabel></LSpan>
+    <PendingLabel active={sending}><LSpan>{sending ? "发送中…" : seconds > 0 ? `${seconds} 秒后重发` : "获取验证码"}</LSpan></PendingLabel>
   </LSpan>;
 }

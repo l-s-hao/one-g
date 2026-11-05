@@ -3,6 +3,7 @@
 import { LButton, LDiv, LP } from "@/i18n/Elements";
 
 
+import BrandLoader from "./BrandLoader";
 import { Check, ShoppingCart } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
@@ -42,5 +43,5 @@ export default function AddToCartButton({ product }: { product: Product }) {
     finally { busy.current = false; setPending(false); }
   };
   if (!getProductPolicy(product).canAddToCart) return null;
-  return <LDiv className="min-w-0"><LButton effect="invert" intent="purchase" className="inline-flex items-center justify-center gap-2 min-w-0 max-w-full whitespace-normal px-6 py-3 text-sm font-semibold" type="button" disabled={!authReady || pending} aria-busy={pending} onClick={add}>{added ? <Check size={16} /> : <ShoppingCart size={16} />}{added ? "已加入购物车" : "加入购物车"}</LButton>{notice && <LP role="status" className="mt-3 text-sm">{notice}</LP>}</LDiv>;
+  return <LDiv className="min-w-0"><LButton effect="invert" intent="purchase" className="inline-flex items-center justify-center gap-2 min-w-0 max-w-full whitespace-normal px-6 py-3 text-sm font-semibold" type="button" disabled={!authReady || pending} aria-busy={pending} onClick={add}>{pending ? <BrandLoader size="compact" announce={false}/> : added ? <Check size={16} /> : <ShoppingCart size={16} />}{added ? "已加入购物车" : "加入购物车"}</LButton>{notice && <LP role="status" className="mt-3 text-sm">{notice}</LP>}</LDiv>;
 }
