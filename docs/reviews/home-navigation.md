@@ -85,3 +85,37 @@
 ## 未完成项与范围限制
 
 本次功能范围已完成。真实联系方式仍需项目方确认；本次按要求明确保留“未确认”提示。未收到所述 Apple Footer 截图原图，因此不能核对该截图的细节；五列结构按文字规范完成。没有发布、提交或推送。
+
+
+## 2026-11-05：五区自然滚动首页（当前实现）
+
+此节取代上文历史首页广告/拼贴及两组点击展开 Grid 的结构要求；历史验收记录保留，不代表当前首页仍挂载旧组件。Header、导航图片抽屉、About、商品中心及 Footer 不属于本次改版。
+
+### 统一方向与阶段
+
+先看清 RoboDock，再以分类和真实详情查找产品/方案，最后进入公司与咨询。参考 Apple 的单主角与文字媒体分离、FA 平台的分类直达、宇树的产品/应用路径；不是复制三个网站。实际读取 Apple、宇树、MISUMI、三菱可访问页面结构；KEYENCE 请求超时，未取得完整页面，不宣称视觉或动效复刻。不使用参考站素材或商业事实。
+
+- A：`HomeLanding` 组合五区，`getHomeContent` 从统一商品/方案/导航数据取记录；类型、词典、相关 Node 与首轮生产构建通过。
+- B：暖白/夜间及双语、390/768/1440/1920 自然响应式；产品按真实 16:9 素材完整展示，无大白框，无新增装饰动画。独立静态评审首轮 8/10；按建议移除上下色带与后半页重复分隔线。英文首屏仍沿用正式数据中的完整条件，未为减行删掉事实。
+- C：全矩阵截图、原生视频播放、分类/产品/方案真实跳转、Header 与 About 冒烟、咨询安全返回、旧 hash 与键盘/触屏检查。真实结果与运行号见 `.oil-ui/home-rebuild-20261105/verification-summary.json`，失败原件不覆盖。
+
+### 页面与真实入口
+
+| 区域 | 内容与真实目标（逻辑路径；站点自动应用 `/one-g`） |
+| --- | --- |
+| 品牌与主图 | 一智通万机 / RoboDock，`/products/robotdock`、`/solutions`；概念、暂未开售和 AI 非实物说明保留 |
+| 分类 | `shopLinks`：`/products?category=robot`、`arm`、`hand`、`vision`，全部 `/products` |
+| 产品 | 同一 Product 集合的 `g1`、`arm-a1` → `/products/g1`、`/products/arm-a1`；只有两项有合适现有图，均渲染参考，型号/参数/交付待确认；不显示 Mock 价格/购买 |
+| 方案 | SONIC Link → `/solutions/teleoperation`；观看演示 → `#home-demo`；搬运/巡检/智能任务 → `/solutions#handling`、`#inspection`、`#ai` |
+| 公司与咨询 | `/about`；原 `SupportButton(entry=general)`，未登录经原安全 returnTo 返回首页上下文，真实认证未接，当前仅前端预览 |
+
+### 素材与源码清理
+
+- RoboDock：既有 `product.detail.imageNotes[0].webSrc`，`/one-g/products/robotdock/robotdock-concept.webp`，完整概念主图，优先加载。
+- G1/Arm A1：统一商品 `images[0]` 的现有 `hero/one-g-service.png`、`hero/one-g-arm.png`（准确文件路径以数据为准），非确认实物/型号证明，不扩充展示项。
+- SONIC Link：`solutionDemos` 的 `wholebody-balance`，复用既有本地视频与封面。一个原生 controls、preload none 播放器，无自动播放。受控场地研究性质以及非任意动作/通用稳定性/RoboDock 集成证明的限定在方案正文一次表达。AI-CDR 必需署名在本页唯一资料来源区；没有逐媒体注释。
+- 首页不再 import `HomeCollageHero`、`HomePreviewProvider`、`HomeProductsPreview`、`HomeSolutionsPreview`，所以不会创建其图片克隆、拼贴动画、暂停状态、Observer 或旧 Grid 事件。共享旧实现和兼容导出保留；没有删除公共媒体或依赖。`LegacyOfferingHash` 继续保留 robotdock/sonic-link 和查询参数。
+
+### 评审与边界
+
+独立视觉评审和独立真实页面 UX 走查分别保存。UX 走查确认生产咨询止于未开放登录，RoboDock 的购买入口当前是套餐预览，均为原有业务边界；本轮不改认证、购买或客服业务，不新增公开电话/邮箱。未验证真实账号登录后预览、付款、真实服务；不把前端路径测试称为上线闭环。历史退出超时、首次输入丢失及 hydration 开放项维持原结论。

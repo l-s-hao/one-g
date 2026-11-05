@@ -203,3 +203,14 @@ SONIC 控制台截图保持“早期界面演示”说明：截图/检查记录�
 ## 2026-11-03 About 既有素材复用
 
 About `#capabilities` 复用已有 RoboDock 概念图（从 Product imageNotes 读取，保留非实物图注）和 `wholebody-balance` 研究演示（从 solutionDemos 读取，保留 AI-CDR 署名、原片标识、来源链接及 SONIC Link/版本/RoboDock 关系限定）。没有新增媒体文件或改变授权结论。用户新介绍视频仅作内部规划来源，康养、景区巡查、线路作业及其中第三方机器人图形均未新增到正式页面。About 原首屏和品牌吊牌资产保持。
+
+## 2026-11-04 展示规则追加
+
+保留上文作为来源/规划历史。最新要求覆盖逐图片、逐视频图注展示：媒体块仅标题与媒体，来源记录仍保留在数据与本文。必要研究、仿真、概念或集成边界在现有详情正文集中说明一次；台账要求保留的 AI-CDR 署名及原资料链接在所在现有页面末尾唯一“资料来源”区显示，不新增来源页面。导航图片卡片仅图片和名称。实现与实际验收见 `COPY_READABILITY.md` 本轮追加和 `.oil-ui/media-display-20261104/verification-summary.json`。
+
+
+## 2026-11-05 首页复用记录
+
+首页没有新增下载或生成媒体。RoboDock 使用商品台账的 `robotdock-concept.webp`（AI 概念、非实物、未开售），G1/Arm A1 复用 Product 集合的 `one-g-service.png`、`one-g-arm.png`，仅渲染参考，未确认型号/参数/交付。未展示无合适图片的商品。
+
+首页唯一演示为既有 `wholebody-balance` 本地视频/封面，属于受控场地相关研究，不将其认定为任意动作、通用稳定性或 RoboDock 集成证明。现有 AI-CDR 原始链接与署名由 `MediaSources` 在首页页末集中展示一次；原始来源、授权记录与数据均未删除。没有复制任何参考站素材，也没有改水印、视频文件或播放路径。

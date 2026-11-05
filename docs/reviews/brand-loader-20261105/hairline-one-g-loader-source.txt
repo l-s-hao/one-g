@@ -1,0 +1,4 @@
+one-g-symbol.svg  viewBox 189 191 1040 1040  (1:1)  1 shape in 0 groups
+title: none   ids: _图层_1
+shapes: 1 path
+no browser: boxes and the picture were not taken; read the SVG's own text for them

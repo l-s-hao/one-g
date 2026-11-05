@@ -1,0 +1,5 @@
+Error: {"error":"javascript error","message":"SyntaxError: identifier starts immediately after numeric literal","stacktrace":"@http://localhost:3000/one-g/solutions/teleoperation/:2:57\n"}
+    at call (file:///home/lsh/ONE/tests/content-player-firefox.browser.mjs:3:240)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async until (file:///home/lsh/ONE/tests/content-player-firefox.browser.mjs:5:77)
+    at async file:///home/lsh/ONE/tests/content-player-firefox.browser.mjs:9:2

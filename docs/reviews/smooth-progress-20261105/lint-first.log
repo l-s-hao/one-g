@@ -1,0 +1,85 @@
+
+> one-g@0.1.0 lint
+> eslint
+
+
+/home/lsh/ONE/.oil-ui/residual-20261102/session-cases.mjs
+  4:528  warning  'events' is defined but never used  @typescript-eslint/no-unused-vars
+
+/home/lsh/ONE/src/components/ElasticSlider.tsx
+  244:3   error    Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+/home/lsh/ONE/src/components/ElasticSlider.tsx:244:3
+  242 |   };
+  243 |   const settingsRef = useRef(settings);
+> 244 |   settingsRef.current = settings;
+      |   ^^^^^^^^^^^^^^^^^^^ Cannot update ref during render
+  245 |
+  246 |   const snap = (raw: number) => {
+  247 |     const s = settingsRef.current;                                                                  react-hooks/refs
+  421:3   error    Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+/home/lsh/ONE/src/components/ElasticSlider.tsx:421:3
+  419 |
+  420 |   const snapRef = useRef(snap);
+> 421 |   snapRef.current = snap;
+      |   ^^^^^^^^^^^^^^^ Cannot update ref during render
+  422 |   const bumpRef = useRef(bump);
+  423 |   bumpRef.current = bump;
+  424 |   const commitRef = useRef(commit);                                                                  react-hooks/refs
+  423:3   error    Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+/home/lsh/ONE/src/components/ElasticSlider.tsx:423:3
+  421 |   snapRef.current = snap;
+  422 |   const bumpRef = useRef(bump);
+> 423 |   bumpRef.current = bump;
+      |   ^^^^^^^^^^^^^^^ Cannot update ref during render
+  424 |   const commitRef = useRef(commit);
+  425 |   commitRef.current = commit;
+  426 |   const goalRef = useRef(refreshGoal);                             react-hooks/refs
+  425:3   error    Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+/home/lsh/ONE/src/components/ElasticSlider.tsx:425:3
+  423 |   bumpRef.current = bump;
+  424 |   const commitRef = useRef(commit);
+> 425 |   commitRef.current = commit;
+      |   ^^^^^^^^^^^^^^^^^ Cannot update ref during render
+  426 |   const goalRef = useRef(refreshGoal);
+  427 |   goalRef.current = refreshGoal;
+  428 |                                                    react-hooks/refs
+  427:3   error    Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+/home/lsh/ONE/src/components/ElasticSlider.tsx:427:3
+  425 |   commitRef.current = commit;
+  426 |   const goalRef = useRef(refreshGoal);
+> 427 |   goalRef.current = refreshGoal;
+      |   ^^^^^^^^^^^^^^^ Cannot update ref during render
+  428 |
+  429 |   useIsoLayoutEffect(() => {
+  430 |     const m = motion.current;                                                         react-hooks/refs
+  497:62  warning  The ref value 'hitRef.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'hitRef.current' to a variable inside the effect, and use that variable in the cleanup function                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  react-hooks/exhaustive-deps
+  568:3   error    Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+/home/lsh/ONE/src/components/ElasticSlider.tsx:568:3
+  566 |
+  567 |   const releaseRef = useRef(release);
+> 568 |   releaseRef.current = release;
+      |   ^^^^^^^^^^^^^^^^^^ Cannot update ref during render
+  569 |   useEffect(() => {
+  570 |     const hide = () => {if(document.hidden)releaseRef.current();};
+  571 |     document.addEventListener('visibilitychange',hide);  react-hooks/refs
+
+✖ 8 problems (6 errors, 2 warnings)
+

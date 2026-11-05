@@ -1,0 +1,2 @@
+cdpSession.send: Protocol error (Target.createTarget): Failed to open new tab - no browser is open
+    at /home/lsh/ONE/tests/player-background.browser.mjs:3:448

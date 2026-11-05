@@ -1,0 +1,7 @@
+import fs from 'node:fs';import {chromium} from '/home/lsh/.cache/hairline-look/node_modules/playwright-core/index.mjs';
+process.env.PLAYWRIGHT_BROWSERS_PATH=process.cwd()+'/docs/reviews/content-player-20261105/browser-runtime';
+const b=await chromium.launch({headless:true,executablePath:'/home/lsh/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome'});const dir=process.cwd()+'/docs/reviews/brand-loader-20261105';
+const c=await b.newContext();const p=await c.newPage();
+try{try{const r=await p.goto('https://uiverse.io/mobinkakei/grumpy-turtle-41',{timeout:20000});fs.writeFileSync(dir+'/reference-site-result.json',JSON.stringify({status:r?.status(),title:await p.title()}));await p.screenshot({path:dir+'/reference-site.png'});}catch(e){fs.writeFileSync(dir+'/reference-site-failure.txt',e.message);}
+await p.setContent('<body style="background:#212121;display:grid;place-items:center;height:90vh;margin:0">'+fs.readFileSync(dir+'/reference-original.html','utf8'));
+await p.screenshot({path:dir+'/reference-original.png'});fs.writeFileSync(dir+'/reference-measurements.json',JSON.stringify(await p.locator('.wrapper').evaluate(n=>({children:[...n.children].map(el=>{const c=getComputedStyle(el);return{class:el.className,left:c.left,right:c.right,animation:c.animation,duration:c.animationDuration,delay:c.animationDelay};}),keyframes:[...document.styleSheets].flatMap(s=>[...s.cssRules]).filter(r=>r.type===CSSRule.KEYFRAMES_RULE).map(r=>r.cssText)})),null,2));console.log('reference saved');}finally{await c.close();await b.close();}

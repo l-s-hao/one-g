@@ -1,0 +1,33 @@
+{
+  "phase": "buffering",
+  "html": "<div data-content-player=\"true\" data-media-id=\"wholebody-balance\" data-phase=\"buffering\" data-seeking=\"false\" data-softened=\"false\" data-controls-visible=\"true\" class=\"ContentVideo_root__h_O2s \" tabindex=\"0\" aria-label=\"全身遥操作：单腿平衡\" data-low-effects=\"false\"><video data-evidence-video=\"true\" playsinline=\"\" muted=\"\" preload=\"metadata\" poster=\"/one-g/solutions/teleoperation/wholebody-balance-poster.webp\" src=\"/one-g/solutions/teleoperation/wholebody-balance.mp4\" width=\"1280\" height=\"720\" aria-label=\"全身遥操作：单腿平衡\" class=\"ContentVideo_media__iCXo8\">当前浏览器无法播放此视频。</video><div class=\"ContentVideo_shade__1MkXc\" aria-hidden=\"true\"></div><div class=\"ContentVideo_buffering__J_eip\"><span class=\"BrandLoader_root__t5h9R BrandLoader_section__z7_F9 \" data-brand-loader=\"section\" role=\"status\"><span class=\"BrandLoader_stage__E8jRO\" aria-hidden=\"true\"><span class=\"BrandLoader_mark__Bt3_w\"></span><span class=\"BrandLoader_mark__Bt3_w\"></span><span class=\"BrandLoader_mark__Bt3_w\"></span><span class=\"BrandLoader_shadow__kWMj_\"></span><span class=\"BrandLoader_shadow__kWMj_\"></span><span class=\"BrandLoader_shadow__kWMj_\"></span></span><span class=\"BrandLoader_label__yaV_N\">正在缓冲…</span></span></div><div class=\"ContentVideo_controls__GE9CC\"><input class=\"ContentVideo_progress__96vUw\" min=\"0\" max=\"1\" step=\"0.1\" disabled=\"\" aria-label=\"播放进度\" aria-valuetext=\"0:00 / –:––\" type=\"range\" value=\"0\" style=\"--progress: 0%;\"><div class=\"ContentVideo_row__j5an_\"><button type=\"button\" aria-label=\"暂停\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-pause\" aria-hidden=\"true\"><rect x=\"14\" y=\"3\" width=\"5\" height=\"18\" rx=\"1\"></rect><rect x=\"5\" y=\"3\" width=\"5\" height=\"18\" rx=\"1\"></rect></svg></button><span class=\"ContentVideo_time__LZPhc\">0:00 / –:––</span><span class=\"ContentVideo_spacer__v67fO\"></span><button type=\"button\" aria-label=\"取消静音\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-volume-x\" aria-hidden=\"true\"><path d=\"M11 4.702a.7.7 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.7.7 0 0 0 11 19.298z\"></path><path d=\"m16.5 14.5 5-5\"></path><path d=\"m16.5 9.5 5 5\"></path></svg></button><input class=\"ContentVideo_volume__9qBk6\" min=\"0\" max=\"1\" step=\"0.05\" aria-label=\"音量\" type=\"range\" value=\"0\" style=\"\"><button type=\"button\" aria-label=\"全屏\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-maximize\" aria-hidden=\"true\"><path d=\"M8 3H5a2 2 0 0 0-2 2v3\"></path><path d=\"M21 8V5a2 2 0 0 0-2-2h-3\"></path><path d=\"M3 16v3a2 2 0 0 0 2 2h3\"></path><path d=\"M16 21h3a2 2 0 0 0 2-2v-3\"></path></svg></button></div></div></div>",
+  "loaders": [
+    {
+      "visibility": "visible",
+      "animation": "0.15s steps(1) forwards BrandLoader_brandReveal__UK9jP"
+    }
+  ],
+  "animations": [
+    {
+      "state": "finished",
+      "current": 150,
+      "frames": [
+        {
+          "offset": 0,
+          "easing": "steps(1)",
+          "composite": "auto",
+          "visibility": "hidden",
+          "computedOffset": 0
+        },
+        {
+          "offset": 1,
+          "easing": "steps(1)",
+          "composite": "auto",
+          "visibility": "visible",
+          "computedOffset": 1
+        }
+      ]
+    }
+  ],
+  "paused": false
+}

@@ -1,0 +1,5 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+false !== true
+
+    at file:///home/lsh/ONE/tests/player-controls.browser.mjs:17:918

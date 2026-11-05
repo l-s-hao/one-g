@@ -1,0 +1,5 @@
+import fs from 'node:fs';
+process.env.PLAYWRIGHT_BROWSERS_PATH=process.cwd()+'/docs/reviews/content-player-20261105/browser-runtime';
+const {chromium}=await import('/home/lsh/.cache/hairline-look/node_modules/playwright-core/index.mjs');
+const b=await chromium.launch({headless:true,executablePath:'/home/lsh/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome'});const dir=process.cwd()+'/docs/reviews/brand-loader-20261105';const c=await b.newContext({viewport:{width:1200,height:700},recordVideo:{dir,size:{width:1200,height:700}}});const p=await c.newPage();try{
+await p.goto('http://localhost:5566/one-g/');await p.setContent('<base href="http://localhost:5566">'+fs.readFileSync(dir+'/comparison.html','utf8'));await p.addStyleTag({content:'.sheet .page{width:240px;min-height:160px;}'});await p.evaluate(()=>fetch('/one-g/brand/one-g-symbol.svg').then(r=>r.text()));await p.screenshot({path:dir+'/comparison.png'});await p.waitForFunction(()=>document.getAnimations().some(a=>a.currentTime>2500));await p.emulateMedia({reducedMotion:'reduce'});await p.screenshot({path:dir+'/comparison-reduced.png'});await c.close();}finally{await b.close();}

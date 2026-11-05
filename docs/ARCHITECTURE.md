@@ -35,7 +35,7 @@ flowchart TD
 | 当前用户与初始化 | `components/AuthProvider.tsx`、`lib/auth-client.ts` | Mock 身份映射、受环境保护的演示会话；不是服务器 session |
 | 语言 | `i18n/LocaleProvider.tsx`、`dictionary.ts` | 中文 SSR 默认、挂载后恢复本地偏好；更新正文而非整页重挂 |
 | 外观 | `components/ThemeProvider.tsx`、`ThemeToggle.tsx` | 单一 next-themes；light/dark；`one-g-appearance-v1` |
-| 首页展开 | `HomePreviewProvider.tsx` | 一个带区域前缀的 selectedId，两组 Layout Grid 协调 |
+| 首页展示 | `HomeLanding.tsx` → `lib/home-content.ts` | 五区正常文档流；分类与详情使用正式集合/导航 URL，无首页筛选或展开状态 |
 | 商品筛选 | `app/products/page.tsx` | URL category 参数与 GSAP Flip 布局状态 |
 | 套餐与数量 | `ProductPurchase.tsx` | 本地组件状态及 URL package/quantity 参数 |
 | 支付方式 | `lib/payments.ts`、`usePaymentPreference.ts` | URL 与用户 localStorage/访客 sessionStorage；不发起付款 |
@@ -76,7 +76,7 @@ flowchart TD
 
 共享规则在 `components/card-hover.css`，由根布局加载；`CardHover.tsx` 只提供稳定的外层命中区域。普通卡片显式使用 `data-card-hover-host` / `data-card-hover-surface`，不会根据 div/article 或模糊类名自动匹配。CSS individual translate 和 box-shadow 完成 200ms/-4px 反馈，不添加依赖、鼠标位置状态或每帧事件。
 
-商品中心保留外层 Product ID、Grid 身份与 Flip transform，完整视觉表面位于内层；已有 `data-filter-animating` / inert 标记即时停用新增位移。首页 slot 感知 hover，独立包装层承载悬停，Motion article/img 保持原 layoutId 和布局动画。展开前设置局部停用标记，回位完成事件解除；减少动画关闭路径直接复位，两个 Grid 选择状态仍由原 Provider 协调。
+商品中心保留外层 Product ID、Grid 身份与 Flip transform，完整视觉表面位于内层；已有 `data-filter-animating` / inert 标记即时停用新增位移。保留的旧首页 Grid 实现中，slot 感知 hover，独立包装层承载悬停，Motion article/img 保持原 layoutId 和布局动画；2026-11-05 新首页不再挂载这些组件。展开前设置局部停用标记，回位完成事件解除；减少动画关闭路径直接复位，两个 Grid 选择状态仍由原 Provider 协调。
 
 选中套餐的内阴影通过局部 `--card-rest-shadow` 与新增阴影叠加。只有 hover:hover、pointer:fine 设备启用位移；减少动画取消新增位移和过渡。日夜只改变新增阴影，沿用原主题颜色和状态。范围与实际验收见 [卡片交互说明](CARD_HOVER.md)。
 
@@ -89,3 +89,7 @@ flowchart TD
 ## 按钮装饰边界
 
 本地化基础按钮和链接均默认无 Specular，只有调用位置显式传 `effect="specular"` 才挂载装饰；`intent` 只保留用途语义与已有填充。导航和小按钮没有装饰实例，不注册追踪或动画资源。原宿主和业务事件保留。共享调度器使用一个按需 WebGL2 绘制器、最多四个局部 2D 输出、共享指针与可见性观察器，静止停止 RAF，资源不足时使用主题 CSS 静态边缘。翻译先于包装；装饰不控制外层 Motion/Flip transform，不改变原主题管理。详见 [BUTTON_EFFECTS.md](BUTTON_EFFECTS.md)。
+
+- 内容视频统一由 `ContentVideo` 控件与 `lib/content-playback.ts` 注册协调；会话内首次可见静音自动播放一次、暂停画面柔和模糊、结束停止，规则与回退见 [内容播放器](CONTENT_PLAYER.md)。
+
+- 等待状态由 `BrandLoader` / `PendingLabel` 统一呈现，调用方保留请求和取消所有权；150ms纯视觉防闪烁，无全局开场屏障。规格与接入列表见 [品牌加载指示](BRAND_LOADER.md)。

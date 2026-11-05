@@ -1,0 +1,13 @@
+{
+  "name": "ElasticSlider-TS-CSS",
+  "dependencies": [
+    "@hugeicons/react@^1.1.10",
+    "@hugeicons/core-free-icons@^4.3.3"
+  ],
+  "files": {
+    "src/components/ElasticSlider.css": "d8100920e206730135f681eaca4512b468def2249f0126bd99de1e774be18ac8",
+    "src/components/ElasticSlider.tsx": "1488a72d85b292fc9c20152351c3e7a9065370586b5afa1006c6a744dc175acc"
+  },
+  "cli": "shadcn@4.23.0",
+  "fallback": "CLI installed dependencies but remote neutral color fetch failed; exact official registry files written to configured components alias."
+}

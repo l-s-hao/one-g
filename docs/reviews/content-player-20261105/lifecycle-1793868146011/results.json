@@ -1,0 +1,11 @@
+{
+  "results": [
+    "About native slider keyboard does not change chapter",
+    "language and theme switches preserve pause",
+    "normal About chapter leaves pause, return does not replay; slider does not navigate",
+    "same media on another page shares session suppression",
+    "late promise of real play cannot undo user pause",
+    "sessionStorage blocked: real playback and pause survive in-memory fallback"
+  ],
+  "pos": 0.018212
+}

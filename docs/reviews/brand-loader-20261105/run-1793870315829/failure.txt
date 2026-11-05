@@ -1,0 +1,2 @@
+page.waitForFunction: Timeout 30000ms exceeded.
+    at /home/lsh/ONE/tests/brand-loader.browser.mjs:11:74

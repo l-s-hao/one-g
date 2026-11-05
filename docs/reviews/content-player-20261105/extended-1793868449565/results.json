@@ -1,0 +1,9 @@
+[
+  "natural full-length autoplay to ended, recorded without seeking",
+  "scroll return does not restart",
+  "wrapper fullscreen enters and exits",
+  "scoped keyboard playback",
+  "real HTTP 404 and manual resource retry",
+  "touch input emulation",
+  "no-JS native controls"
+]

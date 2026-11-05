@@ -1,0 +1,7 @@
+[
+  "real pending video request, official geometry, exact timing, English/dark",
+  "success immediately removes loader; pause/ended have none and no loop",
+  "chapter cancellation clears loader; old media response cannot restore it",
+  "HTTP 404 removes loader and manual retry recovers on phone viewport",
+  "concurrent images independent; success and failed image remove only own wait"
+]

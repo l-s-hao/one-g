@@ -1,0 +1,12 @@
+{
+  "results": [
+    "real muted visible autoplay",
+    "pause media only and resume",
+    "real ended stops at final frame",
+    "refresh session suppression and manual replay",
+    "two visible players manual priority",
+    "paused seek remains paused",
+    "8 viewport/language/theme combinations, reduced motion",
+    "injected autoplay rejection distinguished from resource error"
+  ]
+}

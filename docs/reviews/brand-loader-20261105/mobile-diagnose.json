@@ -1,0 +1,28 @@
+{
+  "phase": "paused",
+  "rect": {
+    "x": 20,
+    "y": 323.28125,
+    "width": 350,
+    "height": 196.875,
+    "top": 323.28125,
+    "right": 370,
+    "bottom": 520.15625,
+    "left": 20
+  },
+  "videoRect": {
+    "x": 20,
+    "y": 323.28125,
+    "width": 350,
+    "height": 196.875,
+    "top": 323.28125,
+    "right": 370,
+    "bottom": 520.15625,
+    "left": 20
+  },
+  "width": 350,
+  "height": 197,
+  "loaders": [],
+  "paused": true,
+  "ready": 0
+}

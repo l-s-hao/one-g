@@ -1,0 +1,13 @@
+{
+  "preexistingTrackedChangesPreserved": true,
+  "stagedUnchanged": true,
+  "registryConfigUnchanged": true,
+  "existingLockedPackagesUnchanged": true,
+  "addedPackages": [
+    "node_modules/@hugeicons/core-free-icons",
+    "node_modules/@hugeicons/react"
+  ],
+  "trackedFilesExtended": [
+    "diff --git a/src/i18n/dictionary.ts b/src/i18n/dictionary.ts"
+  ]
+}

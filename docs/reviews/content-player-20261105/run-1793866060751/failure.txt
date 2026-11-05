@@ -1,0 +1,8 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 'blur(0.502282px)'
+- 'blur(6px)'
+        ^
+
+    at file:///home/lsh/ONE/tests/content-player.browser.mjs:16:9

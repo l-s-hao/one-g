@@ -1,0 +1,8 @@
+[
+  "real frame samples: thumb and fill track media continuously",
+  "media middle/corners/letterbox pause and resume without reset",
+  "keyboard volume, mute restore, external sync and preferences never unmute",
+  "real pointer volume overshoot/release stays clamped and does not toggle playback",
+  "pointer seek and rapid paused seeks preserve intent/mute and land without rollback",
+  "fullscreen volume, real ended stop and manual replay synchronize progress"
+]

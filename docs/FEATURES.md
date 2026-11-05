@@ -6,24 +6,23 @@
 
 ## 1. 品牌首页
 
-- 页面：`/`；组件：`HomeCollageHero`。
-- 来源：`i18n/dictionary.ts` 的统一品牌文案、现有商品媒体。
-- 已实现：定位行、主标题“一智通万机”、完整愿景、商品/方案入口；三列错位拼贴及空间允许时的额外列。
-- 14.6 秒交替方向无缝滚动、逐行入场、暂停、视口/页面不可见时暂停、减少动画静态回退。图片为装饰，不是购买入口。
+- 页面：`/`；组件：`HomeLanding`，数据适配：`lib/home-content.ts`（2026-11-05）。
+- 五区自然滚动：品牌与 RoboDock、紧凑分类、产品、SONIC Link 与场景、公司咨询。
+- 首屏复用 RoboDock 原有概念图和状态，文字与图片分开；主入口直达真实介绍与方案中心。
+- 原拼贴、暂停及两组展开 Grid 不再挂载。旧共享实现保留，首页不创建其动画或监听。
 
-## 2. 首页产品预览
+## 2. 首页产品展示
 
-- 页面：`/#home-products`；组件：`HomeProductsPreview`、`ui/layout-grid`。
-- 从统一 Product 数据选取 RoboDock、ONE-G G1、Arm A1、Vision V1，不改变商品中心顺序。
-- 已实现：2+1 / 1+2 网格、名称/展开提示、共享布局转场、局部遮罩、状态说明和详情入口。
-- RoboDock 概念说明保留。Vision 图片与型号对应关系待确认，不能视为已确认商品照片。两个 Grid 共享一个选择 ID，产品区域 namespace 为 `home-products`。
+- 页面：`/#home-products`；数据仍来自统一 Product 集合。
+- 只选择现有有图的 G1、Arm A1，桌面开放双列、手机纵排，直接进详情；明确渲染参考与型号/参数/交付未确认，不展示 Mock 价格和购买承诺。
+- 分类使用 `shopLinks` 的 robot/arm/hand/vision 与全部商品 URL，不增加首页筛选状态。
 
-## 3. 首页方案预览
+## 3. 首页方案与公司入口
 
-- 页面：`/#home-solutions`；组件：`HomeSolutionsPreview`、`ui/layout-grid`。
-- 来源：Solution 数据；顺序为遥操作 · SONIC Link、巡检、搬运、智能任务。
-- 已实现：同一 Layout Grid 核心、关闭按钮、Escape、遮罩关闭、返回焦点与中英文更新；namespace 为 `home-solutions`。
-- 遥操作进入 `/solutions/teleoperation/`，其余进入 `/solutions/#inspection`、`#handling`、`#ai` 并定位/打开方案。首页不自动播放四个视频。
+- 页面：`/#home-solutions`，SONIC Link 直达 `/solutions/teleoperation/`；搬运、巡检、智能任务直达 `/solutions/#handling`、`#inspection`、`#ai`。
+- 复用 `wholebody-balance` 研究演示，共享 ContentVideo 播放器，首次可见静音自动播放一次，暂停模糊、结束停止；能力边界在方案正文，必要署名集中页末一次。
+- `/#home-contact`：既有愿景、`/about/` 和原客服入口，未登录安全返回、当前仅前端需求预览。
+- 旧 `/#robotdock` 与 `/#sonic-link` 继续兼容并保留查询参数。详情见 [首页记录](reviews/home-navigation.md)。
 
 ## 4. 导航、搜索与页脚
 
@@ -123,10 +122,10 @@
 
 ## 普通卡片的统一反馈
 
-这是一项跨模块交互规则，不新增业务模块或重排任何卡片。已接入商品卡片、两组首页缩略预览、方案中心、RoboDock/SONIC Link 详情说明卡片、购买套餐及深度定制提示、工程说明/流程卡片、管理员 Dashboard 入口及购物车条目。整卡上移 4px，200ms 平滑回位并叠加柔和阴影；选中内环保持。
+这是一项跨模块交互规则，不新增业务模块或重排任何卡片。已接入商品卡片、保留的旧首页缩略预览、方案中心、RoboDock/SONIC Link 详情说明卡片、购买套餐及深度定制提示、工程说明/流程卡片、管理员 Dashboard 入口及购物车条目。整卡上移 4px，200ms 平滑回位并叠加柔和阴影；选中内环保持。
 
 About 正文、用户中心和更多推荐当前没有对应普通卡片，不改造成卡片。Header、登录/客服表单、Footer、Hero 滚动装饰、吊牌与展开预览面板不参与。触屏不浮起，减少动画时只保留即时阴影。具体实现和验证见 [卡片交互说明](CARD_HOVER.md)。
 
 ## 按钮用途反馈
 
-主要 CTA 通过 `effect="invert"` 显式采用 200ms 的填充/文字/边框颜色变化，读取日夜与页面/卡片表面 Token；替换原 Specular 调用，并用于首页展开区文字 CTA。主导航、工具、页面分类/Tab、验证码及卡片整体不启用；图片抽屉内部按钮采用同一反色体系。旧按钮绘制器与调度已删除，现有尺寸、业务和其它动画保留。详见 [BUTTON_EFFECTS.md](BUTTON_EFFECTS.md)。
+主要 CTA 通过 `effect="invert"` 显式采用 200ms 的填充/文字/边框颜色变化，读取日夜与页面/卡片表面 Token；替换原 Specular 调用，并用于首页文字 CTA。主导航、工具、页面分类/Tab、验证码及卡片整体不启用；图片抽屉内部按钮采用同一反色体系。旧按钮绘制器与调度已删除，现有尺寸、业务和其它动画保留。详见 [BUTTON_EFFECTS.md](BUTTON_EFFECTS.md)。

@@ -2,7 +2,7 @@
 
 [项目首页](../README.md) · [功能说明](FEATURES.md) · [架构](ARCHITECTURE.md) · [部署](DEPLOYMENT.md)
 
-核对日期：2026-10-12。范围：当前工作区源码，包含此前未提交的首页、品牌、导航和主题改动；不代表 GitHub 线上已经部署该版本。
+基础核对日期：2026-10-12；首页增量核对：2026-11-05。范围：当前工作区源码，包含此前未提交的首页、品牌、导航和主题改动；不代表 GitHub 线上已经部署该版本。
 
 ## 状态定义
 
@@ -17,9 +17,9 @@
 
 | 功能模块 | 当前状态 | 主要代码位置（src/ 下） | 已完成内容 | 尚未完成内容/限制 |
 | --- | --- | --- | --- | --- |
-| 1. 品牌首页 | 已实现 | `components/HomeCollageHero.tsx`、`i18n/dictionary.ts` | 定位/标语/愿景，图片拼贴，14.6s 滚动、入场、暂停、响应式 | 部分照片型号未确认；不是机器人控制平台 |
-| 2. 首页商品预览 | 已实现 | `components/HomeProductsPreview.tsx`、`ui/layout-grid.tsx`（位于 components 下） | 四商品、不等宽网格、点击展开、状态/详情入口 | 展示资料不等于正式商品核实；Vision 媒体对应待确认 |
-| 3. 首页方案预览 | 已实现 | `components/HomeSolutionsPreview.tsx`、`HomePreviewProvider.tsx` | 四方案预览、命名空间隔离、两 Grid 协调 | 不展示未经验证的部署或效率承诺 |
+| 1. 品牌首页 | 已实现 | `components/HomeLanding.tsx`、`lib/home-content.ts` | RoboDock 主视觉、五区自然滚动、分类直达 | 概念图非实物，不代表开售 |
+| 2. 首页商品预览 | 已实现 | `components/HomeLanding.tsx` | G1/Arm A1 开放两列与真实详情 | 渲染参考，型号/参数/交付待确认；无 Mock 价格 |
+| 3. 首页方案预览 | 已实现 | `components/HomeLanding.tsx`、`EvidenceVideos.tsx` | SONIC Link 研究演示、场景锚点、About/咨询收尾 | 不将研究演示认作正式交付或 RoboDock 集成证明 |
 | 4. 导航/搜索/Footer | 已实现 | `components/Header.tsx`、`HeaderPanel.tsx`、`Footer.tsx` | 响应式菜单、开关/切换过渡、关闭清理、本地搜索 | 没有远程搜索服务 |
 | 5. 商品中心/筛选 | 已实现 | `app/products/page.tsx`、`components/ProductCard.tsx`、`lib/products.ts` | 9 商品统一网格、分类 URL 状态、GSAP Flip | 8 个原型条目仍含 Mock 数据；正式目录待核实 |
 | 6. 产品详情/规格 | 已实现 | `app/products/[id]/`、`components/ProductDetailContent.tsx` | 内容、图片说明、兼容/接口与局部导航 | RoboDock 多项规格待验证；普通商品简化内容 |

@@ -1,0 +1,24 @@
+[
+  {
+    "file": "page.png",
+    "state": null,
+    "size": "1200x700",
+    "zoom": 1,
+    "animationWaitMs": 0,
+    "issues": [
+      "横向溢出：页面宽 1730px，视口 1200px"
+    ],
+    "lint": []
+  },
+  {
+    "file": "page-@2x.png",
+    "state": null,
+    "size": "1200x700",
+    "zoom": 2,
+    "animationWaitMs": 0,
+    "issues": [
+      "横向溢出：页面宽 1730px，视口 1200px"
+    ],
+    "lint": []
+  }
+]

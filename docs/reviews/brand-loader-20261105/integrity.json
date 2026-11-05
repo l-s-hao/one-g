@@ -1,0 +1,12 @@
+{
+  "unrelatedTrackedDiffChanges": [],
+  "stagedDiffPreserved": true,
+  "baselineUntrackedEntriesPreserved": 309,
+  "missing": [],
+  "hashes": {
+    "public/brand/one-g-symbol.svg": "c3d9755333aae552b75f19717418754ae9e8e37f87aacbdf9840cd28faf52bcb",
+    "docs/reviews/brand-loader-20261105/reference-original.html": "d67321dc59a09fdfe59686155d83d0a92a7cd3fcbb92e54db136f6c293e32cc9",
+    "src/components/BrandLoader.tsx": "a08f087ccf447597ab4e17578dfe0ac242fea9e783c38c6b70f929e3fe5efa51",
+    "src/components/BrandLoader.module.css": "3d27d098499e976992f85eb5a054180daf44355327863e7610e603a4f8eea5d1"
+  }
+}

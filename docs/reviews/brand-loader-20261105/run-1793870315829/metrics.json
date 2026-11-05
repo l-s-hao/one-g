@@ -1,0 +1,21 @@
+{
+  "role": "status",
+  "stageChildren": 6,
+  "marks": [
+    {
+      "duration": "0.5s",
+      "delay": "0s",
+      "mask": "url(\"http://localhost:3000/one-g/brand/one-g-symbol.svg\")"
+    },
+    {
+      "duration": "0.5s",
+      "delay": "0.2s",
+      "mask": "url(\"http://localhost:3000/one-g/brand/one-g-symbol.svg\")"
+    },
+    {
+      "duration": "0.5s",
+      "delay": "0.3s",
+      "mask": "url(\"http://localhost:3000/one-g/brand/one-g-symbol.svg\")"
+    }
+  ]
+}

@@ -332,3 +332,103 @@
 测试：新增 `tests/about-layout.test.mjs`、`tests/about-layout.browser.mjs`；仅定向更新 `tests/product-v2-baseline.json` 的 About 页面项。文档：本文、README、`docs/code-integration-audit.md`、`docs/media-sources.md`。其余原有未提交文件不受本轮写入。
 
 最终生产截图目录：`docs/reviews/browser-runs/about-layout-2026-11-03T10-41-22-223Z-production-2e025aea-ccf2-4e1a-ab50-970513dfbe9b/`；开发目录：`docs/reviews/browser-runs/about-layout-2026-11-03T10-36-09-127Z-warm-2cb3a83d-8bb8-4e87-bcfc-59deb8ace349/`。每次运行独立保留时间、条件、UUID、命令、日志、时间线及结果，失败没有被成功运行覆盖。使用 Chromium，不能外推为 Firefox/Safari 验收通过。
+
+## 2026-11-04 展示规则追加
+
+保留上文作为来源/规划历史。最新要求覆盖逐图片、逐视频图注展示：媒体块仅标题与媒体，来源记录仍保留在数据与本文。必要研究、仿真、概念或集成边界在现有详情正文集中说明一次；台账要求保留的 AI-CDR 署名及原资料链接在所在现有页面末尾唯一“资料来源”区显示，不新增来源页面。导航图片卡片仅图片和名称。实现与实际验收见 `COPY_READABILITY.md` 本轮追加和 `.oil-ui/media-display-20261104/verification-summary.json`。
+
+## 2026-11-05 交互实施更新：轮盘与章节弧线联动
+
+用户最新授权覆盖原 ScrollExpand 和随后提出的 ScrollStack：首屏改为正常文字组与独立媒体；章节使用左侧 OptionWheel 与右侧真实正文的弧线切换。不采用屏幕堆叠、滚动劫持或全局 Lenis。本文原内容来源、案例待核清单、真实链接与咨询规则继续有效，未把待核项目视为确认。
+
+### 章节与兼容地址
+
+同一 `src/data/about-chapters.ts` 的有效章节生成目录、正文顺序及锚点映射；正文通过稳定 ID 的 TypeScript Record 对应，缺章会类型报错，不依赖数组下标猜内容。
+
+| 目录 | 主 ID | 兼容地址 / 保留内容 |
+| --- | --- | --- |
+| 公司介绍 | company-introduction | about-hero-title；既有标语、定位、RoboDock 与方案入口，原服务机器人图 |
+| 愿景定位 | our-vision | vision-title；既有愿景文字 |
+| 平台路线 | platform-route | our-positioning、integration-layer 及原标题 ID；互补路线、四层关系与真实链接 |
+| 产品与能力 | capabilities | capabilities-title、media-sources；RoboDock 概念边界、现有 wholebody-balance 研究演示及唯一页末署名 |
+| 联系万机 | contact | platform-direction、direction-title、contact-title；正在沉淀平台、商品/方案入口、单一咨询 |
+
+团队实践与本体设计的归属/发布授权未获新确认，仍不渲染正文或空入口。Lanyard 和 Footer 不参与旋转，保持在主内容之后。
+
+### 组件来源与本站 API
+
+实际取得 https://reactbits.dev/r/OptionWheel-TS-CSS.json 的 TSX/CSS 配对（2026-11-05，原件与 SHA 记录在本地验收档案）。registry `dependencies: []`。采用官方支持的手动引入方式，在 `src/components/OptionWheel/` 局部适配，未执行重建配置的 CLI，没有新增 npm 依赖或修改框架。保留原来源说明及实际 MIT + Commons Clause 授权全文 `LICENSE.md`。未配置已确认可用音效，因此静音，不请求不存在的资源。
+
+ONE-G 扩展（不是官方原生 API）：`items: {id,label}[]`、`selectedIndex`、`onSelect(index, source, position)`、`onPositionChange(position, settled)`、`reducedMotion`，ref 的 `sync(index)` 和 `position()`。保留 side=left、spacing=1.4、curve=1、tilt=6、loop=false、draggable；插值 smoothing=120，表示指数平滑时间尺度而非固定完成时长。曲线标签偏转最多12度，保证首尾长文字可读。
+
+唯一连续插值控制器归属 OptionWheel；父舞台直接消费每帧 position，用 ref/局部样式更新旋转、位移、透明度，不每帧 setState。正文下一章从下转入、上一章反向，落稳水平；桌面幅度10度、手机5度，无透视或缩小叠放。远跳只保留当前与目标两层，将当前位置到目标归一化；快速换选从正在显示层的视觉状态接续，不排队播放中间章。
+
+用户提交选择才写 hash；滚轮/拖拽途中不逐帧写历史，吸附收敛后提交。恢复 URL / 前进后退通过 sync 静默到达，不递归定位。现有查询参数保留；未识别 hash 不伪造新内容，brand-lanyard 仍是实际尾部锚点。主动点击目标前，若舞台在吸顶栏之上，仅做一次原生即时滚动，不与多个平滑器争夺。
+
+离章视频暂停但不重建。无效章节 hidden/inert，旧层不挡点击或进入 Tab；含正文焦点的区域隐藏前转移回目录。没有全局键盘/滚轮拦截；首尾轮滚放行；正文保持自然滚动。ResizeObserver 依据未旋转包装层的实际内容高度、字体和标签尺寸更新布局，不每帧重测。目录末端按真实高度约束，不压入 Header 或正文；平板英文换行的重叠问题按实际标签高度修复。
+
+手机目录在正文之前，改为紧凑换行链接；目录轻微2度倾斜、正文5度弧线仍取同一位置和选择逻辑，无小滚动框；减少动画时同步显示目标，不做旋转插值。无脚本时所有公开章节在正常文档流中可读。旧共享 ScrollExpand 文件及兼容导出保留，但已确认无 About 或其它业务页面调用；About 的引用和专属覆盖 CSS 已删除。ScrollStack/Lenis 从未接入，因此无堆叠代码/依赖需要删除。
+
+### 本轮验证
+
+实际验收数据、动态关键帧、录屏与独立评审将记录于 `.oil-ui/about-wheel-20261105/verification-summary.json`，在完成后追加结果。早期失败按独立运行保留：错误主题测试条件、768 英文长目录重叠；不以最新成功覆盖。旧退出超时、首次输入丢失、hydration 开放项保持原结论。
+
+### 最终验收追加
+
+- 修改前 Node 15/15，本轮新增章节/旧锚点回归后仍为15/15测试文件。类型检查、生产静态 build、git diff --check通过；lint 0错误、1条既有 events 未使用警告，未关闭规则。
+- 完整20组合：1440×1000、1920×1080、768×1024、390×844、1440×600 ×中英×日夜；其后仅手机目录收紧，另补最终手机4组合、全部核心动态及3次最终触屏路径。浏览器为隔离 Chromium，未外推到真实手机硬件或其它引擎。
+- 核心动态回归共5个成功独立运行（含手机收紧后2次）；最新一次包含反向弧线关键帧断言。验证跨章不展示中间章、快速换选、拖拽反向、局部滚轮提交、首尾放行、旧锚点/刷新/历史、真实商品反向入口、媒体离章暂停、偏好切换保留视频实例、键盘、导航抽屉/搜索与咨询登录返回。触屏一次点击与正文滚动不翻章在最终手机结构下3次通过。无脚本时5章正常可读。
+- 录屏通过 CDP 原始帧与已有本机 ffmpeg1011生成15fps WebM，未安装编码器或依赖。已实际查看前后向中间帧与日夜/手机画面；没有声称独立评审者看过完整连续录屏。
+- 独立视觉评审与同问题复核确认平板英文目录重叠已修复，手机目录高度问题已关闭；独立真实 UX 从理解能力走到咨询登录入口。认证未接入，正式咨询及登录后的需求弹窗本轮未实测；未动相关业务源文件。Lanyard/Footer保留并实际可达，本轮不声称重新验证吊牌物理拖拽。
+- About字节快照仅按授权结构变化定向更新；RoboDock、商品、SONIC Link三个业务数据项不变。原有其它文件差异已与开工 before.patch逐项核对保留。
+- 初次开发探查还记录一次 `Manifest file is empty`，没有完整栈，无法确认归属/根因；生产所测条件未复现，单独登记，不合并进旧 hydration 或宣称修复。旧退出超时、首次输入丢失与 hydration结论不变。
+
+修改文件：About page/module.css、AboutHero TSX/CSS；新增 AboutChapters TSX/module.css、about-chapters数据、OptionWheel TSX/CSS与授权文件；词典、About Node/浏览器回归、About单项字节基线；README与原审计文档。未改包/锁文件、Header、商品/方案主路由结构、认证、Lanyard/Footer及素材文件。
+
+验收摘要：`.oil-ui/about-wheel-20261105/verification-summary.json`。最新录屏与正/反弧线关键帧：`browser-runs/about-wheel-2026-11-05T04-39-50-490Z-production-8f20d6e1-ff0a-4ea3-a9c4-dff4109ba205/`；最终手机截图：`browser-runs/about-wheel-2026-11-05T04-38-19-976Z-production-5e5db1fa-e5d2-4f85-afb9-da02c8258153/`（均相对于该本地任务目录）。全部失败目录保留，不提交、不推送。
+
+## 2026-11-05 追加：固定整屏、边界续滚与循环目录
+
+本次用户明确覆盖上节“仅目录负责切章”和“章节高度随内容变化”。保留弧线视觉、五个公开章节、正文、来源与审核边界；不恢复 ScrollStack 或 ScrollExpand，不改变产品/方案身份和咨询业务。
+
+### 固定尺寸与阅读
+
+唯一外壳使用 `height: calc(100svh - var(--about-header))`，`--about-header` 来自现有站点 Header 的实际矩形高度。Header 原有独立占位保留，不重复扣安全区、不加第二份顶部留白。稳定 svh 使手机地址栏小幅收放不重播尺寸；真实视口/横竖屏变化由CSS重新布局，Header尺寸变化由本组件观察。
+
+删除由当前内容设置舞台 min-height 的逻辑，接管时只清除一次旧内联值。stage 尺寸由外壳决定，章节绝对定位占满同一区域；Grid/Flex 子层 min-height/min-width=0。内容层 overflow-y:auto、原生 thin 滚动条；长内容完整阅读，媒体比例/正文 Tokens 未改。内容尺寸只用于真实边界与合法 scrollTop，不决定外壳。桌面1440×1000：外壳/正文924px；手机390×844：外壳788px、紧凑目录后正文668px，各章一致。
+
+### 输入与阻尼
+
+About 根元素是唯一局部滚轮协调入口。OptionWheel `managedWheel` 将其 wheel 交回此入口；`moveTo(logical, source)` 请求仍使用原有唯一RAF插值，不新增框架或第二个spring。`onSelect`增加逻辑终点参数，正文按该展开终点归一化，首尾不断向穿过全部章节。
+
+优先级：内部还能沿方向阅读则只滚内容；真实到边界后，新的同向输入累计64px意图才请求相邻章。小数边界容差2px；deltaMode换算像素，单事件意图最多80px。布局、字体、scroll事件和代码设置scrollTop不累计用户意图。向下自然进章从顶部读，向上回章衔接上一章末端，目录点击从开头；内存保存各章最近阅读位置用于历史恢复，不写存储。
+
+状态为 reading / transitioning / settling / tail。smoothing=95 是指数平滑时间尺度，不是95ms完成时长；以实际收敛结束转场，再提供150ms稳定区。有限220ms静默间隔或方向改变建立新手势；被转场/稳定期消费的手势标记 used，尾流不能排队在结束时补翻。点击目录可立即重定向至当前视觉位置最近的等价逻辑目标。失焦/隐藏/卸载释放自身RAF、拖拽捕获和局部状态，不影响全站动画。
+
+不消费缩放、明显横向、已处理事件、输入/选择/视频控件或现有浮层内操作。原生控件键盘语义保留；目录键盘自管并阻止父层重复消费，正文Arrow/Page/Space负责阅读与边界，Tab末端衔接有效章。真实触摸以原生内滚优先；边界续滑才请求切章，轮盘触摸拖动仍由轮盘自身处理，不在父层重复计数。全站body未设置永久overflow:hidden或touch-action:none。
+
+### 循环与尾部
+
+目录 `side=left, loop=true`，连续位置保留展开逻辑索引（如4→5，实际ID为0），仅ID映射取模；主动目录滚动/拖拽/选择可以循环。桌面左轨位于视口安全留白附近，选中项垂直居中，不覆盖正文；手机沿用两行紧凑目录，不声称手机具有桌面整幅弧线构图。
+
+正文第一章向上回页面起点；末章向下退出到现有独立吊牌/Footer，不循环。第一次终端输入明确将该次位移交给文档，离开根区域后停止消费；尾部反向返回保留末章及末端阅读。浏览器滚动条/显式辅助访问可直接到尾部，不强制锁序。侧栏随有限章节区退出，不覆盖吊牌与Footer。
+
+自然阅读/目录手势提交用 replaceState，明确点击/键盘选择才增加合理历史；静默同步不重复写。旧子锚点在对应章的真实内层定位，合法查询参数保留。主题/语言切换不重建，不清空阅读位置或视频；离章视频暂停。减少动画采用正常文档流全部章节可读，直接选择，不强制停顿。
+
+### 保留与取证
+
+Header、Logo、图片抽屉、正文、AboutHero媒体、Lanyard/Footer物理实现、业务/认证源文件与素材未改。未核实实践仍不发布。About页面本身未改，本次未更新任何快照或RoboDock哈希。
+
+新增纯规则测试 `tests/about-screen.test.mjs`、实际浏览器回归 `tests/about-screen.browser.mjs`。分阶段与原始失败记录均在 `.oil-ui/about-screen-20261105/`，每次浏览器运行独立时间/production/UUID目录。最终完整结果、录屏和独立复核会在验收摘要中列出。此前记录全部保留。
+
+### 本次固定整屏最终验收
+
+- 修改前Node15/15，新增纯边界规则测试后16/16文件通过；类型、build、diff检查通过；lint0错误、1条既有events未使用警告。没有更新任何快照或业务数据基线。
+- 冻结版本统一运行20组合（1440×1000、1920×1080、768×1024、390×844、1440×600 ×中英×日夜）与18项动态流程全部通过。核心18项另有重复成功运行；一次吊牌瞬时样式命中断言失败未覆盖，测试现使用真实pointerCapture确认物理命中再拖拽，组件未改。
+- 实测一个隔离Chromium样本旋转507.1ms、落稳155ms；只是本机样本。循环正反接缝、长章先读、连续尾流不连翻、反向衔接、快速选择、历史/旧子锚点、图像区滚动、视频暂停、偏好保留、浮层保护、键盘Arrow/Page、原生触控模拟、横竖屏及吊牌真实拖拽通过。末章退出前后证据为scrollY0/contain与300/auto。
+- Firefox158五章固定矩形与W3C原生滚轮（先内容后切章）通过，仅桌面核心路径。独立视觉评审者实际验证桌面/手机长章末尾及尾部退出，关闭原待验项；独立UX走到现有咨询登录限制。未把主Agent脚本当作独立评审。
+- 原生滚动条另以关闭截图工具hide-scrollbars默认参数补证，手机长章最后一行可见；媒体、正文、价格/状态、Header/Logo、Lanyard/Footer物理源文件不变。
+
+真实录屏、截图、各失败与成功运行见 `.oil-ui/about-screen-20261105/verification-summary.json`。最终统一录屏目录为 `browser-runs/about-screen-2026-11-05T06-20-03-327Z-production-c5bc9c15-000c-438a-86cb-977ad0d24867/`（相对于该任务目录），分别为 desktop-reading.webm 与 mobile-reading.webm。独立报告同目录根下 independent-visual.md、ux-review/report.md。
+
+未验证：真手机/真实触控板、Firefox全矩阵、Safari、浏览器UI实际缩放、读屏器、真实认证和登录后咨询服务；没有新增服务。历史退出超时、首次输入丢失、hydration及此前开发Manifest开放记录不变。原始失败未覆盖，部分失败录屏未编码，已有日志/截图/时间线/结果保留。不提交、不推送。

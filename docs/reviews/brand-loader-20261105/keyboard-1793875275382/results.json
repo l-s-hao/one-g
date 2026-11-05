@@ -1,0 +1,20 @@
+[
+  {
+    "run": 1,
+    "keyboardPauseResume": true,
+    "loaderNotFocusable": true,
+    "controlButtonEnter": true
+  },
+  {
+    "run": 2,
+    "keyboardPauseResume": true,
+    "loaderNotFocusable": true,
+    "controlButtonEnter": true
+  },
+  {
+    "run": 3,
+    "keyboardPauseResume": true,
+    "loaderNotFocusable": true,
+    "controlButtonEnter": true
+  }
+]

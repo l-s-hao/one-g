@@ -1,0 +1,416 @@
+TAP version 13
+# Subtest: About links resolve to the existing product, solution and category
+ok 1 - About links resolve to the existing product, solution and category
+  ---
+  duration_ms: 250.997675
+  type: 'test'
+  ...
+# Subtest: About publishes only selected evidence and retains old entry points
+ok 2 - About publishes only selected evidence and retains old entry points
+  ---
+  duration_ms: 4.486466
+  type: 'test'
+  ...
+# Subtest: About chapter registry preserves published order and legacy hash mapping
+ok 3 - About chapter registry preserves published order and legacy hash mapping
+  ---
+  duration_ms: 5.125647
+  type: 'test'
+  ...
+# Subtest: content reads to a real fractional boundary before chapter intent
+ok 4 - content reads to a real fractional boundary before chapter intent
+  ---
+  duration_ms: 1.067504
+  type: 'test'
+  ...
+# Subtest: one finite gesture cannot cascade through chapter transitions
+ok 5 - one finite gesture cannot cascade through chapter transitions
+  ---
+  duration_ms: 0.433298
+  type: 'test'
+  ...
+# Subtest: unwrapped wheel indices preserve both cyclic seams
+ok 6 - unwrapped wheel indices preserve both cyclic seams
+  ---
+  duration_ms: 0.175652
+  type: 'test'
+  ...
+# Subtest: Mock OTP: stable bound identities, leading zero, single use, role isolation
+ok 7 - Mock OTP: stable bound identities, leading zero, single use, role isolation
+  ---
+  duration_ms: 20.441589
+  type: 'test'
+  ...
+# Subtest: OTP invalid format, unknown recipient, resend, expiry, attempts, discard, address/channel mismatch and cancellation
+ok 8 - OTP invalid format, unknown recipient, resend, expiry, attempts, discard, address/channel mismatch and cancellation
+  ---
+  duration_ms: 28.057116
+  type: 'test'
+  ...
+# Subtest: Cart and demo orders belong to stable user ID, no legacy auto-assignment, no fake paid status
+ok 9 - Cart and demo orders belong to stable user ID, no legacy auto-assignment, no fake paid status
+  ---
+  duration_ms: 171.509885
+  type: 'test'
+  ...
+# Subtest: Existing IDs remain, admin adapter excludes USER, user password adapter is separate, safe return preserves choices
+ok 10 - Existing IDs remain, admin adapter excludes USER, user password adapter is separate, safe return preserves choices
+  ---
+  duration_ms: 51.777213
+  type: 'test'
+  ...
+# Subtest: Production build mode refuses OTP and normal demo sessions even with opt-in flags
+ok 11 - Production build mode refuses OTP and normal demo sessions even with opt-in flags
+  ---
+  duration_ms: 92.673264
+  type: 'test'
+  ...
+# Subtest: Historical SONIC Link cart entries remain visible as blocked records, preserve other items and block orders
+ok 12 - Historical SONIC Link cart entries remain visible as blocked records, preserve other items and block orders
+  ---
+  duration_ms: 5.129831
+  type: 'test'
+  ...
+# Subtest: Robot baseline, adapters and optional omission preserve STEP 4 behavior
+ok 13 - Robot baseline, adapters and optional omission preserve STEP 4 behavior
+  ---
+  duration_ms: 2.970667
+  type: 'test'
+  ...
+# Subtest: Three groups, composite option identities, single replacement, multi limits and weighted progress
+ok 14 - Three groups, composite option identities, single replacement, multi limits and weighted progress
+  ---
+  duration_ms: 0.821622
+  type: 'test'
+  ...
+# Subtest: Generic dependencies, exclusions, required groups and Robot allow-list adapter
+ok 15 - Generic dependencies, exclusions, required groups and Robot allow-list adapter
+  ---
+  duration_ms: 0.30452
+  type: 'test'
+  ...
+# Subtest: Scene recommendations preserve omitted groups, ignore unknown groups and validate complete candidate
+ok 16 - Scene recommendations preserve omitted groups, ignore unknown groups and validate complete candidate
+  ---
+  duration_ms: 1.135335
+  type: 'test'
+  ...
+# Subtest: scope IDs, legacy aliases and unknown fallback are schema-driven
+ok 17 - scope IDs, legacy aliases and unknown fallback are schema-driven
+  ---
+  duration_ms: 0.289256
+  type: 'test'
+  ...
+# Subtest: Old ID and Chinese records migrate without deleting source; removal cannot resurrect legacy
+ok 18 - Old ID and Chinese records migrate without deleting source; removal cannot resurrect legacy
+  ---
+  duration_ms: 0.970467
+  type: 'test'
+  ...
+# Subtest: Snapshot survives catalog removal and captures independent IDs, names, summary and prices
+ok 19 - Snapshot survives catalog removal and captures independent IDs, names, summary and prices
+  ---
+  duration_ms: 0.514674
+  type: 'test'
+  ...
+# Subtest: Future/malformed records remain intact; failed migration write still recovers configuration
+ok 20 - Future/malformed records remain intact; failed migration write still recovers configuration
+  ---
+  duration_ms: 0.365792
+  type: 'test'
+  ...
+# Subtest: Concept catalog product is discoverable, excluded from Robot options and cannot enter cart
+ok 21 - Concept catalog product is discoverable, excluded from Robot options and cannot enter cart
+  ---
+  duration_ms: 84.54397
+  type: 'test'
+  ...
+# Subtest: RobotDock registry and four mutually exclusive bundles reuse product facts without Robot groups
+ok 22 - RobotDock registry and four mutually exclusive bundles reuse product facts without Robot groups
+  ---
+  duration_ms: 6.48145
+  type: 'test'
+  ...
+# Subtest: Preview storage is isolated and has no cart snapshot; product status fails closed
+ok 23 - Preview storage is isolated and has no cart snapshot; product status fails closed
+  ---
+  duration_ms: 0.720449
+  type: 'test'
+  ...
+# Subtest: Mixed/unknown prices and optional groups have explicit semantics
+ok 24 - Mixed/unknown prices and optional groups have explicit semantics
+  ---
+  duration_ms: 13.707871
+  type: 'test'
+  ...
+# Subtest: SONIC Link is a solution, excluded from product/configurator queries and cart
+ok 25 - SONIC Link is a solution, excluded from product/configurator queries and cart
+  ---
+  duration_ms: 10.314377
+  type: 'test'
+  ...
+# Subtest: Schema query preselection validates IDs, resets add-ons only for explicit links and has no product branch
+ok 26 - Schema query preselection validates IDs, resets add-ons only for explicit links and has no product branch
+  ---
+  duration_ms: 0.471638
+  type: 'test'
+  ...
+# Subtest: Registry drives center and product CTA without making ordinary accessories configurable
+ok 27 - Registry drives center and product CTA without making ordinary accessories configurable
+  ---
+  duration_ms: 7.018265
+  type: 'test'
+  ...
+# Subtest: Unified actions separate required readiness from installation progress and prohibit preview cart
+ok 28 - Unified actions separate required readiness from installation progress and prohibit preview cart
+  ---
+  duration_ms: 4.486043
+  type: 'test'
+  ...
+# Subtest: Snapshot includes product relation, keeps captured prices, and current sale status blocks old Cart records
+ok 29 - Snapshot includes product relation, keeps captured prices, and current sale status blocks old Cart records
+  ---
+  duration_ms: 0.513767
+  type: 'test'
+  ...
+# Subtest: Product purchase navigation and legacy URLs validate known package IDs
+ok 30 - Product purchase navigation and legacy URLs validate known package IDs
+  ---
+  duration_ms: 21.542629
+  type: 'test'
+  ...
+# Subtest: Public browsing, personal routes, admin boundaries and pending cart hints
+ok 31 - Public browsing, personal routes, admin boundaries and pending cart hints
+  ---
+  duration_ms: 4.432671
+  type: 'test'
+  ...
+# (node:36967) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/lsh/ONE/src/lib/content-playback.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /home/lsh/ONE/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: started, user stop and completion remain distinct; storage failure preserves memory
+ok 32 - started, user stop and completion remain distinct; storage failure preserves memory
+  ---
+  duration_ms: 3.082287
+  type: 'test'
+  ...
+# Subtest: registered players coordinate manual priority and scoped chapter pause
+ok 33 - registered players coordinate manual priority and scoped chapter pause
+  ---
+  duration_ms: 0.537574
+  type: 'test'
+  ...
+# Subtest: Standard light/dark palettes have one provider and no retired display modes
+ok 34 - Standard light/dark palettes have one provider and no retired display modes
+  ---
+  duration_ms: 1.449489
+  type: 'test'
+  ...
+# Subtest: Catalog uses unique canonical IDs and true categories, retaining unpriced offering restrictions
+ok 35 - Catalog uses unique canonical IDs and true categories, retaining unpriced offering restrictions
+  ---
+  duration_ms: 168.544918
+  type: 'test'
+  ...
+# Subtest: All distributed binaries match acquisition hashes and are real WOFF2 files
+ok 36 - All distributed binaries match acquisition hashes and are real WOFF2 files
+  ---
+  duration_ms: 44.490361
+  type: 'test'
+  ...
+# Subtest: Publisher Chinese coverage, weight ranges and swap mapping survive local hosting intact
+ok 37 - Publisher Chinese coverage, weight ranges and swap mapping survive local hosting intact
+  ---
+  duration_ms: 8.073726
+  type: 'test'
+  ...
+# Subtest: Complete original license notices accompany both distributed font families
+ok 38 - Complete original license notices accompany both distributed font families
+  ---
+  duration_ms: 0.851783
+  type: 'test'
+  ...
+# Subtest: Header animation retains every original SVG path and viewBox
+ok 39 - Header animation retains every original SVG path and viewBox
+  ---
+  duration_ms: 2.49849
+  type: 'test'
+  ...
+# Subtest: Staggered G segments preserve every exact original curve and connection
+ok 40 - Staggered G segments preserve every exact original curve and connection
+  ---
+  duration_ms: 4.249257
+  type: 'test'
+  ...
+# Subtest: homepage selections retain canonical identities, categories and real solution destinations
+ok 41 - homepage selections retain canonical identities, categories and real solution destinations
+  ---
+  duration_ms: 208.060109
+  type: 'test'
+  ...
+# Subtest: new homepage mounts no collage or expandable grids and preserves legacy product redirects
+ok 42 - new homepage mounts no collage or expandable grids and preserves legacy product redirects
+  ---
+  duration_ms: 0.386989
+  type: 'test'
+  ...
+# Subtest: Every source Chinese message has a local English translation
+ok 43 - Every source Chinese message has a local English translation
+  ---
+  duration_ms: 322.7758
+  type: 'test'
+  ...
+# Subtest: Explicit appearance preserves native form props, ref, events and label layout
+ok 44 - Explicit appearance preserves native form props, ref, events and label layout
+  ---
+  duration_ms: 2.022867
+  type: 'test'
+  ...
+# Subtest: Enabled actions retain native handlers; aria-disabled actions block pointer and keyboard
+ok 45 - Enabled actions retain native handlers; aria-disabled actions block pointer and keyboard
+  ---
+  duration_ms: 1.199128
+  type: 'test'
+  ...
+# Subtest: No source runtime still imports the removed dedicated renderer or opts into the retired effect
+ok 46 - No source runtime still imports the removed dedicated renderer or opts into the retired effect
+  ---
+  duration_ms: 13.11414
+  type: 'test'
+  ...
+# Subtest: Secondary Link presentation consumes appearance props without changing navigation or native props
+ok 47 - Secondary Link presentation consumes appearance props without changing navigation or native props
+  ---
+  duration_ms: 1.026171
+  type: 'test'
+  ...
+# Subtest: Every selected public derivative matches its source ledger and authorized placement
+ok 48 - Every selected public derivative matches its source ledger and authorized placement
+  ---
+  duration_ms: 27.145624
+  type: 'test'
+  ...
+# Subtest: Existing source images remain intact; public video content is not duplicated
+ok 49 - Existing source images remain intact; public video content is not duplicated
+  ---
+  duration_ms: 55.55823
+  type: 'test'
+  ...
+# Subtest: Research mapping and simulation classification remain explicit
+ok 50 - Research mapping and simulation classification remain explicit
+  ---
+  duration_ms: 0.474051
+  type: 'test'
+  ...
+# Subtest: Explicit development Mock adapter: exact fixture identities retain IDs and roles
+ok 51 - Explicit development Mock adapter: exact fixture identities retain IDs and roles
+  ---
+  duration_ms: 265.488118
+  type: 'test'
+  ...
+# Subtest: Shortcut requires both development and explicit flag, plus selected Mock adapter
+ok 52 - Shortcut requires both development and explicit flag, plus selected Mock adapter
+  ---
+  duration_ms: 204.589977
+  type: 'test'
+  ...
+# Subtest: Opaque fallback respects capability and user preferences without requiring hardware APIs
+ok 53 - Opaque fallback respects capability and user preferences without requiring hardware APIs
+  ---
+  duration_ms: 0.814047
+  type: 'test'
+  ...
+# Subtest: A single low/absent/invalid resource hint does not disable blur; combined low hints do
+ok 54 - A single low/absent/invalid resource hint does not disable blur; combined low hints do
+  ---
+  duration_ms: 0.177718
+  type: 'test'
+  ...
+# Subtest: Preference/connection notifications update once and stop after unmount cleanup
+ok 55 - Preference/connection notifications update once and stop after unmount cleanup
+  ---
+  duration_ms: 0.305721
+  type: 'test'
+  ...
+# Subtest: Offering references preserve canonical packages and ordinary product order
+ok 56 - Offering references preserve canonical packages and ordinary product order
+  ---
+  duration_ms: 161.13179
+  type: 'test'
+  ...
+# Subtest: Email format extraction preserves auth normalization and contact preview errors without rewriting drafts
+ok 57 - Email format extraction preserves auth normalization and contact preview errors without rewriting drafts
+  ---
+  duration_ms: 106.894442
+  type: 'test'
+  ...
+# Subtest: Central region/profile policy: mainland phone, international email only, individual vs organization, no password rewriting
+ok 58 - Central region/profile policy: mainland phone, international email only, individual vs organization, no password rewriting
+  ---
+  duration_ms: 77.475576
+  type: 'test'
+  ...
+# Subtest: Human proofs are single-use, expire and bind purpose/target/region; send is protected
+ok 59 - Human proofs are single-use, expire and bind purpose/target/region; send is protected
+  ---
+  duration_ms: 86.612441
+  type: 'test'
+  ...
+# Subtest: Challenges bind purpose/address/region, enforce expiry/attempts/cooldown, never create unknown login users
+ok 60 - Challenges bind purpose/address/region, enforce expiry/attempts/cooldown, never create unknown login users
+  ---
+  duration_ms: 77.165711
+  type: 'test'
+  ...
+# Subtest: Explicit registration creates only one memory USER, no session; email verified, phone unverified; both login methods retain ID
+ok 61 - Explicit registration creates only one memory USER, no session; email verified, phone unverified; both login methods retain ID
+  ---
+  duration_ms: 1148.473157
+  type: 'test'
+  ...
+# Subtest: Password failures are limited and overseas phone cannot bypass adapter policy
+ok 62 - Password failures are limited and overseas phone cannot bypass adapter policy
+  ---
+  duration_ms: 47.813804
+  type: 'test'
+  ...
+# Subtest: Production refuses account creation/human/send/password even with explicit mock flag, and reload loses memory registrations
+ok 63 - Production refuses account creation/human/send/password even with explicit mock flag, and reload loses memory registrations
+  ---
+  duration_ms: 30.730597
+  type: 'test'
+  ...
+# Subtest: Prefixed return paths share role checks, reject login loops and duplicate prefixes
+ok 64 - Prefixed return paths share role checks, reject login loops and duplicate prefixes
+  ---
+  duration_ms: 2.196916
+  type: 'test'
+  ...
+# Subtest: Theme migration is bounded, repeatable and agrees with the runtime normalizer
+ok 65 - Theme migration is bounded, repeatable and agrees with the runtime normalizer
+  ---
+  duration_ms: 10.921957
+  type: 'test'
+  ...
+# Subtest: Page reading order keeps shared solution identity, original order and real detail destinations
+ok 66 - Page reading order keeps shared solution identity, original order and real detail destinations
+  ---
+  duration_ms: 98.279983
+  type: 'test'
+  ...
+# Subtest: Continuous sections reuse classified evidence without assigning footage to inspection
+ok 67 - Continuous sections reuse classified evidence without assigning footage to inspection
+  ---
+  duration_ms: 11.42492
+  type: 'test'
+  ...
+1..67
+# tests 67
+# suites 0
+# pass 67
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2178.156715

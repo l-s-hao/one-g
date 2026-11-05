@@ -1,0 +1,6 @@
+one-g-symbol.svg  viewBox 189 191 1040 1040  (1:1)  2 shapes in 0 groups
+title: none   ids: _图层_1
+ink: 191.7..1225.7 × 194..1228  (99% × 99% of the viewBox)
+
+#1  path    -         box 191.7..1225.7 × 194..1228  centre 708.7,711  filled  closed, curves, part 1 of 2
+#2  path    -         box 475.9..1052.6 × 351.8..940.3  centre 764.3,646  filled  closed, curves and lines, part 2 of 2  inside #1, middle

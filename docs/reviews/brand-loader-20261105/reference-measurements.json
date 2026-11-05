@@ -1,0 +1,56 @@
+{
+  "children": [
+    {
+      "class": "circle",
+      "left": "30px",
+      "right": "150px",
+      "animation": "0.5s infinite alternate circle7124",
+      "duration": "0.5s",
+      "delay": "0s"
+    },
+    {
+      "class": "circle",
+      "left": "90px",
+      "right": "90px",
+      "animation": "0.5s 0.2s infinite alternate circle7124",
+      "duration": "0.5s",
+      "delay": "0.2s"
+    },
+    {
+      "class": "circle",
+      "left": "150px",
+      "right": "30px",
+      "animation": "0.5s 0.3s infinite alternate circle7124",
+      "duration": "0.5s",
+      "delay": "0.3s"
+    },
+    {
+      "class": "shadow",
+      "left": "90px",
+      "right": "90px",
+      "animation": "0.5s 0.2s infinite alternate shadow046",
+      "duration": "0.5s",
+      "delay": "0.2s"
+    },
+    {
+      "class": "shadow",
+      "left": "150px",
+      "right": "30px",
+      "animation": "0.5s 0.3s infinite alternate shadow046",
+      "duration": "0.5s",
+      "delay": "0.3s"
+    },
+    {
+      "class": "shadow",
+      "left": "30px",
+      "right": "150px",
+      "animation": "0.5s infinite alternate shadow046",
+      "duration": "0.5s",
+      "delay": "0s"
+    }
+  ],
+  "keyframes": [
+    "@keyframes circle7124 { \n  0% { top: 60px; height: 5px; border-radius: 50px 50px 25px 25px; transform: scaleX(1.7); }\n  40% { height: 20px; border-radius: 50%; transform: scaleX(1); }\n  100% { top: 0%; }\n}",
+    "@keyframes shadow046 { \n  0% { transform: scaleX(1.5); }\n  40% { transform: scaleX(1); opacity: 0.7; }\n  100% { transform: scaleX(0.2); opacity: 0.4; }\n}"
+  ]
+}

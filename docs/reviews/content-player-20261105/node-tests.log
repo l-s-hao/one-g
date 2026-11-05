@@ -1,0 +1,118 @@
+TAP version 13
+# Subtest: tests/about-layout.test.mjs
+ok 1 - tests/about-layout.test.mjs
+  ---
+  duration_ms: 508.074994
+  type: 'test'
+  ...
+# Subtest: tests/about-screen.test.mjs
+ok 2 - tests/about-screen.test.mjs
+  ---
+  duration_ms: 360.97489
+  type: 'test'
+  ...
+# Subtest: tests/auth-payment.test.mjs
+ok 3 - tests/auth-payment.test.mjs
+  ---
+  duration_ms: 771.917249
+  type: 'test'
+  ...
+# Subtest: tests/configuration.test.mjs
+ok 4 - tests/configuration.test.mjs
+  ---
+  duration_ms: 668.106505
+  type: 'test'
+  ...
+# Subtest: tests/display-modes.test.mjs
+ok 5 - tests/display-modes.test.mjs
+  ---
+  duration_ms: 497.5671
+  type: 'test'
+  ...
+# Subtest: tests/font-audit.test.mjs
+ok 6 - tests/font-audit.test.mjs
+  ---
+  duration_ms: 82.556694
+  type: 'test'
+  ...
+# Subtest: tests/header-logo-paths.test.mjs
+ok 7 - tests/header-logo-paths.test.mjs
+  ---
+  duration_ms: 54.938508
+  type: 'test'
+  ...
+# Subtest: tests/home-landing.test.mjs
+ok 8 - tests/home-landing.test.mjs
+  ---
+  duration_ms: 517.225685
+  type: 'test'
+  ...
+# Subtest: tests/i18n-dictionary.test.cjs
+not ok 9 - tests/i18n-dictionary.test.cjs
+  ---
+  duration_ms: 624.571964
+  type: 'test'
+  location: '/home/lsh/ONE/tests/i18n-dictionary.test.cjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: tests/invert-actions.test.cjs
+ok 10 - tests/invert-actions.test.cjs
+  ---
+  duration_ms: 444.082486
+  type: 'test'
+  ...
+# Subtest: tests/media-integration.test.mjs
+ok 11 - tests/media-integration.test.mjs
+  ---
+  duration_ms: 108.257629
+  type: 'test'
+  ...
+# Subtest: tests/mock-login.test.mjs
+ok 12 - tests/mock-login.test.mjs
+  ---
+  duration_ms: 691.736152
+  type: 'test'
+  ...
+# Subtest: tests/navbar-surface.test.mjs
+ok 13 - tests/navbar-surface.test.mjs
+  ---
+  duration_ms: 403.246856
+  type: 'test'
+  ...
+# Subtest: tests/product-v2.test.mjs
+ok 14 - tests/product-v2.test.mjs
+  ---
+  duration_ms: 461.052836
+  type: 'test'
+  ...
+# Subtest: tests/registration-auth.test.mjs
+ok 15 - tests/registration-auth.test.mjs
+  ---
+  duration_ms: 1847.169102
+  type: 'test'
+  ...
+# Subtest: tests/route-preference.test.mjs
+ok 16 - tests/route-preference.test.mjs
+  ---
+  duration_ms: 466.740957
+  type: 'test'
+  ...
+# Subtest: tests/solutions-layout.test.mjs
+ok 17 - tests/solutions-layout.test.mjs
+  ---
+  duration_ms: 445.449929
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 16
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1901.55896

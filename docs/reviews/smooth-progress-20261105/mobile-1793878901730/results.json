@@ -1,0 +1,8 @@
+[
+  "real touch tap toggles exactly once",
+  "native vertical touch scrolling over media does not toggle playback",
+  "native two-finger gesture does not record a user pause",
+  "phone layout and reduced-motion elastic control remain usable",
+  "About volume/progress arrows do not navigate chapters; chapter leave pauses normally",
+  "injected readonly-volume platform disables custom slider without falsely unmuting"
+]

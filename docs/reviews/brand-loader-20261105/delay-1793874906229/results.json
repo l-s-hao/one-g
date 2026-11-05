@@ -1,0 +1,38 @@
+[
+  {
+    "run": 1,
+    "fast": {
+      "duration": 150,
+      "before": "hidden",
+      "elapsed": 3.300000000745058,
+      "shown": false,
+      "remaining": 0
+    },
+    "slowVisible": true,
+    "completionRemovesImmediately": true
+  },
+  {
+    "run": 2,
+    "fast": {
+      "duration": 150,
+      "before": "hidden",
+      "elapsed": 3.899999998509884,
+      "shown": false,
+      "remaining": 0
+    },
+    "slowVisible": true,
+    "completionRemovesImmediately": true
+  },
+  {
+    "run": 3,
+    "fast": {
+      "duration": 150,
+      "before": "hidden",
+      "elapsed": 2.099999999627471,
+      "shown": false,
+      "remaining": 0
+    },
+    "slowVisible": true,
+    "completionRemovesImmediately": true
+  }
+]

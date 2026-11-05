@@ -1,0 +1,18 @@
+[
+  {
+    "stack": "Error\n    at HTMLMediaElement.pause (<anonymous>:2:149)\n    at b (http://localhost:5566/one-g/_next/static/chunks/5649-535a553b1c014c4f.js:1:2511)\n    at IntersectionObserver.threshold (http://localhost:5566/one-g/_next/static/chunks/5649-535a553b1c014c4f.js:1:4307)",
+    "time": 242.90000000037253,
+    "paused": true,
+    "hidden": false,
+    "rect": {
+      "x": 20,
+      "y": 2151.28125,
+      "width": 350,
+      "height": 196.875,
+      "top": 2151.28125,
+      "right": 370,
+      "bottom": 2348.15625,
+      "left": 20
+    }
+  }
+]

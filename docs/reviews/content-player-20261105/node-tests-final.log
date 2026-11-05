@@ -1,0 +1,112 @@
+TAP version 13
+# Subtest: tests/about-layout.test.mjs
+ok 1 - tests/about-layout.test.mjs
+  ---
+  duration_ms: 572.005286
+  type: 'test'
+  ...
+# Subtest: tests/about-screen.test.mjs
+ok 2 - tests/about-screen.test.mjs
+  ---
+  duration_ms: 493.964236
+  type: 'test'
+  ...
+# Subtest: tests/auth-payment.test.mjs
+ok 3 - tests/auth-payment.test.mjs
+  ---
+  duration_ms: 857.236057
+  type: 'test'
+  ...
+# Subtest: tests/configuration.test.mjs
+ok 4 - tests/configuration.test.mjs
+  ---
+  duration_ms: 847.908591
+  type: 'test'
+  ...
+# Subtest: tests/display-modes.test.mjs
+ok 5 - tests/display-modes.test.mjs
+  ---
+  duration_ms: 577.173582
+  type: 'test'
+  ...
+# Subtest: tests/font-audit.test.mjs
+ok 6 - tests/font-audit.test.mjs
+  ---
+  duration_ms: 115.446332
+  type: 'test'
+  ...
+# Subtest: tests/header-logo-paths.test.mjs
+ok 7 - tests/header-logo-paths.test.mjs
+  ---
+  duration_ms: 70.728533
+  type: 'test'
+  ...
+# Subtest: tests/home-landing.test.mjs
+ok 8 - tests/home-landing.test.mjs
+  ---
+  duration_ms: 534.195101
+  type: 'test'
+  ...
+# Subtest: tests/i18n-dictionary.test.cjs
+ok 9 - tests/i18n-dictionary.test.cjs
+  ---
+  duration_ms: 745.729519
+  type: 'test'
+  ...
+# Subtest: tests/invert-actions.test.cjs
+ok 10 - tests/invert-actions.test.cjs
+  ---
+  duration_ms: 581.429341
+  type: 'test'
+  ...
+# Subtest: tests/media-integration.test.mjs
+ok 11 - tests/media-integration.test.mjs
+  ---
+  duration_ms: 118.951633
+  type: 'test'
+  ...
+# Subtest: tests/mock-login.test.mjs
+ok 12 - tests/mock-login.test.mjs
+  ---
+  duration_ms: 836.413887
+  type: 'test'
+  ...
+# Subtest: tests/navbar-surface.test.mjs
+ok 13 - tests/navbar-surface.test.mjs
+  ---
+  duration_ms: 432.353012
+  type: 'test'
+  ...
+# Subtest: tests/product-v2.test.mjs
+ok 14 - tests/product-v2.test.mjs
+  ---
+  duration_ms: 518.171025
+  type: 'test'
+  ...
+# Subtest: tests/registration-auth.test.mjs
+ok 15 - tests/registration-auth.test.mjs
+  ---
+  duration_ms: 1919.829804
+  type: 'test'
+  ...
+# Subtest: tests/route-preference.test.mjs
+ok 16 - tests/route-preference.test.mjs
+  ---
+  duration_ms: 637.524138
+  type: 'test'
+  ...
+# Subtest: tests/solutions-layout.test.mjs
+ok 17 - tests/solutions-layout.test.mjs
+  ---
+  duration_ms: 476.838323
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1985.836057
