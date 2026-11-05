@@ -1,4 +1,6 @@
-import { LDiv, LVideo } from "@/i18n/Elements";
+import ContentVideo from "../ContentVideo";
+import { solutionDemos } from "@/data/solution-demos";
+import { LDiv } from "@/i18n/Elements";
 import { LocalizedImage as Image } from "@/i18n/Elements";
 import { useCallback, useEffect, useRef } from 'react';
 import type { CSSProperties, ReactNode } from 'react';
@@ -104,7 +106,7 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
 
   const applyProgress = useCallback((p: number) => {
     const frame = frameRef.current;
-    const media = mediaRef.current;
+    const media = mediaRef.current ?? frameRef.current?.querySelector<HTMLElement>("[data-content-player]");
     if (!frame || !media) return;
     const c = propsRef.current;
 
@@ -232,15 +234,12 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
 
   const media =
     mediaType === 'video' ? (
-      <LVideo
-        ref={mediaRef}
+      <ContentVideo
+        mediaId={solutionDemos.find(demo => demo.src === src)?.id ?? `asset:${src}`}
         className="scroll-expand__media"
         src={src}
         poster={poster}
-        autoPlay
-        muted
-        loop
-        playsInline
+        label={alt || title}
       />
     ) : (
       <Image ref={mediaRef} className="scroll-expand__media" src={src} alt={alt} fill sizes="100vw" loading="eager" draggable={false} />
