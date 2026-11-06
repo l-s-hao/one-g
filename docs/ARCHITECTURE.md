@@ -93,3 +93,9 @@ flowchart TD
 - 内容视频统一由 `ContentVideo` 控件与 `lib/content-playback.ts` 注册协调；会话内首次可见静音自动播放一次、暂停画面柔和模糊、结束停止，规则与回退见 [内容播放器](CONTENT_PLAYER.md)。
 
 - 等待状态由 `BrandLoader` / `PendingLabel` 统一呈现，调用方保留请求和取消所有权；150ms纯视觉防闪烁，无全局开场屏障。规格与接入列表见 [品牌加载指示](BRAND_LOADER.md)。
+
+- 内容图片叶子层 `ContentImage → LocalizedImage/Next Image` 统一等待/缓存/失败与原品牌Loader；页面继续保留原服务端边界。Header仍有单一panel状态，显示设置复用原locale/theme Provider，不引入全站图片加载状态。详见[SURFACE_AND_IMAGE_LOADING.md](SURFACE_AND_IMAGE_LOADING.md)。
+
+- 公开搜索通过 `lib/site-search.ts` 适配现有商品、方案与导航资料；`SearchBox` 共用原生提交/匹配/候选，Header 与 `ProductSearch` 分别持有 query 与范围，不另建服务或 Provider。正式 Link 保留离页保护，短型号歧义与相近词不猜测跳转。见 [SEARCH_NAVIGATION.md](SEARCH_NAVIGATION.md)。
+
+  搜索反馈使用显式destination/query/correction动作与提交快照，草稿变更废弃旧选择和提交；同步本地索引不制造pending。输入建议最多6项，提交后完整列表与数量一致，异常重试独立于无匹配；单一状态播报区域避免每键播报。见 [SEARCH_FLOW.md](SEARCH_FLOW.md)。

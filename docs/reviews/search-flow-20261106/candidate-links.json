@@ -1,0 +1,82 @@
+[
+  {
+    "id": "product:robotdock",
+    "href": "/products/robotdock",
+    "status": 200
+  },
+  {
+    "id": "product:g1",
+    "href": "/products/g1",
+    "status": 200
+  },
+  {
+    "id": "product:g1-pro",
+    "href": "/products/g1-pro",
+    "status": 200
+  },
+  {
+    "id": "product:arm-a1",
+    "href": "/products/arm-a1",
+    "status": 200
+  },
+  {
+    "id": "product:arm-a2",
+    "href": "/products/arm-a2",
+    "status": 200
+  },
+  {
+    "id": "product:hand-d1",
+    "href": "/products/hand-d1",
+    "status": 200
+  },
+  {
+    "id": "product:vision-v1",
+    "href": "/products/vision-v1",
+    "status": 200
+  },
+  {
+    "id": "product:rgbd",
+    "href": "/products/rgbd",
+    "status": 200
+  },
+  {
+    "id": "product:lidar-kit",
+    "href": "/products/lidar-kit",
+    "status": 200
+  },
+  {
+    "id": "solution:handling",
+    "href": "/solutions#handling",
+    "status": 200
+  },
+  {
+    "id": "solution:inspection",
+    "href": "/solutions#inspection",
+    "status": 200
+  },
+  {
+    "id": "solution:teleoperation",
+    "href": "/solutions/teleoperation",
+    "status": 200
+  },
+  {
+    "id": "solution:ai",
+    "href": "/solutions#ai",
+    "status": 200
+  },
+  {
+    "id": "page:/products",
+    "href": "/products",
+    "status": 200
+  },
+  {
+    "id": "page:/solutions",
+    "href": "/solutions",
+    "status": 200
+  },
+  {
+    "id": "page:/about",
+    "href": "/about",
+    "status": 200
+  }
+]

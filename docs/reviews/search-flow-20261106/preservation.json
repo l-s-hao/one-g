@@ -1,0 +1,17 @@
+{
+  "headUnchanged": true,
+  "stagedUnchanged": true,
+  "changedExistingFiles": [
+    "src/i18n/dictionary.ts",
+    "src/components/SearchBox.tsx",
+    "src/components/SearchBox.module.css",
+    "src/components/HeaderBrand.module.css",
+    "src/components/Header.tsx",
+    "src/lib/site-search.ts",
+    "tests/site-search.test.mjs",
+    "docs/ARCHITECTURE.md",
+    "docs/SEARCH_NAVIGATION.md"
+  ],
+  "unexpected": [],
+  "previousUntrackedMissing": []
+}

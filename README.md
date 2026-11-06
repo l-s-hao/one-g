@@ -186,3 +186,5 @@ About 使用固定整屏内阅读、边界续滚与 OptionWheel 弧线联动，�
 内容视频播放器的会话规则、共享入口及原生回退见 [播放器说明](docs/CONTENT_PLAYER.md)。
 
 统一品牌加载指示的来源、真实等待接入与降级规则见 [品牌 Loader](docs/BRAND_LOADER.md)。
+
+2026-11-06 较早界面调整及内容图片加载见[界面调整说明](docs/SURFACE_AND_IMAGE_LOADING.md)。随后搜索移回右侧第一位，修复玻璃遮挡，顶部与商品页共用匹配工具；规则见[导航与搜索](docs/SEARCH_NAVIGATION.md)。完整建议、回车、修正与恢复流程见[搜索反馈](docs/SEARCH_FLOW.md)。

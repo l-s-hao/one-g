@@ -47,3 +47,14 @@
 没有现成共享Loader/Spinner或`loading.tsx`，不新增强制开场。搜索、商品/方案静态数据、同步分类、About切章、hover、客服预览没有请求等待，不接入。deep-customization的可用返回链接fallback保留。动态Lanyard及其纹理读取已有可用静态品牌图回退，保持该图，不换成不确定动画。直接图片仍沿用原加载方式，不建立全站图片/视频完成屏障。未发现确定进度的上传下载，不新增服务。
 
 生产认证和支付尚未接入，保持禁用边界；不以Loader伪造短信、邮件、订单或支付成功。测试中的慢响应、错误和演示夹具仅在浏览器测试端注入，不加入正式服务。证据、失败记录、未验证设备见 `docs/reviews/brand-loader-20261105/`。
+
+
+## 2026-11-06 内容图片接入
+
+`ContentImage.tsx`保留LocalizedImage/Next Image及原src、srcset/sizes、优先级和lazy属性，复用原BrandLoader。只替换实际内容图片叶子，未把页面改为Client Component。ProductVisual移除独立加载数字和重复Loader逻辑，统一使用相同状态；没有素材直接保留缺图。
+
+状态为waiting/loading/loaded/failed；可见且真正等待才挂Loader，成功/错误立即移除，既有150ms仅延迟视觉。complete必须结合naturalWidth，缓存成功不强制等待。事件与IntersectionObserver、MutationObserver、ResizeObserver和后台监听都按实例清理；真实src用key隔离生命周期，主题/语言不重挂图片，srcset/sizes候选变化重新核对当前元素，不等待额外decode。没有全局接管所有img、加载屏障或新后端。
+
+覆盖、例外与真实测试见[本轮说明](SURFACE_AND_IMAGE_LOADING.md)。
+
+强制颜色模式中，现有mark使用系统CanvasText并隐藏装饰投影，避免mask背景被UA清除；几何、周期及普通日夜行为保持。

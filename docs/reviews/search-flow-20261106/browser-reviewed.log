@@ -1,0 +1,153 @@
+.oil-ui/search-flow-20261106/run-1793951018615 [
+  {
+    width: 1440,
+    check: 'real typed suggestions, native Enter exposes complete count, explicit alias destination and back/forward preserve category with closed Header'
+  },
+  {
+    width: 1440,
+    check: 'approximation leaves original text; explicit correction submits corrected query without jumping, then canonical Link navigates'
+  },
+  {
+    width: 1440,
+    check: 'unrelated/special/long input, clear/refocus, selected old query discarded and explicit query action'
+  },
+  {
+    width: 1440,
+    check: 'composition guard (synthetic events), Escape, reopen and settings mutual exclusion preserve draft'
+  },
+  {
+    width: 1440,
+    check: 'rightward product search remains product-only, category/model ambiguity and native unique exact Enter'
+  },
+  {
+    width: 390,
+    check: 'real typed suggestions, native Enter exposes complete count, explicit alias destination and back/forward preserve category with closed Header'
+  },
+  {
+    width: 390,
+    check: 'approximation leaves original text; explicit correction submits corrected query without jumping, then canonical Link navigates'
+  },
+  {
+    width: 390,
+    check: 'unrelated/special/long input, clear/refocus, selected old query discarded and explicit query action'
+  },
+  {
+    width: 390,
+    check: 'composition guard (synthetic events), Escape, reopen and settings mutual exclusion preserve draft'
+  },
+  {
+    width: 390,
+    check: 'rightward product search remains product-only, category/model ambiguity and native unique exact Enter'
+  },
+  {
+    check: 'controlled local normalization exception is distinct error; retry recovers same query without fake network/loader'
+  },
+  {
+    check: 'real locale controls retain draft and committed results without remounting search'
+  },
+  {
+    check: 'registration Link guard cancel preserves existing page/form; no submission or authentication requests'
+  }
+]
+.oil-ui/search-flow-20261106/run-1793951029312 [
+  {
+    width: 1440,
+    check: 'real typed suggestions, native Enter exposes complete count, explicit alias destination and back/forward preserve category with closed Header'
+  },
+  {
+    width: 1440,
+    check: 'approximation leaves original text; explicit correction submits corrected query without jumping, then canonical Link navigates'
+  },
+  {
+    width: 1440,
+    check: 'unrelated/special/long input, clear/refocus, selected old query discarded and explicit query action'
+  },
+  {
+    width: 1440,
+    check: 'composition guard (synthetic events), Escape, reopen and settings mutual exclusion preserve draft'
+  },
+  {
+    width: 1440,
+    check: 'rightward product search remains product-only, category/model ambiguity and native unique exact Enter'
+  },
+  {
+    width: 390,
+    check: 'real typed suggestions, native Enter exposes complete count, explicit alias destination and back/forward preserve category with closed Header'
+  },
+  {
+    width: 390,
+    check: 'approximation leaves original text; explicit correction submits corrected query without jumping, then canonical Link navigates'
+  },
+  {
+    width: 390,
+    check: 'unrelated/special/long input, clear/refocus, selected old query discarded and explicit query action'
+  },
+  {
+    width: 390,
+    check: 'composition guard (synthetic events), Escape, reopen and settings mutual exclusion preserve draft'
+  },
+  {
+    width: 390,
+    check: 'rightward product search remains product-only, category/model ambiguity and native unique exact Enter'
+  },
+  {
+    check: 'controlled local normalization exception is distinct error; retry recovers same query without fake network/loader'
+  },
+  {
+    check: 'real locale controls retain draft and committed results without remounting search'
+  },
+  {
+    check: 'registration Link guard cancel preserves existing page/form; no submission or authentication requests'
+  }
+]
+.oil-ui/search-flow-20261106/run-1793951040916 [
+  {
+    width: 1440,
+    check: 'real typed suggestions, native Enter exposes complete count, explicit alias destination and back/forward preserve category with closed Header'
+  },
+  {
+    width: 1440,
+    check: 'approximation leaves original text; explicit correction submits corrected query without jumping, then canonical Link navigates'
+  },
+  {
+    width: 1440,
+    check: 'unrelated/special/long input, clear/refocus, selected old query discarded and explicit query action'
+  },
+  {
+    width: 1440,
+    check: 'composition guard (synthetic events), Escape, reopen and settings mutual exclusion preserve draft'
+  },
+  {
+    width: 1440,
+    check: 'rightward product search remains product-only, category/model ambiguity and native unique exact Enter'
+  },
+  {
+    width: 390,
+    check: 'real typed suggestions, native Enter exposes complete count, explicit alias destination and back/forward preserve category with closed Header'
+  },
+  {
+    width: 390,
+    check: 'approximation leaves original text; explicit correction submits corrected query without jumping, then canonical Link navigates'
+  },
+  {
+    width: 390,
+    check: 'unrelated/special/long input, clear/refocus, selected old query discarded and explicit query action'
+  },
+  {
+    width: 390,
+    check: 'composition guard (synthetic events), Escape, reopen and settings mutual exclusion preserve draft'
+  },
+  {
+    width: 390,
+    check: 'rightward product search remains product-only, category/model ambiguity and native unique exact Enter'
+  },
+  {
+    check: 'controlled local normalization exception is distinct error; retry recovers same query without fake network/loader'
+  },
+  {
+    check: 'real locale controls retain draft and committed results without remounting search'
+  },
+  {
+    check: 'registration Link guard cancel preserves existing page/form; no submission or authentication requests'
+  }
+]

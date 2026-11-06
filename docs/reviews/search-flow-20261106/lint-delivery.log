@@ -1,0 +1,9 @@
+
+> one-g@0.1.0 lint
+> eslint
+
+
+/home/lsh/ONE/.oil-ui/residual-20261102/session-cases.mjs
+  4:528  warning  'events' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)

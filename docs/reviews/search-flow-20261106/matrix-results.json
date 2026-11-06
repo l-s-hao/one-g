@@ -1,0 +1,86 @@
+{
+  "rows": [
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "theme": "light"
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "theme": "dark"
+    },
+    {
+      "width": 768,
+      "locale": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "width": 768,
+      "locale": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "width": 768,
+      "locale": "en",
+      "theme": "light"
+    },
+    {
+      "width": 768,
+      "locale": "en",
+      "theme": "dark"
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "theme": "light"
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "theme": "dark"
+    },
+    {
+      "width": 1920,
+      "locale": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "width": 1920,
+      "locale": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "width": 1920,
+      "locale": "en",
+      "theme": "light"
+    },
+    {
+      "width": 1920,
+      "locale": "en",
+      "theme": "dark"
+    }
+  ],
+  "controlledVisualViewportShrink": true,
+  "errors": []
+}

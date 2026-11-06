@@ -1,0 +1,22 @@
+[
+  {
+    "scenario": "success",
+    "width": 1440,
+    "destination": "http://127.0.0.1:5570/one-g/products/robotdock/"
+  },
+  {
+    "scenario": "correction",
+    "width": 1440,
+    "destination": "http://127.0.0.1:5570/one-g/products/robotdock/"
+  },
+  {
+    "scenario": "no-result-recovery",
+    "width": 1440,
+    "destination": "http://127.0.0.1:5570/one-g/products/?category=vision"
+  },
+  {
+    "scenario": "mobile-product",
+    "width": 390,
+    "destination": "http://127.0.0.1:5570/one-g/products/robotdock/"
+  }
+]

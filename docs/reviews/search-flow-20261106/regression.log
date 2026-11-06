@@ -1,0 +1,29 @@
+.oil-ui/search-flow-20261106/regression-1793951144428 [
+  {
+    width: 1440,
+    check: 'top form, non-auto results, approximation, no-results, IME and real keyboard link'
+  },
+  {
+    width: 1440,
+    check: 'product scope, G1/category ambiguity, independent inputs and latest unique exact submit'
+  },
+  {
+    width: 1440,
+    check: 'real GSAP category change and explicit model result destination'
+  },
+  {
+    width: 390,
+    check: 'top form, non-auto results, approximation, no-results, IME and real keyboard link'
+  },
+  {
+    width: 390,
+    check: 'product scope, G1/category ambiguity, independent inputs and latest unique exact submit'
+  },
+  {
+    width: 390,
+    check: 'real GSAP category change and explicit model result destination'
+  },
+  {
+    check: 'actual registration guard intercepts native search result navigation and preserves form'
+  }
+]

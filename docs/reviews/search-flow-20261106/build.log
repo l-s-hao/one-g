@@ -1,0 +1,14 @@
+
+> one-g@0.1.0 build
+> next build --webpack
+
+▲ Next.js 16.3.4 (webpack)
+✓ Running next.config.ts took 16ms
+
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Could not parse output from TypeScript's --showConfig.
+    at ignore-listed frames {
+  type: 'Error'
+}
