@@ -1,4 +1,5 @@
-import { LA, LDiv, LFigure, LH1, LHeader, LNav, LP, LocalizedImage as Image, LocalizedLink as Link } from "@/i18n/Elements";
+import Image from "@/components/ContentImage";
+import { LA, LDiv, LFigure, LH1, LHeader, LNav, LP, LocalizedLink as Link } from "@/i18n/Elements";
 import type { Metadata } from "next";
 import { solutionSections } from "@/lib/solution-sections";
 import MediaSources from "@/components/MediaSources";

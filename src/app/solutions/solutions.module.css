@@ -10,7 +10,7 @@
 .heroMedia {margin:0;min-width:0;}
 .heroMedia a {display:block;}
 .heroMedia img {display:block;width:100%;height:auto;aspect-ratio:20/9;object-fit:contain;border-radius:12px;background:var(--surface-2);}
-.directory {display:flex;flex-wrap:wrap;gap:8px 36px;align-items:center;padding-block:16px;border-block:1px solid var(--border);}
+.directory {display:flex;flex-wrap:wrap;gap:8px 36px;align-items:center;padding-block:16px;}
 .directory a {display:inline-flex;align-items:center;min-height:44px;color:var(--text);text-decoration:underline;text-decoration-color:var(--border-strong);text-underline-offset:7px;}
 .directory a:hover {color:var(--accent);text-decoration-color:currentColor;}
 .sections {padding-top:80px;}
@@ -58,3 +58,5 @@
   .section[data-solution-section="ai"] {grid-template-columns:1fr;}
   .section[data-solution-section="ai"] .copy,.section[data-solution-section="ai"] .media {grid-column:auto;grid-row:auto;}
 }
+
+@supports (corner-shape:squircle) {.heroMedia img,.hardwareReference img {corner-shape:squircle;}}

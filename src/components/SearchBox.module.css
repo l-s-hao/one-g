@@ -1,0 +1,31 @@
+.box {width:100%;color:var(--text);}
+.box[hidden] {display:none;}
+.inputLine {display:flex;align-items:center;gap:12px;width:100%;min-width:0;}
+.inputLine > input[type="search"] {flex:1;min-width:0;width:100%;max-width:none;border:0;border-radius:0;background:transparent;color:var(--text);outline:none;padding:12px 0;font-size:24px;font-weight:550;line-height:1.4;}
+.inputLine > input::-webkit-search-cancel-button {display:none;}
+.inputLine > button {display:inline-flex;justify-content:center;align-items:center;flex-shrink:0;min-width:44px;min-height:44px;border:0;background:transparent;color:var(--text);}
+.inputLine:focus-within {outline:2px solid var(--focus-color);outline-offset:3px;border-radius:8px;}
+.results {padding-top:28px;}
+.heading {font-size:13px;font-weight:600;color:var(--text-muted);margin:0 0 12px;}
+.secondary {font-size:14px;margin:0 0 8px;}
+.list {list-style:none;margin:0;padding:0;}
+.list a,.list button {display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:44px;width:100%;padding:10px 12px;border:0;background:transparent;color:var(--text);border-radius:8px;text-decoration:none;font:inherit;font-size:15px;text-align:start;}
+.list a:hover,.list a:focus-visible,.list button:hover,.list button:focus-visible {background:var(--surface-2);}
+.resultName {display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 16px;min-width:0;overflow-wrap:anywhere;}
+.type {font-size:12px;color:var(--text-muted);}
+.list svg {flex-shrink:0;color:var(--text-muted);}
+.browse {display:inline-flex;align-items:center;min-height:44px;}
+.resultHeading {display:flex;align-items:baseline;justify-content:space-between;gap:16px;}
+.resultHeading output {font-size:13px;color:var(--text-muted);white-space:nowrap;}
+.query {margin:0 0 16px;font-size:16px;overflow-wrap:anywhere;}
+.recovery p {margin:0 0 8px;}
+.recovery > div {display:flex;flex-wrap:wrap;gap:8px 24px;}
+.recovery button {min-height:44px;padding:0;border:0;background:transparent;color:var(--text);text-decoration:underline;text-underline-offset:4px;}
+.srOnly {position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;}
+.compact {flex:1;min-width:0;}
+.compact .inputLine {gap:2px;overflow:hidden;}
+.compact .inputLine > input[type="search"] {font-size:16px;font-weight:400;padding:8px 0;}
+.compact .inputLine > button {min-width:44px;min-height:44px;}
+.compact .results {position:absolute;top:calc(100% + 8px);inset-inline-start:0;width:100%;z-index:5;padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:14px;max-height:min(50dvh,420px,var(--search-available-height,420px));overflow:auto;overscroll-behavior:contain;box-shadow:var(--card-shadow);}
+.box a:focus-visible,.box button:focus-visible {outline:2px solid var(--focus-color);outline-offset:2px;}
+@media(max-width:767px) {.inputLine {gap:4px;}.inputLine > input[type="search"] {font-size:20px;}.results {padding-top:20px;}.compact .inputLine > input[type="search"] {font-size:16px;}}

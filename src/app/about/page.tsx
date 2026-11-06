@@ -1,4 +1,5 @@
-import { LArticle, LDiv, LFigure, LH2, LH3, LHeader, LLi, LP, LSection, LUl, LocalizedImage as Image, LocalizedLink as Link } from "@/i18n/Elements";
+import Image from "@/components/ContentImage";
+import { LArticle, LDiv, LFigure, LH2, LH3, LHeader, LLi, LP, LSection, LUl, LocalizedLink as Link } from "@/i18n/Elements";
 import AboutVision from "@/components/AboutVision";
 import LanyardBrandSection from "@/components/LanyardBrandSection";
 import AboutChapters from "@/components/AboutChapters";

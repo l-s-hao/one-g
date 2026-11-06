@@ -1,4 +1,5 @@
-import { LDiv, LH1, LP, LSection, LocalizedImage as Image, LocalizedLink as Link } from "@/i18n/Elements";
+import Image from "@/components/ContentImage";
+import { LDiv, LH1, LP, LSection, LocalizedLink as Link } from "@/i18n/Elements";
 import { brandCopy } from "@/i18n/dictionary";
 import { aboutNavigation as links } from "@/lib/about-navigation";
 import styles from "./AboutHero.module.css";

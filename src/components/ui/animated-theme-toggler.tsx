@@ -19,6 +19,7 @@ export type TransitionVariant =
   | "star"
 
 interface AnimatedThemeTogglerProps extends React.ComponentPropsWithoutRef<"button"> {
+  targetTheme?: "light" | "dark"
   duration?: number
   variant?: TransitionVariant
   /** When true, the transition expands from the viewport center instead of the button center. */
@@ -155,6 +156,8 @@ function getThemeTransitionClipPaths(
 
 export const AnimatedThemeToggler = ({
   className,
+  children,
+  targetTheme,
   duration = 400,
   variant,
   fromCenter = false,
@@ -236,6 +239,7 @@ export const AnimatedThemeToggler = ({
   }, [isControlled])
 
   const toggleTheme = useCallback(() => {
+    if (targetTheme && targetTheme === (isDark ? "dark" : "light")) return
     const button = buttonRef.current
     if (
       !button ||
@@ -265,7 +269,7 @@ export const AnimatedThemeToggler = ({
       Math.max(y, viewportHeight - y)
     )
 
-    const newTheme = !isDark
+    const newTheme = targetTheme ? targetTheme === "dark" : !isDark
     let applied = false
     const applyTheme = () => {
       if (applied) return
@@ -358,6 +362,7 @@ export const AnimatedThemeToggler = ({
     }
   }, [
     shape,
+    targetTheme,
     fromCenter,
     duration,
     isDark,
@@ -374,7 +379,7 @@ export const AnimatedThemeToggler = ({
       className={cn(className)}
       {...props}
     >
-      {isDark ? <Sun /> : <Moon />}
+      {children ?? (isDark ? <Sun /> : <Moon />)}
 
     </button>
   )

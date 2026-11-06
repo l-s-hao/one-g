@@ -1,6 +1,6 @@
 "use client";
+import Image from "@/components/ContentImage";
 import { LButton, LDiv, LFieldset, LFigure, LH1, LH2, LInput, LLabel, LLegend, LLi, LP, LSection, LSpan, LStrong, LUl } from "@/i18n/Elements";
-import { LocalizedImage as Image } from "@/i18n/Elements";
 import { LocalizedLink as Link } from "@/i18n/Elements";
 import { useEffect, useState } from "react";
 import type { getOfferingPackages } from "@/lib/configurable-offerings";

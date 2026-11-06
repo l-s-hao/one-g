@@ -1,6 +1,6 @@
+import Image from "@/components/ContentImage";
 import { LDiv, LFigure, LH1, LP, LSection, LSpan } from "@/i18n/Elements";
 import { LocalizedLink as Link } from "@/i18n/Elements";
-import { LocalizedImage as Image } from "@/i18n/Elements";
 import SupportButton from "./SupportButton";
 import { Info } from "lucide-react";
 import type { Product } from "@/types/product";

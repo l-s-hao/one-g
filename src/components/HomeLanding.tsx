@@ -1,4 +1,5 @@
-import { LArticle, LDiv, LFigure, LH1, LH2, LH3, LNav, LP, LSection, LSpan, LocalizedImage as Image, LocalizedLink as Link } from "@/i18n/Elements";
+import Image from "@/components/ContentImage";
+import { LArticle, LDiv, LFigure, LH1, LH2, LH3, LNav, LP, LSection, LSpan, LocalizedLink as Link } from "@/i18n/Elements";
 import { brandCopy } from "@/i18n/dictionary";
 import { getHomeContent } from "@/lib/home-content";
 import EvidenceVideos from "./EvidenceVideos";

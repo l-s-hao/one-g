@@ -63,3 +63,5 @@
 @media(prefers-reduced-motion:reduce) {
  .catalogActions {--catalog-action-lift:0px;--catalog-action-arrow-offset:0px;--catalog-action-duration:0ms;}
 }
+
+@supports (corner-shape:squircle) {.card {corner-shape:squircle;}}

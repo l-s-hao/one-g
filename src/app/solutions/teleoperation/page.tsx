@@ -1,10 +1,10 @@
+import Image from "@/components/ContentImage";
 import StaggerGroup from "@/components/StaggerGroup";
 import MediaSources from "@/components/MediaSources";
 import EvidenceVideos from "@/components/EvidenceVideos";
 import CardHover from "@/components/CardHover";
 import { LA, LArticle, LDd, LDiv, LDl, LDt, LFigure, LH1, LH2, LH3, LLi, LP, LSection, LSmall, LUl } from "@/i18n/Elements";
 import type { Metadata } from "next";
-import { LocalizedImage as Image } from "@/i18n/Elements";
 import { LocalizedLink as Link } from "@/i18n/Elements";
 import { solutions } from "@/data/solutions";
 import SupportButton from "@/components/SupportButton";

@@ -15,8 +15,9 @@ test('Opaque fallback respects capability and user preferences without requiring
   assert.equal(chooseNavbarSurface(normal), 'blur');
   assert.equal(chooseNavbarSurface({ ...normal, supportsBlur: false }), 'unsupported');
   assert.equal(chooseNavbarSurface({ ...normal, reducedTransparency: true }), 'reduced-transparency');
-  assert.equal(chooseNavbarSurface({ ...normal, reducedMotion: true }), 'reduced-motion');
+  assert.equal(chooseNavbarSurface({ ...normal, reducedMotion: true }), 'blur');
   assert.equal(chooseNavbarSurface({ ...normal, saveData: true }), 'save-data');
+  for(const [hint,reason] of [['forcedSolid','forced-solid'],['forcedColors','forced-colors'],['coarsePointer','coarse-pointer']])assert.equal(chooseNavbarSurface({...normal,[hint]:true}),reason);
 });
 
 test('A single low/absent/invalid resource hint does not disable blur; combined low hints do', () => {
@@ -34,18 +35,18 @@ test('A single low/absent/invalid resource hint does not disable blur; combined 
 test('Preference/connection notifications update once and stop after unmount cleanup', () => {
   const savedWindow = Object.getOwnPropertyDescriptor(globalThis, 'window');
   const savedNavigator = Object.getOwnPropertyDescriptor(globalThis, 'navigator');
-  const queries = [new EventTarget(), new EventTarget()];
+  const queries = Array.from({length:3},()=>new EventTarget());
   const connection = new EventTarget();
   let index = 0, updates = 0;
   try {
     Object.defineProperty(globalThis, 'window', { configurable: true, value: { matchMedia: () => queries[index++] } });
     Object.defineProperty(globalThis, 'navigator', { configurable: true, value: { connection } });
     const stop = subscribeNavbarSurface(() => updates++);
-    queries[0].dispatchEvent(new Event('change')); queries[1].dispatchEvent(new Event('change')); connection.dispatchEvent(new Event('change'));
-    assert.equal(updates, 3);
+    queries.forEach(q=>q.dispatchEvent(new Event('change'))); connection.dispatchEvent(new Event('change'));
+    assert.equal(updates, 4);
     stop();
     queries[0].dispatchEvent(new Event('change')); connection.dispatchEvent(new Event('change'));
-    assert.equal(updates, 3);
+    assert.equal(updates, 4);
   } finally {
     if (savedWindow) Object.defineProperty(globalThis, 'window', savedWindow); else delete globalThis.window;
     if (savedNavigator) Object.defineProperty(globalThis, 'navigator', savedNavigator); else delete globalThis.navigator;

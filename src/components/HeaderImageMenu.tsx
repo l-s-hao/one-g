@@ -1,11 +1,12 @@
 "use client";
+import Image from "@/components/ContentImage";
 
 // Layout concept: Codrops MenuToGrid (MIT), see docs/NAVIGATION.md.
 import { useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
 import { X } from "lucide-react";
-import { LocalizedImage as Image, LocalizedLink as Link, LButton, LDiv, LP, LSpan } from "@/i18n/Elements";
+import { LocalizedLink as Link, LButton, LDiv, LP, LSpan } from "@/i18n/Elements";
 import { getCatalogProducts, getCategories } from "@/lib/products";
 import { solutions } from "@/data/solutions";
 import type { ProductCategory } from "@/types/product";
@@ -92,9 +93,8 @@ export default function HeaderImageMenu({ kind, open, onClose, onNavigate }: {
     <LDiv ref={root} className={styles.grid} data-layout={grid ? "grid" : "thumbnails"}>
       {items.map(item => <Link key={item.id} href={item.href} className={styles.card} data-card-hover-host data-header-image-card data-flip-id={item.id} onClick={onNavigate}>
         <LDiv className={styles.surface} data-card-hover-surface>
-        <LDiv className={styles.media}>{item.src ? <Image src={item.src} alt={item.alt} width={320} height={200} sizes="(max-width:1023px) 44vw, 260px" loading="lazy" onError={event => { event.currentTarget.hidden = true; event.currentTarget.parentElement?.setAttribute("data-image-failed", "true"); }}/>: null}
+        <LDiv className={styles.media}>{item.src ? <Image compactLoader src={item.src} alt={item.alt} width={320} height={200} sizes="(max-width:1023px) 44vw, 260px" loading="lazy"/>: null}
           <LSpan className={styles.placeholder} hidden={!!item.src}>图片待补</LSpan>
-          <LSpan className={`${styles.placeholder} ${styles.failedPlaceholder}`} hidden>图片加载失败</LSpan>
         </LDiv>
         <LDiv className={styles.copy} data-button-effect="invert" data-invert-variant="secondary" data-invert-surface="card"><LSpan>{item.name}</LSpan></LDiv>
         </LDiv>

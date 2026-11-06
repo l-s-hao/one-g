@@ -22,3 +22,6 @@
 
 /* Header owns its foreground/background pairing; do not force brand white. */
 .logo.header { color: inherit; }
+
+/* 系统强制颜色会清除普通背景色；仅为既有mask使用系统色，不改品牌路径。 */
+@media(forced-colors:active) {.logo {forced-color-adjust:none;background-color:CanvasText;}}

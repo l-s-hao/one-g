@@ -128,7 +128,6 @@ html textarea:focus-visible { outline-color: var(--focus-color); border-color: v
 
 
 
-html .site-header {background:var(--surface);}
 
 :root { color-scheme: light; }
 /* Existing primary actions and selected fills use the standard accent palette. */

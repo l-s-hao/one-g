@@ -1,4 +1,4 @@
-.footer {width:100%;background:var(--surface);color:var(--text);border-top:1px solid var(--border);font-size:13px;}
+.footer {width:100%;background:linear-gradient(to bottom,var(--bg),var(--surface) 64px);color:var(--text);font-size:13px;}
 .container {max-width:var(--directory-width);margin-inline:auto;padding:24px var(--directory-gutter) 20px;}
 .breadcrumb {display:flex;flex-wrap:wrap;align-items:center;gap:12px;font-size:12px;padding-bottom:22px;border-bottom:1px solid var(--border);}
 .breadcrumb [data-brand-logo] {width:23px;height:23px;}
@@ -27,3 +27,5 @@
  .group[data-open="true"] .mobileTitle svg {transform:rotate(180deg);}
  .group a,.group li > button {font-size:14px;padding-block:9px;}
 }
+
+@media(max-width:767px) {.footer {background:linear-gradient(to bottom,var(--bg),var(--surface) 48px);}}

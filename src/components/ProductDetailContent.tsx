@@ -1,7 +1,7 @@
+import Image from "@/components/ContentImage";
 import StaggerGroup from "@/components/StaggerGroup";
 import CardHover from "./CardHover";
 import { LArticle, LDd, LDiv, LDl, LDt, LFigure, LH1, LH2, LH3, LHeader, LLi, LP, LSection, LSmall, LSpan, LUl } from "@/i18n/Elements";
-import { LocalizedImage as Image } from "@/i18n/Elements";
 import { LocalizedLink as Link } from "@/i18n/Elements";
 import type { Product } from "@/types/product";
 import { solutions } from "@/data/solutions";

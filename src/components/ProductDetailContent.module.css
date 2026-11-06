@@ -20,7 +20,7 @@
 .page :focus-visible {outline:2px solid var(--text);outline-offset:4px;}
 .page [id],.page :focus {scroll-margin-top:calc(var(--product-header-height) + 90px);}
 .page #product-top {scroll-margin-top:var(--product-header-height);}
-.section {border-top:1px solid var(--border);margin-top:36px;padding-top:36px;}
+.section {margin-top:36px;padding-top:36px;}
 .grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:28px;margin-top:28px;}
 .card {border-top:1px solid var(--border);padding-top:20px;}
 .card .notice {font-size:13px;}
@@ -54,3 +54,5 @@
  .specs > div {grid-template-columns:1fr;gap:6px;font-size:14px;}
 }
 .hero h1, .section h2, .card h3, .device h3 {text-wrap:balance;}
+
+@supports (corner-shape:squircle) {.mainImage,.media figure,.sketch {corner-shape:squircle;}}

@@ -1,10 +1,10 @@
 .spacer {height:var(--site-header-height);flex-shrink:0;}
-.header {--site-header-width:1120px;position:fixed;inset-inline:0;top:0;width:100%;max-width:none;margin-inline:0;height:var(--site-header-height);padding-top:env(safe-area-inset-top,0px);isolation:isolate;z-index:50;color:var(--text);pointer-events:none;}
-.header::before {content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-bottom:1px solid var(--border);border-radius:0;background:var(--bg);transition:background-color 220ms ease,box-shadow 220ms ease;}
+.header {--site-header-width:1120px;position:fixed;inset-inline:0;top:0;width:100%;max-width:none;margin-inline:0;height:var(--site-header-height);padding-top:env(safe-area-inset-top,0px);isolation:isolate;z-index:50;color:var(--text);background:transparent;pointer-events:none;}
+.header::before {content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:0;background:var(--bg);transition:background-color 220ms ease,box-shadow 220ms ease;}
 .header[data-scrolled="true"]::before {box-shadow:0 4px 16px color-mix(in srgb,var(--text) 7%,transparent);}
 .panelInner {width:100%;max-width:var(--site-header-width);margin-inline:auto;padding-inline:var(--site-header-gutter);}
 .row {position:relative;isolation:isolate;width:100%;max-width:none;margin-inline:0;padding-inline:max(clamp(24px,3vw,56px),env(safe-area-inset-left,0px)) max(clamp(24px,3vw,56px),env(safe-area-inset-right,0px));height:var(--site-header-bar-height);display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:24px;pointer-events:auto;}
-.row > .brand {justify-self:start;}
+.row > .leftTools {justify-self:start;}
 .row > .actions {justify-self:end;}
 .brand {display:inline-flex;align-items:center;min-height:var(--site-header-bar-height);background:transparent;flex-shrink:0;}
 .brand .desktopLogo[data-brand-logo] {height:32px;width:auto;}
@@ -27,14 +27,11 @@
 .groups ul {list-style:none;padding:0;margin:0;}
 .groups a {display:inline-block;padding-block:8px;font-size:15px;}
 .panelHeading {display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:16px;font-size:16px;font-weight:600;}
-.panel input[type="search"] {width:100%;max-width:600px;background:var(--bg);color:var(--text);border:1px solid var(--border-strong);border-radius:8px;padding:12px 16px;font-size:16px;}
-.searchResults {display:flex;gap:8px 28px;flex-wrap:wrap;padding:20px 0 0;list-style:none;max-width:800px;}
-.searchResults a {display:inline-block;padding-block:8px;font-size:14px;}
 .header :focus-visible {outline:2px solid var(--text);outline-offset:3px;border-radius:3px;}
 .mobilePanel {display:none;}
 @supports ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))) {
- .header[data-navbar-surface="blur"]::before {background:rgba(var(--primary-rgb),.90);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
- .header[data-navbar-surface="blur"][data-scrolled="true"]::before {background:rgba(var(--primary-rgb),.96);}
+ .header[data-navbar-surface="blur"]::before {background:rgba(var(--primary-rgb),.84);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);}
+ /* 浮层自身为实底且不加blur，导航条保留唯一有限的背景过滤层。 */
 }
 @media(min-width:1024px) and (max-width:1199px) {
  .row {gap:16px;}
@@ -91,6 +88,31 @@
 @media(max-width:1023px) {.actions svg {width:18px;height:18px;}}
 
 @media(prefers-reduced-motion:reduce) {.header::before {transition:none;}}
-@media (prefers-reduced-transparency:reduce),(prefers-reduced-motion:reduce) {
+@media (prefers-reduced-transparency:reduce),(forced-colors:active) {
  .header[data-navbar-surface][data-scrolled]::before {background:var(--bg);backdrop-filter:none;-webkit-backdrop-filter:none;}
 }
+
+/* 左右等宽Grid保持主栏目居中，左侧搜索独立于不对称的右侧工具数量。 */
+.leftTools {display:flex;align-items:center;gap:18px;min-width:0;}
+.header .searchTrigger {min-width:44px;min-height:44px;padding:0;flex-shrink:0;}
+.header .settingsPanel {inset-inline-start:auto;inset-inline-end:max(clamp(24px,3vw,56px),env(safe-area-inset-right,0px));top:calc(100% + 8px);width:244px;max-width:calc(100vw - 32px);padding:18px;border:1px solid var(--border);border-radius:18px;background:var(--bg);box-shadow:0 12px 36px color-mix(in srgb,var(--text) 12%,transparent);}
+.settingGroup {border:0;padding:0;margin:0;min-width:0;}
+.settingGroup + .settingGroup {margin-top:20px;}
+.settingGroup legend {font-size:12px;line-height:1.5;color:var(--text-muted);padding:0;margin-bottom:8px;}
+.settingChoices {display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.header .settingChoices button,.settingChoices > span {min-height:42px;display:flex;align-items:center;justify-content:center;gap:7px;border-radius:10px;font-size:14px;}
+.header .settingChoices button[aria-pressed="true"] {background:var(--surface-2);color:var(--text);box-shadow:inset 0 0 0 1px var(--border-strong);}
+.header .settingChoices button:hover {background:var(--surface-2);}
+.settingChoices svg {width:16px;height:16px;}
+@media(max-width:1023px) {.leftTools {gap:12px;}.header .settingsPanel {inset-inline-end:16px;}}
+@media(max-width:767px) {.leftTools {gap:8px;}}
+
+@supports (corner-shape:squircle) {.header .settingsPanel,.panel input[type="search"] {corner-shape:squircle;}}
+
+.header .searchPanel {top:100%;border-bottom:0;max-height:min(calc(100dvh - var(--site-header-height)),var(--search-available-height,100dvh));background:var(--bg);}
+/* 仅区分底页和搜索内容，不增加blur、焦点约束或输入遮挡层。 */
+.header[data-search-open="true"]::after {content:"";position:fixed;inset:var(--site-header-height) 0 0;z-index:-1;background:rgb(0 0 0 / .18);pointer-events:none;}
+:global(.dark) .header[data-search-open="true"]::after {background:rgb(0 0 0 / .4);}
+.header .searchPanel {box-shadow:0 16px 32px rgb(0 0 0 / .12);}
+.searchInner {width:min(100%,920px);margin-inline:auto;padding:32px max(24px,env(safe-area-inset-left,0px)) 36px;}
+@media(max-width:767px) {.searchInner {padding:20px 20px 24px;}}

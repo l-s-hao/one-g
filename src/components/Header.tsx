@@ -1,31 +1,25 @@
 "use client";
 
-import { LButton, LDiv, LInput, LLabel, LLi, LNav, LP, LUl } from "@/i18n/Elements";
+import { LButton, LDiv, LNav } from "@/i18n/Elements";
 
 
-import { translate, useLocale } from "@/i18n/LocaleProvider";
-import LanguageSwitch from "./LanguageSwitch";
+import { useLocale } from "@/i18n/LocaleProvider";
+import DisplaySettings from "./DisplaySettings";
+import languageStyles from "./LanguageSwitch.module.css";
 import { LocalizedLink as Link } from "@/i18n/Elements";
 import { useAppPathname } from "@/lib/use-app-pathname";
-import { Search, ShoppingCart, UserRound, X } from "lucide-react";
+import { Search, ShoppingCart, UserRound } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { solutions } from "@/data/solutions";
 import { navigation } from "@/data/site-navigation";
-import { getProducts } from "@/lib/products";
 import { useAuth } from "./AuthProvider";
 import { NavigationLink } from "./ProtectedLink";
 import HeaderLogo from "./HeaderLogo";
-import ThemeToggle from "./ThemeToggle";
+import SearchBox from "./SearchBox";
 import HeaderPanel from "./HeaderPanel";
 import HeaderImageMenu from "./HeaderImageMenu";
 import useNavigationHighlight from "./useNavigationHighlight";
 import { Navbar, NavBody, NavItems, NavbarLogo, MobileNavToggle } from "./ui/resizable-navbar";
 import styles from "./HeaderBrand.module.css";
-
-const searchItems = [...navigation, ...solutions.filter(item => item.detailHref).map(item => ({ label: `${item.name} · ${item.content?.name ?? ""}`, href: item.detailHref! })), ...getProducts().map(product => ({
-  label: product.name,
-  href: `/products/${product.slug}`,
-}))];
 
 export default function Header() {
   const pathname = useAppPathname();
@@ -97,13 +91,14 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
   }, [panel]);
   const userHref = !currentUser ? "/login" : currentUser.role === "ADMIN" ? "/admin" : "/account";
   const userLabel = !currentUser ? "用户登录" : currentUser.role === "ADMIN" ? "管理后台" : "用户中心";
-  return <><div className={styles.spacer} aria-hidden="true" data-navbar-spacer /><Navbar ref={root} className={`site-header ${styles.header}`} data-open={panel !== null || mobileOpen} data-navigation-path={pathname}
+  return <><div className={styles.spacer} aria-hidden="true" data-navbar-spacer /><Navbar ref={root} className={`site-header ${styles.header}`} data-open={panel !== null || mobileOpen} data-search-open={panel === "search"} data-navigation-path={pathname}
     onPointerDown={() => { keyboardInteraction.current = false; }}
     onPointerEnter={() => { if (closeTimer.current) clearTimeout(closeTimer.current); }}
     onPointerLeave={event => {
       if (document.documentElement.dataset.magicuiThemeVt === "active") return;
       if (event.pointerType !== "mouse" || !window.matchMedia("(min-width: 1024px)").matches) return;
       if (openTimer.current) clearTimeout(openTimer.current);
+      if (panel === "search" || panel === "settings") return;
       closeTimer.current = setTimeout(() => {
         // Keep keyboard focus visible even if the pointer leaves the header.
         if (!keyboardInteraction.current || !root.current?.contains(document.activeElement)) setPanel(null);
@@ -113,9 +108,11 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
     onBlur={event => { if (document.documentElement.dataset.magicuiThemeVt === "active") return; if (!event.currentTarget.contains(event.relatedTarget)) { clearTimers(); setPanel(null); setMobileOpen(false); restoreHighlight(); } }}
     onKeyDown={event => { keyboardInteraction.current = true; if (event.key === "Escape") { event.preventDefault(); close(true); } }}>
     <NavBody className={styles.row}>
+      <LDiv className={styles.leftTools}>
       <NavbarLogo href="/" className={styles.brand} aria-label="ONE-G / 万机智能 首页" onClick={() => close()}>
         <HeaderLogo desktopClassName={styles.desktopLogo} mobileClassName={styles.mobileLogo}/>
       </NavbarLogo>
+      </LDiv>
       <NavItems ref={nav} className={styles.navigation} aria-label="主导航">
         <span className={styles.navigationHighlight} data-navigation-highlight aria-hidden="true" />
         {navigation.map((item, index) => <LDiv className={styles.navItem} key={item.href} data-navigation-item={item.href}
@@ -148,14 +145,13 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
         </LDiv>)}
       </NavItems>
       <LDiv className={styles.actions} aria-label="快捷入口" onFocus={() => { if (!navigation.some(item => item.href === panel)) restoreHighlight(); }}>
-        <LanguageSwitch iconOnly />
-        <ThemeToggle />
-        <LButton type="button" aria-label="搜索" aria-expanded={panel === "search"} aria-controls="header-search" onClick={event => toggle("search", event.currentTarget)}><Search size={18}/></LButton>
+      <LButton className={styles.searchTrigger} type="button" aria-label="搜索" aria-expanded={panel === "search"} aria-controls="header-search" onClick={event => { setMobileOpen(false); toggle("search", event.currentTarget); }}><Search size={18} aria-hidden="true"/></LButton>
         <NavigationLink className={styles.user} href={userHref} aria-label={userLabel} onClick={() => close()}><UserRound size={18}/></NavigationLink>
         <NavigationLink href="/cart" aria-label="购物车" onClick={() => close()}><ShoppingCart size={18}/></NavigationLink>
         <MobileNavToggle isOpen={mobileOpen} className={styles.menuButton} aria-label={mobileOpen ? "关闭菜单" : "打开菜单"} aria-expanded={mobileOpen} aria-controls="mobile-navigation" onClick={event => {
           clearTimers(); opener.current = event.currentTarget; setMobileOpen(value => !value); setPanel(null);
         }} />
+        <LButton className={styles.settingsTrigger} type="button" data-display-settings aria-label="显示设置" aria-expanded={panel === "settings"} aria-controls="header-display-settings" onClick={event => { setMobileOpen(false); toggle("settings", event.currentTarget); }}><span className={languageStyles.icon} aria-hidden="true"/></LButton>
       </LDiv>
     </NavBody>
     {navigation.map((item,index) => item.groups && <HeaderPanel key={item.href} id={`desktop-nav-${index}`} className={`${styles.panel} ${styles.desktopPanel} ${styles.imagePanel}`} open={panel === item.href}>
@@ -173,11 +169,9 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
         {item.groups && <HeaderPanel id={`mobile-nav-${index}`} open={panel === item.href}><HeaderImageMenu kind={item.href === "/products" ? "products" : "solutions"} open={mobileOpen && panel === item.href} onClose={() => { setPanel(null); opener.current?.focus(); }} onNavigate={() => close()}/></HeaderPanel>}
       </LDiv>)}<NavigationLink className={styles.mobileAccount} href={userHref} onClick={() => close()}><UserRound size={18}/>{userLabel}</NavigationLink></LNav>
     </HeaderPanel>
-    <HeaderPanel id="header-search" className={styles.panel} open={panel === "search"}><LDiv className={styles.panelInner}>
-      <LDiv className={styles.panelHeading}><LLabel htmlFor="site-search">搜索 ONE-G</LLabel><LButton type="button" aria-label="关闭搜索" onClick={() => close(true)}><X size={20}/></LButton></LDiv>
-      <LInput id="site-search" type="search" placeholder="搜索产品或栏目" value={query} onChange={event => setQuery(event.target.value)}/>
-      <LUl className={styles.searchResults}>{searchItems.filter(item => !query.trim() || [item.label, translate(item.label, locale)].some(label => label.toLowerCase().includes(query.trim().toLowerCase()))).map(item => <LLi key={item.href}><Link href={item.href} onClick={() => close()}>{item.label}</Link></LLi>)}</LUl>
-      {query.trim() && !searchItems.some(item => [item.label, translate(item.label, locale)].some(label => label.toLowerCase().includes(query.trim().toLowerCase()))) && <LP>没有匹配的产品或栏目。</LP>}
+    <HeaderPanel id="header-display-settings" className={`${styles.panel} ${styles.settingsPanel}`} open={panel === "settings"}><DisplaySettings /></HeaderPanel>
+    <HeaderPanel id="header-search" className={`${styles.panel} ${styles.searchPanel}`} open={panel === "search"} duration={300} fitViewport><LDiv className={styles.searchInner}>
+      <SearchBox id="site-search" active={panel === "search"} query={query} onQueryChange={setQuery} onNavigate={() => close()} onClose={() => close(true)}/>
     </LDiv></HeaderPanel>
   </Navbar></>;
 }

@@ -1,11 +1,12 @@
 "use client";
 
 import { useLayoutEffect, useRef, type ReactNode } from "react";
+import { trackSearchViewport } from "@/lib/search-viewport";
 import { LDiv } from "@/i18n/Elements";
 
 /** Keep a closing panel visible for its exit, but inert from the first frame. */
-export default function HeaderPanel({ open, id, className, children }: {
-  open: boolean; id: string; className?: string; children: ReactNode;
+export default function HeaderPanel({ open, id, className, children, duration = 240, fitViewport = false }: {
+  open: boolean; id: string; className?: string; children: ReactNode; duration?: number; fitViewport?: boolean;
 }) {
   const root = useRef<HTMLDivElement>(null);
   const animation = useRef<Animation | null>(null);
@@ -27,7 +28,7 @@ export default function HeaderPanel({ open, id, className, children }: {
       return;
     }
     const instance = element.animate([{ opacity, transform }, end], {
-      duration: 240, easing: "cubic-bezier(0.22,1,0.36,1)", fill: "forwards",
+      duration, easing: "cubic-bezier(0.22,1,0.36,1)", fill: "forwards",
     });
     animation.current = instance;
     void instance.finished.then(() => {
@@ -37,7 +38,8 @@ export default function HeaderPanel({ open, id, className, children }: {
       animation.current = null;
     }).catch(() => { /* Superseded transitions are cancelled intentionally. */ });
     // Next transition reads the visible frame before cancelling it.
-  }, [open]);
+  }, [open, duration]);
+  useLayoutEffect(() => { if(open && fitViewport && root.current)return trackSearchViewport(root.current,"top"); }, [open,fitViewport]);
   useLayoutEffect(() => () => animation.current?.cancel(), []);
   return <LDiv ref={root} id={id} className={className} hidden inert={!open} aria-hidden={!open}>{children}</LDiv>;
 }

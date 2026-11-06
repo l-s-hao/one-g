@@ -1,4 +1,5 @@
-import { LA, LDiv, LFigure, LH2, LLi, LNav, LP, LSection, LUl, LocalizedImage as Image, LocalizedLink as Link } from "@/i18n/Elements";
+import Image from "@/components/ContentImage";
+import { LA, LDiv, LFigure, LH2, LLi, LNav, LP, LSection, LUl, LocalizedLink as Link } from "@/i18n/Elements";
 import { sectionDemos, solutionSections } from "@/lib/solution-sections";
 import EvidenceVideos from "./EvidenceVideos";
 import styles from "@/app/solutions/solutions.module.css";

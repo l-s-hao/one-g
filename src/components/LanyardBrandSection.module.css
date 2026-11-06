@@ -7,7 +7,6 @@
   overflow: hidden;
   background: var(--bg);
   color: var(--text);
-  border-top: 1px solid var(--border);
 }
 .hint {
   position: absolute;

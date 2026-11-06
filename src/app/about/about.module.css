@@ -62,12 +62,12 @@
 .capability > div > a { margin-top: 24px; }
 .productMedia { margin: 0; }
 .productMedia img { width: 100%; max-height: 500px; object-fit: contain; border-radius: 20px; }
-.teleoperation { padding-top: 48px; margin-top: 48px; border-top: 1px solid var(--border); }
+.teleoperation { padding-top: 48px; margin-top: 48px; }
 @media (min-width: 1024px) { .teleoperation > div:first-child { grid-column: 2; grid-row: 1; } .teleoperation > div:last-child { grid-column: 1; grid-row: 1; } }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 24px; }
 .actions a { text-decoration: none; }
 .anchor, .contact { scroll-margin-top: calc(var(--site-header-height) + 16px); }
-.contact { margin-top: 48px; padding-bottom: 0; border-top: 1px solid var(--border); }
+.contact { margin-top: 48px; padding-bottom: 0; }
 .contact h3 { font-size: 28px; font-weight: 600; }
 @media (max-width: 1023px) { .integration, .capability { grid-template-columns: 1fr; gap: 32px; } }
 @media (max-width: 767px) { .routes { grid-template-columns: 1fr; gap: 24px; } .capability { margin-top: 32px; } .teleoperation { padding-top: 32px; } }
@@ -84,3 +84,5 @@
 .sectionLabel { margin-bottom:32px; }
 .sectionLabel h2 { font-size:clamp(28px,3.4vw,48px); }
 .note, .contactNote { font-size:var(--detail-body-size); color:var(--text); }
+
+@supports (corner-shape:squircle) {.productMedia img {corner-shape:squircle;}}
